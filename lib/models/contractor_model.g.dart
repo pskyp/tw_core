@@ -8,7 +8,9 @@ part of 'contractor_model.dart';
 
 Contractor _$ContractorFromJson(Map<String, dynamic> json) {
   return Contractor(
-    basicProfile: json['basicProfile'],
+    basicProfile: json['basicProfile'] == null
+        ? null
+        : TWUser.fromJson(json['basicProfile'] as Map<String, dynamic>),
     subscriptionToggledOn: json['subscriptionToggledOn'] == null
         ? null
         : DateTime.parse(json['subscriptionToggledOn'] as String),
@@ -26,7 +28,7 @@ Contractor _$ContractorFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$ContractorToJson(Contractor instance) =>
     <String, dynamic>{
-      'basicProfile': instance.basicProfile,
+      'basicProfile': instance.basicProfile?.toJson(),
       'savedJobRequirements': instance.savedJobRequirements,
       'totalJobs': instance.totalJobs,
       'totalRatings': instance.totalRatings,

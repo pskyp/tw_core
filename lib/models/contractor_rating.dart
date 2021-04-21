@@ -6,13 +6,15 @@ class ContractorRating {
   final String jobId;
   final String jobTitle;
 
-  ContractorRating(
-      {@required this.contractorId,
-      @required this.reliability,
-      @required this.communication,
-      @required this.environment,
-      @required this.jobId,
-      @required this.jobTitle});
+  ContractorRating({
+    @required this.contractorId,
+    @required this.reliability,
+    @required this.communication,
+    @required this.environment,
+    @required this.jobId,
+    @required this.jobTitle,
+  });
+
   get map => {
         'job_id': jobId,
         'job_title': jobTitle,
