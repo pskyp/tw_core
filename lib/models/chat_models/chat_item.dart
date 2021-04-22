@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -6,12 +7,13 @@ import '../person.dart';
 part 'chat_item.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class ChatItem {
+@immutable
+class ChatItem extends Equatable {
   final String text;
   final DateTime sendTime;
   final Person sender;
   final Person receiver;
-  final String id;
+  final String chatItemId;
   final String development;
 
   final bool seen;
@@ -19,7 +21,7 @@ class ChatItem {
   ChatItem({
     @required this.sender,
     @required this.development,
-    @required this.id,
+    @required this.chatItemId,
     @required this.receiver,
     @required this.text,
     @required this.seen,
@@ -31,4 +33,7 @@ class ChatItem {
   Map<String, dynamic> toJson() => _$ChatItemToJson(this);
   factory ChatItem.fromJson(Map<String, dynamic> json) =>
       _$ChatItemFromJson(json);
+
+  @override
+  List<Object> get props => [sendTime, chatItemId];
 }

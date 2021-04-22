@@ -16,25 +16,25 @@ class Job {
 
   final JobStatus status;
 
-  String contractorId;
-  String development;
-  String title;
-  String description;
-  double hourlyRate;
-  int hrsPerDay;
-  DateTime startDate;
-  DateTime endDate;
-  DateTime postedOn;
-  int applications;
-  int subbiesWorking;
-  int subbiesRequired;
-  List<String> requirements;
-  Trade trade;
-  bool acceptingBids;
-  LatLng latlng;
-  String address;
-  int totalUnseenBids;
-  int refreshCounter;
+  final String contractorId;
+  final String development;
+  final String title;
+  final String description;
+  final double hourlyRate;
+  final int hrsPerDay;
+  final DateTime startDate;
+  final DateTime endDate;
+  final DateTime postedOn;
+  final int applications;
+  final int subbiesWorking;
+  final int subbiesRequired;
+  final List<String> requirements;
+  final Trade trade;
+  final bool acceptingBids;
+  final LatLng latlng;
+  final String address;
+  final int totalUnseenBids;
+  final int refreshCounter;
 
   Job({
     @required this.jobId,

@@ -12,7 +12,7 @@ ChatItem _$ChatItemFromJson(Map<String, dynamic> json) {
         ? null
         : Person.fromJson(json['sender'] as Map<String, dynamic>),
     development: json['development'] as String,
-    id: json['id'] as String,
+    chatItemId: json['chatItemId'] as String,
     receiver: json['receiver'] == null
         ? null
         : Person.fromJson(json['receiver'] as Map<String, dynamic>),
@@ -29,7 +29,7 @@ Map<String, dynamic> _$ChatItemToJson(ChatItem instance) => <String, dynamic>{
       'sendTime': instance.sendTime?.toIso8601String(),
       'sender': instance.sender?.toJson(),
       'receiver': instance.receiver?.toJson(),
-      'id': instance.id,
+      'chatItemId': instance.chatItemId,
       'development': instance.development,
       'seen': instance.seen,
     };

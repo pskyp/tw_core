@@ -7,9 +7,12 @@ class BidStatus extends Equatable {
   BidStatus(this.status);
 
   Map<String, dynamic> toJson() {
-    String statusAsString = status.toString();
-    statusAsString = statusAsString.substring(statusAsString.indexOf(".") + 1);
     return {'statusAsString': statusAsString};
+  }
+
+  String get statusAsString {
+    String val = status.toString();
+    return val.substring(val.indexOf(".") + 1);
   }
 
   factory BidStatus.fromJson(Map<String, dynamic> json) {

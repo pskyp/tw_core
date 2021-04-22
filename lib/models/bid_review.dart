@@ -1,35 +1,42 @@
 import 'package:flutter/foundation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+import 'bid/bid.dart';
 import 'subbie_rating.dart';
 
+part 'bid_review.g.dart';
+
+@JsonSerializable(explicitToJson: true)
 class BidReview {
   final String subbieId;
+  final String subbieName;
   final String jobId;
   final String title;
   final String description;
   final SubbieRating rating;
 
-  BidReview(
-      {@required this.description,
-      @required this.jobId,
-      @required this.rating,
-      @required this.subbieId,
-      @required this.title});
+  BidReview({
+    @required this.subbieName,
+    @required this.description,
+    @required this.jobId,
+    @required this.rating,
+    @required this.subbieId,
+    @required this.title,
+  });
 
-  factory BidReview.fromMap(Map data) {
+  factory BidReview.fromBidAndRating(Bid bid, SubbieRating theRating) {
     return BidReview(
-        description: data['job_description'],
-        jobId: data['job_id'],
-        subbieId: data['subbiew_id'],
-        title: data['job_title'],
-        rating: SubbieRating.fromMap(data['rating']));
+      subbieName: bid.person.displayName,
+      description: bid.description,
+      jobId: bid.jobId,
+      rating: theRating,
+      subbieId: bid.person.uid,
+      title: bid.title,
+    );
   }
 
-  get map => {
-        'subbie_id': subbieId,
-        'job_id': jobId,
-        'job_title': title,
-        'job_description': description,
-        'rating': rating.map
-      };
+  Map<String, dynamic> toJson() => _$BidReviewToJson(this);
+
+  factory BidReview.fromJson(Map<String, dynamic> json) =>
+      _$BidReviewFromJson(json);
 }

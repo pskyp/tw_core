@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -6,7 +7,8 @@ import 'chat_item.dart';
 part 'chat_meta.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class ChatMeta {
+@immutable
+class ChatMeta extends Equatable {
   final String jobId;
   final String jobTitle;
   final String development;
@@ -31,4 +33,8 @@ class ChatMeta {
 
   get shortJobTitle =>
       jobTitle.length < 10 ? jobTitle : jobTitle.substring(0, 8) + '...';
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [jobId, lastChatItem];
 }

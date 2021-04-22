@@ -19,14 +19,14 @@ class Bid {
   final DateTime appliedOn;
   final String address;
   final String contractorId;
-  final bool seenByBontractor;
+  final bool seenByContractor;
 
   //the person field is kinda nnecessary in the subbie app
   //since a subbie can only view his own bids
   //but for the sake of sameness with the contractor app the person object is here
   final Person person;
 
-  BidStatus status;
+  final BidStatus status;
 
   Bid({
     @required this.jobId,
@@ -36,7 +36,7 @@ class Bid {
     @required this.development,
     @required this.person,
     @required this.address,
-    @required this.seenByBontractor,
+    @required this.seenByContractor,
     @required this.description,
     @required this.status,
     @required this.appliedOn,

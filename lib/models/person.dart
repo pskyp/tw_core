@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/widgets.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/tw_user.dart';
 
 part 'person.g.dart';
 
@@ -18,6 +21,17 @@ class Person {
     @required this.token,
     this.company = "",
   });
+
+  factory Person.fromTWUser(TWUser user) {
+    log('person from user');
+    return Person(
+      displayName: user.displayName,
+      profileImage: user.profileImage,
+      token: user.pushToken,
+      uid: user.uid,
+      company: user.company,
+    );
+  }
 
   Map<String, dynamic> toJson() => _$PersonToJson(this);
   factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);

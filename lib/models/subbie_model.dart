@@ -50,49 +50,4 @@ class Subbie {
 
   double get timeManagementRating =>
       totalTimeManagement / (totalJobs == 0 ? 1 : totalJobs);
-
-  // factory Subbie.fromMap(Map data) => Subbie(
-  //     basicProfile: BasicProfile.fromMap(data),
-  //     subscriptionToggledOn: DateTime.parse(data['subscription_toggled_on']),
-  //     totalJobs: data['total_jobs'],
-  //     subscribed: data['subscribed'],
-  //     cscsValidTo: DateTime.parse(data['cscsValidTo']),
-  //     cscsVerified: data['cscsVerified'],
-  //     cscsQualifications: json.decode(data['cscsQualifications']),
-  //     selectedTrades: _selectedTradesFromString(data['selected_trades']),
-  //     totalProfessionalism: data['total_professionalism'],
-  //     totalServiceQuality: data['total_service_quality'],
-  //     totalTimeManagement: data['total_time_management']);
-
-  // get _selectedTradesAsString {
-  //   String result = '';
-  //   for (final trade in selectedTrades) result += trade.text + '#';
-  //   return result.substring(0, result.length);
-  // }
-
-  // static _selectedTradesFromString(String value) {
-  //   List<String> tradeNames = value.split("#");
-  //   tradeNames.removeAt(tradeNames.length - 1);
-  //   List<Trade> trades = List<Trade>();
-  //   for (String name in tradeNames) trades.add(Trade.fromString(name));
-  //   return trades;
-  // }
-
-  // get map {
-  //   Map<String, dynamic> basicMap = basicProfile.map;
-  //   Map<String, dynamic> otherDataMap = {
-  //     'total_jobs': totalJobs,
-  //     'total_professionalism': totalProfessionalism,
-  //     'total_service_quality': totalServiceQuality,
-  //     'total_time_management': totalTimeManagement,
-  //     'subscribed': subscribed,
-  //     'selected_trades': _selectedTradesAsString,
-  //     'cscsValidTo': cscsValidTo.toString(),
-  //     'cscsVerified': cscsVerified,
-  //     'cscsQualifications': json.encode(cscsQualifications),
-  //     'subscription_toggled_on': subscriptionToggledOn.toString()
-  //   };
-  //   return [basicMap, otherDataMap].reduce((map1, map2) => map1..addAll(map2));
-  // }
-
 }

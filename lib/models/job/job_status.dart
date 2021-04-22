@@ -1,7 +1,11 @@
+import 'package:equatable/equatable.dart';
+import 'package:flutter/widgets.dart';
+
 enum JobStatuses { Active, Completed }
 
-class JobStatus {
-  JobStatuses _status;
+@immutable
+class JobStatus extends Equatable {
+  final JobStatuses _status;
 
   JobStatus(this._status);
 
@@ -17,4 +21,7 @@ class JobStatus {
   Map<String, dynamic> toJson() => {'status': _status.toString()};
 
   get value => _status.toString();
+
+  @override
+  List<Object> get props => [_status];
 }

@@ -17,7 +17,7 @@ Bid _$BidFromJson(Map<String, dynamic> json) {
         ? null
         : Person.fromJson(json['person'] as Map<String, dynamic>),
     address: json['address'] as String,
-    seenByBontractor: json['seenByBontractor'] as bool,
+    seenByContractor: json['seenByContractor'] as bool,
     description: json['description'] as String,
     status: json['status'] == null
         ? null
@@ -41,7 +41,7 @@ Map<String, dynamic> _$BidToJson(Bid instance) => <String, dynamic>{
       'appliedOn': instance.appliedOn?.toIso8601String(),
       'address': instance.address,
       'contractorId': instance.contractorId,
-      'seenByBontractor': instance.seenByBontractor,
+      'seenByContractor': instance.seenByContractor,
       'person': instance.person?.toJson(),
       'status': instance.status?.toJson(),
     };
