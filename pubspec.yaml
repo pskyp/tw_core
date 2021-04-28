@@ -28,9 +28,13 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   build_runner: ^1.10.5
+  cloud_functions: ^0.6.0+1
   equatable: ^1.2.5
   google_maps_flutter: ^1.0.6
   json_annotation: 3.1.1
+  e3kit:
+    git:
+      url: git://github.com/cardoso/virgil-e3kit-flutter.git
 
 dev_dependencies:
   flutter_test:

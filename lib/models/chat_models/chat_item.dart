@@ -15,7 +15,6 @@ class ChatItem extends Equatable {
   final Person receiver;
   final String chatItemId;
   final String development;
-
   final bool seen;
 
   ChatItem({
@@ -36,4 +35,6 @@ class ChatItem extends Equatable {
 
   @override
   List<Object> get props => [sendTime, chatItemId];
+
+  Future<String> decryptMessage() async {}
 }
