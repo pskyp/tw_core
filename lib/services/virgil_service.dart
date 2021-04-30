@@ -39,10 +39,15 @@ class VirgilServiceHandler {
       print('Registered');
     } on PlatformException catch (err) {
       print('Failed registering: $err');
-      // if (err.code == 'user_is_already_registered') {
-      //   await eThree.rotatePrivateKey();
-      //   print('Rotated private key instead');
-      // }
+    }
+  }
+
+  getUserKey(String userId) async {
+    try {
+      Map user = await findUser(userId);
+      return user[userId];
+    } catch (err) {
+      log('Failed getting $userId\'s token: $err');
     }
   }
 
@@ -58,7 +63,6 @@ class VirgilServiceHandler {
 
   encryptMessage(final String message, final Map<String, String> user) async {
     String encryptedText;
-    // Map<String, String> userMap = {"_id": userId};
 
     try {
       encryptedText = await eThree.encrypt(message, user);
