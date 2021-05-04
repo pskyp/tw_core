@@ -7,6 +7,6 @@ class InviteToBid {
   InviteToBid({@required this.jobId, @required this.jobTitle});
 
   factory InviteToBid.fromMap(Map data) {
-    return InviteToBid(jobId: data['job_id'], jobTitle: data['job_title']);
+    return InviteToBid(jobId: data['jobId'], jobTitle: data['jobTitle']);
   }
 }
