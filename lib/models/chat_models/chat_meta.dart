@@ -14,17 +14,21 @@ class ChatMeta extends Equatable {
   final String development;
   final ChatItem lastChatItem;
   final bool seenByReceiver;
+  final bool isArchived;
+  final List<String> participantUIDs;
 
   //it should be noted that the lastChatItem in the the chatMeta object
   //contains duplicate data. It is not updated. Hence the seenByreceiver
   //has to be used instead of the seen attribute of the lastChatItem here
 
   ChatMeta({
+    @required this.participantUIDs,
     @required this.jobId,
     @required this.jobTitle,
     @required this.development,
     @required this.lastChatItem,
     @required this.seenByReceiver,
+    @required this.isArchived,
   });
 
   Map<String, dynamic> toJson() => _$ChatMetaToJson(this);
@@ -35,6 +39,5 @@ class ChatMeta extends Equatable {
       jobTitle.length < 10 ? jobTitle : jobTitle.substring(0, 8) + '...';
 
   @override
-  // TODO: implement props
   List<Object> get props => [jobId, lastChatItem];
 }

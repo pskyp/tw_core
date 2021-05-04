@@ -77,7 +77,7 @@ class VirgilServiceHandler {
   decryptMessage(final String message, final String uid) async {
     String decryptedText;
     try {
-      decryptedText = await eThree.decrypt(message, uid);
+      decryptedText = eThree.decrypt(message, uid);
       log('Decrypted and verified: \'$decryptedText');
     } catch (err) {
       log('Failed decrypting and verifying: $err');
