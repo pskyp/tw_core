@@ -11,6 +11,7 @@ class Subbie {
   TWUser basicProfile;
   final int totalJobs;
   final bool subscribed;
+  final int searchRadius;
   bool cscsVerified;
   DateTime cscsValidTo;
   List<dynamic> cscsQualifications;
@@ -22,6 +23,7 @@ class Subbie {
     @required this.basicProfile,
     @required this.subscriptionToggledOn,
     @required this.cscsQualifications,
+    @required this.searchRadius,
     @required this.cscsValidTo,
     @required this.cscsVerified,
     @required this.subscribed,

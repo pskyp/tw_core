@@ -15,6 +15,7 @@ Subbie _$SubbieFromJson(Map<String, dynamic> json) {
         ? null
         : DateTime.parse(json['subscriptionToggledOn'] as String),
     cscsQualifications: json['cscsQualifications'] as List,
+    searchRadius: json['searchRadius'] as int,
     cscsValidTo: json['cscsValidTo'] == null
         ? null
         : DateTime.parse(json['cscsValidTo'] as String),
@@ -35,6 +36,7 @@ Map<String, dynamic> _$SubbieToJson(Subbie instance) => <String, dynamic>{
       'basicProfile': instance.basicProfile?.toJson(),
       'totalJobs': instance.totalJobs,
       'subscribed': instance.subscribed,
+      'searchRadius': instance.searchRadius,
       'cscsVerified': instance.cscsVerified,
       'cscsValidTo': instance.cscsValidTo?.toIso8601String(),
       'cscsQualifications': instance.cscsQualifications,
