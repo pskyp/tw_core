@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../person.dart';
+import '../person/person.dart';
 import '../trades.dart';
 import 'bid_action.dart';
 import 'bid_status.dart';

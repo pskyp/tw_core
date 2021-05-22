@@ -1,8 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tw_core/models/contractor_rating.dart';
 
-import 'job/job.dart';
+import '../contractor_rating/contractor_rating.dart';
 
 part 'job_review.g.dart';
 
