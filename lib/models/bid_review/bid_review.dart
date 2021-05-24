@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'bid/bid.dart';
-import 'subbie_rating.dart';
+import '../bid/bid.dart';
+import '../subbie_rating/subbie_rating.dart';
 
 part 'bid_review.g.dart';
 

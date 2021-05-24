@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'trades.dart';
-import 'tw_user.dart';
+import '../trades.dart';
+import '../tw_user/tw_user.dart';
 
 part 'subbie_model.g.dart';
 

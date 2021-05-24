@@ -2,7 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/widgets.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tw_core/models/tw_user.dart';
+
+import '../tw_user/tw_user.dart';
 
 part 'person.g.dart';
 
