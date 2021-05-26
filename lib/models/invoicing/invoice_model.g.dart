@@ -8,9 +8,9 @@ part of 'invoice_model.dart';
 
 Invoice _$InvoiceFromJson(Map<String, dynamic> json) {
   return Invoice(
-    json['companyRegisteredAddress'] as String,
-    json['name'] as String,
-    json['companyOrTradingName'] as String,
+    companyRegisteredAddress: json['companyRegisteredAddress'] as String,
+    name: json['name'] as String,
+    companyOrTradingName: json['companyOrTradingName'] as String,
     invoiceItems: (json['invoiceItems'] as List)
         ?.map((e) =>
             e == null ? null : InvoiceItem.fromJson(e as Map<String, dynamic>))

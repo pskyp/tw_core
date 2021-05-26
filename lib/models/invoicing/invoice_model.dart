@@ -23,8 +23,8 @@ class Invoice {
   final SubbyInvoiceStatus invoiceStatus;
   final List<InvoiceItem> invoiceItems;
 
-  Invoice(this.companyRegisteredAddress, this.name, this.companyOrTradingName, 
-      {this.invoiceItems,
+  Invoice({this.companyRegisteredAddress, this.name, this.companyOrTradingName, 
+      this.invoiceItems,
       this.vatNumber,
       this.companyNumber,
       this.invoiceID,
