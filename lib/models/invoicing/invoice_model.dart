@@ -15,15 +15,21 @@ class Invoice {
       companyRegisteredAddress,
       invoiceAddress,
       vatNumber,
-      name,paymentTerm, companyNumber,
+      name,
+      paymentTerm,
+      companyNumber,
       companyOrTradingName;
-  final String description, invoiceNumber;
+  final String description, invoiceNumber, invoiceType;
   final DateTime dueDate;
-  
+
   final SubbyInvoiceStatus invoiceStatus;
   final List<InvoiceItem> invoiceItems;
 
-  Invoice({this.companyRegisteredAddress, this.name, this.companyOrTradingName, 
+  Invoice(
+      {this.companyRegisteredAddress,
+      this.invoiceType,
+      this.name,
+      this.companyOrTradingName,
       this.invoiceItems,
       this.vatNumber,
       this.companyNumber,
