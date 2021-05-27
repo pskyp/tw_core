@@ -11,10 +11,9 @@ Development _$DevelopmentFromJson(Map<String, dynamic> json) {
     devTitle: json['devTitle'] as String,
     description: json['description'] as String,
     address: json['address'] as String,
-    tenders: (json['tenders'] as List)
-        ?.map((e) =>
-            e == null ? null : Tender.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    tenders: (json['tenders'] as List<dynamic>)
+        .map((e) => Tender.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
@@ -23,5 +22,5 @@ Map<String, dynamic> _$DevelopmentToJson(Development instance) =>
       'devTitle': instance.devTitle,
       'address': instance.address,
       'description': instance.description,
-      'tenders': instance.tenders?.map((e) => e?.toJson())?.toList(),
+      'tenders': instance.tenders.map((e) => e.toJson()).toList(),
     };

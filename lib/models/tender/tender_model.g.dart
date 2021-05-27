@@ -9,7 +9,7 @@ part of 'tender_model.dart';
 Tender _$TenderFromJson(Map<String, dynamic> json) {
   return Tender(
     tenderTitle: json['tenderTitle'] as String,
-    trade: json['trade'],
+    trade: Trade.fromJson(json['trade'] as Map<String, dynamic>),
     requirements: json['requirements'] as String,
     startDate: DateTime.parse(json['startDate'] as String),
     endDate: DateTime.parse(json['endDate'] as String),

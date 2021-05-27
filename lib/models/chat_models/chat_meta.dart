@@ -22,13 +22,13 @@ class ChatMeta extends Equatable {
   //has to be used instead of the seen attribute of the lastChatItem here
 
   ChatMeta({
-    @required this.participantUIDs,
-    @required this.jobId,
-    @required this.jobTitle,
-    @required this.development,
-    @required this.lastChatItem,
-    @required this.seenByReceiver,
-    @required this.isArchived,
+    required this.participantUIDs,
+    required this.jobId,
+    required this.jobTitle,
+    required this.development,
+    required this.lastChatItem,
+    required this.seenByReceiver,
+    required this.isArchived,
   });
 
   Map<String, dynamic> toJson() => _$ChatMetaToJson(this);

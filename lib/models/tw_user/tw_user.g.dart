@@ -11,9 +11,7 @@ TWUser _$TWUserFromJson(Map<String, dynamic> json) {
     uid: json['uid'] as String,
     company: json['company'] as String,
     profileImage: json['profileImage'] as String,
-    memberSince: json['memberSince'] == null
-        ? null
-        : DateTime.parse(json['memberSince'] as String),
+    memberSince: DateTime.parse(json['memberSince'] as String),
     displayName: json['displayName'] as String,
     email: json['email'] as String,
     pushToken: json['pushToken'] as String,
@@ -36,6 +34,6 @@ Map<String, dynamic> _$TWUserToJson(TWUser instance) => <String, dynamic>{
       'latlng': const LatLngConverter().toJson(instance.latlng),
       'address': instance.address,
       'city': instance.city,
-      'memberSince': instance.memberSince?.toIso8601String(),
+      'memberSince': instance.memberSince.toIso8601String(),
       'type': instance.type,
     };

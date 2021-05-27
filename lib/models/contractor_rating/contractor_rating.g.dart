@@ -8,9 +8,9 @@ part of 'contractor_rating.dart';
 
 ContractorRating _$ContractorRatingFromJson(Map<String, dynamic> json) {
   return ContractorRating(
-    reliability: (json['reliability'] as num)?.toDouble(),
-    communication: (json['communication'] as num)?.toDouble(),
-    environment: (json['environment'] as num)?.toDouble(),
+    reliability: (json['reliability'] as num).toDouble(),
+    communication: (json['communication'] as num).toDouble(),
+    environment: (json['environment'] as num).toDouble(),
   );
 }
 

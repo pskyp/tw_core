@@ -20,18 +20,18 @@ class Subbie {
   final double totalServiceQuality, totalProfessionalism, totalTimeManagement;
 
   Subbie({
-    @required this.basicProfile,
-    @required this.subscriptionToggledOn,
-    @required this.cscsQualifications,
-    @required this.searchRadius,
-    @required this.cscsValidTo,
-    @required this.cscsVerified,
-    @required this.subscribed,
-    @required this.selectedTrades,
-    @required this.totalJobs,
-    @required this.totalProfessionalism,
-    @required this.totalServiceQuality,
-    @required this.totalTimeManagement,
+    required this.basicProfile,
+    required this.subscriptionToggledOn,
+    required this.cscsQualifications,
+    required this.searchRadius,
+    required this.cscsValidTo,
+    required this.cscsVerified,
+    required this.subscribed,
+    required this.selectedTrades,
+    required this.totalJobs,
+    required this.totalProfessionalism,
+    required this.totalServiceQuality,
+    required this.totalTimeManagement,
   });
 
   Map<String, dynamic> toJson() => _$SubbieToJson(this);

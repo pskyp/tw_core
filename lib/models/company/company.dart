@@ -1,6 +1,6 @@
 class Company {
   final String title;
-  Company({this.title});
+  Company({required this.title});
 
   static get pseudoCompanies => [
         Company(title: 'Lorem ipsum'),

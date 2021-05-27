@@ -8,12 +8,10 @@ part of 'developer.dart';
 
 Developer _$DeveloperFromJson(Map<String, dynamic> json) {
   return Developer(
-    twUser: json['twUser'] == null
-        ? null
-        : TWUser.fromJson(json['twUser'] as Map<String, dynamic>),
+    twUser: TWUser.fromJson(json['twUser'] as Map<String, dynamic>),
   );
 }
 
 Map<String, dynamic> _$DeveloperToJson(Developer instance) => <String, dynamic>{
-      'twUser': instance.twUser?.toJson(),
+      'twUser': instance.twUser.toJson(),
     };

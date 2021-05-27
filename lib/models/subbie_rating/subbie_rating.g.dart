@@ -8,9 +8,9 @@ part of 'subbie_rating.dart';
 
 SubbieRating _$SubbieRatingFromJson(Map<String, dynamic> json) {
   return SubbieRating(
-    serviceQuality: (json['serviceQuality'] as num)?.toDouble(),
-    professionalism: (json['professionalism'] as num)?.toDouble(),
-    timeManagement: (json['timeManagement'] as num)?.toDouble(),
+    serviceQuality: (json['serviceQuality'] as num).toDouble(),
+    professionalism: (json['professionalism'] as num).toDouble(),
+    timeManagement: (json['timeManagement'] as num).toDouble(),
   );
 }
 

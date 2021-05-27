@@ -9,7 +9,7 @@ part 'developer.g.dart';
 class Developer {
   final TWUser twUser;
 
-  Developer({@required this.twUser});
+  Developer({required this.twUser});
 
   factory Developer.fromJson(Map<String, dynamic> json) =>
       _$DeveloperFromJson(json);

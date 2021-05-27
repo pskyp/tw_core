@@ -14,12 +14,13 @@ class Tender extends Equatable {
   final Trade trade;
   final String requirements;
 
-  const Tender(
-      {@required this.tenderTitle,
-      @required this.trade,
-      @required this.requirements,
-      @required this.startDate,
-      @required this.endDate});
+  const Tender({
+    required this.tenderTitle,
+    required this.trade,
+    required this.requirements,
+    required this.startDate,
+    required this.endDate,
+  });
 
   @override
   List<Object> get props => [tenderTitle, startDate, endDate];

@@ -37,27 +37,27 @@ class Job {
   final int refreshCounter;
 
   Job({
-    @required this.jobId,
-    @required this.status,
-    @required this.totalUnseenBids,
-    @required this.development,
-    @required this.title,
-    @required this.description,
-    @required this.hourlyRate,
-    @required this.applications,
-    @required this.endDate,
-    @required this.hrsPerDay,
-    @required this.startDate,
-    @required this.subbiesRequired,
-    @required this.requirements,
-    @required this.subbiesWorking,
-    @required this.postedOn,
-    @required this.acceptingBids,
-    @required this.contractorId,
-    @required this.trade,
-    @required this.address,
-    @required this.latlng,
-    @required this.refreshCounter,
+    required this.jobId,
+    required this.status,
+    required this.totalUnseenBids,
+    required this.development,
+    required this.title,
+    required this.description,
+    required this.hourlyRate,
+    required this.applications,
+    required this.endDate,
+    required this.hrsPerDay,
+    required this.startDate,
+    required this.subbiesRequired,
+    required this.requirements,
+    required this.subbiesWorking,
+    required this.postedOn,
+    required this.acceptingBids,
+    required this.contractorId,
+    required this.trade,
+    required this.address,
+    required this.latlng,
+    required this.refreshCounter,
   });
 
   Map<String, dynamic> toJson() => _$JobToJson(this);
@@ -80,6 +80,7 @@ class Job {
         JobAction(JobActions.inviteFavourites, 'Invite Favourite Subbies'),
         JobAction(JobActions.jobComplete, 'Job Complete'),
       ];
+    return [];
   }
   // get _requirementsAsString {
   //   String result = '';
