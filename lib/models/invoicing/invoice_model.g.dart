@@ -8,6 +8,9 @@ part of 'invoice_model.dart';
 
 Invoice _$InvoiceFromJson(Map<String, dynamic> json) {
   return Invoice(
+    paidOn: json['paidOn'] == null
+        ? null
+        : DateTime.parse(json['paidOn'] as String),
     companyRegisteredAddress: json['companyRegisteredAddress'] as String,
     invoiceType: json['invoiceType'] as String,
     name: json['name'] as String,
@@ -23,18 +26,22 @@ Invoice _$InvoiceFromJson(Map<String, dynamic> json) {
     description: json['description'] as String,
     toID: json['toID'] as String,
     fromID: json['fromID'] as String,
-    jobId: json['jobId'] as String,
-    dueDate: json['dueDate'] == null
+    jobID: json['jobID'] as String,
+    invoiceDate: json['invoiceDate'] == null
         ? null
-        : DateTime.parse(json['dueDate'] as String),
-    paymentTerm: json['paymentTerm'] as String,
+        : DateTime.parse(json['invoiceDate'] as String),
+    paymentTerm: json['paymentTerm'] as int,
     amountPayable: (json['amountPayable'] as num)?.toDouble(),
     netAmount: (json['netAmount'] as num)?.toDouble(),
     totalTax: (json['totalTax'] as num)?.toDouble(),
-    invoiceStatus: json['invoiceStatus'] == null
+    subbyInvoiceStatus: json['subbyInvoiceStatus'] == null
         ? null
         : SubbyInvoiceStatus.fromJson(
-            json['invoiceStatus'] as Map<String, dynamic>),
+            json['subbyInvoiceStatus'] as Map<String, dynamic>),
+    contractorInvoiceStatus: json['contractorInvoiceStatus'] == null
+        ? null
+        : ContractorInvoiceStatus.fromJson(
+            json['contractorInvoiceStatus'] as Map<String, dynamic>),
     invoiceAddress: json['invoiceAddress'] as String,
     development: json['development'] as String,
   );
@@ -46,20 +53,22 @@ Map<String, dynamic> _$InvoiceToJson(Invoice instance) => <String, dynamic>{
       'amountPayable': instance.amountPayable,
       'toID': instance.toID,
       'fromID': instance.fromID,
-      'jobId': instance.jobId,
+      'jobID': instance.jobID,
       'invoiceID': instance.invoiceID,
       'development': instance.development,
       'companyRegisteredAddress': instance.companyRegisteredAddress,
       'invoiceAddress': instance.invoiceAddress,
       'vatNumber': instance.vatNumber,
       'name': instance.name,
-      'paymentTerm': instance.paymentTerm,
       'companyNumber': instance.companyNumber,
       'companyOrTradingName': instance.companyOrTradingName,
       'description': instance.description,
       'invoiceNumber': instance.invoiceNumber,
       'invoiceType': instance.invoiceType,
-      'dueDate': instance.dueDate?.toIso8601String(),
-      'invoiceStatus': instance.invoiceStatus?.toJson(),
+      'invoiceDate': instance.invoiceDate?.toIso8601String(),
+      'paidOn': instance.paidOn?.toIso8601String(),
+      'paymentTerm': instance.paymentTerm,
+      'subbyInvoiceStatus': instance.subbyInvoiceStatus?.toJson(),
+      'contractorInvoiceStatus': instance.contractorInvoiceStatus?.toJson(),
       'invoiceItems': instance.invoiceItems?.map((e) => e?.toJson())?.toList(),
     };

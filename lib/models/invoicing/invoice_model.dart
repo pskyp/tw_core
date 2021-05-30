@@ -9,24 +9,27 @@ class Invoice {
   final double netAmount, totalTax, amountPayable;
   final String toID,
       fromID,
-      jobId,
+      jobID,
       invoiceID,
       development,
       companyRegisteredAddress,
       invoiceAddress,
       vatNumber,
       name,
-      paymentTerm,
       companyNumber,
-      companyOrTradingName;
-  final String description, invoiceNumber, invoiceType;
-  final DateTime dueDate;
-
-  final SubbyInvoiceStatus invoiceStatus;
+      companyOrTradingName,
+      description,
+      invoiceNumber,
+      invoiceType;
+  final DateTime invoiceDate, paidOn;
+  final int paymentTerm;
+  final SubbyInvoiceStatus subbyInvoiceStatus;
+  final ContractorInvoiceStatus contractorInvoiceStatus;
   final List<InvoiceItem> invoiceItems;
 
   Invoice(
-      {this.companyRegisteredAddress,
+      {this.paidOn,
+      this.companyRegisteredAddress,
       this.invoiceType,
       this.name,
       this.companyOrTradingName,
@@ -38,13 +41,14 @@ class Invoice {
       this.description,
       this.toID,
       this.fromID,
-      this.jobId,
-      this.dueDate,
+      this.jobID,
+      this.invoiceDate,
       this.paymentTerm,
       this.amountPayable,
       this.netAmount,
       this.totalTax,
-      this.invoiceStatus,
+      this.subbyInvoiceStatus,
+      this.contractorInvoiceStatus,
       this.invoiceAddress,
       this.development});
   Map<String, dynamic> toJson() => _$InvoiceToJson(this);

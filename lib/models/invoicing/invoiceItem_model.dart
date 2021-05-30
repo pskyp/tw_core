@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -11,6 +13,7 @@ class InvoiceItem {
   final double unitPrice;
   final double taxRate;
   final double total;
+  String recieptImageURL;
 
   InvoiceItem({
     this.descritpion,
@@ -19,6 +22,7 @@ class InvoiceItem {
     this.unitPrice,
     this.taxRate,
     this.total,
+    this.recieptImageURL
   });
   Map<String, dynamic> toJson() => _$InvoiceItemToJson(this);
   factory InvoiceItem.fromJson(Map<String, dynamic> json) =>
