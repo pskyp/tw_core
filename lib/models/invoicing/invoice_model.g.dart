@@ -22,7 +22,7 @@ Invoice _$InvoiceFromJson(Map<String, dynamic> json) {
     vatNumber: json['vatNumber'] as String,
     companyNumber: json['companyNumber'] as String,
     invoiceID: json['invoiceID'] as String,
-    invoiceNumber: json['invoiceNumber'] as String,
+    invoiceReference: json['invoiceReference'] as String,
     description: json['description'] as String,
     toID: json['toID'] as String,
     fromID: json['fromID'] as String,
@@ -44,6 +44,8 @@ Invoice _$InvoiceFromJson(Map<String, dynamic> json) {
             json['contractorInvoiceStatus'] as Map<String, dynamic>),
     invoiceAddress: json['invoiceAddress'] as String,
     development: json['development'] as String,
+    toAddress: json['toAddress'] as String,
+    toName: json['toName'] as String,
   );
 }
 
@@ -52,6 +54,8 @@ Map<String, dynamic> _$InvoiceToJson(Invoice instance) => <String, dynamic>{
       'totalTax': instance.totalTax,
       'amountPayable': instance.amountPayable,
       'toID': instance.toID,
+      'toName': instance.toName,
+      'toAddress': instance.toAddress,
       'fromID': instance.fromID,
       'jobID': instance.jobID,
       'invoiceID': instance.invoiceID,
@@ -63,7 +67,7 @@ Map<String, dynamic> _$InvoiceToJson(Invoice instance) => <String, dynamic>{
       'companyNumber': instance.companyNumber,
       'companyOrTradingName': instance.companyOrTradingName,
       'description': instance.description,
-      'invoiceNumber': instance.invoiceNumber,
+      'invoiceReference': instance.invoiceReference,
       'invoiceType': instance.invoiceType,
       'invoiceDate': instance.invoiceDate?.toIso8601String(),
       'paidOn': instance.paidOn?.toIso8601String(),

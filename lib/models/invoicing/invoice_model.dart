@@ -7,7 +7,7 @@ part 'invoice_model.g.dart';
 @JsonSerializable(explicitToJson: true)
 class Invoice {
   final double netAmount, totalTax, amountPayable;
-  final String toID,
+  final String toID,toName,toAddress,
       fromID,
       jobID,
       invoiceID,
@@ -19,7 +19,7 @@ class Invoice {
       companyNumber,
       companyOrTradingName,
       description,
-      invoiceNumber,
+      invoiceReference,
       invoiceType;
   final DateTime invoiceDate, paidOn;
   final int paymentTerm;
@@ -37,7 +37,7 @@ class Invoice {
       this.vatNumber,
       this.companyNumber,
       this.invoiceID,
-      this.invoiceNumber,
+      this.invoiceReference,
       this.description,
       this.toID,
       this.fromID,
@@ -50,7 +50,7 @@ class Invoice {
       this.subbyInvoiceStatus,
       this.contractorInvoiceStatus,
       this.invoiceAddress,
-      this.development});
+      this.development,this.toAddress,this.toName});
   Map<String, dynamic> toJson() => _$InvoiceToJson(this);
   factory Invoice.fromJson(Map<String, dynamic> json) =>
       _$InvoiceFromJson(json);

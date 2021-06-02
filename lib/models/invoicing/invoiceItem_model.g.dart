@@ -8,6 +8,7 @@ part of 'invoiceItem_model.dart';
 
 InvoiceItem _$InvoiceItemFromJson(Map<String, dynamic> json) {
   return InvoiceItem(
+    itemID: json['itemID'] as String,
     descritpion: json['descritpion'] as String,
     date: json['date'] == null ? null : DateTime.parse(json['date'] as String),
     qty: (json['qty'] as num)?.toDouble(),
@@ -20,6 +21,7 @@ InvoiceItem _$InvoiceItemFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$InvoiceItemToJson(InvoiceItem instance) =>
     <String, dynamic>{
+      'itemID': instance.itemID,
       'descritpion': instance.descritpion,
       'date': instance.date?.toIso8601String(),
       'qty': instance.qty,
