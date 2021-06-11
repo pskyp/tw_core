@@ -5,11 +5,13 @@ class LatLngConverter implements JsonConverter<LatLng, List<dynamic>> {
   const LatLngConverter();
   @override
   LatLng fromJson(List<dynamic> json) {
-    return LatLng.fromJson(json);
+    assert(json is List && json.length == 2);
+    final list = json as List;
+    return LatLng(list[0], list[1]);
   }
 
   @override
   List<dynamic> toJson(LatLng latlng) {
-    return latlng.toJson();
+    return <double>[latlng.latitude, latlng.longitude];
   }
 }

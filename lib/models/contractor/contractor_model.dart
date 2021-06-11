@@ -17,15 +17,15 @@ class Contractor {
   final DateTime subscriptionToggledOn;
 
   Contractor({
-    @required this.basicProfile,
-    @required this.subscriptionToggledOn,
-    @required this.savedJobRequirements,
-    @required this.totalJobs,
-    @required this.subscribed,
-    @required this.totalRatings,
-    @required this.totalCommunication,
-    @required this.totalEnvironment,
-    @required this.totalReliability,
+    required this.basicProfile,
+    required this.subscriptionToggledOn,
+    required this.savedJobRequirements,
+    required this.totalJobs,
+    required this.subscribed,
+    required this.totalRatings,
+    required this.totalCommunication,
+    required this.totalEnvironment,
+    required this.totalReliability,
   });
 
   Map<String, dynamic> toJson() => _$ContractorToJson(this);

@@ -16,10 +16,10 @@ class Person {
   final String token;
 
   Person({
-    @required this.uid,
-    @required this.displayName,
-    @required this.profileImage,
-    @required this.token,
+    required this.uid,
+    required this.displayName,
+    required this.profileImage,
+    required this.token,
     this.company = "",
   });
 

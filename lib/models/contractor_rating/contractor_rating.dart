@@ -8,9 +8,9 @@ class ContractorRating {
   double reliability, communication, environment;
 
   ContractorRating({
-    @required this.reliability,
-    @required this.communication,
-    @required this.environment,
+    required this.reliability,
+    required this.communication,
+    required this.environment,
   });
 
   factory ContractorRating.fromJson(Map<String, dynamic> json) =>
@@ -26,9 +26,9 @@ class PendingContractorRating {
   final String contractorId;
 
   PendingContractorRating({
-    @required this.contractorId,
-    @required this.jobId,
-    @required this.jobTitle,
+    required this.contractorId,
+    required this.jobId,
+    required this.jobTitle,
   });
 
   factory PendingContractorRating.fromJson(Map<String, dynamic> json) =>

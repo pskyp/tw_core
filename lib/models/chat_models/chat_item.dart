@@ -18,13 +18,13 @@ class ChatItem extends Equatable {
   final bool seen;
 
   ChatItem({
-    @required this.sender,
-    @required this.development,
-    @required this.chatItemId,
-    @required this.receiver,
-    @required this.text,
-    @required this.seen,
-    @required this.sendTime,
+    required this.sender,
+    required this.development,
+    required this.chatItemId,
+    required this.receiver,
+    required this.text,
+    required this.seen,
+    required this.sendTime,
   });
 
   get shortText => text.length < 30 ? text : text.substring(0, 30) + '...';
@@ -35,6 +35,4 @@ class ChatItem extends Equatable {
 
   @override
   List<Object> get props => [sendTime, chatItemId];
-
-  Future<String> decryptMessage() async {}
 }

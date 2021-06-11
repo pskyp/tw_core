@@ -29,18 +29,18 @@ class Bid {
   final BidStatus status;
 
   Bid({
-    @required this.jobId,
-    @required this.bidId,
-    @required this.contractorId,
-    @required this.title,
-    @required this.development,
-    @required this.person,
-    @required this.address,
-    @required this.seenByContractor,
-    @required this.description,
-    @required this.status,
-    @required this.appliedOn,
-    @required this.trade,
+    required this.jobId,
+    required this.bidId,
+    required this.contractorId,
+    required this.title,
+    required this.development,
+    required this.person,
+    required this.address,
+    required this.seenByContractor,
+    required this.description,
+    required this.status,
+    required this.appliedOn,
+    required this.trade,
   });
 
   factory Bid.fromJson(Map<String, dynamic> json) => _$BidFromJson(json);
@@ -60,6 +60,6 @@ class Bid {
         status.status != BidStatuses.Hired &&
         status.status != BidStatuses.Old)
       return [BidAction(BidActions.OfferJob, 'Offer Job')];
-    return List<BidAction>();
+    return [];
   }
 }

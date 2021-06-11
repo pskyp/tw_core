@@ -16,12 +16,12 @@ class BidReview {
   final SubbieRating rating;
 
   BidReview({
-    @required this.subbieName,
-    @required this.description,
-    @required this.jobId,
-    @required this.rating,
-    @required this.subbieId,
-    @required this.title,
+    required this.subbieName,
+    required this.description,
+    required this.jobId,
+    required this.rating,
+    required this.subbieId,
+    required this.title,
   });
 
   factory BidReview.fromBidAndRating(Bid bid, SubbieRating theRating) {

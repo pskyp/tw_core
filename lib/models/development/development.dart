@@ -12,11 +12,12 @@ class Development {
   final String description;
   final List<Tender> tenders;
 
-  Development(
-      {@required this.devTitle,
-      @required this.description,
-      @required this.address,
-      @required this.tenders});
+  Development({
+    required this.devTitle,
+    required this.description,
+    required this.address,
+    required this.tenders,
+  });
 
   Map<String, dynamic> toJson() => _$DevelopmentToJson(this);
   factory Development.fromJson(Map<String, dynamic> json) =>

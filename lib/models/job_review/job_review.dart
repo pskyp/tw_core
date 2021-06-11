@@ -14,15 +14,15 @@ class JobReview {
   final ContractorRating rating;
 
   JobReview({
-    @required this.rating,
-    @required this.jobId,
-    @required this.contractorId,
-    @required this.jobTitle,
+    required this.rating,
+    required this.jobId,
+    required this.contractorId,
+    required this.jobTitle,
   });
 
   factory JobReview.fromPendingReviewAndRating({
-    @required PendingContractorRating pendingReview,
-    @required ContractorRating theRating,
+    required PendingContractorRating pendingReview,
+    required ContractorRating theRating,
   }) {
     return JobReview(
       contractorId: pendingReview.contractorId,

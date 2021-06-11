@@ -12,9 +12,9 @@ class SubbieRating {
   final double timeManagement;
 
   SubbieRating({
-    @required this.serviceQuality,
-    @required this.professionalism,
-    @required this.timeManagement,
+    required this.serviceQuality,
+    required this.professionalism,
+    required this.timeManagement,
   }) {
     log('$serviceQuality, $professionalism, $timeManagement');
   }
