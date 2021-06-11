@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/invoicing/invoicing_details_model.dart';
 
-import '../lat_lng_converter.dart';
+import '../position_converter.dart';
 
 part 'tw_user.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-@LatLngConverter()
+@PositionConverter()
 class TWUser {
   final String uid;
   final String displayName;
@@ -17,7 +17,7 @@ class TWUser {
   final String company;
   final String pushToken;
   final int phone;
-  LatLng latlng;
+  Position latlng;
   String address;
   String city;
   final DateTime memberSince;

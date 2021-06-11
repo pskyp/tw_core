@@ -29,7 +29,8 @@ Job _$JobFromJson(Map<String, dynamic> json) {
     contractorId: json['contractorId'] as String,
     trade: Trade.fromJson(json['trade'] as Map<String, dynamic>),
     address: json['address'] as String,
-    latlng: const LatLngConverter().fromJson(json['latlng'] as List),
+    latlng: const PositionConverter()
+        .fromJson(json['latlng'] as Map<String, dynamic>),
     refreshCounter: json['refreshCounter'] as int,
   );
 }
@@ -52,7 +53,7 @@ Map<String, dynamic> _$JobToJson(Job instance) => <String, dynamic>{
       'requirements': instance.requirements,
       'trade': instance.trade.toJson(),
       'acceptingBids': instance.acceptingBids,
-      'latlng': const LatLngConverter().toJson(instance.latlng),
+      'latlng': const PositionConverter().toJson(instance.latlng),
       'address': instance.address,
       'totalUnseenBids': instance.totalUnseenBids,
       'refreshCounter': instance.refreshCounter,

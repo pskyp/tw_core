@@ -1,8 +1,7 @@
-import 'package:flutter/foundation.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/position_converter.dart';
 
-import '../lat_lng_converter.dart';
 import '../trades.dart';
 import 'job_action.dart';
 import 'job_status.dart';
@@ -10,7 +9,7 @@ import 'job_status.dart';
 part 'job.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-@LatLngConverter()
+@PositionConverter()
 class Job {
   final String jobId;
 
@@ -31,7 +30,7 @@ class Job {
   final List<String> requirements;
   final Trade trade;
   final bool acceptingBids;
-  final LatLng latlng;
+  final Position latlng;
   final String address;
   final int totalUnseenBids;
   final int refreshCounter;
@@ -82,70 +81,4 @@ class Job {
       ];
     return [];
   }
-  // get _requirementsAsString {
-  //   String result = '';
-  //   for (String requirement in requirements) result += requirement + '#';
-  //   return result.substring(0, result.length);
-  // }
-
-  // static _requirementsFromString(String value) {
-  //   List<String> splits = value.split("#");
-  //   splits.removeAt(splits.length - 1);
-  //   return splits;
-  // }
-
-  // Map<String, dynamic> get map => {
-  //       'job_id': id,
-  //       'status': status.value,
-  //       'development': development,
-  //       'title': title,
-  //       'description': description,
-  //       'hrsPerDay': hrsPerDay,
-  //       'hourlyRate': hourlyRate,
-  //       'startDate': startDate.toString(),
-  //       'endDate': endDate.toString(),
-  //       'subbiesRequired': subbiesRequired,
-  //       'total_unseen_bids': totalUnseenBids,
-  //       'subbiesworking': subbiesWorking,
-  //       'applications': applications,
-  //       'requirements': _requirementsAsString,
-  //       'jobPostedOn': postedOn.toString(),
-  //       'trade': trade.text,
-  //       'acceptingBids': acceptingBids,
-  //       'contractorId': contractorId,
-  //       'address': address,
-  //       'lat': latlng.latitude.toString(),
-  //       'lng': latlng.longitude.toString(),
-  //       'refreshCounter': refreshCounter
-  //     };
-
-  // factory Job.fromMap(Map data) {
-  //   List<String> requirements = [''];
-  //   requirements = _requirementsFromString(data['requirements']);
-
-  //   return Job(
-  //       id: data['job_id'],
-  //       status: JobStatus.fromString(data['status']),
-  //       development: data['development'],
-  //       title: data['title'],
-  //       description: data['description'],
-  //       startDate: DateTime.parse(data['startDate']),
-  //       endDate: DateTime.parse(data['endDate']),
-  //       hourlyRate: data['hourlyRate'],
-  //       hrsPerDay: data['hrsPerDay'],
-  //       applications: data['applications'],
-  //       requirements: requirements,
-  //       totalUnseenBids: data['total_unseen_bids'],
-  //       subbiesRequired: data['subbiesRequired'],
-  //       subbiesWorking: data['subbiesworking'],
-  //       postedOn: DateTime.parse(data['jobPostedOn']),
-  //       trade: Trade.fromJson({'text': data['trade']}),
-  //       acceptingBids: data['acceptingBids'],
-  //       address: data['address'],
-  //       latlng:
-  //           LatLng(double.tryParse(data['lat']), double.tryParse(data['lng'])),
-  //       contractorId: data['contractorId'],
-  //       refreshCounter: data['refreshCounter']);
-  // }
-
 }
