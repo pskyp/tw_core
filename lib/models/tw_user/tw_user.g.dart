@@ -20,11 +20,10 @@ TWUser _$TWUserFromJson(Map<String, dynamic> json) {
     latlng: const LatLngConverter().fromJson(json['latlng'] as List),
     address: json['address'] as String,
     city: json['city'] as String,
-    invoicingDetails: json['invoicingDetails'] == null
-        ? null
-        : InvoicingDetails.fromJson(
-            json['invoicingDetails'] as Map<String, dynamic>),
-  );
+  )..invoicingDetails = json['invoicingDetails'] == null
+      ? null
+      : InvoicingDetails.fromJson(
+          json['invoicingDetails'] as Map<String, dynamic>);
 }
 
 Map<String, dynamic> _$TWUserToJson(TWUser instance) => <String, dynamic>{
@@ -38,7 +37,7 @@ Map<String, dynamic> _$TWUserToJson(TWUser instance) => <String, dynamic>{
       'latlng': const LatLngConverter().toJson(instance.latlng),
       'address': instance.address,
       'city': instance.city,
-      'memberSince': instance.memberSince?.toIso8601String(),
+      'memberSince': instance.memberSince.toIso8601String(),
       'invoicingDetails': instance.invoicingDetails?.toJson(),
       'type': instance.type,
     };

@@ -16,7 +16,7 @@ dependencies:
   build_runner: ^2.0.4
   equatable: ^2.0.2
   google_maps_flutter: ^2.0.6
-  json_annotation: 4.0.1
+  json_annotation: ^4.0.1
 
 dev_dependencies:
   flutter_test:

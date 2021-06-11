@@ -21,7 +21,7 @@ class TWUser {
   String address;
   String city;
   final DateTime memberSince;
-  InvoicingDetails invoicingDetails;
+  InvoicingDetails? invoicingDetails;
 
   //the app expects the type attribute to only have one of two value:
   // contractor, subbie

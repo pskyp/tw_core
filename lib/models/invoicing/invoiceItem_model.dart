@@ -7,7 +7,7 @@ part 'invoiceItem_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class InvoiceItem {
-   String itemID;
+  String itemID;
   final String descritpion;
   final DateTime date;
   final double qty;
@@ -15,16 +15,17 @@ class InvoiceItem {
   final double taxRate;
   final double total;
   String recieptImageURL;
-  
 
-  InvoiceItem({this.itemID,
-      this.descritpion,
-      this.date,
-      this.qty,
-      this.unitPrice,
-      this.taxRate,
-      this.total,
-      this.recieptImageURL});
+  InvoiceItem({
+    required this.itemID,
+    required this.descritpion,
+    required this.date,
+    required this.qty,
+    required this.unitPrice,
+    required this.taxRate,
+    required this.total,
+    required this.recieptImageURL,
+  });
   Map<String, dynamic> toJson() => _$InvoiceItemToJson(this);
   factory InvoiceItem.fromJson(Map<String, dynamic> json) =>
       _$InvoiceItemFromJson(json);

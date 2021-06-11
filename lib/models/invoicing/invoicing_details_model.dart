@@ -1,7 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tw_core/models/invoicing/invoiceItem_model.dart';
-import 'package:tw_core/models/invoicing/invoice_status.dart';
 part 'invoicing_details_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
@@ -17,15 +14,15 @@ class InvoicingDetails {
       sortCode;
 
   InvoicingDetails({
-    this.individualName,
-    this.bankAccount,
-    this.sortCode,
-    this.paymentTerm,
-    this.companyRegisteredAddress,
-    this.companyOrTradingName,
-    this.vatNumber,
-    this.companyNumber,
-    this.invoiceAddress,
+    required this.individualName,
+    required this.bankAccount,
+    required this.sortCode,
+    required this.paymentTerm,
+    required this.companyRegisteredAddress,
+    required this.companyOrTradingName,
+    required this.vatNumber,
+    required this.companyNumber,
+    required this.invoiceAddress,
   });
   Map<String, dynamic> toJson() => _$InvoicingDetailsToJson(this);
   factory InvoicingDetails.fromJson(Map<String, dynamic> json) =>
