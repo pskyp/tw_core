@@ -17,8 +17,8 @@ TWUser _$TWUserFromJson(Map<String, dynamic> json) {
     pushToken: json['pushToken'] as String,
     type: json['type'] as String,
     phone: json['phone'] as int,
-    latlng: const PositionConverter()
-        .fromJson(json['latlng'] as Map<String, dynamic>),
+    latitude: (json['latitude'] as num).toDouble(),
+    longitude: (json['longitude'] as num).toDouble(),
     address: json['address'] as String,
     city: json['city'] as String,
   )..invoicingDetails = json['invoicingDetails'] == null
@@ -35,7 +35,8 @@ Map<String, dynamic> _$TWUserToJson(TWUser instance) => <String, dynamic>{
       'company': instance.company,
       'pushToken': instance.pushToken,
       'phone': instance.phone,
-      'latlng': const PositionConverter().toJson(instance.latlng),
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
       'address': instance.address,
       'city': instance.city,
       'memberSince': instance.memberSince.toIso8601String(),
