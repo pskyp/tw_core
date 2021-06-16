@@ -13,13 +13,11 @@ class Person {
   final String displayName;
   final String profileImage;
   final String company;
-  final String token;
 
   Person({
     required this.uid,
     required this.displayName,
     required this.profileImage,
-    required this.token,
     this.company = "",
   });
 
@@ -28,7 +26,6 @@ class Person {
     return Person(
       displayName: user.displayName,
       profileImage: user.profileImage,
-      token: user.pushToken,
       uid: user.uid,
       company: user.company,
     );
@@ -36,20 +33,4 @@ class Person {
 
   Map<String, dynamic> toJson() => _$PersonToJson(this);
   factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);
-
-  // factory Person.fromMap(Map data) => Person(
-  //       id: data['person_id'] ?? data['uid'],
-  //       displayName: data['display_name'],
-  //       profileImage: data['profileImage'],
-  //       company: data['company'],
-  //       token: data['token'],
-  //     );
-
-  // Map<String, dynamic> get map => {
-  //       'person_id': id,
-  //       'display_name': displayName,
-  //       'profileImage': profileImage,
-  //       'company': company,
-  //       'token': token,
-  //     };
 }

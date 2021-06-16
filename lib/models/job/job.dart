@@ -1,6 +1,4 @@
-import 'package:geolocator/geolocator.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tw_core/models/position_converter.dart';
 
 import '../trades.dart';
 import 'job_action.dart';
@@ -9,7 +7,6 @@ import 'job_status.dart';
 part 'job.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-@PositionConverter()
 class Job {
   final String jobId;
 
@@ -30,7 +27,8 @@ class Job {
   final List<String> requirements;
   final Trade trade;
   final bool acceptingBids;
-  final Position latlng;
+  final double latitude;
+  final double longitude;
   final String address;
   final int totalUnseenBids;
   final int refreshCounter;
@@ -38,6 +36,8 @@ class Job {
   Job({
     required this.jobId,
     required this.status,
+    required this.latitude,
+    required this.longitude,
     required this.totalUnseenBids,
     required this.development,
     required this.title,
@@ -55,7 +55,6 @@ class Job {
     required this.contractorId,
     required this.trade,
     required this.address,
-    required this.latlng,
     required this.refreshCounter,
   });
 
