@@ -80,4 +80,44 @@ class Job {
       ];
     return [];
   }
+
+  Job updateJob({
+    String? development,
+    String? title,
+    String? description,
+    double? hourlyRate,
+    DateTime? endDate,
+    DateTime? startDate,
+    int? subbiesRequired,
+    List<String>? requirements,
+    Trade? trade,
+    String? address,
+    double? latitude,
+    double? longitude,
+  }) {
+    return Job(
+      jobId: this.jobId,
+      status: this.status,
+      totalUnseenBids: this.totalUnseenBids,
+      applications: this.applications,
+      hrsPerDay: this.hrsPerDay,
+      subbiesWorking: this.subbiesWorking,
+      postedOn: this.postedOn,
+      acceptingBids: this.acceptingBids,
+      refreshCounter: this.refreshCounter,
+      contractorId: this.contractorId,
+      address: address ?? this.address,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      hourlyRate: hourlyRate ?? this.hourlyRate,
+      endDate: endDate ?? this.endDate,
+      startDate: startDate ?? this.startDate,
+      subbiesRequired: subbiesRequired ?? this.subbiesRequired,
+      development: development ?? this.development,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
+      requirements: requirements ?? this.requirements,
+      trade: trade ?? this.trade,
+    );
+  }
 }
