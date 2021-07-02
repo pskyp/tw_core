@@ -12,7 +12,7 @@ class Development {
   final String description;
   final List<Tender> tenders;
 
-  Development({
+  const Development({
     required this.devTitle,
     required this.description,
     required this.address,
@@ -22,13 +22,20 @@ class Development {
   Map<String, dynamic> toJson() => _$DevelopmentToJson(this);
   factory Development.fromJson(Map<String, dynamic> json) =>
       _$DevelopmentFromJson(json);
+
+  static const Development empty = Development(
+    devTitle: '',
+    address: '',
+    description: '',
+    tenders: [],
+  );
 }
 
 Tender t = Tender(
     requirements:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an',
     endDate: DateTime.now(),
-    trade: Trade.fromTrades(Trades.Carpenter),
+    trade: Trade(Trades.Carpenter),
     startDate: DateTime.now(),
     tenderTitle: 'Tender for Carpenters');
 

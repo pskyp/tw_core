@@ -3,74 +3,57 @@ import 'package:equatable/equatable.dart';
 enum Trades { Carpenter, Painter, GL, Plasterer, GW }
 
 class Trade extends Equatable {
-  String text;
-  String imagePath;
-  Trades type;
+  final String text;
+  final String imagePath;
+  final Trades type;
 
-  Trade._(this.imagePath, this.text, this.type);
+  // const Trade._(this.imagePath, this.text, this.type);
 
-  factory Trade.fromTrades(Trades trade) {
-    if (trade == Trades.Carpenter) {
-      return Trade._(
-        'assets/images/carpenter.png',
-        'Carpenter',
-        Trades.Carpenter,
-      );
-    } else if (trade == Trades.Painter) {
-      return Trade._(
-        'assets/images/painter.png',
-        'Painter',
-        Trades.Painter,
-      );
-    } else if (trade == Trades.Plasterer) {
-      return Trade._(
-        'assets/images/plasterer.png',
-        'Plasterer',
-        Trades.Plasterer,
-      );
-    } else if (trade == Trades.GL) {
-      return Trade._(
-        'assets/images/general_laborer.png',
-        'General Laborer',
-        Trades.GL,
-      );
-    }
-    return Trade._(
-      'assets/images/painter.png',
-      'Ground Worker',
-      Trades.GW,
-    );
-  }
+  const Trade(final Trades trade)
+      : imagePath = trade == Trades.Carpenter
+            ? 'assets/images/carpenter.png'
+            : trade == Trades.Painter
+                ? 'assets/images/painter.png'
+                : trade == Trades.Plasterer
+                    ? 'assets/images/plasterer.png'
+                    : trade == Trades.GL
+                        ? 'assets/images/general_laborer.png'
+                        : 'assets/images/general_laborer.png',
+        text = trade == Trades.Carpenter
+            ? 'Carpenter'
+            : trade == Trades.Painter
+                ? 'Painter'
+                : trade == Trades.Plasterer
+                    ? 'Plasterer'
+                    : trade == Trades.GL
+                        ? 'General Laborer'
+                        : 'Ground Worker',
+        type = trade;
 
   factory Trade.fromJson(Map<String, dynamic> json) {
     switch (json['text']) {
       case 'Carpenter':
-        return Trade.fromTrades(Trades.Carpenter);
+        return Trade(Trades.Carpenter);
       case 'Painter':
-        return Trade.fromTrades(Trades.Painter);
+        return Trade(Trades.Painter);
       case 'Plasterer':
-        return Trade.fromTrades(Trades.Plasterer);
+        return Trade(Trades.Plasterer);
       case 'General Laborer':
-        return Trade.fromTrades(Trades.GL);
+        return Trade(Trades.GL);
       case 'Ground Worker':
-        return Trade.fromTrades(Trades.GW);
       default:
-        return Trade._(
-          'assets/images/manage.png',
-          'Not found',
-          Trades.GL,
-        );
+        return Trade(Trades.GW);
     }
   }
 
   Map<String, dynamic> toJson() => {'text': text};
 
   static List<Trade> get allTrades => [
-        Trade.fromTrades(Trades.Carpenter),
-        Trade.fromTrades(Trades.Painter),
-        Trade.fromTrades(Trades.Plasterer),
-        Trade.fromTrades(Trades.GL),
-        Trade.fromTrades(Trades.GW),
+        Trade(Trades.Carpenter),
+        Trade(Trades.Painter),
+        Trade(Trades.Plasterer),
+        Trade(Trades.GL),
+        Trade(Trades.GW),
       ];
 
   @override
