@@ -8,6 +8,8 @@ part of 'development.dart';
 
 Development _$DevelopmentFromJson(Map<String, dynamic> json) {
   return Development(
+    id: json['id'] as String,
+    developerId: json['developerId'] as String,
     devTitle: json['devTitle'] as String,
     description: json['description'] as String,
     address: json['address'] as String,
@@ -19,6 +21,8 @@ Development _$DevelopmentFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$DevelopmentToJson(Development instance) =>
     <String, dynamic>{
+      'id': instance.id,
+      'developerId': instance.developerId,
       'devTitle': instance.devTitle,
       'address': instance.address,
       'description': instance.description,

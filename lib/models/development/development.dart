@@ -7,12 +7,16 @@ part 'development.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Development {
+  final String id;
+  final String developerId;
   final String devTitle;
   final String address;
   final String description;
   final List<Tender> tenders;
 
   const Development({
+    required this.id,
+    required this.developerId,
     required this.devTitle,
     required this.description,
     required this.address,
@@ -22,13 +26,6 @@ class Development {
   Map<String, dynamic> toJson() => _$DevelopmentToJson(this);
   factory Development.fromJson(Map<String, dynamic> json) =>
       _$DevelopmentFromJson(json);
-
-  static const Development empty = Development(
-    devTitle: '',
-    address: '',
-    description: '',
-    tenders: [],
-  );
 }
 
 Tender t = Tender(
@@ -41,6 +38,8 @@ Tender t = Tender(
 
 List<Tender> pseudoTenders = [t, t];
 Development dev = Development(
+    id: 'bb',
+    developerId: 'hjij',
     devTitle: 'London Construction',
     address: '80 Guild Street, London',
     description:
@@ -48,6 +47,8 @@ Development dev = Development(
     tenders: pseudoTenders);
 
 Development dev2 = Development(
+    id: 'ibi',
+    developerId: 'edd',
     devTitle: 'Fleet View Construction',
     address: 'Famous street in Fleet View',
     description:
