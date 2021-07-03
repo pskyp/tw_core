@@ -47,17 +47,20 @@ class LocationModel {
   String country;
   bool residential;
 
-  String get completeAddress =>
-      formattedAddress[0] +
-      ", " +
-      formattedAddress[1] +
-      ", " +
-      formattedAddress[2] +
-      ", " +
-      formattedAddress[3] +
-      ", " +
-      formattedAddress[4] +
-      ".";
+  String get completeAddress {
+    String result = '';
+    for (int i = 0; i < formattedAddress.length; i++) {
+      if (formattedAddress[i].isNotEmpty) {
+        result += formattedAddress[i];
+      }
+      if (i < formattedAddress.length - 1) {
+        result += ', ';
+      } else {
+        result += '.';
+      }
+    }
+    return result;
+  }
 
   factory LocationModel.fromRawJson(String str) =>
       LocationModel.fromJson(json.decode(str));
