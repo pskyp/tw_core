@@ -28,7 +28,22 @@ class PlaceService {
     final response = await http.get(Uri.parse(request));
     if (response.statusCode == 200) {
       var json = jsonDecode(response.body);
+
       LocationModel location = LocationModel.fromJson(json);
+      List<String> address = location.formattedAddress;
+
+      String completeAddress = address[0] +
+          ", " +
+          address[1] +
+          ", " +
+          address[2] +
+          ", " +
+          address[3] +
+          ", " +
+          address[4] +
+          ".";
+      location.completeAddress = completeAddress;
+
       return location;
     } else {
       throw Exception('Failed to fetch suggestion');

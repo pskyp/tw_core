@@ -10,6 +10,7 @@ class LocationModel {
     required this.latitude,
     required this.longitude,
     required this.formattedAddress,
+    required this.completeAddress,
     required this.thoroughfare,
     required this.buildingName,
     required this.subBuildingName,
@@ -31,6 +32,7 @@ class LocationModel {
   double latitude;
   double longitude;
   List<String> formattedAddress;
+  String completeAddress;
   String thoroughfare;
   String buildingName;
   String subBuildingName;
@@ -58,6 +60,7 @@ class LocationModel {
         longitude: json["longitude"].toDouble(),
         formattedAddress:
             List<String>.from(json["formatted_address"].map((x) => x)),
+        completeAddress: json["complete_address"],
         thoroughfare: json["thoroughfare"],
         buildingName: json["building_name"],
         subBuildingName: json["sub_building_name"],
@@ -80,6 +83,7 @@ class LocationModel {
         "latitude": latitude,
         "longitude": longitude,
         "formatted_address": List<dynamic>.from(formattedAddress.map((x) => x)),
+        "complete_address": completeAddress,
         "thoroughfare": thoroughfare,
         "building_name": buildingName,
         "sub_building_name": subBuildingName,
