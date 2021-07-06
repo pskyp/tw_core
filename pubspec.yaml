@@ -12,11 +12,12 @@ dependencies:
   flutter:
     sdk: flutter
   build_runner: ^2.0.4
+  cloud_firestore: ^2.3.0
   equatable: ^2.0.2
   formz: ^0.4.0
   geolocator: ^7.0.3
-  json_annotation: ^4.0.1
   http: ^0.13.3
+  json_annotation: ^4.0.1
 
 dev_dependencies:
   flutter_test:

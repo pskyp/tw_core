@@ -9,26 +9,25 @@ class Trade extends Equatable {
 
   // const Trade._(this.imagePath, this.text, this.type);
 
-  const Trade(final Trades trade)
-      : imagePath = trade == Trades.Carpenter
+  const Trade(this.type)
+      : imagePath = type == Trades.Carpenter
             ? 'assets/images/carpenter.png'
-            : trade == Trades.Painter
+            : type == Trades.Painter
                 ? 'assets/images/painter.png'
-                : trade == Trades.Plasterer
+                : type == Trades.Plasterer
                     ? 'assets/images/plasterer.png'
-                    : trade == Trades.GL
+                    : type == Trades.GL
                         ? 'assets/images/general_laborer.png'
                         : 'assets/images/general_laborer.png',
-        text = trade == Trades.Carpenter
+        text = type == Trades.Carpenter
             ? 'Carpenter'
-            : trade == Trades.Painter
+            : type == Trades.Painter
                 ? 'Painter'
-                : trade == Trades.Plasterer
+                : type == Trades.Plasterer
                     ? 'Plasterer'
-                    : trade == Trades.GL
+                    : type == Trades.GL
                         ? 'General Laborer'
-                        : 'Ground Worker',
-        type = trade;
+                        : 'Ground Worker';
 
   factory Trade.fromJson(Map<String, dynamic> json) {
     switch (json['text']) {
@@ -57,5 +56,9 @@ class Trade extends Equatable {
       ];
 
   @override
-  List<Object> get props => [text];
+  List<Object> get props => [
+        type,
+        text,
+        imagePath,
+      ];
 }

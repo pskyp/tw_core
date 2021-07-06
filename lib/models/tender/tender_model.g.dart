@@ -8,6 +8,9 @@ part of 'tender_model.dart';
 
 Tender _$TenderFromJson(Map<String, dynamic> json) {
   return Tender(
+    id: json['id'] as String,
+    developmentId: json['developmentId'] as String,
+    developerId: json['developerId'] as String,
     tenderTitle: json['tenderTitle'] as String,
     trade: Trade.fromJson(json['trade'] as Map<String, dynamic>),
     requirements: json['requirements'] as String,
@@ -17,9 +20,12 @@ Tender _$TenderFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$TenderToJson(Tender instance) => <String, dynamic>{
+      'id': instance.id,
+      'developmentId': instance.developmentId,
+      'developerId': instance.developerId,
       'tenderTitle': instance.tenderTitle,
       'startDate': instance.startDate.toIso8601String(),
       'endDate': instance.endDate.toIso8601String(),
-      'trade': instance.trade,
+      'trade': instance.trade.toJson(),
       'requirements': instance.requirements,
     };

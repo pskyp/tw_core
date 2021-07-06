@@ -12,10 +12,7 @@ Development _$DevelopmentFromJson(Map<String, dynamic> json) {
     developerId: json['developerId'] as String,
     devTitle: json['devTitle'] as String,
     description: json['description'] as String,
-    address: json['address'] as String,
-    tenders: (json['tenders'] as List<dynamic>)
-        .map((e) => Tender.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    location: LocationModel.fromJson(json['location'] as Map<String, dynamic>),
   );
 }
 
@@ -24,7 +21,6 @@ Map<String, dynamic> _$DevelopmentToJson(Development instance) =>
       'id': instance.id,
       'developerId': instance.developerId,
       'devTitle': instance.devTitle,
-      'address': instance.address,
+      'location': instance.location.toJson(),
       'description': instance.description,
-      'tenders': instance.tenders.map((e) => e.toJson()).toList(),
     };

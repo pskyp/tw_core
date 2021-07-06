@@ -52,11 +52,12 @@ class LocationModel {
     for (int i = 0; i < formattedAddress.length; i++) {
       if (formattedAddress[i].isNotEmpty) {
         result += formattedAddress[i];
-      }
-      if (i < formattedAddress.length - 1) {
-        result += ', ';
-      } else {
-        result += '.';
+
+        if (i < formattedAddress.length - 1) {
+          result += ', ';
+        } else {
+          result += '.';
+        }
       }
     }
     return result;
