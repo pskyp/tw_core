@@ -37,31 +37,22 @@ class Development extends Equatable {
       ];
 }
 
-// Tender t = Tender(
-//     requirements:
-//         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an',
-//     endDate: DateTime.now(),
-//     trade: Trade(Trades.Carpenter),
-//     startDate: DateTime.now(),
-//     tenderTitle: 'Tender for Carpenters');
+@JsonSerializable()
+class DevelopmentDoc extends Equatable {
+  final String docName;
+  final String docPath;
 
-// List<Tender> pseudoTenders = [t, t];
-// Development dev = Development(
-//     id: 'bb',
-//     developerId: 'hjij',
-//     devTitle: 'London Construction',
-//     address: '80 Guild Street, London',
-//     description:
-//         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-//     tenders: pseudoTenders);
+  DevelopmentDoc({
+    required this.docName,
+    required this.docPath,
+  });
 
-// Development dev2 = Development(
-//     id: 'ibi',
-//     developerId: 'edd',
-//     devTitle: 'Fleet View Construction',
-//     address: 'Famous street in Fleet View',
-//     description:
-//         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-//     tenders: pseudoTenders);
-
-// List<Development> pseudoDevelopments = [dev, dev2];
+  @override
+  List<Object?> get props => [
+        docName,
+        docPath,
+      ];
+  Map<String, dynamic> toJson() => _$DevelopmentDocToJson(this);
+  factory DevelopmentDoc.fromJson(Map<String, dynamic> json) =>
+      _$DevelopmentDocFromJson(json);
+}

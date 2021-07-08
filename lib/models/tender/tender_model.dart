@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/location/location_model.dart';
 
 import '../trades.dart';
 
@@ -16,6 +17,7 @@ class Tender extends Equatable {
   final DateTime endDate;
   final Trade trade;
   final String requirements;
+  final LocationModel location;
 
   const Tender({
     required this.id,
@@ -26,6 +28,7 @@ class Tender extends Equatable {
     required this.requirements,
     required this.startDate,
     required this.endDate,
+    required this.location,
   });
 
   @override
@@ -38,6 +41,7 @@ class Tender extends Equatable {
         tenderTitle,
         startDate,
         endDate,
+        location,
       ];
 
   Map<String, dynamic> toJson() => _$TenderToJson(this);

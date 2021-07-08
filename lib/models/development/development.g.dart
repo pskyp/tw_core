@@ -24,3 +24,16 @@ Map<String, dynamic> _$DevelopmentToJson(Development instance) =>
       'location': instance.location.toJson(),
       'description': instance.description,
     };
+
+DevelopmentDoc _$DevelopmentDocFromJson(Map<String, dynamic> json) {
+  return DevelopmentDoc(
+    docName: json['docName'] as String,
+    docPath: json['docPath'] as String,
+  );
+}
+
+Map<String, dynamic> _$DevelopmentDocToJson(DevelopmentDoc instance) =>
+    <String, dynamic>{
+      'docName': instance.docName,
+      'docPath': instance.docPath,
+    };

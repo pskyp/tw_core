@@ -16,6 +16,7 @@ Tender _$TenderFromJson(Map<String, dynamic> json) {
     requirements: json['requirements'] as String,
     startDate: DateTime.parse(json['startDate'] as String),
     endDate: DateTime.parse(json['endDate'] as String),
+    location: LocationModel.fromJson(json['location'] as Map<String, dynamic>),
   );
 }
 
@@ -28,4 +29,5 @@ Map<String, dynamic> _$TenderToJson(Tender instance) => <String, dynamic>{
       'endDate': instance.endDate.toIso8601String(),
       'trade': instance.trade.toJson(),
       'requirements': instance.requirements,
+      'location': instance.location.toJson(),
     };
