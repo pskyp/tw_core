@@ -8,15 +8,9 @@ part 'developer.g.dart';
 @JsonSerializable(explicitToJson: true)
 class Developer {
   final TWUser twUser;
-  final String phone;
-  final String companyName;
-  final String companyDomain;
 
   Developer({
     required this.twUser,
-    required this.phone,
-    required this.companyName,
-    required this.companyDomain,
   });
 
   factory Developer.fromJson(Map<String, dynamic> json) =>

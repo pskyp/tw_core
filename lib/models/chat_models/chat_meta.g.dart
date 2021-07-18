@@ -8,25 +8,28 @@ part of 'chat_meta.dart';
 
 ChatMeta _$ChatMetaFromJson(Map<String, dynamic> json) {
   return ChatMeta(
+    chatRoomId: json['chatRoomId'] as String,
     participantUIDs: (json['participantUIDs'] as List<dynamic>)
         .map((e) => e as String)
         .toList(),
     jobId: json['jobId'] as String,
     jobTitle: json['jobTitle'] as String,
-    development: json['development'] as String,
-    lastChatItem:
-        ChatItem.fromJson(json['lastChatItem'] as Map<String, dynamic>),
-    seenByReceiver: json['seenByReceiver'] as bool,
+    developmentTitle: json['developmentTitle'] as String,
+    lastChatItem: json['lastChatItem'] == null
+        ? null
+        : ChatItem.fromJson(json['lastChatItem'] as Map<String, dynamic>),
+    seenByAll: json['seenByAll'] as bool,
     isArchived: json['isArchived'] as bool,
   );
 }
 
 Map<String, dynamic> _$ChatMetaToJson(ChatMeta instance) => <String, dynamic>{
+      'chatRoomId': instance.chatRoomId,
       'jobId': instance.jobId,
       'jobTitle': instance.jobTitle,
-      'development': instance.development,
-      'lastChatItem': instance.lastChatItem.toJson(),
-      'seenByReceiver': instance.seenByReceiver,
+      'developmentTitle': instance.developmentTitle,
+      'lastChatItem': instance.lastChatItem?.toJson(),
+      'seenByAll': instance.seenByAll,
       'isArchived': instance.isArchived,
       'participantUIDs': instance.participantUIDs,
     };

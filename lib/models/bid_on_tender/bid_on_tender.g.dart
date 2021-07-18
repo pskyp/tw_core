@@ -10,9 +10,8 @@ BidOnTender _$BidOnTenderFromJson(Map<String, dynamic> json) {
   return BidOnTender(
     bidId: json['bidId'] as String,
     tenderId: json['tenderId'] as String,
-    contractorId: json['contractorId'] as String,
     status: _$enumDecode(_$TenderBidStatusEnumMap, json['status']),
-    contractorCompanyName: json['contractorCompanyName'] as String,
+    bidder: Person.fromJson(json['bidder'] as Map<String, dynamic>),
     rating: (json['rating'] as num).toDouble(),
   );
 }
@@ -21,9 +20,8 @@ Map<String, dynamic> _$BidOnTenderToJson(BidOnTender instance) =>
     <String, dynamic>{
       'bidId': instance.bidId,
       'tenderId': instance.tenderId,
-      'contractorId': instance.contractorId,
       'status': _$TenderBidStatusEnumMap[instance.status],
-      'contractorCompanyName': instance.contractorCompanyName,
+      'bidder': instance.bidder.toJson(),
       'rating': instance.rating,
     };
 

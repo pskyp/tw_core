@@ -8,6 +8,8 @@ part of 'tw_user.dart';
 
 TWUser _$TWUserFromJson(Map<String, dynamic> json) {
   return TWUser(
+    companyDomain: json['companyDomain'] as String,
+    type: _$enumDecode(_$TWUserTypeEnumMap, json['type']),
     uid: json['uid'] as String,
     company: json['company'] as String,
     profileImage: json['profileImage'] as String,
@@ -15,12 +17,8 @@ TWUser _$TWUserFromJson(Map<String, dynamic> json) {
     displayName: json['displayName'] as String,
     email: json['email'] as String,
     pushToken: json['pushToken'] as String,
-    type: json['type'] as String,
-    phone: json['phone'] as int,
-    latitude: (json['latitude'] as num).toDouble(),
-    longitude: (json['longitude'] as num).toDouble(),
-    address: json['address'] as String,
-    city: json['city'] as String,
+    phone: json['phone'] as String,
+    location: LocationModel.fromJson(json['location'] as Map<String, dynamic>),
   )..invoicingDetails = json['invoicingDetails'] == null
       ? null
       : InvoicingDetails.fromJson(
@@ -29,17 +27,47 @@ TWUser _$TWUserFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$TWUserToJson(TWUser instance) => <String, dynamic>{
       'uid': instance.uid,
+      'type': _$TWUserTypeEnumMap[instance.type],
       'displayName': instance.displayName,
       'profileImage': instance.profileImage,
       'email': instance.email,
       'company': instance.company,
+      'companyDomain': instance.companyDomain,
       'pushToken': instance.pushToken,
       'phone': instance.phone,
-      'latitude': instance.latitude,
-      'longitude': instance.longitude,
-      'address': instance.address,
-      'city': instance.city,
+      'location': instance.location.toJson(),
       'memberSince': instance.memberSince.toIso8601String(),
       'invoicingDetails': instance.invoicingDetails?.toJson(),
-      'type': instance.type,
     };
+
+K _$enumDecode<K, V>(
+  Map<K, V> enumValues,
+  Object? source, {
+  K? unknownValue,
+}) {
+  if (source == null) {
+    throw ArgumentError(
+      'A value must be provided. Supported values: '
+      '${enumValues.values.join(', ')}',
+    );
+  }
+
+  return enumValues.entries.singleWhere(
+    (e) => e.value == source,
+    orElse: () {
+      if (unknownValue == null) {
+        throw ArgumentError(
+          '`$source` is not one of the supported values: '
+          '${enumValues.values.join(', ')}',
+        );
+      }
+      return MapEntry(unknownValue, enumValues.values.first);
+    },
+  ).key;
+}
+
+const _$TWUserTypeEnumMap = {
+  TWUserType.Developer: 'Developer',
+  TWUserType.Contractor: 'Contractor',
+  TWUserType.Subbie: 'Subbie',
+};

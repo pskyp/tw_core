@@ -9,22 +9,22 @@ part 'chat_item.g.dart';
 @JsonSerializable(explicitToJson: true)
 @immutable
 class ChatItem extends Equatable {
-  final String text;
-  final DateTime sendTime;
-  final Person sender;
-  final Person receiver;
   final String chatItemId;
-  final String development;
-  final bool seen;
+  final String chatRoomId;
+  final String text;
+  final Person sender;
+  final DateTime sendTime;
+  final bool seenByAll;
+  // final Person receiver;
+  // final String developmentTitle;
 
   ChatItem({
-    required this.sender,
-    required this.development,
     required this.chatItemId,
-    required this.receiver,
+    required this.chatRoomId,
     required this.text,
-    required this.seen,
+    required this.sender,
     required this.sendTime,
+    required this.seenByAll,
   });
 
   get shortText => text.length < 30 ? text : text.substring(0, 30) + '...';

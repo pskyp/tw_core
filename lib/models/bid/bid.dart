@@ -14,14 +14,14 @@ class Bid {
   final String jobId;
   final String title;
   final String description;
-  final String development;
+  final String developmentTitle;
   final Trade trade;
   final DateTime appliedOn;
   final String address;
   final String contractorId;
   final bool seenByContractor;
 
-  //the person field is kinda nnecessary in the subbie app
+  //the person field is kinda unnecessary in the subbie app
   //since a subbie can only view his own bids
   //but for the sake of sameness with the contractor app the person object is here
   final Person person;
@@ -33,7 +33,7 @@ class Bid {
     required this.bidId,
     required this.contractorId,
     required this.title,
-    required this.development,
+    required this.developmentTitle,
     required this.person,
     required this.address,
     required this.seenByContractor,

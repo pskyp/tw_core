@@ -1,6 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/contractor/contractor_model.dart';
+import 'package:tw_core/models/person/person.dart';
 import 'package:tw_core/models/tender/tender_model.dart';
+import 'package:tw_core/models/tw_user/tw_user.dart';
 
 part 'bid_on_tender.g.dart';
 
@@ -10,19 +12,17 @@ enum TenderBidStatus { neu, active }
 class BidOnTender {
   final String bidId;
   final String tenderId;
-  final String contractorId;
   final TenderBidStatus status;
-  final String contractorCompanyName;
+  final Person bidder;
   final double rating;
 
   BidOnTender({
     required this.bidId,
     required this.tenderId,
-    required this.contractorId,
     required this.status,
-    required this.contractorCompanyName,
+    required this.bidder,
     required this.rating,
-  });
+  }) : assert(bidder.type == TWUserType.Contractor);
 
   Map<String, dynamic> toJson() => _$BidOnTenderToJson(this);
   factory BidOnTender.fromJson(Map<String, dynamic> json) =>
@@ -34,10 +34,9 @@ class BidOnTender {
   ) {
     return BidOnTender(
       bidId: tender.id + DateTime.now().toString(),
-      contractorId: contractor.basicProfile.uid,
       tenderId: tender.id,
       status: TenderBidStatus.neu,
-      contractorCompanyName: contractor.basicProfile.company,
+      bidder: Person.fromTWUser(contractor.basicProfile),
       rating: contractor.rating,
     );
   }
@@ -46,9 +45,8 @@ class BidOnTender {
     return BidOnTender(
         bidId: bidId,
         tenderId: tenderId,
-        contractorId: contractorId,
         status: TenderBidStatus.active,
-        contractorCompanyName: contractorCompanyName,
+        bidder: bidder,
         rating: rating);
   }
 }

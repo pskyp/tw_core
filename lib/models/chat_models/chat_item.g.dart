@@ -8,22 +8,20 @@ part of 'chat_item.dart';
 
 ChatItem _$ChatItemFromJson(Map<String, dynamic> json) {
   return ChatItem(
-    sender: Person.fromJson(json['sender'] as Map<String, dynamic>),
-    development: json['development'] as String,
     chatItemId: json['chatItemId'] as String,
-    receiver: Person.fromJson(json['receiver'] as Map<String, dynamic>),
+    chatRoomId: json['chatRoomId'] as String,
     text: json['text'] as String,
-    seen: json['seen'] as bool,
+    sender: Person.fromJson(json['sender'] as Map<String, dynamic>),
     sendTime: DateTime.parse(json['sendTime'] as String),
+    seenByAll: json['seenByAll'] as bool,
   );
 }
 
 Map<String, dynamic> _$ChatItemToJson(ChatItem instance) => <String, dynamic>{
-      'text': instance.text,
-      'sendTime': instance.sendTime.toIso8601String(),
-      'sender': instance.sender.toJson(),
-      'receiver': instance.receiver.toJson(),
       'chatItemId': instance.chatItemId,
-      'development': instance.development,
-      'seen': instance.seen,
+      'chatRoomId': instance.chatRoomId,
+      'text': instance.text,
+      'sender': instance.sender.toJson(),
+      'sendTime': instance.sendTime.toIso8601String(),
+      'seenByAll': instance.seenByAll,
     };

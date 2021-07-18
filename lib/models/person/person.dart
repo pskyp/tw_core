@@ -10,24 +10,33 @@ part 'person.g.dart';
 @JsonSerializable(explicitToJson: true)
 class Person {
   final String uid;
+  final TWUserType type;
   final String displayName;
   final String profileImage;
+  final String phone;
   final String company;
+  final String companyDomain;
 
   Person({
     required this.uid,
+    required this.type,
     required this.displayName,
     required this.profileImage,
-    this.company = "",
+    required this.phone,
+    required this.company,
+    required this.companyDomain,
   });
 
   factory Person.fromTWUser(TWUser user) {
     log('person from user');
     return Person(
+      uid: user.uid,
+      type: user.type,
       displayName: user.displayName,
       profileImage: user.profileImage,
-      uid: user.uid,
       company: user.company,
+      companyDomain: user.companyDomain,
+      phone: user.phone,
     );
   }
 

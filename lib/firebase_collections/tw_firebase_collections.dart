@@ -9,4 +9,6 @@ class TWFC {
       FirebaseFirestore.instance.collection('tenders');
   static final developmentsCollection =
       FirebaseFirestore.instance.collection('developments');
+
+  static final chatsCollection = FirebaseFirestore.instance.collection('chat');
 }

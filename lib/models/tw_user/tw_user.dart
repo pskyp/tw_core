@@ -1,31 +1,34 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/invoicing/invoicing_details_model.dart';
+import 'package:tw_core/models/location/location_model.dart';
 
 import '../position_converter.dart';
 
 part 'tw_user.g.dart';
 
+enum TWUserType { Developer, Contractor, Subbie }
+
 @JsonSerializable(explicitToJson: true)
-// @PositionConverter()
 class TWUser {
   final String uid;
+  final TWUserType type;
   final String displayName;
   final String profileImage;
   final String email;
   final String company;
+  final String companyDomain;
   final String pushToken;
-  final int phone;
-  double latitude, longitude;
-  String address;
-  String city;
+  final String phone;
+  LocationModel location;
+  // double latitude, longitude;
+  // String address;
+  // String city;
   final DateTime memberSince;
   InvoicingDetails? invoicingDetails;
 
-  //the app expects the type attribute to only have one of two value:
-  // contractor, subbie
-  final String type;
-
   TWUser({
+    required this.companyDomain,
+    required this.type,
     required this.uid,
     required this.company,
     required this.profileImage,
@@ -33,12 +36,12 @@ class TWUser {
     required this.displayName,
     required this.email,
     required this.pushToken,
-    required this.type,
     required this.phone,
-    required this.latitude,
-    required this.longitude,
-    required this.address,
-    required this.city,
+    required this.location,
+    // required this.latitude,
+    // required this.longitude,
+    // required this.address,
+    // required this.city,
   });
 
   Map<String, dynamic> toJson() => _$TWUserToJson(this);
