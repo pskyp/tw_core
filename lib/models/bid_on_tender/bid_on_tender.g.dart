@@ -9,6 +9,8 @@ part of 'bid_on_tender.dart';
 BidOnTender _$BidOnTenderFromJson(Map<String, dynamic> json) {
   return BidOnTender(
     bidId: json['bidId'] as String,
+    bidderId: json['bidderId'] as String,
+    developerId: json['developerId'] as String,
     tenderId: json['tenderId'] as String,
     status: _$enumDecode(_$TenderBidStatusEnumMap, json['status']),
     bidder: Person.fromJson(json['bidder'] as Map<String, dynamic>),
@@ -19,6 +21,8 @@ BidOnTender _$BidOnTenderFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$BidOnTenderToJson(BidOnTender instance) =>
     <String, dynamic>{
       'bidId': instance.bidId,
+      'bidderId': instance.bidderId,
+      'developerId': instance.developerId,
       'tenderId': instance.tenderId,
       'status': _$TenderBidStatusEnumMap[instance.status],
       'bidder': instance.bidder.toJson(),

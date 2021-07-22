@@ -61,7 +61,7 @@ class ChatMeta extends Equatable {
 
   ChatMeta copyWithNewLastChatItem(ChatItem chatItem) {
     return ChatMeta(
-      lastChatItem: lastChatItem,
+      lastChatItem: chatItem,
       seenByAll: false,
       chatRoomId: this.chatRoomId,
       jobId: this.jobId,

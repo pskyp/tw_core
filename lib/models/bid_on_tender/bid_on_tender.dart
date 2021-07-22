@@ -11,6 +11,8 @@ enum TenderBidStatus { neu, active }
 @JsonSerializable(explicitToJson: true)
 class BidOnTender {
   final String bidId;
+  final String bidderId;
+  final String developerId;
   final String tenderId;
   final TenderBidStatus status;
   final Person bidder;
@@ -18,6 +20,8 @@ class BidOnTender {
 
   BidOnTender({
     required this.bidId,
+    required this.bidderId,
+    required this.developerId,
     required this.tenderId,
     required this.status,
     required this.bidder,
@@ -33,6 +37,8 @@ class BidOnTender {
     Tender tender,
   ) {
     return BidOnTender(
+      bidderId: contractor.basicProfile.uid,
+      developerId: tender.developerId,
       bidId: tender.id + DateTime.now().toString(),
       tenderId: tender.id,
       status: TenderBidStatus.neu,
@@ -43,6 +49,8 @@ class BidOnTender {
 
   BidOnTender copyWithStatusActive() {
     return BidOnTender(
+        bidderId: bidderId,
+        developerId: developerId,
         bidId: bidId,
         tenderId: tenderId,
         status: TenderBidStatus.active,
