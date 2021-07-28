@@ -15,11 +15,12 @@ dependencies:
   cloud_firestore: ^2.3.0
   dartz: 0.10.0-nullsafety.2
   equatable: ^2.0.2
+  firebase_auth: ^3.0.1
   formz: ^0.4.0
+  freezed_annotation: ^0.14.3
   geolocator: ^7.0.3
   http: ^0.13.3
   json_annotation: ^4.1.0
-  freezed_annotation: ^0.14.3
 
 dependency_overrides:
   meta: ^1.4.0
@@ -27,8 +28,8 @@ dependency_overrides:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  json_serializable: ^5.0.0
   freezed: ^0.14.3
+  json_serializable: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

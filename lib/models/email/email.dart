@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tw_core/models/errors.dart';
 
 part 'email.freezed.dart';
 
@@ -12,6 +13,8 @@ class EmailAddress extends Equatable {
   factory EmailAddress(String input) {
     return EmailAddress._(validate(input));
   }
+
+  String getOrCrash() => value.fold((l) => throw UnexpectedValueError(), id);
 
   static Either<EmailValueFailures, String> validate(
     final String input,

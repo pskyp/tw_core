@@ -1,21 +1,29 @@
-import 'package:formz/formz.dart';
+import 'package:dartz/dartz.dart';
+import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tw_core/models/errors.dart';
 
-enum PasswordValidationError { invalid }
+part 'password.freezed.dart';
 
-class Password extends FormzInput<String, PasswordValidationError> {
-  const Password.pure() : super.pure('');
-  const Password.dirty([String value = '']) : super.dirty(value);
+class Password extends Equatable {
+  final Either<PasswordValueFailure, String> value;
 
-  static final _passwordRegExp =
-      RegExp(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$');
+  Password(String input) : value = validatePassword(input);
+
+  static Either<PasswordValueFailure, String> validatePassword(String input) {
+    return input.length > 5
+        ? right(input)
+        : left(PasswordValueFailure.shortPassword(input));
+  }
+
+  String getOrCrash() => value.fold((l) => throw UnexpectedValueError(), id);
 
   @override
-  PasswordValidationError? validator(String? value) {
-    if (value == null) return null;
-    return value.length > 5 ? null : PasswordValidationError.invalid;
+  List<Object> get props => [value];
+}
 
-    // return _passwordRegExp.hasMatch(value ?? '')
-    //     ? null
-    //     : PasswordValidationError.invalid;
-  }
+@freezed
+class PasswordValueFailure with _$PasswordValueFailure {
+  const factory PasswordValueFailure.shortPassword(String value) =
+      ShortPassword;
 }
