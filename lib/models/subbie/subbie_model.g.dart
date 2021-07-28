@@ -6,25 +6,24 @@ part of 'subbie_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Subbie _$SubbieFromJson(Map<String, dynamic> json) {
-  return Subbie(
-    basicProfile: TWUser.fromJson(json['basicProfile'] as Map<String, dynamic>),
-    subscriptionToggledOn:
-        DateTime.parse(json['subscriptionToggledOn'] as String),
-    cscsQualifications: json['cscsQualifications'] as List<dynamic>,
-    searchRadius: json['searchRadius'] as int,
-    cscsValidTo: DateTime.parse(json['cscsValidTo'] as String),
-    cscsVerified: json['cscsVerified'] as bool,
-    subscribed: json['subscribed'] as bool,
-    selectedTrades: (json['selectedTrades'] as List<dynamic>)
-        .map((e) => Trade.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    totalJobs: json['totalJobs'] as int,
-    totalProfessionalism: (json['totalProfessionalism'] as num).toDouble(),
-    totalServiceQuality: (json['totalServiceQuality'] as num).toDouble(),
-    totalTimeManagement: (json['totalTimeManagement'] as num).toDouble(),
-  );
-}
+Subbie _$SubbieFromJson(Map<String, dynamic> json) => Subbie(
+      basicProfile:
+          TWUser.fromJson(json['basicProfile'] as Map<String, dynamic>),
+      subscriptionToggledOn:
+          DateTime.parse(json['subscriptionToggledOn'] as String),
+      cscsQualifications: json['cscsQualifications'] as List<dynamic>,
+      searchRadius: json['searchRadius'] as int,
+      cscsValidTo: DateTime.parse(json['cscsValidTo'] as String),
+      cscsVerified: json['cscsVerified'] as bool,
+      subscribed: json['subscribed'] as bool,
+      selectedTrades: (json['selectedTrades'] as List<dynamic>)
+          .map((e) => Trade.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      totalJobs: json['totalJobs'] as int,
+      totalProfessionalism: (json['totalProfessionalism'] as num).toDouble(),
+      totalServiceQuality: (json['totalServiceQuality'] as num).toDouble(),
+      totalTimeManagement: (json['totalTimeManagement'] as num).toDouble(),
+    );
 
 Map<String, dynamic> _$SubbieToJson(Subbie instance) => <String, dynamic>{
       'basicProfile': instance.basicProfile.toJson(),

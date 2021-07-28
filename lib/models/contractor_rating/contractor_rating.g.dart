@@ -6,13 +6,12 @@ part of 'contractor_rating.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ContractorRating _$ContractorRatingFromJson(Map<String, dynamic> json) {
-  return ContractorRating(
-    reliability: (json['reliability'] as num).toDouble(),
-    communication: (json['communication'] as num).toDouble(),
-    environment: (json['environment'] as num).toDouble(),
-  );
-}
+ContractorRating _$ContractorRatingFromJson(Map<String, dynamic> json) =>
+    ContractorRating(
+      reliability: (json['reliability'] as num).toDouble(),
+      communication: (json['communication'] as num).toDouble(),
+      environment: (json['environment'] as num).toDouble(),
+    );
 
 Map<String, dynamic> _$ContractorRatingToJson(ContractorRating instance) =>
     <String, dynamic>{
@@ -22,13 +21,12 @@ Map<String, dynamic> _$ContractorRatingToJson(ContractorRating instance) =>
     };
 
 PendingContractorRating _$PendingContractorRatingFromJson(
-    Map<String, dynamic> json) {
-  return PendingContractorRating(
-    contractorId: json['contractorId'] as String,
-    jobId: json['jobId'] as String,
-    jobTitle: json['jobTitle'] as String,
-  );
-}
+        Map<String, dynamic> json) =>
+    PendingContractorRating(
+      contractorId: json['contractorId'] as String,
+      jobId: json['jobId'] as String,
+      jobTitle: json['jobTitle'] as String,
+    );
 
 Map<String, dynamic> _$PendingContractorRatingToJson(
         PendingContractorRating instance) =>

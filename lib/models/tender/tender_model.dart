@@ -1,10 +1,11 @@
+import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/location/location_model.dart';
 
 import '../trades.dart';
-
 part 'tender_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
@@ -18,7 +19,7 @@ class Tender extends Equatable {
   final Trade trade;
   final String requirements;
   final LocationModel location;
-  final TenderProcessTimeline timeline;
+  // final TenderTimeline timeline;
 
   const Tender({
     required this.id,
@@ -30,7 +31,7 @@ class Tender extends Equatable {
     required this.startDate,
     required this.endDate,
     required this.location,
-    required this.timeline,
+    // required this.timeline,
   });
 
   @override
@@ -44,36 +45,9 @@ class Tender extends Equatable {
         startDate,
         endDate,
         location,
-        timeline,
+        // timeline,
       ];
 
   Map<String, dynamic> toJson() => _$TenderToJson(this);
   factory Tender.fromJson(Map<String, dynamic> json) => _$TenderFromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class TenderProcessTimeline extends Equatable {
-  final DateTime openToQueries,
-      submissionsDeadline,
-      feedbackDeadline,
-      awardDeadline;
-  TenderProcessTimeline({
-    required this.openToQueries,
-    required this.submissionsDeadline,
-    required this.feedbackDeadline,
-    required this.awardDeadline,
-  });
-
-  Map<String, dynamic> toJson() => _$TenderProcessTimelineToJson(this);
-
-  factory TenderProcessTimeline.fromJson(Map<String, dynamic> json) =>
-      _$TenderProcessTimelineFromJson(json);
-
-  @override
-  List<Object?> get props => [
-        openToQueries,
-        submissionsDeadline,
-        feedbackDeadline,
-        awardDeadline,
-      ];
 }

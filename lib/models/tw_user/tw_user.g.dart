@@ -6,24 +6,23 @@ part of 'tw_user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-TWUser _$TWUserFromJson(Map<String, dynamic> json) {
-  return TWUser(
-    companyDomain: json['companyDomain'] as String,
-    type: _$enumDecode(_$TWUserTypeEnumMap, json['type']),
-    uid: json['uid'] as String,
-    company: json['company'] as String,
-    profileImage: json['profileImage'] as String,
-    memberSince: DateTime.parse(json['memberSince'] as String),
-    displayName: json['displayName'] as String,
-    email: json['email'] as String,
-    pushToken: json['pushToken'] as String,
-    phone: json['phone'] as String,
-    location: LocationModel.fromJson(json['location'] as Map<String, dynamic>),
-  )..invoicingDetails = json['invoicingDetails'] == null
-      ? null
-      : InvoicingDetails.fromJson(
-          json['invoicingDetails'] as Map<String, dynamic>);
-}
+TWUser _$TWUserFromJson(Map<String, dynamic> json) => TWUser(
+      companyDomain: json['companyDomain'] as String,
+      type: _$enumDecode(_$TWUserTypeEnumMap, json['type']),
+      uid: json['uid'] as String,
+      company: json['company'] as String,
+      profileImage: json['profileImage'] as String,
+      memberSince: DateTime.parse(json['memberSince'] as String),
+      displayName: json['displayName'] as String,
+      email: json['email'] as String,
+      pushToken: json['pushToken'] as String,
+      phone: json['phone'] as String,
+      location:
+          LocationModel.fromJson(json['location'] as Map<String, dynamic>),
+    )..invoicingDetails = json['invoicingDetails'] == null
+        ? null
+        : InvoicingDetails.fromJson(
+            json['invoicingDetails'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$TWUserToJson(TWUser instance) => <String, dynamic>{
       'uid': instance.uid,

@@ -1,19 +1,35 @@
-import 'package:formz/formz.dart';
+import 'package:dartz/dartz.dart';
+import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-enum EmailValidationError { invalid }
+part 'email.freezed.dart';
 
-class Email extends FormzInput<String, EmailValidationError> {
-  const Email.pure() : super.pure('');
-  const Email.dirty([String value = '']) : super.dirty(value);
+class EmailAddress extends Equatable {
+  final Either<EmailValueFailures, String> value;
 
-  static final RegExp _emailRegExp = RegExp(
-    r'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$',
-  );
+  const EmailAddress._(this.value);
+
+  factory EmailAddress(String input) {
+    return EmailAddress._(validate(input));
+  }
+
+  static Either<EmailValueFailures, String> validate(
+    final String input,
+  ) {
+    final RegExp emailRegExp = RegExp(
+      r'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$',
+    );
+
+    return emailRegExp.hasMatch(input)
+        ? right(input)
+        : left(EmailValueFailures.invalidEmail(input));
+  }
 
   @override
-  EmailValidationError? validator(String? value) {
-    return _emailRegExp.hasMatch(value ?? '')
-        ? null
-        : EmailValidationError.invalid;
-  }
+  List<Object> get props => [value];
+}
+
+@freezed
+class EmailValueFailures with _$EmailValueFailures {
+  const factory EmailValueFailures.invalidEmail(String value) = InvalidEmail;
 }

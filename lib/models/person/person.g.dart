@@ -6,17 +6,15 @@ part of 'person.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Person _$PersonFromJson(Map<String, dynamic> json) {
-  return Person(
-    uid: json['uid'] as String,
-    type: _$enumDecode(_$TWUserTypeEnumMap, json['type']),
-    displayName: json['displayName'] as String,
-    profileImage: json['profileImage'] as String,
-    phone: json['phone'] as String,
-    company: json['company'] as String,
-    companyDomain: json['companyDomain'] as String,
-  );
-}
+Person _$PersonFromJson(Map<String, dynamic> json) => Person(
+      uid: json['uid'] as String,
+      type: _$enumDecode(_$TWUserTypeEnumMap, json['type']),
+      displayName: json['displayName'] as String,
+      profileImage: json['profileImage'] as String,
+      phone: json['phone'] as String,
+      company: json['company'] as String,
+      companyDomain: json['companyDomain'] as String,
+    );
 
 Map<String, dynamic> _$PersonToJson(Person instance) => <String, dynamic>{
       'uid': instance.uid,

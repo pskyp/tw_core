@@ -6,34 +6,32 @@ part of 'job.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Job _$JobFromJson(Map<String, dynamic> json) {
-  return Job(
-    jobId: json['jobId'] as String,
-    status: JobStatus.fromJson(json['status'] as Map<String, dynamic>),
-    latitude: (json['latitude'] as num).toDouble(),
-    longitude: (json['longitude'] as num).toDouble(),
-    totalUnseenBids: json['totalUnseenBids'] as int,
-    development: json['development'] as String,
-    title: json['title'] as String,
-    description: json['description'] as String,
-    hourlyRate: (json['hourlyRate'] as num).toDouble(),
-    applications: json['applications'] as int,
-    endDate: DateTime.parse(json['endDate'] as String),
-    hrsPerDay: json['hrsPerDay'] as int,
-    startDate: DateTime.parse(json['startDate'] as String),
-    subbiesRequired: json['subbiesRequired'] as int,
-    requirements: (json['requirements'] as List<dynamic>)
-        .map((e) => e as String)
-        .toList(),
-    subbiesWorking: json['subbiesWorking'] as int,
-    postedOn: DateTime.parse(json['postedOn'] as String),
-    acceptingBids: json['acceptingBids'] as bool,
-    contractorId: json['contractorId'] as String,
-    trade: Trade.fromJson(json['trade'] as Map<String, dynamic>),
-    address: json['address'] as String,
-    refreshCounter: json['refreshCounter'] as int,
-  );
-}
+Job _$JobFromJson(Map<String, dynamic> json) => Job(
+      jobId: json['jobId'] as String,
+      status: JobStatus.fromJson(json['status'] as Map<String, dynamic>),
+      latitude: (json['latitude'] as num).toDouble(),
+      longitude: (json['longitude'] as num).toDouble(),
+      totalUnseenBids: json['totalUnseenBids'] as int,
+      development: json['development'] as String,
+      title: json['title'] as String,
+      description: json['description'] as String,
+      hourlyRate: (json['hourlyRate'] as num).toDouble(),
+      applications: json['applications'] as int,
+      endDate: DateTime.parse(json['endDate'] as String),
+      hrsPerDay: json['hrsPerDay'] as int,
+      startDate: DateTime.parse(json['startDate'] as String),
+      subbiesRequired: json['subbiesRequired'] as int,
+      requirements: (json['requirements'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      subbiesWorking: json['subbiesWorking'] as int,
+      postedOn: DateTime.parse(json['postedOn'] as String),
+      acceptingBids: json['acceptingBids'] as bool,
+      contractorId: json['contractorId'] as String,
+      trade: Trade.fromJson(json['trade'] as Map<String, dynamic>),
+      address: json['address'] as String,
+      refreshCounter: json['refreshCounter'] as int,
+    );
 
 Map<String, dynamic> _$JobToJson(Job instance) => <String, dynamic>{
       'jobId': instance.jobId,

@@ -6,17 +6,15 @@ part of 'bid_on_tender.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-BidOnTender _$BidOnTenderFromJson(Map<String, dynamic> json) {
-  return BidOnTender(
-    bidId: json['bidId'] as String,
-    bidderId: json['bidderId'] as String,
-    developerId: json['developerId'] as String,
-    tenderId: json['tenderId'] as String,
-    status: _$enumDecode(_$TenderBidStatusEnumMap, json['status']),
-    bidder: Person.fromJson(json['bidder'] as Map<String, dynamic>),
-    rating: (json['rating'] as num).toDouble(),
-  );
-}
+BidOnTender _$BidOnTenderFromJson(Map<String, dynamic> json) => BidOnTender(
+      bidId: json['bidId'] as String,
+      bidderId: json['bidderId'] as String,
+      developerId: json['developerId'] as String,
+      tenderId: json['tenderId'] as String,
+      status: _$enumDecode(_$TenderBidStatusEnumMap, json['status']),
+      bidder: Person.fromJson(json['bidder'] as Map<String, dynamic>),
+      rating: (json['rating'] as num).toDouble(),
+    );
 
 Map<String, dynamic> _$BidOnTenderToJson(BidOnTender instance) =>
     <String, dynamic>{
