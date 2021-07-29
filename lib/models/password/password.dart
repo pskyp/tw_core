@@ -11,6 +11,7 @@ class Password extends Equatable {
   Password(String input) : value = validatePassword(input);
 
   static Either<PasswordValueFailure, String> validatePassword(String input) {
+    print(input.length);
     return input.length > 5
         ? right(input)
         : left(PasswordValueFailure.shortPassword(input));

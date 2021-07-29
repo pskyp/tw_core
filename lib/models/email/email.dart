@@ -16,12 +16,9 @@ class EmailAddress extends Equatable {
 
   String getOrCrash() => value.fold((l) => throw UnexpectedValueError(), id);
 
-  static Either<EmailValueFailures, String> validate(
-    final String input,
-  ) {
+  static Either<EmailValueFailures, String> validate(final String input) {
     final RegExp emailRegExp = RegExp(
-      r'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$',
-    );
+        r'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$');
 
     return emailRegExp.hasMatch(input)
         ? right(input)
