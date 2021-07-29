@@ -11,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  bloc: ^7.0.0
   build_runner: ^2.0.4
   cloud_firestore: ^2.3.0
   dartz: 0.10.0-nullsafety.2
@@ -19,6 +20,7 @@ dependencies:
   formz: ^0.4.0
   freezed_annotation: ^0.14.3
   geolocator: ^7.0.3
+  google_sign_in: ^5.0.5
   http: ^0.13.3
   json_annotation: ^4.1.0
 
