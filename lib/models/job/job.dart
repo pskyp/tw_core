@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/location/location_model.dart';
 
 import '../trades.dart';
 import 'job_action.dart';
@@ -27,17 +28,14 @@ class Job {
   final List<String> requirements;
   final Trade trade;
   final bool acceptingBids;
-  final double latitude;
-  final double longitude;
-  final String address;
   final int totalUnseenBids;
   final int refreshCounter;
+  final LocationModel location;
 
   Job({
     required this.jobId,
     required this.status,
-    required this.latitude,
-    required this.longitude,
+    required this.location,
     required this.totalUnseenBids,
     required this.development,
     required this.title,
@@ -54,7 +52,6 @@ class Job {
     required this.acceptingBids,
     required this.contractorId,
     required this.trade,
-    required this.address,
     required this.refreshCounter,
   });
 
@@ -65,8 +62,9 @@ class Job {
       ? description
       : description.substring(0, 70) + '...';
 
-  get shortAddress =>
-      address.length < 50 ? address : address.substring(0, 50) + '...';
+  get shortAddress => location.completeAddress.length < 50
+      ? location.completeAddress
+      : location.completeAddress.substring(0, 50) + '...';
 
   get shortTitle => title.length < 50 ? title : title.substring(0, 45) + '...';
 
@@ -91,9 +89,7 @@ class Job {
     int? subbiesRequired,
     List<String>? requirements,
     Trade? trade,
-    String? address,
-    double? latitude,
-    double? longitude,
+    LocationModel? location,
   }) {
     return Job(
       jobId: this.jobId,
@@ -106,7 +102,7 @@ class Job {
       acceptingBids: this.acceptingBids,
       refreshCounter: this.refreshCounter,
       contractorId: this.contractorId,
-      address: address ?? this.address,
+      location: location ?? this.location,
       title: title ?? this.title,
       description: description ?? this.description,
       hourlyRate: hourlyRate ?? this.hourlyRate,
@@ -114,8 +110,6 @@ class Job {
       startDate: startDate ?? this.startDate,
       subbiesRequired: subbiesRequired ?? this.subbiesRequired,
       development: development ?? this.development,
-      latitude: latitude ?? this.latitude,
-      longitude: longitude ?? this.longitude,
       requirements: requirements ?? this.requirements,
       trade: trade ?? this.trade,
     );

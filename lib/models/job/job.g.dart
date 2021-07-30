@@ -9,8 +9,8 @@ part of 'job.dart';
 Job _$JobFromJson(Map<String, dynamic> json) => Job(
       jobId: json['jobId'] as String,
       status: JobStatus.fromJson(json['status'] as Map<String, dynamic>),
-      latitude: (json['latitude'] as num).toDouble(),
-      longitude: (json['longitude'] as num).toDouble(),
+      location:
+          LocationModel.fromJson(json['location'] as Map<String, dynamic>),
       totalUnseenBids: json['totalUnseenBids'] as int,
       development: json['development'] as String,
       title: json['title'] as String,
@@ -29,7 +29,6 @@ Job _$JobFromJson(Map<String, dynamic> json) => Job(
       acceptingBids: json['acceptingBids'] as bool,
       contractorId: json['contractorId'] as String,
       trade: Trade.fromJson(json['trade'] as Map<String, dynamic>),
-      address: json['address'] as String,
       refreshCounter: json['refreshCounter'] as int,
     );
 
@@ -51,9 +50,7 @@ Map<String, dynamic> _$JobToJson(Job instance) => <String, dynamic>{
       'requirements': instance.requirements,
       'trade': instance.trade.toJson(),
       'acceptingBids': instance.acceptingBids,
-      'latitude': instance.latitude,
-      'longitude': instance.longitude,
-      'address': instance.address,
       'totalUnseenBids': instance.totalUnseenBids,
       'refreshCounter': instance.refreshCounter,
+      'location': instance.location.toJson(),
     };

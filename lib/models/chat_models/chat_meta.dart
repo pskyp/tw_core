@@ -21,7 +21,7 @@ class ChatMeta extends Equatable {
   final bool seenByAll;
   final bool isArchived;
   final List<String> participantUIDs;
-  // final Person p1, p2;
+  final Person p1, p2;
 
   //it should be noted that the lastChatItem in the the chatMeta object
   //contains duplicate data. It is not updated. Hence the seenByAll
@@ -30,8 +30,8 @@ class ChatMeta extends Equatable {
   ChatMeta({
     required this.chatRoomId,
     required this.participantUIDs,
-    // required this.p1,
-    // required this.p2,
+    required this.p1,
+    required this.p2,
     required this.jobId,
     required this.jobTitle,
     required this.developmentTitle,
@@ -61,6 +61,8 @@ class ChatMeta extends Equatable {
 
   ChatMeta copyWithNewLastChatItem(ChatItem chatItem) {
     return ChatMeta(
+      p1: p1,
+      p2: p2,
       lastChatItem: chatItem,
       seenByAll: false,
       chatRoomId: this.chatRoomId,

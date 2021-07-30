@@ -11,6 +11,8 @@ ChatMeta _$ChatMetaFromJson(Map<String, dynamic> json) => ChatMeta(
       participantUIDs: (json['participantUIDs'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
+      p1: Person.fromJson(json['p1'] as Map<String, dynamic>),
+      p2: Person.fromJson(json['p2'] as Map<String, dynamic>),
       jobId: json['jobId'] as String,
       jobTitle: json['jobTitle'] as String,
       developmentTitle: json['developmentTitle'] as String,
@@ -30,4 +32,6 @@ Map<String, dynamic> _$ChatMetaToJson(ChatMeta instance) => <String, dynamic>{
       'seenByAll': instance.seenByAll,
       'isArchived': instance.isArchived,
       'participantUIDs': instance.participantUIDs,
+      'p1': instance.p1.toJson(),
+      'p2': instance.p2.toJson(),
     };
