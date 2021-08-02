@@ -1,13 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'chat_meta.dart';
+part of 'chat_room.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-ChatMeta _$ChatMetaFromJson(Map<String, dynamic> json) => ChatMeta(
+ChatRoom _$ChatRoomFromJson(Map<String, dynamic> json) => ChatRoom(
       chatRoomId: json['chatRoomId'] as String,
+      bidId: json['bidId'] as String,
       participantUIDs: (json['participantUIDs'] as List<dynamic>)
           .map((e) => e as String)
           .toList(),
@@ -23,15 +24,16 @@ ChatMeta _$ChatMetaFromJson(Map<String, dynamic> json) => ChatMeta(
       isArchived: json['isArchived'] as bool,
     );
 
-Map<String, dynamic> _$ChatMetaToJson(ChatMeta instance) => <String, dynamic>{
+Map<String, dynamic> _$ChatRoomToJson(ChatRoom instance) => <String, dynamic>{
       'chatRoomId': instance.chatRoomId,
+      'bidId': instance.bidId,
       'jobId': instance.jobId,
       'jobTitle': instance.jobTitle,
       'developmentTitle': instance.developmentTitle,
       'lastChatItem': instance.lastChatItem?.toJson(),
       'seenByAll': instance.seenByAll,
       'isArchived': instance.isArchived,
-      'participantUIDs': instance.participantUIDs,
       'p1': instance.p1.toJson(),
       'p2': instance.p2.toJson(),
+      'participantUIDs': instance.participantUIDs,
     };

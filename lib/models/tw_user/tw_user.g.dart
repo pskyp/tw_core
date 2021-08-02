@@ -8,6 +8,7 @@ part of 'tw_user.dart';
 
 TWUser _$TWUserFromJson(Map<String, dynamic> json) => TWUser(
       companyDomain: json['companyDomain'] as String,
+      shouldDisplayShowcase: json['shouldDisplayShowcase'] as bool,
       type: _$enumDecode(_$TWUserTypeEnumMap, json['type']),
       uid: json['uid'] as String,
       company: json['company'] as String,
@@ -37,6 +38,7 @@ Map<String, dynamic> _$TWUserToJson(TWUser instance) => <String, dynamic>{
       'location': instance.location.toJson(),
       'memberSince': instance.memberSince.toIso8601String(),
       'invoicingDetails': instance.invoicingDetails?.toJson(),
+      'shouldDisplayShowcase': instance.shouldDisplayShowcase,
     };
 
 K _$enumDecode<K, V>(

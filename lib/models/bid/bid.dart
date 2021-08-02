@@ -26,7 +26,7 @@ class Bid {
   //but for the sake of sameness with the contractor app the person object is here
   final Person person;
 
-  final BidStatus status;
+  final BidStatuses status;
 
   Bid({
     required this.jobId,
@@ -56,10 +56,27 @@ class Bid {
       address.length < 50 ? address : address.substring(0, 50) + '...';
 
   List<BidAction> get availableActions {
-    if (status.status != BidStatuses.Offered &&
-        status.status != BidStatuses.Hired &&
-        status.status != BidStatuses.Old)
+    if (status != BidStatuses.Offered &&
+        status != BidStatuses.Hired &&
+        status != BidStatuses.Old)
       return [BidAction(BidActions.OfferJob, 'Offer Job')];
     return [];
+  }
+
+  Bid copyWithNeuStatus(BidStatuses status) {
+    return Bid(
+      status: status,
+      jobId: this.jobId,
+      bidId: this.bidId,
+      contractorId: this.contractorId,
+      title: this.title,
+      developmentTitle: this.developmentTitle,
+      person: this.person,
+      address: this.address,
+      seenByContractor: this.seenByContractor,
+      description: this.description,
+      appliedOn: this.appliedOn,
+      trade: this.trade,
+    );
   }
 }

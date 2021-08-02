@@ -16,7 +16,7 @@ Bid _$BidFromJson(Map<String, dynamic> json) => Bid(
       address: json['address'] as String,
       seenByContractor: json['seenByContractor'] as bool,
       description: json['description'] as String,
-      status: BidStatus.fromJson(json['status'] as Map<String, dynamic>),
+      status: _$enumDecode(_$BidStatusesEnumMap, json['status']),
       appliedOn: DateTime.parse(json['appliedOn'] as String),
       trade: Trade.fromJson(json['trade'] as Map<String, dynamic>),
     );
@@ -33,5 +33,40 @@ Map<String, dynamic> _$BidToJson(Bid instance) => <String, dynamic>{
       'contractorId': instance.contractorId,
       'seenByContractor': instance.seenByContractor,
       'person': instance.person.toJson(),
-      'status': instance.status.toJson(),
+      'status': _$BidStatusesEnumMap[instance.status],
     };
+
+K _$enumDecode<K, V>(
+  Map<K, V> enumValues,
+  Object? source, {
+  K? unknownValue,
+}) {
+  if (source == null) {
+    throw ArgumentError(
+      'A value must be provided. Supported values: '
+      '${enumValues.values.join(', ')}',
+    );
+  }
+
+  return enumValues.entries.singleWhere(
+    (e) => e.value == source,
+    orElse: () {
+      if (unknownValue == null) {
+        throw ArgumentError(
+          '`$source` is not one of the supported values: '
+          '${enumValues.values.join(', ')}',
+        );
+      }
+      return MapEntry(unknownValue, enumValues.values.first);
+    },
+  ).key;
+}
+
+const _$BidStatusesEnumMap = {
+  BidStatuses.New: 'New',
+  BidStatuses.Negotiating: 'Negotiating',
+  BidStatuses.Offered: 'Offered',
+  BidStatuses.Hired: 'Hired',
+  BidStatuses.Rejected: 'Rejected',
+  BidStatuses.Old: 'Old',
+};

@@ -25,9 +25,11 @@ class TWUser {
   // String city;
   final DateTime memberSince;
   InvoicingDetails? invoicingDetails;
+  final bool shouldDisplayShowcase;
 
   TWUser({
     required this.companyDomain,
+    required this.shouldDisplayShowcase,
     required this.type,
     required this.uid,
     required this.company,
@@ -38,10 +40,6 @@ class TWUser {
     required this.pushToken,
     required this.phone,
     required this.location,
-    // required this.latitude,
-    // required this.longitude,
-    // required this.address,
-    // required this.city,
   });
 
   Map<String, dynamic> toJson() => _$TWUserToJson(this);
