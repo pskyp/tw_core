@@ -4,17 +4,19 @@ part of 'profilecompletion_bloc.dart';
 class ProfilecompletionState with _$ProfilecompletionState {
   const factory ProfilecompletionState({
     required TWPhone phone,
-    required TWCompanyName company,
+    required TWCompanyName companyName,
+    required TWCompanyDomain companyDomain,
     required TWDisplayName displayName,
     required LocationModel? location,
     required bool isSubmitting,
     required bool showErrorMessages,
-    required Option<Either<ProfilecompletionFailure, Unit>>
+    required Option<Either<ProfileCompletionFailure, Unit>>
         failureOrSucessOption,
   }) = _ProfilecompletionState;
 
   factory ProfilecompletionState.initial() => ProfilecompletionState(
-        company: TWCompanyName(''),
+        companyName: TWCompanyName(''),
+        companyDomain: TWCompanyDomain(''),
         displayName: TWDisplayName(''),
         location: null,
         phone: TWPhone(''),
@@ -23,5 +25,3 @@ class ProfilecompletionState with _$ProfilecompletionState {
         failureOrSucessOption: none(),
       );
 }
-
-class ProfilecompletionFailure {}

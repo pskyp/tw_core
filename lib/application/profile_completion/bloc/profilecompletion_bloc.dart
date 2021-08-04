@@ -3,10 +3,12 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tw_core/models/core/company_domain/company_domain.dart';
 import 'package:tw_core/models/core/company_name/company_name.dart';
 import 'package:tw_core/models/core/diplay_name/display_name.dart';
 import 'package:tw_core/models/core/phone/phone.dart';
 import 'package:tw_core/models/location/location_model.dart';
+import 'package:tw_core/models/profile_completion/profile_completion_failure.dart';
 import 'package:tw_core/models/user/i_user_service_facade.dart';
 
 part 'profilecompletion_event.dart';
@@ -24,6 +26,12 @@ class ProfilecompletionBloc
     ProfilecompletionEvent event,
   ) async* {
     yield* event.map(
+      companyDomainChanged: (e) async* {
+        yield state.copyWith(
+          companyDomain: TWCompanyDomain(e.value),
+          failureOrSucessOption: none(),
+        );
+      },
       displayNameChanged: (e) async* {
         yield state.copyWith(
           displayName: TWDisplayName(e.value),
@@ -36,9 +44,9 @@ class ProfilecompletionBloc
           failureOrSucessOption: none(),
         );
       },
-      companyChanged: (e) async* {
+      companyNameChanged: (e) async* {
         yield state.copyWith(
-          company: TWCompanyName(e.value),
+          companyName: TWCompanyName(e.value),
           failureOrSucessOption: none(),
         );
       },
@@ -49,20 +57,23 @@ class ProfilecompletionBloc
         );
       },
       submitPressed: (e) async* {
-        Either<ProfilecompletionFailure, Unit>? failureOrSuccess;
+        Either<ProfileCompletionFailure, Unit>? failureOrSuccess;
         bool isDisplayNameValid = state.displayName.value.isRight();
-        bool isCompanyNameValid = state.company.value.isRight();
+        bool isCompanyNameValid = state.companyName.value.isRight();
+        bool isCompanyDomainValid = state.companyDomain.value.isRight();
         bool isPhoneValid = state.phone.value.isRight();
         bool isLocationValid = state.location != null;
 
         if (isDisplayNameValid &&
             isCompanyNameValid &&
+            isCompanyDomainValid &&
             isPhoneValid &&
             isLocationValid) {
           yield state.copyWith(isSubmitting: true);
           failureOrSuccess = await userServiceFacade.createUserProfile(
             displayName: state.displayName,
-            company: state.company,
+            companyName: state.companyName,
+            companyDomain: state.companyDomain,
             phone: state.phone,
             location: state.location!,
           );

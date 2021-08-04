@@ -36,7 +36,9 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         if (isEmailValid && isPasswordValid) {
           yield state.copyWith(isSubmitting: true);
           failureOrSuccess = await authFacade.signinWithCredentials(
-              email: state.email, password: state.password);
+            email: state.email,
+            password: state.password,
+          );
         }
         yield state.copyWith(
           isSubmitting: false,

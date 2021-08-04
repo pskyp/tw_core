@@ -8,8 +8,11 @@ class ProfilecompletionEvent with _$ProfilecompletionEvent {
   const factory ProfilecompletionEvent.phoneChanged(String value) =
       PhoneChanged;
 
-  const factory ProfilecompletionEvent.companyChanged(String value) =
-      CompanyChanged;
+  const factory ProfilecompletionEvent.companyNameChanged(String value) =
+      CompanyNameChanged;
+
+  const factory ProfilecompletionEvent.companyDomainChanged(String value) =
+      CompanyDomainChanged;
 
   const factory ProfilecompletionEvent.locationChanged(LocationModel value) =
       LocationChanged;

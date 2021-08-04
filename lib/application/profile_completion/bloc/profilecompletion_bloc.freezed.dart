@@ -28,8 +28,14 @@ class _$ProfilecompletionEventTearOff {
     );
   }
 
-  CompanyChanged companyChanged(String value) {
-    return CompanyChanged(
+  CompanyNameChanged companyNameChanged(String value) {
+    return CompanyNameChanged(
+      value,
+    );
+  }
+
+  CompanyDomainChanged companyDomainChanged(String value) {
+    return CompanyDomainChanged(
       value,
     );
   }
@@ -54,7 +60,8 @@ mixin _$ProfilecompletionEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String value) displayNameChanged,
     required TResult Function(String value) phoneChanged,
-    required TResult Function(String value) companyChanged,
+    required TResult Function(String value) companyNameChanged,
+    required TResult Function(String value) companyDomainChanged,
     required TResult Function(LocationModel value) locationChanged,
     required TResult Function() submitPressed,
   }) =>
@@ -63,7 +70,8 @@ mixin _$ProfilecompletionEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String value)? displayNameChanged,
     TResult Function(String value)? phoneChanged,
-    TResult Function(String value)? companyChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
     TResult Function(LocationModel value)? locationChanged,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -73,7 +81,8 @@ mixin _$ProfilecompletionEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(DisplayNameChanged value) displayNameChanged,
     required TResult Function(PhoneChanged value) phoneChanged,
-    required TResult Function(CompanyChanged value) companyChanged,
+    required TResult Function(CompanyNameChanged value) companyNameChanged,
+    required TResult Function(CompanyDomainChanged value) companyDomainChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(SubmitPressed value) submitPressed,
   }) =>
@@ -82,7 +91,8 @@ mixin _$ProfilecompletionEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DisplayNameChanged value)? displayNameChanged,
     TResult Function(PhoneChanged value)? phoneChanged,
-    TResult Function(CompanyChanged value)? companyChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -174,7 +184,8 @@ class _$DisplayNameChanged implements DisplayNameChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String value) displayNameChanged,
     required TResult Function(String value) phoneChanged,
-    required TResult Function(String value) companyChanged,
+    required TResult Function(String value) companyNameChanged,
+    required TResult Function(String value) companyDomainChanged,
     required TResult Function(LocationModel value) locationChanged,
     required TResult Function() submitPressed,
   }) {
@@ -186,7 +197,8 @@ class _$DisplayNameChanged implements DisplayNameChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String value)? displayNameChanged,
     TResult Function(String value)? phoneChanged,
-    TResult Function(String value)? companyChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
     TResult Function(LocationModel value)? locationChanged,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -202,7 +214,8 @@ class _$DisplayNameChanged implements DisplayNameChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(DisplayNameChanged value) displayNameChanged,
     required TResult Function(PhoneChanged value) phoneChanged,
-    required TResult Function(CompanyChanged value) companyChanged,
+    required TResult Function(CompanyNameChanged value) companyNameChanged,
+    required TResult Function(CompanyDomainChanged value) companyDomainChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(SubmitPressed value) submitPressed,
   }) {
@@ -214,7 +227,8 @@ class _$DisplayNameChanged implements DisplayNameChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DisplayNameChanged value)? displayNameChanged,
     TResult Function(PhoneChanged value)? phoneChanged,
-    TResult Function(CompanyChanged value)? companyChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -302,7 +316,8 @@ class _$PhoneChanged implements PhoneChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String value) displayNameChanged,
     required TResult Function(String value) phoneChanged,
-    required TResult Function(String value) companyChanged,
+    required TResult Function(String value) companyNameChanged,
+    required TResult Function(String value) companyDomainChanged,
     required TResult Function(LocationModel value) locationChanged,
     required TResult Function() submitPressed,
   }) {
@@ -314,7 +329,8 @@ class _$PhoneChanged implements PhoneChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String value)? displayNameChanged,
     TResult Function(String value)? phoneChanged,
-    TResult Function(String value)? companyChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
     TResult Function(LocationModel value)? locationChanged,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -330,7 +346,8 @@ class _$PhoneChanged implements PhoneChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(DisplayNameChanged value) displayNameChanged,
     required TResult Function(PhoneChanged value) phoneChanged,
-    required TResult Function(CompanyChanged value) companyChanged,
+    required TResult Function(CompanyNameChanged value) companyNameChanged,
+    required TResult Function(CompanyDomainChanged value) companyDomainChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(SubmitPressed value) submitPressed,
   }) {
@@ -342,7 +359,8 @@ class _$PhoneChanged implements PhoneChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DisplayNameChanged value)? displayNameChanged,
     TResult Function(PhoneChanged value)? phoneChanged,
-    TResult Function(CompanyChanged value)? companyChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -364,29 +382,29 @@ abstract class PhoneChanged implements ProfilecompletionEvent {
 }
 
 /// @nodoc
-abstract class $CompanyChangedCopyWith<$Res> {
-  factory $CompanyChangedCopyWith(
-          CompanyChanged value, $Res Function(CompanyChanged) then) =
-      _$CompanyChangedCopyWithImpl<$Res>;
+abstract class $CompanyNameChangedCopyWith<$Res> {
+  factory $CompanyNameChangedCopyWith(
+          CompanyNameChanged value, $Res Function(CompanyNameChanged) then) =
+      _$CompanyNameChangedCopyWithImpl<$Res>;
   $Res call({String value});
 }
 
 /// @nodoc
-class _$CompanyChangedCopyWithImpl<$Res>
+class _$CompanyNameChangedCopyWithImpl<$Res>
     extends _$ProfilecompletionEventCopyWithImpl<$Res>
-    implements $CompanyChangedCopyWith<$Res> {
-  _$CompanyChangedCopyWithImpl(
-      CompanyChanged _value, $Res Function(CompanyChanged) _then)
-      : super(_value, (v) => _then(v as CompanyChanged));
+    implements $CompanyNameChangedCopyWith<$Res> {
+  _$CompanyNameChangedCopyWithImpl(
+      CompanyNameChanged _value, $Res Function(CompanyNameChanged) _then)
+      : super(_value, (v) => _then(v as CompanyNameChanged));
 
   @override
-  CompanyChanged get _value => super._value as CompanyChanged;
+  CompanyNameChanged get _value => super._value as CompanyNameChanged;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(CompanyChanged(
+    return _then(CompanyNameChanged(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -397,21 +415,21 @@ class _$CompanyChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CompanyChanged implements CompanyChanged {
-  const _$CompanyChanged(this.value);
+class _$CompanyNameChanged implements CompanyNameChanged {
+  const _$CompanyNameChanged(this.value);
 
   @override
   final String value;
 
   @override
   String toString() {
-    return 'ProfilecompletionEvent.companyChanged(value: $value)';
+    return 'ProfilecompletionEvent.companyNameChanged(value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is CompanyChanged &&
+        (other is CompanyNameChanged &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)));
   }
@@ -422,19 +440,20 @@ class _$CompanyChanged implements CompanyChanged {
 
   @JsonKey(ignore: true)
   @override
-  $CompanyChangedCopyWith<CompanyChanged> get copyWith =>
-      _$CompanyChangedCopyWithImpl<CompanyChanged>(this, _$identity);
+  $CompanyNameChangedCopyWith<CompanyNameChanged> get copyWith =>
+      _$CompanyNameChangedCopyWithImpl<CompanyNameChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String value) displayNameChanged,
     required TResult Function(String value) phoneChanged,
-    required TResult Function(String value) companyChanged,
+    required TResult Function(String value) companyNameChanged,
+    required TResult Function(String value) companyDomainChanged,
     required TResult Function(LocationModel value) locationChanged,
     required TResult Function() submitPressed,
   }) {
-    return companyChanged(value);
+    return companyNameChanged(value);
   }
 
   @override
@@ -442,13 +461,14 @@ class _$CompanyChanged implements CompanyChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String value)? displayNameChanged,
     TResult Function(String value)? phoneChanged,
-    TResult Function(String value)? companyChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
     TResult Function(LocationModel value)? locationChanged,
     TResult Function()? submitPressed,
     required TResult orElse(),
   }) {
-    if (companyChanged != null) {
-      return companyChanged(value);
+    if (companyNameChanged != null) {
+      return companyNameChanged(value);
     }
     return orElse();
   }
@@ -458,11 +478,12 @@ class _$CompanyChanged implements CompanyChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(DisplayNameChanged value) displayNameChanged,
     required TResult Function(PhoneChanged value) phoneChanged,
-    required TResult Function(CompanyChanged value) companyChanged,
+    required TResult Function(CompanyNameChanged value) companyNameChanged,
+    required TResult Function(CompanyDomainChanged value) companyDomainChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(SubmitPressed value) submitPressed,
   }) {
-    return companyChanged(this);
+    return companyNameChanged(this);
   }
 
   @override
@@ -470,24 +491,158 @@ class _$CompanyChanged implements CompanyChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DisplayNameChanged value)? displayNameChanged,
     TResult Function(PhoneChanged value)? phoneChanged,
-    TResult Function(CompanyChanged value)? companyChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(SubmitPressed value)? submitPressed,
     required TResult orElse(),
   }) {
-    if (companyChanged != null) {
-      return companyChanged(this);
+    if (companyNameChanged != null) {
+      return companyNameChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class CompanyChanged implements ProfilecompletionEvent {
-  const factory CompanyChanged(String value) = _$CompanyChanged;
+abstract class CompanyNameChanged implements ProfilecompletionEvent {
+  const factory CompanyNameChanged(String value) = _$CompanyNameChanged;
 
   String get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CompanyChangedCopyWith<CompanyChanged> get copyWith =>
+  $CompanyNameChangedCopyWith<CompanyNameChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CompanyDomainChangedCopyWith<$Res> {
+  factory $CompanyDomainChangedCopyWith(CompanyDomainChanged value,
+          $Res Function(CompanyDomainChanged) then) =
+      _$CompanyDomainChangedCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class _$CompanyDomainChangedCopyWithImpl<$Res>
+    extends _$ProfilecompletionEventCopyWithImpl<$Res>
+    implements $CompanyDomainChangedCopyWith<$Res> {
+  _$CompanyDomainChangedCopyWithImpl(
+      CompanyDomainChanged _value, $Res Function(CompanyDomainChanged) _then)
+      : super(_value, (v) => _then(v as CompanyDomainChanged));
+
+  @override
+  CompanyDomainChanged get _value => super._value as CompanyDomainChanged;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(CompanyDomainChanged(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CompanyDomainChanged implements CompanyDomainChanged {
+  const _$CompanyDomainChanged(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'ProfilecompletionEvent.companyDomainChanged(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is CompanyDomainChanged &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  $CompanyDomainChangedCopyWith<CompanyDomainChanged> get copyWith =>
+      _$CompanyDomainChangedCopyWithImpl<CompanyDomainChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String value) displayNameChanged,
+    required TResult Function(String value) phoneChanged,
+    required TResult Function(String value) companyNameChanged,
+    required TResult Function(String value) companyDomainChanged,
+    required TResult Function(LocationModel value) locationChanged,
+    required TResult Function() submitPressed,
+  }) {
+    return companyDomainChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String value)? displayNameChanged,
+    TResult Function(String value)? phoneChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
+    TResult Function(LocationModel value)? locationChanged,
+    TResult Function()? submitPressed,
+    required TResult orElse(),
+  }) {
+    if (companyDomainChanged != null) {
+      return companyDomainChanged(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(DisplayNameChanged value) displayNameChanged,
+    required TResult Function(PhoneChanged value) phoneChanged,
+    required TResult Function(CompanyNameChanged value) companyNameChanged,
+    required TResult Function(CompanyDomainChanged value) companyDomainChanged,
+    required TResult Function(LocationChanged value) locationChanged,
+    required TResult Function(SubmitPressed value) submitPressed,
+  }) {
+    return companyDomainChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(DisplayNameChanged value)? displayNameChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(SubmitPressed value)? submitPressed,
+    required TResult orElse(),
+  }) {
+    if (companyDomainChanged != null) {
+      return companyDomainChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CompanyDomainChanged implements ProfilecompletionEvent {
+  const factory CompanyDomainChanged(String value) = _$CompanyDomainChanged;
+
+  String get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CompanyDomainChangedCopyWith<CompanyDomainChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -558,7 +713,8 @@ class _$LocationChanged implements LocationChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String value) displayNameChanged,
     required TResult Function(String value) phoneChanged,
-    required TResult Function(String value) companyChanged,
+    required TResult Function(String value) companyNameChanged,
+    required TResult Function(String value) companyDomainChanged,
     required TResult Function(LocationModel value) locationChanged,
     required TResult Function() submitPressed,
   }) {
@@ -570,7 +726,8 @@ class _$LocationChanged implements LocationChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String value)? displayNameChanged,
     TResult Function(String value)? phoneChanged,
-    TResult Function(String value)? companyChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
     TResult Function(LocationModel value)? locationChanged,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -586,7 +743,8 @@ class _$LocationChanged implements LocationChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(DisplayNameChanged value) displayNameChanged,
     required TResult Function(PhoneChanged value) phoneChanged,
-    required TResult Function(CompanyChanged value) companyChanged,
+    required TResult Function(CompanyNameChanged value) companyNameChanged,
+    required TResult Function(CompanyDomainChanged value) companyDomainChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(SubmitPressed value) submitPressed,
   }) {
@@ -598,7 +756,8 @@ class _$LocationChanged implements LocationChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DisplayNameChanged value)? displayNameChanged,
     TResult Function(PhoneChanged value)? phoneChanged,
-    TResult Function(CompanyChanged value)? companyChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -661,7 +820,8 @@ class _$SubmitPressed implements SubmitPressed {
   TResult when<TResult extends Object?>({
     required TResult Function(String value) displayNameChanged,
     required TResult Function(String value) phoneChanged,
-    required TResult Function(String value) companyChanged,
+    required TResult Function(String value) companyNameChanged,
+    required TResult Function(String value) companyDomainChanged,
     required TResult Function(LocationModel value) locationChanged,
     required TResult Function() submitPressed,
   }) {
@@ -673,7 +833,8 @@ class _$SubmitPressed implements SubmitPressed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String value)? displayNameChanged,
     TResult Function(String value)? phoneChanged,
-    TResult Function(String value)? companyChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
     TResult Function(LocationModel value)? locationChanged,
     TResult Function()? submitPressed,
     required TResult orElse(),
@@ -689,7 +850,8 @@ class _$SubmitPressed implements SubmitPressed {
   TResult map<TResult extends Object?>({
     required TResult Function(DisplayNameChanged value) displayNameChanged,
     required TResult Function(PhoneChanged value) phoneChanged,
-    required TResult Function(CompanyChanged value) companyChanged,
+    required TResult Function(CompanyNameChanged value) companyNameChanged,
+    required TResult Function(CompanyDomainChanged value) companyDomainChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(SubmitPressed value) submitPressed,
   }) {
@@ -701,7 +863,8 @@ class _$SubmitPressed implements SubmitPressed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DisplayNameChanged value)? displayNameChanged,
     TResult Function(PhoneChanged value)? phoneChanged,
-    TResult Function(CompanyChanged value)? companyChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
     TResult Function(LocationChanged value)? locationChanged,
     TResult Function(SubmitPressed value)? submitPressed,
     required TResult orElse(),
@@ -723,16 +886,18 @@ class _$ProfilecompletionStateTearOff {
 
   _ProfilecompletionState call(
       {required TWPhone phone,
-      required TWCompanyName company,
+      required TWCompanyName companyName,
+      required TWCompanyDomain companyDomain,
       required TWDisplayName displayName,
       required LocationModel? location,
       required bool isSubmitting,
       required bool showErrorMessages,
-      required Option<Either<ProfilecompletionFailure, Unit>>
+      required Option<Either<ProfileCompletionFailure, Unit>>
           failureOrSucessOption}) {
     return _ProfilecompletionState(
       phone: phone,
-      company: company,
+      companyName: companyName,
+      companyDomain: companyDomain,
       displayName: displayName,
       location: location,
       isSubmitting: isSubmitting,
@@ -748,12 +913,13 @@ const $ProfilecompletionState = _$ProfilecompletionStateTearOff();
 /// @nodoc
 mixin _$ProfilecompletionState {
   TWPhone get phone => throw _privateConstructorUsedError;
-  TWCompanyName get company => throw _privateConstructorUsedError;
+  TWCompanyName get companyName => throw _privateConstructorUsedError;
+  TWCompanyDomain get companyDomain => throw _privateConstructorUsedError;
   TWDisplayName get displayName => throw _privateConstructorUsedError;
   LocationModel? get location => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
-  Option<Either<ProfilecompletionFailure, Unit>> get failureOrSucessOption =>
+  Option<Either<ProfileCompletionFailure, Unit>> get failureOrSucessOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -768,12 +934,13 @@ abstract class $ProfilecompletionStateCopyWith<$Res> {
       _$ProfilecompletionStateCopyWithImpl<$Res>;
   $Res call(
       {TWPhone phone,
-      TWCompanyName company,
+      TWCompanyName companyName,
+      TWCompanyDomain companyDomain,
       TWDisplayName displayName,
       LocationModel? location,
       bool isSubmitting,
       bool showErrorMessages,
-      Option<Either<ProfilecompletionFailure, Unit>> failureOrSucessOption});
+      Option<Either<ProfileCompletionFailure, Unit>> failureOrSucessOption});
 }
 
 /// @nodoc
@@ -788,7 +955,8 @@ class _$ProfilecompletionStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? phone = freezed,
-    Object? company = freezed,
+    Object? companyName = freezed,
+    Object? companyDomain = freezed,
     Object? displayName = freezed,
     Object? location = freezed,
     Object? isSubmitting = freezed,
@@ -800,10 +968,14 @@ class _$ProfilecompletionStateCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as TWPhone,
-      company: company == freezed
-          ? _value.company
-          : company // ignore: cast_nullable_to_non_nullable
+      companyName: companyName == freezed
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
               as TWCompanyName,
+      companyDomain: companyDomain == freezed
+          ? _value.companyDomain
+          : companyDomain // ignore: cast_nullable_to_non_nullable
+              as TWCompanyDomain,
       displayName: displayName == freezed
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -823,7 +995,7 @@ class _$ProfilecompletionStateCopyWithImpl<$Res>
       failureOrSucessOption: failureOrSucessOption == freezed
           ? _value.failureOrSucessOption
           : failureOrSucessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<ProfilecompletionFailure, Unit>>,
+              as Option<Either<ProfileCompletionFailure, Unit>>,
     ));
   }
 }
@@ -837,12 +1009,13 @@ abstract class _$ProfilecompletionStateCopyWith<$Res>
   @override
   $Res call(
       {TWPhone phone,
-      TWCompanyName company,
+      TWCompanyName companyName,
+      TWCompanyDomain companyDomain,
       TWDisplayName displayName,
       LocationModel? location,
       bool isSubmitting,
       bool showErrorMessages,
-      Option<Either<ProfilecompletionFailure, Unit>> failureOrSucessOption});
+      Option<Either<ProfileCompletionFailure, Unit>> failureOrSucessOption});
 }
 
 /// @nodoc
@@ -859,7 +1032,8 @@ class __$ProfilecompletionStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? phone = freezed,
-    Object? company = freezed,
+    Object? companyName = freezed,
+    Object? companyDomain = freezed,
     Object? displayName = freezed,
     Object? location = freezed,
     Object? isSubmitting = freezed,
@@ -871,10 +1045,14 @@ class __$ProfilecompletionStateCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as TWPhone,
-      company: company == freezed
-          ? _value.company
-          : company // ignore: cast_nullable_to_non_nullable
+      companyName: companyName == freezed
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
               as TWCompanyName,
+      companyDomain: companyDomain == freezed
+          ? _value.companyDomain
+          : companyDomain // ignore: cast_nullable_to_non_nullable
+              as TWCompanyDomain,
       displayName: displayName == freezed
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -894,7 +1072,7 @@ class __$ProfilecompletionStateCopyWithImpl<$Res>
       failureOrSucessOption: failureOrSucessOption == freezed
           ? _value.failureOrSucessOption
           : failureOrSucessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<ProfilecompletionFailure, Unit>>,
+              as Option<Either<ProfileCompletionFailure, Unit>>,
     ));
   }
 }
@@ -904,7 +1082,8 @@ class __$ProfilecompletionStateCopyWithImpl<$Res>
 class _$_ProfilecompletionState implements _ProfilecompletionState {
   const _$_ProfilecompletionState(
       {required this.phone,
-      required this.company,
+      required this.companyName,
+      required this.companyDomain,
       required this.displayName,
       required this.location,
       required this.isSubmitting,
@@ -914,7 +1093,9 @@ class _$_ProfilecompletionState implements _ProfilecompletionState {
   @override
   final TWPhone phone;
   @override
-  final TWCompanyName company;
+  final TWCompanyName companyName;
+  @override
+  final TWCompanyDomain companyDomain;
   @override
   final TWDisplayName displayName;
   @override
@@ -924,11 +1105,11 @@ class _$_ProfilecompletionState implements _ProfilecompletionState {
   @override
   final bool showErrorMessages;
   @override
-  final Option<Either<ProfilecompletionFailure, Unit>> failureOrSucessOption;
+  final Option<Either<ProfileCompletionFailure, Unit>> failureOrSucessOption;
 
   @override
   String toString() {
-    return 'ProfilecompletionState(phone: $phone, company: $company, displayName: $displayName, location: $location, isSubmitting: $isSubmitting, showErrorMessages: $showErrorMessages, failureOrSucessOption: $failureOrSucessOption)';
+    return 'ProfilecompletionState(phone: $phone, companyName: $companyName, companyDomain: $companyDomain, displayName: $displayName, location: $location, isSubmitting: $isSubmitting, showErrorMessages: $showErrorMessages, failureOrSucessOption: $failureOrSucessOption)';
   }
 
   @override
@@ -937,9 +1118,12 @@ class _$_ProfilecompletionState implements _ProfilecompletionState {
         (other is _ProfilecompletionState &&
             (identical(other.phone, phone) ||
                 const DeepCollectionEquality().equals(other.phone, phone)) &&
-            (identical(other.company, company) ||
+            (identical(other.companyName, companyName) ||
                 const DeepCollectionEquality()
-                    .equals(other.company, company)) &&
+                    .equals(other.companyName, companyName)) &&
+            (identical(other.companyDomain, companyDomain) ||
+                const DeepCollectionEquality()
+                    .equals(other.companyDomain, companyDomain)) &&
             (identical(other.displayName, displayName) ||
                 const DeepCollectionEquality()
                     .equals(other.displayName, displayName)) &&
@@ -961,7 +1145,8 @@ class _$_ProfilecompletionState implements _ProfilecompletionState {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(phone) ^
-      const DeepCollectionEquality().hash(company) ^
+      const DeepCollectionEquality().hash(companyName) ^
+      const DeepCollectionEquality().hash(companyDomain) ^
       const DeepCollectionEquality().hash(displayName) ^
       const DeepCollectionEquality().hash(location) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
@@ -978,18 +1163,21 @@ class _$_ProfilecompletionState implements _ProfilecompletionState {
 abstract class _ProfilecompletionState implements ProfilecompletionState {
   const factory _ProfilecompletionState(
       {required TWPhone phone,
-      required TWCompanyName company,
+      required TWCompanyName companyName,
+      required TWCompanyDomain companyDomain,
       required TWDisplayName displayName,
       required LocationModel? location,
       required bool isSubmitting,
       required bool showErrorMessages,
-      required Option<Either<ProfilecompletionFailure, Unit>>
+      required Option<Either<ProfileCompletionFailure, Unit>>
           failureOrSucessOption}) = _$_ProfilecompletionState;
 
   @override
   TWPhone get phone => throw _privateConstructorUsedError;
   @override
-  TWCompanyName get company => throw _privateConstructorUsedError;
+  TWCompanyName get companyName => throw _privateConstructorUsedError;
+  @override
+  TWCompanyDomain get companyDomain => throw _privateConstructorUsedError;
   @override
   TWDisplayName get displayName => throw _privateConstructorUsedError;
   @override
@@ -999,7 +1187,7 @@ abstract class _ProfilecompletionState implements ProfilecompletionState {
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
   @override
-  Option<Either<ProfilecompletionFailure, Unit>> get failureOrSucessOption =>
+  Option<Either<ProfileCompletionFailure, Unit>> get failureOrSucessOption =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

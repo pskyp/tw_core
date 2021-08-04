@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/location/location_model.dart';
+import 'package:tw_core/models/tender/tender_timeline.dart';
 
 import '../trades.dart';
 part 'tender_model.g.dart';
@@ -12,11 +13,15 @@ class Tender extends Equatable {
   final String developmentId;
   final String developerId;
   final String tenderTitle;
-  final DateTime startDate;
-  final DateTime endDate;
   final Trade trade;
   final String requirements;
   final LocationModel location;
+  final DateTime startDate,
+      queriesDate,
+      submissionDate,
+      feedbackDate,
+      awardDate,
+      endDate;
   // final TenderTimeline timeline;
 
   const Tender({
@@ -26,10 +31,13 @@ class Tender extends Equatable {
     required this.tenderTitle,
     required this.trade,
     required this.requirements,
-    required this.startDate,
-    required this.endDate,
     required this.location,
-    // required this.timeline,
+    required this.startDate,
+    required this.queriesDate,
+    required this.submissionDate,
+    required this.feedbackDate,
+    required this.awardDate,
+    required this.endDate,
   });
 
   @override
@@ -40,10 +48,13 @@ class Tender extends Equatable {
         trade,
         requirements,
         tenderTitle,
-        startDate,
-        endDate,
         location,
-        // timeline,
+        startDate,
+        queriesDate,
+        submissionDate,
+        feedbackDate,
+        awardDate,
+        endDate,
       ];
 
   Map<String, dynamic> toJson() => _$TenderToJson(this);
