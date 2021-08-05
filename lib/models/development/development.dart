@@ -36,23 +36,3 @@ class Development extends Equatable {
         description,
       ];
 }
-
-@JsonSerializable()
-class DevelopmentDoc extends Equatable {
-  final String docName;
-  final String docPath;
-
-  DevelopmentDoc({
-    required this.docName,
-    required this.docPath,
-  });
-
-  @override
-  List<Object?> get props => [
-        docName,
-        docPath,
-      ];
-  Map<String, dynamic> toJson() => _$DevelopmentDocToJson(this);
-  factory DevelopmentDoc.fromJson(Map<String, dynamic> json) =>
-      _$DevelopmentDocFromJson(json);
-}
