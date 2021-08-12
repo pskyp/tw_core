@@ -63,10 +63,33 @@ class FirebaseAuthFacade implements IAuthFacade {
 
   @override
   Future<Either<AuthFailure, Unit>> signinWithGoogle() async {
-    final googlUser = await googleSignIn.signIn();
-    if (googlUser == null) return left(AuthFailure.cancelledByUser());
-    final googleAuthentication = await googlUser.authentication;
-    // GoogleAuthProvider.get
-    return left(AuthFailure.cancelledByUser());
+    try {
+      final googleUser = await googleSignIn.signIn();
+
+      if (googleUser == null) {
+        return left(const AuthFailure.cancelledByUser());
+      }
+
+      final googleAuthentication = await googleUser.authentication;
+
+      final authCredential = GoogleAuthProvider.credential(
+        accessToken: googleAuthentication.accessToken,
+        idToken: googleAuthentication.idToken,
+      );
+
+      return firebaseAuth
+          .signInWithCredential(authCredential)
+          .then((r) => right(unit));
+    } on PlatformException catch (_) {
+      return left(const AuthFailure.serverError());
+    }
+  }
+
+  @override
+  Future<void> signOut() async {
+    Future.wait([
+      googleSignIn.signOut(),
+      firebaseAuth.signOut(),
+    ]);
   }
 }
