@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/email/email.dart';
 import 'package:tw_core/models/location/location_model.dart';
 import 'package:tw_core/models/tender/tender_timeline.dart';
 
@@ -13,6 +14,8 @@ class Tender extends Equatable {
   final String developmentId;
   final String developerId;
   final String tenderTitle;
+  final String inviteEmailOne;
+  final String inviteEmailTwo;
   final Trade trade;
   final String requirements;
   final LocationModel location;
@@ -30,6 +33,8 @@ class Tender extends Equatable {
     required this.developerId,
     required this.tenderTitle,
     required this.trade,
+    required this.inviteEmailOne,
+    required this.inviteEmailTwo,
     required this.requirements,
     required this.location,
     required this.startDate,
@@ -46,6 +51,8 @@ class Tender extends Equatable {
         developmentId,
         developerId,
         trade,
+        inviteEmailOne,
+        inviteEmailTwo,
         requirements,
         tenderTitle,
         location,
