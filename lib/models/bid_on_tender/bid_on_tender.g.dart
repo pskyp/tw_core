@@ -56,4 +56,5 @@ K _$enumDecode<K, V>(
 const _$TenderBidStatusEnumMap = {
   TenderBidStatus.neu: 'neu',
   TenderBidStatus.active: 'active',
+  TenderBidStatus.invited: 'invited',
 };

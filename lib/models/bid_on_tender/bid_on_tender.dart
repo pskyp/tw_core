@@ -6,7 +6,7 @@ import 'package:tw_core/models/tw_user/tw_user.dart';
 
 part 'bid_on_tender.g.dart';
 
-enum TenderBidStatus { neu, active }
+enum TenderBidStatus { neu, active, invited }
 
 @JsonSerializable(explicitToJson: true)
 class BidOnTender {

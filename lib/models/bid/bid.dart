@@ -63,6 +63,9 @@ class Bid {
     return [];
   }
 
+  bool get canChat => status != BidStatuses.New;
+  bool get canInvoice => status == BidStatuses.Hired;
+
   Bid copyWithNeuStatus(BidStatuses status) {
     return Bid(
       status: status,

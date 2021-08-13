@@ -7,6 +7,7 @@ part of 'tender_model.dart';
 // **************************************************************************
 
 Tender _$TenderFromJson(Map<String, dynamic> json) => Tender(
+      tenderStatus: _$enumDecode(_$TenderStatusEnumMap, json['tenderStatus']),
       id: json['id'] as String,
       developmentId: json['developmentId'] as String,
       developerId: json['developerId'] as String,
@@ -26,6 +27,7 @@ Tender _$TenderFromJson(Map<String, dynamic> json) => Tender(
     );
 
 Map<String, dynamic> _$TenderToJson(Tender instance) => <String, dynamic>{
+      'tenderStatus': _$TenderStatusEnumMap[instance.tenderStatus],
       'id': instance.id,
       'developmentId': instance.developmentId,
       'developerId': instance.developerId,
@@ -42,3 +44,37 @@ Map<String, dynamic> _$TenderToJson(Tender instance) => <String, dynamic>{
       'awardDate': instance.awardDate.toIso8601String(),
       'endDate': instance.endDate.toIso8601String(),
     };
+
+K _$enumDecode<K, V>(
+  Map<K, V> enumValues,
+  Object? source, {
+  K? unknownValue,
+}) {
+  if (source == null) {
+    throw ArgumentError(
+      'A value must be provided. Supported values: '
+      '${enumValues.values.join(', ')}',
+    );
+  }
+
+  return enumValues.entries.singleWhere(
+    (e) => e.value == source,
+    orElse: () {
+      if (unknownValue == null) {
+        throw ArgumentError(
+          '`$source` is not one of the supported values: '
+          '${enumValues.values.join(', ')}',
+        );
+      }
+      return MapEntry(unknownValue, enumValues.values.first);
+    },
+  ).key;
+}
+
+const _$TenderStatusEnumMap = {
+  TenderStatus.New: 'New',
+  TenderStatus.OpenToQueries: 'OpenToQueries',
+  TenderStatus.Submission: 'Submission',
+  TenderStatus.Feedback: 'Feedback',
+  TenderStatus.Awarding: 'Awarding',
+};

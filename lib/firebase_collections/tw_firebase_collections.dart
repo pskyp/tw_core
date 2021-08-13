@@ -13,20 +13,14 @@ class TWFC {
       FirebaseFirestore.instance.collection('tenderBids');
   static final developmentsCollection =
       FirebaseFirestore.instance.collection('developments');
-
   static final bidsCollection = FirebaseFirestore.instance.collection('bids');
   static final mailsCollection = FirebaseFirestore.instance.collection('mail');
-
   static final chatsCollection = FirebaseFirestore.instance.collection('chat');
-
   static final jobCollection = FirebaseFirestore.instance.collection('jobs');
-
   static final bidReviewsCollection =
       FirebaseFirestore.instance.collection('bidReviews');
-
   static final oldJobsCollection =
       FirebaseFirestore.instance.collection('oldJobs');
-
   static final jobReviewCollection =
       FirebaseFirestore.instance.collection('jobReviews');
 }

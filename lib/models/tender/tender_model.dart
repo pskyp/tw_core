@@ -1,15 +1,17 @@
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tw_core/models/email/email.dart';
 import 'package:tw_core/models/location/location_model.dart';
-import 'package:tw_core/models/tender/tender_timeline.dart';
 
 import '../trades.dart';
+
 part 'tender_model.g.dart';
+
+enum TenderStatus { New, OpenToQueries, Submission, Feedback, Awarding }
 
 @JsonSerializable(explicitToJson: true)
 class Tender extends Equatable {
+  final TenderStatus tenderStatus;
   final String id;
   final String developmentId;
   final String developerId;
@@ -28,6 +30,7 @@ class Tender extends Equatable {
   // final TenderTimeline timeline;
 
   const Tender({
+    required this.tenderStatus,
     required this.id,
     required this.developmentId,
     required this.developerId,
@@ -47,6 +50,7 @@ class Tender extends Equatable {
 
   @override
   List<Object> get props => [
+        tenderStatus,
         id,
         developmentId,
         developerId,

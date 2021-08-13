@@ -58,6 +58,8 @@ class Job {
   Map<String, dynamic> toJson() => _$JobToJson(this);
   factory Job.fromJson(Map<String, dynamic> json) => _$JobFromJson(json);
 
+  bool get isCompleted => status == JobStatus(JobStatuses.Completed);
+
   String get shortDescription => description.length < 80
       ? description
       : description.substring(0, 70) + '...';
