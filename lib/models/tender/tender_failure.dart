@@ -6,3 +6,8 @@ part 'tender_failure.freezed.dart';
 class AddTenderFailure with _$AddTenderFailure {
   const factory AddTenderFailure.serverError() = ServerError;
 }
+
+@freezed
+class ApplyTenderFailure with _$ApplyTenderFailure {
+  const factory ApplyTenderFailure.serverError() = ServerErrorApplyTender;
+}
