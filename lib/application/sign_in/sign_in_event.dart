@@ -8,4 +8,5 @@ class SignInEvent with _$SignInEvent {
 
   const factory SignInEvent.signInWithCredentialsPressed() =
       SignInWithCredentialsPressed;
+  const factory SignInEvent.signInWithGooglePressed() = SignInWithGooglePressed;
 }

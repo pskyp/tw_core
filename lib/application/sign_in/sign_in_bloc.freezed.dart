@@ -31,6 +31,10 @@ class _$SignInEventTearOff {
   SignInWithCredentialsPressed signInWithCredentialsPressed() {
     return const SignInWithCredentialsPressed();
   }
+
+  SignInWithGooglePressed signInWithGooglePressed() {
+    return const SignInWithGooglePressed();
+  }
 }
 
 /// @nodoc
@@ -43,6 +47,7 @@ mixin _$SignInEvent {
     required TResult Function(String value) emailInputChanged,
     required TResult Function(String value) passwordInputChanged,
     required TResult Function() signInWithCredentialsPressed,
+    required TResult Function() signInWithGooglePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,7 @@ mixin _$SignInEvent {
     TResult Function(String value)? emailInputChanged,
     TResult Function(String value)? passwordInputChanged,
     TResult Function()? signInWithCredentialsPressed,
+    TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +65,8 @@ mixin _$SignInEvent {
     required TResult Function(PasswordInputChanged value) passwordInputChanged,
     required TResult Function(SignInWithCredentialsPressed value)
         signInWithCredentialsPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,6 +75,7 @@ mixin _$SignInEvent {
     TResult Function(PasswordInputChanged value)? passwordInputChanged,
     TResult Function(SignInWithCredentialsPressed value)?
         signInWithCredentialsPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,6 +165,7 @@ class _$EmailInputChanged implements EmailInputChanged {
     required TResult Function(String value) emailInputChanged,
     required TResult Function(String value) passwordInputChanged,
     required TResult Function() signInWithCredentialsPressed,
+    required TResult Function() signInWithGooglePressed,
   }) {
     return emailInputChanged(value);
   }
@@ -166,6 +176,7 @@ class _$EmailInputChanged implements EmailInputChanged {
     TResult Function(String value)? emailInputChanged,
     TResult Function(String value)? passwordInputChanged,
     TResult Function()? signInWithCredentialsPressed,
+    TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (emailInputChanged != null) {
@@ -181,6 +192,8 @@ class _$EmailInputChanged implements EmailInputChanged {
     required TResult Function(PasswordInputChanged value) passwordInputChanged,
     required TResult Function(SignInWithCredentialsPressed value)
         signInWithCredentialsPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
   }) {
     return emailInputChanged(this);
   }
@@ -192,6 +205,7 @@ class _$EmailInputChanged implements EmailInputChanged {
     TResult Function(PasswordInputChanged value)? passwordInputChanged,
     TResult Function(SignInWithCredentialsPressed value)?
         signInWithCredentialsPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (emailInputChanged != null) {
@@ -279,6 +293,7 @@ class _$PasswordInputChanged implements PasswordInputChanged {
     required TResult Function(String value) emailInputChanged,
     required TResult Function(String value) passwordInputChanged,
     required TResult Function() signInWithCredentialsPressed,
+    required TResult Function() signInWithGooglePressed,
   }) {
     return passwordInputChanged(value);
   }
@@ -289,6 +304,7 @@ class _$PasswordInputChanged implements PasswordInputChanged {
     TResult Function(String value)? emailInputChanged,
     TResult Function(String value)? passwordInputChanged,
     TResult Function()? signInWithCredentialsPressed,
+    TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (passwordInputChanged != null) {
@@ -304,6 +320,8 @@ class _$PasswordInputChanged implements PasswordInputChanged {
     required TResult Function(PasswordInputChanged value) passwordInputChanged,
     required TResult Function(SignInWithCredentialsPressed value)
         signInWithCredentialsPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
   }) {
     return passwordInputChanged(this);
   }
@@ -315,6 +333,7 @@ class _$PasswordInputChanged implements PasswordInputChanged {
     TResult Function(PasswordInputChanged value)? passwordInputChanged,
     TResult Function(SignInWithCredentialsPressed value)?
         signInWithCredentialsPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (passwordInputChanged != null) {
@@ -379,6 +398,7 @@ class _$SignInWithCredentialsPressed implements SignInWithCredentialsPressed {
     required TResult Function(String value) emailInputChanged,
     required TResult Function(String value) passwordInputChanged,
     required TResult Function() signInWithCredentialsPressed,
+    required TResult Function() signInWithGooglePressed,
   }) {
     return signInWithCredentialsPressed();
   }
@@ -389,6 +409,7 @@ class _$SignInWithCredentialsPressed implements SignInWithCredentialsPressed {
     TResult Function(String value)? emailInputChanged,
     TResult Function(String value)? passwordInputChanged,
     TResult Function()? signInWithCredentialsPressed,
+    TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (signInWithCredentialsPressed != null) {
@@ -404,6 +425,8 @@ class _$SignInWithCredentialsPressed implements SignInWithCredentialsPressed {
     required TResult Function(PasswordInputChanged value) passwordInputChanged,
     required TResult Function(SignInWithCredentialsPressed value)
         signInWithCredentialsPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
   }) {
     return signInWithCredentialsPressed(this);
   }
@@ -415,6 +438,7 @@ class _$SignInWithCredentialsPressed implements SignInWithCredentialsPressed {
     TResult Function(PasswordInputChanged value)? passwordInputChanged,
     TResult Function(SignInWithCredentialsPressed value)?
         signInWithCredentialsPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (signInWithCredentialsPressed != null) {
@@ -426,6 +450,103 @@ class _$SignInWithCredentialsPressed implements SignInWithCredentialsPressed {
 
 abstract class SignInWithCredentialsPressed implements SignInEvent {
   const factory SignInWithCredentialsPressed() = _$SignInWithCredentialsPressed;
+}
+
+/// @nodoc
+abstract class $SignInWithGooglePressedCopyWith<$Res> {
+  factory $SignInWithGooglePressedCopyWith(SignInWithGooglePressed value,
+          $Res Function(SignInWithGooglePressed) then) =
+      _$SignInWithGooglePressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SignInWithGooglePressedCopyWithImpl<$Res>
+    extends _$SignInEventCopyWithImpl<$Res>
+    implements $SignInWithGooglePressedCopyWith<$Res> {
+  _$SignInWithGooglePressedCopyWithImpl(SignInWithGooglePressed _value,
+      $Res Function(SignInWithGooglePressed) _then)
+      : super(_value, (v) => _then(v as SignInWithGooglePressed));
+
+  @override
+  SignInWithGooglePressed get _value => super._value as SignInWithGooglePressed;
+}
+
+/// @nodoc
+
+class _$SignInWithGooglePressed implements SignInWithGooglePressed {
+  const _$SignInWithGooglePressed();
+
+  @override
+  String toString() {
+    return 'SignInEvent.signInWithGooglePressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SignInWithGooglePressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String value) emailInputChanged,
+    required TResult Function(String value) passwordInputChanged,
+    required TResult Function() signInWithCredentialsPressed,
+    required TResult Function() signInWithGooglePressed,
+  }) {
+    return signInWithGooglePressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String value)? emailInputChanged,
+    TResult Function(String value)? passwordInputChanged,
+    TResult Function()? signInWithCredentialsPressed,
+    TResult Function()? signInWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (signInWithGooglePressed != null) {
+      return signInWithGooglePressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailInputChanged value) emailInputChanged,
+    required TResult Function(PasswordInputChanged value) passwordInputChanged,
+    required TResult Function(SignInWithCredentialsPressed value)
+        signInWithCredentialsPressed,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+  }) {
+    return signInWithGooglePressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailInputChanged value)? emailInputChanged,
+    TResult Function(PasswordInputChanged value)? passwordInputChanged,
+    TResult Function(SignInWithCredentialsPressed value)?
+        signInWithCredentialsPressed,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (signInWithGooglePressed != null) {
+      return signInWithGooglePressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignInWithGooglePressed implements SignInEvent {
+  const factory SignInWithGooglePressed() = _$SignInWithGooglePressed;
 }
 
 /// @nodoc

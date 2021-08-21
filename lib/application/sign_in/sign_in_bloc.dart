@@ -27,7 +27,9 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       },
       passwordInputChanged: (e) async* {
         yield state.copyWith(
-            password: Password(e.value), authFailureOrSuccessOption: none());
+          password: Password(e.value),
+          authFailureOrSuccessOption: none(),
+        );
       },
       signInWithCredentialsPressed: (e) async* {
         Either<AuthFailure, Unit>? failureOrSuccess;
@@ -40,6 +42,16 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
             password: state.password,
           );
         }
+        yield state.copyWith(
+          isSubmitting: false,
+          showErrorMessages: true,
+          authFailureOrSuccessOption: optionOf(failureOrSuccess),
+        );
+      },
+      signInWithGooglePressed: (e) async* {
+        Either<AuthFailure, Unit>? failureOrSuccess;
+        yield state.copyWith(isSubmitting: true);
+        failureOrSuccess = await authFacade.signinWithGoogle();
         yield state.copyWith(
           isSubmitting: false,
           showErrorMessages: true,
