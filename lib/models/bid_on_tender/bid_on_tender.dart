@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/contractor/contractor_model.dart';
 import 'package:tw_core/models/person/person.dart';
@@ -9,7 +10,7 @@ part 'bid_on_tender.g.dart';
 enum TenderBidStatus { neu, active, invited }
 
 @JsonSerializable(explicitToJson: true)
-class BidOnTender {
+class BidOnTender extends Equatable {
   final String bidId;
   final String bidderId;
   final String developerId;
@@ -57,4 +58,7 @@ class BidOnTender {
         bidder: bidder,
         rating: rating);
   }
+
+  @override
+  List<Object?> get props => [bidderId];
 }
