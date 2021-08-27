@@ -7,8 +7,10 @@ part of 'tender_model.dart';
 // **************************************************************************
 
 Tender _$TenderFromJson(Map<String, dynamic> json) => Tender(
-      tenderStatus: _$enumDecode(_$TenderStatusEnumMap, json['tenderStatus']),
+      tenderTimeLineStatus: _$enumDecode(
+          _$TenderTimeLineStatusEnumMap, json['tenderTimeLineStatus']),
       id: json['id'] as String,
+      tenderStatus: _$enumDecode(_$TenderStatusEnumMap, json['tenderStatus']),
       developmentId: json['developmentId'] as String,
       developerId: json['developerId'] as String,
       tenderTitle: json['tenderTitle'] as String,
@@ -19,6 +21,9 @@ Tender _$TenderFromJson(Map<String, dynamic> json) => Tender(
       location:
           LocationModel.fromJson(json['location'] as Map<String, dynamic>),
       startDate: DateTime.parse(json['startDate'] as String),
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      applicationDeadLine:
+          DateTime.parse(json['applicationDeadLine'] as String),
       queriesDate: DateTime.parse(json['queriesDate'] as String),
       submissionDate: DateTime.parse(json['submissionDate'] as String),
       feedbackDate: DateTime.parse(json['feedbackDate'] as String),
@@ -27,6 +32,8 @@ Tender _$TenderFromJson(Map<String, dynamic> json) => Tender(
     );
 
 Map<String, dynamic> _$TenderToJson(Tender instance) => <String, dynamic>{
+      'tenderTimeLineStatus':
+          _$TenderTimeLineStatusEnumMap[instance.tenderTimeLineStatus],
       'tenderStatus': _$TenderStatusEnumMap[instance.tenderStatus],
       'id': instance.id,
       'developmentId': instance.developmentId,
@@ -38,6 +45,8 @@ Map<String, dynamic> _$TenderToJson(Tender instance) => <String, dynamic>{
       'requirements': instance.requirements,
       'location': instance.location.toJson(),
       'startDate': instance.startDate.toIso8601String(),
+      'createdAt': instance.createdAt.toIso8601String(),
+      'applicationDeadLine': instance.applicationDeadLine.toIso8601String(),
       'queriesDate': instance.queriesDate.toIso8601String(),
       'submissionDate': instance.submissionDate.toIso8601String(),
       'feedbackDate': instance.feedbackDate.toIso8601String(),
@@ -71,10 +80,17 @@ K _$enumDecode<K, V>(
   ).key;
 }
 
+const _$TenderTimeLineStatusEnumMap = {
+  TenderTimeLineStatus.New: 'New',
+  TenderTimeLineStatus.OpenToQueries: 'OpenToQueries',
+  TenderTimeLineStatus.Submission: 'Submission',
+  TenderTimeLineStatus.Feedback: 'Feedback',
+  TenderTimeLineStatus.Awarding: 'Awarding',
+};
+
 const _$TenderStatusEnumMap = {
   TenderStatus.New: 'New',
-  TenderStatus.OpenToQueries: 'OpenToQueries',
-  TenderStatus.Submission: 'Submission',
-  TenderStatus.Feedback: 'Feedback',
-  TenderStatus.Awarding: 'Awarding',
+  TenderStatus.Invited: 'Invited',
+  TenderStatus.Awarded: 'Awarded',
+  TenderStatus.Completed: 'Completed',
 };

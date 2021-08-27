@@ -6,9 +6,11 @@ import 'package:tw_core/models/errors.dart';
 part 'tender_timeline.freezed.dart';
 
 class TenderTimeline {
-  final TenderDate startDeadline;
+  final TenderDate createdAt;
   final TenderDate queriesDeadline;
+  final TenderDate applicationDeadline;
   final TenderDate submissionDeadline;
+  final TenderDate startDeadline;
   final TenderDate feedbackDeadline;
   final TenderDate awardDeadline;
   final TenderDate endDeadline;
@@ -19,12 +21,23 @@ class TenderTimeline {
     required DateTime submissionDate,
     required DateTime feedbackDate,
     required DateTime awardDate,
+    required DateTime applicationDeadlineDate,
+    required DateTime createdAtDate,
     required DateTime endDate,
-  })  : this.startDeadline = TenderDate(right(startDate)),
-        this.queriesDeadline = queriesDate.isAfter(startDate)
+  })  : this.createdAt = TenderDate(right(createdAtDate)),
+        this.applicationDeadline = applicationDeadlineDate
+                .isAfter(createdAtDate)
+            ? TenderDate(right(applicationDeadlineDate))
+            : TenderDate(left(TenderTimelineFailures.startDateBeforeAwardDate(
+                applicationDeadlineDate))),
+        this.startDeadline = startDate.isAfter(awardDate)
+            ? TenderDate(right(startDate))
+            : TenderDate(left(
+                TenderTimelineFailures.startDateBeforeAwardDate(startDate))),
+        this.queriesDeadline = queriesDate.isAfter(createdAtDate)
             ? TenderDate(right(queriesDate))
             : TenderDate(left(
-                TenderTimelineFailures.queriesBeforeStartDate(queriesDate))),
+                TenderTimelineFailures.queriesBeforeCreatedAt(queriesDate))),
         this.submissionDeadline = submissionDate.isAfter(queriesDate)
             ? TenderDate(right(submissionDate))
             : TenderDate(
@@ -98,8 +111,13 @@ class TenderTimeline {
     DateTime? feedbackDate,
     DateTime? awardDate,
     DateTime? endDate,
+    DateTime? applicationDate,
+    DateTime? createdAtDate,
   }) {
     return TenderTimeline(
+      applicationDeadlineDate:
+          applicationDate ?? applicationDeadline.value.fold((l) => l.date, id),
+      createdAtDate: createdAtDate ?? createdAt.value.fold((l) => l.date, id),
       startDate: startDate ?? startDeadline.value.fold((l) => l.date, id),
       queriesDate: queriesDate ?? queriesDeadline.value.fold((l) => l.date, id),
       submissionDate:
@@ -114,13 +132,17 @@ class TenderTimeline {
 
 @freezed
 class TenderTimelineFailures with _$TenderTimelineFailures {
-  const factory TenderTimelineFailures.queriesBeforeStartDate(DateTime date) =
-      QueriesBeforeStartDate;
+  const factory TenderTimelineFailures.applicationDeadlineBeforeCreatedAt(
+      DateTime date) = ApplicationDeadlineBeforeCreatedAt;
+  const factory TenderTimelineFailures.queriesBeforeCreatedAt(DateTime date) =
+      QueriesBeforeCreatedAt;
   const factory TenderTimelineFailures.submissionBeforeQueries(DateTime date) =
       SubmissionBeforeQueries;
 
   const factory TenderTimelineFailures.feedbackBeforeSubmission(DateTime date) =
       FeedbackBeforeSubmission;
+  const factory TenderTimelineFailures.startDateBeforeAwardDate(DateTime date) =
+      StartDateBeforeAwardDate;
 
   const factory TenderTimelineFailures.awardBeforeFeedback(DateTime date) =
       AwardBeforeFeedback;

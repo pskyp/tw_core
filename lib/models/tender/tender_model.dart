@@ -7,10 +7,12 @@ import '../trades.dart';
 
 part 'tender_model.g.dart';
 
-enum TenderStatus { New, OpenToQueries, Submission, Feedback, Awarding }
+enum TenderTimeLineStatus { New, OpenToQueries, Submission, Feedback, Awarding }
+enum TenderStatus { New, Invited, Awarded, Completed }
 
 @JsonSerializable(explicitToJson: true)
 class Tender extends Equatable {
+  final TenderTimeLineStatus tenderTimeLineStatus;
   final TenderStatus tenderStatus;
   final String id;
   final String developmentId;
@@ -22,6 +24,8 @@ class Tender extends Equatable {
   final String requirements;
   final LocationModel location;
   final DateTime startDate,
+      createdAt,
+      applicationDeadLine,
       queriesDate,
       submissionDate,
       feedbackDate,
@@ -30,8 +34,9 @@ class Tender extends Equatable {
   // final TenderTimeline timeline;
 
   const Tender({
-    required this.tenderStatus,
+    required this.tenderTimeLineStatus,
     required this.id,
+    required this.tenderStatus,
     required this.developmentId,
     required this.developerId,
     required this.tenderTitle,
@@ -41,6 +46,8 @@ class Tender extends Equatable {
     required this.requirements,
     required this.location,
     required this.startDate,
+    required this.createdAt,
+    required this.applicationDeadLine,
     required this.queriesDate,
     required this.submissionDate,
     required this.feedbackDate,
@@ -48,10 +55,59 @@ class Tender extends Equatable {
     required this.endDate,
   });
 
+  Tender copyWithStatusInvited() {
+    return Tender(
+      tenderTimeLineStatus: tenderTimeLineStatus,
+      id: id,
+      tenderStatus: TenderStatus.Invited,
+      developmentId: developmentId,
+      developerId: developerId,
+      tenderTitle: tenderTitle,
+      trade: trade,
+      inviteEmailOne: inviteEmailOne,
+      inviteEmailTwo: inviteEmailTwo,
+      requirements: requirements,
+      location: location,
+      startDate: startDate,
+      createdAt: createdAt,
+      applicationDeadLine: applicationDeadLine,
+      queriesDate: queriesDate,
+      submissionDate: submissionDate,
+      feedbackDate: feedbackDate,
+      awardDate: awardDate,
+      endDate: endDate,
+    );
+  }
+
+  Tender copyWithStatusAwarded() {
+    return Tender(
+      tenderTimeLineStatus: tenderTimeLineStatus,
+      id: id,
+      tenderStatus: TenderStatus.Awarded,
+      developmentId: developmentId,
+      developerId: developerId,
+      tenderTitle: tenderTitle,
+      trade: trade,
+      inviteEmailOne: inviteEmailOne,
+      inviteEmailTwo: inviteEmailTwo,
+      requirements: requirements,
+      location: location,
+      startDate: startDate,
+      createdAt: createdAt,
+      applicationDeadLine: applicationDeadLine,
+      queriesDate: queriesDate,
+      submissionDate: submissionDate,
+      feedbackDate: feedbackDate,
+      awardDate: awardDate,
+      endDate: endDate,
+    );
+  }
+
   @override
   List<Object> get props => [
-        tenderStatus,
+        tenderTimeLineStatus,
         id,
+        tenderStatus,
         developmentId,
         developerId,
         trade,
@@ -61,6 +117,8 @@ class Tender extends Equatable {
         tenderTitle,
         location,
         startDate,
+        createdAt,
+        applicationDeadLine,
         queriesDate,
         submissionDate,
         feedbackDate,
