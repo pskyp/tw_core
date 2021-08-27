@@ -57,4 +57,5 @@ const _$TenderBidStatusEnumMap = {
   TenderBidStatus.neu: 'neu',
   TenderBidStatus.active: 'active',
   TenderBidStatus.invited: 'invited',
+  TenderBidStatus.awarded: 'awarded',
 };
