@@ -91,7 +91,7 @@ class ChatFacade {
     required Job job,
     required String text,
   }) {
-    final String chatRoomId = ChatService.getJobChatRoomId(
+    final String chatRoomId = ChatFacade.getJobChatRoomId(
       bid: bid,
       job: job,
     );
@@ -146,7 +146,7 @@ class ChatFacade {
     required BidOnTender tenderBid,
     required String text,
   }) {
-    final String chatRoomId = ChatService.getTenderChatRoomId(
+    final String chatRoomId = ChatFacade.getTenderChatRoomId(
       tender: tender,
       tenderBid: tenderBid,
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/person/person.dart';
 
 import '../trades.dart';
 import '../tw_user/tw_user.dart';
@@ -38,6 +39,8 @@ class Subbie {
     required this.totalTimeManagement,
 
   });
+
+  Person get asPerson => Person.fromTWUser(basicProfile);
 
   Map<String, dynamic> toJson() => _$SubbieToJson(this);
   factory Subbie.fromJson(Map<String, dynamic> json) => _$SubbieFromJson(json);
