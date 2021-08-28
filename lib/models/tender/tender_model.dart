@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/location/location_model.dart';
+import 'package:tw_core/models/person/person.dart';
 
 import '../trades.dart';
 
@@ -17,10 +18,14 @@ class Tender extends Equatable {
   final String id;
   final String developmentId;
   final String developerId;
+  final Person developerAsPerson;
   final String tenderTitle;
   final String inviteEmailOne;
   final String inviteEmailTwo;
   final Trade trade;
+  final double rating;
+  final bool feedbackByDeveloper;
+  final bool feedbackByContractor;
   final String requirements;
   final LocationModel location;
   final DateTime startDate,
@@ -53,54 +58,142 @@ class Tender extends Equatable {
     required this.feedbackDate,
     required this.awardDate,
     required this.endDate,
+    required this.rating,
+    required this.feedbackByContractor,
+    required this.feedbackByDeveloper,
+    required this.developerAsPerson,
   });
+
+  Tender copyWith({
+    TenderTimeLineStatus? tenderTimeLineStatus,
+    TenderStatus? tenderStatus,
+    String? id,
+    String? developmentId,
+    String? developerId,
+    Person? developerAsPerson,
+    String? tenderTitle,
+    String? inviteEmailOne,
+    String? inviteEmailTwo,
+    Trade? trade,
+    double? rating,
+    bool? feedbackByDeveloper,
+    bool? feedbackByContractor,
+    String? requirements,
+    LocationModel? location,
+    DateTime? startDate,
+    createdAt,
+    applicationDeadLine,
+    queriesDate,
+    submissionDate,
+    feedbackDate,
+    awardDate,
+    endDate,
+  }) {
+    return Tender(
+        tenderTimeLineStatus: tenderTimeLineStatus ?? this.tenderTimeLineStatus,
+        id: id ?? this.id,
+        tenderStatus: tenderStatus ?? this.tenderStatus,
+        developmentId: developmentId ?? this.developmentId,
+        developerId: developerId ?? this.developerId,
+        tenderTitle: tenderTitle ?? this.tenderTitle,
+        trade: trade ?? this.trade,
+        inviteEmailOne: inviteEmailOne ?? this.inviteEmailOne,
+        inviteEmailTwo: inviteEmailTwo ?? this.inviteEmailTwo,
+        requirements: requirements ?? this.requirements,
+        location: location ?? this.location,
+        startDate: startDate ?? this.startDate,
+        createdAt: createdAt ?? this.createdAt,
+        applicationDeadLine: applicationDeadLine ?? this.applicationDeadLine,
+        queriesDate: queriesDate ?? this.queriesDate,
+        submissionDate: submissionDate ?? this.submissionDate,
+        feedbackDate: feedbackDate ?? this.feedbackDate,
+        awardDate: awardDate ?? this.awardDate,
+        endDate: endDate ?? this.endDate,
+        rating: rating ?? this.rating,
+        feedbackByContractor: feedbackByContractor ?? this.feedbackByContractor,
+        feedbackByDeveloper: feedbackByDeveloper ?? this.feedbackByDeveloper,
+        developerAsPerson: developerAsPerson ?? this.developerAsPerson);
+  }
 
   Tender copyWithStatusInvited() {
     return Tender(
-      tenderTimeLineStatus: tenderTimeLineStatus,
-      id: id,
-      tenderStatus: TenderStatus.Invited,
-      developmentId: developmentId,
-      developerId: developerId,
-      tenderTitle: tenderTitle,
-      trade: trade,
-      inviteEmailOne: inviteEmailOne,
-      inviteEmailTwo: inviteEmailTwo,
-      requirements: requirements,
-      location: location,
-      startDate: startDate,
-      createdAt: createdAt,
-      applicationDeadLine: applicationDeadLine,
-      queriesDate: queriesDate,
-      submissionDate: submissionDate,
-      feedbackDate: feedbackDate,
-      awardDate: awardDate,
-      endDate: endDate,
-    );
+        tenderTimeLineStatus: tenderTimeLineStatus,
+        id: id,
+        tenderStatus: TenderStatus.Invited,
+        developmentId: developmentId,
+        developerId: developerId,
+        tenderTitle: tenderTitle,
+        trade: trade,
+        inviteEmailOne: inviteEmailOne,
+        inviteEmailTwo: inviteEmailTwo,
+        requirements: requirements,
+        location: location,
+        startDate: startDate,
+        createdAt: createdAt,
+        applicationDeadLine: applicationDeadLine,
+        queriesDate: queriesDate,
+        submissionDate: submissionDate,
+        feedbackDate: feedbackDate,
+        awardDate: awardDate,
+        endDate: endDate,
+        rating: rating,
+        feedbackByContractor: false,
+        feedbackByDeveloper: false,
+        developerAsPerson: developerAsPerson);
   }
 
   Tender copyWithStatusAwarded() {
     return Tender(
-      tenderTimeLineStatus: tenderTimeLineStatus,
-      id: id,
-      tenderStatus: TenderStatus.Awarded,
-      developmentId: developmentId,
-      developerId: developerId,
-      tenderTitle: tenderTitle,
-      trade: trade,
-      inviteEmailOne: inviteEmailOne,
-      inviteEmailTwo: inviteEmailTwo,
-      requirements: requirements,
-      location: location,
-      startDate: startDate,
-      createdAt: createdAt,
-      applicationDeadLine: applicationDeadLine,
-      queriesDate: queriesDate,
-      submissionDate: submissionDate,
-      feedbackDate: feedbackDate,
-      awardDate: awardDate,
-      endDate: endDate,
-    );
+        tenderTimeLineStatus: tenderTimeLineStatus,
+        id: id,
+        tenderStatus: TenderStatus.Awarded,
+        developmentId: developmentId,
+        developerId: developerId,
+        tenderTitle: tenderTitle,
+        trade: trade,
+        inviteEmailOne: inviteEmailOne,
+        inviteEmailTwo: inviteEmailTwo,
+        requirements: requirements,
+        location: location,
+        startDate: startDate,
+        createdAt: createdAt,
+        applicationDeadLine: applicationDeadLine,
+        queriesDate: queriesDate,
+        submissionDate: submissionDate,
+        feedbackDate: feedbackDate,
+        awardDate: awardDate,
+        endDate: endDate,
+        rating: rating,
+        feedbackByContractor: false,
+        feedbackByDeveloper: false,
+        developerAsPerson: developerAsPerson);
+  }
+
+  Tender copyWithStatusComplete() {
+    return Tender(
+        tenderTimeLineStatus: tenderTimeLineStatus,
+        id: id,
+        tenderStatus: TenderStatus.Completed,
+        developmentId: developmentId,
+        developerId: developerId,
+        tenderTitle: tenderTitle,
+        trade: trade,
+        inviteEmailOne: inviteEmailOne,
+        inviteEmailTwo: inviteEmailTwo,
+        requirements: requirements,
+        location: location,
+        startDate: startDate,
+        createdAt: createdAt,
+        applicationDeadLine: applicationDeadLine,
+        queriesDate: queriesDate,
+        submissionDate: submissionDate,
+        feedbackDate: feedbackDate,
+        awardDate: awardDate,
+        endDate: endDate,
+        rating: rating,
+        feedbackByContractor: false,
+        feedbackByDeveloper: true,
+        developerAsPerson: developerAsPerson);
   }
 
   @override
@@ -110,11 +203,11 @@ class Tender extends Equatable {
         tenderStatus,
         developmentId,
         developerId,
+        tenderTitle,
         trade,
         inviteEmailOne,
         inviteEmailTwo,
         requirements,
-        tenderTitle,
         location,
         startDate,
         createdAt,
@@ -124,6 +217,10 @@ class Tender extends Equatable {
         feedbackDate,
         awardDate,
         endDate,
+        rating,
+        feedbackByContractor,
+        feedbackByDeveloper,
+        developerAsPerson,
       ];
 
   Map<String, dynamic> toJson() => _$TenderToJson(this);

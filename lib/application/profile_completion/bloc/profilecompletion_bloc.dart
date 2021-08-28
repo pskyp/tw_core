@@ -63,6 +63,7 @@ class ProfilecompletionBloc
         bool isCompanyDomainValid = state.companyDomain.value.isRight();
         bool isPhoneValid = state.phone.value.isRight();
         bool isLocationValid = state.location != null;
+        print("This is core");
 
         if (isDisplayNameValid &&
             isCompanyNameValid &&
