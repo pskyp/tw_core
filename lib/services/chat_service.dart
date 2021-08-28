@@ -6,9 +6,9 @@ import 'package:tw_core/models/chat_models/chat_room.dart';
 import 'package:tw_core/models/job/job.dart';
 import 'package:tw_core/models/person/person.dart';
 
-class ChatService {
+class ChatFacade {
   final String uid;
-  ChatService({required this.uid});
+  ChatFacade({required this.uid});
   List<ChatRoom> chatRooms = [];
 
   ChatRoom? chatRoomFromJobAndBid({
