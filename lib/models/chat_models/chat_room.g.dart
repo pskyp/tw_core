@@ -7,6 +7,7 @@ part of 'chat_room.dart';
 // **************************************************************************
 
 ChatRoom _$ChatRoomFromJson(Map<String, dynamic> json) => ChatRoom(
+      isTenderChat: json['isTenderChat'] as bool,
       chatRoomId: json['chatRoomId'] as String,
       bidId: json['bidId'] as String,
       participantUIDs: (json['participantUIDs'] as List<dynamic>)
@@ -36,4 +37,5 @@ Map<String, dynamic> _$ChatRoomToJson(ChatRoom instance) => <String, dynamic>{
       'p1': instance.p1.toJson(),
       'p2': instance.p2.toJson(),
       'participantUIDs': instance.participantUIDs,
+      'isTenderChat': instance.isTenderChat,
     };

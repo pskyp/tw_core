@@ -1,6 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
-
+import 'package:tw_core/models/full_user.dart';
+import 'package:tw_core/models/person/person.dart';
 import '../tw_user/tw_user.dart';
 
 part 'contractor_model.g.dart';
@@ -27,6 +27,8 @@ class Contractor {
     required this.totalEnvironment,
     required this.totalReliability,
   });
+
+  Person get asPerson => Person.fromTWUser(basicProfile);
 
   Map<String, dynamic> toJson() => _$ContractorToJson(this);
   factory Contractor.fromJson(Map<String, dynamic> json) =>

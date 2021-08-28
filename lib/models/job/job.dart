@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/location/location_model.dart';
+import 'package:tw_core/models/person/person.dart';
 
 import '../trades.dart';
 import 'job_action.dart';
@@ -12,7 +13,7 @@ class Job {
   final String jobId;
 
   final JobStatus status;
-
+  final Person contractorAsPerson;
   final String contractorId;
   final String development;
   final String title;
@@ -33,6 +34,7 @@ class Job {
   final LocationModel location;
 
   Job({
+    required this.contractorAsPerson,
     required this.jobId,
     required this.status,
     required this.location,
@@ -94,6 +96,7 @@ class Job {
     LocationModel? location,
   }) {
     return Job(
+      contractorAsPerson: this.contractorAsPerson,
       jobId: this.jobId,
       status: this.status,
       totalUnseenBids: this.totalUnseenBids,

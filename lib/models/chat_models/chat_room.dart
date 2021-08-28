@@ -26,12 +26,14 @@ class ChatRoom extends Equatable {
   final bool isArchived;
   final Person p1, p2;
   final List<String> participantUIDs;
+  final bool isTenderChat;
 
   //it should be noted that the lastChatItem in the the chatMeta object
   //contains duplicate data. It is not updated. Hence the seenByAll
   //has to be used instead of the seen attribute of the lastChatItem here
 
   ChatRoom({
+    required this.isTenderChat,
     required this.chatRoomId,
     required this.bidId,
     required this.participantUIDs,
@@ -93,12 +95,14 @@ class ChatRoom extends Equatable {
         lastChatItem,
         seenByAll,
         isArchived,
+        isTenderChat,
       ];
 
   ChatRoom copyWithNewLastChatItem(ChatItem chatItem) {
     return ChatRoom(
       lastChatItem: chatItem,
       seenByAll: false,
+      isTenderChat: this.isTenderChat,
       bidId: this.bidId,
       p1: this.p1,
       p2: this.p2,

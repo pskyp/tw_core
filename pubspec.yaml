@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  cache:
+    path: packages/cache
   bloc: ^7.0.0
   build_runner: ^2.0.4
   cloud_firestore: ^2.3.0
