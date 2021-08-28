@@ -33,10 +33,20 @@ class BidOnTender extends Equatable {
   factory BidOnTender.fromJson(Map<String, dynamic> json) =>
       _$BidOnTenderFromJson(json);
 
+  BidOnTender copyWithRating({required double rating}) {
+    return BidOnTender(
+      bidId: bidId,
+      bidderId: bidderId,
+      developerId: developerId,
+      tenderId: tenderId,
+      status: status,
+      bidder: bidder,
+      rating: rating,
+    );
+  }
+
   factory BidOnTender.fromContractorAndTender(
-    Contractor contractor,
-    Tender tender,
-  ) {
+      Contractor contractor, Tender tender) {
     return BidOnTender(
       bidderId: contractor.basicProfile.uid,
       developerId: tender.developerId,
@@ -61,15 +71,36 @@ class BidOnTender extends Equatable {
 
   BidOnTender copyWithStatusAwarded() {
     return BidOnTender(
-        bidderId: bidderId,
-        developerId: developerId,
-        bidId: bidId,
-        tenderId: tenderId,
-        bidder: bidder,
-        status: TenderBidStatus.Awarded,
-        rating: rating);
+      bidderId: bidderId,
+      developerId: developerId,
+      bidId: bidId,
+      tenderId: tenderId,
+      bidder: bidder,
+      status: TenderBidStatus.Awarded,
+      rating: rating,
+    );
+  }
+
+  BidOnTender copyWithStatusComplete() {
+    return BidOnTender(
+      bidderId: bidderId,
+      developerId: developerId,
+      bidId: bidId,
+      tenderId: tenderId,
+      bidder: bidder,
+      status: TenderBidStatus.Completed,
+      rating: rating,
+    );
   }
 
   @override
-  List<Object?> get props => [bidderId];
+  List<Object?> get props => [
+        bidderId,
+        developerId,
+        bidId,
+    bidder,
+        tenderId,
+        status,
+        rating,
+      ];
 }
