@@ -15,10 +15,10 @@ dependencies:
     path: packages/cache
   bloc: ^7.0.0
   build_runner: ^2.0.4
-  cloud_firestore: ^2.3.0
+  cloud_firestore: ^2.5.1
   dartz: 0.10.0-nullsafety.2
   equatable: ^2.0.2
-  firebase_auth: ^3.0.1
+  firebase_auth: ^3.1.0
   formz: ^0.4.0
   freezed_annotation: ^0.14.3
   geolocator: ^7.0.3
