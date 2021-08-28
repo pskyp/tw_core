@@ -7,7 +7,7 @@ import 'package:tw_core/models/tw_user/tw_user.dart';
 
 part 'bid_on_tender.g.dart';
 
-enum TenderBidStatus { neu, active, invited, awarded }
+enum TenderBidStatus { New, Invited, Awarded, Completed }
 
 @JsonSerializable(explicitToJson: true)
 class BidOnTender extends Equatable {
@@ -42,19 +42,19 @@ class BidOnTender extends Equatable {
       developerId: tender.developerId,
       bidId: tender.id + DateTime.now().toString(),
       tenderId: tender.id,
-      status: TenderBidStatus.neu,
+      status: TenderBidStatus.New,
       bidder: Person.fromTWUser(contractor.basicProfile),
       rating: contractor.rating,
     );
   }
 
-  BidOnTender copyWithStatusActive() {
+  BidOnTender copyWithStatusInvited() {
     return BidOnTender(
         bidderId: bidderId,
         developerId: developerId,
         bidId: bidId,
         tenderId: tenderId,
-        status: TenderBidStatus.active,
+        status: TenderBidStatus.Invited,
         bidder: bidder,
         rating: rating);
   }
@@ -66,7 +66,7 @@ class BidOnTender extends Equatable {
         bidId: bidId,
         tenderId: tenderId,
         bidder: bidder,
-        status: TenderBidStatus.awarded,
+        status: TenderBidStatus.Awarded,
         rating: rating);
   }
 
