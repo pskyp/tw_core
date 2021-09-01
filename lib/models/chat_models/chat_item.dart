@@ -61,9 +61,11 @@ class PresetChat extends Equatable {
           color: TWTheme.kMainThemeColor,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Text(
-          text,
-          style: TextStyle(color: Colors.white),
+        child: Center(
+          child: Text(
+            text,
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       );
 
@@ -100,8 +102,8 @@ PresetChat negotiationPresetChat = PresetChat(
 
 PresetChat offerPresetChat = PresetChat(
   rawText: '###SuperSecretOfferMessage###',
-  shortText: 'You were offered the job.',
-  text: '''You have been offered the job''',
+  shortText: 'The job was offered.',
+  text: '''The job was offered''',
 );
 
 PresetChat offerAcceptPresetChat = PresetChat(

@@ -10,7 +10,9 @@ import 'package:tw_core/models/tender/tender_model.dart';
 
 class ChatFacade {
   final String uid;
+
   ChatFacade({required this.uid});
+
   List<ChatRoom> chatRooms = [];
 
   ChatRoom? chatRoomFromJobAndBid({
@@ -43,7 +45,7 @@ class ChatFacade {
           .collection('chatItems')
           .snapshots()
           .map((list) =>
-              list.docs.map((doc) => ChatItem.fromJson(doc.data())).toList());
+          list.docs.map((doc) => ChatItem.fromJson(doc.data())).toList());
 
   setSeenToTrue(final ChatItem chatItem) {
     TWFC.chatsCollection
@@ -194,7 +196,8 @@ class ChatFacade {
     batch.commit();
   }
 
-  Stream<List<ChatRoom>> get streamChatRooms => TWFC.chatsCollection
+  Stream<List<ChatRoom>> get streamChatRooms =>
+      TWFC.chatsCollection
           .where('participantUIDs', arrayContains: uid)
           .snapshots()
           .map((list) {
