@@ -17,6 +17,7 @@ class TWFC {
   static final mailsCollection = FirebaseFirestore.instance.collection('mail');
   static final chatsCollection = FirebaseFirestore.instance.collection('chat');
   static final jobCollection = FirebaseFirestore.instance.collection('jobs');
+  static final supplementCollection = FirebaseFirestore.instance.collection('supplements');
   static final bidReviewsCollection =
       FirebaseFirestore.instance.collection('bidReviews');
   static final oldJobsCollection =

@@ -1,4 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/core/supplement_objects/date_validator.dart';
+import 'package:tw_core/models/developer/developer.dart';
 import 'package:tw_core/models/location/location_model.dart';
 import 'package:tw_core/models/person/person.dart';
 import 'package:tw_core/models/trades.dart';
@@ -9,10 +11,8 @@ enum SupplementStatus { Active, Completed }
 
 @JsonSerializable(explicitToJson: true)
 class Supplement {
-  final String jobId;
   final SupplementStatus status;
-  final Person contractorAsPerson;
-  final String contractorId;
+  final Developer developer;
   final String development;
   final String title;
   final String description;
@@ -24,7 +24,7 @@ class Supplement {
   final int applications;
   final int subbiesWorking;
   final int subbiesRequired;
-  final List<String> requirements;
+  final String requirements;
   final Trade trade;
   final bool acceptingBids;
   final int totalUnseenBids;
@@ -32,10 +32,8 @@ class Supplement {
   final LocationModel location;
 
   Supplement({
-    required this.jobId,
     required this.status,
-    required this.contractorAsPerson,
-    required this.contractorId,
+    required this.developer,
     required this.development,
     required this.title,
     required this.description,
@@ -72,13 +70,12 @@ class Supplement {
     DateTime? endDate,
     DateTime? startDate,
     int? subbiesRequired,
-    List<String>? requirements,
+    String? requirements,
     Trade? trade,
     LocationModel? location,
   }) {
     return Supplement(
-      contractorAsPerson: this.contractorAsPerson,
-      jobId: this.jobId,
+      developer: this.developer,
       status: this.status,
       totalUnseenBids: this.totalUnseenBids,
       applications: this.applications,
@@ -87,7 +84,6 @@ class Supplement {
       postedOn: this.postedOn,
       acceptingBids: this.acceptingBids,
       refreshCounter: this.refreshCounter,
-      contractorId: this.contractorId,
       location: location ?? this.location,
       title: title ?? this.title,
       description: description ?? this.description,

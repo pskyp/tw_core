@@ -7,11 +7,8 @@ part of 'supplement_model.dart';
 // **************************************************************************
 
 Supplement _$SupplementFromJson(Map<String, dynamic> json) => Supplement(
-      jobId: json['jobId'] as String,
       status: _$enumDecode(_$SupplementStatusEnumMap, json['status']),
-      contractorAsPerson:
-          Person.fromJson(json['contractorAsPerson'] as Map<String, dynamic>),
-      contractorId: json['contractorId'] as String,
+      developer: Developer.fromJson(json['developer'] as Map<String, dynamic>),
       development: json['development'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
@@ -23,9 +20,7 @@ Supplement _$SupplementFromJson(Map<String, dynamic> json) => Supplement(
       applications: json['applications'] as int,
       subbiesWorking: json['subbiesWorking'] as int,
       subbiesRequired: json['subbiesRequired'] as int,
-      requirements: (json['requirements'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+      requirements: json['requirements'] as String,
       trade: Trade.fromJson(json['trade'] as Map<String, dynamic>),
       acceptingBids: json['acceptingBids'] as bool,
       totalUnseenBids: json['totalUnseenBids'] as int,
@@ -36,10 +31,8 @@ Supplement _$SupplementFromJson(Map<String, dynamic> json) => Supplement(
 
 Map<String, dynamic> _$SupplementToJson(Supplement instance) =>
     <String, dynamic>{
-      'jobId': instance.jobId,
       'status': _$SupplementStatusEnumMap[instance.status],
-      'contractorAsPerson': instance.contractorAsPerson.toJson(),
-      'contractorId': instance.contractorId,
+      'developer': instance.developer.toJson(),
       'development': instance.development,
       'title': instance.title,
       'description': instance.description,

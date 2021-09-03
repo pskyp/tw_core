@@ -13,8 +13,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$SupplementFailureTearOff {
-  const _$SupplementFailureTearOff();
+class _$AddSupplementFailureTearOff {
+  const _$AddSupplementFailureTearOff();
 
   ServerError serverError() {
     return const ServerError();
@@ -22,10 +22,10 @@ class _$SupplementFailureTearOff {
 }
 
 /// @nodoc
-const $SupplementFailure = _$SupplementFailureTearOff();
+const $AddSupplementFailure = _$AddSupplementFailureTearOff();
 
 /// @nodoc
-mixin _$SupplementFailure {
+mixin _$AddSupplementFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
@@ -51,20 +51,20 @@ mixin _$SupplementFailure {
 }
 
 /// @nodoc
-abstract class $SupplementFailureCopyWith<$Res> {
-  factory $SupplementFailureCopyWith(
-          SupplementFailure value, $Res Function(SupplementFailure) then) =
-      _$SupplementFailureCopyWithImpl<$Res>;
+abstract class $AddSupplementFailureCopyWith<$Res> {
+  factory $AddSupplementFailureCopyWith(AddSupplementFailure value,
+          $Res Function(AddSupplementFailure) then) =
+      _$AddSupplementFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SupplementFailureCopyWithImpl<$Res>
-    implements $SupplementFailureCopyWith<$Res> {
-  _$SupplementFailureCopyWithImpl(this._value, this._then);
+class _$AddSupplementFailureCopyWithImpl<$Res>
+    implements $AddSupplementFailureCopyWith<$Res> {
+  _$AddSupplementFailureCopyWithImpl(this._value, this._then);
 
-  final SupplementFailure _value;
+  final AddSupplementFailure _value;
   // ignore: unused_field
-  final $Res Function(SupplementFailure) _then;
+  final $Res Function(AddSupplementFailure) _then;
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ abstract class $ServerErrorCopyWith<$Res> {
 
 /// @nodoc
 class _$ServerErrorCopyWithImpl<$Res>
-    extends _$SupplementFailureCopyWithImpl<$Res>
+    extends _$AddSupplementFailureCopyWithImpl<$Res>
     implements $ServerErrorCopyWith<$Res> {
   _$ServerErrorCopyWithImpl(
       ServerError _value, $Res Function(ServerError) _then)
@@ -93,7 +93,7 @@ class _$ServerError implements ServerError {
 
   @override
   String toString() {
-    return 'SupplementFailure.serverError()';
+    return 'AddSupplementFailure.serverError()';
   }
 
   @override
@@ -145,6 +145,6 @@ class _$ServerError implements ServerError {
   }
 }
 
-abstract class ServerError implements SupplementFailure {
+abstract class ServerError implements AddSupplementFailure {
   const factory ServerError() = _$ServerError;
 }
