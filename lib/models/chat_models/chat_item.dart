@@ -94,32 +94,46 @@ PresetChat? getPresetChat(String rawText) {
 }
 
 PresetChat negotiationPresetChat = PresetChat(
-  rawText: '###SuperSecretNegotiationMessage###',
+  rawText: ChatConstants.negotiationMessage,
   shortText: "The contractor is interested.",
   text: '''Hi there! The contractor has shown interest
        in your application for this job''',
 );
 
 PresetChat offerPresetChat = PresetChat(
-  rawText: '###SuperSecretOfferMessage###',
+  rawText: ChatConstants.offerMessage,
   shortText: 'The job was offered.',
   text: '''The job was offered''',
 );
 
 PresetChat offerAcceptPresetChat = PresetChat(
-  rawText: '###SuperSecretOfferAcceptMessage###',
+  rawText: ChatConstants.offerAcceptMessage,
   shortText: 'The job was accepted.',
   text: '''The job was accepted''',
 );
 
 PresetChat offerDeclinePresetChat = PresetChat(
-  rawText: '###SuperSecretOfferDeclineMessage###',
+  rawText: ChatConstants.offerDeclineMessage,
   shortText: 'The job offer was declined.',
   text: '''The job offer was declined.''',
 );
 
 PresetChat jobCompletePresetChat = PresetChat(
-  rawText: '###SuperSecretJobCompleteMessage###',
+  rawText: ChatConstants.jobCompleteMessage,
   shortText: 'The job was completed.',
   text: '''The job was completed.''',
 );
+
+class ChatConstants {
+  static const String negotiationMessage =
+      "###SuperSecretNegotiationMessage###";
+  static const String offerMessage = "###SuperSecretOfferMessage###";
+  static const String offerAcceptMessage =
+      "###SuperSecretOfferAcceptMessage###";
+  static const String offerDeclineMessage =
+      "###SuperSecretOfferDeclineMessage###";
+  static const String jobCompleteMessage =
+      "###SuperSecretJobCompleteMessage###";
+
+}
+
