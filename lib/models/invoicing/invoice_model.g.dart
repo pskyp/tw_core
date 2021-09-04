@@ -7,10 +7,13 @@ part of 'invoice_model.dart';
 // **************************************************************************
 
 Invoice _$InvoiceFromJson(Map<String, dynamic> json) => Invoice(
+      contractorAsPerson:
+          Person.fromJson(json['contractorAsPerson'] as Map<String, dynamic>),
+      subbieAsPerson:
+          Person.fromJson(json['subbieAsPerson'] as Map<String, dynamic>),
       paidOn: DateTime.parse(json['paidOn'] as String),
       companyRegisteredAddress: json['companyRegisteredAddress'] as String,
       invoiceType: json['invoiceType'] as String,
-      name: json['name'] as String,
       companyOrTradingName: json['companyOrTradingName'] as String,
       invoiceItems: (json['invoiceItems'] as List<dynamic>)
           .map((e) => InvoiceItem.fromJson(e as Map<String, dynamic>))
@@ -20,39 +23,31 @@ Invoice _$InvoiceFromJson(Map<String, dynamic> json) => Invoice(
       invoiceID: json['invoiceID'] as String,
       invoiceReference: json['invoiceReference'] as String,
       description: json['description'] as String,
-      toID: json['toID'] as String,
-      fromID: json['fromID'] as String,
       jobID: json['jobID'] as String,
       invoiceDate: DateTime.parse(json['invoiceDate'] as String),
       paymentTerm: json['paymentTerm'] as int,
       amountPayable: (json['amountPayable'] as num).toDouble(),
       netAmount: (json['netAmount'] as num).toDouble(),
       totalTax: (json['totalTax'] as num).toDouble(),
-      subbyInvoiceStatus: SubbyInvoiceStatus.fromJson(
-          json['subbyInvoiceStatus'] as Map<String, dynamic>),
-      contractorInvoiceStatus: ContractorInvoiceStatus.fromJson(
-          json['contractorInvoiceStatus'] as Map<String, dynamic>),
+      status: _$enumDecode(_$InvoiceStatusEnumMap, json['status']),
       invoiceAddress: json['invoiceAddress'] as String,
       development: json['development'] as String,
       toAddress: json['toAddress'] as String,
-      toName: json['toName'] as String,
     );
 
 Map<String, dynamic> _$InvoiceToJson(Invoice instance) => <String, dynamic>{
       'netAmount': instance.netAmount,
       'totalTax': instance.totalTax,
       'amountPayable': instance.amountPayable,
-      'toID': instance.toID,
-      'toName': instance.toName,
+      'subbieAsPerson': instance.subbieAsPerson.toJson(),
+      'contractorAsPerson': instance.contractorAsPerson.toJson(),
       'toAddress': instance.toAddress,
-      'fromID': instance.fromID,
       'jobID': instance.jobID,
       'invoiceID': instance.invoiceID,
       'development': instance.development,
       'companyRegisteredAddress': instance.companyRegisteredAddress,
       'invoiceAddress': instance.invoiceAddress,
       'vatNumber': instance.vatNumber,
-      'name': instance.name,
       'companyNumber': instance.companyNumber,
       'companyOrTradingName': instance.companyOrTradingName,
       'description': instance.description,
@@ -61,7 +56,44 @@ Map<String, dynamic> _$InvoiceToJson(Invoice instance) => <String, dynamic>{
       'invoiceDate': instance.invoiceDate.toIso8601String(),
       'paidOn': instance.paidOn.toIso8601String(),
       'paymentTerm': instance.paymentTerm,
-      'subbyInvoiceStatus': instance.subbyInvoiceStatus.toJson(),
-      'contractorInvoiceStatus': instance.contractorInvoiceStatus.toJson(),
+      'status': _$InvoiceStatusEnumMap[instance.status],
       'invoiceItems': instance.invoiceItems.map((e) => e.toJson()).toList(),
     };
+
+K _$enumDecode<K, V>(
+  Map<K, V> enumValues,
+  Object? source, {
+  K? unknownValue,
+}) {
+  if (source == null) {
+    throw ArgumentError(
+      'A value must be provided. Supported values: '
+      '${enumValues.values.join(', ')}',
+    );
+  }
+
+  return enumValues.entries.singleWhere(
+    (e) => e.value == source,
+    orElse: () {
+      if (unknownValue == null) {
+        throw ArgumentError(
+          '`$source` is not one of the supported values: '
+          '${enumValues.values.join(', ')}',
+        );
+      }
+      return MapEntry(unknownValue, enumValues.values.first);
+    },
+  ).key;
+}
+
+const _$InvoiceStatusEnumMap = {
+  InvoiceStatus.draft: 'draft',
+  InvoiceStatus.sent: 'sent',
+  InvoiceStatus.unseen: 'unseen',
+  InvoiceStatus.seen: 'seen',
+  InvoiceStatus.approved: 'approved',
+  InvoiceStatus.rejected: 'rejected',
+  InvoiceStatus.paid: 'paid',
+  InvoiceStatus.reconciled: 'reconciled',
+  InvoiceStatus.overdue: 'overdue',
+};
