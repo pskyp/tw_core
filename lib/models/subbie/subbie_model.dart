@@ -18,11 +18,7 @@ class Subbie {
   List<dynamic> cscsQualifications;
   final DateTime subscriptionToggledOn;
   final List<Trade> selectedTrades;
-  final double totalServiceQuality,
-      totalProfessionalism,
-      totalTimeManagement;
-
-
+  final double totalServiceQuality, totalProfessionalism, totalTimeManagement;
 
   Subbie({
     required this.basicProfile,
@@ -37,7 +33,6 @@ class Subbie {
     required this.totalProfessionalism,
     required this.totalServiceQuality,
     required this.totalTimeManagement,
-
   });
 
   Person get asPerson => Person.fromTWUser(basicProfile);

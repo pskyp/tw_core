@@ -134,6 +134,4 @@ class ChatConstants {
       "###SuperSecretOfferDeclineMessage###";
   static const String jobCompleteMessage =
       "###SuperSecretJobCompleteMessage###";
-
 }
-

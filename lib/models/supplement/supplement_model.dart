@@ -53,10 +53,9 @@ class Supplement {
     required this.location,
   });
 
-
   Map<String, dynamic> toJson() => _$SupplementToJson(this);
-  factory Supplement.fromJson(Map<String, dynamic> json) => _$SupplementFromJson(json);
-
+  factory Supplement.fromJson(Map<String, dynamic> json) =>
+      _$SupplementFromJson(json);
 
   get shortAddress => location.completeAddress.length < 50
       ? location.completeAddress
@@ -96,6 +95,4 @@ class Supplement {
       trade: trade ?? this.trade,
     );
   }
-
-
 }

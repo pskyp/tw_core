@@ -45,7 +45,7 @@ class ChatFacade {
           .collection('chatItems')
           .snapshots()
           .map((list) =>
-          list.docs.map((doc) => ChatItem.fromJson(doc.data())).toList());
+              list.docs.map((doc) => ChatItem.fromJson(doc.data())).toList());
 
   setSeenToTrue(final ChatItem chatItem) {
     TWFC.chatsCollection
@@ -141,7 +141,6 @@ class ChatFacade {
     batch.commit();
   }
 
-
   createTenderChatRoomAndSendMessage({
     required Person contractorAsPerson, //chatInitiator
     required Tender tender,
@@ -196,8 +195,7 @@ class ChatFacade {
     batch.commit();
   }
 
-  Stream<List<ChatRoom>> get streamChatRooms =>
-      TWFC.chatsCollection
+  Stream<List<ChatRoom>> get streamChatRooms => TWFC.chatsCollection
           .where('participantUIDs', arrayContains: uid)
           .snapshots()
           .map((list) {

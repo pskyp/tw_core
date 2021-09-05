@@ -98,7 +98,7 @@ class BidOnTender extends Equatable {
         bidderId,
         developerId,
         bidId,
-    bidder,
+        bidder,
         tenderId,
         status,
         rating,

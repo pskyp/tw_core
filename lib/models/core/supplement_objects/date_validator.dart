@@ -27,9 +27,6 @@ class SupplementTimeLine {
       endDate: endDate ?? this.endDate.value.fold((l) => l.date, id),
     );
   }
-
-
-
 }
 
 @freezed
