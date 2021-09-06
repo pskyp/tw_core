@@ -16,7 +16,7 @@ class BidOnTender extends Equatable {
   final String developerId;
   final String tenderId;
   final TenderBidStatus status;
-  final Person bidder;
+  final TWUser bidder;
   final double rating;
 
   BidOnTender({
@@ -53,7 +53,7 @@ class BidOnTender extends Equatable {
       bidId: tender.id + DateTime.now().toString(),
       tenderId: tender.id,
       status: TenderBidStatus.New,
-      bidder: Person.fromTWUser(contractor.basicProfile),
+      bidder: contractor.basicProfile,
       rating: contractor.rating,
     );
   }

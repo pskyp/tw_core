@@ -32,8 +32,8 @@ Tender _$TenderFromJson(Map<String, dynamic> json) => Tender(
       rating: (json['rating'] as num).toDouble(),
       feedbackByContractor: json['feedbackByContractor'] as bool,
       feedbackByDeveloper: json['feedbackByDeveloper'] as bool,
-      developerAsPerson:
-          Person.fromJson(json['developerAsPerson'] as Map<String, dynamic>),
+      developerTWUser:
+          TWUser.fromJson(json['developerTWUser'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$TenderToJson(Tender instance) => <String, dynamic>{
@@ -43,7 +43,7 @@ Map<String, dynamic> _$TenderToJson(Tender instance) => <String, dynamic>{
       'id': instance.id,
       'developmentId': instance.developmentId,
       'developerId': instance.developerId,
-      'developerAsPerson': instance.developerAsPerson.toJson(),
+      'developerTWUser': instance.developerTWUser.toJson(),
       'tenderTitle': instance.tenderTitle,
       'inviteEmailOne': instance.inviteEmailOne,
       'inviteEmailTwo': instance.inviteEmailTwo,

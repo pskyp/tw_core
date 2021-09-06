@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/tw_user/tw_user.dart';
 
 import '../person/person.dart';
 import '../trades.dart';
@@ -24,7 +25,7 @@ class Bid {
   //the person field is kinda unnecessary in the subbie app
   //since a subbie can only view his own bids
   //but for the sake of sameness with the contractor app the person object is here
-  final Person person;
+  final TWUser subbieTWUser;
 
   final BidStatuses status;
 
@@ -34,7 +35,7 @@ class Bid {
     required this.contractorId,
     required this.title,
     required this.developmentTitle,
-    required this.person,
+    required this.subbieTWUser,
     required this.address,
     required this.seenByContractor,
     required this.description,
@@ -74,7 +75,7 @@ class Bid {
       contractorId: this.contractorId,
       title: this.title,
       developmentTitle: this.developmentTitle,
-      person: this.person,
+      subbieTWUser: this.subbieTWUser,
       address: this.address,
       seenByContractor: this.seenByContractor,
       description: this.description,

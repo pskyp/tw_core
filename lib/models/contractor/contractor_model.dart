@@ -28,7 +28,7 @@ class Contractor {
     required this.totalReliability,
   });
 
-  Person get asPerson => Person.fromTWUser(basicProfile);
+  // Person get asPerson => Person.fromTWUser(basicProfile);
 
   Map<String, dynamic> toJson() => _$ContractorToJson(this);
   factory Contractor.fromJson(Map<String, dynamic> json) =>

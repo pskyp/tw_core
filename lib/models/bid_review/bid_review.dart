@@ -26,11 +26,11 @@ class BidReview {
 
   factory BidReview.fromBidAndRating(Bid bid, SubbieRating theRating) {
     return BidReview(
-      subbieName: bid.person.displayName,
+      subbieName: bid.subbieTWUser.displayName,
       description: bid.description,
       jobId: bid.jobId,
       rating: theRating,
-      subbieId: bid.person.uid,
+      subbieId: bid.subbieTWUser.uid,
       title: bid.title,
     );
   }

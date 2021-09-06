@@ -24,7 +24,7 @@ class ChatRoom extends Equatable {
   final ChatItem? lastChatItem;
   final bool seenByAll;
   final bool isArchived;
-  final Person p1, p2;
+  final TWUser p1, p2;
   final List<String> participantUIDs;
   final bool isTenderChat;
 
@@ -54,28 +54,28 @@ class ChatRoom extends Equatable {
   get shortJobTitle =>
       jobTitle.length < 10 ? jobTitle : jobTitle.substring(0, 8) + '...';
 
-  Person get contractorPerson {
+  TWUser get contractorPerson {
     if (p1.type == TWUserType.Contractor) return p1;
     if (p2.type == TWUserType.Contractor) return p2;
 
     throw UnexpectedValueError();
   }
 
-  Person get subbiePerson {
+  TWUser get subbiePerson {
     if (p1.type == TWUserType.Subbie) return p1;
     if (p2.type == TWUserType.Subbie) return p2;
 
     throw UnexpectedValueError();
   }
 
-  Person get developerPerson {
+  TWUser get developerPerson {
     if (p1.type == TWUserType.Developer) return p1;
     if (p2.type == TWUserType.Developer) return p2;
 
     throw UnexpectedValueError();
   }
 
-  Person chatPartner(final String uid) {
+  TWUser chatPartner(final String uid) {
     if (p1.uid == uid) return p2;
     if (p2.uid == uid) return p1;
 

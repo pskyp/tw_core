@@ -12,7 +12,8 @@ Bid _$BidFromJson(Map<String, dynamic> json) => Bid(
       contractorId: json['contractorId'] as String,
       title: json['title'] as String,
       developmentTitle: json['developmentTitle'] as String,
-      person: Person.fromJson(json['person'] as Map<String, dynamic>),
+      subbieTWUser:
+          TWUser.fromJson(json['subbieTWUser'] as Map<String, dynamic>),
       address: json['address'] as String,
       seenByContractor: json['seenByContractor'] as bool,
       description: json['description'] as String,
@@ -32,7 +33,7 @@ Map<String, dynamic> _$BidToJson(Bid instance) => <String, dynamic>{
       'address': instance.address,
       'contractorId': instance.contractorId,
       'seenByContractor': instance.seenByContractor,
-      'person': instance.person.toJson(),
+      'subbieTWUser': instance.subbieTWUser.toJson(),
       'status': _$BidStatusesEnumMap[instance.status],
     };
 

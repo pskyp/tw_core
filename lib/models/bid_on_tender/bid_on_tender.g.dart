@@ -12,7 +12,7 @@ BidOnTender _$BidOnTenderFromJson(Map<String, dynamic> json) => BidOnTender(
       developerId: json['developerId'] as String,
       tenderId: json['tenderId'] as String,
       status: _$enumDecode(_$TenderBidStatusEnumMap, json['status']),
-      bidder: Person.fromJson(json['bidder'] as Map<String, dynamic>),
+      bidder: TWUser.fromJson(json['bidder'] as Map<String, dynamic>),
       rating: (json['rating'] as num).toDouble(),
     );
 

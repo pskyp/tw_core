@@ -7,6 +7,7 @@ import 'package:tw_core/models/chat_models/chat_room.dart';
 import 'package:tw_core/models/job/job.dart';
 import 'package:tw_core/models/person/person.dart';
 import 'package:tw_core/models/tender/tender_model.dart';
+import 'package:tw_core/models/tw_user/tw_user.dart';
 
 class ChatFacade {
   final String uid;
@@ -88,7 +89,7 @@ class ChatFacade {
   }
 
   createJobChatRoomAndSendMessage({
-    required Person contractorAsPerson, //chatInitiator
+    required TWUser contractorTWUser,
     required Bid bid,
     required Job job,
     required String text,
@@ -109,11 +110,11 @@ class ChatFacade {
     ChatRoom chatRoom = ChatRoom(
       participantUIDs: [
         uid,
-        bid.person.uid,
+        bid.subbieTWUser.uid,
       ],
       isTenderChat: false,
-      p1: contractorAsPerson,
-      p2: bid.person,
+      p1: contractorTWUser,
+      p2: bid.subbieTWUser,
       chatRoomId: chatRoomId,
       jobId: job.jobId,
       bidId: bid.bidId,
@@ -142,7 +143,7 @@ class ChatFacade {
   }
 
   createTenderChatRoomAndSendMessage({
-    required Person contractorAsPerson, //chatInitiator
+    required TWUser contractorTWUser, //chatInitiator
     required Tender tender,
     required BidOnTender tenderBid,
     required String text,
@@ -166,7 +167,7 @@ class ChatFacade {
         tenderBid.bidder.uid,
       ],
       isTenderChat: true,
-      p1: contractorAsPerson,
+      p1: contractorTWUser,
       p2: tenderBid.bidder,
       chatRoomId: chatRoomId,
       jobId: tender.id,

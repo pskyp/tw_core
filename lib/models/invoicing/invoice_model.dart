@@ -3,15 +3,16 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/invoicing/invoiceItem_model.dart';
 import 'package:tw_core/models/invoicing/invoice_status.dart';
 import 'package:tw_core/models/person/person.dart';
+import 'package:tw_core/models/tw_user/tw_user.dart';
 part 'invoice_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Invoice {
   final double netAmount, totalTax, amountPayable;
-  final Person subbieAsPerson;
-  final Person contractorAsPerson;
+  final TWUser subbieTWUser;
+  final TWUser contractorTWUser;
 
-  final String toAddress,
+  final String
       jobID,
       invoiceID,
       development,
@@ -31,8 +32,8 @@ class Invoice {
   final List<InvoiceItem> invoiceItems;
 
   Invoice({
-    required this.contractorAsPerson,
-    required this.subbieAsPerson,
+    required this.contractorTWUser,
+    required this.subbieTWUser,
     required this.paidOn,
     required this.companyRegisteredAddress,
     required this.invoiceType,
@@ -50,11 +51,8 @@ class Invoice {
     required this.netAmount,
     required this.totalTax,
     required this.status,
-    // required this.subbyInvoiceStatus,
-    // required this.contractorInvoiceStatus,
     required this.invoiceAddress,
     required this.development,
-    required this.toAddress,
   });
   Map<String, dynamic> toJson() => _$InvoiceToJson(this);
   factory Invoice.fromJson(Map<String, dynamic> json) =>

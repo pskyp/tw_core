@@ -7,10 +7,10 @@ part of 'invoice_model.dart';
 // **************************************************************************
 
 Invoice _$InvoiceFromJson(Map<String, dynamic> json) => Invoice(
-      contractorAsPerson:
-          Person.fromJson(json['contractorAsPerson'] as Map<String, dynamic>),
-      subbieAsPerson:
-          Person.fromJson(json['subbieAsPerson'] as Map<String, dynamic>),
+      contractorTWUser:
+          TWUser.fromJson(json['contractorTWUser'] as Map<String, dynamic>),
+      subbieTWUser:
+          TWUser.fromJson(json['subbieTWUser'] as Map<String, dynamic>),
       paidOn: DateTime.parse(json['paidOn'] as String),
       companyRegisteredAddress: json['companyRegisteredAddress'] as String,
       invoiceType: json['invoiceType'] as String,
@@ -32,16 +32,14 @@ Invoice _$InvoiceFromJson(Map<String, dynamic> json) => Invoice(
       status: _$enumDecode(_$InvoiceStatusEnumMap, json['status']),
       invoiceAddress: json['invoiceAddress'] as String,
       development: json['development'] as String,
-      toAddress: json['toAddress'] as String,
     );
 
 Map<String, dynamic> _$InvoiceToJson(Invoice instance) => <String, dynamic>{
       'netAmount': instance.netAmount,
       'totalTax': instance.totalTax,
       'amountPayable': instance.amountPayable,
-      'subbieAsPerson': instance.subbieAsPerson.toJson(),
-      'contractorAsPerson': instance.contractorAsPerson.toJson(),
-      'toAddress': instance.toAddress,
+      'subbieTWUser': instance.subbieTWUser.toJson(),
+      'contractorTWUser': instance.contractorTWUser.toJson(),
       'jobID': instance.jobID,
       'invoiceID': instance.invoiceID,
       'development': instance.development,

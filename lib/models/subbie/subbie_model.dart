@@ -35,7 +35,7 @@ class Subbie {
     required this.totalTimeManagement,
   });
 
-  Person get asPerson => Person.fromTWUser(basicProfile);
+  // Person get asPerson => Person.fromTWUser(basicProfile);
 
   Map<String, dynamic> toJson() => _$SubbieToJson(this);
   factory Subbie.fromJson(Map<String, dynamic> json) => _$SubbieFromJson(json);

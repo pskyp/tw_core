@@ -14,7 +14,7 @@ class Developer {
     required this.twUser,
   });
 
-  Person get asPerson => Person.fromTWUser(twUser);
+  // Person get asPerson => Person.fromTWUser(twUser);
 
   factory Developer.fromJson(Map<String, dynamic> json) =>
       _$DeveloperFromJson(json);

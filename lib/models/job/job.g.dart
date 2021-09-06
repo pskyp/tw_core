@@ -7,8 +7,8 @@ part of 'job.dart';
 // **************************************************************************
 
 Job _$JobFromJson(Map<String, dynamic> json) => Job(
-      contractorAsPerson:
-          Person.fromJson(json['contractorAsPerson'] as Map<String, dynamic>),
+      contractorTWUser:
+          TWUser.fromJson(json['contractorTWUser'] as Map<String, dynamic>),
       jobId: json['jobId'] as String,
       status: JobStatus.fromJson(json['status'] as Map<String, dynamic>),
       location:
@@ -37,7 +37,7 @@ Job _$JobFromJson(Map<String, dynamic> json) => Job(
 Map<String, dynamic> _$JobToJson(Job instance) => <String, dynamic>{
       'jobId': instance.jobId,
       'status': instance.status.toJson(),
-      'contractorAsPerson': instance.contractorAsPerson.toJson(),
+      'contractorTWUser': instance.contractorTWUser.toJson(),
       'contractorId': instance.contractorId,
       'development': instance.development,
       'title': instance.title,
