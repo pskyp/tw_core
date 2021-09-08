@@ -7,6 +7,8 @@ class InvoiceDescription {
   final Either<InvoiceDescriptionFailure, String> value;
   InvoiceDescription(String input) : value = validator(input);
 
+  bool get isValid => value.isRight();
+
   static Either<InvoiceDescriptionFailure, String> validator(String input) {
     return input.length > 3
         ? right(input)

@@ -11,6 +11,8 @@ class TWCompanyName {
   TWCompanyName(String input) : value = validateCompanyName(input);
   String getOrCrash() => value.fold((l) => throw UnexpectedValueError(), id);
 
+  bool get isValid => value.isRight();
+
   static Either<DisplayNameFailure, String> validateCompanyName(String input) {
     return input.length > 5
         ? right(input)
