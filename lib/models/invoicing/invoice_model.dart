@@ -1,9 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/invoicing/invoiceItem_model.dart';
 import 'package:tw_core/models/invoicing/invoice_status.dart';
-import 'package:tw_core/models/person/person.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
+
 part 'invoice_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
@@ -11,15 +10,14 @@ class Invoice {
   final double netAmount, totalTax, amountPayable;
   final TWUser subbieTWUser;
   final TWUser contractorTWUser;
+  final String companyNumber;
 
-  final String
-      jobID,
+  final String jobID,
       invoiceID,
       development,
       companyRegisteredAddress,
       invoiceAddress,
       vatNumber,
-      companyNumber,
       companyOrTradingName,
       description,
       invoiceReference,

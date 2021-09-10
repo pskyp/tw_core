@@ -3,6 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class TWFC {
   static final developerCollection =
       FirebaseFirestore.instance.collection('developer');
+  static final invoicesCollection =
+      FirebaseFirestore.instance.collection('invoices');
   static final contractorsCollection =
       FirebaseFirestore.instance.collection('contractor');
   static final subbieCollection =
