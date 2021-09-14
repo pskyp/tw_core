@@ -11,6 +11,7 @@ TWDocument _$TWDocumentFromJson(Map<String, dynamic> json) => TWDocument(
       docPath: json['docPath'] as String,
       downloadURL: json['downloadURL'] as String,
       instructions: json['instructions'] as String,
+      isSeenByUser: json['isSeenByUser'] as bool,
     );
 
 Map<String, dynamic> _$TWDocumentToJson(TWDocument instance) =>
@@ -19,4 +20,5 @@ Map<String, dynamic> _$TWDocumentToJson(TWDocument instance) =>
       'docPath': instance.docPath,
       'downloadURL': instance.downloadURL,
       'instructions': instance.instructions,
+      'isSeenByUser': instance.isSeenByUser,
     };
