@@ -53,7 +53,7 @@ class _$TenderTimelineFailuresTearOff {
     );
   }
 
-  EndDateBeforeAward endDateBeforeAward(DateTime date) {
+  EndDateBeforeAward endDateBeforeStart(DateTime date) {
     return EndDateBeforeAward(
       date,
     );
@@ -75,7 +75,7 @@ mixin _$TenderTimelineFailures {
     required TResult Function(DateTime date) feedbackBeforeSubmission,
     required TResult Function(DateTime date) startDateBeforeAwardDate,
     required TResult Function(DateTime date) awardBeforeFeedback,
-    required TResult Function(DateTime date) endDateBeforeAward,
+    required TResult Function(DateTime date) endDateBeforeStart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,7 +86,7 @@ mixin _$TenderTimelineFailures {
     TResult Function(DateTime date)? feedbackBeforeSubmission,
     TResult Function(DateTime date)? startDateBeforeAwardDate,
     TResult Function(DateTime date)? awardBeforeFeedback,
-    TResult Function(DateTime date)? endDateBeforeAward,
+    TResult Function(DateTime date)? endDateBeforeStart,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -103,7 +103,7 @@ mixin _$TenderTimelineFailures {
     required TResult Function(StartDateBeforeAwardDate value)
         startDateBeforeAwardDate,
     required TResult Function(AwardBeforeFeedback value) awardBeforeFeedback,
-    required TResult Function(EndDateBeforeAward value) endDateBeforeAward,
+    required TResult Function(EndDateBeforeAward value) endDateBeforeStart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -115,7 +115,7 @@ mixin _$TenderTimelineFailures {
     TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
     TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
     TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
-    TResult Function(EndDateBeforeAward value)? endDateBeforeAward,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -234,7 +234,7 @@ class _$ApplicationDeadlineBeforeCreatedAt
     required TResult Function(DateTime date) feedbackBeforeSubmission,
     required TResult Function(DateTime date) startDateBeforeAwardDate,
     required TResult Function(DateTime date) awardBeforeFeedback,
-    required TResult Function(DateTime date) endDateBeforeAward,
+    required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return applicationDeadlineBeforeCreatedAt(date);
   }
@@ -248,7 +248,7 @@ class _$ApplicationDeadlineBeforeCreatedAt
     TResult Function(DateTime date)? feedbackBeforeSubmission,
     TResult Function(DateTime date)? startDateBeforeAwardDate,
     TResult Function(DateTime date)? awardBeforeFeedback,
-    TResult Function(DateTime date)? endDateBeforeAward,
+    TResult Function(DateTime date)? endDateBeforeStart,
     required TResult orElse(),
   }) {
     if (applicationDeadlineBeforeCreatedAt != null) {
@@ -271,7 +271,7 @@ class _$ApplicationDeadlineBeforeCreatedAt
     required TResult Function(StartDateBeforeAwardDate value)
         startDateBeforeAwardDate,
     required TResult Function(AwardBeforeFeedback value) awardBeforeFeedback,
-    required TResult Function(EndDateBeforeAward value) endDateBeforeAward,
+    required TResult Function(EndDateBeforeAward value) endDateBeforeStart,
   }) {
     return applicationDeadlineBeforeCreatedAt(this);
   }
@@ -286,7 +286,7 @@ class _$ApplicationDeadlineBeforeCreatedAt
     TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
     TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
     TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
-    TResult Function(EndDateBeforeAward value)? endDateBeforeAward,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
     required TResult orElse(),
   }) {
     if (applicationDeadlineBeforeCreatedAt != null) {
@@ -384,7 +384,7 @@ class _$QueriesBeforeCreatedAt implements QueriesBeforeCreatedAt {
     required TResult Function(DateTime date) feedbackBeforeSubmission,
     required TResult Function(DateTime date) startDateBeforeAwardDate,
     required TResult Function(DateTime date) awardBeforeFeedback,
-    required TResult Function(DateTime date) endDateBeforeAward,
+    required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return queriesBeforeCreatedAt(date);
   }
@@ -398,7 +398,7 @@ class _$QueriesBeforeCreatedAt implements QueriesBeforeCreatedAt {
     TResult Function(DateTime date)? feedbackBeforeSubmission,
     TResult Function(DateTime date)? startDateBeforeAwardDate,
     TResult Function(DateTime date)? awardBeforeFeedback,
-    TResult Function(DateTime date)? endDateBeforeAward,
+    TResult Function(DateTime date)? endDateBeforeStart,
     required TResult orElse(),
   }) {
     if (queriesBeforeCreatedAt != null) {
@@ -421,7 +421,7 @@ class _$QueriesBeforeCreatedAt implements QueriesBeforeCreatedAt {
     required TResult Function(StartDateBeforeAwardDate value)
         startDateBeforeAwardDate,
     required TResult Function(AwardBeforeFeedback value) awardBeforeFeedback,
-    required TResult Function(EndDateBeforeAward value) endDateBeforeAward,
+    required TResult Function(EndDateBeforeAward value) endDateBeforeStart,
   }) {
     return queriesBeforeCreatedAt(this);
   }
@@ -436,7 +436,7 @@ class _$QueriesBeforeCreatedAt implements QueriesBeforeCreatedAt {
     TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
     TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
     TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
-    TResult Function(EndDateBeforeAward value)? endDateBeforeAward,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
     required TResult orElse(),
   }) {
     if (queriesBeforeCreatedAt != null) {
@@ -532,7 +532,7 @@ class _$SubmissionBeforeQueries implements SubmissionBeforeQueries {
     required TResult Function(DateTime date) feedbackBeforeSubmission,
     required TResult Function(DateTime date) startDateBeforeAwardDate,
     required TResult Function(DateTime date) awardBeforeFeedback,
-    required TResult Function(DateTime date) endDateBeforeAward,
+    required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return submissionBeforeQueries(date);
   }
@@ -546,7 +546,7 @@ class _$SubmissionBeforeQueries implements SubmissionBeforeQueries {
     TResult Function(DateTime date)? feedbackBeforeSubmission,
     TResult Function(DateTime date)? startDateBeforeAwardDate,
     TResult Function(DateTime date)? awardBeforeFeedback,
-    TResult Function(DateTime date)? endDateBeforeAward,
+    TResult Function(DateTime date)? endDateBeforeStart,
     required TResult orElse(),
   }) {
     if (submissionBeforeQueries != null) {
@@ -569,7 +569,7 @@ class _$SubmissionBeforeQueries implements SubmissionBeforeQueries {
     required TResult Function(StartDateBeforeAwardDate value)
         startDateBeforeAwardDate,
     required TResult Function(AwardBeforeFeedback value) awardBeforeFeedback,
-    required TResult Function(EndDateBeforeAward value) endDateBeforeAward,
+    required TResult Function(EndDateBeforeAward value) endDateBeforeStart,
   }) {
     return submissionBeforeQueries(this);
   }
@@ -584,7 +584,7 @@ class _$SubmissionBeforeQueries implements SubmissionBeforeQueries {
     TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
     TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
     TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
-    TResult Function(EndDateBeforeAward value)? endDateBeforeAward,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
     required TResult orElse(),
   }) {
     if (submissionBeforeQueries != null) {
@@ -681,7 +681,7 @@ class _$FeedbackBeforeSubmission implements FeedbackBeforeSubmission {
     required TResult Function(DateTime date) feedbackBeforeSubmission,
     required TResult Function(DateTime date) startDateBeforeAwardDate,
     required TResult Function(DateTime date) awardBeforeFeedback,
-    required TResult Function(DateTime date) endDateBeforeAward,
+    required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return feedbackBeforeSubmission(date);
   }
@@ -695,7 +695,7 @@ class _$FeedbackBeforeSubmission implements FeedbackBeforeSubmission {
     TResult Function(DateTime date)? feedbackBeforeSubmission,
     TResult Function(DateTime date)? startDateBeforeAwardDate,
     TResult Function(DateTime date)? awardBeforeFeedback,
-    TResult Function(DateTime date)? endDateBeforeAward,
+    TResult Function(DateTime date)? endDateBeforeStart,
     required TResult orElse(),
   }) {
     if (feedbackBeforeSubmission != null) {
@@ -718,7 +718,7 @@ class _$FeedbackBeforeSubmission implements FeedbackBeforeSubmission {
     required TResult Function(StartDateBeforeAwardDate value)
         startDateBeforeAwardDate,
     required TResult Function(AwardBeforeFeedback value) awardBeforeFeedback,
-    required TResult Function(EndDateBeforeAward value) endDateBeforeAward,
+    required TResult Function(EndDateBeforeAward value) endDateBeforeStart,
   }) {
     return feedbackBeforeSubmission(this);
   }
@@ -733,7 +733,7 @@ class _$FeedbackBeforeSubmission implements FeedbackBeforeSubmission {
     TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
     TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
     TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
-    TResult Function(EndDateBeforeAward value)? endDateBeforeAward,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
     required TResult orElse(),
   }) {
     if (feedbackBeforeSubmission != null) {
@@ -830,7 +830,7 @@ class _$StartDateBeforeAwardDate implements StartDateBeforeAwardDate {
     required TResult Function(DateTime date) feedbackBeforeSubmission,
     required TResult Function(DateTime date) startDateBeforeAwardDate,
     required TResult Function(DateTime date) awardBeforeFeedback,
-    required TResult Function(DateTime date) endDateBeforeAward,
+    required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return startDateBeforeAwardDate(date);
   }
@@ -844,7 +844,7 @@ class _$StartDateBeforeAwardDate implements StartDateBeforeAwardDate {
     TResult Function(DateTime date)? feedbackBeforeSubmission,
     TResult Function(DateTime date)? startDateBeforeAwardDate,
     TResult Function(DateTime date)? awardBeforeFeedback,
-    TResult Function(DateTime date)? endDateBeforeAward,
+    TResult Function(DateTime date)? endDateBeforeStart,
     required TResult orElse(),
   }) {
     if (startDateBeforeAwardDate != null) {
@@ -867,7 +867,7 @@ class _$StartDateBeforeAwardDate implements StartDateBeforeAwardDate {
     required TResult Function(StartDateBeforeAwardDate value)
         startDateBeforeAwardDate,
     required TResult Function(AwardBeforeFeedback value) awardBeforeFeedback,
-    required TResult Function(EndDateBeforeAward value) endDateBeforeAward,
+    required TResult Function(EndDateBeforeAward value) endDateBeforeStart,
   }) {
     return startDateBeforeAwardDate(this);
   }
@@ -882,7 +882,7 @@ class _$StartDateBeforeAwardDate implements StartDateBeforeAwardDate {
     TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
     TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
     TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
-    TResult Function(EndDateBeforeAward value)? endDateBeforeAward,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
     required TResult orElse(),
   }) {
     if (startDateBeforeAwardDate != null) {
@@ -977,7 +977,7 @@ class _$AwardBeforeFeedback implements AwardBeforeFeedback {
     required TResult Function(DateTime date) feedbackBeforeSubmission,
     required TResult Function(DateTime date) startDateBeforeAwardDate,
     required TResult Function(DateTime date) awardBeforeFeedback,
-    required TResult Function(DateTime date) endDateBeforeAward,
+    required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return awardBeforeFeedback(date);
   }
@@ -991,7 +991,7 @@ class _$AwardBeforeFeedback implements AwardBeforeFeedback {
     TResult Function(DateTime date)? feedbackBeforeSubmission,
     TResult Function(DateTime date)? startDateBeforeAwardDate,
     TResult Function(DateTime date)? awardBeforeFeedback,
-    TResult Function(DateTime date)? endDateBeforeAward,
+    TResult Function(DateTime date)? endDateBeforeStart,
     required TResult orElse(),
   }) {
     if (awardBeforeFeedback != null) {
@@ -1014,7 +1014,7 @@ class _$AwardBeforeFeedback implements AwardBeforeFeedback {
     required TResult Function(StartDateBeforeAwardDate value)
         startDateBeforeAwardDate,
     required TResult Function(AwardBeforeFeedback value) awardBeforeFeedback,
-    required TResult Function(EndDateBeforeAward value) endDateBeforeAward,
+    required TResult Function(EndDateBeforeAward value) endDateBeforeStart,
   }) {
     return awardBeforeFeedback(this);
   }
@@ -1029,7 +1029,7 @@ class _$AwardBeforeFeedback implements AwardBeforeFeedback {
     TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
     TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
     TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
-    TResult Function(EndDateBeforeAward value)? endDateBeforeAward,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
     required TResult orElse(),
   }) {
     if (awardBeforeFeedback != null) {
@@ -1094,7 +1094,7 @@ class _$EndDateBeforeAward implements EndDateBeforeAward {
 
   @override
   String toString() {
-    return 'TenderTimelineFailures.endDateBeforeAward(date: $date)';
+    return 'TenderTimelineFailures.endDateBeforeStart(date: $date)';
   }
 
   @override
@@ -1123,9 +1123,9 @@ class _$EndDateBeforeAward implements EndDateBeforeAward {
     required TResult Function(DateTime date) feedbackBeforeSubmission,
     required TResult Function(DateTime date) startDateBeforeAwardDate,
     required TResult Function(DateTime date) awardBeforeFeedback,
-    required TResult Function(DateTime date) endDateBeforeAward,
+    required TResult Function(DateTime date) endDateBeforeStart,
   }) {
-    return endDateBeforeAward(date);
+    return endDateBeforeStart(date);
   }
 
   @override
@@ -1137,11 +1137,11 @@ class _$EndDateBeforeAward implements EndDateBeforeAward {
     TResult Function(DateTime date)? feedbackBeforeSubmission,
     TResult Function(DateTime date)? startDateBeforeAwardDate,
     TResult Function(DateTime date)? awardBeforeFeedback,
-    TResult Function(DateTime date)? endDateBeforeAward,
+    TResult Function(DateTime date)? endDateBeforeStart,
     required TResult orElse(),
   }) {
-    if (endDateBeforeAward != null) {
-      return endDateBeforeAward(date);
+    if (endDateBeforeStart != null) {
+      return endDateBeforeStart(date);
     }
     return orElse();
   }
@@ -1160,9 +1160,9 @@ class _$EndDateBeforeAward implements EndDateBeforeAward {
     required TResult Function(StartDateBeforeAwardDate value)
         startDateBeforeAwardDate,
     required TResult Function(AwardBeforeFeedback value) awardBeforeFeedback,
-    required TResult Function(EndDateBeforeAward value) endDateBeforeAward,
+    required TResult Function(EndDateBeforeAward value) endDateBeforeStart,
   }) {
-    return endDateBeforeAward(this);
+    return endDateBeforeStart(this);
   }
 
   @override
@@ -1175,11 +1175,11 @@ class _$EndDateBeforeAward implements EndDateBeforeAward {
     TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
     TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
     TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
-    TResult Function(EndDateBeforeAward value)? endDateBeforeAward,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
     required TResult orElse(),
   }) {
-    if (endDateBeforeAward != null) {
-      return endDateBeforeAward(this);
+    if (endDateBeforeStart != null) {
+      return endDateBeforeStart(this);
     }
     return orElse();
   }

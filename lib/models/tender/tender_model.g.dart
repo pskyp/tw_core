@@ -15,8 +15,8 @@ Tender _$TenderFromJson(Map<String, dynamic> json) => Tender(
       developerId: json['developerId'] as String,
       tenderTitle: json['tenderTitle'] as String,
       trade: Trade.fromJson(json['trade'] as Map<String, dynamic>),
-      inviteEmailOne: json['inviteEmailOne'] as String,
-      inviteEmailTwo: json['inviteEmailTwo'] as String,
+      inviteEmailOne: json['inviteEmailOne'] as String?,
+      inviteEmailTwo: json['inviteEmailTwo'] as String?,
       requirements: json['requirements'] as String,
       location:
           LocationModel.fromJson(json['location'] as Map<String, dynamic>),

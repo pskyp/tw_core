@@ -2,7 +2,6 @@ import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/location/location_model.dart';
-import 'package:tw_core/models/person/person.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 
 import '../trades.dart';
@@ -21,8 +20,8 @@ class Tender extends Equatable {
   final String developerId;
   final TWUser developerTWUser;
   final String tenderTitle;
-  final String inviteEmailOne;
-  final String inviteEmailTwo;
+  final String? inviteEmailOne;
+  final String? inviteEmailTwo;
   final Trade trade;
   final double rating;
   final bool feedbackByDeveloper;
@@ -203,7 +202,7 @@ class Tender extends Equatable {
   }
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         tenderTimeLineStatus,
         id,
         tenderStatus,

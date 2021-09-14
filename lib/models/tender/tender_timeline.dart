@@ -10,10 +10,33 @@ class TenderTimeline {
   final TenderDate queriesDeadline;
   final TenderDate applicationDeadline;
   final TenderDate submissionDeadline;
-  final TenderDate startDeadline;
   final TenderDate feedbackDeadline;
   final TenderDate awardDeadline;
+  final TenderDate startDeadline;
   final TenderDate endDeadline;
+
+  bool get isValid =>
+      createdAt.isValid &&
+      queriesDeadline.isValid &&
+      applicationDeadline.isValid &&
+      submissionDeadline.isValid &&
+      startDeadline.isValid &&
+      feedbackDeadline.isValid &&
+      awardDeadline.isValid &&
+      endDeadline.isValid;
+
+  factory TenderTimeline.createAt(DateTime date) {
+    return TenderTimeline(
+      createdAtDate: date,
+      applicationDeadlineDate: date.add(Duration(days: 1)),
+      queriesDate: date.add(Duration(days: 2)),
+      submissionDate: date.add(Duration(days: 3)),
+      feedbackDate: date.add(Duration(days: 4)),
+      awardDate: date.add(Duration(days: 5)),
+      startDate: date.add(Duration(days: 6)),
+      endDate: date.add(Duration(days: 7)),
+    );
+  }
 
   TenderTimeline({
     required DateTime startDate,
@@ -25,6 +48,10 @@ class TenderTimeline {
     required DateTime createdAtDate,
     required DateTime endDate,
   })  : this.createdAt = TenderDate(right(createdAtDate)),
+        this.queriesDeadline = queriesDate.isAfter(createdAtDate)
+            ? TenderDate(right(queriesDate))
+            : TenderDate(left(
+                TenderTimelineFailures.queriesBeforeCreatedAt(queriesDate))),
         this.applicationDeadline = applicationDeadlineDate
                 .isAfter(createdAtDate)
             ? TenderDate(right(applicationDeadlineDate))
@@ -34,10 +61,6 @@ class TenderTimeline {
             ? TenderDate(right(startDate))
             : TenderDate(left(
                 TenderTimelineFailures.startDateBeforeAwardDate(startDate))),
-        this.queriesDeadline = queriesDate.isAfter(createdAtDate)
-            ? TenderDate(right(queriesDate))
-            : TenderDate(left(
-                TenderTimelineFailures.queriesBeforeCreatedAt(queriesDate))),
         this.submissionDeadline = submissionDate.isAfter(queriesDate)
             ? TenderDate(right(submissionDate))
             : TenderDate(
@@ -60,49 +83,13 @@ class TenderTimeline {
                   TenderTimelineFailures.awardBeforeFeedback(awardDate),
                 ),
               ),
-        this.endDeadline = endDate.isAfter(awardDate)
+        this.endDeadline = endDate.isAfter(startDate)
             ? TenderDate(right(endDate))
             : TenderDate(
                 left(
-                  TenderTimelineFailures.endDateBeforeAward(endDate),
+                  TenderTimelineFailures.endDateBeforeStart(endDate),
                 ),
               );
-
-  // Map<String, dynamic> toJson() => {
-  //       'startDate': startDeadline.fold(
-  //         (l) => DateTime.utc(2000),
-  //         (r) => r.toString(),
-  //       ),
-  //       'queriesDate': queriesDeadline.fold(
-  //         (l) => DateTime.utc(2000),
-  //         (r) => r.toString(),
-  //       ),
-  //       'submissionDate': submissionDeadline.fold(
-  //         (l) => DateTime.utc(2000),
-  //         (r) => r.toString(),
-  //       ),
-  //       'feedbackDate': feedbackDeadline.fold(
-  //         (l) => DateTime.utc(2000),
-  //         (r) => r.toString(),
-  //       ),
-  //       'awardDate': awardDeadline.fold(
-  //         (l) => DateTime.utc(2000),
-  //         (r) => r.toString(),
-  //       ),
-  //       'endDate': endDeadline.fold(
-  //         (l) => DateTime.utc(2000),
-  //         (r) => r.toString(),
-  //       ),
-  //     };
-
-  // factory TenderTimeline.fromJson(Map<String, dynamic> json) => TenderTimeline(
-  //       startDate: DateTime.parse(json['startDate']),
-  //       queriesDate: DateTime.parse(json['queriesDate']),
-  //       submissionDate: DateTime.parse(json['submissionDate']),
-  //       feedbackDate: DateTime.parse(json['feedbackDate']),
-  //       awardDate: DateTime.parse(json['awardDate']),
-  //       endDate: DateTime.parse(json['endDate']),
-  //     );
 
   TenderTimeline copyWith({
     DateTime? startDate,
@@ -147,7 +134,7 @@ class TenderTimelineFailures with _$TenderTimelineFailures {
   const factory TenderTimelineFailures.awardBeforeFeedback(DateTime date) =
       AwardBeforeFeedback;
 
-  const factory TenderTimelineFailures.endDateBeforeAward(DateTime date) =
+  const factory TenderTimelineFailures.endDateBeforeStart(DateTime date) =
       EndDateBeforeAward;
 }
 
@@ -157,7 +144,7 @@ class TenderDate {
 
   getOrCrash() => value.fold((l) => throw UnexpectedValueError(), id);
 
-  get isValid => value.isRight();
+  bool get isValid => value.isRight();
 
   String get asString => value.fold(
         (l) => DateFormat('yyyy-MM-dd').format(l.date),
