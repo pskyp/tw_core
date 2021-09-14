@@ -8,6 +8,7 @@ part of 'tw_document.dart';
 
 TWDocument _$TWDocumentFromJson(Map<String, dynamic> json) => TWDocument(
       docName: json['docName'] as String,
+      documentID: json['documentID'] as String,
       docPath: json['docPath'] as String,
       downloadURL: json['downloadURL'] as String,
       instructions: json['instructions'] as String,
@@ -16,6 +17,7 @@ TWDocument _$TWDocumentFromJson(Map<String, dynamic> json) => TWDocument(
 
 Map<String, dynamic> _$TWDocumentToJson(TWDocument instance) =>
     <String, dynamic>{
+      'documentID': instance.documentID,
       'docName': instance.docName,
       'docPath': instance.docPath,
       'downloadURL': instance.downloadURL,

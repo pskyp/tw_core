@@ -5,6 +5,7 @@ part 'tw_document.g.dart';
 
 @JsonSerializable()
 class TWDocument with EquatableMixin {
+  final String documentID;
   final String docName;
   final String docPath;
   final String downloadURL;
@@ -13,14 +14,25 @@ class TWDocument with EquatableMixin {
 
   TWDocument(
       {required this.docName,
+      required this.documentID,
       required this.docPath,
       required this.downloadURL,
       required this.instructions,
       required this.isSeenByUser});
 
+  TWDocument copyWithStatusSeen() {
+    return TWDocument(
+        docName: docName,
+        documentID: documentID,
+        docPath: docPath,
+        downloadURL: downloadURL,
+        instructions: instructions,
+        isSeenByUser: true);
+  }
+
   @override
   List<Object?> get props =>
-      [docName, docPath, downloadURL, instructions, isSeenByUser];
+      [docName, docPath, documentID, downloadURL, instructions, isSeenByUser];
   Map<String, dynamic> toJson() => _$TWDocumentToJson(this);
   factory TWDocument.fromJson(Map<String, dynamic> json) =>
       _$TWDocumentFromJson(json);
