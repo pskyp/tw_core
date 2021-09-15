@@ -13,22 +13,26 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 TWDocument _$TWDocumentFromJson(Map<String, dynamic> json) {
-  return _TWDocument.fromJson(json);
+  return TWDocumentData.fromJson(json);
 }
 
 /// @nodoc
 class _$TWDocumentTearOff {
   const _$TWDocumentTearOff();
 
-  _TWDocument call(
-      {required String documentID,
+  TWDocumentData _(
+      {required TWDocType type,
+      required String typeId,
+      required String documentID,
       required String docName,
       required String docPath,
       required String downloadURL,
       required String instructions,
       bool seen = false,
       bool deleted = false}) {
-    return _TWDocument(
+    return TWDocumentData(
+      type: type,
+      typeId: typeId,
       documentID: documentID,
       docName: docName,
       docPath: docPath,
@@ -49,6 +53,8 @@ const $TWDocument = _$TWDocumentTearOff();
 
 /// @nodoc
 mixin _$TWDocument {
+  TWDocType get type => throw _privateConstructorUsedError;
+  String get typeId => throw _privateConstructorUsedError;
   String get documentID => throw _privateConstructorUsedError;
   String get docName => throw _privateConstructorUsedError;
   String get docPath => throw _privateConstructorUsedError;
@@ -69,7 +75,9 @@ abstract class $TWDocumentCopyWith<$Res> {
           TWDocument value, $Res Function(TWDocument) then) =
       _$TWDocumentCopyWithImpl<$Res>;
   $Res call(
-      {String documentID,
+      {TWDocType type,
+      String typeId,
+      String documentID,
       String docName,
       String docPath,
       String downloadURL,
@@ -88,6 +96,8 @@ class _$TWDocumentCopyWithImpl<$Res> implements $TWDocumentCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? type = freezed,
+    Object? typeId = freezed,
     Object? documentID = freezed,
     Object? docName = freezed,
     Object? docPath = freezed,
@@ -97,6 +107,14 @@ class _$TWDocumentCopyWithImpl<$Res> implements $TWDocumentCopyWith<$Res> {
     Object? deleted = freezed,
   }) {
     return _then(_value.copyWith(
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as TWDocType,
+      typeId: typeId == freezed
+          ? _value.typeId
+          : typeId // ignore: cast_nullable_to_non_nullable
+              as String,
       documentID: documentID == freezed
           ? _value.documentID
           : documentID // ignore: cast_nullable_to_non_nullable
@@ -130,13 +148,16 @@ class _$TWDocumentCopyWithImpl<$Res> implements $TWDocumentCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$TWDocumentCopyWith<$Res> implements $TWDocumentCopyWith<$Res> {
-  factory _$TWDocumentCopyWith(
-          _TWDocument value, $Res Function(_TWDocument) then) =
-      __$TWDocumentCopyWithImpl<$Res>;
+abstract class $TWDocumentDataCopyWith<$Res>
+    implements $TWDocumentCopyWith<$Res> {
+  factory $TWDocumentDataCopyWith(
+          TWDocumentData value, $Res Function(TWDocumentData) then) =
+      _$TWDocumentDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String documentID,
+      {TWDocType type,
+      String typeId,
+      String documentID,
       String docName,
       String docPath,
       String downloadURL,
@@ -146,17 +167,19 @@ abstract class _$TWDocumentCopyWith<$Res> implements $TWDocumentCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$TWDocumentCopyWithImpl<$Res> extends _$TWDocumentCopyWithImpl<$Res>
-    implements _$TWDocumentCopyWith<$Res> {
-  __$TWDocumentCopyWithImpl(
-      _TWDocument _value, $Res Function(_TWDocument) _then)
-      : super(_value, (v) => _then(v as _TWDocument));
+class _$TWDocumentDataCopyWithImpl<$Res> extends _$TWDocumentCopyWithImpl<$Res>
+    implements $TWDocumentDataCopyWith<$Res> {
+  _$TWDocumentDataCopyWithImpl(
+      TWDocumentData _value, $Res Function(TWDocumentData) _then)
+      : super(_value, (v) => _then(v as TWDocumentData));
 
   @override
-  _TWDocument get _value => super._value as _TWDocument;
+  TWDocumentData get _value => super._value as TWDocumentData;
 
   @override
   $Res call({
+    Object? type = freezed,
+    Object? typeId = freezed,
     Object? documentID = freezed,
     Object? docName = freezed,
     Object? docPath = freezed,
@@ -165,7 +188,15 @@ class __$TWDocumentCopyWithImpl<$Res> extends _$TWDocumentCopyWithImpl<$Res>
     Object? seen = freezed,
     Object? deleted = freezed,
   }) {
-    return _then(_TWDocument(
+    return _then(TWDocumentData(
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as TWDocType,
+      typeId: typeId == freezed
+          ? _value.typeId
+          : typeId // ignore: cast_nullable_to_non_nullable
+              as String,
       documentID: documentID == freezed
           ? _value.documentID
           : documentID // ignore: cast_nullable_to_non_nullable
@@ -200,9 +231,11 @@ class __$TWDocumentCopyWithImpl<$Res> extends _$TWDocumentCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TWDocument implements _TWDocument {
-  const _$_TWDocument(
-      {required this.documentID,
+class _$TWDocumentData implements TWDocumentData {
+  const _$TWDocumentData(
+      {required this.type,
+      required this.typeId,
+      required this.documentID,
       required this.docName,
       required this.docPath,
       required this.downloadURL,
@@ -210,9 +243,13 @@ class _$_TWDocument implements _TWDocument {
       this.seen = false,
       this.deleted = false});
 
-  factory _$_TWDocument.fromJson(Map<String, dynamic> json) =>
-      _$$_TWDocumentFromJson(json);
+  factory _$TWDocumentData.fromJson(Map<String, dynamic> json) =>
+      _$$TWDocumentDataFromJson(json);
 
+  @override
+  final TWDocType type;
+  @override
+  final String typeId;
   @override
   final String documentID;
   @override
@@ -232,13 +269,17 @@ class _$_TWDocument implements _TWDocument {
 
   @override
   String toString() {
-    return 'TWDocument(documentID: $documentID, docName: $docName, docPath: $docPath, downloadURL: $downloadURL, instructions: $instructions, seen: $seen, deleted: $deleted)';
+    return 'TWDocument._(type: $type, typeId: $typeId, documentID: $documentID, docName: $docName, docPath: $docPath, downloadURL: $downloadURL, instructions: $instructions, seen: $seen, deleted: $deleted)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TWDocument &&
+        (other is TWDocumentData &&
+            (identical(other.type, type) ||
+                const DeepCollectionEquality().equals(other.type, type)) &&
+            (identical(other.typeId, typeId) ||
+                const DeepCollectionEquality().equals(other.typeId, typeId)) &&
             (identical(other.documentID, documentID) ||
                 const DeepCollectionEquality()
                     .equals(other.documentID, documentID)) &&
@@ -263,6 +304,8 @@ class _$_TWDocument implements _TWDocument {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(type) ^
+      const DeepCollectionEquality().hash(typeId) ^
       const DeepCollectionEquality().hash(documentID) ^
       const DeepCollectionEquality().hash(docName) ^
       const DeepCollectionEquality().hash(docPath) ^
@@ -273,28 +316,34 @@ class _$_TWDocument implements _TWDocument {
 
   @JsonKey(ignore: true)
   @override
-  _$TWDocumentCopyWith<_TWDocument> get copyWith =>
-      __$TWDocumentCopyWithImpl<_TWDocument>(this, _$identity);
+  $TWDocumentDataCopyWith<TWDocumentData> get copyWith =>
+      _$TWDocumentDataCopyWithImpl<TWDocumentData>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TWDocumentToJson(this);
+    return _$$TWDocumentDataToJson(this);
   }
 }
 
-abstract class _TWDocument implements TWDocument {
-  const factory _TWDocument(
-      {required String documentID,
+abstract class TWDocumentData implements TWDocument {
+  const factory TWDocumentData(
+      {required TWDocType type,
+      required String typeId,
+      required String documentID,
       required String docName,
       required String docPath,
       required String downloadURL,
       required String instructions,
       bool seen,
-      bool deleted}) = _$_TWDocument;
+      bool deleted}) = _$TWDocumentData;
 
-  factory _TWDocument.fromJson(Map<String, dynamic> json) =
-      _$_TWDocument.fromJson;
+  factory TWDocumentData.fromJson(Map<String, dynamic> json) =
+      _$TWDocumentData.fromJson;
 
+  @override
+  TWDocType get type => throw _privateConstructorUsedError;
+  @override
+  String get typeId => throw _privateConstructorUsedError;
   @override
   String get documentID => throw _privateConstructorUsedError;
   @override
@@ -311,6 +360,6 @@ abstract class _TWDocument implements TWDocument {
   bool get deleted => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$TWDocumentCopyWith<_TWDocument> get copyWith =>
+  $TWDocumentDataCopyWith<TWDocumentData> get copyWith =>
       throw _privateConstructorUsedError;
 }
