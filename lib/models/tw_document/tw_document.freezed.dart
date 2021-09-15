@@ -12,6 +12,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+TWDocument _$TWDocumentFromJson(Map<String, dynamic> json) {
+  return _TWDocument.fromJson(json);
+}
+
 /// @nodoc
 class _$TWDocumentTearOff {
   const _$TWDocumentTearOff();
@@ -34,6 +38,10 @@ class _$TWDocumentTearOff {
       deleted: deleted,
     );
   }
+
+  TWDocument fromJson(Map<String, Object> json) {
+    return TWDocument.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -49,6 +57,7 @@ mixin _$TWDocument {
   bool get seen => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TWDocumentCopyWith<TWDocument> get copyWith =>
       throw _privateConstructorUsedError;
@@ -190,7 +199,7 @@ class __$TWDocumentCopyWithImpl<$Res> extends _$TWDocumentCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_TWDocument implements _TWDocument {
   const _$_TWDocument(
       {required this.documentID,
@@ -200,6 +209,9 @@ class _$_TWDocument implements _TWDocument {
       required this.instructions,
       this.seen = false,
       this.deleted = false});
+
+  factory _$_TWDocument.fromJson(Map<String, dynamic> json) =>
+      _$$_TWDocumentFromJson(json);
 
   @override
   final String documentID;
@@ -263,6 +275,11 @@ class _$_TWDocument implements _TWDocument {
   @override
   _$TWDocumentCopyWith<_TWDocument> get copyWith =>
       __$TWDocumentCopyWithImpl<_TWDocument>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TWDocumentToJson(this);
+  }
 }
 
 abstract class _TWDocument implements TWDocument {
@@ -274,6 +291,9 @@ abstract class _TWDocument implements TWDocument {
       required String instructions,
       bool seen,
       bool deleted}) = _$_TWDocument;
+
+  factory _TWDocument.fromJson(Map<String, dynamic> json) =
+      _$_TWDocument.fromJson;
 
   @override
   String get documentID => throw _privateConstructorUsedError;
