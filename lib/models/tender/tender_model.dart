@@ -201,6 +201,8 @@ class Tender extends Equatable {
     );
   }
 
+  bool get isCompleted => tenderStatus == TenderStatus.Completed;
+
   @override
   List<Object?> get props => [
         tenderTimeLineStatus,

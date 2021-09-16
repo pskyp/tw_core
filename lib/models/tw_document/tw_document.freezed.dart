@@ -29,7 +29,7 @@ class _$TWDocumentTearOff {
       required String downloadURL,
       required String instructions,
       required String uploadedByUID,
-      List<TWUser> seenByUsers = const [],
+      List<TWUser> seenByUsers = const <TWUser>[],
       bool deleted = false}) {
     return TWDocumentData(
       type: type,
@@ -256,7 +256,7 @@ class _$TWDocumentData implements TWDocumentData {
       required this.downloadURL,
       required this.instructions,
       required this.uploadedByUID,
-      this.seenByUsers = const [],
+      this.seenByUsers = const <TWUser>[],
       this.deleted = false});
 
   factory _$TWDocumentData.fromJson(Map<String, dynamic> json) =>
@@ -278,7 +278,7 @@ class _$TWDocumentData implements TWDocumentData {
   final String instructions;
   @override
   final String uploadedByUID;
-  @JsonKey(defaultValue: const [])
+  @JsonKey(defaultValue: const <TWUser>[])
   @override
   final List<TWUser> seenByUsers;
   @JsonKey(defaultValue: false)

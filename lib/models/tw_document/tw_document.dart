@@ -8,6 +8,7 @@ enum TWDocType { Dev, Tender, TenderBid }
 
 @freezed
 class TWDocument with _$TWDocument {
+  // const TWDocument._();
   const factory TWDocument._({
     required TWDocType type,
     required String typeId,
@@ -17,7 +18,7 @@ class TWDocument with _$TWDocument {
     required String downloadURL,
     required String instructions,
     required String uploadedByUID,
-    @Default([]) List<TWUser> seenByUsers,
+    @Default(<TWUser>[]) List<TWUser> seenByUsers,
     @Default(false) bool deleted,
   }) = TWDocumentData;
 
@@ -81,7 +82,7 @@ class TWDocument with _$TWDocument {
         instructions: instructions,
       );
 
-  bool seenBy(TWUser user) => seenByUsers.contains(user);
+  // bool seenBy(TWUser user) => seenByUsers.contains(user);
 
   factory TWDocument.fromJson(Map<String, dynamic> json) =>
       _$TWDocumentFromJson(json);
