@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tw_core/models/tw_user/tw_user.dart';
 
 part 'tw_document.freezed.dart';
 part 'tw_document.g.dart';
@@ -15,7 +16,8 @@ class TWDocument with _$TWDocument {
     required String docPath,
     required String downloadURL,
     required String instructions,
-    @Default(false) bool seen,
+    required String uploadedByUID,
+    @Default([]) List<TWUser> seenByUsers,
     @Default(false) bool deleted,
   }) = TWDocumentData;
 
@@ -26,10 +28,12 @@ class TWDocument with _$TWDocument {
     required String docPath,
     required String downloadURL,
     required String instructions,
+    required String uploadedByUID,
   }) =>
       TWDocumentData(
         type: TWDocType.Dev,
         typeId: devId,
+        uploadedByUID: uploadedByUID,
         documentID: documentID,
         docName: docName,
         docPath: docPath,
@@ -44,8 +48,10 @@ class TWDocument with _$TWDocument {
     required String docPath,
     required String downloadURL,
     required String instructions,
+    required String uploadedByUID,
   }) =>
       TWDocumentData(
+        uploadedByUID: uploadedByUID,
         type: TWDocType.Tender,
         typeId: tenderId,
         documentID: documentID,
@@ -62,8 +68,10 @@ class TWDocument with _$TWDocument {
     required String docPath,
     required String downloadURL,
     required String instructions,
+    required String uploadedByUID,
   }) =>
       TWDocumentData(
+        uploadedByUID: uploadedByUID,
         type: TWDocType.TenderBid,
         typeId: tenderBidId,
         documentID: documentID,
@@ -72,6 +80,8 @@ class TWDocument with _$TWDocument {
         downloadURL: downloadURL,
         instructions: instructions,
       );
+
+  bool seenBy(TWUser user) => seenByUsers.contains(user);
 
   factory TWDocument.fromJson(Map<String, dynamic> json) =>
       _$TWDocumentFromJson(json);

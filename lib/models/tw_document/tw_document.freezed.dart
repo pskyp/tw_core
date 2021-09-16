@@ -28,7 +28,8 @@ class _$TWDocumentTearOff {
       required String docPath,
       required String downloadURL,
       required String instructions,
-      bool seen = false,
+      required String uploadedByUID,
+      List<TWUser> seenByUsers = const [],
       bool deleted = false}) {
     return TWDocumentData(
       type: type,
@@ -38,7 +39,8 @@ class _$TWDocumentTearOff {
       docPath: docPath,
       downloadURL: downloadURL,
       instructions: instructions,
-      seen: seen,
+      uploadedByUID: uploadedByUID,
+      seenByUsers: seenByUsers,
       deleted: deleted,
     );
   }
@@ -60,7 +62,8 @@ mixin _$TWDocument {
   String get docPath => throw _privateConstructorUsedError;
   String get downloadURL => throw _privateConstructorUsedError;
   String get instructions => throw _privateConstructorUsedError;
-  bool get seen => throw _privateConstructorUsedError;
+  String get uploadedByUID => throw _privateConstructorUsedError;
+  List<TWUser> get seenByUsers => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -82,7 +85,8 @@ abstract class $TWDocumentCopyWith<$Res> {
       String docPath,
       String downloadURL,
       String instructions,
-      bool seen,
+      String uploadedByUID,
+      List<TWUser> seenByUsers,
       bool deleted});
 }
 
@@ -103,7 +107,8 @@ class _$TWDocumentCopyWithImpl<$Res> implements $TWDocumentCopyWith<$Res> {
     Object? docPath = freezed,
     Object? downloadURL = freezed,
     Object? instructions = freezed,
-    Object? seen = freezed,
+    Object? uploadedByUID = freezed,
+    Object? seenByUsers = freezed,
     Object? deleted = freezed,
   }) {
     return _then(_value.copyWith(
@@ -135,10 +140,14 @@ class _$TWDocumentCopyWithImpl<$Res> implements $TWDocumentCopyWith<$Res> {
           ? _value.instructions
           : instructions // ignore: cast_nullable_to_non_nullable
               as String,
-      seen: seen == freezed
-          ? _value.seen
-          : seen // ignore: cast_nullable_to_non_nullable
-              as bool,
+      uploadedByUID: uploadedByUID == freezed
+          ? _value.uploadedByUID
+          : uploadedByUID // ignore: cast_nullable_to_non_nullable
+              as String,
+      seenByUsers: seenByUsers == freezed
+          ? _value.seenByUsers
+          : seenByUsers // ignore: cast_nullable_to_non_nullable
+              as List<TWUser>,
       deleted: deleted == freezed
           ? _value.deleted
           : deleted // ignore: cast_nullable_to_non_nullable
@@ -162,7 +171,8 @@ abstract class $TWDocumentDataCopyWith<$Res>
       String docPath,
       String downloadURL,
       String instructions,
-      bool seen,
+      String uploadedByUID,
+      List<TWUser> seenByUsers,
       bool deleted});
 }
 
@@ -185,7 +195,8 @@ class _$TWDocumentDataCopyWithImpl<$Res> extends _$TWDocumentCopyWithImpl<$Res>
     Object? docPath = freezed,
     Object? downloadURL = freezed,
     Object? instructions = freezed,
-    Object? seen = freezed,
+    Object? uploadedByUID = freezed,
+    Object? seenByUsers = freezed,
     Object? deleted = freezed,
   }) {
     return _then(TWDocumentData(
@@ -217,10 +228,14 @@ class _$TWDocumentDataCopyWithImpl<$Res> extends _$TWDocumentCopyWithImpl<$Res>
           ? _value.instructions
           : instructions // ignore: cast_nullable_to_non_nullable
               as String,
-      seen: seen == freezed
-          ? _value.seen
-          : seen // ignore: cast_nullable_to_non_nullable
-              as bool,
+      uploadedByUID: uploadedByUID == freezed
+          ? _value.uploadedByUID
+          : uploadedByUID // ignore: cast_nullable_to_non_nullable
+              as String,
+      seenByUsers: seenByUsers == freezed
+          ? _value.seenByUsers
+          : seenByUsers // ignore: cast_nullable_to_non_nullable
+              as List<TWUser>,
       deleted: deleted == freezed
           ? _value.deleted
           : deleted // ignore: cast_nullable_to_non_nullable
@@ -240,7 +255,8 @@ class _$TWDocumentData implements TWDocumentData {
       required this.docPath,
       required this.downloadURL,
       required this.instructions,
-      this.seen = false,
+      required this.uploadedByUID,
+      this.seenByUsers = const [],
       this.deleted = false});
 
   factory _$TWDocumentData.fromJson(Map<String, dynamic> json) =>
@@ -260,16 +276,18 @@ class _$TWDocumentData implements TWDocumentData {
   final String downloadURL;
   @override
   final String instructions;
-  @JsonKey(defaultValue: false)
   @override
-  final bool seen;
+  final String uploadedByUID;
+  @JsonKey(defaultValue: const [])
+  @override
+  final List<TWUser> seenByUsers;
   @JsonKey(defaultValue: false)
   @override
   final bool deleted;
 
   @override
   String toString() {
-    return 'TWDocument._(type: $type, typeId: $typeId, documentID: $documentID, docName: $docName, docPath: $docPath, downloadURL: $downloadURL, instructions: $instructions, seen: $seen, deleted: $deleted)';
+    return 'TWDocument._(type: $type, typeId: $typeId, documentID: $documentID, docName: $docName, docPath: $docPath, downloadURL: $downloadURL, instructions: $instructions, uploadedByUID: $uploadedByUID, seenByUsers: $seenByUsers, deleted: $deleted)';
   }
 
   @override
@@ -295,8 +313,12 @@ class _$TWDocumentData implements TWDocumentData {
             (identical(other.instructions, instructions) ||
                 const DeepCollectionEquality()
                     .equals(other.instructions, instructions)) &&
-            (identical(other.seen, seen) ||
-                const DeepCollectionEquality().equals(other.seen, seen)) &&
+            (identical(other.uploadedByUID, uploadedByUID) ||
+                const DeepCollectionEquality()
+                    .equals(other.uploadedByUID, uploadedByUID)) &&
+            (identical(other.seenByUsers, seenByUsers) ||
+                const DeepCollectionEquality()
+                    .equals(other.seenByUsers, seenByUsers)) &&
             (identical(other.deleted, deleted) ||
                 const DeepCollectionEquality().equals(other.deleted, deleted)));
   }
@@ -311,7 +333,8 @@ class _$TWDocumentData implements TWDocumentData {
       const DeepCollectionEquality().hash(docPath) ^
       const DeepCollectionEquality().hash(downloadURL) ^
       const DeepCollectionEquality().hash(instructions) ^
-      const DeepCollectionEquality().hash(seen) ^
+      const DeepCollectionEquality().hash(uploadedByUID) ^
+      const DeepCollectionEquality().hash(seenByUsers) ^
       const DeepCollectionEquality().hash(deleted);
 
   @JsonKey(ignore: true)
@@ -334,7 +357,8 @@ abstract class TWDocumentData implements TWDocument {
       required String docPath,
       required String downloadURL,
       required String instructions,
-      bool seen,
+      required String uploadedByUID,
+      List<TWUser> seenByUsers,
       bool deleted}) = _$TWDocumentData;
 
   factory TWDocumentData.fromJson(Map<String, dynamic> json) =
@@ -355,7 +379,9 @@ abstract class TWDocumentData implements TWDocument {
   @override
   String get instructions => throw _privateConstructorUsedError;
   @override
-  bool get seen => throw _privateConstructorUsedError;
+  String get uploadedByUID => throw _privateConstructorUsedError;
+  @override
+  List<TWUser> get seenByUsers => throw _privateConstructorUsedError;
   @override
   bool get deleted => throw _privateConstructorUsedError;
   @override

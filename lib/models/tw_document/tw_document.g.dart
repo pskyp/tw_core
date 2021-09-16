@@ -15,7 +15,11 @@ _$TWDocumentData _$$TWDocumentDataFromJson(Map<String, dynamic> json) =>
       docPath: json['docPath'] as String,
       downloadURL: json['downloadURL'] as String,
       instructions: json['instructions'] as String,
-      seen: json['seen'] as bool? ?? false,
+      uploadedByUID: json['uploadedByUID'] as String,
+      seenByUsers: (json['seenByUsers'] as List<dynamic>?)
+              ?.map((e) => TWUser.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
       deleted: json['deleted'] as bool? ?? false,
     );
 
@@ -28,7 +32,8 @@ Map<String, dynamic> _$$TWDocumentDataToJson(_$TWDocumentData instance) =>
       'docPath': instance.docPath,
       'downloadURL': instance.downloadURL,
       'instructions': instance.instructions,
-      'seen': instance.seen,
+      'uploadedByUID': instance.uploadedByUID,
+      'seenByUsers': instance.seenByUsers,
       'deleted': instance.deleted,
     };
 

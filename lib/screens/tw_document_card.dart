@@ -3,12 +3,12 @@ import 'package:tw_core/models/tw_document/tw_document.dart';
 
 class TWDocumentCard extends StatelessWidget {
   final TWDocument doc;
-  final bool showDelete;
+  final String loggedInUserUID;
   final Function onDownloadClicked;
   final Function onDeleteClicked;
   const TWDocumentCard({
     required this.doc,
-    required this.showDelete,
+    required this.loggedInUserUID,
     required this.onDownloadClicked,
     required this.onDeleteClicked,
   });
@@ -23,9 +23,31 @@ class TWDocumentCard extends StatelessWidget {
       ),
       title: Text(doc.docName),
       subtitle: Text(doc.instructions),
-      trailing: !showDelete
-          ? Container()
-          : MaterialButton(
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (loggedInUserUID == doc.uploadedByUID)
+            MaterialButton(
+              child: Text("Seen By"),
+              onPressed: () async {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text('Seen By'),
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            ...doc.seenByUsers
+                                .map((twUser) => Text(twUser.displayName))
+                          ],
+                        ),
+                      );
+                    });
+              },
+            ),
+          if (loggedInUserUID == doc.uploadedByUID)
+            MaterialButton(
               child: Text("Delete"),
               onPressed: () async {
                 await onDeleteClicked();
@@ -33,6 +55,8 @@ class TWDocumentCard extends StatelessWidget {
                 //     .updateDocumentSeen(tenderBid: tenderBid, twDocument: doc);
               },
             ),
+        ],
+      ),
     );
   }
 }
