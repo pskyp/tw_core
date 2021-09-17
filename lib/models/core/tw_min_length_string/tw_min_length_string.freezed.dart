@@ -13,8 +13,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$TWMinLengthStringFailureTearOff {
-  const _$TWMinLengthStringFailureTearOff();
+class _$TWStringFailureTearOff {
+  const _$TWStringFailureTearOff();
 
   TooShort tooShort(String val) {
     return TooShort(
@@ -24,10 +24,10 @@ class _$TWMinLengthStringFailureTearOff {
 }
 
 /// @nodoc
-const $TWMinLengthStringFailure = _$TWMinLengthStringFailureTearOff();
+const $TWStringFailure = _$TWStringFailureTearOff();
 
 /// @nodoc
-mixin _$TWMinLengthStringFailure {
+mixin _$TWStringFailure {
   String get val => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
@@ -54,26 +54,26 @@ mixin _$TWMinLengthStringFailure {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $TWMinLengthStringFailureCopyWith<TWMinLengthStringFailure> get copyWith =>
+  $TWStringFailureCopyWith<TWStringFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TWMinLengthStringFailureCopyWith<$Res> {
-  factory $TWMinLengthStringFailureCopyWith(TWMinLengthStringFailure value,
-          $Res Function(TWMinLengthStringFailure) then) =
-      _$TWMinLengthStringFailureCopyWithImpl<$Res>;
+abstract class $TWStringFailureCopyWith<$Res> {
+  factory $TWStringFailureCopyWith(
+          TWStringFailure value, $Res Function(TWStringFailure) then) =
+      _$TWStringFailureCopyWithImpl<$Res>;
   $Res call({String val});
 }
 
 /// @nodoc
-class _$TWMinLengthStringFailureCopyWithImpl<$Res>
-    implements $TWMinLengthStringFailureCopyWith<$Res> {
-  _$TWMinLengthStringFailureCopyWithImpl(this._value, this._then);
+class _$TWStringFailureCopyWithImpl<$Res>
+    implements $TWStringFailureCopyWith<$Res> {
+  _$TWStringFailureCopyWithImpl(this._value, this._then);
 
-  final TWMinLengthStringFailure _value;
+  final TWStringFailure _value;
   // ignore: unused_field
-  final $Res Function(TWMinLengthStringFailure) _then;
+  final $Res Function(TWStringFailure) _then;
 
   @override
   $Res call({
@@ -90,7 +90,7 @@ class _$TWMinLengthStringFailureCopyWithImpl<$Res>
 
 /// @nodoc
 abstract class $TooShortCopyWith<$Res>
-    implements $TWMinLengthStringFailureCopyWith<$Res> {
+    implements $TWStringFailureCopyWith<$Res> {
   factory $TooShortCopyWith(TooShort value, $Res Function(TooShort) then) =
       _$TooShortCopyWithImpl<$Res>;
   @override
@@ -98,8 +98,7 @@ abstract class $TooShortCopyWith<$Res>
 }
 
 /// @nodoc
-class _$TooShortCopyWithImpl<$Res>
-    extends _$TWMinLengthStringFailureCopyWithImpl<$Res>
+class _$TooShortCopyWithImpl<$Res> extends _$TWStringFailureCopyWithImpl<$Res>
     implements $TooShortCopyWith<$Res> {
   _$TooShortCopyWithImpl(TooShort _value, $Res Function(TooShort) _then)
       : super(_value, (v) => _then(v as TooShort));
@@ -130,7 +129,7 @@ class _$TooShort implements TooShort {
 
   @override
   String toString() {
-    return 'TWMinLengthStringFailure.tooShort(val: $val)';
+    return 'TWStringFailure.tooShort(val: $val)';
   }
 
   @override
@@ -191,7 +190,7 @@ class _$TooShort implements TooShort {
   }
 }
 
-abstract class TooShort implements TWMinLengthStringFailure {
+abstract class TooShort implements TWStringFailure {
   const factory TooShort(String val) = _$TooShort;
 
   @override

@@ -19,7 +19,9 @@ dependencies:
   dartz: 0.10.0-nullsafety.2
   equatable: ^2.0.2
   firebase_auth: ^3.1.0
+  file_picker: ^3.0.3
   formz: ^0.4.0
+  firebase_storage: ^10.0.1
   freezed_annotation: ^0.14.3
   geolocator: ^7.0.3
   google_sign_in: ^5.0.5

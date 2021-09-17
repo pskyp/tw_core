@@ -20,7 +20,7 @@ TWDocument _$TWDocumentFromJson(Map<String, dynamic> json) {
 class _$TWDocumentTearOff {
   const _$TWDocumentTearOff();
 
-  TWDocumentData _(
+  TWDocumentData data(
       {required TWDocType type,
       required String typeId,
       required String documentID,
@@ -66,6 +66,50 @@ mixin _$TWDocument {
   List<TWUser> get seenByUsers => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
 
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TWDocType type,
+            String typeId,
+            String documentID,
+            String docName,
+            String docPath,
+            String downloadURL,
+            String instructions,
+            String uploadedByUID,
+            List<TWUser> seenByUsers,
+            bool deleted)
+        data,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TWDocType type,
+            String typeId,
+            String documentID,
+            String docName,
+            String docPath,
+            String downloadURL,
+            String instructions,
+            String uploadedByUID,
+            List<TWUser> seenByUsers,
+            bool deleted)?
+        data,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TWDocumentData value) data,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TWDocumentData value)? data,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TWDocumentCopyWith<TWDocument> get copyWith =>
@@ -287,7 +331,7 @@ class _$TWDocumentData implements TWDocumentData {
 
   @override
   String toString() {
-    return 'TWDocument._(type: $type, typeId: $typeId, documentID: $documentID, docName: $docName, docPath: $docPath, downloadURL: $downloadURL, instructions: $instructions, uploadedByUID: $uploadedByUID, seenByUsers: $seenByUsers, deleted: $deleted)';
+    return 'TWDocument.data(type: $type, typeId: $typeId, documentID: $documentID, docName: $docName, docPath: $docPath, downloadURL: $downloadURL, instructions: $instructions, uploadedByUID: $uploadedByUID, seenByUsers: $seenByUsers, deleted: $deleted)';
   }
 
   @override
@@ -341,6 +385,70 @@ class _$TWDocumentData implements TWDocumentData {
   @override
   $TWDocumentDataCopyWith<TWDocumentData> get copyWith =>
       _$TWDocumentDataCopyWithImpl<TWDocumentData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            TWDocType type,
+            String typeId,
+            String documentID,
+            String docName,
+            String docPath,
+            String downloadURL,
+            String instructions,
+            String uploadedByUID,
+            List<TWUser> seenByUsers,
+            bool deleted)
+        data,
+  }) {
+    return data(type, typeId, documentID, docName, docPath, downloadURL,
+        instructions, uploadedByUID, seenByUsers, deleted);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            TWDocType type,
+            String typeId,
+            String documentID,
+            String docName,
+            String docPath,
+            String downloadURL,
+            String instructions,
+            String uploadedByUID,
+            List<TWUser> seenByUsers,
+            bool deleted)?
+        data,
+    required TResult orElse(),
+  }) {
+    if (data != null) {
+      return data(type, typeId, documentID, docName, docPath, downloadURL,
+          instructions, uploadedByUID, seenByUsers, deleted);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TWDocumentData value) data,
+  }) {
+    return data(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TWDocumentData value)? data,
+    required TResult orElse(),
+  }) {
+    if (data != null) {
+      return data(this);
+    }
+    return orElse();
+  }
 
   @override
   Map<String, dynamic> toJson() {

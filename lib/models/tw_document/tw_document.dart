@@ -9,7 +9,7 @@ enum TWDocType { Dev, Tender, TenderBid }
 @freezed
 class TWDocument with _$TWDocument {
   // const TWDocument._();
-  const factory TWDocument._({
+  const factory TWDocument.data({
     required TWDocType type,
     required String typeId,
     required String documentID,
