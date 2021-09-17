@@ -18,7 +18,9 @@ class TWDocumentCard extends StatelessWidget {
     return ListTile(
       leading: InkWell(
         child: Icon(Icons.download_outlined),
-        onTap: () => onDownloadClicked(),
+        onTap: () {
+          if (!doc.deleted) onDownloadClicked();
+        },
         // sl<StorageService>().downloadFile(document: doc),
       ),
       title: Text(doc.docName),
@@ -26,6 +28,11 @@ class TWDocumentCard extends StatelessWidget {
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
+          if (loggedInUserUID != doc.uploadedByUID && doc.deleted)
+            Text(
+              'deleted',
+              style: TextStyle(color: Colors.red),
+            ),
           if (loggedInUserUID == doc.uploadedByUID)
             MaterialButton(
               child: Text("Seen By"),
@@ -46,7 +53,7 @@ class TWDocumentCard extends StatelessWidget {
                     });
               },
             ),
-          if (loggedInUserUID == doc.uploadedByUID)
+          if (loggedInUserUID == doc.uploadedByUID && !doc.deleted)
             MaterialButton(
               child: Text("Delete"),
               onPressed: () async {
