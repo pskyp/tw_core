@@ -33,7 +33,7 @@ Map<String, dynamic> _$$TWDocumentDataToJson(_$TWDocumentData instance) =>
       'downloadURL': instance.downloadURL,
       'instructions': instance.instructions,
       'uploadedByUID': instance.uploadedByUID,
-      'seenByUsers': instance.seenByUsers,
+      'seenByUsers': instance.seenByUsers.map((e) => e.toJson()).toList(),
       'deleted': instance.deleted,
     };
 

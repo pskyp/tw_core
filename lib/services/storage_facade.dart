@@ -28,7 +28,7 @@ class StorageFacade {
       var path = await docsRef.child(docPath).putData(fileData);
       String documentDownloadURL = await path.ref.getDownloadURL();
 
-      TWDocument doc = TWDocument.data(
+      TWDocument doc = TWDocument(
         type: docType,
         typeId: typeId,
         documentID: typeId + DateTime.now().toString(),
@@ -52,5 +52,16 @@ class StorageFacade {
         new html.AnchorElement(href: downloadURL);
     anchorElement.download = downloadURL;
     anchorElement.click();
+  }
+
+  Future<Either<TWServerError, Unit>> deleteDoc(TWDocument doc) async {
+    try {
+      await TWFC.docsCollection
+          .doc(doc.documentID)
+          .set(doc.copyWith(deleted: true).toJson());
+      return right(unit);
+    } on Exception {
+      return left(TWServerError());
+    }
   }
 }
