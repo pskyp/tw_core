@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/tw_user/tw_user.dart';
 import 'package:tw_core/theme/tw_theme.dart';
 
 part 'chat_item.g.dart';
@@ -24,6 +25,21 @@ class ChatItem extends Equatable {
     required this.sendTime,
     required this.seenByAll,
   });
+
+  factory ChatItem.neu({
+    required String text,
+    required TWUser sender,
+    required String chatRoomId,
+  }) {
+    return ChatItem(
+      chatItemId: sender.uid + DateTime.now().toString(),
+      chatRoomId: chatRoomId,
+      text: text,
+      senderUID: sender.uid,
+      sendTime: DateTime.now(),
+      seenByAll: false,
+    );
+  }
 
   get shortText => text.length < 30 ? text : text.substring(0, 30) + '...';
 

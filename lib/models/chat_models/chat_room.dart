@@ -1,15 +1,18 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tw_core/models/contractor/contractor_model.dart';
+import 'package:tw_core/models/bid/bid.dart';
+import 'package:tw_core/models/bid_on_tender/bid_on_tender.dart';
 import 'package:tw_core/models/errors.dart';
-import 'package:tw_core/models/person/person.dart';
+import 'package:tw_core/models/job/job.dart';
+import 'package:tw_core/models/tender/tender_model.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 
 import 'chat_item.dart';
 
 part 'chat_room.g.dart';
+
+enum ChatRoomType { Tender, Job }
 
 @JsonSerializable(explicitToJson: true)
 @immutable
@@ -46,6 +49,68 @@ class ChatRoom extends Equatable {
     required this.seenByAll,
     required this.isArchived,
   });
+
+  factory ChatRoom.typeTender({
+    required Tender tender,
+    required BidOnTender tenderBid,
+    required ChatItem? lastChatItem,
+  }) {
+    return ChatRoom(
+      isTenderChat: true,
+      chatRoomId: getTenderChatRoomId(tender: tender, tenderBid: tenderBid),
+      bidId: tenderBid.bidId,
+      participantUIDs: [
+        tender.developerTWUser.uid,
+        tenderBid.bidder.uid,
+      ],
+      p1: tender.developerTWUser,
+      p2: tenderBid.bidder,
+      jobId: tender.id,
+      jobTitle: tender.tenderTitle,
+      developmentTitle: 'static development title in chatroom model',
+      lastChatItem: lastChatItem,
+      seenByAll: false,
+      isArchived: false,
+    );
+  }
+
+  factory ChatRoom.typeJob({
+    required Job job,
+    required Bid bid,
+    required ChatItem? lastChatItem,
+  }) {
+    return ChatRoom(
+      isTenderChat: true,
+      chatRoomId: getJobChatRoomId(job: job, bid: bid),
+      bidId: bid.bidId,
+      participantUIDs: [
+        job.contractorTWUser.uid,
+        bid.subbieTWUser.uid,
+      ],
+      p1: job.contractorTWUser,
+      p2: bid.subbieTWUser,
+      jobId: job.jobId,
+      jobTitle: job.title,
+      developmentTitle: 'static development title in chatroom model',
+      lastChatItem: lastChatItem,
+      seenByAll: false,
+      isArchived: false,
+    );
+  }
+
+  static String getJobChatRoomId({
+    required Job job,
+    required Bid bid,
+  }) {
+    return job.jobId + bid.bidId;
+  }
+
+  static String getTenderChatRoomId({
+    required Tender tender,
+    required BidOnTender tenderBid,
+  }) {
+    return tender.id + tenderBid.bidId;
+  }
 
   Map<String, dynamic> toJson() => _$ChatRoomToJson(this);
   factory ChatRoom.fromJson(Map<String, dynamic> json) =>
