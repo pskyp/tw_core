@@ -15,15 +15,15 @@ dependencies:
     path: packages/cache
   bloc: ^7.0.0
   build_runner: ^2.0.4
-  cloud_firestore: ^2.5.1
+  cloud_firestore: ^2.5.3
   dartz: 0.10.0-nullsafety.2
   dotted_border: ^2.0.0+1
   equatable: ^2.0.2
-  firebase_auth: ^3.1.0
-  file_picker: ^3.0.3
+  firebase_auth: ^3.1.1
+  file_picker: ^4.0.3
   formz: ^0.4.0
   flutter_bloc: ^7.2.0
-  firebase_storage: ^10.0.1
+  firebase_storage: ^10.0.3
   freezed_annotation: ^0.14.3
   geolocator: ^7.0.3
   google_sign_in: ^5.0.5
