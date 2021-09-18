@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/job/job.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 
-import '../person/person.dart';
 import '../trades.dart';
 import 'bid_action.dart';
 
@@ -43,6 +43,23 @@ class Bid {
     required this.appliedOn,
     required this.trade,
   });
+
+  factory Bid.neu({required Job job, required TWUser loggedInUser}) {
+    return Bid(
+      jobId: job.jobId,
+      bidId: loggedInUser.uid + job.jobId,
+      contractorId: job.contractorTWUser.uid,
+      title: job.title,
+      developmentTitle: job.development,
+      subbieTWUser: loggedInUser,
+      address: job.location.completeAddress,
+      seenByContractor: false,
+      description: job.description,
+      status: BidStatuses.New,
+      appliedOn: DateTime.now(),
+      trade: job.trade,
+    );
+  }
 
   factory Bid.fromJson(Map<String, dynamic> json) => _$BidFromJson(json);
   Map<String, dynamic> toJson() => _$BidToJson(this);

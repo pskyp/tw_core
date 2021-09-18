@@ -100,15 +100,14 @@ class ChatFacade {
     }
   }
 
-  Stream<Option<List<ChatRoom>>> streamChatRooms(TWUser user) =>
-      TWFC.chatsCollection
+  Stream<List<ChatRoom>> streamChatRooms(TWUser user) => TWFC.chatsCollection
           .where('participantUIDs', arrayContains: user.uid)
           .snapshots()
           .map((list) {
         chatRooms = optionOf(
             list.docs.map((doc) => ChatRoom.fromJson(doc.data())).toList());
 
-        return chatRooms;
+        return chatRooms.getOrElse(() => []);
       });
 
   Stream<List<ChatItem>?> streamChat(final ChatRoom chatRoom) =>
