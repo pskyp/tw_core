@@ -64,4 +64,13 @@ class StorageFacade {
       return left(TWServerError());
     }
   }
+
+  Stream<List<TWDocument>> docs({
+    required final List<String> typeId,
+  }) {
+    return TWFC.docsCollection.where('typeId', whereIn: typeId).snapshots().map(
+          (list) =>
+              list.docs.map((doc) => TWDocument.fromJson(doc.data())).toList(),
+        );
+  }
 }

@@ -6,19 +6,35 @@ import 'package:tw_core/models/bid_on_tender/bid_on_tender.dart';
 import 'package:tw_core/models/bid_review/bid_review.dart';
 import 'package:tw_core/models/contractor/contractor_model.dart';
 import 'package:tw_core/models/contractor_rating/contractor_rating.dart';
+import 'package:tw_core/models/core/supplement_objects/date_validator.dart';
+import 'package:tw_core/models/core/supplement_objects/subbie_required.dart';
+import 'package:tw_core/models/core/supplement_objects/supplement_requirement.dart';
+import 'package:tw_core/models/core/supplement_objects/supplement_title.dart';
+import 'package:tw_core/models/core/tw_location/tw_location.dart';
+import 'package:tw_core/models/developer/developer.dart';
+import 'package:tw_core/models/development/development.dart';
+import 'package:tw_core/models/development/value_objects/dev_description/dev_description.dart';
+import 'package:tw_core/models/development/value_objects/dev_title/dev_title.dart';
+import 'package:tw_core/models/email/email.dart';
 import 'package:tw_core/models/errors.dart';
 import 'package:tw_core/models/invite_to_bid.dart';
 import 'package:tw_core/models/invoicing/invoice_model.dart';
 import 'package:tw_core/models/job/job.dart';
 import 'package:tw_core/models/job_review/job_review.dart';
 import 'package:tw_core/models/subbie/subbie_model.dart';
+import 'package:tw_core/models/supplement/supplement_model.dart';
 import 'package:tw_core/models/tender/tender_model.dart';
+import 'package:tw_core/models/tender/tender_timeline.dart';
+import 'package:tw_core/models/tender_invitation_mail/tender_invitation_email.dart';
+import 'package:tw_core/models/trades.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 
 class TAJFacade {
   Option<List<Job>> allJobs = optionOf(null);
   Option<List<Bid>> allBids = optionOf(null);
   Option<List<Tender>> allTenders = optionOf(null);
+  Option<List<Development>> allDevelopments = optionOf(null);
+  Option<List<Supplement>> allSupplements = optionOf(null);
   Option<List<BidOnTender>> allTenderBids = optionOf(null);
   Option<List<BidReview>> allBidReviews = optionOf(null);
 
@@ -611,6 +627,274 @@ class TAJFacade {
   //   } else
   //     return false;
   // }
+
+  Future<Either<TWServerError, Unit>> saveDevelopment({
+    required DevTitle title,
+    required DevDescription description,
+    required TWLocation devLocation,
+    required String devId,
+    required Developer developer,
+  }) async {
+    Development dev = Development(
+      id: devId,
+      developerId: developer.twUser.uid,
+      devTitle: title.getOrCrash(),
+      description: description.getOrCrash(),
+      location: devLocation.getOrCrash(),
+    );
+    batch.set(TWFC.developmentsCollection.doc(dev.id), dev.toJson());
+    return (await commitBatch(batch));
+  }
+
+  Stream<List<BidOnTender>> streamAllBidsForAllTendersByDeveloper({
+    required TWUser developer,
+  }) {
+    assert(developer.type == TWUserType.Developer);
+    return TWFC.tenderBidsCollection
+        .where('developerId', isEqualTo: developer.uid)
+        .snapshots()
+        .map((list) {
+      allTenderBids = optionOf(
+          list.docs.map((doc) => BidOnTender.fromJson(doc.data())).toList());
+      return allTenderBids.getOrElse(() => []);
+    });
+  }
+
+  inviteToTendering({
+    required Tender tender,
+    required List<BidOnTender> tenderBids,
+  }) async {
+    tenderBids.forEach((bidOnTender) {
+      batch.update(
+        TWFC.tenderBidsCollection.doc(bidOnTender.bidId),
+        bidOnTender.copyWithStatusInvited().toJson(),
+      );
+    });
+    batch.update(TWFC.tendersCollection.doc(tender.id),
+        tender.copyWithStatusInvited().toJson());
+    return commitBatch(batch);
+  }
+
+  awardTender({
+    required Tender tender,
+    required BidOnTender tenderBid,
+  }) async {
+    batch.update(
+      TWFC.tenderBidsCollection.doc(tenderBid.bidId),
+      tenderBid.copyWithStatusAwarded().toJson(),
+    );
+    batch.update(
+      TWFC.tendersCollection.doc(tender.id),
+      tender.copyWithStatusAwarded().toJson(),
+    );
+    return commitBatch(batch);
+  }
+
+  tenderFeedbackComplete(Tender tender, BidOnTender tenderBid) async {
+    batch.update(
+      TWFC.tenderBidsCollection.doc(tenderBid.bidId),
+      tenderBid.copyWithStatusComplete().toJson(),
+    );
+    batch.update(
+      TWFC.tendersCollection.doc(tender.id),
+      tender.copyWithStatusComplete().toJson(),
+    );
+    return commitBatch(batch);
+  }
+
+  Stream<List<Development>> streamAllDevsByDeveloper({
+    required TWUser developer,
+  }) {
+    return TWFC.developmentsCollection
+        .where('developerId', isEqualTo: developer.uid)
+        .snapshots()
+        .map((list) {
+      allDevelopments = optionOf(
+        list.docs.map((doc) => Development.fromJson(doc.data())).toList(),
+      );
+      return allDevelopments.getOrElse(() => []);
+    });
+  }
+
+  Stream<List<Supplement>> streamAllSupplementsByDeveloper({
+    required TWUser developer,
+  }) {
+    return TWFC.supplementCollection
+        .where('developer.twUser.uid', isEqualTo: developer.uid)
+        .snapshots()
+        .map((list) {
+      allSupplements = optionOf(
+        list.docs.map((doc) => Supplement.fromJson(doc.data())).toList(),
+      );
+      return allSupplements.getOrElse(() => []);
+    });
+  }
+
+  Stream<List<Tender>> streamAllTendersByDeveloper({
+    required TWUser developer,
+  }) {
+    return TWFC.tendersCollection
+        .where('developerId', isEqualTo: developer.uid)
+        .snapshots()
+        .map((list) {
+      allTenders = optionOf(
+          list.docs.map((doc) => Tender.fromJson(doc.data())).toList());
+      return allTenders.getOrElse(() => []);
+    });
+  }
+
+  Future<Either<TWServerError, Unit>> saveSupplement({
+    required SupplementTitle supplementTitle,
+    required SupplementRequirement requirements,
+    required NumberOfSubbies numberOfSubbies,
+    required Trade selectedTrade,
+    required Development development,
+    required SupplementTimeLine supplementTimeLine,
+    required Developer developer,
+  }) async {
+    Supplement supplement = Supplement(
+      status: SupplementStatus.Active,
+      developer: developer,
+      development: development.devTitle,
+      description: development.description,
+      hourlyRate: 100,
+      hrsPerDay: 0,
+      title: supplementTitle.getOrCrash(),
+      startDate: supplementTimeLine.startDate.getOrCrash(),
+      endDate: supplementTimeLine.endDate.getOrCrash(),
+      subbiesRequired: numberOfSubbies.getOrCrash(),
+      requirements: requirements.getOrCrash(),
+      postedOn: DateTime.now(),
+      applications: 0,
+      subbiesWorking: 0,
+      trade: selectedTrade,
+      acceptingBids: true,
+      totalUnseenBids: 0,
+      refreshCounter: 0,
+      location: development.location,
+    );
+    batch.set(
+      TWFC.supplementCollection.doc(),
+      supplement.toJson(),
+    );
+    return (await commitBatch(batch));
+  }
+
+  Future<Either<TWServerError, Unit>> saveTender({
+    required String tenderTitle,
+    required Trade trade,
+    required String requirements,
+    required EmailAddress? emailOne,
+    required EmailAddress? emailTwo,
+    required TenderTimeline tenderTimeline,
+    required Development development,
+    required String tenderId,
+    required Developer developer,
+  }) async {
+    try {
+      Tender tender = Tender(
+        developerTWUser: developer.twUser,
+        tenderStatus: TenderStatus.New,
+        tenderTimeLineStatus: TenderTimeLineStatus.New,
+        id: tenderId,
+        developmentId: development.id,
+        feedbackByContractor: false,
+        feedbackByDeveloper: false,
+        rating: 0,
+        developerId: developer.twUser.uid,
+        tenderTitle: tenderTitle,
+        trade: trade,
+        inviteEmailOne: emailOne?.getOrCrash(),
+        inviteEmailTwo: emailTwo?.getOrCrash(),
+        requirements: requirements,
+        location: development.location,
+        createdAt: tenderTimeline.createdAt.getOrCrash(),
+        applicationDeadLine: tenderTimeline.applicationDeadline.getOrCrash(),
+        startDate: tenderTimeline.startDeadline.getOrCrash(),
+        queriesDate: tenderTimeline.queriesDeadline.getOrCrash(),
+        submissionDate: tenderTimeline.submissionDeadline.getOrCrash(),
+        feedbackDate: tenderTimeline.feedbackDeadline.getOrCrash(),
+        awardDate: tenderTimeline.awardDeadline.getOrCrash(),
+        endDate: tenderTimeline.endDeadline.getOrCrash(),
+      );
+      await TWFC.tendersCollection.doc(tenderId).set(tender.toJson());
+
+      String emailSubject = "Invitation to bid on tender";
+      if (emailOne != null) {
+        TenderInvitationMail tenderInvitationOne = tenderInvitation(
+          email: emailOne,
+          subject: emailSubject,
+          developer: tender.developmentId,
+          reference: tender.id,
+          location: tender.location.townOrCity,
+          trade: tender.trade.toString(),
+          summary: tender.tenderTitle,
+          start: tender.startDate.toString(),
+          finish: tender.endDate.toString(),
+        );
+        await TWFC.mailsCollection.add(tenderInvitationOne.toJson());
+      }
+
+      if (emailTwo != null) {
+        TenderInvitationMail tenderInvitationTwo = tenderInvitation(
+          email: emailTwo,
+          subject: emailSubject,
+          developer: tender.developmentId,
+          reference: tender.id,
+          location: tender.location.townOrCity,
+          trade: tender.trade.toString(),
+          summary: tender.tenderTitle,
+          start: tender.startDate.toString(),
+          finish: tender.endDate.toString(),
+        );
+        await TWFC.mailsCollection.add(tenderInvitationTwo.toJson());
+      }
+      return right(unit);
+    } on Exception {
+      return left(TWServerError());
+    }
+  }
+
+  TenderInvitationMail tenderInvitation({
+    required EmailAddress email,
+    required String subject,
+    required String reference,
+    required String developer,
+    required String trade,
+    required String location,
+    required String summary,
+    required String start,
+    required String finish,
+  }) {
+    return TenderInvitationMail(
+      to: [email.getOrCrash()],
+      message: Message(subject: "THis is subject", text: "Hello Peter"),
+      // template: Message(
+      //   data: {
+      //     'reference': reference,
+      //     'developer': developer,
+      //     'trade': trade,
+      //     'town': location,
+      //     'start':start,
+      //     'finish':finish,
+      //     'summary':summary
+      //   },
+      //   name: "TenderInvite",
+      // ),
+    );
+  }
+
+  // Future<Person> contractorPerson({required String contractorId}) async {
+  //   var snapshot = await TWFC.contractorsCollection.doc(contractorId).get();
+  //   Contractor c = Contractor.fromJson(snapshot.data() as Map<String, dynamic>);
+  //   return Person.fromTWUser(c.basicProfile);
+  // }
+
+  Stream<Tender> tenderStream(String tenderId) {
+    return TWFC.tendersCollection.doc(tenderId).snapshots().map(
+          (event) => Tender.fromJson(event.data() as Map<String, dynamic>),
+        );
+  }
 
   WriteBatch batch = FirebaseFirestore.instance.batch();
 }
