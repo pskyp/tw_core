@@ -2,34 +2,32 @@ part of 'chatroom_bloc.dart';
 
 @freezed
 class ChatroomState with _$ChatroomState {
+  const ChatroomState._();
   const factory ChatroomState({
-    required bool isTenderChat,
+    required ChatType type,
     required ChatRoom? chatRoom,
-    required Job? job,
-    required Bid? bid,
-    required Tender? tender,
-    required BidOnTender? tenderBid,
-    required bool isLoading,
-    required List<ChatItem>? chatItems,
+    required Either<Job, Tender> work,
+    required Either<Bid, BidOnTender> workBid,
+    required Option<List<ChatItem>> chatItems,
   }) = _ChatroomState;
 
   factory ChatroomState.initial({
-    required bool isTenderChat,
     required ChatRoom? chatRoom,
-    required Job? job,
-    required Bid? bid,
-    required Tender? tender,
-    required BidOnTender? tenderBid,
+    required ChatType type,
+    required Either<Job, Tender> work,
+    required Either<Bid, BidOnTender> workBid,
   }) {
     return _ChatroomState(
-      isTenderChat: isTenderChat,
       chatRoom: chatRoom,
-      job: job,
-      bid: bid,
-      tender: tender,
-      tenderBid: tenderBid,
-      chatItems: null,
-      isLoading: true,
+      workBid: workBid,
+      work: work,
+      chatItems: optionOf(null),
+      type: type,
     );
   }
+
+  Tender? get tender => work.fold((l) => null, id);
+  Job? get job => work.fold(id, (r) => null);
+  Bid? get bid => workBid.fold(id, (r) => null);
+  BidOnTender? get tenderBid => workBid.fold((l) => null, id);
 }

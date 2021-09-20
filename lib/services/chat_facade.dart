@@ -12,6 +12,8 @@ import 'package:tw_core/models/tw_user/tw_user.dart';
 
 part 'chat_facade.freezed.dart';
 
+enum ChatType { Job, Tender }
+
 class ChatFacade {
   Option<List<ChatRoom>> chatRooms = optionOf(null);
 
@@ -21,7 +23,8 @@ class ChatFacade {
     required Job job,
     required String text,
   }) async {
-    assert(job.contractorTWUser == sender || bid.subbieTWUser == sender);
+    assert(job.contractorTWUser.uid == sender.uid ||
+        bid.subbieTWUser.uid == sender.uid);
 
     ChatRoom chatRoom = ChatRoom.typeJob(
       job: job,
@@ -110,9 +113,9 @@ class ChatFacade {
         return chatRooms.getOrElse(() => []);
       });
 
-  Stream<List<ChatItem>?> streamChat(final ChatRoom chatRoom) =>
+  Stream<List<ChatItem>?> streamChat(final String chatRoomId) =>
       TWFC.chatsCollection
-          .doc(chatRoom.chatRoomId)
+          .doc(chatRoomId)
           .collection('chatItems')
           .snapshots()
           .map((list) =>

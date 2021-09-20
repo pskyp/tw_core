@@ -789,17 +789,19 @@ class _$AllchatsStateTearOff {
   const _$AllchatsStateTearOff();
 
   _AllchatsState call(
-      {required Option<List<ChatRoom>> chatRooms,
+      {required Option<List<ChatRoom>> allChatRooms,
       required Option<List<Job>> allJobs,
       required Option<List<Bid>> allBids,
       required Option<List<Tender>> allTenders,
-      required Option<List<BidOnTender>> allTenderBids}) {
+      required Option<List<BidOnTender>> allTenderBids,
+      required ChatType type}) {
     return _AllchatsState(
-      chatRooms: chatRooms,
+      allChatRooms: allChatRooms,
       allJobs: allJobs,
       allBids: allBids,
       allTenders: allTenders,
       allTenderBids: allTenderBids,
+      type: type,
     );
   }
 }
@@ -809,12 +811,13 @@ const $AllchatsState = _$AllchatsStateTearOff();
 
 /// @nodoc
 mixin _$AllchatsState {
-  Option<List<ChatRoom>> get chatRooms => throw _privateConstructorUsedError;
+  Option<List<ChatRoom>> get allChatRooms => throw _privateConstructorUsedError;
   Option<List<Job>> get allJobs => throw _privateConstructorUsedError;
   Option<List<Bid>> get allBids => throw _privateConstructorUsedError;
   Option<List<Tender>> get allTenders => throw _privateConstructorUsedError;
   Option<List<BidOnTender>> get allTenderBids =>
       throw _privateConstructorUsedError;
+  ChatType get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AllchatsStateCopyWith<AllchatsState> get copyWith =>
@@ -827,11 +830,12 @@ abstract class $AllchatsStateCopyWith<$Res> {
           AllchatsState value, $Res Function(AllchatsState) then) =
       _$AllchatsStateCopyWithImpl<$Res>;
   $Res call(
-      {Option<List<ChatRoom>> chatRooms,
+      {Option<List<ChatRoom>> allChatRooms,
       Option<List<Job>> allJobs,
       Option<List<Bid>> allBids,
       Option<List<Tender>> allTenders,
-      Option<List<BidOnTender>> allTenderBids});
+      Option<List<BidOnTender>> allTenderBids,
+      ChatType type});
 }
 
 /// @nodoc
@@ -845,16 +849,17 @@ class _$AllchatsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? chatRooms = freezed,
+    Object? allChatRooms = freezed,
     Object? allJobs = freezed,
     Object? allBids = freezed,
     Object? allTenders = freezed,
     Object? allTenderBids = freezed,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      chatRooms: chatRooms == freezed
-          ? _value.chatRooms
-          : chatRooms // ignore: cast_nullable_to_non_nullable
+      allChatRooms: allChatRooms == freezed
+          ? _value.allChatRooms
+          : allChatRooms // ignore: cast_nullable_to_non_nullable
               as Option<List<ChatRoom>>,
       allJobs: allJobs == freezed
           ? _value.allJobs
@@ -872,6 +877,10 @@ class _$AllchatsStateCopyWithImpl<$Res>
           ? _value.allTenderBids
           : allTenderBids // ignore: cast_nullable_to_non_nullable
               as Option<List<BidOnTender>>,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as ChatType,
     ));
   }
 }
@@ -884,11 +893,12 @@ abstract class _$AllchatsStateCopyWith<$Res>
       __$AllchatsStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Option<List<ChatRoom>> chatRooms,
+      {Option<List<ChatRoom>> allChatRooms,
       Option<List<Job>> allJobs,
       Option<List<Bid>> allBids,
       Option<List<Tender>> allTenders,
-      Option<List<BidOnTender>> allTenderBids});
+      Option<List<BidOnTender>> allTenderBids,
+      ChatType type});
 }
 
 /// @nodoc
@@ -904,16 +914,17 @@ class __$AllchatsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? chatRooms = freezed,
+    Object? allChatRooms = freezed,
     Object? allJobs = freezed,
     Object? allBids = freezed,
     Object? allTenders = freezed,
     Object? allTenderBids = freezed,
+    Object? type = freezed,
   }) {
     return _then(_AllchatsState(
-      chatRooms: chatRooms == freezed
-          ? _value.chatRooms
-          : chatRooms // ignore: cast_nullable_to_non_nullable
+      allChatRooms: allChatRooms == freezed
+          ? _value.allChatRooms
+          : allChatRooms // ignore: cast_nullable_to_non_nullable
               as Option<List<ChatRoom>>,
       allJobs: allJobs == freezed
           ? _value.allJobs
@@ -931,6 +942,10 @@ class __$AllchatsStateCopyWithImpl<$Res>
           ? _value.allTenderBids
           : allTenderBids // ignore: cast_nullable_to_non_nullable
               as Option<List<BidOnTender>>,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as ChatType,
     ));
   }
 }
@@ -939,15 +954,16 @@ class __$AllchatsStateCopyWithImpl<$Res>
 
 class _$_AllchatsState extends _AllchatsState {
   const _$_AllchatsState(
-      {required this.chatRooms,
+      {required this.allChatRooms,
       required this.allJobs,
       required this.allBids,
       required this.allTenders,
-      required this.allTenderBids})
+      required this.allTenderBids,
+      required this.type})
       : super._();
 
   @override
-  final Option<List<ChatRoom>> chatRooms;
+  final Option<List<ChatRoom>> allChatRooms;
   @override
   final Option<List<Job>> allJobs;
   @override
@@ -956,19 +972,21 @@ class _$_AllchatsState extends _AllchatsState {
   final Option<List<Tender>> allTenders;
   @override
   final Option<List<BidOnTender>> allTenderBids;
+  @override
+  final ChatType type;
 
   @override
   String toString() {
-    return 'AllchatsState(chatRooms: $chatRooms, allJobs: $allJobs, allBids: $allBids, allTenders: $allTenders, allTenderBids: $allTenderBids)';
+    return 'AllchatsState(allChatRooms: $allChatRooms, allJobs: $allJobs, allBids: $allBids, allTenders: $allTenders, allTenderBids: $allTenderBids, type: $type)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _AllchatsState &&
-            (identical(other.chatRooms, chatRooms) ||
+            (identical(other.allChatRooms, allChatRooms) ||
                 const DeepCollectionEquality()
-                    .equals(other.chatRooms, chatRooms)) &&
+                    .equals(other.allChatRooms, allChatRooms)) &&
             (identical(other.allJobs, allJobs) ||
                 const DeepCollectionEquality()
                     .equals(other.allJobs, allJobs)) &&
@@ -980,17 +998,20 @@ class _$_AllchatsState extends _AllchatsState {
                     .equals(other.allTenders, allTenders)) &&
             (identical(other.allTenderBids, allTenderBids) ||
                 const DeepCollectionEquality()
-                    .equals(other.allTenderBids, allTenderBids)));
+                    .equals(other.allTenderBids, allTenderBids)) &&
+            (identical(other.type, type) ||
+                const DeepCollectionEquality().equals(other.type, type)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(chatRooms) ^
+      const DeepCollectionEquality().hash(allChatRooms) ^
       const DeepCollectionEquality().hash(allJobs) ^
       const DeepCollectionEquality().hash(allBids) ^
       const DeepCollectionEquality().hash(allTenders) ^
-      const DeepCollectionEquality().hash(allTenderBids);
+      const DeepCollectionEquality().hash(allTenderBids) ^
+      const DeepCollectionEquality().hash(type);
 
   @JsonKey(ignore: true)
   @override
@@ -1000,15 +1021,16 @@ class _$_AllchatsState extends _AllchatsState {
 
 abstract class _AllchatsState extends AllchatsState {
   const factory _AllchatsState(
-      {required Option<List<ChatRoom>> chatRooms,
+      {required Option<List<ChatRoom>> allChatRooms,
       required Option<List<Job>> allJobs,
       required Option<List<Bid>> allBids,
       required Option<List<Tender>> allTenders,
-      required Option<List<BidOnTender>> allTenderBids}) = _$_AllchatsState;
+      required Option<List<BidOnTender>> allTenderBids,
+      required ChatType type}) = _$_AllchatsState;
   const _AllchatsState._() : super._();
 
   @override
-  Option<List<ChatRoom>> get chatRooms => throw _privateConstructorUsedError;
+  Option<List<ChatRoom>> get allChatRooms => throw _privateConstructorUsedError;
   @override
   Option<List<Job>> get allJobs => throw _privateConstructorUsedError;
   @override
@@ -1018,6 +1040,8 @@ abstract class _AllchatsState extends AllchatsState {
   @override
   Option<List<BidOnTender>> get allTenderBids =>
       throw _privateConstructorUsedError;
+  @override
+  ChatType get type => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AllchatsStateCopyWith<_AllchatsState> get copyWith =>

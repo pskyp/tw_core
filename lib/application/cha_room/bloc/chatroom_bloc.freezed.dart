@@ -755,22 +755,16 @@ class _$ChatroomStateTearOff {
   const _$ChatroomStateTearOff();
 
   _ChatroomState call(
-      {required bool isTenderChat,
+      {required ChatType type,
       required ChatRoom? chatRoom,
-      required Job? job,
-      required Bid? bid,
-      required Tender? tender,
-      required BidOnTender? tenderBid,
-      required bool isLoading,
-      required List<ChatItem>? chatItems}) {
+      required Either<Job, Tender> work,
+      required Either<Bid, BidOnTender> workBid,
+      required Option<List<ChatItem>> chatItems}) {
     return _ChatroomState(
-      isTenderChat: isTenderChat,
+      type: type,
       chatRoom: chatRoom,
-      job: job,
-      bid: bid,
-      tender: tender,
-      tenderBid: tenderBid,
-      isLoading: isLoading,
+      work: work,
+      workBid: workBid,
       chatItems: chatItems,
     );
   }
@@ -781,14 +775,11 @@ const $ChatroomState = _$ChatroomStateTearOff();
 
 /// @nodoc
 mixin _$ChatroomState {
-  bool get isTenderChat => throw _privateConstructorUsedError;
+  ChatType get type => throw _privateConstructorUsedError;
   ChatRoom? get chatRoom => throw _privateConstructorUsedError;
-  Job? get job => throw _privateConstructorUsedError;
-  Bid? get bid => throw _privateConstructorUsedError;
-  Tender? get tender => throw _privateConstructorUsedError;
-  BidOnTender? get tenderBid => throw _privateConstructorUsedError;
-  bool get isLoading => throw _privateConstructorUsedError;
-  List<ChatItem>? get chatItems => throw _privateConstructorUsedError;
+  Either<Job, Tender> get work => throw _privateConstructorUsedError;
+  Either<Bid, BidOnTender> get workBid => throw _privateConstructorUsedError;
+  Option<List<ChatItem>> get chatItems => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChatroomStateCopyWith<ChatroomState> get copyWith =>
@@ -801,14 +792,11 @@ abstract class $ChatroomStateCopyWith<$Res> {
           ChatroomState value, $Res Function(ChatroomState) then) =
       _$ChatroomStateCopyWithImpl<$Res>;
   $Res call(
-      {bool isTenderChat,
+      {ChatType type,
       ChatRoom? chatRoom,
-      Job? job,
-      Bid? bid,
-      Tender? tender,
-      BidOnTender? tenderBid,
-      bool isLoading,
-      List<ChatItem>? chatItems});
+      Either<Job, Tender> work,
+      Either<Bid, BidOnTender> workBid,
+      Option<List<ChatItem>> chatItems});
 }
 
 /// @nodoc
@@ -822,48 +810,33 @@ class _$ChatroomStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? isTenderChat = freezed,
+    Object? type = freezed,
     Object? chatRoom = freezed,
-    Object? job = freezed,
-    Object? bid = freezed,
-    Object? tender = freezed,
-    Object? tenderBid = freezed,
-    Object? isLoading = freezed,
+    Object? work = freezed,
+    Object? workBid = freezed,
     Object? chatItems = freezed,
   }) {
     return _then(_value.copyWith(
-      isTenderChat: isTenderChat == freezed
-          ? _value.isTenderChat
-          : isTenderChat // ignore: cast_nullable_to_non_nullable
-              as bool,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as ChatType,
       chatRoom: chatRoom == freezed
           ? _value.chatRoom
           : chatRoom // ignore: cast_nullable_to_non_nullable
               as ChatRoom?,
-      job: job == freezed
-          ? _value.job
-          : job // ignore: cast_nullable_to_non_nullable
-              as Job?,
-      bid: bid == freezed
-          ? _value.bid
-          : bid // ignore: cast_nullable_to_non_nullable
-              as Bid?,
-      tender: tender == freezed
-          ? _value.tender
-          : tender // ignore: cast_nullable_to_non_nullable
-              as Tender?,
-      tenderBid: tenderBid == freezed
-          ? _value.tenderBid
-          : tenderBid // ignore: cast_nullable_to_non_nullable
-              as BidOnTender?,
-      isLoading: isLoading == freezed
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
+      work: work == freezed
+          ? _value.work
+          : work // ignore: cast_nullable_to_non_nullable
+              as Either<Job, Tender>,
+      workBid: workBid == freezed
+          ? _value.workBid
+          : workBid // ignore: cast_nullable_to_non_nullable
+              as Either<Bid, BidOnTender>,
       chatItems: chatItems == freezed
           ? _value.chatItems
           : chatItems // ignore: cast_nullable_to_non_nullable
-              as List<ChatItem>?,
+              as Option<List<ChatItem>>,
     ));
   }
 }
@@ -876,14 +849,11 @@ abstract class _$ChatroomStateCopyWith<$Res>
       __$ChatroomStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool isTenderChat,
+      {ChatType type,
       ChatRoom? chatRoom,
-      Job? job,
-      Bid? bid,
-      Tender? tender,
-      BidOnTender? tenderBid,
-      bool isLoading,
-      List<ChatItem>? chatItems});
+      Either<Job, Tender> work,
+      Either<Bid, BidOnTender> workBid,
+      Option<List<ChatItem>> chatItems});
 }
 
 /// @nodoc
@@ -899,109 +869,78 @@ class __$ChatroomStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? isTenderChat = freezed,
+    Object? type = freezed,
     Object? chatRoom = freezed,
-    Object? job = freezed,
-    Object? bid = freezed,
-    Object? tender = freezed,
-    Object? tenderBid = freezed,
-    Object? isLoading = freezed,
+    Object? work = freezed,
+    Object? workBid = freezed,
     Object? chatItems = freezed,
   }) {
     return _then(_ChatroomState(
-      isTenderChat: isTenderChat == freezed
-          ? _value.isTenderChat
-          : isTenderChat // ignore: cast_nullable_to_non_nullable
-              as bool,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as ChatType,
       chatRoom: chatRoom == freezed
           ? _value.chatRoom
           : chatRoom // ignore: cast_nullable_to_non_nullable
               as ChatRoom?,
-      job: job == freezed
-          ? _value.job
-          : job // ignore: cast_nullable_to_non_nullable
-              as Job?,
-      bid: bid == freezed
-          ? _value.bid
-          : bid // ignore: cast_nullable_to_non_nullable
-              as Bid?,
-      tender: tender == freezed
-          ? _value.tender
-          : tender // ignore: cast_nullable_to_non_nullable
-              as Tender?,
-      tenderBid: tenderBid == freezed
-          ? _value.tenderBid
-          : tenderBid // ignore: cast_nullable_to_non_nullable
-              as BidOnTender?,
-      isLoading: isLoading == freezed
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
+      work: work == freezed
+          ? _value.work
+          : work // ignore: cast_nullable_to_non_nullable
+              as Either<Job, Tender>,
+      workBid: workBid == freezed
+          ? _value.workBid
+          : workBid // ignore: cast_nullable_to_non_nullable
+              as Either<Bid, BidOnTender>,
       chatItems: chatItems == freezed
           ? _value.chatItems
           : chatItems // ignore: cast_nullable_to_non_nullable
-              as List<ChatItem>?,
+              as Option<List<ChatItem>>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_ChatroomState implements _ChatroomState {
+class _$_ChatroomState extends _ChatroomState {
   const _$_ChatroomState(
-      {required this.isTenderChat,
+      {required this.type,
       required this.chatRoom,
-      required this.job,
-      required this.bid,
-      required this.tender,
-      required this.tenderBid,
-      required this.isLoading,
-      required this.chatItems});
+      required this.work,
+      required this.workBid,
+      required this.chatItems})
+      : super._();
 
   @override
-  final bool isTenderChat;
+  final ChatType type;
   @override
   final ChatRoom? chatRoom;
   @override
-  final Job? job;
+  final Either<Job, Tender> work;
   @override
-  final Bid? bid;
+  final Either<Bid, BidOnTender> workBid;
   @override
-  final Tender? tender;
-  @override
-  final BidOnTender? tenderBid;
-  @override
-  final bool isLoading;
-  @override
-  final List<ChatItem>? chatItems;
+  final Option<List<ChatItem>> chatItems;
 
   @override
   String toString() {
-    return 'ChatroomState(isTenderChat: $isTenderChat, chatRoom: $chatRoom, job: $job, bid: $bid, tender: $tender, tenderBid: $tenderBid, isLoading: $isLoading, chatItems: $chatItems)';
+    return 'ChatroomState(type: $type, chatRoom: $chatRoom, work: $work, workBid: $workBid, chatItems: $chatItems)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ChatroomState &&
-            (identical(other.isTenderChat, isTenderChat) ||
-                const DeepCollectionEquality()
-                    .equals(other.isTenderChat, isTenderChat)) &&
+            (identical(other.type, type) ||
+                const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.chatRoom, chatRoom) ||
                 const DeepCollectionEquality()
                     .equals(other.chatRoom, chatRoom)) &&
-            (identical(other.job, job) ||
-                const DeepCollectionEquality().equals(other.job, job)) &&
-            (identical(other.bid, bid) ||
-                const DeepCollectionEquality().equals(other.bid, bid)) &&
-            (identical(other.tender, tender) ||
-                const DeepCollectionEquality().equals(other.tender, tender)) &&
-            (identical(other.tenderBid, tenderBid) ||
+            (identical(other.work, work) ||
+                const DeepCollectionEquality().equals(other.work, work)) &&
+            (identical(other.workBid, workBid) ||
                 const DeepCollectionEquality()
-                    .equals(other.tenderBid, tenderBid)) &&
-            (identical(other.isLoading, isLoading) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLoading, isLoading)) &&
+                    .equals(other.workBid, workBid)) &&
             (identical(other.chatItems, chatItems) ||
                 const DeepCollectionEquality()
                     .equals(other.chatItems, chatItems)));
@@ -1010,13 +949,10 @@ class _$_ChatroomState implements _ChatroomState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(isTenderChat) ^
+      const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(chatRoom) ^
-      const DeepCollectionEquality().hash(job) ^
-      const DeepCollectionEquality().hash(bid) ^
-      const DeepCollectionEquality().hash(tender) ^
-      const DeepCollectionEquality().hash(tenderBid) ^
-      const DeepCollectionEquality().hash(isLoading) ^
+      const DeepCollectionEquality().hash(work) ^
+      const DeepCollectionEquality().hash(workBid) ^
       const DeepCollectionEquality().hash(chatItems);
 
   @JsonKey(ignore: true)
@@ -1025,33 +961,25 @@ class _$_ChatroomState implements _ChatroomState {
       __$ChatroomStateCopyWithImpl<_ChatroomState>(this, _$identity);
 }
 
-abstract class _ChatroomState implements ChatroomState {
+abstract class _ChatroomState extends ChatroomState {
   const factory _ChatroomState(
-      {required bool isTenderChat,
+      {required ChatType type,
       required ChatRoom? chatRoom,
-      required Job? job,
-      required Bid? bid,
-      required Tender? tender,
-      required BidOnTender? tenderBid,
-      required bool isLoading,
-      required List<ChatItem>? chatItems}) = _$_ChatroomState;
+      required Either<Job, Tender> work,
+      required Either<Bid, BidOnTender> workBid,
+      required Option<List<ChatItem>> chatItems}) = _$_ChatroomState;
+  const _ChatroomState._() : super._();
 
   @override
-  bool get isTenderChat => throw _privateConstructorUsedError;
+  ChatType get type => throw _privateConstructorUsedError;
   @override
   ChatRoom? get chatRoom => throw _privateConstructorUsedError;
   @override
-  Job? get job => throw _privateConstructorUsedError;
+  Either<Job, Tender> get work => throw _privateConstructorUsedError;
   @override
-  Bid? get bid => throw _privateConstructorUsedError;
+  Either<Bid, BidOnTender> get workBid => throw _privateConstructorUsedError;
   @override
-  Tender? get tender => throw _privateConstructorUsedError;
-  @override
-  BidOnTender? get tenderBid => throw _privateConstructorUsedError;
-  @override
-  bool get isLoading => throw _privateConstructorUsedError;
-  @override
-  List<ChatItem>? get chatItems => throw _privateConstructorUsedError;
+  Option<List<ChatItem>> get chatItems => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ChatroomStateCopyWith<_ChatroomState> get copyWith =>

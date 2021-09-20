@@ -4,35 +4,53 @@ part of 'allchats_bloc.dart';
 class AllchatsState with _$AllchatsState {
   const AllchatsState._();
   const factory AllchatsState({
-    required Option<List<ChatRoom>> chatRooms,
+    required Option<List<ChatRoom>> allChatRooms,
     required Option<List<Job>> allJobs,
     required Option<List<Bid>> allBids,
     required Option<List<Tender>> allTenders,
     required Option<List<BidOnTender>> allTenderBids,
+    required ChatType type,
   }) = _AllchatsState;
 
   factory AllchatsState.initial({
     required ChatFacade chatFacade,
     required TAJFacade tajFacade,
+    required ChatType type,
   }) =>
       _AllchatsState(
-        chatRooms: chatFacade.chatRooms,
+        allChatRooms: chatFacade.chatRooms,
         allJobs: tajFacade.allJobs,
         allBids: tajFacade.allBids,
         allTenders: tajFacade.allTenders,
         allTenderBids: tajFacade.allTenderBids,
+        type: type,
       );
 
+  List<Job> get allJobsList => allJobs.getOrElse(() => []);
+  List<Bid> get allBidsList => allBids.getOrElse(() => []);
+
+  Job? job(ChatRoom chatRoom) {
+    int index = -1;
+    index = allJobsList.indexWhere((job) => job.jobId == chatRoom.jobId);
+    return index == -1 ? null : allJobsList[index];
+  }
+
+  Bid? bid(ChatRoom chatRoom) {
+    int index = -1;
+    index = allBidsList.indexWhere((bid) => bid.bidId == chatRoom.bidId);
+    return index == -1 ? null : allBidsList[index];
+  }
+
   bool get isLoadingTenderChats {
-    return false;
-    // return chatRooms.length > allTenders.length ||
-    //     chatRooms.length > allTenderBids.length;
+    return allChatRooms.isNone() || allJobs.isNone() || allBids.isNone()
+        ? true
+        : false;
   }
 
   bool get isLoadingJobChats {
-    return false;
-    // return chatRooms.length > allJobs.length ||
-    //     chatRooms.length > allBids.length;
+    return allChatRooms.isNone() || allJobs.isNone() || allBids.isNone()
+        ? true
+        : false;
   }
 
   Job? chatRoomJob(ChatRoom chatRoom) {
@@ -64,7 +82,7 @@ class AllchatsState with _$AllchatsState {
   }
 
   List<ChatRoom> jobChatRooms() {
-    return chatRooms
+    return allChatRooms
         .getOrElse(() => [])
         .where(
           (chatRoom) => !chatRoom.isTenderChat,
@@ -73,7 +91,7 @@ class AllchatsState with _$AllchatsState {
   }
 
   List<ChatRoom> tenderChatRooms() {
-    return chatRooms
+    return allChatRooms
         .getOrElse(() => [])
         .where(
           (chatRoom) => chatRoom.isTenderChat,

@@ -18,33 +18,85 @@ part 'allchats_state.dart';
 
 class AllchatsBloc extends Bloc<AllchatsEvent, AllchatsState> {
   final ChatFacade chatFacade;
+  final TAJFacade tajFacade;
   final TWUser loggedInUser;
 
-  AllchatsBloc({
+  StreamSubscription? bidsStream;
+  StreamSubscription? jobsStream;
+  StreamSubscription? tendersStream;
+  StreamSubscription? tenderBidsStream;
+
+  AllchatsBloc.job({
     required this.chatFacade,
     required this.loggedInUser,
-    required TAJFacade tajFacade,
+    required this.tajFacade,
   }) : super(
           AllchatsState.initial(
             chatFacade: chatFacade,
             tajFacade: tajFacade,
+            type: ChatType.Job,
+          ),
+        ) {
+    tendersStream?.cancel();
+    tenderBidsStream?.cancel();
+    chatFacade.streamChatRooms(loggedInUser).listen((event) {
+      add(AllchatsEvent.streamChatRoomsUpdated(event));
+    });
+
+    if (loggedInUser.type == TWUserType.Contractor) {
+      jobsStream = tajFacade
+          .allJobsByContractor(contractor: loggedInUser)
+          .listen((event) {
+        add(AllchatsEvent.streamAllJobsUpdated(event));
+      });
+    } else if (loggedInUser.type == TWUserType.Subbie) {
+      jobsStream = tajFacade.allAcceptingBidsJobs.listen((event) {
+        add(AllchatsEvent.streamAllJobsUpdated(event));
+      });
+    }
+
+    if (loggedInUser.type == TWUserType.Contractor) {
+      bidsStream = tajFacade
+          .allBidsForAllJobsByContractor(contractor: loggedInUser)
+          .listen((event) {
+        add(AllchatsEvent.streamAllBidsUpdated(event));
+      });
+    } else if (loggedInUser.type == TWUserType.Subbie) {
+      bidsStream = tajFacade.bidsBySubbie(subbie: loggedInUser).listen((event) {
+        add(AllchatsEvent.streamAllBidsUpdated(event));
+      });
+    }
+  }
+
+  AllchatsBloc.tender({
+    required this.chatFacade,
+    required this.loggedInUser,
+    required this.tajFacade,
+  }) : super(
+          AllchatsState.initial(
+            chatFacade: chatFacade,
+            tajFacade: tajFacade,
+            type: ChatType.Tender,
           ),
         ) {
     chatFacade.streamChatRooms(loggedInUser).listen((event) {
       add(AllchatsEvent.streamChatRoomsUpdated(event));
     });
-    //   sl<JobService>().streamJobs.listen((event) {
-    //     add(AllchatsEvent.streamAllJobsUpdated(event));
-    //   });
-    //   sl<JobService>().bids.listen((event) {
-    //     add(AllchatsEvent.streamAllBidsUpdated(event));
-    //   });
-    //   sl<JobService>().streamTenders().listen((event) {
-    //     add(AllchatsEvent.streamAllTendersUpdated(event));
-    //   });
-    //   sl<JobService>().streamTenderBids().listen((event) {
-    //     add(AllchatsEvent.streamTenderBidsUpdated(event));
+    // tajFacade.streamTenders().listen((event) {
+    //   add(AllchatsEvent.streamAllTendersUpdated(event));
     // });
+    // tajFacade.streamTenderBids().listen((event) {
+    //   add(AllchatsEvent.streamTenderBidsUpdated(event));
+    // });
+  }
+
+  @override
+  Future<void> close() {
+    jobsStream?.cancel();
+    bidsStream?.cancel();
+    tendersStream?.cancel();
+    tenderBidsStream?.cancel();
+    return super.close();
   }
 
   @override
@@ -65,7 +117,7 @@ class AllchatsBloc extends Bloc<AllchatsEvent, AllchatsState> {
         yield state.copyWith(allJobs: optionOf(e.jobs));
       },
       streamChatRoomsUpdated: (e) async* {
-        yield state.copyWith(chatRooms: optionOf(e.chatRooms));
+        yield state.copyWith(allChatRooms: optionOf(e.chatRooms));
       },
     );
   }

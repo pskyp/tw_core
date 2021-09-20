@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -7,12 +8,25 @@ import 'package:tw_core/models/errors.dart';
 import 'package:tw_core/models/job/job.dart';
 import 'package:tw_core/models/tender/tender_model.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
+import 'package:tw_core/services/chat_facade.dart';
 
 import 'chat_item.dart';
 
 part 'chat_room.g.dart';
 
-enum ChatRoomType { Tender, Job }
+class ChatRoomScreenArguments {
+  final ChatRoom? chatRoom;
+  final ChatType type;
+  final Either<Job, Tender> work;
+  final Either<Bid, BidOnTender> workBid;
+
+  ChatRoomScreenArguments({
+    required this.chatRoom,
+    required this.type,
+    required this.work,
+    required this.workBid,
+  });
+}
 
 @JsonSerializable(explicitToJson: true)
 @immutable
@@ -80,7 +94,7 @@ class ChatRoom extends Equatable {
     required ChatItem? lastChatItem,
   }) {
     return ChatRoom(
-      isTenderChat: true,
+      isTenderChat: false,
       chatRoomId: getJobChatRoomId(job: job, bid: bid),
       bidId: bid.bidId,
       participantUIDs: [
@@ -110,6 +124,22 @@ class ChatRoom extends Equatable {
     required BidOnTender tenderBid,
   }) {
     return tender.id + tenderBid.bidId;
+  }
+
+  static String getChatRoomId(
+      Either<Job, Tender> work, Either<Bid, BidOnTender> workBid) {
+    Job? job;
+    Bid? bid;
+    Tender? tender;
+    BidOnTender? tenderBid;
+
+    work.fold((l) => job = l, (r) => tender = r);
+    workBid.fold((l) => bid = l, (r) => tenderBid = r);
+
+    if (work.isLeft() && workBid.isLeft()) {
+      return getJobChatRoomId(job: job!, bid: bid!);
+    }
+    return getTenderChatRoomId(tender: tender!, tenderBid: tenderBid!);
   }
 
   Map<String, dynamic> toJson() => _$ChatRoomToJson(this);

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/models/bid/bid.dart';
 import 'package:tw_core/models/bid_on_tender/bid_on_tender.dart';
@@ -22,28 +23,22 @@ class ChatroomBloc extends Bloc<ChatroomEvent, ChatroomState> {
     required this.loggedInUser,
     required this.chatService,
     required ChatRoom? chatRoom,
-    required Job? job,
-    required Bid? bid,
-    required Tender? tender,
-    required BidOnTender? tenderBid,
-    required bool isTenderChat,
+    required ChatType type,
+    required Either<Job, Tender> work,
+    required Either<Bid, BidOnTender> workBid,
   }) : super(
           ChatroomState.initial(
-            isTenderChat: isTenderChat,
             chatRoom: chatRoom,
-            job: job,
-            bid: bid,
-            tender: tender,
-            tenderBid: tenderBid,
+            type: type,
+            workBid: workBid,
+            work: work,
           ),
         ) {
-    if (chatRoom == null) {
-      add(ChatroomEvent.roomOpenedWithNullChatRoom());
-    } else {
-      chatService.streamChat(chatRoom).listen((event) {
-        add(ChatroomEvent.messagesStreamUpdated(chatItems: event));
-      });
-    }
+    chatService
+        .streamChat(ChatRoom.getChatRoomId(work, workBid))
+        .listen((event) {
+      add(ChatroomEvent.messagesStreamUpdated(chatItems: event));
+    });
   }
 
   @override
@@ -52,27 +47,27 @@ class ChatroomBloc extends Bloc<ChatroomEvent, ChatroomState> {
   ) async* {
     yield* event.map(
       chatRoomsStreamUpdate: (e) async* {
-        int index = -1;
-        if (state.isTenderChat) {
-          index = e.chatRooms.indexWhere((chatRoom) {
-            return chatRoom.bidId == state.tenderBid!.bidId &&
-                chatRoom.jobId == state.tender!.id;
-          });
-        } else {
-          index = e.chatRooms.indexWhere((chatRoom) {
-            return chatRoom.bidId == state.bid!.bidId &&
-                chatRoom.jobId == state.job!.jobId;
-          });
-        }
-        ChatRoom? chatRoom = (index == -1) ? null : e.chatRooms[index];
-
-        if (chatRoom != null) {
-          chatService.streamChat(chatRoom).listen((event) {
-            add(ChatroomEvent.messagesStreamUpdated(chatItems: event));
-          });
-
-          yield state.copyWith(chatRoom: chatRoom);
-        }
+        // int index = -1;
+        // if (state.isTenderChat) {
+        //   index = e.chatRooms.indexWhere((chatRoom) {
+        //     return chatRoom.bidId == state.tenderBid!.bidId &&
+        //         chatRoom.jobId == state.tender!.id;
+        //   });
+        // } else {
+        //   index = e.chatRooms.indexWhere((chatRoom) {
+        //     return chatRoom.bidId == state.bid!.bidId &&
+        //         chatRoom.jobId == state.job!.jobId;
+        //   });
+        // }
+        // ChatRoom? chatRoom = (index == -1) ? null : e.chatRooms[index];
+        //
+        // if (chatRoom != null) {
+        //   chatService.streamChat(chatRoom).listen((event) {
+        //     add(ChatroomEvent.messagesStreamUpdated(chatItems: event));
+        //   });
+        //
+        //   yield state.copyWith(chatRoom: chatRoom);
+        // }
       },
       roomOpenedWithNullChatRoom: (e) async* {
         // int index = -1;
@@ -118,8 +113,7 @@ class ChatroomBloc extends Bloc<ChatroomEvent, ChatroomState> {
         sortedMessages!.sort((a, b) => a.sendTime.isAfter(b.sendTime) ? 1 : -1);
 
         yield state.copyWith(
-          chatItems: sortedMessages,
-          isLoading: false,
+          chatItems: optionOf(sortedMessages),
         );
       },
       sendMessagePressed: (e) async* {
@@ -131,7 +125,7 @@ class ChatroomBloc extends Bloc<ChatroomEvent, ChatroomState> {
             text: e.text,
           );
         } else {
-          if (state.isTenderChat) {
+          if (state.type == ChatType.Tender) {
             chatService.sendMessageInTender(
               sender: loggedInUser,
               tender: state.tender!,
