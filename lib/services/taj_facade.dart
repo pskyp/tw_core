@@ -939,4 +939,10 @@ class TAJFacade {
       return allSupplements.getOrElse(() => []);
     });
   }
+
+  Stream<Development> streamDevelopment({required String devId}) {
+    return TWFC.developmentsCollection.doc(devId).snapshots().map(
+          (doc) => Development.fromJson(doc.data() as Map<String, dynamic>),
+        );
+  }
 }

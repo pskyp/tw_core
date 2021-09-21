@@ -82,8 +82,6 @@ class TWDocument with _$TWDocument {
         instructions: instructions,
       );
 
-  // bool seenBy(TWUser user) => seenByUsers.contains(user);
-
   factory TWDocument.fromJson(Map<String, dynamic> json) =>
       _$TWDocumentFromJson(json);
 }
