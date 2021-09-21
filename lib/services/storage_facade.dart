@@ -1,6 +1,7 @@
 import 'dart:html' as html;
 import 'dart:typed_data';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -72,5 +73,30 @@ class StorageFacade {
           (list) =>
               list.docs.map((doc) => TWDocument.fromJson(doc.data())).toList(),
         );
+  }
+
+  Future<Either<TWServerError, Unit>> updateDocumentSeen({
+    required TWDocument doc,
+    required TWUser loggedInUser,
+  }) async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    List<TWUser> seenByUsers = doc.seenByUsers;
+    if (seenByUsers.contains(loggedInUser)) return right(unit);
+
+    seenByUsers.add(loggedInUser);
+    batch.set(
+      TWFC.docsCollection.doc(doc.documentID),
+      doc.copyWith(seenByUsers: seenByUsers).toJson(),
+    );
+    return (await commitBatch(batch));
+  }
+
+  Future<Either<TWServerError, Unit>> commitBatch(WriteBatch batch) async {
+    try {
+      await batch.commit();
+      return right(unit);
+    } on Exception {
+      return left(TWServerError());
+    }
   }
 }

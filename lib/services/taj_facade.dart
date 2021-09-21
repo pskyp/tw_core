@@ -896,5 +896,25 @@ class TAJFacade {
         );
   }
 
+  Future<Development> fetchDevelopment({required String devId}) async {
+    var snap = await TWFC.developmentsCollection.doc(devId).get();
+    return Development.fromJson(snap.data() as Map<String, dynamic>);
+  }
+
+  Future updateTender(Tender tender) async {
+    batch.update(TWFC.tendersCollection.doc(tender.id), tender.toJson());
+    return (await commitBatch(batch));
+  }
+
+  Stream<List<Supplement>> streamAllSupplements() {
+    return TWFC.supplementCollection.snapshots().map((list) {
+      List<Supplement>? supplements = list.docs
+          .map((supplement) => Supplement.fromJson(supplement.data()))
+          .toList();
+      allSupplements = optionOf(supplements);
+      return allSupplements.getOrElse(() => []);
+    });
+  }
+
   WriteBatch batch = FirebaseFirestore.instance.batch();
 }
