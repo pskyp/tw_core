@@ -105,21 +105,23 @@ class FilePickerDialog extends StatelessWidget {
               ],
             ),
           ),
-          actions: [
-            MaterialButton(
-              color: Colors.orange,
-              child: Text('Upload'),
-              onPressed: () {
-                context
-                    .read<UploadDocBloc>()
-                    .add(UploadDocEvent.uploadPressed());
-              },
-            ),
-            MaterialButton(
-              child: Text('Cancel'),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          ],
+          actions: state.uploadInProgress
+              ? [Container()]
+              : [
+                  MaterialButton(
+                    color: Colors.orange,
+                    child: Text('Upload'),
+                    onPressed: () {
+                      context
+                          .read<UploadDocBloc>()
+                          .add(UploadDocEvent.uploadPressed());
+                    },
+                  ),
+                  MaterialButton(
+                    child: Text('Cancel'),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                ],
         );
       },
     );

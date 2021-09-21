@@ -13,7 +13,7 @@ class TendersState with _$TendersState {
     if (allTenders.isNone() || allSupplements.isNone()) return none();
     List<Either<Tender, Supplement>> combinedWorkList = [];
     allTendersList.forEach((tender) {
-      combinedWorkList.add(left(tender));
+      if (!hasAppliedTo(tender)) combinedWorkList.add(left(tender));
     });
     allSupplementsList.forEach((supplement) {
       combinedWorkList.add(right(supplement));
@@ -51,7 +51,9 @@ class TendersState with _$TendersState {
 
   List<Tender> appliedTenders() {
     return allTendersList
-        .where((tender) => hasAppliedTo(tender) && !isAwarded(tender))
+        .where((tender) =>
+            hasAppliedTo(tender) &&
+            tenderBid(tender)!.status == TenderBidStatus.New)
         .toList();
   }
 

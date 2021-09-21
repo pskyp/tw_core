@@ -374,11 +374,13 @@ class TAJFacade {
       });
 
   stopBidding(String jobId) {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
     batch.update(TWFC.jobCollection.doc(jobId), {'acceptingBids': false});
     return commitBatch(batch);
   }
 
   startBidding(String jobId) {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
     batch.update(TWFC.jobCollection.doc(jobId), {'acceptingBids': true});
     return commitBatch(batch);
   }
@@ -414,6 +416,7 @@ class TAJFacade {
     required TWUser subbie,
     required TWUser contractor,
   }) {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
     batch.delete(TWFC.contractorsCollection
         .doc(contractor.uid)
         .collection('blacklisted_subbies')
@@ -432,6 +435,7 @@ class TAJFacade {
     required TWUser subbie,
     required TWUser contractor,
   }) {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
     batch.delete(TWFC.contractorsCollection
         .doc(contractor.uid)
         .collection('favourite_subbies')
@@ -450,6 +454,7 @@ class TAJFacade {
     required List<TWUser> subbiesToInvite,
     required Job job,
   }) {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
     for (final subbie in subbiesToInvite) {
       print('invited subbie id: ${subbie.uid}');
       batch.set(
@@ -467,8 +472,12 @@ class TAJFacade {
     return commitBatch(batch);
   }
 
-  removeSubbieFromFavouriteList(
-      {required TWUser subbie, required TWUser contractor}) {
+  removeSubbieFromFavouriteList({
+    required TWUser subbie,
+    required TWUser contractor,
+  }) {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+
     batch.delete(TWFC.contractorsCollection
         .doc(contractor.uid)
         .collection('favourite_subbies')
@@ -476,8 +485,12 @@ class TAJFacade {
     return commitBatch(batch);
   }
 
-  removeSubbieFromBlackList(
-      {required TWUser subbie, required TWUser contractor}) {
+  removeSubbieFromBlackList({
+    required TWUser subbie,
+    required TWUser contractor,
+  }) {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+
     batch.delete(TWFC.contractorsCollection
         .doc(contractor.uid)
         .collection('blacklisted_subbies')
@@ -642,6 +655,8 @@ class TAJFacade {
       description: description.getOrCrash(),
       location: devLocation.getOrCrash(),
     );
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+
     batch.set(TWFC.developmentsCollection.doc(dev.id), dev.toJson());
     return (await commitBatch(batch));
   }
@@ -664,6 +679,8 @@ class TAJFacade {
     required Tender tender,
     required List<BidOnTender> tenderBids,
   }) async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+
     tenderBids.forEach((bidOnTender) {
       batch.update(
         TWFC.tenderBidsCollection.doc(bidOnTender.bidId),
@@ -679,6 +696,8 @@ class TAJFacade {
     required Tender tender,
     required BidOnTender tenderBid,
   }) async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+
     batch.update(
       TWFC.tenderBidsCollection.doc(tenderBid.bidId),
       tenderBid.copyWithStatusAwarded().toJson(),
@@ -691,6 +710,8 @@ class TAJFacade {
   }
 
   tenderFeedbackComplete(Tender tender, BidOnTender tenderBid) async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+
     batch.update(
       TWFC.tenderBidsCollection.doc(tenderBid.bidId),
       tenderBid.copyWithStatusComplete().toJson(),
@@ -773,6 +794,8 @@ class TAJFacade {
       refreshCounter: 0,
       location: development.location,
     );
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+
     batch.set(
       TWFC.supplementCollection.doc(),
       supplement.toJson(),
@@ -902,6 +925,7 @@ class TAJFacade {
   }
 
   Future updateTender(Tender tender) async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
     batch.update(TWFC.tendersCollection.doc(tender.id), tender.toJson());
     return (await commitBatch(batch));
   }
@@ -915,6 +939,4 @@ class TAJFacade {
       return allSupplements.getOrElse(() => []);
     });
   }
-
-  WriteBatch batch = FirebaseFirestore.instance.batch();
 }
