@@ -9,10 +9,8 @@ class TendersState with _$TendersState {
     required Option<List<Supplement>> allSupplements,
   }) = _TendersState;
 
-  List<Tender> get allTendersList => allTenders.getOrElse(() => []);
-  List<Supplement> get allSupplementsList => allSupplements.getOrElse(() => []);
-
-  List<Either<Tender, Supplement>> get newWork {
+  Option<List<Either<Tender, Supplement>>> get newWork {
+    if (allTenders.isNone() || allSupplements.isNone()) return none();
     List<Either<Tender, Supplement>> combinedWorkList = [];
     allTendersList.forEach((tender) {
       combinedWorkList.add(left(tender));
@@ -20,11 +18,10 @@ class TendersState with _$TendersState {
     allSupplementsList.forEach((supplement) {
       combinedWorkList.add(right(supplement));
     });
-    return combinedWorkList;
+    return optionOf(combinedWorkList);
   }
 
   factory TendersState.initial(TAJFacade tajFacade) => _TendersState(
-        isLoading: true,
         allTenders: tajFacade.allTenders,
         allTenderBids: tajFacade.allTenderBids,
         allSupplements: tajFacade.allSupplements,
@@ -36,13 +33,11 @@ class TendersState with _$TendersState {
         );
   }
 
+  List<Tender> get allTendersList => allTenders.getOrElse(() => []);
+  List<Supplement> get allSupplementsList => allSupplements.getOrElse(() => []);
+
   List<Tender> newTenders() {
-    return allTenders
-        .getOrElse(() => [])
-        .where(
-          (tender) => tenderBid(tender) == null,
-        )
-        .toList();
+    return allTendersList.where((tender) => tenderBid(tender) == null).toList();
   }
 
   bool hasAppliedTo(Tender tender) {
@@ -55,20 +50,20 @@ class TendersState with _$TendersState {
   }
 
   List<Tender> appliedTenders() {
-    return allTenders
-        .getOrElse(() => [])
-        .where(
-          (tender) => hasAppliedTo(tender) && !isAwarded(tender),
-        )
+    return allTendersList
+        .where((tender) => hasAppliedTo(tender) && !isAwarded(tender))
+        .toList();
+  }
+
+  List<Tender> tenderingTenders() {
+    return allTendersList
+        .where((tender) =>
+            hasAppliedTo(tender) &&
+            tenderBid(tender)!.status == TenderBidStatus.Invited)
         .toList();
   }
 
   List<Tender> awardedTenders() {
-    return allTenders
-        .getOrElse(() => [])
-        .where(
-          (tender) => isAwarded(tender),
-        )
-        .toList();
+    return allTendersList.where((tender) => isAwarded(tender)).toList();
   }
 }

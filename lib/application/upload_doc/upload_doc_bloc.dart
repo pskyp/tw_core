@@ -19,11 +19,13 @@ class UploadDocBloc extends Bloc<UploadDocEvent, UploadDocState> {
     required TWUser loggedInUser,
     required String typeId,
     required TWDocType docType,
-  }) : super(UploadDocState.initial(
-          loggedInUser: loggedInUser,
-          typeId: typeId,
-          docType: docType,
-        ));
+  }) : super(
+          UploadDocState.initial(
+            loggedInUser: loggedInUser,
+            typeId: typeId,
+            docType: docType,
+          ),
+        );
 
   @override
   Stream<UploadDocState> mapEventToState(
