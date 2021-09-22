@@ -29,6 +29,8 @@ import 'package:tw_core/models/tender_invitation_mail/tender_invitation_email.da
 import 'package:tw_core/models/trades.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 
+part 'taj_developers.dart';
+
 class TAJFacade {
   Option<List<Job>> allJobs = optionOf(null);
   Option<List<Bid>> allBids = optionOf(null);
