@@ -75,6 +75,26 @@ class TAJFacade {
     });
   }
 
+  Stream<Subbie> streamSubbie({required String subbieId}) {
+    return TWFC.subbieCollection
+        .doc(subbieId)
+        .snapshots()
+        .map((event) => Subbie.fromJson(event.data() as Map<String, dynamic>));
+  }
+
+  Stream<Bid> streamBid({required Subbie subbie, required Job job}) {
+    return TWFC.bidsCollection
+        .where('jobId', isEqualTo: job.jobId)
+        .where('bidderId', isEqualTo: subbie.basicProfile.uid)
+        .snapshots()
+        .map((event) => Bid.fromJson(event.docs.first.data()));
+  }
+
+  Stream<Contractor> streamContractor({required String contractorId}) {
+    return TWFC.contractorsCollection.doc(contractorId).snapshots().map(
+        (event) => Contractor.fromJson(event.data() as Map<String, dynamic>));
+  }
+
   Stream<List<ChatRoom>> streamAllJobChatsOfUser(TWUser user) {
     return TWFC.chatsCollection
         .where('participantUIDs', arrayContains: user.uid)
