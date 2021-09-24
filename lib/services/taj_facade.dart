@@ -75,6 +75,12 @@ class TAJFacade {
     });
   }
 
+  updateBidStatus({required Bid bid, required BidStatuses newBidStatus}) {
+    TWFC.bidsCollection
+        .doc(bid.bidId)
+        .set(bid.copyWithNeuStatus(newBidStatus).toJson());
+  }
+
   Stream<Subbie> streamSubbie({required String subbieId}) {
     return TWFC.subbieCollection
         .doc(subbieId)
