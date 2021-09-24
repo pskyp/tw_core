@@ -21,10 +21,10 @@ class TendersState with _$TendersState {
     return optionOf(combinedWorkList);
   }
 
-  factory TendersState.initial(TAJFacade tajFacade) => _TendersState(
-        allTenders: tajFacade.allTenders,
-        allTenderBids: tajFacade.allTenderBids,
-        allSupplements: tajFacade.allSupplements,
+  factory TendersState.initial() => _TendersState(
+        allTenders: TAJContractor.allTenders,
+        allTenderBids: TAJContractor.allTenderBids,
+        allSupplements: TAJContractor.allSupplements,
       );
 
   BidOnTender? tenderBid(Tender tender) {

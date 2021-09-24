@@ -210,3 +210,31 @@ class ChatRoom extends Equatable {
     );
   }
 }
+
+class WorkChat {
+  final ChatRoom chatRoom;
+
+  WorkChat(this.chatRoom);
+}
+
+class TenderChat extends WorkChat {
+  final Tender tender;
+  final BidOnTender tenderBid;
+
+  TenderChat({
+    required this.tender,
+    required this.tenderBid,
+    required ChatRoom chatRoom,
+  }) : super(chatRoom);
+}
+
+class JobChat extends WorkChat {
+  final Job job;
+  final Bid bid;
+
+  JobChat({
+    required this.job,
+    required this.bid,
+    required ChatRoom chatRoom,
+  }) : super(chatRoom);
+}

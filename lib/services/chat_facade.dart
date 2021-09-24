@@ -45,7 +45,8 @@ class ChatFacade {
     required BidOnTender tenderBid,
     required String text,
   }) async {
-    assert(tenderBid.bidder == sender || tender.developerTWUser == sender);
+    assert(tenderBid.bidder.uid == sender.uid ||
+        tender.developerTWUser.uid == sender.uid);
 
     ChatRoom chatRoom = ChatRoom.typeTender(
       tender: tender,

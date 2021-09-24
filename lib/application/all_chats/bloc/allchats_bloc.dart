@@ -44,25 +44,27 @@ class AllchatsBloc extends Bloc<AllchatsEvent, AllchatsState> {
     });
 
     if (loggedInUser.type == TWUserType.Contractor) {
-      jobsStream = tajFacade
+      jobsStream = TAJContractor()
           .allJobsByContractor(contractor: loggedInUser)
           .listen((event) {
         add(AllchatsEvent.streamAllJobsUpdated(event));
       });
     } else if (loggedInUser.type == TWUserType.Subbie) {
-      jobsStream = tajFacade.allAcceptingBidsJobs.listen((event) {
+      jobsStream = TAJSubbie().streamAllJobs(loggedInUser).listen((event) {
         add(AllchatsEvent.streamAllJobsUpdated(event));
       });
     }
 
     if (loggedInUser.type == TWUserType.Contractor) {
-      bidsStream = tajFacade
-          .allBidsForAllJobsByContractor(contractor: loggedInUser)
+      bidsStream = TAJContractor()
+          .streamAllBidsForAllJobsByContractor(contractor: loggedInUser)
           .listen((event) {
         add(AllchatsEvent.streamAllBidsUpdated(event));
       });
     } else if (loggedInUser.type == TWUserType.Subbie) {
-      bidsStream = tajFacade.bidsBySubbie(subbie: loggedInUser).listen((event) {
+      bidsStream = TAJSubbie()
+          .streamAllBidsBySubbie(subbie: loggedInUser)
+          .listen((event) {
         add(AllchatsEvent.streamAllBidsUpdated(event));
       });
     }

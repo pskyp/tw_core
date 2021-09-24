@@ -24,16 +24,17 @@ class TendersBloc extends Bloc<TendersEvent, TendersState> {
     required this.tAJFacade,
     required this.contractor,
   }) : super(
-          TendersState.initial(tAJFacade),
+          TendersState.initial(),
         ) {
-    tendersStream = tAJFacade.streamAllTenders().listen((event) {
+    tendersStream = TAJContractor().streamAllTenders().listen((event) {
       add(TendersEvent.tendersStreamUpdated(event));
     });
-    tenderBidsStream =
-        tAJFacade.streamTenderBids(contractor.basicProfile).listen((event) {
+    tenderBidsStream = TAJContractor()
+        .streamTenderBids(contractor.basicProfile)
+        .listen((event) {
       add(TendersEvent.tenderBidsStreamUpdated(event));
     });
-    supplementsStream = tAJFacade.streamAllSupplements().listen((event) {
+    supplementsStream = TAJContractor().streamAllSupplements().listen((event) {
       add(TendersEvent.supplementsStreamUpdated(event));
     });
   }

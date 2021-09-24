@@ -19,10 +19,10 @@ class AllchatsState with _$AllchatsState {
   }) =>
       _AllchatsState(
         allChatRooms: chatFacade.chatRooms,
-        allJobs: tajFacade.allJobs,
-        allBids: tajFacade.allBids,
-        allTenders: tajFacade.allTenders,
-        allTenderBids: tajFacade.allTenderBids,
+        allJobs: optionOf(null),// tajFacade.allJobs,
+        allBids: optionOf(null),//tajFacade.allBids,
+        allTenders: optionOf(null),//tajFacade.allTenders,
+        allTenderBids:optionOf(null),// tajFacade.allTenderBids,
         type: type,
       );
 
