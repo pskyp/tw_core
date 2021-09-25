@@ -578,9 +578,10 @@ class __$AllJobChatsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AllJobChatsState implements _AllJobChatsState {
+class _$_AllJobChatsState extends _AllJobChatsState {
   const _$_AllJobChatsState(
-      {required this.jobs, required this.bids, required this.chatRooms});
+      {required this.jobs, required this.bids, required this.chatRooms})
+      : super._();
 
   @override
   final Option<List<Job>> jobs;
@@ -620,11 +621,12 @@ class _$_AllJobChatsState implements _AllJobChatsState {
       __$AllJobChatsStateCopyWithImpl<_AllJobChatsState>(this, _$identity);
 }
 
-abstract class _AllJobChatsState implements AllJobChatsState {
+abstract class _AllJobChatsState extends AllJobChatsState {
   const factory _AllJobChatsState(
       {required Option<List<Job>> jobs,
       required Option<List<Bid>> bids,
       required Option<List<ChatRoom>> chatRooms}) = _$_AllJobChatsState;
+  const _AllJobChatsState._() : super._();
 
   @override
   Option<List<Job>> get jobs => throw _privateConstructorUsedError;

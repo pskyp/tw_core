@@ -21,7 +21,7 @@ class AllJobChatsBloc extends Bloc<AllJobChatsEvent, AllJobChatsState> {
   StreamSubscription? chatRoomsStream;
 
   AllJobChatsBloc({required this.loggedInUser})
-      : super(AllJobChatsState.initial()) {
+      : super(AllJobChatsState.initial(user: loggedInUser)) {
     loggedInUser.fold(
       (contractor) {
         chatRoomsStream = TAJFacade()
@@ -73,6 +73,16 @@ class AllJobChatsBloc extends Bloc<AllJobChatsEvent, AllJobChatsState> {
   Stream<AllJobChatsState> mapEventToState(
     AllJobChatsEvent event,
   ) async* {
-    // TODO: implement mapEventToState
+    yield* event.map(
+      streamChatRoomsUpdated: (e) async* {
+        yield state.copyWith(chatRooms: optionOf(e.chatRooms));
+      },
+      streamJobsUpdated: (e) async* {
+        yield state.copyWith(jobs: optionOf(e.jobs));
+      },
+      streamBidsUpdated: (e) async* {
+        yield state.copyWith(bids: optionOf(e.bids));
+      },
+    );
   }
 }

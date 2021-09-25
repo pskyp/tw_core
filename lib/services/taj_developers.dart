@@ -48,7 +48,7 @@ class TAJDeveloper extends TAJFacade {
   Future<Either<TWServerError, Unit>> saveSupplement({
     required SupplementTitle supplementTitle,
     required SupplementRequirement requirements,
-    required NumberOfSubbies numberOfSubbies,
+    required TWNumber numberOfSubbies,
     required Trade selectedTrade,
     required Development development,
     required SupplementTimeLine supplementTimeLine,

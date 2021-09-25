@@ -7,6 +7,8 @@ part 'tw_min_length_string.freezed.dart';
 class TWString {
   static const DEV_TITLE_ML = 3;
   static const DOC_INSTRUCTIONS_ML = 3;
+  static const Job_Title_ML = 3;
+  static const Job_Desc_ML = 3;
 
   final Either<TWStringFailure, String> value;
 
