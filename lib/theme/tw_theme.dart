@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class TWTheme {
   static Color get darkGreen => Color(0xff084348);
   static Color get lightGreen => Color(0xff015c67);
+  static Color get twOrange => Color(0xFFFB9D2B);
   static const Color kMainThemeColor = Color(0xff027887);
 
   static ThemeData themeData = ThemeData(
