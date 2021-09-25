@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SupplementEndDateFailureTearOff {
   const _$SupplementEndDateFailureTearOff();
 
-  endDateBeforeStartDate endDateBeforeStartDate(DateTime date) {
-    return endDateBeforeStartDate(
+  EndDateBeforeStartDate endDateBeforeStartDate(DateTime date) {
+    return EndDateBeforeStartDate(
       date,
     );
   }
@@ -43,13 +43,13 @@ mixin _$SupplementEndDateFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(endDateBeforeStartDate value)
+    required TResult Function(EndDateBeforeStartDate value)
         endDateBeforeStartDate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(endDateBeforeStartDate value)? endDateBeforeStartDate,
+    TResult Function(EndDateBeforeStartDate value)? endDateBeforeStartDate,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -90,31 +90,31 @@ class _$SupplementEndDateFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $endDateBeforeStartDateCopyWith<$Res>
+abstract class $EndDateBeforeStartDateCopyWith<$Res>
     implements $SupplementEndDateFailureCopyWith<$Res> {
-  factory $endDateBeforeStartDateCopyWith(endDateBeforeStartDate value,
-          $Res Function(endDateBeforeStartDate) then) =
-      _$endDateBeforeStartDateCopyWithImpl<$Res>;
+  factory $EndDateBeforeStartDateCopyWith(EndDateBeforeStartDate value,
+          $Res Function(EndDateBeforeStartDate) then) =
+      _$EndDateBeforeStartDateCopyWithImpl<$Res>;
   @override
   $Res call({DateTime date});
 }
 
 /// @nodoc
-class _$endDateBeforeStartDateCopyWithImpl<$Res>
+class _$EndDateBeforeStartDateCopyWithImpl<$Res>
     extends _$SupplementEndDateFailureCopyWithImpl<$Res>
-    implements $endDateBeforeStartDateCopyWith<$Res> {
-  _$endDateBeforeStartDateCopyWithImpl(endDateBeforeStartDate _value,
-      $Res Function(endDateBeforeStartDate) _then)
-      : super(_value, (v) => _then(v as endDateBeforeStartDate));
+    implements $EndDateBeforeStartDateCopyWith<$Res> {
+  _$EndDateBeforeStartDateCopyWithImpl(EndDateBeforeStartDate _value,
+      $Res Function(EndDateBeforeStartDate) _then)
+      : super(_value, (v) => _then(v as EndDateBeforeStartDate));
 
   @override
-  endDateBeforeStartDate get _value => super._value as endDateBeforeStartDate;
+  EndDateBeforeStartDate get _value => super._value as EndDateBeforeStartDate;
 
   @override
   $Res call({
     Object? date = freezed,
   }) {
-    return _then(endDateBeforeStartDate(
+    return _then(EndDateBeforeStartDate(
       date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -125,8 +125,8 @@ class _$endDateBeforeStartDateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$endDateBeforeStartDate implements endDateBeforeStartDate {
-  const _$endDateBeforeStartDate(this.date);
+class _$EndDateBeforeStartDate implements EndDateBeforeStartDate {
+  const _$EndDateBeforeStartDate(this.date);
 
   @override
   final DateTime date;
@@ -139,7 +139,7 @@ class _$endDateBeforeStartDate implements endDateBeforeStartDate {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is endDateBeforeStartDate &&
+        (other is EndDateBeforeStartDate &&
             (identical(other.date, date) ||
                 const DeepCollectionEquality().equals(other.date, date)));
   }
@@ -150,8 +150,8 @@ class _$endDateBeforeStartDate implements endDateBeforeStartDate {
 
   @JsonKey(ignore: true)
   @override
-  $endDateBeforeStartDateCopyWith<endDateBeforeStartDate> get copyWith =>
-      _$endDateBeforeStartDateCopyWithImpl<endDateBeforeStartDate>(
+  $EndDateBeforeStartDateCopyWith<EndDateBeforeStartDate> get copyWith =>
+      _$EndDateBeforeStartDateCopyWithImpl<EndDateBeforeStartDate>(
           this, _$identity);
 
   @override
@@ -177,7 +177,7 @@ class _$endDateBeforeStartDate implements endDateBeforeStartDate {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(endDateBeforeStartDate value)
+    required TResult Function(EndDateBeforeStartDate value)
         endDateBeforeStartDate,
   }) {
     return endDateBeforeStartDate(this);
@@ -186,7 +186,7 @@ class _$endDateBeforeStartDate implements endDateBeforeStartDate {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(endDateBeforeStartDate value)? endDateBeforeStartDate,
+    TResult Function(EndDateBeforeStartDate value)? endDateBeforeStartDate,
     required TResult orElse(),
   }) {
     if (endDateBeforeStartDate != null) {
@@ -196,14 +196,207 @@ class _$endDateBeforeStartDate implements endDateBeforeStartDate {
   }
 }
 
-abstract class endDateBeforeStartDate implements SupplementEndDateFailure {
-  const factory endDateBeforeStartDate(DateTime date) =
-      _$endDateBeforeStartDate;
+abstract class EndDateBeforeStartDate implements SupplementEndDateFailure {
+  const factory EndDateBeforeStartDate(DateTime date) =
+      _$EndDateBeforeStartDate;
 
   @override
   DateTime get date => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  $endDateBeforeStartDateCopyWith<endDateBeforeStartDate> get copyWith =>
+  $EndDateBeforeStartDateCopyWith<EndDateBeforeStartDate> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+class _$SupplementStartDateFailureTearOff {
+  const _$SupplementStartDateFailureTearOff();
+
+  StartDateBeforeToday startDateBeforeToday(DateTime date) {
+    return StartDateBeforeToday(
+      date,
+    );
+  }
+}
+
+/// @nodoc
+const $SupplementStartDateFailure = _$SupplementStartDateFailureTearOff();
+
+/// @nodoc
+mixin _$SupplementStartDateFailure {
+  DateTime get date => throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) startDateBeforeToday,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? startDateBeforeToday,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StartDateBeforeToday value) startDateBeforeToday,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StartDateBeforeToday value)? startDateBeforeToday,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SupplementStartDateFailureCopyWith<SupplementStartDateFailure>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SupplementStartDateFailureCopyWith<$Res> {
+  factory $SupplementStartDateFailureCopyWith(SupplementStartDateFailure value,
+          $Res Function(SupplementStartDateFailure) then) =
+      _$SupplementStartDateFailureCopyWithImpl<$Res>;
+  $Res call({DateTime date});
+}
+
+/// @nodoc
+class _$SupplementStartDateFailureCopyWithImpl<$Res>
+    implements $SupplementStartDateFailureCopyWith<$Res> {
+  _$SupplementStartDateFailureCopyWithImpl(this._value, this._then);
+
+  final SupplementStartDateFailure _value;
+  // ignore: unused_field
+  final $Res Function(SupplementStartDateFailure) _then;
+
+  @override
+  $Res call({
+    Object? date = freezed,
+  }) {
+    return _then(_value.copyWith(
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class $StartDateBeforeTodayCopyWith<$Res>
+    implements $SupplementStartDateFailureCopyWith<$Res> {
+  factory $StartDateBeforeTodayCopyWith(StartDateBeforeToday value,
+          $Res Function(StartDateBeforeToday) then) =
+      _$StartDateBeforeTodayCopyWithImpl<$Res>;
+  @override
+  $Res call({DateTime date});
+}
+
+/// @nodoc
+class _$StartDateBeforeTodayCopyWithImpl<$Res>
+    extends _$SupplementStartDateFailureCopyWithImpl<$Res>
+    implements $StartDateBeforeTodayCopyWith<$Res> {
+  _$StartDateBeforeTodayCopyWithImpl(
+      StartDateBeforeToday _value, $Res Function(StartDateBeforeToday) _then)
+      : super(_value, (v) => _then(v as StartDateBeforeToday));
+
+  @override
+  StartDateBeforeToday get _value => super._value as StartDateBeforeToday;
+
+  @override
+  $Res call({
+    Object? date = freezed,
+  }) {
+    return _then(StartDateBeforeToday(
+      date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$StartDateBeforeToday implements StartDateBeforeToday {
+  const _$StartDateBeforeToday(this.date);
+
+  @override
+  final DateTime date;
+
+  @override
+  String toString() {
+    return 'SupplementStartDateFailure.startDateBeforeToday(date: $date)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is StartDateBeforeToday &&
+            (identical(other.date, date) ||
+                const DeepCollectionEquality().equals(other.date, date)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
+
+  @JsonKey(ignore: true)
+  @override
+  $StartDateBeforeTodayCopyWith<StartDateBeforeToday> get copyWith =>
+      _$StartDateBeforeTodayCopyWithImpl<StartDateBeforeToday>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) startDateBeforeToday,
+  }) {
+    return startDateBeforeToday(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? startDateBeforeToday,
+    required TResult orElse(),
+  }) {
+    if (startDateBeforeToday != null) {
+      return startDateBeforeToday(date);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StartDateBeforeToday value) startDateBeforeToday,
+  }) {
+    return startDateBeforeToday(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StartDateBeforeToday value)? startDateBeforeToday,
+    required TResult orElse(),
+  }) {
+    if (startDateBeforeToday != null) {
+      return startDateBeforeToday(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StartDateBeforeToday implements SupplementStartDateFailure {
+  const factory StartDateBeforeToday(DateTime date) = _$StartDateBeforeToday;
+
+  @override
+  DateTime get date => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  $StartDateBeforeTodayCopyWith<StartDateBeforeToday> get copyWith =>
       throw _privateConstructorUsedError;
 }

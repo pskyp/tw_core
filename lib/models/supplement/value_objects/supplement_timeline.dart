@@ -5,19 +5,23 @@ import 'package:tw_core/models/core/tw_date/tw_date.dart';
 part 'supplement_timeline.freezed.dart';
 
 class SupplementTimeLine {
-  final DateTime startDate;
+  final DateTime createdOn;
+  final SupplementStartDate startDate;
   final SupplementEndDate endDate;
+
   SupplementTimeLine({
+    required this.createdOn,
     required DateTime startDateInput,
     required DateTime endDateInput,
-  })  : startDate = startDateInput,
+  })  : startDate =
+            SupplementStartDate(input: startDateInput, createdOn: createdOn),
         endDate = SupplementEndDate(
           input: endDateInput,
           startDate: startDateInput,
         );
 }
 
-class SupplementEndDate extends TWDate {
+class SupplementEndDate extends TWDate<SupplementEndDateFailure> {
   SupplementEndDate({required DateTime input, required DateTime startDate})
       : super(
           input.isAfter(startDate)
@@ -30,24 +34,26 @@ class SupplementEndDate extends TWDate {
 class SupplementEndDateFailure extends TWDateFailure
     with _$SupplementEndDateFailure {
   const factory SupplementEndDateFailure.endDateBeforeStartDate(DateTime date) =
-      endDateBeforeStartDate;
+      EndDateBeforeStartDate;
 }
 
-// class SupplementStartDate extends TWDate {
-//   SupplementStartDate(DateTime input)
-//       : super(
-//           input.isAfter(DateTime.now())
-//               ? right(input)
-//               : left(SupplementStartDateFailure.startDateBeforeToday(input)),
-//         );
-// }
+class SupplementStartDate extends TWDate<SupplementStartDateFailure> {
+  SupplementStartDate({
+    required DateTime input,
+    required DateTime createdOn,
+  }) : super(
+          input.isAfter(createdOn)
+              ? right(input)
+              : left(SupplementStartDateFailure.startDateBeforeToday(input)),
+        );
+}
 
-// @freezed
-// class SupplementStartDateFailure extends TWDateFailure
-//     with _$SupplementStartDateFailure {
-//   const factory SupplementStartDateFailure.startDateBeforeToday(DateTime date) =
-//       StartDateBeforeToday;
-// }
+@freezed
+class SupplementStartDateFailure extends TWDateFailure
+    with _$SupplementStartDateFailure {
+  const factory SupplementStartDateFailure.startDateBeforeToday(DateTime date) =
+      StartDateBeforeToday;
+}
 
 // class SupplementDate extends TWDate {
 //   SupplementDate(Either<SupplementDateFailure, DateTime> value) : super(value);
@@ -63,6 +69,8 @@ class SupplementEndDateFailure extends TWDateFailure
 // left(SupplementDateValidators.endDateValidation(endDate)),
 // )
 
-// class SupplementDateFailure extends TWDateFailure {
-//   SupplementDateFailure(DateTime date) : super(date);
+// @freezed
+// class SupplementDateFailure extends TWDateFailure with _$SupplementDateFailure {
+//   const factory SupplementDateFailure() = _SupplementDateFailure;
+//   // SupplementDateFailure(DateTime date) : super(date);
 // }

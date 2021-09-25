@@ -18,7 +18,7 @@ class Supplement {
   final int hrsPerDay;
   final DateTime startDate;
   final DateTime endDate;
-  final DateTime postedOn;
+  final DateTime createdOn;
   final int applications;
   final int subbiesWorking;
   final int subbiesRequired;
@@ -39,7 +39,7 @@ class Supplement {
     required this.hrsPerDay,
     required this.startDate,
     required this.endDate,
-    required this.postedOn,
+    required this.createdOn,
     required this.applications,
     required this.subbiesWorking,
     required this.subbiesRequired,
@@ -78,7 +78,7 @@ class Supplement {
       applications: this.applications,
       hrsPerDay: this.hrsPerDay,
       subbiesWorking: this.subbiesWorking,
-      postedOn: this.postedOn,
+      createdOn: this.createdOn,
       acceptingBids: this.acceptingBids,
       refreshCounter: this.refreshCounter,
       location: location ?? this.location,

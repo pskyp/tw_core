@@ -25,8 +25,8 @@ dependencies:
   flutter_bloc: ^7.2.0
   firebase_storage: ^10.0.3
   freezed_annotation: ^0.14.3
-  geolocator: ^7.0.3
   google_sign_in: ^5.0.5
+  geolocator: ^7.0.3
   http: ^0.13.3
   intl: ^0.17.0
   json_annotation: ^4.1.0
