@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tw_core/models/full_user.dart';
-import 'package:tw_core/models/person/person.dart';
+
 import '../tw_user/tw_user.dart';
 
 part 'contractor_model.g.dart';
@@ -33,6 +32,22 @@ class Contractor {
   Map<String, dynamic> toJson() => _$ContractorToJson(this);
   factory Contractor.fromJson(Map<String, dynamic> json) =>
       _$ContractorFromJson(json);
+
+  Contractor copyWith({
+    List<String>? newSavedJobRequirements,
+  }) {
+    return Contractor(
+      savedJobRequirements: newSavedJobRequirements ?? savedJobRequirements,
+      basicProfile: basicProfile,
+      subscriptionToggledOn: subscriptionToggledOn,
+      totalJobs: totalJobs,
+      subscribed: subscribed,
+      totalRatings: totalRatings,
+      totalCommunication: totalCommunication,
+      totalEnvironment: totalEnvironment,
+      totalReliability: totalReliability,
+    );
+  }
 
   //if total ratings are 0 we should not get NaN error
   //due to division by zero

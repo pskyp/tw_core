@@ -2,36 +2,26 @@ part of 'create_job_bloc.dart';
 
 @freezed
 class CreateJobState with _$CreateJobState {
+  const CreateJobState._();
   const factory CreateJobState({
-    required int lengthOfRequirementList,
     required TWString developmentTitle,
+    required TWString jobTitle,
     required TWString jobDescription,
     required Trade selectedTrade,
-    // required JobTimeLine jobTimeLine,
+    required JobTimeLine jobTimeLine,
     required TWNumber jobRate,
-    required TWString jobTitle,
-    required int lengthOfRequirements,
-    required String requirementFieldController,
-    required List<String> listOfRequirements,
     required TWNumber numberOfSubbies,
-    required LocationModel? location,
+    required Option<LocationModel> location,
+    required List<String> requirements,
     required bool showErrorMessages,
     required bool isSubmitting,
     required Option<Either<TWServerError, Unit>> failureOrSuccessOption,
   }) = _CreateJobState;
 
   factory CreateJobState.initial() => _CreateJobState(
-        jobTitle: TWString('', TWString.Job_Title_ML),
-        requirementFieldController: "",
-        lengthOfRequirements: 0,
-        listOfRequirements: [],
-        failureOrSuccessOption: optionOf(null),
-        isSubmitting: false,
-        showErrorMessages: false,
-        jobDescription: TWString('', TWString.Job_Desc_ML),
-        location: null,
-        lengthOfRequirementList: 0,
         developmentTitle: TWString('', TWString.DEV_TITLE_ML),
+        jobTitle: TWString('', TWString.Job_Title_ML),
+        jobDescription: TWString('', TWString.Job_Desc_ML),
         selectedTrade: Trade.allTrades.first,
         jobRate: TWNumber(
           input: TWNumber.Job_Daily_Rate_Min,
@@ -41,9 +31,24 @@ class CreateJobState with _$CreateJobState {
           input: TWNumber.Job_Required_Subbies_Min,
           minValue: TWNumber.Job_Required_Subbies_Min,
         ),
-        // jobTimeLine: JobTimeLine(
-        //   startDate: DateTime.now(),
-        //   endDate: DateTime.now().add(Duration(days: 90)),
-        // ),
+        jobTimeLine: JobTimeLine(
+          startDateInput: DateTime.now(),
+          endDateInput: DateTime.now().add(Duration(days: 1)),
+        ),
+        location: optionOf(null),
+        requirements: [],
+        isSubmitting: false,
+        showErrorMessages: false,
+        failureOrSuccessOption: optionOf(null),
       );
+
+  bool get allInputsValid {
+    return jobTitle.isValid &&
+        jobDescription.isValid &&
+        location.isSome() &&
+        developmentTitle.isValid &&
+        jobRate.isValid &&
+        numberOfSubbies.isValid &&
+        jobTimeLine.isValid;
+  }
 }

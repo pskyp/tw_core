@@ -1,8 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tw_core/models/core/supplement_objects/date_validator.dart';
 import 'package:tw_core/models/developer/developer.dart';
 import 'package:tw_core/models/location/location_model.dart';
-import 'package:tw_core/models/person/person.dart';
 import 'package:tw_core/models/trades.dart';
 
 part 'supplement_model.g.dart';

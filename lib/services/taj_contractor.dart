@@ -9,6 +9,33 @@ class TAJContractor extends TAJFacade {
   static Option<List<BidOnTender>> allTenderBids = optionOf(null);
   static Option<List<Tender>> allTenders = optionOf(null);
 
+  Future<Either<TWServerError, Unit>> createJob({
+    required LocationModel location,
+    required TWString devTitle,
+    required TWString jobTitle,
+    required TWString jobDescription,
+    required TWNumber jobRate,
+    required JobTimeLine jobTimeLine,
+    required TWNumber requiredNumberOfSubbies,
+    required List<String> selectedRequirements,
+    required Trade selectedTrade,
+  }) async {
+    Job job = Job.neu(
+      location: location,
+      devTitle: devTitle,
+      jobTitle: jobTitle,
+      jobDescription: jobDescription,
+      jobRate: jobRate,
+      jobTimeLine: jobTimeLine,
+      requiredNumberOfSubbies: requiredNumberOfSubbies,
+      selectedRequirements: selectedRequirements,
+      selectedTrade: selectedTrade,
+    );
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    batch.set(TWFC.jobCollection.doc(job.jobId), job.toJson());
+    return (await commitBatch(batch));
+  }
+
   Stream<List<Bid>> streamAllBidsForAllJobsByContractor({
     required TWUser contractor,
   }) {
@@ -81,6 +108,24 @@ class TAJContractor extends TAJFacade {
     return commitBatch(batch);
   }
 
+  Future<Either<TWServerError, Unit>> saveJobRequirement({
+    required TWString requirement,
+  }) {
+    Contractor contractor = CacheService().contractor;
+    List<String> newSavedRequirements = List.from(
+      contractor.savedJobRequirements..add(requirement.getOrCrash()),
+    );
+
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    batch.set(
+      TWFC.contractorsCollection.doc(contractor.basicProfile.uid),
+      contractor
+          .copyWith(newSavedJobRequirements: newSavedRequirements)
+          .toJson(),
+    );
+    return commitBatch(batch);
+  }
+
   removeSubbieFromFavouriteList({
     required TWUser subbie,
     required TWUser contractor,
@@ -135,7 +180,6 @@ class TAJContractor extends TAJFacade {
     return commitBatch(batch);
   }
 
-  @override
   addSubbieInBlackList({
     required TWUser subbie,
     required TWUser contractor,
@@ -185,21 +229,18 @@ class TAJContractor extends TAJFacade {
     });
   }
 
-  @override
   Stream<List<JobReview>> streamRatings(String jobId) =>
       TWFC.jobReviewCollection.where('jobId', isEqualTo: jobId).snapshots().map(
             (list) =>
                 list.docs.map((doc) => JobReview.fromJson(doc.data())).toList(),
           );
 
-  @override
   Stream<List<Job>> streamOldJobs({required TWUser contractor}) => TWFC
       .oldJobsCollection
       .where('contractorId', isEqualTo: contractor.uid)
       .snapshots()
       .map((list) => list.docs.map((doc) => Job.fromJson(doc.data())).toList());
 
-  @override
   addSubbieInFavouriteList({
     required TWUser subbie,
     required TWUser contractor,
@@ -219,7 +260,6 @@ class TAJContractor extends TAJFacade {
     return commitBatch(batch);
   }
 
-  @override
   Stream<List<TWUser>> blacklistedSubbies({required TWUser contractor}) =>
       TWFC.contractorsCollection
           .doc(contractor.uid)
@@ -228,7 +268,6 @@ class TAJContractor extends TAJFacade {
           .map((list) =>
               list.docs.map((doc) => TWUser.fromJson(doc.data())).toList());
 
-  @override
   Stream<List<TWUser>> favouriteSubbies({required TWUser contractor}) =>
       TWFC.contractorsCollection
           .doc(contractor.uid)

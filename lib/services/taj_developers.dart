@@ -46,8 +46,8 @@ class TAJDeveloper extends TAJFacade {
   }
 
   Future<Either<TWServerError, Unit>> saveSupplement({
-    required SupplementTitle supplementTitle,
-    required SupplementRequirement requirements,
+    required TWString supplementTitle,
+    required TWString requirements,
     required TWNumber numberOfSubbies,
     required Trade selectedTrade,
     required Development development,
@@ -62,7 +62,7 @@ class TAJDeveloper extends TAJFacade {
       hourlyRate: 100,
       hrsPerDay: 0,
       title: supplementTitle.getOrCrash(),
-      startDate: supplementTimeLine.startDate.getOrCrash(),
+      startDate: supplementTimeLine.startDate,
       endDate: supplementTimeLine.endDate.getOrCrash(),
       subbiesRequired: numberOfSubbies.getOrCrash(),
       requirements: requirements.getOrCrash(),

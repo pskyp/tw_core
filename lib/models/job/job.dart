@@ -1,7 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/contractor/contractor_model.dart';
+import 'package:tw_core/models/core/tw_min_length_string/tw_min_length_string.dart';
+import 'package:tw_core/models/core/tw_number/tw_number.dart';
+import 'package:tw_core/models/job/value_objects/job_timeline/job_timeline.dart';
 import 'package:tw_core/models/location/location_model.dart';
-import 'package:tw_core/models/person/person.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
+import 'package:tw_core/services/cache_service.dart';
 
 import '../trades.dart';
 import 'job_action.dart';
@@ -57,6 +61,43 @@ class Job {
     required this.trade,
     required this.refreshCounter,
   });
+
+  factory Job.neu({
+    required LocationModel location,
+    required TWString devTitle,
+    required TWString jobTitle,
+    required TWString jobDescription,
+    required TWNumber jobRate,
+    required JobTimeLine jobTimeLine,
+    required TWNumber requiredNumberOfSubbies,
+    required List<String> selectedRequirements,
+    required Trade selectedTrade,
+  }) {
+    Contractor contractor = CacheService().contractor;
+    return Job(
+      contractorTWUser: contractor.basicProfile,
+      contractorId: contractor.basicProfile.uid,
+      jobId: contractor.basicProfile.uid + DateTime.now().toString(),
+      development: devTitle.getOrCrash(),
+      title: jobTitle.getOrCrash(),
+      description: jobDescription.getOrCrash(),
+      hourlyRate: jobRate.getOrCrash().toDouble(),
+      startDate: jobTimeLine.startDate,
+      endDate: jobTimeLine.endDate.getOrCrash(),
+      location: location,
+      subbiesRequired: requiredNumberOfSubbies.getOrCrash(),
+      requirements: selectedRequirements,
+      trade: selectedTrade,
+      status: JobStatus(JobStatuses.Active),
+      totalUnseenBids: 0,
+      applications: 0,
+      hrsPerDay: 3,
+      subbiesWorking: 0,
+      postedOn: DateTime.now(),
+      acceptingBids: true,
+      refreshCounter: 0,
+    );
+  }
 
   Map<String, dynamic> toJson() => _$JobToJson(this);
   factory Job.fromJson(Map<String, dynamic> json) => _$JobFromJson(json);

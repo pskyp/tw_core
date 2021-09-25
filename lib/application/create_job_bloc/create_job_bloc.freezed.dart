@@ -40,12 +40,6 @@ class _$CreateJobEventTearOff {
     );
   }
 
-  JobRequirementsChanged jobRequirementsChanged(String value) {
-    return JobRequirementsChanged(
-      value,
-    );
-  }
-
   RequiredSubbiesChanged requiredSubbiesChanged(String value) {
     return RequiredSubbiesChanged(
       value,
@@ -64,8 +58,10 @@ class _$CreateJobEventTearOff {
     );
   }
 
-  OnRequirementAdded onRequirementAdded() {
-    return const OnRequirementAdded();
+  OnRequirementAdded onRequirementAdded(String requirementInput) {
+    return OnRequirementAdded(
+      requirementInput,
+    );
   }
 
   TradeChanged tradeChanged(Trade trade) {
@@ -96,11 +92,10 @@ mixin _$CreateJobEvent {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
     required TResult Function(String value) requiredSubbiesChanged,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
+    required TResult Function(String requirementInput) onRequirementAdded,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -112,11 +107,10 @@ mixin _$CreateJobEvent {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
     TResult Function(String value)? requiredSubbiesChanged,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
+    TResult Function(String requirementInput)? onRequirementAdded,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -131,8 +125,6 @@ mixin _$CreateJobEvent {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
     required TResult Function(RequiredSubbiesChanged value)
         requiredSubbiesChanged,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -149,7 +141,6 @@ mixin _$CreateJobEvent {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
     TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
@@ -250,11 +241,10 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
     required TResult Function(String value) requiredSubbiesChanged,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
+    required TResult Function(String requirementInput) onRequirementAdded,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -269,11 +259,10 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
     TResult Function(String value)? requiredSubbiesChanged,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
+    TResult Function(String requirementInput)? onRequirementAdded,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -294,8 +283,6 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
     required TResult Function(RequiredSubbiesChanged value)
         requiredSubbiesChanged,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -315,7 +302,6 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
     TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
@@ -411,11 +397,10 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
     required TResult Function(String value) requiredSubbiesChanged,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
+    required TResult Function(String requirementInput) onRequirementAdded,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -430,11 +415,10 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
     TResult Function(String value)? requiredSubbiesChanged,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
+    TResult Function(String requirementInput)? onRequirementAdded,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -455,8 +439,6 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
     required TResult Function(RequiredSubbiesChanged value)
         requiredSubbiesChanged,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -476,7 +458,6 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
     TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
@@ -572,11 +553,10 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
     required TResult Function(String value) requiredSubbiesChanged,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
+    required TResult Function(String requirementInput) onRequirementAdded,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -591,11 +571,10 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
     TResult Function(String value)? requiredSubbiesChanged,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
+    TResult Function(String requirementInput)? onRequirementAdded,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -616,8 +595,6 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
     required TResult Function(RequiredSubbiesChanged value)
         requiredSubbiesChanged,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -637,7 +614,6 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
     TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
@@ -732,11 +708,10 @@ class _$JobTitleChanged implements JobTitleChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
     required TResult Function(String value) requiredSubbiesChanged,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
+    required TResult Function(String requirementInput) onRequirementAdded,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -751,11 +726,10 @@ class _$JobTitleChanged implements JobTitleChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
     TResult Function(String value)? requiredSubbiesChanged,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
+    TResult Function(String requirementInput)? onRequirementAdded,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -776,8 +750,6 @@ class _$JobTitleChanged implements JobTitleChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
     required TResult Function(RequiredSubbiesChanged value)
         requiredSubbiesChanged,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -797,7 +769,6 @@ class _$JobTitleChanged implements JobTitleChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
     TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
@@ -820,167 +791,6 @@ abstract class JobTitleChanged implements CreateJobEvent {
   String get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $JobTitleChangedCopyWith<JobTitleChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $JobRequirementsChangedCopyWith<$Res> {
-  factory $JobRequirementsChangedCopyWith(JobRequirementsChanged value,
-          $Res Function(JobRequirementsChanged) then) =
-      _$JobRequirementsChangedCopyWithImpl<$Res>;
-  $Res call({String value});
-}
-
-/// @nodoc
-class _$JobRequirementsChangedCopyWithImpl<$Res>
-    extends _$CreateJobEventCopyWithImpl<$Res>
-    implements $JobRequirementsChangedCopyWith<$Res> {
-  _$JobRequirementsChangedCopyWithImpl(JobRequirementsChanged _value,
-      $Res Function(JobRequirementsChanged) _then)
-      : super(_value, (v) => _then(v as JobRequirementsChanged));
-
-  @override
-  JobRequirementsChanged get _value => super._value as JobRequirementsChanged;
-
-  @override
-  $Res call({
-    Object? value = freezed,
-  }) {
-    return _then(JobRequirementsChanged(
-      value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$JobRequirementsChanged implements JobRequirementsChanged {
-  const _$JobRequirementsChanged(this.value);
-
-  @override
-  final String value;
-
-  @override
-  String toString() {
-    return 'CreateJobEvent.jobRequirementsChanged(value: $value)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is JobRequirementsChanged &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
-
-  @JsonKey(ignore: true)
-  @override
-  $JobRequirementsChangedCopyWith<JobRequirementsChanged> get copyWith =>
-      _$JobRequirementsChangedCopyWithImpl<JobRequirementsChanged>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(DateTime startDate) onJobStartDateChanged,
-    required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
-    required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
-    required TResult Function(String value) requiredSubbiesChanged,
-    required TResult Function(String value) onRateChanged,
-    required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
-    required TResult Function(Trade trade) tradeChanged,
-    required TResult Function() submitButtonPressed,
-    required TResult Function(LocationModel location) onLocationChanged,
-  }) {
-    return jobRequirementsChanged(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTime startDate)? onJobStartDateChanged,
-    TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
-    TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
-    TResult Function(String value)? requiredSubbiesChanged,
-    TResult Function(String value)? onRateChanged,
-    TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
-    TResult Function(Trade trade)? tradeChanged,
-    TResult Function()? submitButtonPressed,
-    TResult Function(LocationModel location)? onLocationChanged,
-    required TResult orElse(),
-  }) {
-    if (jobRequirementsChanged != null) {
-      return jobRequirementsChanged(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(OnJobStartDateChanged value)
-        onJobStartDateChanged,
-    required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
-    required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
-    required TResult Function(RequiredSubbiesChanged value)
-        requiredSubbiesChanged,
-    required TResult Function(OnRateChanged value) onRateChanged,
-    required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
-    required TResult Function(TradeChanged value) tradeChanged,
-    required TResult Function(SubmitButtonPressed value) submitButtonPressed,
-    required TResult Function(OnLocationChanged value) onLocationChanged,
-  }) {
-    return jobRequirementsChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
-    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
-    TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
-    TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
-    TResult Function(OnRateChanged value)? onRateChanged,
-    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
-    TResult Function(TradeChanged value)? tradeChanged,
-    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
-    TResult Function(OnLocationChanged value)? onLocationChanged,
-    required TResult orElse(),
-  }) {
-    if (jobRequirementsChanged != null) {
-      return jobRequirementsChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class JobRequirementsChanged implements CreateJobEvent {
-  const factory JobRequirementsChanged(String value) = _$JobRequirementsChanged;
-
-  String get value => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $JobRequirementsChangedCopyWith<JobRequirementsChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1054,11 +864,10 @@ class _$RequiredSubbiesChanged implements RequiredSubbiesChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
     required TResult Function(String value) requiredSubbiesChanged,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
+    required TResult Function(String requirementInput) onRequirementAdded,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -1073,11 +882,10 @@ class _$RequiredSubbiesChanged implements RequiredSubbiesChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
     TResult Function(String value)? requiredSubbiesChanged,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
+    TResult Function(String requirementInput)? onRequirementAdded,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -1098,8 +906,6 @@ class _$RequiredSubbiesChanged implements RequiredSubbiesChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
     required TResult Function(RequiredSubbiesChanged value)
         requiredSubbiesChanged,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -1119,7 +925,6 @@ class _$RequiredSubbiesChanged implements RequiredSubbiesChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
     TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
@@ -1214,11 +1019,10 @@ class _$OnRateChanged implements OnRateChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
     required TResult Function(String value) requiredSubbiesChanged,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
+    required TResult Function(String requirementInput) onRequirementAdded,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -1233,11 +1037,10 @@ class _$OnRateChanged implements OnRateChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
     TResult Function(String value)? requiredSubbiesChanged,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
+    TResult Function(String requirementInput)? onRequirementAdded,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -1258,8 +1061,6 @@ class _$OnRateChanged implements OnRateChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
     required TResult Function(RequiredSubbiesChanged value)
         requiredSubbiesChanged,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -1279,7 +1080,6 @@ class _$OnRateChanged implements OnRateChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
     TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
@@ -1375,11 +1175,10 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
     required TResult Function(String value) requiredSubbiesChanged,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
+    required TResult Function(String requirementInput) onRequirementAdded,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -1394,11 +1193,10 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
     TResult Function(String value)? requiredSubbiesChanged,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
+    TResult Function(String requirementInput)? onRequirementAdded,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -1419,8 +1217,6 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
     required TResult Function(RequiredSubbiesChanged value)
         requiredSubbiesChanged,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -1440,7 +1236,6 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
     TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
@@ -1471,6 +1266,7 @@ abstract class $OnRequirementAddedCopyWith<$Res> {
   factory $OnRequirementAddedCopyWith(
           OnRequirementAdded value, $Res Function(OnRequirementAdded) then) =
       _$OnRequirementAddedCopyWithImpl<$Res>;
+  $Res call({String requirementInput});
 }
 
 /// @nodoc
@@ -1483,25 +1279,51 @@ class _$OnRequirementAddedCopyWithImpl<$Res>
 
   @override
   OnRequirementAdded get _value => super._value as OnRequirementAdded;
+
+  @override
+  $Res call({
+    Object? requirementInput = freezed,
+  }) {
+    return _then(OnRequirementAdded(
+      requirementInput == freezed
+          ? _value.requirementInput
+          : requirementInput // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$OnRequirementAdded implements OnRequirementAdded {
-  const _$OnRequirementAdded();
+  const _$OnRequirementAdded(this.requirementInput);
+
+  @override
+  final String requirementInput;
 
   @override
   String toString() {
-    return 'CreateJobEvent.onRequirementAdded()';
+    return 'CreateJobEvent.onRequirementAdded(requirementInput: $requirementInput)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is OnRequirementAdded);
+    return identical(this, other) ||
+        (other is OnRequirementAdded &&
+            (identical(other.requirementInput, requirementInput) ||
+                const DeepCollectionEquality()
+                    .equals(other.requirementInput, requirementInput)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(requirementInput);
+
+  @JsonKey(ignore: true)
+  @override
+  $OnRequirementAddedCopyWith<OnRequirementAdded> get copyWith =>
+      _$OnRequirementAddedCopyWithImpl<OnRequirementAdded>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1510,16 +1332,15 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
     required TResult Function(String value) requiredSubbiesChanged,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
+    required TResult Function(String requirementInput) onRequirementAdded,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
-    return onRequirementAdded();
+    return onRequirementAdded(requirementInput);
   }
 
   @override
@@ -1529,18 +1350,17 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
     TResult Function(String value)? requiredSubbiesChanged,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
+    TResult Function(String requirementInput)? onRequirementAdded,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
     required TResult orElse(),
   }) {
     if (onRequirementAdded != null) {
-      return onRequirementAdded();
+      return onRequirementAdded(requirementInput);
     }
     return orElse();
   }
@@ -1554,8 +1374,6 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
     required TResult Function(RequiredSubbiesChanged value)
         requiredSubbiesChanged,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -1575,7 +1393,6 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
     TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
@@ -1593,7 +1410,13 @@ class _$OnRequirementAdded implements OnRequirementAdded {
 }
 
 abstract class OnRequirementAdded implements CreateJobEvent {
-  const factory OnRequirementAdded() = _$OnRequirementAdded;
+  const factory OnRequirementAdded(String requirementInput) =
+      _$OnRequirementAdded;
+
+  String get requirementInput => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $OnRequirementAddedCopyWith<OnRequirementAdded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1665,11 +1488,10 @@ class _$TradeChanged implements TradeChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
     required TResult Function(String value) requiredSubbiesChanged,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
+    required TResult Function(String requirementInput) onRequirementAdded,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -1684,11 +1506,10 @@ class _$TradeChanged implements TradeChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
     TResult Function(String value)? requiredSubbiesChanged,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
+    TResult Function(String requirementInput)? onRequirementAdded,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -1709,8 +1530,6 @@ class _$TradeChanged implements TradeChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
     required TResult Function(RequiredSubbiesChanged value)
         requiredSubbiesChanged,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -1730,7 +1549,6 @@ class _$TradeChanged implements TradeChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
     TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
@@ -1800,11 +1618,10 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
     required TResult Function(String value) requiredSubbiesChanged,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
+    required TResult Function(String requirementInput) onRequirementAdded,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -1819,11 +1636,10 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
     TResult Function(String value)? requiredSubbiesChanged,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
+    TResult Function(String requirementInput)? onRequirementAdded,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -1844,8 +1660,6 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
     required TResult Function(RequiredSubbiesChanged value)
         requiredSubbiesChanged,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -1865,7 +1679,6 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
     TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
@@ -1956,11 +1769,10 @@ class _$OnLocationChanged implements OnLocationChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function(String value) jobRequirementsChanged,
     required TResult Function(String value) requiredSubbiesChanged,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function() onRequirementAdded,
+    required TResult Function(String requirementInput) onRequirementAdded,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -1975,11 +1787,10 @@ class _$OnLocationChanged implements OnLocationChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function(String value)? jobRequirementsChanged,
     TResult Function(String value)? requiredSubbiesChanged,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function()? onRequirementAdded,
+    TResult Function(String requirementInput)? onRequirementAdded,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -2000,8 +1811,6 @@ class _$OnLocationChanged implements OnLocationChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(JobRequirementsChanged value)
-        jobRequirementsChanged,
     required TResult Function(RequiredSubbiesChanged value)
         requiredSubbiesChanged,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -2021,7 +1830,6 @@ class _$OnLocationChanged implements OnLocationChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(JobRequirementsChanged value)? jobRequirementsChanged,
     TResult Function(RequiredSubbiesChanged value)? requiredSubbiesChanged,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
@@ -2052,32 +1860,28 @@ class _$CreateJobStateTearOff {
   const _$CreateJobStateTearOff();
 
   _CreateJobState call(
-      {required int lengthOfRequirementList,
-      required TWString developmentTitle,
+      {required TWString developmentTitle,
+      required TWString jobTitle,
       required TWString jobDescription,
       required Trade selectedTrade,
+      required JobTimeLine jobTimeLine,
       required TWNumber jobRate,
-      required TWString jobTitle,
-      required int lengthOfRequirements,
-      required String requirementFieldController,
-      required List<String> listOfRequirements,
       required TWNumber numberOfSubbies,
-      required LocationModel? location,
+      required Option<LocationModel> location,
+      required List<String> requirements,
       required bool showErrorMessages,
       required bool isSubmitting,
       required Option<Either<TWServerError, Unit>> failureOrSuccessOption}) {
     return _CreateJobState(
-      lengthOfRequirementList: lengthOfRequirementList,
       developmentTitle: developmentTitle,
+      jobTitle: jobTitle,
       jobDescription: jobDescription,
       selectedTrade: selectedTrade,
+      jobTimeLine: jobTimeLine,
       jobRate: jobRate,
-      jobTitle: jobTitle,
-      lengthOfRequirements: lengthOfRequirements,
-      requirementFieldController: requirementFieldController,
-      listOfRequirements: listOfRequirements,
       numberOfSubbies: numberOfSubbies,
       location: location,
+      requirements: requirements,
       showErrorMessages: showErrorMessages,
       isSubmitting: isSubmitting,
       failureOrSuccessOption: failureOrSuccessOption,
@@ -2090,18 +1894,15 @@ const $CreateJobState = _$CreateJobStateTearOff();
 
 /// @nodoc
 mixin _$CreateJobState {
-  int get lengthOfRequirementList => throw _privateConstructorUsedError;
   TWString get developmentTitle => throw _privateConstructorUsedError;
-  TWString get jobDescription => throw _privateConstructorUsedError;
-  Trade get selectedTrade =>
-      throw _privateConstructorUsedError; // required JobTimeLine jobTimeLine,
-  TWNumber get jobRate => throw _privateConstructorUsedError;
   TWString get jobTitle => throw _privateConstructorUsedError;
-  int get lengthOfRequirements => throw _privateConstructorUsedError;
-  String get requirementFieldController => throw _privateConstructorUsedError;
-  List<String> get listOfRequirements => throw _privateConstructorUsedError;
+  TWString get jobDescription => throw _privateConstructorUsedError;
+  Trade get selectedTrade => throw _privateConstructorUsedError;
+  JobTimeLine get jobTimeLine => throw _privateConstructorUsedError;
+  TWNumber get jobRate => throw _privateConstructorUsedError;
   TWNumber get numberOfSubbies => throw _privateConstructorUsedError;
-  LocationModel? get location => throw _privateConstructorUsedError;
+  Option<LocationModel> get location => throw _privateConstructorUsedError;
+  List<String> get requirements => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<TWServerError, Unit>> get failureOrSuccessOption =>
@@ -2118,17 +1919,15 @@ abstract class $CreateJobStateCopyWith<$Res> {
           CreateJobState value, $Res Function(CreateJobState) then) =
       _$CreateJobStateCopyWithImpl<$Res>;
   $Res call(
-      {int lengthOfRequirementList,
-      TWString developmentTitle,
+      {TWString developmentTitle,
+      TWString jobTitle,
       TWString jobDescription,
       Trade selectedTrade,
+      JobTimeLine jobTimeLine,
       TWNumber jobRate,
-      TWString jobTitle,
-      int lengthOfRequirements,
-      String requirementFieldController,
-      List<String> listOfRequirements,
       TWNumber numberOfSubbies,
-      LocationModel? location,
+      Option<LocationModel> location,
+      List<String> requirements,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<TWServerError, Unit>> failureOrSuccessOption});
@@ -2145,29 +1944,27 @@ class _$CreateJobStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? lengthOfRequirementList = freezed,
     Object? developmentTitle = freezed,
+    Object? jobTitle = freezed,
     Object? jobDescription = freezed,
     Object? selectedTrade = freezed,
+    Object? jobTimeLine = freezed,
     Object? jobRate = freezed,
-    Object? jobTitle = freezed,
-    Object? lengthOfRequirements = freezed,
-    Object? requirementFieldController = freezed,
-    Object? listOfRequirements = freezed,
     Object? numberOfSubbies = freezed,
     Object? location = freezed,
+    Object? requirements = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
     Object? failureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
-      lengthOfRequirementList: lengthOfRequirementList == freezed
-          ? _value.lengthOfRequirementList
-          : lengthOfRequirementList // ignore: cast_nullable_to_non_nullable
-              as int,
       developmentTitle: developmentTitle == freezed
           ? _value.developmentTitle
           : developmentTitle // ignore: cast_nullable_to_non_nullable
+              as TWString,
+      jobTitle: jobTitle == freezed
+          ? _value.jobTitle
+          : jobTitle // ignore: cast_nullable_to_non_nullable
               as TWString,
       jobDescription: jobDescription == freezed
           ? _value.jobDescription
@@ -2177,26 +1974,14 @@ class _$CreateJobStateCopyWithImpl<$Res>
           ? _value.selectedTrade
           : selectedTrade // ignore: cast_nullable_to_non_nullable
               as Trade,
+      jobTimeLine: jobTimeLine == freezed
+          ? _value.jobTimeLine
+          : jobTimeLine // ignore: cast_nullable_to_non_nullable
+              as JobTimeLine,
       jobRate: jobRate == freezed
           ? _value.jobRate
           : jobRate // ignore: cast_nullable_to_non_nullable
               as TWNumber,
-      jobTitle: jobTitle == freezed
-          ? _value.jobTitle
-          : jobTitle // ignore: cast_nullable_to_non_nullable
-              as TWString,
-      lengthOfRequirements: lengthOfRequirements == freezed
-          ? _value.lengthOfRequirements
-          : lengthOfRequirements // ignore: cast_nullable_to_non_nullable
-              as int,
-      requirementFieldController: requirementFieldController == freezed
-          ? _value.requirementFieldController
-          : requirementFieldController // ignore: cast_nullable_to_non_nullable
-              as String,
-      listOfRequirements: listOfRequirements == freezed
-          ? _value.listOfRequirements
-          : listOfRequirements // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       numberOfSubbies: numberOfSubbies == freezed
           ? _value.numberOfSubbies
           : numberOfSubbies // ignore: cast_nullable_to_non_nullable
@@ -2204,7 +1989,11 @@ class _$CreateJobStateCopyWithImpl<$Res>
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as LocationModel?,
+              as Option<LocationModel>,
+      requirements: requirements == freezed
+          ? _value.requirements
+          : requirements // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -2229,17 +2018,15 @@ abstract class _$CreateJobStateCopyWith<$Res>
       __$CreateJobStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int lengthOfRequirementList,
-      TWString developmentTitle,
+      {TWString developmentTitle,
+      TWString jobTitle,
       TWString jobDescription,
       Trade selectedTrade,
+      JobTimeLine jobTimeLine,
       TWNumber jobRate,
-      TWString jobTitle,
-      int lengthOfRequirements,
-      String requirementFieldController,
-      List<String> listOfRequirements,
       TWNumber numberOfSubbies,
-      LocationModel? location,
+      Option<LocationModel> location,
+      List<String> requirements,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<TWServerError, Unit>> failureOrSuccessOption});
@@ -2258,29 +2045,27 @@ class __$CreateJobStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? lengthOfRequirementList = freezed,
     Object? developmentTitle = freezed,
+    Object? jobTitle = freezed,
     Object? jobDescription = freezed,
     Object? selectedTrade = freezed,
+    Object? jobTimeLine = freezed,
     Object? jobRate = freezed,
-    Object? jobTitle = freezed,
-    Object? lengthOfRequirements = freezed,
-    Object? requirementFieldController = freezed,
-    Object? listOfRequirements = freezed,
     Object? numberOfSubbies = freezed,
     Object? location = freezed,
+    Object? requirements = freezed,
     Object? showErrorMessages = freezed,
     Object? isSubmitting = freezed,
     Object? failureOrSuccessOption = freezed,
   }) {
     return _then(_CreateJobState(
-      lengthOfRequirementList: lengthOfRequirementList == freezed
-          ? _value.lengthOfRequirementList
-          : lengthOfRequirementList // ignore: cast_nullable_to_non_nullable
-              as int,
       developmentTitle: developmentTitle == freezed
           ? _value.developmentTitle
           : developmentTitle // ignore: cast_nullable_to_non_nullable
+              as TWString,
+      jobTitle: jobTitle == freezed
+          ? _value.jobTitle
+          : jobTitle // ignore: cast_nullable_to_non_nullable
               as TWString,
       jobDescription: jobDescription == freezed
           ? _value.jobDescription
@@ -2290,26 +2075,14 @@ class __$CreateJobStateCopyWithImpl<$Res>
           ? _value.selectedTrade
           : selectedTrade // ignore: cast_nullable_to_non_nullable
               as Trade,
+      jobTimeLine: jobTimeLine == freezed
+          ? _value.jobTimeLine
+          : jobTimeLine // ignore: cast_nullable_to_non_nullable
+              as JobTimeLine,
       jobRate: jobRate == freezed
           ? _value.jobRate
           : jobRate // ignore: cast_nullable_to_non_nullable
               as TWNumber,
-      jobTitle: jobTitle == freezed
-          ? _value.jobTitle
-          : jobTitle // ignore: cast_nullable_to_non_nullable
-              as TWString,
-      lengthOfRequirements: lengthOfRequirements == freezed
-          ? _value.lengthOfRequirements
-          : lengthOfRequirements // ignore: cast_nullable_to_non_nullable
-              as int,
-      requirementFieldController: requirementFieldController == freezed
-          ? _value.requirementFieldController
-          : requirementFieldController // ignore: cast_nullable_to_non_nullable
-              as String,
-      listOfRequirements: listOfRequirements == freezed
-          ? _value.listOfRequirements
-          : listOfRequirements // ignore: cast_nullable_to_non_nullable
-              as List<String>,
       numberOfSubbies: numberOfSubbies == freezed
           ? _value.numberOfSubbies
           : numberOfSubbies // ignore: cast_nullable_to_non_nullable
@@ -2317,7 +2090,11 @@ class __$CreateJobStateCopyWithImpl<$Res>
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
-              as LocationModel?,
+              as Option<LocationModel>,
+      requirements: requirements == freezed
+          ? _value.requirements
+          : requirements // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -2336,45 +2113,40 @@ class __$CreateJobStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CreateJobState implements _CreateJobState {
+class _$_CreateJobState extends _CreateJobState {
   const _$_CreateJobState(
-      {required this.lengthOfRequirementList,
-      required this.developmentTitle,
+      {required this.developmentTitle,
+      required this.jobTitle,
       required this.jobDescription,
       required this.selectedTrade,
+      required this.jobTimeLine,
       required this.jobRate,
-      required this.jobTitle,
-      required this.lengthOfRequirements,
-      required this.requirementFieldController,
-      required this.listOfRequirements,
       required this.numberOfSubbies,
       required this.location,
+      required this.requirements,
       required this.showErrorMessages,
       required this.isSubmitting,
-      required this.failureOrSuccessOption});
+      required this.failureOrSuccessOption})
+      : super._();
 
   @override
-  final int lengthOfRequirementList;
-  @override
   final TWString developmentTitle;
+  @override
+  final TWString jobTitle;
   @override
   final TWString jobDescription;
   @override
   final Trade selectedTrade;
-  @override // required JobTimeLine jobTimeLine,
+  @override
+  final JobTimeLine jobTimeLine;
+  @override
   final TWNumber jobRate;
-  @override
-  final TWString jobTitle;
-  @override
-  final int lengthOfRequirements;
-  @override
-  final String requirementFieldController;
-  @override
-  final List<String> listOfRequirements;
   @override
   final TWNumber numberOfSubbies;
   @override
-  final LocationModel? location;
+  final Option<LocationModel> location;
+  @override
+  final List<String> requirements;
   @override
   final bool showErrorMessages;
   @override
@@ -2384,47 +2156,40 @@ class _$_CreateJobState implements _CreateJobState {
 
   @override
   String toString() {
-    return 'CreateJobState(lengthOfRequirementList: $lengthOfRequirementList, developmentTitle: $developmentTitle, jobDescription: $jobDescription, selectedTrade: $selectedTrade, jobRate: $jobRate, jobTitle: $jobTitle, lengthOfRequirements: $lengthOfRequirements, requirementFieldController: $requirementFieldController, listOfRequirements: $listOfRequirements, numberOfSubbies: $numberOfSubbies, location: $location, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'CreateJobState(developmentTitle: $developmentTitle, jobTitle: $jobTitle, jobDescription: $jobDescription, selectedTrade: $selectedTrade, jobTimeLine: $jobTimeLine, jobRate: $jobRate, numberOfSubbies: $numberOfSubbies, location: $location, requirements: $requirements, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _CreateJobState &&
-            (identical(other.lengthOfRequirementList, lengthOfRequirementList) ||
-                const DeepCollectionEquality().equals(
-                    other.lengthOfRequirementList, lengthOfRequirementList)) &&
             (identical(other.developmentTitle, developmentTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.developmentTitle, developmentTitle)) &&
+            (identical(other.jobTitle, jobTitle) ||
+                const DeepCollectionEquality()
+                    .equals(other.jobTitle, jobTitle)) &&
             (identical(other.jobDescription, jobDescription) ||
                 const DeepCollectionEquality()
                     .equals(other.jobDescription, jobDescription)) &&
             (identical(other.selectedTrade, selectedTrade) ||
                 const DeepCollectionEquality()
                     .equals(other.selectedTrade, selectedTrade)) &&
+            (identical(other.jobTimeLine, jobTimeLine) ||
+                const DeepCollectionEquality()
+                    .equals(other.jobTimeLine, jobTimeLine)) &&
             (identical(other.jobRate, jobRate) ||
                 const DeepCollectionEquality()
                     .equals(other.jobRate, jobRate)) &&
-            (identical(other.jobTitle, jobTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.jobTitle, jobTitle)) &&
-            (identical(other.lengthOfRequirements, lengthOfRequirements) ||
-                const DeepCollectionEquality().equals(
-                    other.lengthOfRequirements, lengthOfRequirements)) &&
-            (identical(other.requirementFieldController, requirementFieldController) ||
-                const DeepCollectionEquality().equals(
-                    other.requirementFieldController,
-                    requirementFieldController)) &&
-            (identical(other.listOfRequirements, listOfRequirements) ||
-                const DeepCollectionEquality()
-                    .equals(other.listOfRequirements, listOfRequirements)) &&
             (identical(other.numberOfSubbies, numberOfSubbies) ||
                 const DeepCollectionEquality()
                     .equals(other.numberOfSubbies, numberOfSubbies)) &&
             (identical(other.location, location) ||
                 const DeepCollectionEquality()
                     .equals(other.location, location)) &&
+            (identical(other.requirements, requirements) ||
+                const DeepCollectionEquality()
+                    .equals(other.requirements, requirements)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
                     .equals(other.showErrorMessages, showErrorMessages)) &&
@@ -2439,17 +2204,15 @@ class _$_CreateJobState implements _CreateJobState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(lengthOfRequirementList) ^
       const DeepCollectionEquality().hash(developmentTitle) ^
+      const DeepCollectionEquality().hash(jobTitle) ^
       const DeepCollectionEquality().hash(jobDescription) ^
       const DeepCollectionEquality().hash(selectedTrade) ^
+      const DeepCollectionEquality().hash(jobTimeLine) ^
       const DeepCollectionEquality().hash(jobRate) ^
-      const DeepCollectionEquality().hash(jobTitle) ^
-      const DeepCollectionEquality().hash(lengthOfRequirements) ^
-      const DeepCollectionEquality().hash(requirementFieldController) ^
-      const DeepCollectionEquality().hash(listOfRequirements) ^
       const DeepCollectionEquality().hash(numberOfSubbies) ^
       const DeepCollectionEquality().hash(location) ^
+      const DeepCollectionEquality().hash(requirements) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(failureOrSuccessOption);
@@ -2460,46 +2223,41 @@ class _$_CreateJobState implements _CreateJobState {
       __$CreateJobStateCopyWithImpl<_CreateJobState>(this, _$identity);
 }
 
-abstract class _CreateJobState implements CreateJobState {
+abstract class _CreateJobState extends CreateJobState {
   const factory _CreateJobState(
-      {required int lengthOfRequirementList,
-      required TWString developmentTitle,
+      {required TWString developmentTitle,
+      required TWString jobTitle,
       required TWString jobDescription,
       required Trade selectedTrade,
+      required JobTimeLine jobTimeLine,
       required TWNumber jobRate,
-      required TWString jobTitle,
-      required int lengthOfRequirements,
-      required String requirementFieldController,
-      required List<String> listOfRequirements,
       required TWNumber numberOfSubbies,
-      required LocationModel? location,
+      required Option<LocationModel> location,
+      required List<String> requirements,
       required bool showErrorMessages,
       required bool isSubmitting,
       required Option<Either<TWServerError, Unit>>
           failureOrSuccessOption}) = _$_CreateJobState;
+  const _CreateJobState._() : super._();
 
   @override
-  int get lengthOfRequirementList => throw _privateConstructorUsedError;
-  @override
   TWString get developmentTitle => throw _privateConstructorUsedError;
+  @override
+  TWString get jobTitle => throw _privateConstructorUsedError;
   @override
   TWString get jobDescription => throw _privateConstructorUsedError;
   @override
   Trade get selectedTrade => throw _privateConstructorUsedError;
-  @override // required JobTimeLine jobTimeLine,
+  @override
+  JobTimeLine get jobTimeLine => throw _privateConstructorUsedError;
+  @override
   TWNumber get jobRate => throw _privateConstructorUsedError;
-  @override
-  TWString get jobTitle => throw _privateConstructorUsedError;
-  @override
-  int get lengthOfRequirements => throw _privateConstructorUsedError;
-  @override
-  String get requirementFieldController => throw _privateConstructorUsedError;
-  @override
-  List<String> get listOfRequirements => throw _privateConstructorUsedError;
   @override
   TWNumber get numberOfSubbies => throw _privateConstructorUsedError;
   @override
-  LocationModel? get location => throw _privateConstructorUsedError;
+  Option<LocationModel> get location => throw _privateConstructorUsedError;
+  @override
+  List<String> get requirements => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
   @override
