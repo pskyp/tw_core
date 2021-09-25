@@ -31,7 +31,7 @@ class JobEndDate extends TWDate {
 @freezed
 class JobEndDateFailure extends TWDateFailure with _$JobEndDateFailure {
   const factory JobEndDateFailure.endDateBeforeStartDate(DateTime date) =
-      endDateBeforeStartDate;
+      EndDateBeforeStartDate;
 }
 
 // class SupplementStartDate extends TWDate {
