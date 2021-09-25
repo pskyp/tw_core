@@ -58,17 +58,11 @@ class CreateJobBloc extends Bloc<CreateJobEvent, CreateJobState> {
           requirements: state.requirements..add(requirement.getOrCrash()),
         );
       },
-      requiredSubbiesChanged: (e) async* {
-        int? input = int.tryParse(e.value);
-        if (input != null) {
-          yield state.copyWith(
-            numberOfSubbies: TWNumber(
-              input: input,
-              minValue: TWNumber.Job_Required_Subbies_Min,
-            ),
-          );
-        }
+      decrementRequiredSubbies: (e) async* {
+        yield state.copyWith(
+            numberOfSubbies: TWNumber(state.numberOfSubbies + 1));
       },
+      incrementRequiredSubbies: (e) async* {},
       onRateChanged: (e) async* {
         int? input = int.tryParse(e.value);
         if (input != null) {

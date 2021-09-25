@@ -13,8 +13,10 @@ class CreateJobEvent with _$CreateJobEvent {
 
   const factory CreateJobEvent.jobTitleChanged(String value) = JobTitleChanged;
 
-  const factory CreateJobEvent.requiredSubbiesChanged(String value) =
-      RequiredSubbiesChanged;
+  const factory CreateJobEvent.incrementRequiredSubbies() =
+      IncrementRequiredSubbies;
+  const factory CreateJobEvent.decrementRequiredSubbies() =
+      DecrementRequiredSubbies;
 
   const factory CreateJobEvent.onRateChanged(String value) = OnRateChanged;
 
