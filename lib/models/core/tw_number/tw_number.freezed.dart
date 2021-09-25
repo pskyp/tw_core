@@ -16,10 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$TWNumberFailureTearOff {
   const _$TWNumberFailureTearOff();
 
-  LessThanMinimum lessThanMinimum({required int value, required int minValue}) {
+  LessThanMinimum lessThanMinimum({required int value}) {
     return LessThanMinimum(
       value: value,
-      minValue: minValue,
     );
   }
 }
@@ -30,16 +29,15 @@ const $TWNumberFailure = _$TWNumberFailureTearOff();
 /// @nodoc
 mixin _$TWNumberFailure {
   int get value => throw _privateConstructorUsedError;
-  int get minValue => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int value, int minValue) lessThanMinimum,
+    required TResult Function(int value) lessThanMinimum,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int value, int minValue)? lessThanMinimum,
+    TResult Function(int value)? lessThanMinimum,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -65,7 +63,7 @@ abstract class $TWNumberFailureCopyWith<$Res> {
   factory $TWNumberFailureCopyWith(
           TWNumberFailure value, $Res Function(TWNumberFailure) then) =
       _$TWNumberFailureCopyWithImpl<$Res>;
-  $Res call({int value, int minValue});
+  $Res call({int value});
 }
 
 /// @nodoc
@@ -80,16 +78,11 @@ class _$TWNumberFailureCopyWithImpl<$Res>
   @override
   $Res call({
     Object? value = freezed,
-    Object? minValue = freezed,
   }) {
     return _then(_value.copyWith(
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as int,
-      minValue: minValue == freezed
-          ? _value.minValue
-          : minValue // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -102,7 +95,7 @@ abstract class $LessThanMinimumCopyWith<$Res>
           LessThanMinimum value, $Res Function(LessThanMinimum) then) =
       _$LessThanMinimumCopyWithImpl<$Res>;
   @override
-  $Res call({int value, int minValue});
+  $Res call({int value});
 }
 
 /// @nodoc
@@ -119,16 +112,11 @@ class _$LessThanMinimumCopyWithImpl<$Res>
   @override
   $Res call({
     Object? value = freezed,
-    Object? minValue = freezed,
   }) {
     return _then(LessThanMinimum(
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as int,
-      minValue: minValue == freezed
-          ? _value.minValue
-          : minValue // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -137,16 +125,14 @@ class _$LessThanMinimumCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LessThanMinimum implements LessThanMinimum {
-  const _$LessThanMinimum({required this.value, required this.minValue});
+  const _$LessThanMinimum({required this.value});
 
   @override
   final int value;
-  @override
-  final int minValue;
 
   @override
   String toString() {
-    return 'TWNumberFailure.lessThanMinimum(value: $value, minValue: $minValue)';
+    return 'TWNumberFailure.lessThanMinimum(value: $value)';
   }
 
   @override
@@ -154,17 +140,12 @@ class _$LessThanMinimum implements LessThanMinimum {
     return identical(this, other) ||
         (other is LessThanMinimum &&
             (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)) &&
-            (identical(other.minValue, minValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.minValue, minValue)));
+                const DeepCollectionEquality().equals(other.value, value)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(value) ^
-      const DeepCollectionEquality().hash(minValue);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
 
   @JsonKey(ignore: true)
   @override
@@ -174,19 +155,19 @@ class _$LessThanMinimum implements LessThanMinimum {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int value, int minValue) lessThanMinimum,
+    required TResult Function(int value) lessThanMinimum,
   }) {
-    return lessThanMinimum(value, minValue);
+    return lessThanMinimum(value);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int value, int minValue)? lessThanMinimum,
+    TResult Function(int value)? lessThanMinimum,
     required TResult orElse(),
   }) {
     if (lessThanMinimum != null) {
-      return lessThanMinimum(value, minValue);
+      return lessThanMinimum(value);
     }
     return orElse();
   }
@@ -213,13 +194,10 @@ class _$LessThanMinimum implements LessThanMinimum {
 }
 
 abstract class LessThanMinimum implements TWNumberFailure {
-  const factory LessThanMinimum({required int value, required int minValue}) =
-      _$LessThanMinimum;
+  const factory LessThanMinimum({required int value}) = _$LessThanMinimum;
 
   @override
   int get value => throw _privateConstructorUsedError;
-  @override
-  int get minValue => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   $LessThanMinimumCopyWith<LessThanMinimum> get copyWith =>

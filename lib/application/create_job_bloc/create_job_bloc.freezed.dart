@@ -40,12 +40,10 @@ class _$CreateJobEventTearOff {
     );
   }
 
-  IncrementRequiredSubbies incrementRequiredSubbies() {
-    return const IncrementRequiredSubbies();
-  }
-
-  DecrementRequiredSubbies decrementRequiredSubbies() {
-    return const DecrementRequiredSubbies();
+  RequiredSubbiesInput requiredSubbiesInput(String input) {
+    return RequiredSubbiesInput(
+      input,
+    );
   }
 
   OnRateChanged onRateChanged(String value) {
@@ -94,8 +92,7 @@ mixin _$CreateJobEvent {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
+    required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
     required TResult Function(String requirementInput) onRequirementAdded,
@@ -110,8 +107,7 @@ mixin _$CreateJobEvent {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
+    TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
     TResult Function(String requirementInput)? onRequirementAdded,
@@ -129,10 +125,7 @@ mixin _$CreateJobEvent {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
+    required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
     required TResult Function(OnRequirementAdded value) onRequirementAdded,
@@ -147,8 +140,7 @@ mixin _$CreateJobEvent {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
     TResult Function(OnRequirementAdded value)? onRequirementAdded,
@@ -248,8 +240,7 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
+    required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
     required TResult Function(String requirementInput) onRequirementAdded,
@@ -267,8 +258,7 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
+    TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
     TResult Function(String requirementInput)? onRequirementAdded,
@@ -292,10 +282,7 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
+    required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
     required TResult Function(OnRequirementAdded value) onRequirementAdded,
@@ -313,8 +300,7 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
     TResult Function(OnRequirementAdded value)? onRequirementAdded,
@@ -409,8 +395,7 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
+    required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
     required TResult Function(String requirementInput) onRequirementAdded,
@@ -428,8 +413,7 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
+    TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
     TResult Function(String requirementInput)? onRequirementAdded,
@@ -453,10 +437,7 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
+    required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
     required TResult Function(OnRequirementAdded value) onRequirementAdded,
@@ -474,8 +455,7 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
     TResult Function(OnRequirementAdded value)? onRequirementAdded,
@@ -570,8 +550,7 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
+    required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
     required TResult Function(String requirementInput) onRequirementAdded,
@@ -589,8 +568,7 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
+    TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
     TResult Function(String requirementInput)? onRequirementAdded,
@@ -614,10 +592,7 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
+    required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
     required TResult Function(OnRequirementAdded value) onRequirementAdded,
@@ -635,8 +610,7 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
     TResult Function(OnRequirementAdded value)? onRequirementAdded,
@@ -730,8 +704,7 @@ class _$JobTitleChanged implements JobTitleChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
+    required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
     required TResult Function(String requirementInput) onRequirementAdded,
@@ -749,8 +722,7 @@ class _$JobTitleChanged implements JobTitleChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
+    TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
     TResult Function(String requirementInput)? onRequirementAdded,
@@ -774,10 +746,7 @@ class _$JobTitleChanged implements JobTitleChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
+    required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
     required TResult Function(OnRequirementAdded value) onRequirementAdded,
@@ -795,8 +764,7 @@ class _$JobTitleChanged implements JobTitleChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
     TResult Function(OnRequirementAdded value)? onRequirementAdded,
@@ -822,42 +790,67 @@ abstract class JobTitleChanged implements CreateJobEvent {
 }
 
 /// @nodoc
-abstract class $IncrementRequiredSubbiesCopyWith<$Res> {
-  factory $IncrementRequiredSubbiesCopyWith(IncrementRequiredSubbies value,
-          $Res Function(IncrementRequiredSubbies) then) =
-      _$IncrementRequiredSubbiesCopyWithImpl<$Res>;
+abstract class $RequiredSubbiesInputCopyWith<$Res> {
+  factory $RequiredSubbiesInputCopyWith(RequiredSubbiesInput value,
+          $Res Function(RequiredSubbiesInput) then) =
+      _$RequiredSubbiesInputCopyWithImpl<$Res>;
+  $Res call({String input});
 }
 
 /// @nodoc
-class _$IncrementRequiredSubbiesCopyWithImpl<$Res>
+class _$RequiredSubbiesInputCopyWithImpl<$Res>
     extends _$CreateJobEventCopyWithImpl<$Res>
-    implements $IncrementRequiredSubbiesCopyWith<$Res> {
-  _$IncrementRequiredSubbiesCopyWithImpl(IncrementRequiredSubbies _value,
-      $Res Function(IncrementRequiredSubbies) _then)
-      : super(_value, (v) => _then(v as IncrementRequiredSubbies));
+    implements $RequiredSubbiesInputCopyWith<$Res> {
+  _$RequiredSubbiesInputCopyWithImpl(
+      RequiredSubbiesInput _value, $Res Function(RequiredSubbiesInput) _then)
+      : super(_value, (v) => _then(v as RequiredSubbiesInput));
 
   @override
-  IncrementRequiredSubbies get _value =>
-      super._value as IncrementRequiredSubbies;
+  RequiredSubbiesInput get _value => super._value as RequiredSubbiesInput;
+
+  @override
+  $Res call({
+    Object? input = freezed,
+  }) {
+    return _then(RequiredSubbiesInput(
+      input == freezed
+          ? _value.input
+          : input // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$IncrementRequiredSubbies implements IncrementRequiredSubbies {
-  const _$IncrementRequiredSubbies();
+class _$RequiredSubbiesInput implements RequiredSubbiesInput {
+  const _$RequiredSubbiesInput(this.input);
+
+  @override
+  final String input;
 
   @override
   String toString() {
-    return 'CreateJobEvent.incrementRequiredSubbies()';
+    return 'CreateJobEvent.requiredSubbiesInput(input: $input)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is IncrementRequiredSubbies);
+    return identical(this, other) ||
+        (other is RequiredSubbiesInput &&
+            (identical(other.input, input) ||
+                const DeepCollectionEquality().equals(other.input, input)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(input);
+
+  @JsonKey(ignore: true)
+  @override
+  $RequiredSubbiesInputCopyWith<RequiredSubbiesInput> get copyWith =>
+      _$RequiredSubbiesInputCopyWithImpl<RequiredSubbiesInput>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -866,8 +859,7 @@ class _$IncrementRequiredSubbies implements IncrementRequiredSubbies {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
+    required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
     required TResult Function(String requirementInput) onRequirementAdded,
@@ -875,7 +867,7 @@ class _$IncrementRequiredSubbies implements IncrementRequiredSubbies {
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
-    return incrementRequiredSubbies();
+    return requiredSubbiesInput(input);
   }
 
   @override
@@ -885,8 +877,7 @@ class _$IncrementRequiredSubbies implements IncrementRequiredSubbies {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
+    TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
     TResult Function(String requirementInput)? onRequirementAdded,
@@ -895,8 +886,8 @@ class _$IncrementRequiredSubbies implements IncrementRequiredSubbies {
     TResult Function(LocationModel location)? onLocationChanged,
     required TResult orElse(),
   }) {
-    if (incrementRequiredSubbies != null) {
-      return incrementRequiredSubbies();
+    if (requiredSubbiesInput != null) {
+      return requiredSubbiesInput(input);
     }
     return orElse();
   }
@@ -910,10 +901,7 @@ class _$IncrementRequiredSubbies implements IncrementRequiredSubbies {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
+    required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
     required TResult Function(OnRequirementAdded value) onRequirementAdded,
@@ -921,7 +909,7 @@ class _$IncrementRequiredSubbies implements IncrementRequiredSubbies {
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
   }) {
-    return incrementRequiredSubbies(this);
+    return requiredSubbiesInput(this);
   }
 
   @override
@@ -931,8 +919,7 @@ class _$IncrementRequiredSubbies implements IncrementRequiredSubbies {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
     TResult Function(OnRequirementAdded value)? onRequirementAdded,
@@ -941,146 +928,20 @@ class _$IncrementRequiredSubbies implements IncrementRequiredSubbies {
     TResult Function(OnLocationChanged value)? onLocationChanged,
     required TResult orElse(),
   }) {
-    if (incrementRequiredSubbies != null) {
-      return incrementRequiredSubbies(this);
+    if (requiredSubbiesInput != null) {
+      return requiredSubbiesInput(this);
     }
     return orElse();
   }
 }
 
-abstract class IncrementRequiredSubbies implements CreateJobEvent {
-  const factory IncrementRequiredSubbies() = _$IncrementRequiredSubbies;
-}
+abstract class RequiredSubbiesInput implements CreateJobEvent {
+  const factory RequiredSubbiesInput(String input) = _$RequiredSubbiesInput;
 
-/// @nodoc
-abstract class $DecrementRequiredSubbiesCopyWith<$Res> {
-  factory $DecrementRequiredSubbiesCopyWith(DecrementRequiredSubbies value,
-          $Res Function(DecrementRequiredSubbies) then) =
-      _$DecrementRequiredSubbiesCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$DecrementRequiredSubbiesCopyWithImpl<$Res>
-    extends _$CreateJobEventCopyWithImpl<$Res>
-    implements $DecrementRequiredSubbiesCopyWith<$Res> {
-  _$DecrementRequiredSubbiesCopyWithImpl(DecrementRequiredSubbies _value,
-      $Res Function(DecrementRequiredSubbies) _then)
-      : super(_value, (v) => _then(v as DecrementRequiredSubbies));
-
-  @override
-  DecrementRequiredSubbies get _value =>
-      super._value as DecrementRequiredSubbies;
-}
-
-/// @nodoc
-
-class _$DecrementRequiredSubbies implements DecrementRequiredSubbies {
-  const _$DecrementRequiredSubbies();
-
-  @override
-  String toString() {
-    return 'CreateJobEvent.decrementRequiredSubbies()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is DecrementRequiredSubbies);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(DateTime startDate) onJobStartDateChanged,
-    required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
-    required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
-    required TResult Function(String value) onRateChanged,
-    required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
-    required TResult Function(Trade trade) tradeChanged,
-    required TResult Function() submitButtonPressed,
-    required TResult Function(LocationModel location) onLocationChanged,
-  }) {
-    return decrementRequiredSubbies();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DateTime startDate)? onJobStartDateChanged,
-    TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
-    TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
-    TResult Function(String value)? onRateChanged,
-    TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
-    TResult Function(Trade trade)? tradeChanged,
-    TResult Function()? submitButtonPressed,
-    TResult Function(LocationModel location)? onLocationChanged,
-    required TResult orElse(),
-  }) {
-    if (decrementRequiredSubbies != null) {
-      return decrementRequiredSubbies();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(OnJobStartDateChanged value)
-        onJobStartDateChanged,
-    required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
-    required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
-    required TResult Function(OnRateChanged value) onRateChanged,
-    required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
-    required TResult Function(TradeChanged value) tradeChanged,
-    required TResult Function(SubmitButtonPressed value) submitButtonPressed,
-    required TResult Function(OnLocationChanged value) onLocationChanged,
-  }) {
-    return decrementRequiredSubbies(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
-    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
-    TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
-    TResult Function(OnRateChanged value)? onRateChanged,
-    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
-    TResult Function(TradeChanged value)? tradeChanged,
-    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
-    TResult Function(OnLocationChanged value)? onLocationChanged,
-    required TResult orElse(),
-  }) {
-    if (decrementRequiredSubbies != null) {
-      return decrementRequiredSubbies(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DecrementRequiredSubbies implements CreateJobEvent {
-  const factory DecrementRequiredSubbies() = _$DecrementRequiredSubbies;
+  String get input => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RequiredSubbiesInputCopyWith<RequiredSubbiesInput> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1152,8 +1013,7 @@ class _$OnRateChanged implements OnRateChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
+    required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
     required TResult Function(String requirementInput) onRequirementAdded,
@@ -1171,8 +1031,7 @@ class _$OnRateChanged implements OnRateChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
+    TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
     TResult Function(String requirementInput)? onRequirementAdded,
@@ -1196,10 +1055,7 @@ class _$OnRateChanged implements OnRateChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
+    required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
     required TResult Function(OnRequirementAdded value) onRequirementAdded,
@@ -1217,8 +1073,7 @@ class _$OnRateChanged implements OnRateChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
     TResult Function(OnRequirementAdded value)? onRequirementAdded,
@@ -1313,8 +1168,7 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
+    required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
     required TResult Function(String requirementInput) onRequirementAdded,
@@ -1332,8 +1186,7 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
+    TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
     TResult Function(String requirementInput)? onRequirementAdded,
@@ -1357,10 +1210,7 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
+    required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
     required TResult Function(OnRequirementAdded value) onRequirementAdded,
@@ -1378,8 +1228,7 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
     TResult Function(OnRequirementAdded value)? onRequirementAdded,
@@ -1475,8 +1324,7 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
+    required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
     required TResult Function(String requirementInput) onRequirementAdded,
@@ -1494,8 +1342,7 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
+    TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
     TResult Function(String requirementInput)? onRequirementAdded,
@@ -1519,10 +1366,7 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
+    required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
     required TResult Function(OnRequirementAdded value) onRequirementAdded,
@@ -1540,8 +1384,7 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
     TResult Function(OnRequirementAdded value)? onRequirementAdded,
@@ -1636,8 +1479,7 @@ class _$TradeChanged implements TradeChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
+    required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
     required TResult Function(String requirementInput) onRequirementAdded,
@@ -1655,8 +1497,7 @@ class _$TradeChanged implements TradeChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
+    TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
     TResult Function(String requirementInput)? onRequirementAdded,
@@ -1680,10 +1521,7 @@ class _$TradeChanged implements TradeChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
+    required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
     required TResult Function(OnRequirementAdded value) onRequirementAdded,
@@ -1701,8 +1539,7 @@ class _$TradeChanged implements TradeChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
     TResult Function(OnRequirementAdded value)? onRequirementAdded,
@@ -1771,8 +1608,7 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
+    required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
     required TResult Function(String requirementInput) onRequirementAdded,
@@ -1790,8 +1626,7 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
+    TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
     TResult Function(String requirementInput)? onRequirementAdded,
@@ -1815,10 +1650,7 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
+    required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
     required TResult Function(OnRequirementAdded value) onRequirementAdded,
@@ -1836,8 +1668,7 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
     TResult Function(OnRequirementAdded value)? onRequirementAdded,
@@ -1927,8 +1758,7 @@ class _$OnLocationChanged implements OnLocationChanged {
     required TResult Function(DateTime endDate) onJobEndDateChanged,
     required TResult Function(String value) developmentNameChanged,
     required TResult Function(String value) jobTitleChanged,
-    required TResult Function() incrementRequiredSubbies,
-    required TResult Function() decrementRequiredSubbies,
+    required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
     required TResult Function(String requirementInput) onRequirementAdded,
@@ -1946,8 +1776,7 @@ class _$OnLocationChanged implements OnLocationChanged {
     TResult Function(DateTime endDate)? onJobEndDateChanged,
     TResult Function(String value)? developmentNameChanged,
     TResult Function(String value)? jobTitleChanged,
-    TResult Function()? incrementRequiredSubbies,
-    TResult Function()? decrementRequiredSubbies,
+    TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
     TResult Function(String requirementInput)? onRequirementAdded,
@@ -1971,10 +1800,7 @@ class _$OnLocationChanged implements OnLocationChanged {
     required TResult Function(DevelopmentNameChanged value)
         developmentNameChanged,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
-    required TResult Function(IncrementRequiredSubbies value)
-        incrementRequiredSubbies,
-    required TResult Function(DecrementRequiredSubbies value)
-        decrementRequiredSubbies,
+    required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
     required TResult Function(OnRequirementAdded value) onRequirementAdded,
@@ -1992,8 +1818,7 @@ class _$OnLocationChanged implements OnLocationChanged {
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
     TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
-    TResult Function(IncrementRequiredSubbies value)? incrementRequiredSubbies,
-    TResult Function(DecrementRequiredSubbies value)? decrementRequiredSubbies,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
     TResult Function(OnRequirementAdded value)? onRequirementAdded,

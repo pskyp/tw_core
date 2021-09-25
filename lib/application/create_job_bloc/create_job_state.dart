@@ -32,7 +32,8 @@ class CreateJobState with _$CreateJobState {
           minValue: TWNumber.Job_Required_Subbies_Min,
         ),
         jobTimeLine: JobTimeLine(
-          startDateInput: DateTime.now(),
+          createdOn: DateTime.now(),
+          startDateInput: DateTime.now().add(Duration(seconds: 1)),
           endDateInput: DateTime.now().add(Duration(days: 1)),
         ),
         location: optionOf(null),

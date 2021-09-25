@@ -19,6 +19,7 @@ class TWNumber {
 
   bool get isValid => value.isRight();
   int getOrCrash() => value.fold((l) => throw UnexpectedValueError(), id);
+  int get getNumber => value.fold((l) => l.value, id);
 
   static Either<TWNumberFailure, int> _validator({
     required int input,
@@ -26,17 +27,12 @@ class TWNumber {
   }) {
     return input > minValue
         ? right(input)
-        : left(TWNumberFailure.lessThanMinimum(
-            value: input,
-            minValue: minValue,
-          ));
+        : left(TWNumberFailure.lessThanMinimum(value: input));
   }
 }
 
 @freezed
 class TWNumberFailure with _$TWNumberFailure {
-  const factory TWNumberFailure.lessThanMinimum({
-    required int value,
-    required int minValue,
-  }) = LessThanMinimum;
+  const factory TWNumberFailure.lessThanMinimum({required int value}) =
+      LessThanMinimum;
 }

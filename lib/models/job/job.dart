@@ -82,7 +82,7 @@ class Job {
       title: jobTitle.getOrCrash(),
       description: jobDescription.getOrCrash(),
       hourlyRate: jobRate.getOrCrash().toDouble(),
-      startDate: jobTimeLine.startDate,
+      startDate: jobTimeLine.startDate.getOrCrash(),
       endDate: jobTimeLine.endDate.getOrCrash(),
       location: location,
       subbiesRequired: requiredNumberOfSubbies.getOrCrash(),

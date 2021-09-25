@@ -31,15 +31,17 @@ class CreateJobBloc extends Bloc<CreateJobEvent, CreateJobState> {
       onJobStartDateChanged: (e) async* {
         yield state.copyWith(
           jobTimeLine: JobTimeLine(
-              startDateInput: e.startDate,
-              endDateInput:
-                  state.jobTimeLine.endDate.value.fold((l) => l.date, id)),
+            createdOn: state.jobTimeLine.createdOn,
+            startDateInput: e.startDate,
+            endDateInput: state.jobTimeLine.endDate.getDate,
+          ),
         );
       },
       onJobEndDateChanged: (e) async* {
         yield state.copyWith(
             jobTimeLine: JobTimeLine(
-          startDateInput: state.jobTimeLine.startDate,
+          createdOn: state.jobTimeLine.createdOn,
+          startDateInput: state.jobTimeLine.startDate.getDate,
           endDateInput: e.endDate,
         ));
       },
@@ -58,11 +60,16 @@ class CreateJobBloc extends Bloc<CreateJobEvent, CreateJobState> {
           requirements: state.requirements..add(requirement.getOrCrash()),
         );
       },
-      decrementRequiredSubbies: (e) async* {
+      requiredSubbiesInput: (e) async* {
+        int? input = int.tryParse(e.input);
+        if (input == null) return;
         yield state.copyWith(
-            numberOfSubbies: TWNumber(state.numberOfSubbies + 1));
+          numberOfSubbies: TWNumber(
+            input: input,
+            minValue: TWNumber.Job_Required_Subbies_Min,
+          ),
+        );
       },
-      incrementRequiredSubbies: (e) async* {},
       onRateChanged: (e) async* {
         int? input = int.tryParse(e.value);
         if (input != null) {

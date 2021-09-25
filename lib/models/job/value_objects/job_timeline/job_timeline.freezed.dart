@@ -207,3 +207,196 @@ abstract class EndDateBeforeStartDate implements JobEndDateFailure {
   $EndDateBeforeStartDateCopyWith<EndDateBeforeStartDate> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+class _$JobStartDateFailureTearOff {
+  const _$JobStartDateFailureTearOff();
+
+  StartDateBeforeToday startDateBeforeToday(DateTime date) {
+    return StartDateBeforeToday(
+      date,
+    );
+  }
+}
+
+/// @nodoc
+const $JobStartDateFailure = _$JobStartDateFailureTearOff();
+
+/// @nodoc
+mixin _$JobStartDateFailure {
+  DateTime get date => throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) startDateBeforeToday,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? startDateBeforeToday,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StartDateBeforeToday value) startDateBeforeToday,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StartDateBeforeToday value)? startDateBeforeToday,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $JobStartDateFailureCopyWith<JobStartDateFailure> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $JobStartDateFailureCopyWith<$Res> {
+  factory $JobStartDateFailureCopyWith(
+          JobStartDateFailure value, $Res Function(JobStartDateFailure) then) =
+      _$JobStartDateFailureCopyWithImpl<$Res>;
+  $Res call({DateTime date});
+}
+
+/// @nodoc
+class _$JobStartDateFailureCopyWithImpl<$Res>
+    implements $JobStartDateFailureCopyWith<$Res> {
+  _$JobStartDateFailureCopyWithImpl(this._value, this._then);
+
+  final JobStartDateFailure _value;
+  // ignore: unused_field
+  final $Res Function(JobStartDateFailure) _then;
+
+  @override
+  $Res call({
+    Object? date = freezed,
+  }) {
+    return _then(_value.copyWith(
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class $StartDateBeforeTodayCopyWith<$Res>
+    implements $JobStartDateFailureCopyWith<$Res> {
+  factory $StartDateBeforeTodayCopyWith(StartDateBeforeToday value,
+          $Res Function(StartDateBeforeToday) then) =
+      _$StartDateBeforeTodayCopyWithImpl<$Res>;
+  @override
+  $Res call({DateTime date});
+}
+
+/// @nodoc
+class _$StartDateBeforeTodayCopyWithImpl<$Res>
+    extends _$JobStartDateFailureCopyWithImpl<$Res>
+    implements $StartDateBeforeTodayCopyWith<$Res> {
+  _$StartDateBeforeTodayCopyWithImpl(
+      StartDateBeforeToday _value, $Res Function(StartDateBeforeToday) _then)
+      : super(_value, (v) => _then(v as StartDateBeforeToday));
+
+  @override
+  StartDateBeforeToday get _value => super._value as StartDateBeforeToday;
+
+  @override
+  $Res call({
+    Object? date = freezed,
+  }) {
+    return _then(StartDateBeforeToday(
+      date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$StartDateBeforeToday implements StartDateBeforeToday {
+  const _$StartDateBeforeToday(this.date);
+
+  @override
+  final DateTime date;
+
+  @override
+  String toString() {
+    return 'JobStartDateFailure.startDateBeforeToday(date: $date)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is StartDateBeforeToday &&
+            (identical(other.date, date) ||
+                const DeepCollectionEquality().equals(other.date, date)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
+
+  @JsonKey(ignore: true)
+  @override
+  $StartDateBeforeTodayCopyWith<StartDateBeforeToday> get copyWith =>
+      _$StartDateBeforeTodayCopyWithImpl<StartDateBeforeToday>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime date) startDateBeforeToday,
+  }) {
+    return startDateBeforeToday(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime date)? startDateBeforeToday,
+    required TResult orElse(),
+  }) {
+    if (startDateBeforeToday != null) {
+      return startDateBeforeToday(date);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StartDateBeforeToday value) startDateBeforeToday,
+  }) {
+    return startDateBeforeToday(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StartDateBeforeToday value)? startDateBeforeToday,
+    required TResult orElse(),
+  }) {
+    if (startDateBeforeToday != null) {
+      return startDateBeforeToday(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StartDateBeforeToday implements JobStartDateFailure {
+  const factory StartDateBeforeToday(DateTime date) = _$StartDateBeforeToday;
+
+  @override
+  DateTime get date => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  $StartDateBeforeTodayCopyWith<StartDateBeforeToday> get copyWith =>
+      throw _privateConstructorUsedError;
+}
