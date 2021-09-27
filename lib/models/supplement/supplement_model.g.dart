@@ -27,6 +27,7 @@ Supplement _$SupplementFromJson(Map<String, dynamic> json) => Supplement(
       refreshCounter: json['refreshCounter'] as int,
       location:
           LocationModel.fromJson(json['location'] as Map<String, dynamic>),
+      developmentId: json['developmentId'] as String,
     );
 
 Map<String, dynamic> _$SupplementToJson(Supplement instance) =>
@@ -34,6 +35,7 @@ Map<String, dynamic> _$SupplementToJson(Supplement instance) =>
       'status': _$SupplementStatusEnumMap[instance.status],
       'developer': instance.developer.toJson(),
       'development': instance.development,
+      'developmentId': instance.developmentId,
       'title': instance.title,
       'description': instance.description,
       'hourlyRate': instance.hourlyRate,

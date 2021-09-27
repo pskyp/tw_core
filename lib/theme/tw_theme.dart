@@ -7,6 +7,12 @@ class TWTheme {
   static const Color kMainThemeColor = Color(0xff027887);
 
   static ThemeData themeData = ThemeData(
+    textTheme: TextTheme(
+      headline2: TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
     inputDecorationTheme: InputDecorationTheme(
       labelStyle: TextStyle(color: Color(0xff084348)),
       enabledBorder: OutlineInputBorder(

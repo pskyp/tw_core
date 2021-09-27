@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/core/work/work.dart';
 import 'package:tw_core/models/developer/developer.dart';
 import 'package:tw_core/models/location/location_model.dart';
 import 'package:tw_core/models/trades.dart';
@@ -8,10 +9,11 @@ part 'supplement_model.g.dart';
 enum SupplementStatus { Active, Completed }
 
 @JsonSerializable(explicitToJson: true)
-class Supplement {
+class Supplement implements Work {
   final SupplementStatus status;
   final Developer developer;
   final String development;
+  final String developmentId;
   final String title;
   final String description;
   final double hourlyRate;
@@ -49,6 +51,7 @@ class Supplement {
     required this.totalUnseenBids,
     required this.refreshCounter,
     required this.location,
+    required this.developmentId,
   });
 
   Map<String, dynamic> toJson() => _$SupplementToJson(this);
@@ -72,6 +75,7 @@ class Supplement {
     LocationModel? location,
   }) {
     return Supplement(
+      developmentId: this.developmentId,
       developer: this.developer,
       status: this.status,
       totalUnseenBids: this.totalUnseenBids,

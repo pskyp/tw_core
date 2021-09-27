@@ -55,6 +55,7 @@ class TAJDeveloper extends TAJFacade {
     required Developer developer,
   }) async {
     Supplement supplement = Supplement(
+      developmentId: development.id,
       status: SupplementStatus.Active,
       developer: developer,
       development: development.devTitle,
@@ -203,11 +204,34 @@ class TAJDeveloper extends TAJFacade {
     });
   }
 
+  Stream<List<Tender>> streamAllTendersForDevelopment(
+      {required Development dev}) {
+    return TWFC.tendersCollection
+        .where('developmentId', isEqualTo: dev.id)
+        .snapshots()
+        .map((list) =>
+            list.docs.map((doc) => Tender.fromJson(doc.data())).toList());
+  }
+
   Stream<List<Supplement>> streamAllSupplementsByDeveloper({
     required TWUser developer,
   }) {
     return TWFC.supplementCollection
         .where('developer.twUser.uid', isEqualTo: developer.uid)
+        .snapshots()
+        .map((list) {
+      allSupplements = optionOf(
+        list.docs.map((doc) => Supplement.fromJson(doc.data())).toList(),
+      );
+      return allSupplements.getOrElse(() => []);
+    });
+  }
+
+  Stream<List<Supplement>> streamAllSupplementsForDevelopment({
+    required Development development,
+  }) {
+    return TWFC.supplementCollection
+        .where('developmentId', isEqualTo: development.id)
         .snapshots()
         .map((list) {
       allSupplements = optionOf(

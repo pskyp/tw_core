@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:tw_core/models/core/work/work.dart';
 import 'package:tw_core/models/location/location_model.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 
@@ -12,7 +13,7 @@ enum TenderTimeLineStatus { New, OpenToQueries, Submission, Feedback, Awarding }
 enum TenderStatus { New, Invited, Awarded, Completed }
 
 @JsonSerializable(explicitToJson: true)
-class Tender extends Equatable {
+class Tender extends Equatable implements Work {
   final TenderTimeLineStatus tenderTimeLineStatus;
   final TenderStatus tenderStatus;
   final String id;
@@ -233,4 +234,7 @@ class Tender extends Equatable {
   Map<String, dynamic> toJson() => _$TenderToJson(this);
 
   factory Tender.fromJson(Map<String, dynamic> json) => _$TenderFromJson(json);
+
+  @override
+  DateTime get createdOn => createdAt;
 }
