@@ -13,8 +13,10 @@ class SupplementTimeLine {
     required this.createdOn,
     required DateTime startDateInput,
     required DateTime endDateInput,
-  })  : startDate =
-            SupplementStartDate(input: startDateInput, createdOn: createdOn),
+  })  : startDate = SupplementStartDate(
+          input: startDateInput,
+          createdOn: createdOn,
+        ),
         endDate = SupplementEndDate(
           input: endDateInput,
           startDate: startDateInput,

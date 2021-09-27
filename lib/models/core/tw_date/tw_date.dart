@@ -11,7 +11,7 @@ class TWDate<T extends TWDateFailure> {
   get isValid => value.isRight();
 
   String get asString => value.fold(
-        (l) => DateFormat('yyyy-MM-dd').format((T as TWDateFailure).date),
+        (l) => DateFormat('yyyy-MM-dd').format(l.date),
         (r) => DateFormat('yyyy-MM-dd').format(r),
       );
 
