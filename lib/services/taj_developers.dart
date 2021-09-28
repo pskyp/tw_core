@@ -234,10 +234,7 @@ class TAJDeveloper extends TAJFacade {
         .where('developmentId', isEqualTo: development.id)
         .snapshots()
         .map((list) {
-      allSupplements = optionOf(
-        list.docs.map((doc) => Supplement.fromJson(doc.data())).toList(),
-      );
-      return allSupplements.getOrElse(() => []);
+      return list.docs.map((doc) => Supplement.fromJson(doc.data())).toList();
     });
   }
 
@@ -285,6 +282,18 @@ class TAJDeveloper extends TAJFacade {
       print(
           'all tenderBids for all tenders by developer length: ${allTenderBids.fold(() => 'null', (a) => a.length)}');
       return allTenderBids.getOrElse(() => []);
+    });
+  }
+
+  Stream<List<BidOnTender>> streamAllActiveBidsForDevelopment({
+    required List<Tender> tenders,
+  }) {
+    return TWFC.tenderBidsCollection
+        .where('tenderId', whereIn: tenders.map((e) => e.id).toList())
+        .where('status', isEqualTo: 'Awarded')
+        .snapshots()
+        .map((list) {
+      return list.docs.map((doc) => BidOnTender.fromJson(doc.data())).toList();
     });
   }
 

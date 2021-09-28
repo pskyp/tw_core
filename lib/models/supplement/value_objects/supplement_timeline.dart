@@ -62,7 +62,7 @@ class SupplementStartDateFailure extends TWDateFailure
 // }
 
 //     : this.startDate = startDate.isBefore(endDate)
-// ? TWDate(right(startDate))
+// ? TWDatglge(right(startDate))
 // : TWDate(
 // left(SupplementDateValidators.startDateValidation(startDate))),
 // this.endDate = endDate.isAfter(startDate)
