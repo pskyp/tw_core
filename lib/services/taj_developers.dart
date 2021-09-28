@@ -276,6 +276,17 @@ class TAJDeveloper extends TAJFacade {
     return commitBatch(batch);
   }
 
+  Stream<List<BidOnTender>> streamAllBidsForTender({
+    required Tender tender,
+  }) {
+    return TWFC.tenderBidsCollection
+        .where('tenderId', isEqualTo: tender.workIdentifier.workId)
+        .snapshots()
+        .map((list) {
+      return list.docs.map((doc) => BidOnTender.fromJson(doc.data())).toList();
+    });
+  }
+
   Stream<List<BidOnTender>> streamAllBidsForAllTendersByDeveloper({
     required TWUser developer,
   }) {

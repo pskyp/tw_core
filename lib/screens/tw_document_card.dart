@@ -14,18 +14,20 @@ class TWDocumentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: DownloadDocBTN(doc),
-      title: Text(doc.docName),
-      subtitle: doc.deleted ? Text(deleteText) : Text(doc.instructions),
-      trailing: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (loggedInUserUID == doc.uploadedByUID && !doc.deleted) ...[
-            SeenBy(doc),
-            DeleteDocBTN(doc: doc)
-          ]
-        ],
+    return Card(
+      child: ListTile(
+        leading: DownloadDocBTN(doc),
+        title: Text(doc.docName),
+        subtitle: doc.deleted ? Text(deleteText) : Text(doc.instructions),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (loggedInUserUID == doc.uploadedByUID && !doc.deleted) ...[
+              SeenBy(doc),
+              DeleteDocBTN(doc: doc)
+            ]
+          ],
+        ),
       ),
     );
   }
