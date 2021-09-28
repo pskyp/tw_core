@@ -19,8 +19,8 @@ class TAJDeveloper extends TAJFacade {
       tenderBid.copyWithStatusAwarded().toJson(),
     );
     batch.update(
-      TWFC.tendersCollection.doc(tender.id),
-      tender.copyWithStatusAwarded().toJson(),
+      TWFC.tendersCollection.doc(tender.workIdentifier.workId),
+      tender.copyWith(tenderStatus: TenderStatus.Awarded).toJson(),
     );
     return commitBatch(batch);
   }
@@ -46,6 +46,7 @@ class TAJDeveloper extends TAJFacade {
   }
 
   Future<Either<TWServerError, Unit>> saveSupplement({
+    required String supplementId,
     required TWString supplementTitle,
     required TWString requirements,
     required TWNumber numberOfSubbies,
@@ -55,10 +56,16 @@ class TAJDeveloper extends TAJFacade {
     required Developer developer,
   }) async {
     Supplement supplement = Supplement(
+      workIdentifier: WorkIdentifier.supplement(
+        workId: supplementId,
+        title: supplementTitle.getOrCrash(),
+        employer: CacheService().developer.twUser,
+      ),
+      developerId: CacheService().developer.twUser.uid,
       developmentId: development.id,
       status: SupplementStatus.Active,
       developer: developer,
-      development: development.devTitle,
+      developmentTitle: development.devTitle,
       description: development.description,
       hourlyRate: 100,
       hrsPerDay: 0,
@@ -73,7 +80,6 @@ class TAJDeveloper extends TAJFacade {
       trade: selectedTrade,
       acceptingBids: true,
       totalUnseenBids: 0,
-      refreshCounter: 0,
       location: development.location,
     );
     WriteBatch batch = FirebaseFirestore.instance.batch();
@@ -98,22 +104,23 @@ class TAJDeveloper extends TAJFacade {
   }) async {
     try {
       Tender tender = Tender(
-        developerTWUser: developer.twUser,
-        tenderStatus: TenderStatus.New,
-        tenderTimeLineStatus: TenderTimeLineStatus.New,
-        id: tenderId,
         developmentId: development.id,
+        createdOn: tenderTimeline.createdAt.getOrCrash(),
+        workIdentifier: WorkIdentifier.tender(
+          workId: tenderId,
+          title: tenderTitle,
+          employer: developer.twUser,
+        ),
+        tenderStatus: TenderStatus.UnAwarded,
+        tenderTimeLineStatus: TenderTimeLineStatus.New,
         feedbackByContractor: false,
         feedbackByDeveloper: false,
-        rating: 0,
         developerId: developer.twUser.uid,
-        tenderTitle: tenderTitle,
         trade: trade,
         inviteEmailOne: emailOne?.getOrCrash(),
         inviteEmailTwo: emailTwo?.getOrCrash(),
         requirements: requirements,
         location: development.location,
-        createdAt: tenderTimeline.createdAt.getOrCrash(),
         applicationDeadLine: tenderTimeline.applicationDeadline.getOrCrash(),
         startDate: tenderTimeline.startDeadline.getOrCrash(),
         queriesDate: tenderTimeline.queriesDeadline.getOrCrash(),
@@ -130,10 +137,10 @@ class TAJDeveloper extends TAJFacade {
           email: emailOne,
           subject: emailSubject,
           developer: tender.developmentId,
-          reference: tender.id,
+          reference: tender.workIdentifier.workId,
           location: tender.location.townOrCity,
           trade: tender.trade.toString(),
-          summary: tender.tenderTitle,
+          summary: tender.workIdentifier.title,
           start: tender.startDate.toString(),
           finish: tender.endDate.toString(),
         );
@@ -145,10 +152,10 @@ class TAJDeveloper extends TAJFacade {
           email: emailTwo,
           subject: emailSubject,
           developer: tender.developmentId,
-          reference: tender.id,
+          reference: tender.workIdentifier.workId,
           location: tender.location.townOrCity,
           trade: tender.trade.toString(),
-          summary: tender.tenderTitle,
+          summary: tender.workIdentifier.title,
           start: tender.startDate.toString(),
           finish: tender.endDate.toString(),
         );
@@ -198,8 +205,6 @@ class TAJDeveloper extends TAJFacade {
         .map((list) {
       allTenders = optionOf(
           list.docs.map((doc) => Tender.fromJson(doc.data())).toList());
-      print(
-          'all tenders by developer length: ${allTenders.fold(() => 'null', (a) => a.length)}');
       return allTenders.getOrElse(() => []);
     });
   }
@@ -217,7 +222,7 @@ class TAJDeveloper extends TAJFacade {
     required TWUser developer,
   }) {
     return TWFC.supplementCollection
-        .where('developer.twUser.uid', isEqualTo: developer.uid)
+        .where('developerId', isEqualTo: developer.uid)
         .snapshots()
         .map((list) {
       allSupplements = optionOf(
@@ -264,8 +269,10 @@ class TAJDeveloper extends TAJFacade {
         bidOnTender.copyWithStatusInvited().toJson(),
       );
     });
-    batch.update(TWFC.tendersCollection.doc(tender.id),
-        tender.copyWithStatusInvited().toJson());
+    // batch.update(
+    //   TWFC.tendersCollection.doc(tender.workIdentifier.workId),
+    //   tender.copyWith(tenderStatus: TenderStatus.Invited).toJson(),
+    // );
     return commitBatch(batch);
   }
 
@@ -279,8 +286,6 @@ class TAJDeveloper extends TAJFacade {
         .map((list) {
       allTenderBids = optionOf(
           list.docs.map((doc) => BidOnTender.fromJson(doc.data())).toList());
-      print(
-          'all tenderBids for all tenders by developer length: ${allTenderBids.fold(() => 'null', (a) => a.length)}');
       return allTenderBids.getOrElse(() => []);
     });
   }
@@ -289,7 +294,11 @@ class TAJDeveloper extends TAJFacade {
     required List<Tender> tenders,
   }) {
     return TWFC.tenderBidsCollection
-        .where('tenderId', whereIn: tenders.map((e) => e.id).toList())
+        .where(
+          'tenderId',
+          whereIn:
+              tenders.map((tender) => tender.workIdentifier.workId).toList(),
+        )
         .where('status', isEqualTo: 'Awarded')
         .snapshots()
         .map((list) {
@@ -303,7 +312,10 @@ class TAJDeveloper extends TAJFacade {
 
   Future updateTender(Tender tender) async {
     WriteBatch batch = FirebaseFirestore.instance.batch();
-    batch.update(TWFC.tendersCollection.doc(tender.id), tender.toJson());
+    batch.update(
+      TWFC.tendersCollection.doc(tender.workIdentifier.workId),
+      tender.toJson(),
+    );
     return (await commitBatch(batch));
   }
 }

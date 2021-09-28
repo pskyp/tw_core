@@ -23,7 +23,7 @@ class ChatFacade {
     required Job job,
     required String text,
   }) async {
-    assert(job.contractorTWUser.uid == sender.uid ||
+    assert(job.workIdentifier.employer.uid == sender.uid ||
         bid.subbieTWUser.uid == sender.uid);
 
     ChatRoom chatRoom = ChatRoom.typeJob(
@@ -46,7 +46,7 @@ class ChatFacade {
     required String text,
   }) async {
     assert(tenderBid.bidder.uid == sender.uid ||
-        tender.developerTWUser.uid == sender.uid);
+        tender.workIdentifier.employer.uid == sender.uid);
 
     ChatRoom chatRoom = ChatRoom.typeTender(
       tender: tender,

@@ -32,7 +32,7 @@ class TAJContractor extends TAJFacade {
       selectedTrade: selectedTrade,
     );
     WriteBatch batch = FirebaseFirestore.instance.batch();
-    batch.set(TWFC.jobCollection.doc(job.jobId), job.toJson());
+    batch.set(TWFC.jobCollection.doc(job.workIdentifier.workId), job.toJson());
     return (await commitBatch(batch));
   }
 
@@ -86,8 +86,10 @@ class TAJContractor extends TAJFacade {
       TWFC.contractorsCollection
           .doc(contractor.basicProfile.uid)
           .collection('applied_tender_ids')
-          .doc(tender.id),
-      {'tenderId': tender.id},
+          .doc(tender.workIdentifier.workId),
+      {
+        'tenderId': tender.workIdentifier.workId,
+      },
     );
     return commitBatch(batch);
   }
@@ -104,7 +106,7 @@ class TAJContractor extends TAJFacade {
     required TWUser user,
   }) {
     WriteBatch batch = FirebaseFirestore.instance.batch();
-    batch.set(TWFC.jobCollection.doc(job.jobId), job.toJson());
+    batch.set(TWFC.jobCollection.doc(job.workIdentifier.workId), job.toJson());
     return commitBatch(batch);
   }
 
@@ -169,10 +171,10 @@ class TAJContractor extends TAJFacade {
         TWFC.subbieCollection
             .doc(subbie.uid)
             .collection('invites')
-            .doc("inviteToBidForJobId: ${job.jobId}"),
+            .doc("inviteToBidForJobId: ${job.workIdentifier.workId}"),
         {
-          'jobId': job.jobId,
-          'jobTitle': job.title,
+          'jobId': job.workIdentifier.workId,
+          'jobTitle': job.workIdentifier.title,
         },
       );
     }
@@ -201,7 +203,7 @@ class TAJContractor extends TAJFacade {
 
   Stream<List<Bid>> bidsOnJob({required Job job}) {
     return TWFC.bidsCollection
-        .where('jobId', isEqualTo: job.jobId)
+        .where('jobId', isEqualTo: job.workIdentifier.workId)
         .snapshots()
         .map((list) =>
             list.docs.map((doc) => Bid.fromJson(doc.data())).toList());
@@ -304,5 +306,9 @@ class TAJContractor extends TAJFacade {
         return allJobs.getOrElse(() => []);
       });
 
-  updateJob(Job job) => TWFC.jobCollection.doc(job.jobId).set(job.toJson());
+  updateJob(Job job) {
+    TWFC.jobCollection.doc(job.workIdentifier.workId).set(
+          job.toJson(),
+        );
+  }
 }

@@ -6,10 +6,15 @@ part of 'supplement_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Supplement _$SupplementFromJson(Map<String, dynamic> json) => Supplement(
+_$_Supplement _$$_SupplementFromJson(Map<String, dynamic> json) =>
+    _$_Supplement(
+      workIdentifier: WorkIdentifier.fromJson(
+          json['workIdentifier'] as Map<String, dynamic>),
+      developmentId: json['developmentId'] as String,
+      developerId: json['developerId'] as String,
       status: _$enumDecode(_$SupplementStatusEnumMap, json['status']),
       developer: Developer.fromJson(json['developer'] as Map<String, dynamic>),
-      development: json['development'] as String,
+      developmentTitle: json['developmentTitle'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
       hourlyRate: (json['hourlyRate'] as num).toDouble(),
@@ -24,18 +29,18 @@ Supplement _$SupplementFromJson(Map<String, dynamic> json) => Supplement(
       trade: Trade.fromJson(json['trade'] as Map<String, dynamic>),
       acceptingBids: json['acceptingBids'] as bool,
       totalUnseenBids: json['totalUnseenBids'] as int,
-      refreshCounter: json['refreshCounter'] as int,
       location:
           LocationModel.fromJson(json['location'] as Map<String, dynamic>),
-      developmentId: json['developmentId'] as String,
     );
 
-Map<String, dynamic> _$SupplementToJson(Supplement instance) =>
+Map<String, dynamic> _$$_SupplementToJson(_$_Supplement instance) =>
     <String, dynamic>{
+      'workIdentifier': instance.workIdentifier.toJson(),
+      'developmentId': instance.developmentId,
+      'developerId': instance.developerId,
       'status': _$SupplementStatusEnumMap[instance.status],
       'developer': instance.developer.toJson(),
-      'development': instance.development,
-      'developmentId': instance.developmentId,
+      'developmentTitle': instance.developmentTitle,
       'title': instance.title,
       'description': instance.description,
       'hourlyRate': instance.hourlyRate,
@@ -50,7 +55,6 @@ Map<String, dynamic> _$SupplementToJson(Supplement instance) =>
       'trade': instance.trade.toJson(),
       'acceptingBids': instance.acceptingBids,
       'totalUnseenBids': instance.totalUnseenBids,
-      'refreshCounter': instance.refreshCounter,
       'location': instance.location.toJson(),
     };
 

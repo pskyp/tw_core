@@ -46,11 +46,11 @@ class Bid {
 
   factory Bid.neu({required Job job, required TWUser loggedInUser}) {
     return Bid(
-      jobId: job.jobId,
-      bidId: loggedInUser.uid + job.jobId,
-      contractorId: job.contractorTWUser.uid,
-      title: job.title,
-      developmentTitle: job.development,
+      jobId: job.workIdentifier.workId,
+      bidId: loggedInUser.uid + job.workIdentifier.workId,
+      contractorId: job.workIdentifier.employer.uid,
+      title: job.workIdentifier.title,
+      developmentTitle: job.developmentTitle,
       subbieTWUser: loggedInUser,
       address: job.location.completeAddress,
       seenByContractor: false,

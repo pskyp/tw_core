@@ -118,6 +118,8 @@ abstract class $OpenTenderChatRoomCopyWith<$Res>
       _$OpenTenderChatRoomCopyWithImpl<$Res>;
   @override
   $Res call({Tender tender, BidOnTender tenderBid, ChatRoom? chatRoom});
+
+  $TenderCopyWith<$Res> get tender;
 }
 
 /// @nodoc
@@ -151,6 +153,13 @@ class _$OpenTenderChatRoomCopyWithImpl<$Res>
           : chatRoom // ignore: cast_nullable_to_non_nullable
               as ChatRoom?,
     ));
+  }
+
+  @override
+  $TenderCopyWith<$Res> get tender {
+    return $TenderCopyWith<$Res>(_value.tender, (value) {
+      return _then(_value.copyWith(tender: value));
+    });
   }
 }
 
@@ -271,6 +280,8 @@ abstract class $OpenJobChatRoomCopyWith<$Res>
       _$OpenJobChatRoomCopyWithImpl<$Res>;
   @override
   $Res call({Job job, Bid bid, ChatRoom? chatRoom});
+
+  $JobCopyWith<$Res> get job;
 }
 
 /// @nodoc
@@ -304,6 +315,13 @@ class _$OpenJobChatRoomCopyWithImpl<$Res>
           : chatRoom // ignore: cast_nullable_to_non_nullable
               as ChatRoom?,
     ));
+  }
+
+  @override
+  $JobCopyWith<$Res> get job {
+    return $JobCopyWith<$Res>(_value.job, (value) {
+      return _then(_value.copyWith(job: value));
+    });
   }
 }
 

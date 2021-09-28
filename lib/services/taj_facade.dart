@@ -32,6 +32,7 @@ import 'package:tw_core/models/tender_invitation_mail/tender_invitation_email.da
 import 'package:tw_core/models/trades.dart';
 import 'package:tw_core/models/tw_notification/tw_notification.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
+import 'package:tw_core/models/work/work.dart';
 import 'package:tw_core/services/cache_service.dart';
 
 part 'taj_contractor.dart';
@@ -93,7 +94,7 @@ class TAJFacade {
 
   Stream<Bid> streamBid({required Subbie subbie, required Job job}) {
     return TWFC.bidsCollection
-        .where('jobId', isEqualTo: job.jobId)
+        .where('jobId', isEqualTo: job.workIdentifier.workId)
         .where('bidderId', isEqualTo: subbie.basicProfile.uid)
         .snapshots()
         .map((event) => Bid.fromJson(event.docs.first.data()));

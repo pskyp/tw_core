@@ -12,6 +12,10 @@ class TWTheme {
         fontSize: 22,
         fontWeight: FontWeight.bold,
       ),
+      headline3: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+      ),
     ),
     inputDecorationTheme: InputDecorationTheme(
       labelStyle: TextStyle(color: Color(0xff084348)),

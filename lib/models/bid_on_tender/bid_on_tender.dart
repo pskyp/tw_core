@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/contractor/contractor_model.dart';
-import 'package:tw_core/models/person/person.dart';
 import 'package:tw_core/models/tender/tender_model.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 
@@ -50,8 +49,8 @@ class BidOnTender extends Equatable {
     return BidOnTender(
       bidderId: contractor.basicProfile.uid,
       developerId: tender.developerId,
-      bidId: tender.id + DateTime.now().toString(),
-      tenderId: tender.id,
+      bidId: tender.workIdentifier.workId + DateTime.now().toString(),
+      tenderId: tender.workIdentifier.workId,
       status: TenderBidStatus.New,
       bidder: contractor.basicProfile,
       rating: contractor.rating,

@@ -25,9 +25,8 @@ class AllTenderChatsState with _$AllTenderChatsState {
       );
 
   Tender? tender(ChatRoom chatRoom) {
-    return tenders
-        .getOrElse(() => [])
-        .singleWhereOrNull((tender) => chatRoom.jobId == tender.id);
+    return tenders.getOrElse(() => []).singleWhereOrNull(
+        (tender) => chatRoom.jobId == tender.workIdentifier.workId);
   }
 
   BidOnTender? tenderBid(ChatRoom chatRoom) {

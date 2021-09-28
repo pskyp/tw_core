@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
+import 'package:tw_core/models/work/work.dart';
 
 part 'supplement_bid.freezed.dart';
 
@@ -27,47 +28,21 @@ abstract class WorkBid {
   String get bidId;
 }
 
-@freezed
-class TSupplement with _$TSupplement implements Work {
-  const factory TSupplement({
-    required DateTime createdOn,
-    required WorkIdentifier identifier,
-  }) = _TSupplement;
-}
-
-@freezed
-class TTender with _$TTender implements Work {
-  const factory TTender({
-    required DateTime createdOn,
-    required WorkIdentifier identifier,
-  }) = _TTender;
-}
-
-abstract class Work {
-  WorkIdentifier get identifier;
-  DateTime get createdOn;
-}
-
-enum WorkType { Tender, Supplement, Job }
-
-class WorkIdentifier {
-  final String id;
-  final String title;
-  final TWUser employer;
-  final WorkType type;
-
-  WorkIdentifier.tender({
-    required this.id,
-    required this.title,
-    required this.employer,
-  }) : type = WorkType.Tender;
-
-  WorkIdentifier.supplement({
-    required this.id,
-    required this.title,
-    required this.employer,
-  }) : type = WorkType.Supplement;
-}
+// @freezed
+// class TSupplement with _$TSupplement implements Work {
+//   const factory TSupplement({
+//     required DateTime createdOn,
+//     required WorkIdentifier identifier,
+//   }) = _TSupplement;
+// }
+//
+// @freezed
+// class TTender with _$TTender implements Work {
+//   const factory TTender({
+//     required DateTime createdOn,
+//     required WorkIdentifier identifier,
+//   }) = _TTender;
+// }
 
 // @freezed
 // class WorkBid with _$WorkBid {

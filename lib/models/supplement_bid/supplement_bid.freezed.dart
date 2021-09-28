@@ -48,6 +48,8 @@ abstract class $SupplementBidCopyWith<$Res> {
           SupplementBid value, $Res Function(SupplementBid) then) =
       _$SupplementBidCopyWithImpl<$Res>;
   $Res call({TWUser bidder, String bidId, WorkIdentifier workIdentifier});
+
+  $WorkIdentifierCopyWith<$Res> get workIdentifier;
 }
 
 /// @nodoc
@@ -80,6 +82,13 @@ class _$SupplementBidCopyWithImpl<$Res>
               as WorkIdentifier,
     ));
   }
+
+  @override
+  $WorkIdentifierCopyWith<$Res> get workIdentifier {
+    return $WorkIdentifierCopyWith<$Res>(_value.workIdentifier, (value) {
+      return _then(_value.copyWith(workIdentifier: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -90,6 +99,9 @@ abstract class _$SupplementBidCopyWith<$Res>
       __$SupplementBidCopyWithImpl<$Res>;
   @override
   $Res call({TWUser bidder, String bidId, WorkIdentifier workIdentifier});
+
+  @override
+  $WorkIdentifierCopyWith<$Res> get workIdentifier;
 }
 
 /// @nodoc
@@ -225,6 +237,8 @@ abstract class $TenderBidCopyWith<$Res> {
   factory $TenderBidCopyWith(TenderBid value, $Res Function(TenderBid) then) =
       _$TenderBidCopyWithImpl<$Res>;
   $Res call({TWUser bidder, String bidId, WorkIdentifier workIdentifier});
+
+  $WorkIdentifierCopyWith<$Res> get workIdentifier;
 }
 
 /// @nodoc
@@ -256,6 +270,13 @@ class _$TenderBidCopyWithImpl<$Res> implements $TenderBidCopyWith<$Res> {
               as WorkIdentifier,
     ));
   }
+
+  @override
+  $WorkIdentifierCopyWith<$Res> get workIdentifier {
+    return $WorkIdentifierCopyWith<$Res>(_value.workIdentifier, (value) {
+      return _then(_value.copyWith(workIdentifier: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -265,6 +286,9 @@ abstract class _$TenderBidCopyWith<$Res> implements $TenderBidCopyWith<$Res> {
       __$TenderBidCopyWithImpl<$Res>;
   @override
   $Res call({TWUser bidder, String bidId, WorkIdentifier workIdentifier});
+
+  @override
+  $WorkIdentifierCopyWith<$Res> get workIdentifier;
 }
 
 /// @nodoc
@@ -360,304 +384,5 @@ abstract class _TenderBid implements TenderBid {
   @override
   @JsonKey(ignore: true)
   _$TenderBidCopyWith<_TenderBid> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-class _$TSupplementTearOff {
-  const _$TSupplementTearOff();
-
-  _TSupplement call(
-      {required DateTime createdOn, required WorkIdentifier identifier}) {
-    return _TSupplement(
-      createdOn: createdOn,
-      identifier: identifier,
-    );
-  }
-}
-
-/// @nodoc
-const $TSupplement = _$TSupplementTearOff();
-
-/// @nodoc
-mixin _$TSupplement {
-  DateTime get createdOn => throw _privateConstructorUsedError;
-  WorkIdentifier get identifier => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $TSupplementCopyWith<TSupplement> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TSupplementCopyWith<$Res> {
-  factory $TSupplementCopyWith(
-          TSupplement value, $Res Function(TSupplement) then) =
-      _$TSupplementCopyWithImpl<$Res>;
-  $Res call({DateTime createdOn, WorkIdentifier identifier});
-}
-
-/// @nodoc
-class _$TSupplementCopyWithImpl<$Res> implements $TSupplementCopyWith<$Res> {
-  _$TSupplementCopyWithImpl(this._value, this._then);
-
-  final TSupplement _value;
-  // ignore: unused_field
-  final $Res Function(TSupplement) _then;
-
-  @override
-  $Res call({
-    Object? createdOn = freezed,
-    Object? identifier = freezed,
-  }) {
-    return _then(_value.copyWith(
-      createdOn: createdOn == freezed
-          ? _value.createdOn
-          : createdOn // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      identifier: identifier == freezed
-          ? _value.identifier
-          : identifier // ignore: cast_nullable_to_non_nullable
-              as WorkIdentifier,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$TSupplementCopyWith<$Res>
-    implements $TSupplementCopyWith<$Res> {
-  factory _$TSupplementCopyWith(
-          _TSupplement value, $Res Function(_TSupplement) then) =
-      __$TSupplementCopyWithImpl<$Res>;
-  @override
-  $Res call({DateTime createdOn, WorkIdentifier identifier});
-}
-
-/// @nodoc
-class __$TSupplementCopyWithImpl<$Res> extends _$TSupplementCopyWithImpl<$Res>
-    implements _$TSupplementCopyWith<$Res> {
-  __$TSupplementCopyWithImpl(
-      _TSupplement _value, $Res Function(_TSupplement) _then)
-      : super(_value, (v) => _then(v as _TSupplement));
-
-  @override
-  _TSupplement get _value => super._value as _TSupplement;
-
-  @override
-  $Res call({
-    Object? createdOn = freezed,
-    Object? identifier = freezed,
-  }) {
-    return _then(_TSupplement(
-      createdOn: createdOn == freezed
-          ? _value.createdOn
-          : createdOn // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      identifier: identifier == freezed
-          ? _value.identifier
-          : identifier // ignore: cast_nullable_to_non_nullable
-              as WorkIdentifier,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_TSupplement implements _TSupplement {
-  const _$_TSupplement({required this.createdOn, required this.identifier});
-
-  @override
-  final DateTime createdOn;
-  @override
-  final WorkIdentifier identifier;
-
-  @override
-  String toString() {
-    return 'TSupplement(createdOn: $createdOn, identifier: $identifier)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _TSupplement &&
-            (identical(other.createdOn, createdOn) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdOn, createdOn)) &&
-            (identical(other.identifier, identifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.identifier, identifier)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(createdOn) ^
-      const DeepCollectionEquality().hash(identifier);
-
-  @JsonKey(ignore: true)
-  @override
-  _$TSupplementCopyWith<_TSupplement> get copyWith =>
-      __$TSupplementCopyWithImpl<_TSupplement>(this, _$identity);
-}
-
-abstract class _TSupplement implements TSupplement {
-  const factory _TSupplement(
-      {required DateTime createdOn,
-      required WorkIdentifier identifier}) = _$_TSupplement;
-
-  @override
-  DateTime get createdOn => throw _privateConstructorUsedError;
-  @override
-  WorkIdentifier get identifier => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(ignore: true)
-  _$TSupplementCopyWith<_TSupplement> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-class _$TTenderTearOff {
-  const _$TTenderTearOff();
-
-  _TTender call(
-      {required DateTime createdOn, required WorkIdentifier identifier}) {
-    return _TTender(
-      createdOn: createdOn,
-      identifier: identifier,
-    );
-  }
-}
-
-/// @nodoc
-const $TTender = _$TTenderTearOff();
-
-/// @nodoc
-mixin _$TTender {
-  DateTime get createdOn => throw _privateConstructorUsedError;
-  WorkIdentifier get identifier => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $TTenderCopyWith<TTender> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TTenderCopyWith<$Res> {
-  factory $TTenderCopyWith(TTender value, $Res Function(TTender) then) =
-      _$TTenderCopyWithImpl<$Res>;
-  $Res call({DateTime createdOn, WorkIdentifier identifier});
-}
-
-/// @nodoc
-class _$TTenderCopyWithImpl<$Res> implements $TTenderCopyWith<$Res> {
-  _$TTenderCopyWithImpl(this._value, this._then);
-
-  final TTender _value;
-  // ignore: unused_field
-  final $Res Function(TTender) _then;
-
-  @override
-  $Res call({
-    Object? createdOn = freezed,
-    Object? identifier = freezed,
-  }) {
-    return _then(_value.copyWith(
-      createdOn: createdOn == freezed
-          ? _value.createdOn
-          : createdOn // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      identifier: identifier == freezed
-          ? _value.identifier
-          : identifier // ignore: cast_nullable_to_non_nullable
-              as WorkIdentifier,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$TTenderCopyWith<$Res> implements $TTenderCopyWith<$Res> {
-  factory _$TTenderCopyWith(_TTender value, $Res Function(_TTender) then) =
-      __$TTenderCopyWithImpl<$Res>;
-  @override
-  $Res call({DateTime createdOn, WorkIdentifier identifier});
-}
-
-/// @nodoc
-class __$TTenderCopyWithImpl<$Res> extends _$TTenderCopyWithImpl<$Res>
-    implements _$TTenderCopyWith<$Res> {
-  __$TTenderCopyWithImpl(_TTender _value, $Res Function(_TTender) _then)
-      : super(_value, (v) => _then(v as _TTender));
-
-  @override
-  _TTender get _value => super._value as _TTender;
-
-  @override
-  $Res call({
-    Object? createdOn = freezed,
-    Object? identifier = freezed,
-  }) {
-    return _then(_TTender(
-      createdOn: createdOn == freezed
-          ? _value.createdOn
-          : createdOn // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      identifier: identifier == freezed
-          ? _value.identifier
-          : identifier // ignore: cast_nullable_to_non_nullable
-              as WorkIdentifier,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_TTender implements _TTender {
-  const _$_TTender({required this.createdOn, required this.identifier});
-
-  @override
-  final DateTime createdOn;
-  @override
-  final WorkIdentifier identifier;
-
-  @override
-  String toString() {
-    return 'TTender(createdOn: $createdOn, identifier: $identifier)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _TTender &&
-            (identical(other.createdOn, createdOn) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdOn, createdOn)) &&
-            (identical(other.identifier, identifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.identifier, identifier)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(createdOn) ^
-      const DeepCollectionEquality().hash(identifier);
-
-  @JsonKey(ignore: true)
-  @override
-  _$TTenderCopyWith<_TTender> get copyWith =>
-      __$TTenderCopyWithImpl<_TTender>(this, _$identity);
-}
-
-abstract class _TTender implements TTender {
-  const factory _TTender(
-      {required DateTime createdOn,
-      required WorkIdentifier identifier}) = _$_TTender;
-
-  @override
-  DateTime get createdOn => throw _privateConstructorUsedError;
-  @override
-  WorkIdentifier get identifier => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(ignore: true)
-  _$TTenderCopyWith<_TTender> get copyWith =>
       throw _privateConstructorUsedError;
 }

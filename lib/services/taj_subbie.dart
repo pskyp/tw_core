@@ -66,17 +66,17 @@ class TAJSubbie extends TAJFacade {
 
       var batch = FirebaseFirestore.instance.batch();
       batch.set(TWFC.bidsCollection.doc(bid.bidId), bid.toJson());
-      batch.update(TWFC.jobCollection.doc(job.jobId), {
+      batch.update(TWFC.jobCollection.doc(job.workIdentifier.workId), {
         'totalUnseenBids': FieldValue.increment(1),
       });
-      batch.update(TWFC.jobCollection.doc(job.jobId), {
+      batch.update(TWFC.jobCollection.doc(job.workIdentifier.workId), {
         'applications': FieldValue.increment(1),
       });
 
       batch.delete(TWFC.subbieCollection
           .doc(subbie.basicProfile.uid)
           .collection('invites')
-          .doc("inviteToBidForJobId: ${job.jobId}"));
+          .doc("inviteToBidForJobId: ${job.workIdentifier.workId}"));
 
       await batch.commit();
       return right(unit);

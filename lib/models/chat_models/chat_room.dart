@@ -74,13 +74,13 @@ class ChatRoom extends Equatable {
       chatRoomId: getTenderChatRoomId(tender: tender, tenderBid: tenderBid),
       bidId: tenderBid.bidId,
       participantUIDs: [
-        tender.developerTWUser.uid,
+        tender.workIdentifier.employer.uid,
         tenderBid.bidder.uid,
       ],
-      p1: tender.developerTWUser,
+      p1: tender.workIdentifier.employer,
       p2: tenderBid.bidder,
-      jobId: tender.id,
-      jobTitle: tender.tenderTitle,
+      jobId: tender.workIdentifier.workId,
+      jobTitle: tender.workIdentifier.title,
       developmentTitle: 'static development title in chatroom model',
       lastChatItem: lastChatItem,
       seenByAll: false,
@@ -98,13 +98,13 @@ class ChatRoom extends Equatable {
       chatRoomId: getJobChatRoomId(job: job, bid: bid),
       bidId: bid.bidId,
       participantUIDs: [
-        job.contractorTWUser.uid,
+        job.workIdentifier.employer.uid,
         bid.subbieTWUser.uid,
       ],
-      p1: job.contractorTWUser,
+      p1: job.workIdentifier.employer,
       p2: bid.subbieTWUser,
-      jobId: job.jobId,
-      jobTitle: job.title,
+      jobId: job.workIdentifier.workId,
+      jobTitle: job.workIdentifier.title,
       developmentTitle: 'static development title in chatroom model',
       lastChatItem: lastChatItem,
       seenByAll: false,
@@ -116,14 +116,14 @@ class ChatRoom extends Equatable {
     required Job job,
     required Bid bid,
   }) {
-    return job.jobId + bid.bidId;
+    return job.workIdentifier.workId + bid.bidId;
   }
 
   static String getTenderChatRoomId({
     required Tender tender,
     required BidOnTender tenderBid,
   }) {
-    return tender.id + tenderBid.bidId;
+    return tender.workIdentifier.workId + tenderBid.bidId;
   }
 
   static String getChatRoomId(
@@ -213,7 +213,6 @@ class ChatRoom extends Equatable {
 
 class WorkChat {
   final ChatRoom chatRoom;
-
   WorkChat(this.chatRoom);
 }
 

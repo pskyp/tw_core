@@ -19,10 +19,10 @@ class AllchatsState with _$AllchatsState {
   }) =>
       _AllchatsState(
         allChatRooms: chatFacade.chatRooms,
-        allJobs: optionOf(null),// tajFacade.allJobs,
-        allBids: optionOf(null),//tajFacade.allBids,
-        allTenders: optionOf(null),//tajFacade.allTenders,
-        allTenderBids:optionOf(null),// tajFacade.allTenderBids,
+        allJobs: optionOf(null), // tajFacade.allJobs,
+        allBids: optionOf(null), //tajFacade.allBids,
+        allTenders: optionOf(null), //tajFacade.allTenders,
+        allTenderBids: optionOf(null), // tajFacade.allTenderBids,
         type: type,
       );
 
@@ -31,7 +31,8 @@ class AllchatsState with _$AllchatsState {
 
   Job? job(ChatRoom chatRoom) {
     int index = -1;
-    index = allJobsList.indexWhere((job) => job.jobId == chatRoom.jobId);
+    index = allJobsList
+        .indexWhere((job) => job.workIdentifier.workId == chatRoom.jobId);
     return index == -1 ? null : allJobsList[index];
   }
 
@@ -56,7 +57,7 @@ class AllchatsState with _$AllchatsState {
   Job? chatRoomJob(ChatRoom chatRoom) {
     if (chatRoom.isTenderChat) return null;
     return allJobs.getOrElse(() => []).singleWhereOrNull(
-          (job) => job.jobId == chatRoom.jobId,
+          (job) => job.workIdentifier.workId == chatRoom.jobId,
         );
   }
 
@@ -70,7 +71,7 @@ class AllchatsState with _$AllchatsState {
   Tender? chatRoomTender(ChatRoom chatRoom) {
     if (!chatRoom.isTenderChat) return null;
     return allTenders.getOrElse(() => []).singleWhereOrNull(
-          (tender) => tender.id == chatRoom.jobId,
+          (tender) => tender.workIdentifier.workId == chatRoom.jobId,
         );
   }
 

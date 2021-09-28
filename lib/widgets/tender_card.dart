@@ -16,7 +16,7 @@ class TenderCard extends StatelessWidget {
           backgroundImage: AssetImage(tender.trade.imagePath),
           backgroundColor: Colors.transparent,
         ),
-        title: Text(tender.tenderTitle),
+        title: Text(tender.workIdentifier.title),
         trailing: Text('Tender'),
       ),
     );

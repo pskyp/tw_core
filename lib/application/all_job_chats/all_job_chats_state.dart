@@ -30,8 +30,7 @@ class AllJobChatsState with _$AllJobChatsState {
   }
 
   Job? job(ChatRoom chatRoom) {
-    return jobs
-        .getOrElse(() => [])
-        .singleWhereOrNull((job) => job.jobId == chatRoom.jobId);
+    return jobs.getOrElse(() => []).singleWhereOrNull(
+        (job) => job.workIdentifier.workId == chatRoom.jobId);
   }
 }

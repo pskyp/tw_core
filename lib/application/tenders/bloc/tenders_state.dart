@@ -29,7 +29,7 @@ class TendersState with _$TendersState {
 
   BidOnTender? tenderBid(Tender tender) {
     return allTenderBids.getOrElse(() => []).singleWhereOrNull(
-          (bid) => bid.tenderId == tender.id,
+          (bid) => bid.tenderId == tender.workIdentifier.workId,
         );
   }
 
