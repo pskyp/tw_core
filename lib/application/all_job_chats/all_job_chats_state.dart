@@ -23,6 +23,19 @@ class AllJobChatsState with _$AllJobChatsState {
         chatRooms: TAJFacade.allChatRooms,
       );
 
+  Option<JobChat> jobChat(ChatRoom chatRoom) {
+    if (bid(chatRoom) == null || job(chatRoom) == null) {
+      return optionOf(null);
+    }
+    return optionOf(
+      JobChat(
+        chatRoom: chatRoom,
+        bid: bid(chatRoom)!,
+        job: job(chatRoom)!,
+      ),
+    );
+  }
+
   Bid? bid(ChatRoom chatRoom) {
     return bids
         .getOrElse(() => [])
