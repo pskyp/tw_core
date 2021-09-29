@@ -259,16 +259,13 @@ class TAJDeveloper extends TAJFacade {
 
   inviteToTendering({
     required Tender tender,
-    required List<BidOnTender> tenderBids,
+    required BidOnTender tenderBid,
   }) async {
     WriteBatch batch = FirebaseFirestore.instance.batch();
-
-    tenderBids.forEach((bidOnTender) {
-      batch.update(
-        TWFC.tenderBidsCollection.doc(bidOnTender.bidId),
-        bidOnTender.copyWithStatusInvited().toJson(),
-      );
-    });
+    batch.update(
+      TWFC.tenderBidsCollection.doc(tenderBid.bidId),
+      tenderBid.copyWithStatusInvited().toJson(),
+    );
     // batch.update(
     //   TWFC.tendersCollection.doc(tender.workIdentifier.workId),
     //   tender.copyWith(tenderStatus: TenderStatus.Invited).toJson(),
