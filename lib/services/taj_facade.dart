@@ -95,7 +95,7 @@ class TAJFacade {
   Stream<Bid> streamBid({required Subbie subbie, required Job job}) {
     return TWFC.bidsCollection
         .where('jobId', isEqualTo: job.workIdentifier.workId)
-        .where('bidderId', isEqualTo: subbie.basicProfile.uid)
+        .where('subbieTWUser.uid', isEqualTo: subbie.basicProfile.uid)
         .snapshots()
         .map((event) => Bid.fromJson(event.docs.first.data()));
   }
