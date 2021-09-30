@@ -199,19 +199,19 @@ class TAJDeveloper extends TAJFacade {
   }) {
     return TenderInvitationMail(
       to: [email.getOrCrash()],
-      message: Message(subject: "THis is subject", text: "Hello Peter"),
-      // template: Message(
-      //   data: {
-      //     'reference': reference,
-      //     'developer': developer,
-      //     'trade': trade,
-      //     'town': location,
-      //     'start':start,
-      //     'finish':finish,
-      //     'summary':summary
-      //   },
-      //   name: "TenderInvite",
-      // ),
+      // message: Message(subject: "THis is subject", text: "Hello Peter"),
+      template: Message(
+        data: {
+          'reference': reference,
+          'developer': developer,
+          'trade': trade,
+          'town': location,
+          'start':start,
+          'finish':finish,
+          'summary':summary
+        },
+        name: "TenderInvite",
+      ),
     );
   }
 

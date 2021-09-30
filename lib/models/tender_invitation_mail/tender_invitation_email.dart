@@ -7,11 +7,13 @@ import 'dart:convert';
 class TenderInvitationMail {
   TenderInvitationMail({
     required this.to,
-    required this.message,
+    required this.template,
+    
   });
 
   List<String> to;
-  Message message;
+  Message template;
+ 
 
   factory TenderInvitationMail.fromRawJson(String str) =>
       TenderInvitationMail.fromJson(json.decode(str));
@@ -21,35 +23,37 @@ class TenderInvitationMail {
   factory TenderInvitationMail.fromJson(Map<String, dynamic> json) =>
       TenderInvitationMail(
         to: List<String>.from(json["to"].map((x) => x)),
-        message: Message.fromJson(json["message"]),
+        template: Message.fromJson(json["template"]),
       );
 
   Map<String, dynamic> toJson() => {
         "to": List<dynamic>.from(to.map((x) => x)),
-        "message": message.toJson(),
+        "template": template.toJson(),
       };
 }
 
 class Message {
   Message({
-    required this.subject,
-    required this.text,
+    required this.data,
+    required this.name,
+   
   });
 
-  String subject;
-  String text;
+  Map data;
+  String name;
+  
 
   factory Message.fromRawJson(String str) => Message.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
   factory Message.fromJson(Map<String, dynamic> json) => Message(
-        subject: json["subject"],
-        text: json["text"],
+        data: json["data"],
+        name: json["name"],
       );
 
   Map<String, dynamic> toJson() => {
-        "subject": subject,
-        "text": text,
+        "data": data,
+        "name": name,
       };
 }
