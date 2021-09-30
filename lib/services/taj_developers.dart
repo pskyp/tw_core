@@ -120,6 +120,7 @@ class TAJDeveloper extends TAJFacade {
     required Development development,
     required String tenderId,
     required Developer developer,
+
   }) async {
     try {
       Tender tender = Tender(
@@ -155,13 +156,15 @@ class TAJDeveloper extends TAJFacade {
         TenderInvitationMail tenderInvitationOne = tenderInvitation(
           email: emailOne,
           subject: emailSubject,
-          developer: tender.developmentId,
+          developer: developer.twUser.company,
           reference: tender.workIdentifier.workId,
           location: tender.location.townOrCity,
           trade: tender.trade.toString(),
           summary: tender.workIdentifier.title,
-          start: tender.startDate.toString(),
-          finish: tender.endDate.toString(),
+          applicationby: DateFormat('dd-MM-yyyy').format(tender.applicationDeadLine),
+          submissionby: DateFormat('dd-MM-yyyy').format(tender.submissionDate),
+          start: DateFormat('dd-MM-yyyy').format(tender.startDate),
+          finish: DateFormat('dd-MM-yyyy').format(tender.endDate),
         );
         await TWFC.mailsCollection.add(tenderInvitationOne.toJson());
       }
@@ -170,13 +173,15 @@ class TAJDeveloper extends TAJFacade {
         TenderInvitationMail tenderInvitationTwo = tenderInvitation(
           email: emailTwo,
           subject: emailSubject,
-          developer: tender.developmentId,
+          developer: developer.twUser.company,
           reference: tender.workIdentifier.workId,
           location: tender.location.townOrCity,
           trade: tender.trade.toString(),
           summary: tender.workIdentifier.title,
-          start: tender.startDate.toString(),
-          finish: tender.endDate.toString(),
+             applicationby: DateFormat('dd-MM-yyyy').format(tender.applicationDeadLine),
+          submissionby: DateFormat('dd-MM-yyyy').format(tender.submissionDate),
+          start: DateFormat('dd-MM-yyyy').format(tender.startDate),
+          finish: DateFormat('dd-MM-yyyy').format(tender.endDate),
         );
         await TWFC.mailsCollection.add(tenderInvitationTwo.toJson());
       }
@@ -196,6 +201,7 @@ class TAJDeveloper extends TAJFacade {
     required String summary,
     required String start,
     required String finish,
+  required String applicationby, required String submissionby,
   }) {
     return TenderInvitationMail(
       to: [email.getOrCrash()],
@@ -206,9 +212,11 @@ class TAJDeveloper extends TAJFacade {
           'developer': developer,
           'trade': trade,
           'town': location,
-          'start':start,
-          'finish':finish,
-          'summary':summary
+          'applyby': applicationby,
+          'submitby': submissionby,
+          'start': start,
+          'finish': finish,
+          'summary': summary
         },
         name: "TenderInvite",
       ),

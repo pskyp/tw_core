@@ -2,6 +2,7 @@ library taj_tw;
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:intl/intl.dart';
 import 'package:tw_core/firebase_collections/tw_firebase_collections.dart';
 import 'package:tw_core/models/bid/bid.dart';
 import 'package:tw_core/models/bid_on_tender/bid_on_tender.dart';
