@@ -25,6 +25,25 @@ class TAJDeveloper extends TAJFacade {
     return commitBatch(batch);
   }
 
+  Future<Either<TWServerError, Unit>> tenderFeedback({
+    required TWNumber rating,
+    required Tender tender,
+    required BidOnTender tenderBid,
+  }) async {
+    await TWFC.tenderBidsCollection.doc(tenderBid.bidId).set((tenderBid
+        .copyWithRating(rating: rating.getOrCrash().toDouble())
+        .toJson()));
+    await TWFC.tenderBidsCollection
+        .doc(tenderBid.bidId)
+        .set((tenderBid.copyWithStatusComplete().toJson()));
+
+    await TWFC.tendersCollection
+        .doc(tender.workIdentifier.workId)
+        .set(tender.copyWith(tenderStatus: TenderStatus.Completed).toJson());
+
+    return right(unit);
+  }
+
   Future<Either<TWServerError, Unit>> saveDevelopment({
     required DevTitle title,
     required DevDescription description,
