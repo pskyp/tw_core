@@ -32,14 +32,13 @@ class TAJDeveloper extends TAJFacade {
   }) async {
     await TWFC.tenderBidsCollection.doc(tenderBid.bidId).set((tenderBid
         .copyWithRating(rating: rating.getOrCrash().toDouble())
+        .copyWithStatusComplete()
         .toJson()));
-    await TWFC.tenderBidsCollection
-        .doc(tenderBid.bidId)
-        .set((tenderBid.copyWithStatusComplete().toJson()));
 
-    await TWFC.tendersCollection
-        .doc(tender.workIdentifier.workId)
-        .set(tender.copyWith(tenderStatus: TenderStatus.Completed).toJson());
+    await TWFC.tendersCollection.doc(tender.workIdentifier.workId).set(tender
+        .copyWith(
+            tenderStatus: TenderStatus.Completed, feedbackByDeveloper: true)
+        .toJson());
 
     return right(unit);
   }
@@ -120,35 +119,34 @@ class TAJDeveloper extends TAJFacade {
     required Development development,
     required String tenderId,
     required Developer developer,
-
   }) async {
     try {
       Tender tender = Tender(
-        developmentId: development.id,
-        createdOn: tenderTimeline.createdAt.getOrCrash(),
-        workIdentifier: WorkIdentifier.tender(
-          workId: tenderId,
-          title: tenderTitle,
-          employer: developer.twUser,
-        ),
-        tenderStatus: TenderStatus.UnAwarded,
-        tenderTimeLineStatus: TenderTimeLineStatus.New,
-        feedbackByContractor: false,
-        feedbackByDeveloper: false,
-        developerId: developer.twUser.uid,
-        trade: trade,
-        inviteEmailOne: emailOne?.getOrCrash(),
-        inviteEmailTwo: emailTwo?.getOrCrash(),
-        requirements: requirements,
-        location: development.location,
-        applicationDeadLine: tenderTimeline.applicationDeadline.getOrCrash(),
-        startDate: tenderTimeline.startDeadline.getOrCrash(),
-        queriesDate: tenderTimeline.queriesDeadline.getOrCrash(),
-        submissionDate: tenderTimeline.submissionDeadline.getOrCrash(),
-        feedbackDate: tenderTimeline.feedbackDeadline.getOrCrash(),
-        awardDate: tenderTimeline.awardDeadline.getOrCrash(),
-        endDate: tenderTimeline.endDeadline.getOrCrash(),
-      );
+          developmentId: development.id,
+          createdOn: tenderTimeline.createdAt.getOrCrash(),
+          workIdentifier: WorkIdentifier.tender(
+            workId: tenderId,
+            title: tenderTitle,
+            employer: developer.twUser,
+          ),
+          tenderStatus: TenderStatus.UnAwarded,
+          tenderTimeLineStatus: TenderTimeLineStatus.New,
+          feedbackByContractor: false,
+          feedbackByDeveloper: false,
+          developerId: developer.twUser.uid,
+          trade: trade,
+          inviteEmailOne: emailOne?.getOrCrash(),
+          inviteEmailTwo: emailTwo?.getOrCrash(),
+          requirements: requirements,
+          location: development.location,
+          applicationDeadLine: tenderTimeline.applicationDeadline.getOrCrash(),
+          startDate: tenderTimeline.startDeadline.getOrCrash(),
+          queriesDate: tenderTimeline.queriesDeadline.getOrCrash(),
+          submissionDate: tenderTimeline.submissionDeadline.getOrCrash(),
+          feedbackDate: tenderTimeline.feedbackDeadline.getOrCrash(),
+          awardDate: tenderTimeline.awardDeadline.getOrCrash(),
+          endDate: tenderTimeline.endDeadline.getOrCrash(),
+          rating: 0);
       await TWFC.tendersCollection.doc(tenderId).set(tender.toJson());
 
       String emailSubject = "Invitation to bid on tender";
@@ -161,7 +159,8 @@ class TAJDeveloper extends TAJFacade {
           location: tender.location.townOrCity,
           trade: tender.trade.toString(),
           summary: tender.workIdentifier.title,
-          applicationby: DateFormat('dd-MM-yyyy').format(tender.applicationDeadLine),
+          applicationby:
+              DateFormat('dd-MM-yyyy').format(tender.applicationDeadLine),
           submissionby: DateFormat('dd-MM-yyyy').format(tender.submissionDate),
           start: DateFormat('dd-MM-yyyy').format(tender.startDate),
           finish: DateFormat('dd-MM-yyyy').format(tender.endDate),
@@ -178,7 +177,8 @@ class TAJDeveloper extends TAJFacade {
           location: tender.location.townOrCity,
           trade: tender.trade.toString(),
           summary: tender.workIdentifier.title,
-             applicationby: DateFormat('dd-MM-yyyy').format(tender.applicationDeadLine),
+          applicationby:
+              DateFormat('dd-MM-yyyy').format(tender.applicationDeadLine),
           submissionby: DateFormat('dd-MM-yyyy').format(tender.submissionDate),
           start: DateFormat('dd-MM-yyyy').format(tender.startDate),
           finish: DateFormat('dd-MM-yyyy').format(tender.endDate),
@@ -201,7 +201,8 @@ class TAJDeveloper extends TAJFacade {
     required String summary,
     required String start,
     required String finish,
-  required String applicationby, required String submissionby,
+    required String applicationby,
+    required String submissionby,
   }) {
     return TenderInvitationMail(
       to: [email.getOrCrash()],

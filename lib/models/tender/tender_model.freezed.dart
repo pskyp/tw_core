@@ -40,7 +40,8 @@ class _$TenderTearOff {
       required DateTime endDate,
       required TenderTimeLineStatus tenderTimeLineStatus,
       required bool feedbackByDeveloper,
-      required bool feedbackByContractor}) {
+      required bool feedbackByContractor,
+      required double rating}) {
     return _Tender(
       workIdentifier: workIdentifier,
       createdOn: createdOn,
@@ -62,6 +63,7 @@ class _$TenderTearOff {
       tenderTimeLineStatus: tenderTimeLineStatus,
       feedbackByDeveloper: feedbackByDeveloper,
       feedbackByContractor: feedbackByContractor,
+      rating: rating,
     );
   }
 
@@ -96,6 +98,7 @@ mixin _$Tender {
       throw _privateConstructorUsedError;
   bool get feedbackByDeveloper => throw _privateConstructorUsedError;
   bool get feedbackByContractor => throw _privateConstructorUsedError;
+  double get rating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -126,7 +129,8 @@ abstract class $TenderCopyWith<$Res> {
       DateTime endDate,
       TenderTimeLineStatus tenderTimeLineStatus,
       bool feedbackByDeveloper,
-      bool feedbackByContractor});
+      bool feedbackByContractor,
+      double rating});
 
   $WorkIdentifierCopyWith<$Res> get workIdentifier;
 }
@@ -161,6 +165,7 @@ class _$TenderCopyWithImpl<$Res> implements $TenderCopyWith<$Res> {
     Object? tenderTimeLineStatus = freezed,
     Object? feedbackByDeveloper = freezed,
     Object? feedbackByContractor = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_value.copyWith(
       workIdentifier: workIdentifier == freezed
@@ -243,6 +248,10 @@ class _$TenderCopyWithImpl<$Res> implements $TenderCopyWith<$Res> {
           ? _value.feedbackByContractor
           : feedbackByContractor // ignore: cast_nullable_to_non_nullable
               as bool,
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 
@@ -279,7 +288,8 @@ abstract class _$TenderCopyWith<$Res> implements $TenderCopyWith<$Res> {
       DateTime endDate,
       TenderTimeLineStatus tenderTimeLineStatus,
       bool feedbackByDeveloper,
-      bool feedbackByContractor});
+      bool feedbackByContractor,
+      double rating});
 
   @override
   $WorkIdentifierCopyWith<$Res> get workIdentifier;
@@ -316,6 +326,7 @@ class __$TenderCopyWithImpl<$Res> extends _$TenderCopyWithImpl<$Res>
     Object? tenderTimeLineStatus = freezed,
     Object? feedbackByDeveloper = freezed,
     Object? feedbackByContractor = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_Tender(
       workIdentifier: workIdentifier == freezed
@@ -398,6 +409,10 @@ class __$TenderCopyWithImpl<$Res> extends _$TenderCopyWithImpl<$Res>
           ? _value.feedbackByContractor
           : feedbackByContractor // ignore: cast_nullable_to_non_nullable
               as bool,
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -425,7 +440,8 @@ class _$_Tender extends _Tender {
       required this.endDate,
       required this.tenderTimeLineStatus,
       required this.feedbackByDeveloper,
-      required this.feedbackByContractor})
+      required this.feedbackByContractor,
+      required this.rating})
       : super._();
 
   factory _$_Tender.fromJson(Map<String, dynamic> json) =>
@@ -471,10 +487,12 @@ class _$_Tender extends _Tender {
   final bool feedbackByDeveloper;
   @override
   final bool feedbackByContractor;
+  @override
+  final double rating;
 
   @override
   String toString() {
-    return 'Tender(workIdentifier: $workIdentifier, createdOn: $createdOn, developerId: $developerId, developmentId: $developmentId, tenderStatus: $tenderStatus, inviteEmailOne: $inviteEmailOne, inviteEmailTwo: $inviteEmailTwo, trade: $trade, requirements: $requirements, location: $location, startDate: $startDate, applicationDeadLine: $applicationDeadLine, queriesDate: $queriesDate, submissionDate: $submissionDate, feedbackDate: $feedbackDate, awardDate: $awardDate, endDate: $endDate, tenderTimeLineStatus: $tenderTimeLineStatus, feedbackByDeveloper: $feedbackByDeveloper, feedbackByContractor: $feedbackByContractor)';
+    return 'Tender(workIdentifier: $workIdentifier, createdOn: $createdOn, developerId: $developerId, developmentId: $developmentId, tenderStatus: $tenderStatus, inviteEmailOne: $inviteEmailOne, inviteEmailTwo: $inviteEmailTwo, trade: $trade, requirements: $requirements, location: $location, startDate: $startDate, applicationDeadLine: $applicationDeadLine, queriesDate: $queriesDate, submissionDate: $submissionDate, feedbackDate: $feedbackDate, awardDate: $awardDate, endDate: $endDate, tenderTimeLineStatus: $tenderTimeLineStatus, feedbackByDeveloper: $feedbackByDeveloper, feedbackByContractor: $feedbackByContractor, rating: $rating)';
   }
 
   @override
@@ -538,8 +556,10 @@ class _$_Tender extends _Tender {
                 const DeepCollectionEquality()
                     .equals(other.feedbackByDeveloper, feedbackByDeveloper)) &&
             (identical(other.feedbackByContractor, feedbackByContractor) ||
-                const DeepCollectionEquality()
-                    .equals(other.feedbackByContractor, feedbackByContractor)));
+                const DeepCollectionEquality().equals(
+                    other.feedbackByContractor, feedbackByContractor)) &&
+            (identical(other.rating, rating) ||
+                const DeepCollectionEquality().equals(other.rating, rating)));
   }
 
   @override
@@ -564,7 +584,8 @@ class _$_Tender extends _Tender {
       const DeepCollectionEquality().hash(endDate) ^
       const DeepCollectionEquality().hash(tenderTimeLineStatus) ^
       const DeepCollectionEquality().hash(feedbackByDeveloper) ^
-      const DeepCollectionEquality().hash(feedbackByContractor);
+      const DeepCollectionEquality().hash(feedbackByContractor) ^
+      const DeepCollectionEquality().hash(rating);
 
   @JsonKey(ignore: true)
   @override
@@ -598,7 +619,8 @@ abstract class _Tender extends Tender {
       required DateTime endDate,
       required TenderTimeLineStatus tenderTimeLineStatus,
       required bool feedbackByDeveloper,
-      required bool feedbackByContractor}) = _$_Tender;
+      required bool feedbackByContractor,
+      required double rating}) = _$_Tender;
   const _Tender._() : super._();
 
   factory _Tender.fromJson(Map<String, dynamic> json) = _$_Tender.fromJson;
@@ -644,6 +666,8 @@ abstract class _Tender extends Tender {
   bool get feedbackByDeveloper => throw _privateConstructorUsedError;
   @override
   bool get feedbackByContractor => throw _privateConstructorUsedError;
+  @override
+  double get rating => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$TenderCopyWith<_Tender> get copyWith => throw _privateConstructorUsedError;

@@ -94,6 +94,13 @@ class TAJContractor extends TAJFacade {
     return commitBatch(batch);
   }
 
+  Future feedbackByContractor(Tender tender) async {
+    var batch = FirebaseFirestore.instance.batch();
+    batch.set(TWFC.tendersCollection.doc(tender.workIdentifier.workId),
+        tender.copyWith(feedbackByContractor: true).toJson());
+    return (await commitBatch(batch));
+  }
+
   onBidSeenByContractor(final Bid bid) {
     TWFC.bidsCollection.doc(bid.bidId).update({'seenByContractor': true});
     TWFC.jobCollection

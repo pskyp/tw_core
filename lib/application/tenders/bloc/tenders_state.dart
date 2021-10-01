@@ -10,6 +10,8 @@ class TendersState with _$TendersState {
   }) = _TendersState;
 
   Option<List<Either<Tender, Supplement>>> get newWork {
+    print(allTenders.isNone());
+    print(allSupplements.isNone());
     if (allTenders.isNone() || allSupplements.isNone()) return none();
     List<Either<Tender, Supplement>> combinedWorkList = [];
     allTendersList.forEach((tender) {
@@ -17,6 +19,21 @@ class TendersState with _$TendersState {
     });
     allSupplementsList.forEach((supplement) {
       combinedWorkList.add(right(supplement));
+    });
+    return optionOf(combinedWorkList);
+  }
+
+  Option<List<Either<Tender, Supplement>>> get completedWork {
+    if (allTenders.isNone() || allSupplements.isNone()) return none();
+    List<Either<Tender, Supplement>> combinedWorkList = [];
+    allTendersList.forEach((tender) {
+      if ((tenderBid(tender) != null) &&
+          tender.tenderStatus == TenderStatus.Completed)
+        combinedWorkList.add(left(tender));
+    });
+    allSupplementsList.forEach((supplement) {
+      if (supplement.status == SupplementStatus.Completed)
+        combinedWorkList.add(right(supplement));
     });
     return optionOf(combinedWorkList);
   }
@@ -38,6 +55,12 @@ class TendersState with _$TendersState {
 
   List<Tender> newTenders() {
     return allTendersList.where((tender) => tenderBid(tender) == null).toList();
+  }
+
+  List<Tender> completedTenders() {
+    return allTendersList
+        .where((tender) => tender.tenderStatus == TenderStatus.Completed)
+        .toList();
   }
 
   bool hasAppliedTo(Tender tender) {

@@ -33,6 +33,7 @@ class Tender with _$Tender implements Work {
     required TenderTimeLineStatus tenderTimeLineStatus,
     required bool feedbackByDeveloper,
     required bool feedbackByContractor,
+    required double rating,
   }) = _Tender;
 
   factory Tender.fromJson(Map<String, dynamic> json) => _$TenderFromJson(json);
