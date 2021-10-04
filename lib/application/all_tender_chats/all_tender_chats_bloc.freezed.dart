@@ -28,8 +28,7 @@ class _$AllTenderChatsEventTearOff {
     );
   }
 
-  StreamTenderBidsUpdated streamTenderBidsUpdated(
-      List<BidOnTender> tenderBids) {
+  StreamTenderBidsUpdated streamTenderBidsUpdated(List<TenderBid> tenderBids) {
     return StreamTenderBidsUpdated(
       tenderBids,
     );
@@ -45,7 +44,7 @@ mixin _$AllTenderChatsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(List<ChatRoom> chatRooms) streamChatRoomsUpdated,
     required TResult Function(List<Tender> tenders) streamTendersUpdated,
-    required TResult Function(List<BidOnTender> tenderBids)
+    required TResult Function(List<TenderBid> tenderBids)
         streamTenderBidsUpdated,
   }) =>
       throw _privateConstructorUsedError;
@@ -53,7 +52,7 @@ mixin _$AllTenderChatsEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<ChatRoom> chatRooms)? streamChatRoomsUpdated,
     TResult Function(List<Tender> tenders)? streamTendersUpdated,
-    TResult Function(List<BidOnTender> tenderBids)? streamTenderBidsUpdated,
+    TResult Function(List<TenderBid> tenderBids)? streamTenderBidsUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -162,7 +161,7 @@ class _$StreamChatRoomsUpdated implements StreamChatRoomsUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function(List<ChatRoom> chatRooms) streamChatRoomsUpdated,
     required TResult Function(List<Tender> tenders) streamTendersUpdated,
-    required TResult Function(List<BidOnTender> tenderBids)
+    required TResult Function(List<TenderBid> tenderBids)
         streamTenderBidsUpdated,
   }) {
     return streamChatRoomsUpdated(chatRooms);
@@ -173,7 +172,7 @@ class _$StreamChatRoomsUpdated implements StreamChatRoomsUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<ChatRoom> chatRooms)? streamChatRoomsUpdated,
     TResult Function(List<Tender> tenders)? streamTendersUpdated,
-    TResult Function(List<BidOnTender> tenderBids)? streamTenderBidsUpdated,
+    TResult Function(List<TenderBid> tenderBids)? streamTenderBidsUpdated,
     required TResult orElse(),
   }) {
     if (streamChatRoomsUpdated != null) {
@@ -287,7 +286,7 @@ class _$StreamTendersUpdated implements StreamTendersUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function(List<ChatRoom> chatRooms) streamChatRoomsUpdated,
     required TResult Function(List<Tender> tenders) streamTendersUpdated,
-    required TResult Function(List<BidOnTender> tenderBids)
+    required TResult Function(List<TenderBid> tenderBids)
         streamTenderBidsUpdated,
   }) {
     return streamTendersUpdated(tenders);
@@ -298,7 +297,7 @@ class _$StreamTendersUpdated implements StreamTendersUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<ChatRoom> chatRooms)? streamChatRoomsUpdated,
     TResult Function(List<Tender> tenders)? streamTendersUpdated,
-    TResult Function(List<BidOnTender> tenderBids)? streamTenderBidsUpdated,
+    TResult Function(List<TenderBid> tenderBids)? streamTenderBidsUpdated,
     required TResult orElse(),
   }) {
     if (streamTendersUpdated != null) {
@@ -349,7 +348,7 @@ abstract class $StreamTenderBidsUpdatedCopyWith<$Res> {
   factory $StreamTenderBidsUpdatedCopyWith(StreamTenderBidsUpdated value,
           $Res Function(StreamTenderBidsUpdated) then) =
       _$StreamTenderBidsUpdatedCopyWithImpl<$Res>;
-  $Res call({List<BidOnTender> tenderBids});
+  $Res call({List<TenderBid> tenderBids});
 }
 
 /// @nodoc
@@ -371,7 +370,7 @@ class _$StreamTenderBidsUpdatedCopyWithImpl<$Res>
       tenderBids == freezed
           ? _value.tenderBids
           : tenderBids // ignore: cast_nullable_to_non_nullable
-              as List<BidOnTender>,
+              as List<TenderBid>,
     ));
   }
 }
@@ -382,7 +381,7 @@ class _$StreamTenderBidsUpdated implements StreamTenderBidsUpdated {
   const _$StreamTenderBidsUpdated(this.tenderBids);
 
   @override
-  final List<BidOnTender> tenderBids;
+  final List<TenderBid> tenderBids;
 
   @override
   String toString() {
@@ -413,7 +412,7 @@ class _$StreamTenderBidsUpdated implements StreamTenderBidsUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function(List<ChatRoom> chatRooms) streamChatRoomsUpdated,
     required TResult Function(List<Tender> tenders) streamTendersUpdated,
-    required TResult Function(List<BidOnTender> tenderBids)
+    required TResult Function(List<TenderBid> tenderBids)
         streamTenderBidsUpdated,
   }) {
     return streamTenderBidsUpdated(tenderBids);
@@ -424,7 +423,7 @@ class _$StreamTenderBidsUpdated implements StreamTenderBidsUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<ChatRoom> chatRooms)? streamChatRoomsUpdated,
     TResult Function(List<Tender> tenders)? streamTendersUpdated,
-    TResult Function(List<BidOnTender> tenderBids)? streamTenderBidsUpdated,
+    TResult Function(List<TenderBid> tenderBids)? streamTenderBidsUpdated,
     required TResult orElse(),
   }) {
     if (streamTenderBidsUpdated != null) {
@@ -461,10 +460,10 @@ class _$StreamTenderBidsUpdated implements StreamTenderBidsUpdated {
 }
 
 abstract class StreamTenderBidsUpdated implements AllTenderChatsEvent {
-  const factory StreamTenderBidsUpdated(List<BidOnTender> tenderBids) =
+  const factory StreamTenderBidsUpdated(List<TenderBid> tenderBids) =
       _$StreamTenderBidsUpdated;
 
-  List<BidOnTender> get tenderBids => throw _privateConstructorUsedError;
+  List<TenderBid> get tenderBids => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $StreamTenderBidsUpdatedCopyWith<StreamTenderBidsUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -476,7 +475,7 @@ class _$AllTenderChatsStateTearOff {
 
   _AllTenderChatsState call(
       {required Option<List<Tender>> tenders,
-      required Option<List<BidOnTender>> tenderBids,
+      required Option<List<TenderBid>> tenderBids,
       required Option<List<ChatRoom>> chatRooms,
       required Either<Contractor, Developer> loggedInUser}) {
     return _AllTenderChatsState(
@@ -494,8 +493,7 @@ const $AllTenderChatsState = _$AllTenderChatsStateTearOff();
 /// @nodoc
 mixin _$AllTenderChatsState {
   Option<List<Tender>> get tenders => throw _privateConstructorUsedError;
-  Option<List<BidOnTender>> get tenderBids =>
-      throw _privateConstructorUsedError;
+  Option<List<TenderBid>> get tenderBids => throw _privateConstructorUsedError;
   Option<List<ChatRoom>> get chatRooms => throw _privateConstructorUsedError;
   Either<Contractor, Developer> get loggedInUser =>
       throw _privateConstructorUsedError;
@@ -512,7 +510,7 @@ abstract class $AllTenderChatsStateCopyWith<$Res> {
       _$AllTenderChatsStateCopyWithImpl<$Res>;
   $Res call(
       {Option<List<Tender>> tenders,
-      Option<List<BidOnTender>> tenderBids,
+      Option<List<TenderBid>> tenderBids,
       Option<List<ChatRoom>> chatRooms,
       Either<Contractor, Developer> loggedInUser});
 }
@@ -541,7 +539,7 @@ class _$AllTenderChatsStateCopyWithImpl<$Res>
       tenderBids: tenderBids == freezed
           ? _value.tenderBids
           : tenderBids // ignore: cast_nullable_to_non_nullable
-              as Option<List<BidOnTender>>,
+              as Option<List<TenderBid>>,
       chatRooms: chatRooms == freezed
           ? _value.chatRooms
           : chatRooms // ignore: cast_nullable_to_non_nullable
@@ -563,7 +561,7 @@ abstract class _$AllTenderChatsStateCopyWith<$Res>
   @override
   $Res call(
       {Option<List<Tender>> tenders,
-      Option<List<BidOnTender>> tenderBids,
+      Option<List<TenderBid>> tenderBids,
       Option<List<ChatRoom>> chatRooms,
       Either<Contractor, Developer> loggedInUser});
 }
@@ -594,7 +592,7 @@ class __$AllTenderChatsStateCopyWithImpl<$Res>
       tenderBids: tenderBids == freezed
           ? _value.tenderBids
           : tenderBids // ignore: cast_nullable_to_non_nullable
-              as Option<List<BidOnTender>>,
+              as Option<List<TenderBid>>,
       chatRooms: chatRooms == freezed
           ? _value.chatRooms
           : chatRooms // ignore: cast_nullable_to_non_nullable
@@ -620,7 +618,7 @@ class _$_AllTenderChatsState extends _AllTenderChatsState {
   @override
   final Option<List<Tender>> tenders;
   @override
-  final Option<List<BidOnTender>> tenderBids;
+  final Option<List<TenderBid>> tenderBids;
   @override
   final Option<List<ChatRoom>> chatRooms;
   @override
@@ -667,7 +665,7 @@ class _$_AllTenderChatsState extends _AllTenderChatsState {
 abstract class _AllTenderChatsState extends AllTenderChatsState {
   const factory _AllTenderChatsState(
           {required Option<List<Tender>> tenders,
-          required Option<List<BidOnTender>> tenderBids,
+          required Option<List<TenderBid>> tenderBids,
           required Option<List<ChatRoom>> chatRooms,
           required Either<Contractor, Developer> loggedInUser}) =
       _$_AllTenderChatsState;
@@ -676,8 +674,7 @@ abstract class _AllTenderChatsState extends AllTenderChatsState {
   @override
   Option<List<Tender>> get tenders => throw _privateConstructorUsedError;
   @override
-  Option<List<BidOnTender>> get tenderBids =>
-      throw _privateConstructorUsedError;
+  Option<List<TenderBid>> get tenderBids => throw _privateConstructorUsedError;
   @override
   Option<List<ChatRoom>> get chatRooms => throw _privateConstructorUsedError;
   @override

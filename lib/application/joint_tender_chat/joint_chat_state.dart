@@ -7,7 +7,7 @@ class JointChatStateEmpty extends JointChatState {}
 class JointTenderChatState extends JointChatState {
   final ChatRoom? chatRoom;
   final Tender tender;
-  final BidOnTender tenderBid;
+  final TenderBid tenderBid;
 
   JointTenderChatState({
     required this.chatRoom,
@@ -19,7 +19,7 @@ class JointTenderChatState extends JointChatState {
 class JointJobChatState extends JointChatState {
   final ChatRoom? chatRoom;
   final Job job;
-  final Bid bid;
+  final JobBid bid;
 
   JointJobChatState({
     required this.chatRoom,

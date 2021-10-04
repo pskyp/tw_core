@@ -1,12 +1,12 @@
 part of 'taj_facade.dart';
 
 class TAJContractor extends TAJFacade {
-  static Option<List<BidReview>> allBidReviews = optionOf(null);
-  static Option<List<Bid>> allBids = optionOf(null);
+  // static Option<List<BidReview>> allBidReviews = optionOf(null);
+  static Option<List<JobBid>> allBids = optionOf(null);
   static Option<List<Development>> allDevelopments = optionOf(null);
   static Option<List<Job>> allJobs = optionOf(null);
   static Option<List<Supplement>> allSupplements = optionOf(null);
-  static Option<List<BidOnTender>> allTenderBids = optionOf(null);
+  static Option<List<TenderBid>> allTenderBids = optionOf(null);
   static Option<List<Tender>> allTenders = optionOf(null);
 
   Future<Either<TWServerError, Unit>> createJob({
@@ -36,7 +36,7 @@ class TAJContractor extends TAJFacade {
     return (await commitBatch(batch));
   }
 
-  Stream<List<Bid>> streamAllBidsForAllJobsByContractor({
+  Stream<List<JobBid>> streamAllBidsForAllJobsByContractor({
     required TWUser contractor,
   }) {
     assert(contractor.type == TWUserType.Contractor);
@@ -44,18 +44,18 @@ class TAJContractor extends TAJFacade {
         .where('contractorId', isEqualTo: contractor.uid)
         .snapshots()
         .map((list) {
-      Option<List<Bid>> allBids =
-          optionOf(list.docs.map((doc) => Bid.fromJson(doc.data())).toList());
+      Option<List<JobBid>> allBids = optionOf(
+          list.docs.map((doc) => JobBid.fromJson(doc.data())).toList());
       return allBids.getOrElse(() => []);
     });
   }
 
-  Stream<List<Bid>> streamBidsOnJob(String jobId) => TWFC.bidsCollection
+  Stream<List<JobBid>> streamBidsOnJob(String jobId) => TWFC.bidsCollection
           .where('jobId', isEqualTo: jobId)
           .snapshots()
           .map((list) {
-        allBids =
-            optionOf(list.docs.map((doc) => Bid.fromJson(doc.data())).toList());
+        allBids = optionOf(
+            list.docs.map((doc) => JobBid.fromJson(doc.data())).toList());
         return allBids.getOrElse(() => []);
       });
 
@@ -73,14 +73,14 @@ class TAJContractor extends TAJFacade {
     required Tender tender,
     required Contractor contractor,
   }) async {
-    var bidOnTender = BidOnTender.fromContractorAndTender(
-      contractor,
-      tender,
+    TenderBid tenderBid = TenderBid.fromContractorAndTender(
+      contractor: contractor,
+      tender: tender,
     );
     var batch = FirebaseFirestore.instance.batch();
     batch.set(
-      TWFC.tenderBidsCollection.doc(bidOnTender.bidId),
-      bidOnTender.toJson(),
+      TWFC.tenderBidsCollection.doc(tenderBid.bidIdentifier.bidId),
+      tenderBid.toJson(),
     );
     batch.set(
       TWFC.contractorsCollection
@@ -101,10 +101,12 @@ class TAJContractor extends TAJFacade {
     return (await commitBatch(batch));
   }
 
-  onBidSeenByContractor(final Bid bid) {
-    TWFC.bidsCollection.doc(bid.bidId).update({'seenByContractor': true});
+  onBidSeenByContractor(final JobBid jobBid) {
+    TWFC.bidsCollection
+        .doc(jobBid.bidIdentifier.bidId)
+        .update({'seenByContractor': true});
     TWFC.jobCollection
-        .doc(bid.jobId)
+        .doc(jobBid.bidIdentifier.workIdentifier.workId)
         .update({'totalUnseenBids': FieldValue.increment(-1)});
   }
 
@@ -208,21 +210,21 @@ class TAJContractor extends TAJFacade {
     return commitBatch(batch);
   }
 
-  Stream<List<Bid>> bidsOnJob({required Job job}) {
+  Stream<List<JobBid>> bidsOnJob({required Job job}) {
     return TWFC.bidsCollection
         .where('jobId', isEqualTo: job.workIdentifier.workId)
         .snapshots()
         .map((list) =>
-            list.docs.map((doc) => Bid.fromJson(doc.data())).toList());
+            list.docs.map((doc) => JobBid.fromJson(doc.data())).toList());
   }
 
-  Stream<List<BidOnTender>> streamTenderBids(TWUser user) {
+  Stream<List<TenderBid>> streamTenderBids(TWUser user) {
     return TWFC.tenderBidsCollection
         .where('bidderId', isEqualTo: user.uid)
         .snapshots()
         .map((list) {
-      List<BidOnTender>? tenderBids =
-          list.docs.map((doc) => BidOnTender.fromJson(doc.data())).toList();
+      List<TenderBid>? tenderBids =
+          list.docs.map((doc) => TenderBid.fromJson(doc.data())).toList();
       allTenderBids = optionOf(tenderBids);
       return tenderBids;
     });

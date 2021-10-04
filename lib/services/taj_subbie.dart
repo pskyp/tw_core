@@ -1,19 +1,19 @@
 part of 'taj_facade.dart';
 
 class TAJSubbie extends TAJFacade {
-  static Option<List<BidReview>> allBidReviews = optionOf(null);
-  static Option<List<Bid>> allBids = optionOf(null);
+  // static Option<List<BidReview>> allBidReviews = optionOf(null);
+  static Option<List<JobBid>> allBids = optionOf(null);
   static Option<List<Job>> allJobs = optionOf(null);
 
   Future<Either<TWServerError, Unit>> acceptJobOffer({
     required Job job,
-    required Bid bid,
+    required JobBid jobBid,
     required Subbie subbie,
   }) async {
     WriteBatch batch = FirebaseFirestore.instance.batch();
     batch.update(
-      TWFC.bidsCollection.doc(bid.bidId),
-      bid.copyWithNeuStatus(BidStatuses.Hired).toJson(),
+      TWFC.bidsCollection.doc(jobBid.bidIdentifier.bidId),
+      jobBid.copyWith(jobBidStatus: JobBidStatuses.Hired).toJson(),
     );
     return (await commitBatch(batch));
   }
@@ -62,10 +62,16 @@ class TAJSubbie extends TAJFacade {
     required Subbie subbie,
   }) async {
     try {
-      Bid bid = Bid.neu(loggedInUser: subbie.basicProfile, job: job);
+      JobBid jobBid = JobBid.neu(
+        subbie: subbie,
+        job: job,
+      );
 
       var batch = FirebaseFirestore.instance.batch();
-      batch.set(TWFC.bidsCollection.doc(bid.bidId), bid.toJson());
+      batch.set(
+        TWFC.bidsCollection.doc(jobBid.bidIdentifier.bidId),
+        jobBid.toJson(),
+      );
       batch.update(TWFC.jobCollection.doc(job.workIdentifier.workId), {
         'totalUnseenBids': FieldValue.increment(1),
       });
@@ -150,27 +156,27 @@ class TAJSubbie extends TAJFacade {
     return (await commitBatch(batch));
   }
 
-  Stream<List<Bid>> streamAllBidsBySubbie({required TWUser subbie}) {
+  Stream<List<JobBid>> streamAllBidsBySubbie({required TWUser subbie}) {
     assert(subbie.type == TWUserType.Subbie);
     return TWFC.bidsCollection
         .where('subbieTWUser.uid', isEqualTo: subbie.uid)
         .snapshots()
         .map((list) {
-      allBids =
-          optionOf(list.docs.map((doc) => Bid.fromJson(doc.data())).toList());
+      allBids = optionOf(
+          list.docs.map((doc) => JobBid.fromJson(doc.data())).toList());
       return allBids.getOrElse(() => []);
     });
   }
 
-  Stream<List<BidReview>> subbieReviews(Subbie subbie) =>
-      TWFC.bidReviewsCollection
-          .where('subbieId', isEqualTo: subbie.basicProfile.uid)
-          .snapshots()
-          .map((list) {
-        allBidReviews = optionOf(
-            list.docs.map((doc) => BidReview.fromJson(doc.data())).toList());
-        return allBidReviews.getOrElse(() => []);
-      });
+  // Stream<List<BidReview>> subbieReviews(Subbie subbie) =>
+  //     TWFC.bidReviewsCollection
+  //         .where('subbieId', isEqualTo: subbie.basicProfile.uid)
+  //         .snapshots()
+  //         .map((list) {
+  //       allBidReviews = optionOf(
+  //           list.docs.map((doc) => BidReview.fromJson(doc.data())).toList());
+  //       return allBidReviews.getOrElse(() => []);
+  //     });
 
   Stream<List<InviteToBid>?> streamInvitesForSubbie(Subbie subbie) =>
       TWFC.subbieCollection

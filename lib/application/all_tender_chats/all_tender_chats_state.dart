@@ -5,7 +5,7 @@ class AllTenderChatsState with _$AllTenderChatsState {
   const AllTenderChatsState._();
   const factory AllTenderChatsState({
     required Option<List<Tender>> tenders,
-    required Option<List<BidOnTender>> tenderBids,
+    required Option<List<TenderBid>> tenderBids,
     required Option<List<ChatRoom>> chatRooms,
     required Either<Contractor, Developer> loggedInUser,
   }) = _AllTenderChatsState;
@@ -26,12 +26,14 @@ class AllTenderChatsState with _$AllTenderChatsState {
 
   Tender? tender(ChatRoom chatRoom) {
     return tenders.getOrElse(() => []).singleWhereOrNull(
-        (tender) => chatRoom.jobId == tender.workIdentifier.workId);
+          (tender) =>
+              chatRoom.bidIdentifier.workIdentifier.workId ==
+              tender.workIdentifier.workId,
+        );
   }
 
-  BidOnTender? tenderBid(ChatRoom chatRoom) {
-    return tenderBids
-        .getOrElse(() => [])
-        .singleWhereOrNull((tenderBid) => chatRoom.bidId == tenderBid.bidId);
+  TenderBid? tenderBid(ChatRoom chatRoom) {
+    return tenderBids.getOrElse(() => []).singleWhereOrNull((tenderBid) =>
+        chatRoom.bidIdentifier.bidId == tenderBid.bidIdentifier.bidId);
   }
 }

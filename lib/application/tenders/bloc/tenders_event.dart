@@ -7,7 +7,7 @@ class TendersEvent with _$TendersEvent {
   ) = TendersStreamUpdated;
 
   const factory TendersEvent.tenderBidsStreamUpdated(
-    List<BidOnTender> tenderBids,
+    List<TenderBid> tenderBids,
   ) = TenderBidsStreamUpdated;
   const factory TendersEvent.supplementsStreamUpdated(
     List<Supplement> supplements,

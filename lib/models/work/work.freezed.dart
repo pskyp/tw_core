@@ -12,6 +12,271 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+BidIdentifier _$BidIdentifierFromJson(Map<String, dynamic> json) {
+  return _BidIdentifier.fromJson(json);
+}
+
+/// @nodoc
+class _$BidIdentifierTearOff {
+  const _$BidIdentifierTearOff();
+
+  _BidIdentifier call(
+      {required String bidId,
+      required WorkIdentifier workIdentifier,
+      required TWUser bidder,
+      required DateTime appliedOn,
+      required BidType bidType}) {
+    return _BidIdentifier(
+      bidId: bidId,
+      workIdentifier: workIdentifier,
+      bidder: bidder,
+      appliedOn: appliedOn,
+      bidType: bidType,
+    );
+  }
+
+  BidIdentifier fromJson(Map<String, Object> json) {
+    return BidIdentifier.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $BidIdentifier = _$BidIdentifierTearOff();
+
+/// @nodoc
+mixin _$BidIdentifier {
+  String get bidId => throw _privateConstructorUsedError;
+  WorkIdentifier get workIdentifier => throw _privateConstructorUsedError;
+  TWUser get bidder => throw _privateConstructorUsedError;
+  DateTime get appliedOn => throw _privateConstructorUsedError;
+  BidType get bidType => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $BidIdentifierCopyWith<BidIdentifier> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BidIdentifierCopyWith<$Res> {
+  factory $BidIdentifierCopyWith(
+          BidIdentifier value, $Res Function(BidIdentifier) then) =
+      _$BidIdentifierCopyWithImpl<$Res>;
+  $Res call(
+      {String bidId,
+      WorkIdentifier workIdentifier,
+      TWUser bidder,
+      DateTime appliedOn,
+      BidType bidType});
+
+  $WorkIdentifierCopyWith<$Res> get workIdentifier;
+}
+
+/// @nodoc
+class _$BidIdentifierCopyWithImpl<$Res>
+    implements $BidIdentifierCopyWith<$Res> {
+  _$BidIdentifierCopyWithImpl(this._value, this._then);
+
+  final BidIdentifier _value;
+  // ignore: unused_field
+  final $Res Function(BidIdentifier) _then;
+
+  @override
+  $Res call({
+    Object? bidId = freezed,
+    Object? workIdentifier = freezed,
+    Object? bidder = freezed,
+    Object? appliedOn = freezed,
+    Object? bidType = freezed,
+  }) {
+    return _then(_value.copyWith(
+      bidId: bidId == freezed
+          ? _value.bidId
+          : bidId // ignore: cast_nullable_to_non_nullable
+              as String,
+      workIdentifier: workIdentifier == freezed
+          ? _value.workIdentifier
+          : workIdentifier // ignore: cast_nullable_to_non_nullable
+              as WorkIdentifier,
+      bidder: bidder == freezed
+          ? _value.bidder
+          : bidder // ignore: cast_nullable_to_non_nullable
+              as TWUser,
+      appliedOn: appliedOn == freezed
+          ? _value.appliedOn
+          : appliedOn // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      bidType: bidType == freezed
+          ? _value.bidType
+          : bidType // ignore: cast_nullable_to_non_nullable
+              as BidType,
+    ));
+  }
+
+  @override
+  $WorkIdentifierCopyWith<$Res> get workIdentifier {
+    return $WorkIdentifierCopyWith<$Res>(_value.workIdentifier, (value) {
+      return _then(_value.copyWith(workIdentifier: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$BidIdentifierCopyWith<$Res>
+    implements $BidIdentifierCopyWith<$Res> {
+  factory _$BidIdentifierCopyWith(
+          _BidIdentifier value, $Res Function(_BidIdentifier) then) =
+      __$BidIdentifierCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String bidId,
+      WorkIdentifier workIdentifier,
+      TWUser bidder,
+      DateTime appliedOn,
+      BidType bidType});
+
+  @override
+  $WorkIdentifierCopyWith<$Res> get workIdentifier;
+}
+
+/// @nodoc
+class __$BidIdentifierCopyWithImpl<$Res>
+    extends _$BidIdentifierCopyWithImpl<$Res>
+    implements _$BidIdentifierCopyWith<$Res> {
+  __$BidIdentifierCopyWithImpl(
+      _BidIdentifier _value, $Res Function(_BidIdentifier) _then)
+      : super(_value, (v) => _then(v as _BidIdentifier));
+
+  @override
+  _BidIdentifier get _value => super._value as _BidIdentifier;
+
+  @override
+  $Res call({
+    Object? bidId = freezed,
+    Object? workIdentifier = freezed,
+    Object? bidder = freezed,
+    Object? appliedOn = freezed,
+    Object? bidType = freezed,
+  }) {
+    return _then(_BidIdentifier(
+      bidId: bidId == freezed
+          ? _value.bidId
+          : bidId // ignore: cast_nullable_to_non_nullable
+              as String,
+      workIdentifier: workIdentifier == freezed
+          ? _value.workIdentifier
+          : workIdentifier // ignore: cast_nullable_to_non_nullable
+              as WorkIdentifier,
+      bidder: bidder == freezed
+          ? _value.bidder
+          : bidder // ignore: cast_nullable_to_non_nullable
+              as TWUser,
+      appliedOn: appliedOn == freezed
+          ? _value.appliedOn
+          : appliedOn // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      bidType: bidType == freezed
+          ? _value.bidType
+          : bidType // ignore: cast_nullable_to_non_nullable
+              as BidType,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_BidIdentifier implements _BidIdentifier {
+  const _$_BidIdentifier(
+      {required this.bidId,
+      required this.workIdentifier,
+      required this.bidder,
+      required this.appliedOn,
+      required this.bidType});
+
+  factory _$_BidIdentifier.fromJson(Map<String, dynamic> json) =>
+      _$$_BidIdentifierFromJson(json);
+
+  @override
+  final String bidId;
+  @override
+  final WorkIdentifier workIdentifier;
+  @override
+  final TWUser bidder;
+  @override
+  final DateTime appliedOn;
+  @override
+  final BidType bidType;
+
+  @override
+  String toString() {
+    return 'BidIdentifier(bidId: $bidId, workIdentifier: $workIdentifier, bidder: $bidder, appliedOn: $appliedOn, bidType: $bidType)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _BidIdentifier &&
+            (identical(other.bidId, bidId) ||
+                const DeepCollectionEquality().equals(other.bidId, bidId)) &&
+            (identical(other.workIdentifier, workIdentifier) ||
+                const DeepCollectionEquality()
+                    .equals(other.workIdentifier, workIdentifier)) &&
+            (identical(other.bidder, bidder) ||
+                const DeepCollectionEquality().equals(other.bidder, bidder)) &&
+            (identical(other.appliedOn, appliedOn) ||
+                const DeepCollectionEquality()
+                    .equals(other.appliedOn, appliedOn)) &&
+            (identical(other.bidType, bidType) ||
+                const DeepCollectionEquality().equals(other.bidType, bidType)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(bidId) ^
+      const DeepCollectionEquality().hash(workIdentifier) ^
+      const DeepCollectionEquality().hash(bidder) ^
+      const DeepCollectionEquality().hash(appliedOn) ^
+      const DeepCollectionEquality().hash(bidType);
+
+  @JsonKey(ignore: true)
+  @override
+  _$BidIdentifierCopyWith<_BidIdentifier> get copyWith =>
+      __$BidIdentifierCopyWithImpl<_BidIdentifier>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_BidIdentifierToJson(this);
+  }
+}
+
+abstract class _BidIdentifier implements BidIdentifier {
+  const factory _BidIdentifier(
+      {required String bidId,
+      required WorkIdentifier workIdentifier,
+      required TWUser bidder,
+      required DateTime appliedOn,
+      required BidType bidType}) = _$_BidIdentifier;
+
+  factory _BidIdentifier.fromJson(Map<String, dynamic> json) =
+      _$_BidIdentifier.fromJson;
+
+  @override
+  String get bidId => throw _privateConstructorUsedError;
+  @override
+  WorkIdentifier get workIdentifier => throw _privateConstructorUsedError;
+  @override
+  TWUser get bidder => throw _privateConstructorUsedError;
+  @override
+  DateTime get appliedOn => throw _privateConstructorUsedError;
+  @override
+  BidType get bidType => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$BidIdentifierCopyWith<_BidIdentifier> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 WorkIdentifier _$WorkIdentifierFromJson(Map<String, dynamic> json) {
   return _WorkIdentifier.fromJson(json);
 }

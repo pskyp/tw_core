@@ -1,29 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'bid_on_tender.dart';
+part of 'tender_bid.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-BidOnTender _$BidOnTenderFromJson(Map<String, dynamic> json) => BidOnTender(
-      bidId: json['bidId'] as String,
-      bidderId: json['bidderId'] as String,
-      developerId: json['developerId'] as String,
-      tenderId: json['tenderId'] as String,
-      status: _$enumDecode(_$TenderBidStatusEnumMap, json['status']),
-      bidder: TWUser.fromJson(json['bidder'] as Map<String, dynamic>),
-      rating: (json['rating'] as num).toDouble(),
+_$_TenderBid _$$_TenderBidFromJson(Map<String, dynamic> json) => _$_TenderBid(
+      bidIdentifier:
+          BidIdentifier.fromJson(json['bidIdentifier'] as Map<String, dynamic>),
+      tenderBidStatus:
+          _$enumDecode(_$TenderBidStatusEnumMap, json['tenderBidStatus']),
+      rating: (json['rating'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$BidOnTenderToJson(BidOnTender instance) =>
+Map<String, dynamic> _$$_TenderBidToJson(_$_TenderBid instance) =>
     <String, dynamic>{
-      'bidId': instance.bidId,
-      'bidderId': instance.bidderId,
-      'developerId': instance.developerId,
-      'tenderId': instance.tenderId,
-      'status': _$TenderBidStatusEnumMap[instance.status],
-      'bidder': instance.bidder.toJson(),
+      'bidIdentifier': instance.bidIdentifier.toJson(),
+      'tenderBidStatus': _$TenderBidStatusEnumMap[instance.tenderBidStatus],
       'rating': instance.rating,
     };
 

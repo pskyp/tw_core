@@ -9,6 +9,6 @@ class AllJobChatsEvent with _$AllJobChatsEvent {
     List<Job> jobs,
   ) = StreamJobsUpdated;
   const factory AllJobChatsEvent.streamBidsUpdated(
-    List<Bid> bids,
+    List<JobBid> bids,
   ) = StreamBidsUpdated;
 }

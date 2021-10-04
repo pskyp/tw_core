@@ -9,6 +9,6 @@ class AllTenderChatsEvent with _$AllTenderChatsEvent {
     List<Tender> tenders,
   ) = StreamTendersUpdated;
   const factory AllTenderChatsEvent.streamTenderBidsUpdated(
-    List<BidOnTender> tenderBids,
+    List<TenderBid> tenderBids,
   ) = StreamTenderBidsUpdated;
 }
