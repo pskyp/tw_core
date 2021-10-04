@@ -28,7 +28,7 @@ class _$AllJobChatsEventTearOff {
     );
   }
 
-  StreamBidsUpdated streamBidsUpdated(List<Bid> bids) {
+  StreamBidsUpdated streamBidsUpdated(List<JobBid> bids) {
     return StreamBidsUpdated(
       bids,
     );
@@ -44,14 +44,14 @@ mixin _$AllJobChatsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(List<ChatRoom> chatRooms) streamChatRoomsUpdated,
     required TResult Function(List<Job> jobs) streamJobsUpdated,
-    required TResult Function(List<Bid> bids) streamBidsUpdated,
+    required TResult Function(List<JobBid> bids) streamBidsUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<ChatRoom> chatRooms)? streamChatRoomsUpdated,
     TResult Function(List<Job> jobs)? streamJobsUpdated,
-    TResult Function(List<Bid> bids)? streamBidsUpdated,
+    TResult Function(List<JobBid> bids)? streamBidsUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -159,7 +159,7 @@ class _$StreamChatRoomsUpdated implements StreamChatRoomsUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function(List<ChatRoom> chatRooms) streamChatRoomsUpdated,
     required TResult Function(List<Job> jobs) streamJobsUpdated,
-    required TResult Function(List<Bid> bids) streamBidsUpdated,
+    required TResult Function(List<JobBid> bids) streamBidsUpdated,
   }) {
     return streamChatRoomsUpdated(chatRooms);
   }
@@ -169,7 +169,7 @@ class _$StreamChatRoomsUpdated implements StreamChatRoomsUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<ChatRoom> chatRooms)? streamChatRoomsUpdated,
     TResult Function(List<Job> jobs)? streamJobsUpdated,
-    TResult Function(List<Bid> bids)? streamBidsUpdated,
+    TResult Function(List<JobBid> bids)? streamBidsUpdated,
     required TResult orElse(),
   }) {
     if (streamChatRoomsUpdated != null) {
@@ -281,7 +281,7 @@ class _$StreamJobsUpdated implements StreamJobsUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function(List<ChatRoom> chatRooms) streamChatRoomsUpdated,
     required TResult Function(List<Job> jobs) streamJobsUpdated,
-    required TResult Function(List<Bid> bids) streamBidsUpdated,
+    required TResult Function(List<JobBid> bids) streamBidsUpdated,
   }) {
     return streamJobsUpdated(jobs);
   }
@@ -291,7 +291,7 @@ class _$StreamJobsUpdated implements StreamJobsUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<ChatRoom> chatRooms)? streamChatRoomsUpdated,
     TResult Function(List<Job> jobs)? streamJobsUpdated,
-    TResult Function(List<Bid> bids)? streamBidsUpdated,
+    TResult Function(List<JobBid> bids)? streamBidsUpdated,
     required TResult orElse(),
   }) {
     if (streamJobsUpdated != null) {
@@ -340,7 +340,7 @@ abstract class $StreamBidsUpdatedCopyWith<$Res> {
   factory $StreamBidsUpdatedCopyWith(
           StreamBidsUpdated value, $Res Function(StreamBidsUpdated) then) =
       _$StreamBidsUpdatedCopyWithImpl<$Res>;
-  $Res call({List<Bid> bids});
+  $Res call({List<JobBid> bids});
 }
 
 /// @nodoc
@@ -362,7 +362,7 @@ class _$StreamBidsUpdatedCopyWithImpl<$Res>
       bids == freezed
           ? _value.bids
           : bids // ignore: cast_nullable_to_non_nullable
-              as List<Bid>,
+              as List<JobBid>,
     ));
   }
 }
@@ -373,7 +373,7 @@ class _$StreamBidsUpdated implements StreamBidsUpdated {
   const _$StreamBidsUpdated(this.bids);
 
   @override
-  final List<Bid> bids;
+  final List<JobBid> bids;
 
   @override
   String toString() {
@@ -402,7 +402,7 @@ class _$StreamBidsUpdated implements StreamBidsUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function(List<ChatRoom> chatRooms) streamChatRoomsUpdated,
     required TResult Function(List<Job> jobs) streamJobsUpdated,
-    required TResult Function(List<Bid> bids) streamBidsUpdated,
+    required TResult Function(List<JobBid> bids) streamBidsUpdated,
   }) {
     return streamBidsUpdated(bids);
   }
@@ -412,7 +412,7 @@ class _$StreamBidsUpdated implements StreamBidsUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<ChatRoom> chatRooms)? streamChatRoomsUpdated,
     TResult Function(List<Job> jobs)? streamJobsUpdated,
-    TResult Function(List<Bid> bids)? streamBidsUpdated,
+    TResult Function(List<JobBid> bids)? streamBidsUpdated,
     required TResult orElse(),
   }) {
     if (streamBidsUpdated != null) {
@@ -448,9 +448,9 @@ class _$StreamBidsUpdated implements StreamBidsUpdated {
 }
 
 abstract class StreamBidsUpdated implements AllJobChatsEvent {
-  const factory StreamBidsUpdated(List<Bid> bids) = _$StreamBidsUpdated;
+  const factory StreamBidsUpdated(List<JobBid> bids) = _$StreamBidsUpdated;
 
-  List<Bid> get bids => throw _privateConstructorUsedError;
+  List<JobBid> get bids => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $StreamBidsUpdatedCopyWith<StreamBidsUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -462,7 +462,7 @@ class _$AllJobChatsStateTearOff {
 
   _AllJobChatsState call(
       {required Option<List<Job>> jobs,
-      required Option<List<Bid>> bids,
+      required Option<List<JobBid>> bids,
       required Option<List<ChatRoom>> chatRooms}) {
     return _AllJobChatsState(
       jobs: jobs,
@@ -478,7 +478,7 @@ const $AllJobChatsState = _$AllJobChatsStateTearOff();
 /// @nodoc
 mixin _$AllJobChatsState {
   Option<List<Job>> get jobs => throw _privateConstructorUsedError;
-  Option<List<Bid>> get bids => throw _privateConstructorUsedError;
+  Option<List<JobBid>> get bids => throw _privateConstructorUsedError;
   Option<List<ChatRoom>> get chatRooms => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -493,7 +493,7 @@ abstract class $AllJobChatsStateCopyWith<$Res> {
       _$AllJobChatsStateCopyWithImpl<$Res>;
   $Res call(
       {Option<List<Job>> jobs,
-      Option<List<Bid>> bids,
+      Option<List<JobBid>> bids,
       Option<List<ChatRoom>> chatRooms});
 }
 
@@ -520,7 +520,7 @@ class _$AllJobChatsStateCopyWithImpl<$Res>
       bids: bids == freezed
           ? _value.bids
           : bids // ignore: cast_nullable_to_non_nullable
-              as Option<List<Bid>>,
+              as Option<List<JobBid>>,
       chatRooms: chatRooms == freezed
           ? _value.chatRooms
           : chatRooms // ignore: cast_nullable_to_non_nullable
@@ -538,7 +538,7 @@ abstract class _$AllJobChatsStateCopyWith<$Res>
   @override
   $Res call(
       {Option<List<Job>> jobs,
-      Option<List<Bid>> bids,
+      Option<List<JobBid>> bids,
       Option<List<ChatRoom>> chatRooms});
 }
 
@@ -567,7 +567,7 @@ class __$AllJobChatsStateCopyWithImpl<$Res>
       bids: bids == freezed
           ? _value.bids
           : bids // ignore: cast_nullable_to_non_nullable
-              as Option<List<Bid>>,
+              as Option<List<JobBid>>,
       chatRooms: chatRooms == freezed
           ? _value.chatRooms
           : chatRooms // ignore: cast_nullable_to_non_nullable
@@ -586,7 +586,7 @@ class _$_AllJobChatsState extends _AllJobChatsState {
   @override
   final Option<List<Job>> jobs;
   @override
-  final Option<List<Bid>> bids;
+  final Option<List<JobBid>> bids;
   @override
   final Option<List<ChatRoom>> chatRooms;
 
@@ -624,14 +624,14 @@ class _$_AllJobChatsState extends _AllJobChatsState {
 abstract class _AllJobChatsState extends AllJobChatsState {
   const factory _AllJobChatsState(
       {required Option<List<Job>> jobs,
-      required Option<List<Bid>> bids,
+      required Option<List<JobBid>> bids,
       required Option<List<ChatRoom>> chatRooms}) = _$_AllJobChatsState;
   const _AllJobChatsState._() : super._();
 
   @override
   Option<List<Job>> get jobs => throw _privateConstructorUsedError;
   @override
-  Option<List<Bid>> get bids => throw _privateConstructorUsedError;
+  Option<List<JobBid>> get bids => throw _privateConstructorUsedError;
   @override
   Option<List<ChatRoom>> get chatRooms => throw _privateConstructorUsedError;
   @override

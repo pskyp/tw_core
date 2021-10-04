@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tw_core/models/bid/bid.dart';
-import 'package:tw_core/models/bid_on_tender/bid_on_tender.dart';
+import 'package:tw_core/models/bid/job_bid.dart';
+import 'package:tw_core/models/bid_on_tender/tender_bid.dart';
 import 'package:tw_core/models/chat_models/chat_room.dart';
 import 'package:tw_core/models/job/job.dart';
 import 'package:tw_core/models/tender/tender_model.dart';

@@ -5,7 +5,7 @@ class TendersState with _$TendersState {
   const TendersState._();
   const factory TendersState({
     required Option<List<Tender>> allTenders,
-    required Option<List<BidOnTender>> allTenderBids,
+    required Option<List<TenderBid>> allTenderBids,
     required Option<List<Supplement>> allSupplements,
   }) = _TendersState;
 
@@ -44,9 +44,11 @@ class TendersState with _$TendersState {
         allSupplements: TAJContractor.allSupplements,
       );
 
-  BidOnTender? tenderBid(Tender tender) {
+  TenderBid? tenderBid(Tender tender) {
     return allTenderBids.getOrElse(() => []).singleWhereOrNull(
-          (bid) => bid.tenderId == tender.workIdentifier.workId,
+          (bid) =>
+              bid.bidIdentifier.workIdentifier.workId ==
+              tender.workIdentifier.workId,
         );
   }
 
@@ -69,14 +71,14 @@ class TendersState with _$TendersState {
 
   bool isAwarded(Tender tender) {
     if (!hasAppliedTo(tender)) return false;
-    return tenderBid(tender)!.status == TenderBidStatus.Awarded;
+    return tenderBid(tender)!.tenderBidStatus == TenderBidStatus.Awarded;
   }
 
   List<Tender> appliedTenders() {
     return allTendersList
         .where((tender) =>
             hasAppliedTo(tender) &&
-            tenderBid(tender)!.status == TenderBidStatus.New)
+            tenderBid(tender)!.tenderBidStatus == TenderBidStatus.New)
         .toList();
   }
 
@@ -84,7 +86,7 @@ class TendersState with _$TendersState {
     return allTendersList
         .where((tender) =>
             hasAppliedTo(tender) &&
-            tenderBid(tender)!.status == TenderBidStatus.Invited)
+            tenderBid(tender)!.tenderBidStatus == TenderBidStatus.Invited)
         .toList();
   }
 

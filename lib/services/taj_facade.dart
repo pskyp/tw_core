@@ -4,9 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:intl/intl.dart';
 import 'package:tw_core/firebase_collections/tw_firebase_collections.dart';
-import 'package:tw_core/models/bid/bid.dart';
-import 'package:tw_core/models/bid_on_tender/bid_on_tender.dart';
-import 'package:tw_core/models/bid_review/bid_review.dart';
+import 'package:tw_core/models/bid/job_bid.dart';
+import 'package:tw_core/models/bid_on_tender/tender_bid.dart';
 import 'package:tw_core/models/chat_models/chat_room.dart';
 import 'package:tw_core/models/contractor/contractor_model.dart';
 import 'package:tw_core/models/contractor_rating/contractor_rating.dart';
@@ -80,10 +79,10 @@ class TAJFacade {
     });
   }
 
-  updateBidStatus({required Bid bid, required BidStatuses newBidStatus}) {
+  updateBidStatus({required JobBid bid, required JobBidStatuses newBidStatus}) {
     TWFC.bidsCollection
-        .doc(bid.bidId)
-        .set(bid.copyWithNeuStatus(newBidStatus).toJson());
+        .doc(bid.bidIdentifier.bidId)
+        .set(bid.copyWith(jobBidStatus: newBidStatus).toJson());
   }
 
   Stream<Subbie> streamSubbie({required String subbieId}) {
@@ -93,12 +92,12 @@ class TAJFacade {
         .map((event) => Subbie.fromJson(event.data() as Map<String, dynamic>));
   }
 
-  Stream<Bid> streamBid({required Subbie subbie, required Job job}) {
+  Stream<JobBid> streamBid({required Subbie subbie, required Job job}) {
     return TWFC.bidsCollection
         .where('jobId', isEqualTo: job.workIdentifier.workId)
         .where('subbieTWUser.uid', isEqualTo: subbie.basicProfile.uid)
         .snapshots()
-        .map((event) => Bid.fromJson(event.docs.first.data()));
+        .map((event) => JobBid.fromJson(event.docs.first.data()));
   }
 
   Stream<Contractor> streamContractor({required String contractorId}) {

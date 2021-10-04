@@ -18,7 +18,7 @@ class _$JointChatEventTearOff {
 
   OpenTenderChatRoom openTenderChatRoom(
       {required Tender tender,
-      required BidOnTender tenderBid,
+      required TenderBid tenderBid,
       required ChatRoom? chatRoom}) {
     return OpenTenderChatRoom(
       tender: tender,
@@ -28,7 +28,7 @@ class _$JointChatEventTearOff {
   }
 
   OpenJobChatRoom openJobChatRoom(
-      {required Job job, required Bid bid, required ChatRoom? chatRoom}) {
+      {required Job job, required JobBid bid, required ChatRoom? chatRoom}) {
     return OpenJobChatRoom(
       job: job,
       bid: bid,
@@ -47,17 +47,17 @@ mixin _$JointChatEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Tender tender, BidOnTender tenderBid, ChatRoom? chatRoom)
+            Tender tender, TenderBid tenderBid, ChatRoom? chatRoom)
         openTenderChatRoom,
-    required TResult Function(Job job, Bid bid, ChatRoom? chatRoom)
+    required TResult Function(Job job, JobBid bid, ChatRoom? chatRoom)
         openJobChatRoom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Tender tender, BidOnTender tenderBid, ChatRoom? chatRoom)?
+    TResult Function(Tender tender, TenderBid tenderBid, ChatRoom? chatRoom)?
         openTenderChatRoom,
-    TResult Function(Job job, Bid bid, ChatRoom? chatRoom)? openJobChatRoom,
+    TResult Function(Job job, JobBid bid, ChatRoom? chatRoom)? openJobChatRoom,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -86,6 +86,8 @@ abstract class $JointChatEventCopyWith<$Res> {
           JointChatEvent value, $Res Function(JointChatEvent) then) =
       _$JointChatEventCopyWithImpl<$Res>;
   $Res call({ChatRoom? chatRoom});
+
+  $ChatRoomCopyWith<$Res>? get chatRoom;
 }
 
 /// @nodoc
@@ -108,6 +110,17 @@ class _$JointChatEventCopyWithImpl<$Res>
               as ChatRoom?,
     ));
   }
+
+  @override
+  $ChatRoomCopyWith<$Res>? get chatRoom {
+    if (_value.chatRoom == null) {
+      return null;
+    }
+
+    return $ChatRoomCopyWith<$Res>(_value.chatRoom!, (value) {
+      return _then(_value.copyWith(chatRoom: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -117,9 +130,12 @@ abstract class $OpenTenderChatRoomCopyWith<$Res>
           OpenTenderChatRoom value, $Res Function(OpenTenderChatRoom) then) =
       _$OpenTenderChatRoomCopyWithImpl<$Res>;
   @override
-  $Res call({Tender tender, BidOnTender tenderBid, ChatRoom? chatRoom});
+  $Res call({Tender tender, TenderBid tenderBid, ChatRoom? chatRoom});
 
   $TenderCopyWith<$Res> get tender;
+  $TenderBidCopyWith<$Res> get tenderBid;
+  @override
+  $ChatRoomCopyWith<$Res>? get chatRoom;
 }
 
 /// @nodoc
@@ -147,7 +163,7 @@ class _$OpenTenderChatRoomCopyWithImpl<$Res>
       tenderBid: tenderBid == freezed
           ? _value.tenderBid
           : tenderBid // ignore: cast_nullable_to_non_nullable
-              as BidOnTender,
+              as TenderBid,
       chatRoom: chatRoom == freezed
           ? _value.chatRoom
           : chatRoom // ignore: cast_nullable_to_non_nullable
@@ -161,6 +177,13 @@ class _$OpenTenderChatRoomCopyWithImpl<$Res>
       return _then(_value.copyWith(tender: value));
     });
   }
+
+  @override
+  $TenderBidCopyWith<$Res> get tenderBid {
+    return $TenderBidCopyWith<$Res>(_value.tenderBid, (value) {
+      return _then(_value.copyWith(tenderBid: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -172,7 +195,7 @@ class _$OpenTenderChatRoom implements OpenTenderChatRoom {
   @override
   final Tender tender;
   @override
-  final BidOnTender tenderBid;
+  final TenderBid tenderBid;
   @override
   final ChatRoom? chatRoom;
 
@@ -211,9 +234,9 @@ class _$OpenTenderChatRoom implements OpenTenderChatRoom {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Tender tender, BidOnTender tenderBid, ChatRoom? chatRoom)
+            Tender tender, TenderBid tenderBid, ChatRoom? chatRoom)
         openTenderChatRoom,
-    required TResult Function(Job job, Bid bid, ChatRoom? chatRoom)
+    required TResult Function(Job job, JobBid bid, ChatRoom? chatRoom)
         openJobChatRoom,
   }) {
     return openTenderChatRoom(tender, tenderBid, chatRoom);
@@ -222,9 +245,9 @@ class _$OpenTenderChatRoom implements OpenTenderChatRoom {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Tender tender, BidOnTender tenderBid, ChatRoom? chatRoom)?
+    TResult Function(Tender tender, TenderBid tenderBid, ChatRoom? chatRoom)?
         openTenderChatRoom,
-    TResult Function(Job job, Bid bid, ChatRoom? chatRoom)? openJobChatRoom,
+    TResult Function(Job job, JobBid bid, ChatRoom? chatRoom)? openJobChatRoom,
     required TResult orElse(),
   }) {
     if (openTenderChatRoom != null) {
@@ -259,11 +282,11 @@ class _$OpenTenderChatRoom implements OpenTenderChatRoom {
 abstract class OpenTenderChatRoom implements JointChatEvent {
   const factory OpenTenderChatRoom(
       {required Tender tender,
-      required BidOnTender tenderBid,
+      required TenderBid tenderBid,
       required ChatRoom? chatRoom}) = _$OpenTenderChatRoom;
 
   Tender get tender => throw _privateConstructorUsedError;
-  BidOnTender get tenderBid => throw _privateConstructorUsedError;
+  TenderBid get tenderBid => throw _privateConstructorUsedError;
   @override
   ChatRoom? get chatRoom => throw _privateConstructorUsedError;
   @override
@@ -279,9 +302,12 @@ abstract class $OpenJobChatRoomCopyWith<$Res>
           OpenJobChatRoom value, $Res Function(OpenJobChatRoom) then) =
       _$OpenJobChatRoomCopyWithImpl<$Res>;
   @override
-  $Res call({Job job, Bid bid, ChatRoom? chatRoom});
+  $Res call({Job job, JobBid bid, ChatRoom? chatRoom});
 
   $JobCopyWith<$Res> get job;
+  $JobBidCopyWith<$Res> get bid;
+  @override
+  $ChatRoomCopyWith<$Res>? get chatRoom;
 }
 
 /// @nodoc
@@ -309,7 +335,7 @@ class _$OpenJobChatRoomCopyWithImpl<$Res>
       bid: bid == freezed
           ? _value.bid
           : bid // ignore: cast_nullable_to_non_nullable
-              as Bid,
+              as JobBid,
       chatRoom: chatRoom == freezed
           ? _value.chatRoom
           : chatRoom // ignore: cast_nullable_to_non_nullable
@@ -323,6 +349,13 @@ class _$OpenJobChatRoomCopyWithImpl<$Res>
       return _then(_value.copyWith(job: value));
     });
   }
+
+  @override
+  $JobBidCopyWith<$Res> get bid {
+    return $JobBidCopyWith<$Res>(_value.bid, (value) {
+      return _then(_value.copyWith(bid: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -334,7 +367,7 @@ class _$OpenJobChatRoom implements OpenJobChatRoom {
   @override
   final Job job;
   @override
-  final Bid bid;
+  final JobBid bid;
   @override
   final ChatRoom? chatRoom;
 
@@ -372,9 +405,9 @@ class _$OpenJobChatRoom implements OpenJobChatRoom {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Tender tender, BidOnTender tenderBid, ChatRoom? chatRoom)
+            Tender tender, TenderBid tenderBid, ChatRoom? chatRoom)
         openTenderChatRoom,
-    required TResult Function(Job job, Bid bid, ChatRoom? chatRoom)
+    required TResult Function(Job job, JobBid bid, ChatRoom? chatRoom)
         openJobChatRoom,
   }) {
     return openJobChatRoom(job, bid, chatRoom);
@@ -383,9 +416,9 @@ class _$OpenJobChatRoom implements OpenJobChatRoom {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Tender tender, BidOnTender tenderBid, ChatRoom? chatRoom)?
+    TResult Function(Tender tender, TenderBid tenderBid, ChatRoom? chatRoom)?
         openTenderChatRoom,
-    TResult Function(Job job, Bid bid, ChatRoom? chatRoom)? openJobChatRoom,
+    TResult Function(Job job, JobBid bid, ChatRoom? chatRoom)? openJobChatRoom,
     required TResult orElse(),
   }) {
     if (openJobChatRoom != null) {
@@ -420,11 +453,11 @@ class _$OpenJobChatRoom implements OpenJobChatRoom {
 abstract class OpenJobChatRoom implements JointChatEvent {
   const factory OpenJobChatRoom(
       {required Job job,
-      required Bid bid,
+      required JobBid bid,
       required ChatRoom? chatRoom}) = _$OpenJobChatRoom;
 
   Job get job => throw _privateConstructorUsedError;
-  Bid get bid => throw _privateConstructorUsedError;
+  JobBid get bid => throw _privateConstructorUsedError;
   @override
   ChatRoom? get chatRoom => throw _privateConstructorUsedError;
   @override

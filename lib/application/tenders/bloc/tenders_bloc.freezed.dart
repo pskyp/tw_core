@@ -22,8 +22,7 @@ class _$TendersEventTearOff {
     );
   }
 
-  TenderBidsStreamUpdated tenderBidsStreamUpdated(
-      List<BidOnTender> tenderBids) {
+  TenderBidsStreamUpdated tenderBidsStreamUpdated(List<TenderBid> tenderBids) {
     return TenderBidsStreamUpdated(
       tenderBids,
     );
@@ -45,7 +44,7 @@ mixin _$TendersEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<Tender> tenders) tendersStreamUpdated,
-    required TResult Function(List<BidOnTender> tenderBids)
+    required TResult Function(List<TenderBid> tenderBids)
         tenderBidsStreamUpdated,
     required TResult Function(List<Supplement> supplements)
         supplementsStreamUpdated,
@@ -54,7 +53,7 @@ mixin _$TendersEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Tender> tenders)? tendersStreamUpdated,
-    TResult Function(List<BidOnTender> tenderBids)? tenderBidsStreamUpdated,
+    TResult Function(List<TenderBid> tenderBids)? tenderBidsStreamUpdated,
     TResult Function(List<Supplement> supplements)? supplementsStreamUpdated,
     required TResult orElse(),
   }) =>
@@ -161,7 +160,7 @@ class _$TendersStreamUpdated implements TendersStreamUpdated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<Tender> tenders) tendersStreamUpdated,
-    required TResult Function(List<BidOnTender> tenderBids)
+    required TResult Function(List<TenderBid> tenderBids)
         tenderBidsStreamUpdated,
     required TResult Function(List<Supplement> supplements)
         supplementsStreamUpdated,
@@ -173,7 +172,7 @@ class _$TendersStreamUpdated implements TendersStreamUpdated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Tender> tenders)? tendersStreamUpdated,
-    TResult Function(List<BidOnTender> tenderBids)? tenderBidsStreamUpdated,
+    TResult Function(List<TenderBid> tenderBids)? tenderBidsStreamUpdated,
     TResult Function(List<Supplement> supplements)? supplementsStreamUpdated,
     required TResult orElse(),
   }) {
@@ -225,7 +224,7 @@ abstract class $TenderBidsStreamUpdatedCopyWith<$Res> {
   factory $TenderBidsStreamUpdatedCopyWith(TenderBidsStreamUpdated value,
           $Res Function(TenderBidsStreamUpdated) then) =
       _$TenderBidsStreamUpdatedCopyWithImpl<$Res>;
-  $Res call({List<BidOnTender> tenderBids});
+  $Res call({List<TenderBid> tenderBids});
 }
 
 /// @nodoc
@@ -247,7 +246,7 @@ class _$TenderBidsStreamUpdatedCopyWithImpl<$Res>
       tenderBids == freezed
           ? _value.tenderBids
           : tenderBids // ignore: cast_nullable_to_non_nullable
-              as List<BidOnTender>,
+              as List<TenderBid>,
     ));
   }
 }
@@ -258,7 +257,7 @@ class _$TenderBidsStreamUpdated implements TenderBidsStreamUpdated {
   const _$TenderBidsStreamUpdated(this.tenderBids);
 
   @override
-  final List<BidOnTender> tenderBids;
+  final List<TenderBid> tenderBids;
 
   @override
   String toString() {
@@ -288,7 +287,7 @@ class _$TenderBidsStreamUpdated implements TenderBidsStreamUpdated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<Tender> tenders) tendersStreamUpdated,
-    required TResult Function(List<BidOnTender> tenderBids)
+    required TResult Function(List<TenderBid> tenderBids)
         tenderBidsStreamUpdated,
     required TResult Function(List<Supplement> supplements)
         supplementsStreamUpdated,
@@ -300,7 +299,7 @@ class _$TenderBidsStreamUpdated implements TenderBidsStreamUpdated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Tender> tenders)? tendersStreamUpdated,
-    TResult Function(List<BidOnTender> tenderBids)? tenderBidsStreamUpdated,
+    TResult Function(List<TenderBid> tenderBids)? tenderBidsStreamUpdated,
     TResult Function(List<Supplement> supplements)? supplementsStreamUpdated,
     required TResult orElse(),
   }) {
@@ -338,10 +337,10 @@ class _$TenderBidsStreamUpdated implements TenderBidsStreamUpdated {
 }
 
 abstract class TenderBidsStreamUpdated implements TendersEvent {
-  const factory TenderBidsStreamUpdated(List<BidOnTender> tenderBids) =
+  const factory TenderBidsStreamUpdated(List<TenderBid> tenderBids) =
       _$TenderBidsStreamUpdated;
 
-  List<BidOnTender> get tenderBids => throw _privateConstructorUsedError;
+  List<TenderBid> get tenderBids => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TenderBidsStreamUpdatedCopyWith<TenderBidsStreamUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -416,7 +415,7 @@ class _$SupplementsStreamUpdated implements SupplementsStreamUpdated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<Tender> tenders) tendersStreamUpdated,
-    required TResult Function(List<BidOnTender> tenderBids)
+    required TResult Function(List<TenderBid> tenderBids)
         tenderBidsStreamUpdated,
     required TResult Function(List<Supplement> supplements)
         supplementsStreamUpdated,
@@ -428,7 +427,7 @@ class _$SupplementsStreamUpdated implements SupplementsStreamUpdated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Tender> tenders)? tendersStreamUpdated,
-    TResult Function(List<BidOnTender> tenderBids)? tenderBidsStreamUpdated,
+    TResult Function(List<TenderBid> tenderBids)? tenderBidsStreamUpdated,
     TResult Function(List<Supplement> supplements)? supplementsStreamUpdated,
     required TResult orElse(),
   }) {
@@ -481,7 +480,7 @@ class _$TendersStateTearOff {
 
   _TendersState call(
       {required Option<List<Tender>> allTenders,
-      required Option<List<BidOnTender>> allTenderBids,
+      required Option<List<TenderBid>> allTenderBids,
       required Option<List<Supplement>> allSupplements}) {
     return _TendersState(
       allTenders: allTenders,
@@ -497,7 +496,7 @@ const $TendersState = _$TendersStateTearOff();
 /// @nodoc
 mixin _$TendersState {
   Option<List<Tender>> get allTenders => throw _privateConstructorUsedError;
-  Option<List<BidOnTender>> get allTenderBids =>
+  Option<List<TenderBid>> get allTenderBids =>
       throw _privateConstructorUsedError;
   Option<List<Supplement>> get allSupplements =>
       throw _privateConstructorUsedError;
@@ -514,7 +513,7 @@ abstract class $TendersStateCopyWith<$Res> {
       _$TendersStateCopyWithImpl<$Res>;
   $Res call(
       {Option<List<Tender>> allTenders,
-      Option<List<BidOnTender>> allTenderBids,
+      Option<List<TenderBid>> allTenderBids,
       Option<List<Supplement>> allSupplements});
 }
 
@@ -540,7 +539,7 @@ class _$TendersStateCopyWithImpl<$Res> implements $TendersStateCopyWith<$Res> {
       allTenderBids: allTenderBids == freezed
           ? _value.allTenderBids
           : allTenderBids // ignore: cast_nullable_to_non_nullable
-              as Option<List<BidOnTender>>,
+              as Option<List<TenderBid>>,
       allSupplements: allSupplements == freezed
           ? _value.allSupplements
           : allSupplements // ignore: cast_nullable_to_non_nullable
@@ -558,7 +557,7 @@ abstract class _$TendersStateCopyWith<$Res>
   @override
   $Res call(
       {Option<List<Tender>> allTenders,
-      Option<List<BidOnTender>> allTenderBids,
+      Option<List<TenderBid>> allTenderBids,
       Option<List<Supplement>> allSupplements});
 }
 
@@ -586,7 +585,7 @@ class __$TendersStateCopyWithImpl<$Res> extends _$TendersStateCopyWithImpl<$Res>
       allTenderBids: allTenderBids == freezed
           ? _value.allTenderBids
           : allTenderBids // ignore: cast_nullable_to_non_nullable
-              as Option<List<BidOnTender>>,
+              as Option<List<TenderBid>>,
       allSupplements: allSupplements == freezed
           ? _value.allSupplements
           : allSupplements // ignore: cast_nullable_to_non_nullable
@@ -607,7 +606,7 @@ class _$_TendersState extends _TendersState {
   @override
   final Option<List<Tender>> allTenders;
   @override
-  final Option<List<BidOnTender>> allTenderBids;
+  final Option<List<TenderBid>> allTenderBids;
   @override
   final Option<List<Supplement>> allSupplements;
 
@@ -647,14 +646,14 @@ class _$_TendersState extends _TendersState {
 abstract class _TendersState extends TendersState {
   const factory _TendersState(
       {required Option<List<Tender>> allTenders,
-      required Option<List<BidOnTender>> allTenderBids,
+      required Option<List<TenderBid>> allTenderBids,
       required Option<List<Supplement>> allSupplements}) = _$_TendersState;
   const _TendersState._() : super._();
 
   @override
   Option<List<Tender>> get allTenders => throw _privateConstructorUsedError;
   @override
-  Option<List<BidOnTender>> get allTenderBids =>
+  Option<List<TenderBid>> get allTenderBids =>
       throw _privateConstructorUsedError;
   @override
   Option<List<Supplement>> get allSupplements =>

@@ -3,20 +3,20 @@ part of 'taj_facade.dart';
 class TAJDeveloper extends TAJFacade {
   static Option<List<Development>> allDevelopments = optionOf(null);
   static Option<List<Supplement>> allSupplements = optionOf(null);
-  static Option<List<BidOnTender>> allTenderBids = optionOf(null);
+  static Option<List<TenderBid>> allTenderBids = optionOf(null);
   static Option<List<Tender>> allTenders = optionOf(null);
 
   TAJDeveloper();
 
   awardTender({
     required Tender tender,
-    required BidOnTender tenderBid,
+    required TenderBid tenderBid,
   }) async {
     WriteBatch batch = FirebaseFirestore.instance.batch();
 
     batch.update(
-      TWFC.tenderBidsCollection.doc(tenderBid.bidId),
-      tenderBid.copyWithStatusAwarded().toJson(),
+      TWFC.tenderBidsCollection.doc(tenderBid.bidIdentifier.bidId),
+      tenderBid.copyWith(tenderBidStatus: TenderBidStatus.Awarded).toJson(),
     );
     batch.update(
       TWFC.tendersCollection.doc(tender.workIdentifier.workId),
@@ -28,16 +28,22 @@ class TAJDeveloper extends TAJFacade {
   Future<Either<TWServerError, Unit>> tenderFeedback({
     required TWNumber rating,
     required Tender tender,
-    required BidOnTender tenderBid,
+    required TenderBid tenderBid,
   }) async {
-    await TWFC.tenderBidsCollection.doc(tenderBid.bidId).set((tenderBid
-        .copyWithRating(rating: rating.getOrCrash().toDouble())
-        .copyWithStatusComplete()
-        .toJson()));
+    await TWFC.tenderBidsCollection.doc(tenderBid.bidIdentifier.bidId).set(
+          (tenderBid
+              .copyWith(
+                rating: rating.getOrCrash().toDouble(),
+                tenderBidStatus: TenderBidStatus.Completed,
+              )
+              .toJson()),
+        );
 
     await TWFC.tendersCollection.doc(tender.workIdentifier.workId).set(tender
         .copyWith(
-            tenderStatus: TenderStatus.Completed, feedbackByDeveloper: true)
+          tenderStatus: TenderStatus.Completed,
+          feedbackByDeveloper: true,
+        )
         .toJson());
 
     return right(unit);
@@ -287,12 +293,12 @@ class TAJDeveloper extends TAJFacade {
 
   inviteToTendering({
     required Tender tender,
-    required BidOnTender tenderBid,
+    required TenderBid tenderBid,
   }) async {
     WriteBatch batch = FirebaseFirestore.instance.batch();
     batch.update(
-      TWFC.tenderBidsCollection.doc(tenderBid.bidId),
-      tenderBid.copyWithStatusInvited().toJson(),
+      TWFC.tenderBidsCollection.doc(tenderBid.bidIdentifier.bidId),
+      tenderBid.copyWith(tenderBidStatus: TenderBidStatus.Invited).toJson(),
     );
     // batch.update(
     //   TWFC.tendersCollection.doc(tender.workIdentifier.workId),
@@ -301,18 +307,18 @@ class TAJDeveloper extends TAJFacade {
     return commitBatch(batch);
   }
 
-  Stream<List<BidOnTender>> streamAllBidsForTender({
+  Stream<List<TenderBid>> streamAllBidsForTender({
     required Tender tender,
   }) {
     return TWFC.tenderBidsCollection
         .where('tenderId', isEqualTo: tender.workIdentifier.workId)
         .snapshots()
         .map((list) {
-      return list.docs.map((doc) => BidOnTender.fromJson(doc.data())).toList();
+      return list.docs.map((doc) => TenderBid.fromJson(doc.data())).toList();
     });
   }
 
-  Stream<List<BidOnTender>> streamAllBidsForAllTendersByDeveloper({
+  Stream<List<TenderBid>> streamAllBidsForAllTendersByDeveloper({
     required TWUser developer,
   }) {
     assert(developer.type == TWUserType.Developer);
@@ -321,12 +327,12 @@ class TAJDeveloper extends TAJFacade {
         .snapshots()
         .map((list) {
       allTenderBids = optionOf(
-          list.docs.map((doc) => BidOnTender.fromJson(doc.data())).toList());
+          list.docs.map((doc) => TenderBid.fromJson(doc.data())).toList());
       return allTenderBids.getOrElse(() => []);
     });
   }
 
-  Stream<List<BidOnTender>> streamAllActiveBidsForDevelopment({
+  Stream<List<TenderBid>> streamAllActiveBidsForDevelopment({
     required List<Tender> tenders,
   }) {
     return TWFC.tenderBidsCollection
@@ -338,11 +344,11 @@ class TAJDeveloper extends TAJFacade {
         .where('status', isEqualTo: 'Awarded')
         .snapshots()
         .map((list) {
-      return list.docs.map((doc) => BidOnTender.fromJson(doc.data())).toList();
+      return list.docs.map((doc) => TenderBid.fromJson(doc.data())).toList();
     });
   }
 
-  tenderFeedBackComplete(Tender tender, BidOnTender tenderBid) {
+  tenderFeedBackComplete(Tender tender, TenderBid tenderBid) {
     print('not implemented tenderfeedback complete');
   }
 

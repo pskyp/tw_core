@@ -2,13 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/firebase_collections/tw_firebase_collections.dart';
-import 'package:tw_core/models/bid/bid.dart';
-import 'package:tw_core/models/bid_on_tender/bid_on_tender.dart';
 import 'package:tw_core/models/chat_models/chat_item.dart';
 import 'package:tw_core/models/chat_models/chat_room.dart';
-import 'package:tw_core/models/job/job.dart';
-import 'package:tw_core/models/tender/tender_model.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
+import 'package:tw_core/models/work/work.dart';
 
 part 'chat_facade.freezed.dart';
 
@@ -17,47 +14,22 @@ enum ChatType { Job, Tender }
 class ChatFacade {
   Option<List<ChatRoom>> chatRooms = optionOf(null);
 
-  Future<Either<ChatFacadeFailure, Unit>> sendMessageInJob({
+  Future<Either<ChatFacadeFailure, Unit>> sendMessageInBid({
     required TWUser sender,
-    required Bid bid,
-    required Job job,
+    required BidIdentifier bidIdentifier,
     required String text,
   }) async {
-    assert(job.workIdentifier.employer.uid == sender.uid ||
-        bid.subbieTWUser.uid == sender.uid);
+    // assert(job.workIdentifier.employer.uid == sender.uid ||
+    //     bid.subbieTWUser.uid == sender.uid);
 
-    ChatRoom chatRoom = ChatRoom.typeJob(
-      job: job,
-      bid: bid,
-      lastChatItem: null,
+    ChatRoom chatRoom = ChatRoom.fromBidIdentifier(
+      bidIdentifier: bidIdentifier,
     );
 
     return (await sendMessageFromChatRoom(
       chatRoom: chatRoom,
       text: text,
       sender: sender,
-    ));
-  }
-
-  Future<Either<ChatFacadeFailure, Unit>> sendMessageInTender({
-    required TWUser sender,
-    required Tender tender,
-    required BidOnTender tenderBid,
-    required String text,
-  }) async {
-    assert(tenderBid.bidder.uid == sender.uid ||
-        tender.workIdentifier.employer.uid == sender.uid);
-
-    ChatRoom chatRoom = ChatRoom.typeTender(
-      tender: tender,
-      tenderBid: tenderBid,
-      lastChatItem: null,
-    );
-
-    return (await sendMessageFromChatRoom(
-      chatRoom: chatRoom,
-      sender: sender,
-      text: text,
     ));
   }
 
@@ -71,7 +43,9 @@ class ChatFacade {
       text: text,
       sender: sender,
     );
-    ChatRoom neuChatRoom = chatRoom.copyWithNewLastChatItem(chatItem);
+    ChatRoom neuChatRoom = chatRoom.copyWith(
+      lastChatItem: chatItem,
+    );
 
     return (await _sendMessage(
       chatItem: chatItem,

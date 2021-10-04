@@ -6,6 +6,9 @@ import 'package:tw_core/models/tw_user/tw_user.dart';
 part 'work.freezed.dart';
 part 'work.g.dart';
 
+enum WorkType { Tender, Supplement, Job }
+enum BidType { TenderBid, SupplementBid, JobBid }
+
 abstract class Work {
   WorkIdentifier get workIdentifier;
   DateTime get createdOn;
@@ -13,7 +16,24 @@ abstract class Work {
   LocationModel get location;
 }
 
-enum WorkType { Tender, Supplement, Job }
+abstract class WorkBid {
+  BidIdentifier get bidIdentifier;
+  double? get rating;
+}
+
+@freezed
+class BidIdentifier with _$BidIdentifier {
+  const factory BidIdentifier({
+    required String bidId,
+    required WorkIdentifier workIdentifier,
+    required TWUser bidder,
+    required DateTime appliedOn,
+    required BidType bidType,
+  }) = _BidIdentifier;
+
+  factory BidIdentifier.fromJson(Map<String, dynamic> json) =>
+      _$BidIdentifierFromJson(json);
+}
 
 @freezed
 class WorkIdentifier with _$WorkIdentifier {
