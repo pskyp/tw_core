@@ -4,6 +4,8 @@ class TWTheme {
   static Color get darkGreen => Color(0xff084348);
   static Color get lightGreen => Color(0xff015c67);
   static Color get twOrange => Color(0xFFFB9D2B);
+    static Color get lightOrange => Color(0xFFffce5e);
+    static Color get twGreen => Color(0xff015c67);
   static const Color kMainThemeColor = Color(0xff027887);
 
   static ThemeData themeData = ThemeData(
