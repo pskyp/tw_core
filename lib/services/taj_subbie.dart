@@ -4,6 +4,7 @@ class TAJSubbie extends TAJFacade {
   // static Option<List<BidReview>> allBidReviews = optionOf(null);
   static Option<List<JobBid>> allBids = optionOf(null);
   static Option<List<Job>> allJobs = optionOf(null);
+  static Option<List<InviteToBid>> allInvites = optionOf(null);
 
   Future<Either<TWServerError, Unit>> acceptJobOffer({
     required Job job,
@@ -178,13 +179,16 @@ class TAJSubbie extends TAJFacade {
   //       return allBidReviews.getOrElse(() => []);
   //     });
 
-  Stream<List<InviteToBid>?> streamInvitesForSubbie(Subbie subbie) =>
+  Stream<List<InviteToBid>> streamInvitesForSubbie(Subbie subbie) =>
       TWFC.subbieCollection
           .doc(subbie.basicProfile.uid)
           .collection('invites')
           .snapshots()
-          .map((list) =>
-              list.docs.map((doc) => InviteToBid.fromMap(doc.data())).toList());
+          .map((list) {
+        allInvites = optionOf(
+            list.docs.map((doc) => InviteToBid.fromMap(doc.data())).toList());
+        return allInvites.getOrElse(() => []);
+      });
 
   Stream<List<Job>> streamAllJobs(TWUser subbie) =>
       TWFC.jobCollection.snapshots().map((list) {

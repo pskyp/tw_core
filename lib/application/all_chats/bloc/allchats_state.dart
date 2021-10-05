@@ -1,5 +1,14 @@
 part of 'allchats_bloc.dart';
 
+class ChatSection extends Equatable {
+  final String sectionTitle;
+  final List<ChatRoom> chatRooms;
+  ChatSection({required this.sectionTitle, required this.chatRooms});
+
+  @override
+  List<Object?> get props => [sectionTitle];
+}
+
 class AllchatsState {
   final Option<List<ChatRoom>> _allChatRoomsOption;
   AllchatsState({
@@ -26,6 +35,34 @@ class AllchatsState {
             .where((chatRoom) => chatRoom.chatType == ChatType.Tender)
             .toList(),
       ),
+    );
+  }
+
+  Option<List<ChatSection>> allChatsWithSections() {
+    return _allChatRoomsOption.fold(
+      () => optionOf(null),
+      (allChatRooms) {
+        List<ChatRoom> allChats = allChatRooms
+            .where((chatRoom) => chatRoom.chatType == ChatType.Tender)
+            .toList();
+        List<ChatSection> allChatSections = [];
+        allChats.forEach(
+          (chatRoom) {
+            String devTitle = chatRoom.bidIdentifier.workIdentifier.title;
+            if (allChatSections.contains(devTitle)) {
+              allChatSections
+                  .where((section) => section.sectionTitle == devTitle)
+                  .first
+                  .chatRooms
+                  .add(chatRoom);
+            } else {
+              allChatSections.add(
+                  ChatSection(sectionTitle: devTitle, chatRooms: [chatRoom]));
+            }
+          },
+        );
+        return optionOf(allChatSections);
+      },
     );
   }
 
