@@ -12,16 +12,12 @@ part 'allchats_event.dart';
 part 'allchats_state.dart';
 
 class AllchatsBloc extends Bloc<AllchatsEvent, AllchatsState> {
-  final ChatFacade chatFacade;
   final TWUser loggedInUser;
 
   AllchatsBloc({
-    required this.chatFacade,
     required this.loggedInUser,
-  }) : super(AllchatsState.initial(
-          chatFacade: chatFacade,
-        )) {
-    chatFacade.streamChatRooms(loggedInUser).listen((event) {
+  }) : super(AllchatsState.initial()) {
+    ChatFacade().streamChatRooms(loggedInUser).listen((event) {
       add(AllchatsEvent.streamChatRoomsUpdated(event));
     });
   }

@@ -6,10 +6,8 @@ class AllchatsState {
     required Option<List<ChatRoom>> allChatRoomsOption,
   }) : _allChatRoomsOption = allChatRoomsOption;
 
-  factory AllchatsState.initial({
-    required ChatFacade chatFacade,
-  }) =>
-      AllchatsState(allChatRoomsOption: chatFacade.chatRooms);
+  factory AllchatsState.initial() =>
+      AllchatsState(allChatRoomsOption: ChatFacade().chatRooms);
 
   Option<List<ChatRoom>> jobChatRoomsOption() {
     return _allChatRoomsOption.fold(

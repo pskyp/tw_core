@@ -82,15 +82,6 @@ class TAJContractor extends TAJFacade {
       TWFC.tenderBidsCollection.doc(tenderBid.bidIdentifier.bidId),
       tenderBid.toJson(),
     );
-    batch.set(
-      TWFC.contractorsCollection
-          .doc(contractor.basicProfile.uid)
-          .collection('applied_tender_ids')
-          .doc(tender.workIdentifier.workId),
-      {
-        'tenderId': tender.workIdentifier.workId,
-      },
-    );
     return commitBatch(batch);
   }
 
@@ -220,7 +211,7 @@ class TAJContractor extends TAJFacade {
 
   Stream<List<TenderBid>> streamTenderBids(TWUser user) {
     return TWFC.tenderBidsCollection
-        .where('bidderId', isEqualTo: user.uid)
+        .where('bidIdentifier.bidder.uid', isEqualTo: user.uid)
         .snapshots()
         .map((list) {
       List<TenderBid>? tenderBids =

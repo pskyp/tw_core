@@ -311,7 +311,10 @@ class TAJDeveloper extends TAJFacade {
     required Tender tender,
   }) {
     return TWFC.tenderBidsCollection
-        .where('tenderId', isEqualTo: tender.workIdentifier.workId)
+        .where(
+          'bidIdentifier.workIdentifier.workId',
+          isEqualTo: tender.workIdentifier.workId,
+        )
         .snapshots()
         .map((list) {
       return list.docs.map((doc) => TenderBid.fromJson(doc.data())).toList();
