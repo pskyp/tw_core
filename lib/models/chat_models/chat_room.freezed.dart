@@ -24,12 +24,14 @@ class _$ChatRoomTearOff {
       {required String chatRoomId,
       required BidIdentifier bidIdentifier,
       required List<String> participantUIDs,
-      required ChatItem? lastChatItem}) {
+      required ChatItem? lastChatItem,
+      required ChatType chatType}) {
     return _ChatRoom(
       chatRoomId: chatRoomId,
       bidIdentifier: bidIdentifier,
       participantUIDs: participantUIDs,
       lastChatItem: lastChatItem,
+      chatType: chatType,
     );
   }
 
@@ -47,6 +49,7 @@ mixin _$ChatRoom {
   BidIdentifier get bidIdentifier => throw _privateConstructorUsedError;
   List<String> get participantUIDs => throw _privateConstructorUsedError;
   ChatItem? get lastChatItem => throw _privateConstructorUsedError;
+  ChatType get chatType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -62,7 +65,8 @@ abstract class $ChatRoomCopyWith<$Res> {
       {String chatRoomId,
       BidIdentifier bidIdentifier,
       List<String> participantUIDs,
-      ChatItem? lastChatItem});
+      ChatItem? lastChatItem,
+      ChatType chatType});
 
   $BidIdentifierCopyWith<$Res> get bidIdentifier;
 }
@@ -81,6 +85,7 @@ class _$ChatRoomCopyWithImpl<$Res> implements $ChatRoomCopyWith<$Res> {
     Object? bidIdentifier = freezed,
     Object? participantUIDs = freezed,
     Object? lastChatItem = freezed,
+    Object? chatType = freezed,
   }) {
     return _then(_value.copyWith(
       chatRoomId: chatRoomId == freezed
@@ -99,6 +104,10 @@ class _$ChatRoomCopyWithImpl<$Res> implements $ChatRoomCopyWith<$Res> {
           ? _value.lastChatItem
           : lastChatItem // ignore: cast_nullable_to_non_nullable
               as ChatItem?,
+      chatType: chatType == freezed
+          ? _value.chatType
+          : chatType // ignore: cast_nullable_to_non_nullable
+              as ChatType,
     ));
   }
 
@@ -119,7 +128,8 @@ abstract class _$ChatRoomCopyWith<$Res> implements $ChatRoomCopyWith<$Res> {
       {String chatRoomId,
       BidIdentifier bidIdentifier,
       List<String> participantUIDs,
-      ChatItem? lastChatItem});
+      ChatItem? lastChatItem,
+      ChatType chatType});
 
   @override
   $BidIdentifierCopyWith<$Res> get bidIdentifier;
@@ -140,6 +150,7 @@ class __$ChatRoomCopyWithImpl<$Res> extends _$ChatRoomCopyWithImpl<$Res>
     Object? bidIdentifier = freezed,
     Object? participantUIDs = freezed,
     Object? lastChatItem = freezed,
+    Object? chatType = freezed,
   }) {
     return _then(_ChatRoom(
       chatRoomId: chatRoomId == freezed
@@ -158,6 +169,10 @@ class __$ChatRoomCopyWithImpl<$Res> extends _$ChatRoomCopyWithImpl<$Res>
           ? _value.lastChatItem
           : lastChatItem // ignore: cast_nullable_to_non_nullable
               as ChatItem?,
+      chatType: chatType == freezed
+          ? _value.chatType
+          : chatType // ignore: cast_nullable_to_non_nullable
+              as ChatType,
     ));
   }
 }
@@ -169,7 +184,8 @@ class _$_ChatRoom implements _ChatRoom {
       {required this.chatRoomId,
       required this.bidIdentifier,
       required this.participantUIDs,
-      required this.lastChatItem});
+      required this.lastChatItem,
+      required this.chatType});
 
   factory _$_ChatRoom.fromJson(Map<String, dynamic> json) =>
       _$$_ChatRoomFromJson(json);
@@ -182,10 +198,12 @@ class _$_ChatRoom implements _ChatRoom {
   final List<String> participantUIDs;
   @override
   final ChatItem? lastChatItem;
+  @override
+  final ChatType chatType;
 
   @override
   String toString() {
-    return 'ChatRoom(chatRoomId: $chatRoomId, bidIdentifier: $bidIdentifier, participantUIDs: $participantUIDs, lastChatItem: $lastChatItem)';
+    return 'ChatRoom(chatRoomId: $chatRoomId, bidIdentifier: $bidIdentifier, participantUIDs: $participantUIDs, lastChatItem: $lastChatItem, chatType: $chatType)';
   }
 
   @override
@@ -203,7 +221,10 @@ class _$_ChatRoom implements _ChatRoom {
                     .equals(other.participantUIDs, participantUIDs)) &&
             (identical(other.lastChatItem, lastChatItem) ||
                 const DeepCollectionEquality()
-                    .equals(other.lastChatItem, lastChatItem)));
+                    .equals(other.lastChatItem, lastChatItem)) &&
+            (identical(other.chatType, chatType) ||
+                const DeepCollectionEquality()
+                    .equals(other.chatType, chatType)));
   }
 
   @override
@@ -212,7 +233,8 @@ class _$_ChatRoom implements _ChatRoom {
       const DeepCollectionEquality().hash(chatRoomId) ^
       const DeepCollectionEquality().hash(bidIdentifier) ^
       const DeepCollectionEquality().hash(participantUIDs) ^
-      const DeepCollectionEquality().hash(lastChatItem);
+      const DeepCollectionEquality().hash(lastChatItem) ^
+      const DeepCollectionEquality().hash(chatType);
 
   @JsonKey(ignore: true)
   @override
@@ -230,7 +252,8 @@ abstract class _ChatRoom implements ChatRoom {
       {required String chatRoomId,
       required BidIdentifier bidIdentifier,
       required List<String> participantUIDs,
-      required ChatItem? lastChatItem}) = _$_ChatRoom;
+      required ChatItem? lastChatItem,
+      required ChatType chatType}) = _$_ChatRoom;
 
   factory _ChatRoom.fromJson(Map<String, dynamic> json) = _$_ChatRoom.fromJson;
 
@@ -242,6 +265,8 @@ abstract class _ChatRoom implements ChatRoom {
   List<String> get participantUIDs => throw _privateConstructorUsedError;
   @override
   ChatItem? get lastChatItem => throw _privateConstructorUsedError;
+  @override
+  ChatType get chatType => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ChatRoomCopyWith<_ChatRoom> get copyWith =>

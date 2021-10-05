@@ -1,29 +1,20 @@
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tw_core/models/bid/job_bid.dart';
-import 'package:tw_core/models/bid_on_tender/tender_bid.dart';
 import 'package:tw_core/models/chat_models/chat_item.dart';
-import 'package:tw_core/models/job/job.dart';
-import 'package:tw_core/models/tender/tender_model.dart';
 import 'package:tw_core/models/work/work.dart';
 import 'package:tw_core/services/chat_facade.dart';
 
 part 'chat_room.freezed.dart';
 part 'chat_room.g.dart';
 
-class ChatRoomScreenArguments {
-  final ChatRoom? chatRoom;
-  final ChatType type;
-  final Either<Job, Tender> work;
-  final Either<JobBid, TenderBid> workBid;
-
-  ChatRoomScreenArguments({
-    required this.chatRoom,
-    required this.type,
-    required this.work,
-    required this.workBid,
-  });
-}
+// class ChatRoomScreenArguments {
+//   final ChatRoom chatRoom;
+//   final ChatType type;
+//
+//   ChatRoomScreenArguments({
+//     required this.chatRoom,
+//     required this.type,
+//   });
+// }
 
 @freezed
 class ChatRoom with _$ChatRoom {
@@ -37,6 +28,7 @@ class ChatRoom with _$ChatRoom {
     required BidIdentifier bidIdentifier,
     required List<String> participantUIDs,
     required ChatItem? lastChatItem,
+    required ChatType chatType,
   }) = _ChatRoom;
 
   factory ChatRoom.fromBidIdentifier({
@@ -44,6 +36,9 @@ class ChatRoom with _$ChatRoom {
   }) {
     return _ChatRoom(
       bidIdentifier: bidIdentifier,
+      chatType: bidIdentifier.bidType == BidType.JobBid
+          ? ChatType.Job
+          : ChatType.Tender,
       chatRoomId: ChatRoom.getChatRoomId(
         bidIdentifier: bidIdentifier,
       ),

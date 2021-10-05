@@ -1,22 +1,35 @@
 part of 'allchats_bloc.dart';
 
-@freezed
-class AllchatsState with _$AllchatsState {
-  const AllchatsState._();
-  const factory AllchatsState({
-    required Option<List<ChatRoom>> allChatRooms,
-    required ChatType type,
-  }) = _AllchatsState;
+class AllchatsState {
+  final Option<List<ChatRoom>> _allChatRoomsOption;
+  AllchatsState({
+    required Option<List<ChatRoom>> allChatRoomsOption,
+  }) : _allChatRoomsOption = allChatRoomsOption;
 
   factory AllchatsState.initial({
     required ChatFacade chatFacade,
-    required TAJFacade tajFacade,
-    required ChatType type,
   }) =>
-      _AllchatsState(
-        allChatRooms: chatFacade.chatRooms,
-        type: type,
-      );
+      AllchatsState(allChatRoomsOption: chatFacade.chatRooms);
+
+  Option<List<ChatRoom>> jobChatRoomsOption() {
+    return _allChatRoomsOption.fold(
+      () => optionOf(null),
+      (allChatRooms) => optionOf(allChatRooms
+          .where((chatRoom) => chatRoom.chatType == ChatType.Job)
+          .toList()),
+    );
+  }
+
+  Option<List<ChatRoom>> tenderAndSupplementChatRoomsOption() {
+    return _allChatRoomsOption.fold(
+      () => optionOf(null),
+      (allChatRooms) => optionOf(
+        allChatRooms
+            .where((chatRoom) => chatRoom.chatType == ChatType.Tender)
+            .toList(),
+      ),
+    );
+  }
 
   // List<Job> get allJobsList => allJobs.getOrElse(() => []);
   // List<JobBid> get allBidsList => allBids.getOrElse(() => []);
@@ -74,21 +87,5 @@ class AllchatsState with _$AllchatsState {
   //       );
   // }
   //
-  // List<ChatRoom> jobChatRooms() {
-  //   return allChatRooms
-  //       .getOrElse(() => [])
-  //       .where(
-  //         (chatRoom) => !chatRoom.isTenderChat,
-  //       )
-  //       .toList();
-  // }
-  //
-  // List<ChatRoom> tenderChatRooms() {
-  //   return allChatRooms
-  //       .getOrElse(() => [])
-  //       .where(
-  //         (chatRoom) => chatRoom.isTenderChat,
-  //       )
-  //       .toList();
-  // }
+
 }

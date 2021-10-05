@@ -12,6 +12,16 @@ part 'chatroom_bloc.freezed.dart';
 part 'chatroom_event.dart';
 part 'chatroom_state.dart';
 
+class ChatRoomBlocArguments {
+  final TWUser loggedInUser;
+  final ChatRoom chatRoom;
+
+  ChatRoomBlocArguments({
+    required this.loggedInUser,
+    required this.chatRoom,
+  });
+}
+
 class ChatroomBloc extends Bloc<ChatroomEvent, ChatroomState> {
   final TWUser loggedInUser;
   ChatroomBloc({
