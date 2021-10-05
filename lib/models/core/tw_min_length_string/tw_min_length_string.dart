@@ -10,6 +10,7 @@ class TWString {
   static const Job_Title_ML = 3;
   static const Job_Desc_ML = 3;
   static const Job_Requirement_ML = 3;
+  static const Bio_Cover_Letter_ML = 3;
 
   final Either<TWStringFailure, String> value;
 
