@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cache/cache.dart';
 import 'package:tw_core/models/contractor/contractor_model.dart';
 import 'package:tw_core/models/developer/developer.dart';
@@ -8,8 +10,13 @@ class CacheService {
   static CacheClient _cacheClient = CacheClient();
 
   static final String userKey = 'user_key';
+  static setUserStream<T>(Stream<T> streamUser) {
+    streamUser.listen((event) {
+      writeUser<T>(FullUser<T>(event));
+    });
+  }
 
-  writeUser<T>(FullUser<T> user) {
+  static writeUser<T>(FullUser<T> user) {
     _cacheClient.write(key: userKey, value: user);
   }
 
