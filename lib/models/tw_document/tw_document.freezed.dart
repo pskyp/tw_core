@@ -27,7 +27,7 @@ class _$TWDocumentTearOff {
       required String docName,
       required String docPath,
       required String downloadURL,
-      required String instructions,
+      String instructions = 'No instructions found',
       required String uploadedByUID,
       List<TWUser> seenByUsers = const <TWUser>[],
       bool deleted = false}) {
@@ -254,7 +254,7 @@ class _$TWDocumentData implements TWDocumentData {
       required this.docName,
       required this.docPath,
       required this.downloadURL,
-      required this.instructions,
+      this.instructions = 'No instructions found',
       required this.uploadedByUID,
       this.seenByUsers = const <TWUser>[],
       this.deleted = false});
@@ -274,6 +274,7 @@ class _$TWDocumentData implements TWDocumentData {
   final String docPath;
   @override
   final String downloadURL;
+  @JsonKey(defaultValue: 'No instructions found')
   @override
   final String instructions;
   @override
@@ -356,7 +357,7 @@ abstract class TWDocumentData implements TWDocument {
       required String docName,
       required String docPath,
       required String downloadURL,
-      required String instructions,
+      String instructions,
       required String uploadedByUID,
       List<TWUser> seenByUsers,
       bool deleted}) = _$TWDocumentData;

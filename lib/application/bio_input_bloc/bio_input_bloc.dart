@@ -5,6 +5,8 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/models/core/tw_min_length_string/tw_min_length_string.dart';
 import 'package:tw_core/models/errors.dart';
+import 'package:tw_core/services/cache_service.dart';
+import 'package:tw_core/services/taj_facade.dart';
 
 part 'bio_input_bloc.freezed.dart';
 part 'bio_input_event.dart';
@@ -17,12 +19,23 @@ class BioInputBloc extends Bloc<BioInputEvent, BioInputState> {
   Stream<BioInputState> mapEventToState(
     BioInputEvent event,
   ) async* {
-    yield* event.map(
-      coverLetterInpput: (e) async* {
-        yield state.copyWith(
-          coverLetter: TWString(e.input, TWString.Bio_Cover_Letter_ML),
-        );
-      },
-    );
+    yield* event.map(coverLetterInpput: (e) async* {
+      yield state.copyWith(
+        coverLetter: TWString(e.input, TWString.Bio_Cover_Letter_ML),
+        resultOption: optionOf(null),
+      );
+    }, submitPressed: (e) async* {
+      yield state.copyWith(showErrorMessages: true);
+      if (!state.coverLetter.isValid) return;
+      yield state.copyWith(submissionInProgress: true);
+      Either<TWServerError, Unit> result = await TAJFacade().saveCoverLetter(
+        contractor: CacheService().contractor,
+        coverLetter: state.coverLetter,
+      );
+      yield state.copyWith(
+        resultOption: optionOf(result),
+        submissionInProgress: false,
+      );
+    });
   }
 }

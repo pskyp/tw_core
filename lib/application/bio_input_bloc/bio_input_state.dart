@@ -10,7 +10,9 @@ class BioInputState with _$BioInputState {
   }) = _BioInputState;
 
   factory BioInputState.initial() => _BioInputState(
-        coverLetter: TWString('', TWString.Bio_Cover_Letter_ML),
+        coverLetter: TWString(
+            CacheService().contractor.userBio?.coverLetter ?? '',
+            TWString.Bio_Cover_Letter_ML),
         resultOption: optionOf(null),
         submissionInProgress: false,
         showErrorMessages: false,

@@ -423,6 +423,7 @@ class _$UploadDocStateTearOff {
 
   _UploadDocState call(
       {required TWString instruction,
+      bool? requireInstructions,
       required FilePickerResult? selectedFile,
       required bool showErrorMessages,
       required bool uploadInProgress,
@@ -432,6 +433,7 @@ class _$UploadDocStateTearOff {
       required Option<Either<TWServerError, Unit>> resultOption}) {
     return _UploadDocState(
       instruction: instruction,
+      requireInstructions: requireInstructions,
       selectedFile: selectedFile,
       showErrorMessages: showErrorMessages,
       uploadInProgress: uploadInProgress,
@@ -449,6 +451,7 @@ const $UploadDocState = _$UploadDocStateTearOff();
 /// @nodoc
 mixin _$UploadDocState {
   TWString get instruction => throw _privateConstructorUsedError;
+  bool? get requireInstructions => throw _privateConstructorUsedError;
   FilePickerResult? get selectedFile => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get uploadInProgress => throw _privateConstructorUsedError;
@@ -470,6 +473,7 @@ abstract class $UploadDocStateCopyWith<$Res> {
       _$UploadDocStateCopyWithImpl<$Res>;
   $Res call(
       {TWString instruction,
+      bool? requireInstructions,
       FilePickerResult? selectedFile,
       bool showErrorMessages,
       bool uploadInProgress,
@@ -491,6 +495,7 @@ class _$UploadDocStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? instruction = freezed,
+    Object? requireInstructions = freezed,
     Object? selectedFile = freezed,
     Object? showErrorMessages = freezed,
     Object? uploadInProgress = freezed,
@@ -504,6 +509,10 @@ class _$UploadDocStateCopyWithImpl<$Res>
           ? _value.instruction
           : instruction // ignore: cast_nullable_to_non_nullable
               as TWString,
+      requireInstructions: requireInstructions == freezed
+          ? _value.requireInstructions
+          : requireInstructions // ignore: cast_nullable_to_non_nullable
+              as bool?,
       selectedFile: selectedFile == freezed
           ? _value.selectedFile
           : selectedFile // ignore: cast_nullable_to_non_nullable
@@ -545,6 +554,7 @@ abstract class _$UploadDocStateCopyWith<$Res>
   @override
   $Res call(
       {TWString instruction,
+      bool? requireInstructions,
       FilePickerResult? selectedFile,
       bool showErrorMessages,
       bool uploadInProgress,
@@ -568,6 +578,7 @@ class __$UploadDocStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? instruction = freezed,
+    Object? requireInstructions = freezed,
     Object? selectedFile = freezed,
     Object? showErrorMessages = freezed,
     Object? uploadInProgress = freezed,
@@ -581,6 +592,10 @@ class __$UploadDocStateCopyWithImpl<$Res>
           ? _value.instruction
           : instruction // ignore: cast_nullable_to_non_nullable
               as TWString,
+      requireInstructions: requireInstructions == freezed
+          ? _value.requireInstructions
+          : requireInstructions // ignore: cast_nullable_to_non_nullable
+              as bool?,
       selectedFile: selectedFile == freezed
           ? _value.selectedFile
           : selectedFile // ignore: cast_nullable_to_non_nullable
@@ -618,6 +633,7 @@ class __$UploadDocStateCopyWithImpl<$Res>
 class _$_UploadDocState extends _UploadDocState {
   const _$_UploadDocState(
       {required this.instruction,
+      this.requireInstructions,
       required this.selectedFile,
       required this.showErrorMessages,
       required this.uploadInProgress,
@@ -629,6 +645,8 @@ class _$_UploadDocState extends _UploadDocState {
 
   @override
   final TWString instruction;
+  @override
+  final bool? requireInstructions;
   @override
   final FilePickerResult? selectedFile;
   @override
@@ -646,7 +664,7 @@ class _$_UploadDocState extends _UploadDocState {
 
   @override
   String toString() {
-    return 'UploadDocState(instruction: $instruction, selectedFile: $selectedFile, showErrorMessages: $showErrorMessages, uploadInProgress: $uploadInProgress, loggedInUser: $loggedInUser, typeId: $typeId, docType: $docType, resultOption: $resultOption)';
+    return 'UploadDocState(instruction: $instruction, requireInstructions: $requireInstructions, selectedFile: $selectedFile, showErrorMessages: $showErrorMessages, uploadInProgress: $uploadInProgress, loggedInUser: $loggedInUser, typeId: $typeId, docType: $docType, resultOption: $resultOption)';
   }
 
   @override
@@ -656,6 +674,9 @@ class _$_UploadDocState extends _UploadDocState {
             (identical(other.instruction, instruction) ||
                 const DeepCollectionEquality()
                     .equals(other.instruction, instruction)) &&
+            (identical(other.requireInstructions, requireInstructions) ||
+                const DeepCollectionEquality()
+                    .equals(other.requireInstructions, requireInstructions)) &&
             (identical(other.selectedFile, selectedFile) ||
                 const DeepCollectionEquality()
                     .equals(other.selectedFile, selectedFile)) &&
@@ -682,6 +703,7 @@ class _$_UploadDocState extends _UploadDocState {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(instruction) ^
+      const DeepCollectionEquality().hash(requireInstructions) ^
       const DeepCollectionEquality().hash(selectedFile) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(uploadInProgress) ^
@@ -699,6 +721,7 @@ class _$_UploadDocState extends _UploadDocState {
 abstract class _UploadDocState extends UploadDocState {
   const factory _UploadDocState(
           {required TWString instruction,
+          bool? requireInstructions,
           required FilePickerResult? selectedFile,
           required bool showErrorMessages,
           required bool uploadInProgress,
@@ -711,6 +734,8 @@ abstract class _UploadDocState extends UploadDocState {
 
   @override
   TWString get instruction => throw _privateConstructorUsedError;
+  @override
+  bool? get requireInstructions => throw _privateConstructorUsedError;
   @override
   FilePickerResult? get selectedFile => throw _privateConstructorUsedError;
   @override

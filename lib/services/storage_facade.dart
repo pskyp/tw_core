@@ -66,6 +66,15 @@ class StorageFacade {
     }
   }
 
+  Future<Either<TWServerError, Unit>> reallyDeleteDoc(TWDocument doc) async {
+    try {
+      await TWFC.docsCollection.doc(doc.documentID).delete();
+      return right(unit);
+    } on Exception {
+      return left(TWServerError());
+    }
+  }
+
   Stream<List<TWDocument>> docs({
     required final List<String> typeId,
   }) {

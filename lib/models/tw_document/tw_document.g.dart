@@ -14,7 +14,7 @@ _$TWDocumentData _$$TWDocumentDataFromJson(Map<String, dynamic> json) =>
       docName: json['docName'] as String,
       docPath: json['docPath'] as String,
       downloadURL: json['downloadURL'] as String,
-      instructions: json['instructions'] as String,
+      instructions: json['instructions'] as String? ?? 'No instructions found',
       uploadedByUID: json['uploadedByUID'] as String,
       seenByUsers: (json['seenByUsers'] as List<dynamic>?)
               ?.map((e) => TWUser.fromJson(e as Map<String, dynamic>))
@@ -67,4 +67,5 @@ const _$TWDocTypeEnumMap = {
   TWDocType.Dev: 'Dev',
   TWDocType.Tender: 'Tender',
   TWDocType.TenderBid: 'TenderBid',
+  TWDocType.Portfolio: 'Portfolio',
 };

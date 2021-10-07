@@ -21,6 +21,10 @@ class _$BioInputEventTearOff {
       input,
     );
   }
+
+  SubmitPressed submitPressed() {
+    return const SubmitPressed();
+  }
 }
 
 /// @nodoc
@@ -28,33 +32,31 @@ const $BioInputEvent = _$BioInputEventTearOff();
 
 /// @nodoc
 mixin _$BioInputEvent {
-  String get input => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String input) coverLetterInpput,
+    required TResult Function() submitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String input)? coverLetterInpput,
+    TResult Function()? submitPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CoverLetterInput value) coverLetterInpput,
+    required TResult Function(SubmitPressed value) submitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CoverLetterInput value)? coverLetterInpput,
+    TResult Function(SubmitPressed value)? submitPressed,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $BioInputEventCopyWith<BioInputEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -63,7 +65,6 @@ abstract class $BioInputEventCopyWith<$Res> {
   factory $BioInputEventCopyWith(
           BioInputEvent value, $Res Function(BioInputEvent) then) =
       _$BioInputEventCopyWithImpl<$Res>;
-  $Res call({String input});
 }
 
 /// @nodoc
@@ -74,27 +75,13 @@ class _$BioInputEventCopyWithImpl<$Res>
   final BioInputEvent _value;
   // ignore: unused_field
   final $Res Function(BioInputEvent) _then;
-
-  @override
-  $Res call({
-    Object? input = freezed,
-  }) {
-    return _then(_value.copyWith(
-      input: input == freezed
-          ? _value.input
-          : input // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class $CoverLetterInputCopyWith<$Res>
-    implements $BioInputEventCopyWith<$Res> {
+abstract class $CoverLetterInputCopyWith<$Res> {
   factory $CoverLetterInputCopyWith(
           CoverLetterInput value, $Res Function(CoverLetterInput) then) =
       _$CoverLetterInputCopyWithImpl<$Res>;
-  @override
   $Res call({String input});
 }
 
@@ -156,6 +143,7 @@ class _$CoverLetterInput implements CoverLetterInput {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String input) coverLetterInpput,
+    required TResult Function() submitPressed,
   }) {
     return coverLetterInpput(input);
   }
@@ -164,6 +152,7 @@ class _$CoverLetterInput implements CoverLetterInput {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String input)? coverLetterInpput,
+    TResult Function()? submitPressed,
     required TResult orElse(),
   }) {
     if (coverLetterInpput != null) {
@@ -176,6 +165,7 @@ class _$CoverLetterInput implements CoverLetterInput {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CoverLetterInput value) coverLetterInpput,
+    required TResult Function(SubmitPressed value) submitPressed,
   }) {
     return coverLetterInpput(this);
   }
@@ -184,6 +174,7 @@ class _$CoverLetterInput implements CoverLetterInput {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CoverLetterInput value)? coverLetterInpput,
+    TResult Function(SubmitPressed value)? submitPressed,
     required TResult orElse(),
   }) {
     if (coverLetterInpput != null) {
@@ -196,12 +187,96 @@ class _$CoverLetterInput implements CoverLetterInput {
 abstract class CoverLetterInput implements BioInputEvent {
   const factory CoverLetterInput(String input) = _$CoverLetterInput;
 
-  @override
   String get input => throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   $CoverLetterInputCopyWith<CoverLetterInput> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SubmitPressedCopyWith<$Res> {
+  factory $SubmitPressedCopyWith(
+          SubmitPressed value, $Res Function(SubmitPressed) then) =
+      _$SubmitPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SubmitPressedCopyWithImpl<$Res>
+    extends _$BioInputEventCopyWithImpl<$Res>
+    implements $SubmitPressedCopyWith<$Res> {
+  _$SubmitPressedCopyWithImpl(
+      SubmitPressed _value, $Res Function(SubmitPressed) _then)
+      : super(_value, (v) => _then(v as SubmitPressed));
+
+  @override
+  SubmitPressed get _value => super._value as SubmitPressed;
+}
+
+/// @nodoc
+
+class _$SubmitPressed implements SubmitPressed {
+  const _$SubmitPressed();
+
+  @override
+  String toString() {
+    return 'BioInputEvent.submitPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SubmitPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String input) coverLetterInpput,
+    required TResult Function() submitPressed,
+  }) {
+    return submitPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String input)? coverLetterInpput,
+    TResult Function()? submitPressed,
+    required TResult orElse(),
+  }) {
+    if (submitPressed != null) {
+      return submitPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CoverLetterInput value) coverLetterInpput,
+    required TResult Function(SubmitPressed value) submitPressed,
+  }) {
+    return submitPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CoverLetterInput value)? coverLetterInpput,
+    TResult Function(SubmitPressed value)? submitPressed,
+    required TResult orElse(),
+  }) {
+    if (submitPressed != null) {
+      return submitPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SubmitPressed implements BioInputEvent {
+  const factory SubmitPressed() = _$SubmitPressed;
 }
 
 /// @nodoc

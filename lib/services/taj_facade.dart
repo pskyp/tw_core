@@ -12,6 +12,7 @@ import 'package:tw_core/models/contractor_rating/contractor_rating.dart';
 import 'package:tw_core/models/core/tw_location/tw_location.dart';
 import 'package:tw_core/models/core/tw_min_length_string/tw_min_length_string.dart';
 import 'package:tw_core/models/core/tw_number/tw_number.dart';
+import 'package:tw_core/models/core/user_bio/user_bio.dart';
 import 'package:tw_core/models/developer/developer.dart';
 import 'package:tw_core/models/development/development.dart';
 import 'package:tw_core/models/development/value_objects/dev_description/dev_description.dart';
@@ -30,6 +31,7 @@ import 'package:tw_core/models/tender/tender_model.dart';
 import 'package:tw_core/models/tender/tender_timeline.dart';
 import 'package:tw_core/models/tender_invitation_mail/tender_invitation_email.dart';
 import 'package:tw_core/models/trades.dart';
+import 'package:tw_core/models/tw_document/tw_document.dart';
 import 'package:tw_core/models/tw_notification/tw_notification.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 import 'package:tw_core/models/work/work.dart';
@@ -43,6 +45,28 @@ class TAJFacade {
   TAJFacade();
 
   static Option<List<ChatRoom>> allChatRooms = optionOf(null);
+
+  Future<Either<TWServerError, Unit>> saveCoverLetter({
+    required Contractor contractor,
+    required TWString coverLetter,
+  }) async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    batch.set(
+      TWFC.contractorsCollection.doc(contractor.basicProfile.uid),
+      contractor
+          .copyWith(userBio: UserBio(coverLetter: coverLetter.getOrCrash()))
+          .toJson(),
+    );
+    return (await commitBatch(batch));
+  }
+
+  Stream<List<TWDocument>> portfolioDocuments(TWUser user) {
+    return TWFC.docsCollection
+        .where('typeId', isEqualTo: user.uid)
+        .snapshots()
+        .map((event) =>
+            event.docs.map((doc) => TWDocument.fromJson(doc.data())).toList());
+  }
 
   Future<Either<TWServerError, Unit>> commitBatch(WriteBatch batch) async {
     try {

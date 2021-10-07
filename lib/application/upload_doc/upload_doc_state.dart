@@ -5,6 +5,7 @@ class UploadDocState with _$UploadDocState {
   const UploadDocState._();
   const factory UploadDocState({
     required TWString instruction,
+    bool? requireInstructions,
     required FilePickerResult? selectedFile,
     required bool showErrorMessages,
     required bool uploadInProgress,
@@ -18,6 +19,7 @@ class UploadDocState with _$UploadDocState {
     required TWUser loggedInUser,
     required String typeId,
     required TWDocType docType,
+    bool? requireInstructions,
   }) =>
       _UploadDocState(
         instruction: TWString('', TWString.DOC_INSTRUCTIONS_ML),
@@ -28,7 +30,13 @@ class UploadDocState with _$UploadDocState {
         loggedInUser: loggedInUser,
         docType: docType,
         typeId: typeId,
+        requireInstructions: requireInstructions,
       );
 
-  bool get allInputsValid => instruction.isValid && selectedFile != null;
+  bool get allInputsValid {
+    if (requireInstructions == null || requireInstructions!) {
+      return instruction.isValid && selectedFile != null;
+    } else
+      return selectedFile != null;
+  }
 }

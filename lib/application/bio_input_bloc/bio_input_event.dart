@@ -4,4 +4,6 @@ part of 'bio_input_bloc.dart';
 class BioInputEvent with _$BioInputEvent {
   const factory BioInputEvent.coverLetterInpput(String input) =
       CoverLetterInput;
+
+  const factory BioInputEvent.submitPressed() = SubmitPressed;
 }

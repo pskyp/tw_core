@@ -10,12 +10,14 @@ class DocumentSelector extends StatelessWidget {
   final TWDocType docType;
   final String typeId;
   final TWUser loggedInUser;
+  final bool? requireInstructions;
 
   DocumentSelector({
     Key? key,
     required this.loggedInUser,
     required this.typeId,
     required this.docType,
+    this.requireInstructions,
   }) : super(key: key);
 
   @override
@@ -30,8 +32,11 @@ class DocumentSelector extends StatelessWidget {
                 typeId: typeId,
                 docType: docType,
                 loggedInUser: loggedInUser,
+                requireInstructions: requireInstructions,
               ),
-              child: FilePickerDialog(),
+              child: FilePickerDialog(
+                requireInstructions: requireInstructions ?? true,
+              ),
             );
           },
         );
@@ -55,6 +60,8 @@ class DocumentSelector extends StatelessWidget {
 }
 
 class FilePickerDialog extends StatelessWidget {
+  final bool requireInstructions;
+  FilePickerDialog({required this.requireInstructions});
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -99,7 +106,7 @@ class FilePickerDialog extends StatelessWidget {
                 ),
                 SelectFileButton(),
                 SizedBox(height: 8),
-                DocInstructionsInput(),
+                if (requireInstructions) DocInstructionsInput(),
                 SizedBox(height: 8),
                 if (state.uploadInProgress) CircularProgressIndicator(),
               ],

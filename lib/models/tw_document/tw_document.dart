@@ -4,7 +4,7 @@ import 'package:tw_core/models/tw_user/tw_user.dart';
 part 'tw_document.freezed.dart';
 part 'tw_document.g.dart';
 
-enum TWDocType { Dev, Tender, TenderBid }
+enum TWDocType { Dev, Tender, TenderBid, Portfolio }
 
 @freezed
 class TWDocument with _$TWDocument {
@@ -16,7 +16,7 @@ class TWDocument with _$TWDocument {
     required String docName,
     required String docPath,
     required String downloadURL,
-    required String instructions,
+    @Default('No instructions found') String instructions,
     required String uploadedByUID,
     @Default(<TWUser>[]) List<TWUser> seenByUsers,
     @Default(false) bool deleted,

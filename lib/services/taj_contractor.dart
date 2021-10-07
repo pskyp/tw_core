@@ -121,9 +121,7 @@ class TAJContractor extends TAJFacade {
     WriteBatch batch = FirebaseFirestore.instance.batch();
     batch.set(
       TWFC.contractorsCollection.doc(contractor.basicProfile.uid),
-      contractor
-          .copyWith(newSavedJobRequirements: newSavedRequirements)
-          .toJson(),
+      contractor.copyWith(savedJobRequirements: newSavedRequirements).toJson(),
     );
     return commitBatch(batch);
   }

@@ -19,11 +19,13 @@ class UploadDocBloc extends Bloc<UploadDocEvent, UploadDocState> {
     required TWUser loggedInUser,
     required String typeId,
     required TWDocType docType,
+    bool? requireInstructions,
   }) : super(
           UploadDocState.initial(
             loggedInUser: loggedInUser,
             typeId: typeId,
             docType: docType,
+            requireInstructions: requireInstructions,
           ),
         );
 
@@ -51,7 +53,13 @@ class UploadDocBloc extends Bloc<UploadDocEvent, UploadDocState> {
           loggedInUser: state.loggedInUser,
           typeId: state.typeId,
           file: state.selectedFile!,
-          instructions: state.instruction,
+          instructions:
+              (state.requireInstructions == null || state.requireInstructions!)
+                  ? state.instruction
+                  : TWString(
+                      'No instructions found',
+                      TWString.min_length,
+                    ),
           docType: state.docType,
         );
         yield state.copyWith(
