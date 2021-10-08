@@ -143,8 +143,11 @@ PresetChat jobCompletePresetChat = PresetChat(
 class ChatConstants {
   static const String negotiationMessage =
       "###SuperSecretNegotiationMessage###";
-  static const String offerMessage = "The job was offered..";
-  static const String offerAcceptMessage = "The job was accepted";
-  static const String offerDeclineMessage = "The offer was declined..";
-  static const String jobCompleteMessage = "The jobis completed..";
+  static const String offerMessage = "###SuperSecretOfferMessage###";
+  static const String offerAcceptMessage =
+      "###SuperSecretOfferAcceptMessage###";
+  static const String offerDeclineMessage =
+      "###SuperSecretOfferDeclineMessage###";
+  static const String jobCompleteMessage =
+      "###SuperSecretJobCompleteMessage###";
 }
