@@ -201,7 +201,8 @@ class TAJContractor extends TAJFacade {
 
   Stream<List<JobBid>> bidsOnJob({required Job job}) {
     return TWFC.bidsCollection
-        .where('jobId', isEqualTo: job.workIdentifier.workId)
+        .where('bidIdentifier.workIdentifier.workId',
+            isEqualTo: job.workIdentifier.workId)
         .snapshots()
         .map((list) =>
             list.docs.map((doc) => JobBid.fromJson(doc.data())).toList());
