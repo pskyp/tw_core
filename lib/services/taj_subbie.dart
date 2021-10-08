@@ -160,13 +160,30 @@ class TAJSubbie extends TAJFacade {
   Stream<List<JobBid>> streamAllBidsBySubbie({required TWUser subbie}) {
     assert(subbie.type == TWUserType.Subbie);
     return TWFC.bidsCollection
-        .where('subbieTWUser.uid', isEqualTo: subbie.uid)
+        .where('bidIdentifier.bidder.uid', isEqualTo: subbie.uid)
         .snapshots()
         .map((list) {
       allBids = optionOf(
           list.docs.map((doc) => JobBid.fromJson(doc.data())).toList());
       return allBids.getOrElse(() => []);
     });
+  }
+
+  activateSubscription(Subbie subbie) => TWFC.subbieCollection
+      .doc(subbie.basicProfile.uid)
+      .update({'subscribed': true});
+
+  cancelSubscription(Subbie subbie) => TWFC.subbieCollection
+      .doc(subbie.basicProfile.uid)
+      .update({'subscribed': false});
+
+  Stream<JobBid> streamBid({required Subbie subbie, required Job job}) {
+    return TWFC.bidsCollection
+        .where('bidIdentifier.workIdentifier.workId',
+            isEqualTo: job.workIdentifier.workId)
+        .where('bidIdentifier.bidder.uid', isEqualTo: subbie.basicProfile.uid)
+        .snapshots()
+        .map((event) => JobBid.fromJson(event.docs.first.data()));
   }
 
   // Stream<List<BidReview>> subbieReviews(Subbie subbie) =>
