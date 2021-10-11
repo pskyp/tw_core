@@ -24,6 +24,14 @@ class _$AuthFailureTearOff {
     return const ServerError();
   }
 
+  SignOutFailed signOutFailed() {
+    return const SignOutFailed();
+  }
+
+  InvalidEmail invalidEmail() {
+    return const InvalidEmail();
+  }
+
   EmaillAlreadyInUse emaillAlreadyInUse() {
     return const EmaillAlreadyInUse();
   }
@@ -42,6 +50,8 @@ mixin _$AuthFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
+    required TResult Function() signOutFailed,
+    required TResult Function() invalidEmail,
     required TResult Function() emaillAlreadyInUse,
     required TResult Function() invalidCredentials,
   }) =>
@@ -50,6 +60,8 @@ mixin _$AuthFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
+    TResult Function()? signOutFailed,
+    TResult Function()? invalidEmail,
     TResult Function()? emaillAlreadyInUse,
     TResult Function()? invalidCredentials,
     required TResult orElse(),
@@ -59,6 +71,8 @@ mixin _$AuthFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(ServerError value) serverError,
+    required TResult Function(SignOutFailed value) signOutFailed,
+    required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
     required TResult Function(InvalidCredentials value) invalidCredentials,
   }) =>
@@ -67,6 +81,8 @@ mixin _$AuthFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
+    TResult Function(SignOutFailed value)? signOutFailed,
+    TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
     TResult Function(InvalidCredentials value)? invalidCredentials,
     required TResult orElse(),
@@ -132,6 +148,8 @@ class _$CancelledByUser implements CancelledByUser {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
+    required TResult Function() signOutFailed,
+    required TResult Function() invalidEmail,
     required TResult Function() emaillAlreadyInUse,
     required TResult Function() invalidCredentials,
   }) {
@@ -143,6 +161,8 @@ class _$CancelledByUser implements CancelledByUser {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
+    TResult Function()? signOutFailed,
+    TResult Function()? invalidEmail,
     TResult Function()? emaillAlreadyInUse,
     TResult Function()? invalidCredentials,
     required TResult orElse(),
@@ -158,6 +178,8 @@ class _$CancelledByUser implements CancelledByUser {
   TResult map<TResult extends Object?>({
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(ServerError value) serverError,
+    required TResult Function(SignOutFailed value) signOutFailed,
+    required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
     required TResult Function(InvalidCredentials value) invalidCredentials,
   }) {
@@ -169,6 +191,8 @@ class _$CancelledByUser implements CancelledByUser {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
+    TResult Function(SignOutFailed value)? signOutFailed,
+    TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
     TResult Function(InvalidCredentials value)? invalidCredentials,
     required TResult orElse(),
@@ -225,6 +249,8 @@ class _$ServerError implements ServerError {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
+    required TResult Function() signOutFailed,
+    required TResult Function() invalidEmail,
     required TResult Function() emaillAlreadyInUse,
     required TResult Function() invalidCredentials,
   }) {
@@ -236,6 +262,8 @@ class _$ServerError implements ServerError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
+    TResult Function()? signOutFailed,
+    TResult Function()? invalidEmail,
     TResult Function()? emaillAlreadyInUse,
     TResult Function()? invalidCredentials,
     required TResult orElse(),
@@ -251,6 +279,8 @@ class _$ServerError implements ServerError {
   TResult map<TResult extends Object?>({
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(ServerError value) serverError,
+    required TResult Function(SignOutFailed value) signOutFailed,
+    required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
     required TResult Function(InvalidCredentials value) invalidCredentials,
   }) {
@@ -262,6 +292,8 @@ class _$ServerError implements ServerError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
+    TResult Function(SignOutFailed value)? signOutFailed,
+    TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
     TResult Function(InvalidCredentials value)? invalidCredentials,
     required TResult orElse(),
@@ -275,6 +307,208 @@ class _$ServerError implements ServerError {
 
 abstract class ServerError implements AuthFailure {
   const factory ServerError() = _$ServerError;
+}
+
+/// @nodoc
+abstract class $SignOutFailedCopyWith<$Res> {
+  factory $SignOutFailedCopyWith(
+          SignOutFailed value, $Res Function(SignOutFailed) then) =
+      _$SignOutFailedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SignOutFailedCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements $SignOutFailedCopyWith<$Res> {
+  _$SignOutFailedCopyWithImpl(
+      SignOutFailed _value, $Res Function(SignOutFailed) _then)
+      : super(_value, (v) => _then(v as SignOutFailed));
+
+  @override
+  SignOutFailed get _value => super._value as SignOutFailed;
+}
+
+/// @nodoc
+
+class _$SignOutFailed implements SignOutFailed {
+  const _$SignOutFailed();
+
+  @override
+  String toString() {
+    return 'AuthFailure.signOutFailed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SignOutFailed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() signOutFailed,
+    required TResult Function() invalidEmail,
+    required TResult Function() emaillAlreadyInUse,
+    required TResult Function() invalidCredentials,
+  }) {
+    return signOutFailed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? signOutFailed,
+    TResult Function()? invalidEmail,
+    TResult Function()? emaillAlreadyInUse,
+    TResult Function()? invalidCredentials,
+    required TResult orElse(),
+  }) {
+    if (signOutFailed != null) {
+      return signOutFailed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(SignOutFailed value) signOutFailed,
+    required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
+    required TResult Function(InvalidCredentials value) invalidCredentials,
+  }) {
+    return signOutFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(SignOutFailed value)? signOutFailed,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
+    TResult Function(InvalidCredentials value)? invalidCredentials,
+    required TResult orElse(),
+  }) {
+    if (signOutFailed != null) {
+      return signOutFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOutFailed implements AuthFailure {
+  const factory SignOutFailed() = _$SignOutFailed;
+}
+
+/// @nodoc
+abstract class $InvalidEmailCopyWith<$Res> {
+  factory $InvalidEmailCopyWith(
+          InvalidEmail value, $Res Function(InvalidEmail) then) =
+      _$InvalidEmailCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$InvalidEmailCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements $InvalidEmailCopyWith<$Res> {
+  _$InvalidEmailCopyWithImpl(
+      InvalidEmail _value, $Res Function(InvalidEmail) _then)
+      : super(_value, (v) => _then(v as InvalidEmail));
+
+  @override
+  InvalidEmail get _value => super._value as InvalidEmail;
+}
+
+/// @nodoc
+
+class _$InvalidEmail implements InvalidEmail {
+  const _$InvalidEmail();
+
+  @override
+  String toString() {
+    return 'AuthFailure.invalidEmail()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is InvalidEmail);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() signOutFailed,
+    required TResult Function() invalidEmail,
+    required TResult Function() emaillAlreadyInUse,
+    required TResult Function() invalidCredentials,
+  }) {
+    return invalidEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? signOutFailed,
+    TResult Function()? invalidEmail,
+    TResult Function()? emaillAlreadyInUse,
+    TResult Function()? invalidCredentials,
+    required TResult orElse(),
+  }) {
+    if (invalidEmail != null) {
+      return invalidEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(SignOutFailed value) signOutFailed,
+    required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
+    required TResult Function(InvalidCredentials value) invalidCredentials,
+  }) {
+    return invalidEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(SignOutFailed value)? signOutFailed,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
+    TResult Function(InvalidCredentials value)? invalidCredentials,
+    required TResult orElse(),
+  }) {
+    if (invalidEmail != null) {
+      return invalidEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidEmail implements AuthFailure {
+  const factory InvalidEmail() = _$InvalidEmail;
 }
 
 /// @nodoc
@@ -319,6 +553,8 @@ class _$EmaillAlreadyInUse implements EmaillAlreadyInUse {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
+    required TResult Function() signOutFailed,
+    required TResult Function() invalidEmail,
     required TResult Function() emaillAlreadyInUse,
     required TResult Function() invalidCredentials,
   }) {
@@ -330,6 +566,8 @@ class _$EmaillAlreadyInUse implements EmaillAlreadyInUse {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
+    TResult Function()? signOutFailed,
+    TResult Function()? invalidEmail,
     TResult Function()? emaillAlreadyInUse,
     TResult Function()? invalidCredentials,
     required TResult orElse(),
@@ -345,6 +583,8 @@ class _$EmaillAlreadyInUse implements EmaillAlreadyInUse {
   TResult map<TResult extends Object?>({
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(ServerError value) serverError,
+    required TResult Function(SignOutFailed value) signOutFailed,
+    required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
     required TResult Function(InvalidCredentials value) invalidCredentials,
   }) {
@@ -356,6 +596,8 @@ class _$EmaillAlreadyInUse implements EmaillAlreadyInUse {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
+    TResult Function(SignOutFailed value)? signOutFailed,
+    TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
     TResult Function(InvalidCredentials value)? invalidCredentials,
     required TResult orElse(),
@@ -413,6 +655,8 @@ class _$InvalidCredentials implements InvalidCredentials {
   TResult when<TResult extends Object?>({
     required TResult Function() cancelledByUser,
     required TResult Function() serverError,
+    required TResult Function() signOutFailed,
+    required TResult Function() invalidEmail,
     required TResult Function() emaillAlreadyInUse,
     required TResult Function() invalidCredentials,
   }) {
@@ -424,6 +668,8 @@ class _$InvalidCredentials implements InvalidCredentials {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cancelledByUser,
     TResult Function()? serverError,
+    TResult Function()? signOutFailed,
+    TResult Function()? invalidEmail,
     TResult Function()? emaillAlreadyInUse,
     TResult Function()? invalidCredentials,
     required TResult orElse(),
@@ -439,6 +685,8 @@ class _$InvalidCredentials implements InvalidCredentials {
   TResult map<TResult extends Object?>({
     required TResult Function(CancelledByUser value) cancelledByUser,
     required TResult Function(ServerError value) serverError,
+    required TResult Function(SignOutFailed value) signOutFailed,
+    required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
     required TResult Function(InvalidCredentials value) invalidCredentials,
   }) {
@@ -450,6 +698,8 @@ class _$InvalidCredentials implements InvalidCredentials {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CancelledByUser value)? cancelledByUser,
     TResult Function(ServerError value)? serverError,
+    TResult Function(SignOutFailed value)? signOutFailed,
+    TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
     TResult Function(InvalidCredentials value)? invalidCredentials,
     required TResult orElse(),

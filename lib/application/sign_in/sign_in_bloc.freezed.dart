@@ -389,14 +389,14 @@ class _$SignInStateTearOff {
 
   _SignInState call(
       {required EmailAddress email,
-      required bool isSubmitting,
+      required bool sendingLinkToEmail,
       required bool showErrorMessages,
-      required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption}) {
+      required Option<Either<AuthFailure, Unit>> linkSentToEmailOption}) {
     return _SignInState(
       email: email,
-      isSubmitting: isSubmitting,
+      sendingLinkToEmail: sendingLinkToEmail,
       showErrorMessages: showErrorMessages,
-      authFailureOrSuccessOption: authFailureOrSuccessOption,
+      linkSentToEmailOption: linkSentToEmailOption,
     );
   }
 }
@@ -407,9 +407,9 @@ const $SignInState = _$SignInStateTearOff();
 /// @nodoc
 mixin _$SignInState {
   EmailAddress get email => throw _privateConstructorUsedError;
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get sendingLinkToEmail => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
+  Option<Either<AuthFailure, Unit>> get linkSentToEmailOption =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -424,9 +424,9 @@ abstract class $SignInStateCopyWith<$Res> {
       _$SignInStateCopyWithImpl<$Res>;
   $Res call(
       {EmailAddress email,
-      bool isSubmitting,
+      bool sendingLinkToEmail,
       bool showErrorMessages,
-      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
+      Option<Either<AuthFailure, Unit>> linkSentToEmailOption});
 }
 
 /// @nodoc
@@ -440,26 +440,26 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
   @override
   $Res call({
     Object? email = freezed,
-    Object? isSubmitting = freezed,
+    Object? sendingLinkToEmail = freezed,
     Object? showErrorMessages = freezed,
-    Object? authFailureOrSuccessOption = freezed,
+    Object? linkSentToEmailOption = freezed,
   }) {
     return _then(_value.copyWith(
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
-      isSubmitting: isSubmitting == freezed
-          ? _value.isSubmitting
-          : isSubmitting // ignore: cast_nullable_to_non_nullable
+      sendingLinkToEmail: sendingLinkToEmail == freezed
+          ? _value.sendingLinkToEmail
+          : sendingLinkToEmail // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
-          ? _value.authFailureOrSuccessOption
-          : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+      linkSentToEmailOption: linkSentToEmailOption == freezed
+          ? _value.linkSentToEmailOption
+          : linkSentToEmailOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
     ));
   }
@@ -474,9 +474,9 @@ abstract class _$SignInStateCopyWith<$Res>
   @override
   $Res call(
       {EmailAddress email,
-      bool isSubmitting,
+      bool sendingLinkToEmail,
       bool showErrorMessages,
-      Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption});
+      Option<Either<AuthFailure, Unit>> linkSentToEmailOption});
 }
 
 /// @nodoc
@@ -492,26 +492,26 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? email = freezed,
-    Object? isSubmitting = freezed,
+    Object? sendingLinkToEmail = freezed,
     Object? showErrorMessages = freezed,
-    Object? authFailureOrSuccessOption = freezed,
+    Object? linkSentToEmailOption = freezed,
   }) {
     return _then(_SignInState(
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as EmailAddress,
-      isSubmitting: isSubmitting == freezed
-          ? _value.isSubmitting
-          : isSubmitting // ignore: cast_nullable_to_non_nullable
+      sendingLinkToEmail: sendingLinkToEmail == freezed
+          ? _value.sendingLinkToEmail
+          : sendingLinkToEmail // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
-          ? _value.authFailureOrSuccessOption
-          : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+      linkSentToEmailOption: linkSentToEmailOption == freezed
+          ? _value.linkSentToEmailOption
+          : linkSentToEmailOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
     ));
   }
@@ -522,22 +522,22 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
 class _$_SignInState implements _SignInState {
   const _$_SignInState(
       {required this.email,
-      required this.isSubmitting,
+      required this.sendingLinkToEmail,
       required this.showErrorMessages,
-      required this.authFailureOrSuccessOption});
+      required this.linkSentToEmailOption});
 
   @override
   final EmailAddress email;
   @override
-  final bool isSubmitting;
+  final bool sendingLinkToEmail;
   @override
   final bool showErrorMessages;
   @override
-  final Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption;
+  final Option<Either<AuthFailure, Unit>> linkSentToEmailOption;
 
   @override
   String toString() {
-    return 'SignInState(email: $email, isSubmitting: $isSubmitting, showErrorMessages: $showErrorMessages, authFailureOrSuccessOption: $authFailureOrSuccessOption)';
+    return 'SignInState(email: $email, sendingLinkToEmail: $sendingLinkToEmail, showErrorMessages: $showErrorMessages, linkSentToEmailOption: $linkSentToEmailOption)';
   }
 
   @override
@@ -546,26 +546,24 @@ class _$_SignInState implements _SignInState {
         (other is _SignInState &&
             (identical(other.email, email) ||
                 const DeepCollectionEquality().equals(other.email, email)) &&
-            (identical(other.isSubmitting, isSubmitting) ||
+            (identical(other.sendingLinkToEmail, sendingLinkToEmail) ||
                 const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
+                    .equals(other.sendingLinkToEmail, sendingLinkToEmail)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
                     .equals(other.showErrorMessages, showErrorMessages)) &&
-            (identical(other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption) ||
+            (identical(other.linkSentToEmailOption, linkSentToEmailOption) ||
                 const DeepCollectionEquality().equals(
-                    other.authFailureOrSuccessOption,
-                    authFailureOrSuccessOption)));
+                    other.linkSentToEmailOption, linkSentToEmailOption)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
+      const DeepCollectionEquality().hash(sendingLinkToEmail) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(authFailureOrSuccessOption);
+      const DeepCollectionEquality().hash(linkSentToEmailOption);
 
   @JsonKey(ignore: true)
   @override
@@ -575,20 +573,20 @@ class _$_SignInState implements _SignInState {
 
 abstract class _SignInState implements SignInState {
   const factory _SignInState(
-      {required EmailAddress email,
-      required bool isSubmitting,
-      required bool showErrorMessages,
-      required Option<Either<AuthFailure, Unit>>
-          authFailureOrSuccessOption}) = _$_SignInState;
+          {required EmailAddress email,
+          required bool sendingLinkToEmail,
+          required bool showErrorMessages,
+          required Option<Either<AuthFailure, Unit>> linkSentToEmailOption}) =
+      _$_SignInState;
 
   @override
   EmailAddress get email => throw _privateConstructorUsedError;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get sendingLinkToEmail => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
   @override
-  Option<Either<AuthFailure, Unit>> get authFailureOrSuccessOption =>
+  Option<Either<AuthFailure, Unit>> get linkSentToEmailOption =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

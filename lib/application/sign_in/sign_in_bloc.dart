@@ -25,39 +25,31 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       emailInputChanged: (e) async* {
         yield state.copyWith(
           email: EmailAddress(e.value),
-          authFailureOrSuccessOption: none(),
+          sendingLinkToEmail: false,
+          linkSentToEmailOption: optionOf(null),
         );
       },
       signInPressed: (e) async* {
         yield state.copyWith(showErrorMessages: true);
-        Either<AuthFailure, Unit>? failureOrSuccess;
-        bool isEmailValid = state.email.value.isRight();
-
-        if (isEmailValid) {
-          yield state.copyWith(isSubmitting: true);
-          FirebaseAuth.instance.sendSignInLinkToEmail(
-            email: state.email.getOrCrash(),
-            actionCodeSettings: ActionCodeSettings(
-                url: 'https://tradeworksubbies.page.link',
-                androidPackageName: 'uk.tradework.tradeworksubbies',
-                handleCodeInApp: true,
-                androidInstallApp: true,
-                androidMinimumVersion: "21"),
-          );
-        }
+        if (!state.email.value.isRight()) return;
+        yield state.copyWith(sendingLinkToEmail: true);
+        Either<AuthFailure, Unit> linkSentToEmail =
+            await authFacade.sendSignInLinkToEmail(email: state.email);
         yield state.copyWith(
-          isSubmitting: false,
-          showErrorMessages: true,
-          authFailureOrSuccessOption: optionOf(failureOrSuccess),
+          linkSentToEmailOption: optionOf(linkSentToEmail),
+          sendingLinkToEmail: false,
         );
       },
       onLifeCycleChanged: (e) async* {
         final PendingDynamicLinkData? data =
             await FirebaseDynamicLinks.instance.getInitialLink();
+
+        print("Link data ");
         print(data);
         if (data?.link != null) {
           print(data);
           print(data?.link);
+          print("Getting data");
           final user = (await FirebaseAuth.instance.signInWithEmailLink(
             email: state.email.getOrCrash(),
             emailLink: data!.link.toString(),

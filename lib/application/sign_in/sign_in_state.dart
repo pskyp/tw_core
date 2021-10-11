@@ -4,14 +4,15 @@ part of 'sign_in_bloc.dart';
 class SignInState with _$SignInState {
   const factory SignInState({
     required EmailAddress email,
-    required bool isSubmitting,
+    required bool sendingLinkToEmail,
     required bool showErrorMessages,
-    required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+    required Option<Either<AuthFailure, Unit>> linkSentToEmailOption,
   }) = _SignInState;
 
   factory SignInState.initial() => _SignInState(
-      email: EmailAddress(''),
-      isSubmitting: false,
-      showErrorMessages: false,
-      authFailureOrSuccessOption: none());
+        linkSentToEmailOption: optionOf(null),
+        email: EmailAddress(''),
+        sendingLinkToEmail: false,
+        showErrorMessages: false,
+      );
 }
