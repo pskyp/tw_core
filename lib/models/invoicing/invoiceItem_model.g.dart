@@ -12,6 +12,7 @@ InvoiceItem _$InvoiceItemFromJson(Map<String, dynamic> json) => InvoiceItem(
       qty: (json['qty'] as num).toDouble(),
       unitPrice: (json['unitPrice'] as num).toDouble(),
       taxRate: (json['taxRate'] as num).toDouble(),
+      receiptPhotoId: json['receiptPhotoId'] as String?,
     );
 
 Map<String, dynamic> _$InvoiceItemToJson(InvoiceItem instance) =>
@@ -21,4 +22,5 @@ Map<String, dynamic> _$InvoiceItemToJson(InvoiceItem instance) =>
       'qty': instance.qty,
       'unitPrice': instance.unitPrice,
       'taxRate': instance.taxRate,
+      'receiptPhotoId': instance.receiptPhotoId,
     };
