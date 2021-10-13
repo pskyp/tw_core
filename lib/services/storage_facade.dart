@@ -9,7 +9,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:tw_core/firebase_collections/tw_firebase_collections.dart';
 import 'package:tw_core/models/core/tw_min_length_string/tw_min_length_string.dart';
 import 'package:tw_core/models/errors.dart';
-import 'package:tw_core/models/invoicing/invoiceItem_model.dart';
+import 'package:tw_core/models/invoicing/receipt_phooto.dart';
 import 'package:tw_core/models/tw_document/tw_document.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 

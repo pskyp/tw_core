@@ -169,6 +169,19 @@ class TAJSubbie extends TAJFacade {
     });
   }
 
+  Stream<List<Invoice>> streamInvoiceBySubbieForJob({required String jobId}) {
+    return TWFC.invoicesCollection
+        .where('subbieTWUser.uid',
+            isEqualTo: CacheService().subbie.basicProfile.uid)
+        .where('jobID', isEqualTo: jobId)
+        .snapshots()
+        .map((list) {
+      Option<List<Invoice>> invoicesOption = optionOf(
+          list.docs.map((doc) => Invoice.fromJson(doc.data())).toList());
+      return invoicesOption.getOrElse(() => []);
+    });
+  }
+
   activateSubscription(Subbie subbie) => TWFC.subbieCollection
       .doc(subbie.basicProfile.uid)
       .update({'subscribed': true});
