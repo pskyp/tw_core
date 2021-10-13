@@ -208,6 +208,14 @@ class TAJContractor extends TAJFacade {
             list.docs.map((doc) => JobBid.fromJson(doc.data())).toList());
   }
 
+  Stream<List<Invoice>> streamInvoicesOnJob({required Job job}) {
+    return TWFC.invoicesCollection
+        .where('jobID', isEqualTo: job.workIdentifier.workId)
+        .snapshots()
+        .map((list) =>
+            list.docs.map((doc) => Invoice.fromJson(doc.data())).toList());
+  }
+
   Stream<List<TenderBid>> streamTenderBids(TWUser user) {
     return TWFC.tenderBidsCollection
         .where('bidIdentifier.bidder.uid', isEqualTo: user.uid)

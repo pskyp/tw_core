@@ -169,6 +169,25 @@ class TAJSubbie extends TAJFacade {
     });
   }
 
+  Future<Either<TWServerError, Unit>> uploadReceiptPhotos({
+    required List<ReceiptPhoto> receiptPhotos,
+  }) async {
+    try {
+      var receiptPhotosRef =
+          FirebaseStorage.instance.ref().child('receiptPhotos/');
+      receiptPhotos.forEach((receiptPhoto) async {
+        var path = await receiptPhotosRef
+            .child(receiptPhoto.id)
+            .putFile(File(receiptPhoto.file.path));
+        String documentDownloadURL = await path.ref.getDownloadURL();
+      });
+
+      return right(unit);
+    } on Exception {
+      return left(TWServerError());
+    }
+  }
+
   Stream<List<Invoice>> streamInvoiceBySubbieForJob({required String jobId}) {
     return TWFC.invoicesCollection
         .where('subbieTWUser.uid',
