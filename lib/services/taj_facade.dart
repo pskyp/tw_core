@@ -20,6 +20,7 @@ import 'package:tw_core/models/development/value_objects/dev_title/dev_title.dar
 import 'package:tw_core/models/email/email.dart';
 import 'package:tw_core/models/errors.dart';
 import 'package:tw_core/models/invite_to_bid.dart';
+import 'package:tw_core/models/invoicing/invoice_model.dart';
 import 'package:tw_core/models/job/job.dart';
 import 'package:tw_core/models/job/value_objects/job_timeline/job_timeline.dart';
 import 'package:tw_core/models/job_review/job_review.dart';

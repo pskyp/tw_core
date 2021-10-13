@@ -6,7 +6,7 @@ part of 'invoice_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Invoice _$InvoiceFromJson(Map<String, dynamic> json) => Invoice(
+_$_Invoice _$$_InvoiceFromJson(Map<String, dynamic> json) => _$_Invoice(
       contractorTWUser:
           TWUser.fromJson(json['contractorTWUser'] as Map<String, dynamic>),
       subbieTWUser:
@@ -34,28 +34,29 @@ Invoice _$InvoiceFromJson(Map<String, dynamic> json) => Invoice(
       development: json['development'] as String,
     );
 
-Map<String, dynamic> _$InvoiceToJson(Invoice instance) => <String, dynamic>{
+Map<String, dynamic> _$$_InvoiceToJson(_$_Invoice instance) =>
+    <String, dynamic>{
+      'contractorTWUser': instance.contractorTWUser.toJson(),
+      'subbieTWUser': instance.subbieTWUser.toJson(),
+      'paidOn': instance.paidOn.toIso8601String(),
+      'companyRegisteredAddress': instance.companyRegisteredAddress,
+      'invoiceType': instance.invoiceType,
+      'companyOrTradingName': instance.companyOrTradingName,
+      'invoiceItems': instance.invoiceItems.map((e) => e.toJson()).toList(),
+      'vatNumber': instance.vatNumber,
+      'companyNumber': instance.companyNumber,
+      'invoiceID': instance.invoiceID,
+      'invoiceReference': instance.invoiceReference,
+      'description': instance.description,
+      'jobID': instance.jobID,
+      'invoiceDate': instance.invoiceDate.toIso8601String(),
+      'paymentTerm': instance.paymentTerm,
+      'amountPayable': instance.amountPayable,
       'netAmount': instance.netAmount,
       'totalTax': instance.totalTax,
-      'amountPayable': instance.amountPayable,
-      'subbieTWUser': instance.subbieTWUser.toJson(),
-      'contractorTWUser': instance.contractorTWUser.toJson(),
-      'companyNumber': instance.companyNumber,
-      'jobID': instance.jobID,
-      'invoiceID': instance.invoiceID,
-      'development': instance.development,
-      'companyRegisteredAddress': instance.companyRegisteredAddress,
-      'invoiceAddress': instance.invoiceAddress,
-      'vatNumber': instance.vatNumber,
-      'companyOrTradingName': instance.companyOrTradingName,
-      'description': instance.description,
-      'invoiceReference': instance.invoiceReference,
-      'invoiceType': instance.invoiceType,
-      'invoiceDate': instance.invoiceDate.toIso8601String(),
-      'paidOn': instance.paidOn.toIso8601String(),
-      'paymentTerm': instance.paymentTerm,
       'status': _$InvoiceStatusEnumMap[instance.status],
-      'invoiceItems': instance.invoiceItems.map((e) => e.toJson()).toList(),
+      'invoiceAddress': instance.invoiceAddress,
+      'development': instance.development,
     };
 
 K _$enumDecode<K, V>(
