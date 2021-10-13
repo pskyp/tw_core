@@ -16,8 +16,12 @@ part 'sign_in_state.dart';
 
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
   final IAuthFacade authFacade;
+  final String androidPackageName;
 
-  SignInBloc(this.authFacade) : super(SignInState.initial());
+  SignInBloc({
+    required this.authFacade,
+    required this.androidPackageName,
+  }) : super(SignInState.initial());
 
   @override
   Stream<SignInState> mapEventToState(SignInEvent event) async* {
@@ -34,7 +38,10 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         if (!state.email.value.isRight()) return;
         yield state.copyWith(sendingLinkToEmail: true);
         Either<AuthFailure, Unit> linkSentToEmail =
-            await authFacade.sendSignInLinkToEmail(email: state.email);
+            await authFacade.sendSignInLinkToEmail(
+          email: state.email,
+          androidPackageName: androidPackageName,
+        );
         yield state.copyWith(
           linkSentToEmailOption: optionOf(linkSentToEmail),
           sendingLinkToEmail: false,
