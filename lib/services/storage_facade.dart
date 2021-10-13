@@ -1,5 +1,4 @@
-// import 'dart:html' as html;
-import 'dart:io' as io;
+import 'dart:html' as html;
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -9,31 +8,11 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:tw_core/firebase_collections/tw_firebase_collections.dart';
 import 'package:tw_core/models/core/tw_min_length_string/tw_min_length_string.dart';
 import 'package:tw_core/models/errors.dart';
-import 'package:tw_core/models/invoicing/receipt_phooto.dart';
 import 'package:tw_core/models/tw_document/tw_document.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 
 class StorageFacade {
   var docsRef = FirebaseStorage.instance.ref().child('docs/');
-  var receiptPhotosRef = FirebaseStorage.instance.ref().child('receiptPhotos/');
-
-  Future<Either<TWServerError, Unit>> uploadReceiptPhotos({
-    required List<ReceiptPhoto> receiptPhotos,
-  }) async {
-    try {
-      receiptPhotos.forEach((receiptPhoto) async {
-        var path = await receiptPhotosRef
-            .child(receiptPhoto.id)
-            .putFile(io.File(receiptPhoto.file.path));
-        String documentDownloadURL = await path.ref.getDownloadURL();
-      });
-
-      return right(unit);
-    } on Exception {
-      return left(TWServerError());
-    }
-  }
-
   Future<Either<TWServerError, Unit>> uploadDocument({
     required TWUser loggedInUser,
     required String typeId,
@@ -67,12 +46,12 @@ class StorageFacade {
   }
 
   Future downloadFile({required TWDocument document}) async {
-    // String downloadURL = document.downloadURL;
-    //
-    // html.AnchorElement anchorElement =
-    //     new html.AnchorElement(href: downloadURL);
-    // anchorElement.download = downloadURL;
-    // anchorElement.click();
+    String downloadURL = document.downloadURL;
+
+    html.AnchorElement anchorElement =
+        new html.AnchorElement(href: downloadURL);
+    anchorElement.download = downloadURL;
+    anchorElement.click();
   }
 
   Future<Either<TWServerError, Unit>> deleteDoc(TWDocument doc) async {

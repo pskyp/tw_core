@@ -1,7 +1,10 @@
 library taj_tw;
 
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:intl/intl.dart';
 import 'package:tw_core/firebase_collections/tw_firebase_collections.dart';
 import 'package:tw_core/models/bid/job_bid.dart';
@@ -21,6 +24,7 @@ import 'package:tw_core/models/email/email.dart';
 import 'package:tw_core/models/errors.dart';
 import 'package:tw_core/models/invite_to_bid.dart';
 import 'package:tw_core/models/invoicing/invoice_model.dart';
+import 'package:tw_core/models/invoicing/receipt_phooto.dart';
 import 'package:tw_core/models/job/job.dart';
 import 'package:tw_core/models/job/value_objects/job_timeline/job_timeline.dart';
 import 'package:tw_core/models/job_review/job_review.dart';
