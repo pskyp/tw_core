@@ -17,10 +17,12 @@ part 'sign_in_state.dart';
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
   final IAuthFacade authFacade;
   final String androidPackageName;
+  final String iOSBundleId;
 
   SignInBloc({
     required this.authFacade,
     required this.androidPackageName,
+    required this.iOSBundleId,
   }) : super(SignInState.initial());
 
   @override
@@ -41,6 +43,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
             await authFacade.sendSignInLinkToEmail(
           email: state.email,
           androidPackageName: androidPackageName,
+          iOSBundleId: iOSBundleId,
         );
         yield state.copyWith(
           linkSentToEmailOption: optionOf(linkSentToEmail),

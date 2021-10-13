@@ -12,6 +12,7 @@ class FirebaseAuthFacade implements IAuthFacade {
   Future<Either<AuthFailure, Unit>> sendSignInLinkToEmail({
     required EmailAddress email,
     required String androidPackageName,
+    required String iOSBundleId,
   }) async {
     try {
       await FirebaseAuth.instance.sendSignInLinkToEmail(
@@ -19,6 +20,7 @@ class FirebaseAuthFacade implements IAuthFacade {
         actionCodeSettings: ActionCodeSettings(
           url: 'https://tradeworksubbies.page.link',
           androidPackageName: androidPackageName,
+          iOSBundleId: iOSBundleId,
           handleCodeInApp: true,
           androidInstallApp: true,
           androidMinimumVersion: "21",

@@ -6,6 +6,7 @@ abstract class IAuthFacade {
   Future<Either<AuthFailure, Unit>> sendSignInLinkToEmail({
     required EmailAddress email,
     required String androidPackageName,
+    required String iOSBundleId,
   });
   Future<void> signOut();
 }
