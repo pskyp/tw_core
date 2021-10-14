@@ -72,9 +72,7 @@ class PdfInvoiceApi {
         children: [
           Text(invoice.contractorTWUser.displayName,
               style: TextStyle(fontWeight: FontWeight.bold)),
-          Text(
-            invoice.contractorTWUser.location.buildingNumber,
-          ),
+        
           Text(invoice.contractorTWUser.location.completeAddress),
         ],
       );
