@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:tw_core/models/location/location_model.dart';
-import 'package:tw_core/models/location/coordinates.dart';
 import 'package:tw_core/models/location/postciode_lookup_model.dart';
 import 'package:tw_core/models/location/raw_address_model.dart';
 
@@ -12,8 +11,8 @@ class PlaceService {
   Future<List<RawAddressModel>> fetchSuggestions(String input) async {
     final request =
         'https://api.getAddress.io/autocomplete/$input?api-key=$apiKey';
-    final response = await http.get(Uri.parse(request));
 
+    final response = await http.get(Uri.parse(request));
     if (response.statusCode == 200) {
       var suggestions = jsonDecode(response.body);
       List<RawAddressModel> addressList = (suggestions["suggestions"] as List)
@@ -35,7 +34,7 @@ class PlaceService {
       List<RawAddressModel> addressList = (suggestions["suggestions"] as List)
           .map((e) => RawAddressModel.fromJson(e))
           .toList();
-            
+
       return addressList;
     } else {
       throw Exception('Error fetching location');
@@ -110,15 +109,14 @@ class PlaceService {
           print(element);
         });
 
-         LocationModel location;
+        LocationModel location;
 
-      result2.forEach((element) async {
-        location = await PlaceService().getcoordinate(
-            element);
-        print('---------------------------------');
-        print(location.latitude);
-   print('---------------------------------');
-      });
+        result2.forEach((element) async {
+          location = await PlaceService().getcoordinate(element);
+          print('---------------------------------');
+          print(location.latitude);
+          print('---------------------------------');
+        });
         return result2;
       } else {
         throw Exception('Error fetching location');
@@ -128,9 +126,7 @@ class PlaceService {
   }
 
   Future<LocationModel> getcoordinate(Map placeId) async {
-    final request =
-        'https://api.postcodes.io/outcodes/'+
-            placeId['postcode'];
+    final request = 'https://api.postcodes.io/outcodes/' + placeId['postcode'];
     final response = await http.get(Uri.parse(request));
     print(response.body);
     if (response.statusCode == 200) {
@@ -138,7 +134,7 @@ class PlaceService {
       final PostcodeLookupModel data = PostcodeLookupModel.fromJson(json);
       // print(data.result.);
 
-      if (data.result.adminCounty.length<1) data.result.adminCounty.add('');
+      if (data.result.adminCounty.length < 1) data.result.adminCounty.add('');
       LocationModel location = LocationModel(
           postcode: placeId['postcode'],
           latitude: data.result.longitude,
@@ -155,7 +151,7 @@ class PlaceService {
           line4: '',
           locality: '',
           townOrCity: placeId['name'],
-          county: data.result.adminCounty[0] ,
+          county: data.result.adminCounty[0],
           district: data.result.adminDistrict[0],
           country: 'gb',
           residential: false);
@@ -164,6 +160,4 @@ class PlaceService {
       throw Exception('Failed to fetch suggestion');
     }
   }
-
-   
 }

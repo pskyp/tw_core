@@ -8,5 +8,6 @@ abstract class IAuthFacade {
     required String androidPackageName,
     required String iOSBundleId,
   });
+  Future<Either<AuthFailure, Unit>> signInWithGoogle();
   Future<void> signOut();
 }

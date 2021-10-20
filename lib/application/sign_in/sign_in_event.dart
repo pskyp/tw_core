@@ -6,4 +6,5 @@ class SignInEvent with _$SignInEvent {
 
   const factory SignInEvent.signInPressed() = SignInPressed;
   const factory SignInEvent.onLifeCycleChanged() = OnLifecycleChanged;
+  const factory SignInEvent.signInWithGooglePressed() = SignInWithGooglePressed;
 }

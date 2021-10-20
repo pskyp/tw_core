@@ -5,6 +5,7 @@ class SignInState with _$SignInState {
   const factory SignInState({
     required EmailAddress email,
     required bool sendingLinkToEmail,
+    required bool isSubmitting,
     required bool showErrorMessages,
     required Option<Either<AuthFailure, Unit>> linkSentToEmailOption,
   }) = _SignInState;
@@ -14,5 +15,6 @@ class SignInState with _$SignInState {
         email: EmailAddress(''),
         sendingLinkToEmail: false,
         showErrorMessages: false,
+        isSubmitting: false,
       );
 }

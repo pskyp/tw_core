@@ -79,6 +79,18 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
           print(e.message);
         });
       },
+      signInWithGooglePressed: (e) async* {
+        print("reaching here");
+        Either<AuthFailure, Unit>? failureOrSuccess;
+        yield state.copyWith(isSubmitting: true);
+        print("is submitting");
+        failureOrSuccess = await authFacade.signInWithGoogle();
+        print("failing");
+        yield state.copyWith(
+          isSubmitting: false,
+          linkSentToEmailOption: optionOf(failureOrSuccess),
+        );
+      },
     );
   }
 }

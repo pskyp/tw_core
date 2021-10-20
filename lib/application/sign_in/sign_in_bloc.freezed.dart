@@ -29,6 +29,10 @@ class _$SignInEventTearOff {
   OnLifecycleChanged onLifeCycleChanged() {
     return const OnLifecycleChanged();
   }
+
+  SignInWithGooglePressed signInWithGooglePressed() {
+    return const SignInWithGooglePressed();
+  }
 }
 
 /// @nodoc
@@ -41,6 +45,7 @@ mixin _$SignInEvent {
     required TResult Function(String value) emailInputChanged,
     required TResult Function() signInPressed,
     required TResult Function() onLifeCycleChanged,
+    required TResult Function() signInWithGooglePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +53,7 @@ mixin _$SignInEvent {
     TResult Function(String value)? emailInputChanged,
     TResult Function()? signInPressed,
     TResult Function()? onLifeCycleChanged,
+    TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +62,8 @@ mixin _$SignInEvent {
     required TResult Function(EmailInputChanged value) emailInputChanged,
     required TResult Function(SignInPressed value) signInPressed,
     required TResult Function(OnLifecycleChanged value) onLifeCycleChanged,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +71,7 @@ mixin _$SignInEvent {
     TResult Function(EmailInputChanged value)? emailInputChanged,
     TResult Function(SignInPressed value)? signInPressed,
     TResult Function(OnLifecycleChanged value)? onLifeCycleChanged,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -152,6 +161,7 @@ class _$EmailInputChanged implements EmailInputChanged {
     required TResult Function(String value) emailInputChanged,
     required TResult Function() signInPressed,
     required TResult Function() onLifeCycleChanged,
+    required TResult Function() signInWithGooglePressed,
   }) {
     return emailInputChanged(value);
   }
@@ -162,6 +172,7 @@ class _$EmailInputChanged implements EmailInputChanged {
     TResult Function(String value)? emailInputChanged,
     TResult Function()? signInPressed,
     TResult Function()? onLifeCycleChanged,
+    TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (emailInputChanged != null) {
@@ -176,6 +187,8 @@ class _$EmailInputChanged implements EmailInputChanged {
     required TResult Function(EmailInputChanged value) emailInputChanged,
     required TResult Function(SignInPressed value) signInPressed,
     required TResult Function(OnLifecycleChanged value) onLifeCycleChanged,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
   }) {
     return emailInputChanged(this);
   }
@@ -186,6 +199,7 @@ class _$EmailInputChanged implements EmailInputChanged {
     TResult Function(EmailInputChanged value)? emailInputChanged,
     TResult Function(SignInPressed value)? signInPressed,
     TResult Function(OnLifecycleChanged value)? onLifeCycleChanged,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (emailInputChanged != null) {
@@ -246,6 +260,7 @@ class _$SignInPressed implements SignInPressed {
     required TResult Function(String value) emailInputChanged,
     required TResult Function() signInPressed,
     required TResult Function() onLifeCycleChanged,
+    required TResult Function() signInWithGooglePressed,
   }) {
     return signInPressed();
   }
@@ -256,6 +271,7 @@ class _$SignInPressed implements SignInPressed {
     TResult Function(String value)? emailInputChanged,
     TResult Function()? signInPressed,
     TResult Function()? onLifeCycleChanged,
+    TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (signInPressed != null) {
@@ -270,6 +286,8 @@ class _$SignInPressed implements SignInPressed {
     required TResult Function(EmailInputChanged value) emailInputChanged,
     required TResult Function(SignInPressed value) signInPressed,
     required TResult Function(OnLifecycleChanged value) onLifeCycleChanged,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
   }) {
     return signInPressed(this);
   }
@@ -280,6 +298,7 @@ class _$SignInPressed implements SignInPressed {
     TResult Function(EmailInputChanged value)? emailInputChanged,
     TResult Function(SignInPressed value)? signInPressed,
     TResult Function(OnLifecycleChanged value)? onLifeCycleChanged,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (signInPressed != null) {
@@ -336,6 +355,7 @@ class _$OnLifecycleChanged implements OnLifecycleChanged {
     required TResult Function(String value) emailInputChanged,
     required TResult Function() signInPressed,
     required TResult Function() onLifeCycleChanged,
+    required TResult Function() signInWithGooglePressed,
   }) {
     return onLifeCycleChanged();
   }
@@ -346,6 +366,7 @@ class _$OnLifecycleChanged implements OnLifecycleChanged {
     TResult Function(String value)? emailInputChanged,
     TResult Function()? signInPressed,
     TResult Function()? onLifeCycleChanged,
+    TResult Function()? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (onLifeCycleChanged != null) {
@@ -360,6 +381,8 @@ class _$OnLifecycleChanged implements OnLifecycleChanged {
     required TResult Function(EmailInputChanged value) emailInputChanged,
     required TResult Function(SignInPressed value) signInPressed,
     required TResult Function(OnLifecycleChanged value) onLifeCycleChanged,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
   }) {
     return onLifeCycleChanged(this);
   }
@@ -370,6 +393,7 @@ class _$OnLifecycleChanged implements OnLifecycleChanged {
     TResult Function(EmailInputChanged value)? emailInputChanged,
     TResult Function(SignInPressed value)? signInPressed,
     TResult Function(OnLifecycleChanged value)? onLifeCycleChanged,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
     required TResult orElse(),
   }) {
     if (onLifeCycleChanged != null) {
@@ -384,17 +408,114 @@ abstract class OnLifecycleChanged implements SignInEvent {
 }
 
 /// @nodoc
+abstract class $SignInWithGooglePressedCopyWith<$Res> {
+  factory $SignInWithGooglePressedCopyWith(SignInWithGooglePressed value,
+          $Res Function(SignInWithGooglePressed) then) =
+      _$SignInWithGooglePressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SignInWithGooglePressedCopyWithImpl<$Res>
+    extends _$SignInEventCopyWithImpl<$Res>
+    implements $SignInWithGooglePressedCopyWith<$Res> {
+  _$SignInWithGooglePressedCopyWithImpl(SignInWithGooglePressed _value,
+      $Res Function(SignInWithGooglePressed) _then)
+      : super(_value, (v) => _then(v as SignInWithGooglePressed));
+
+  @override
+  SignInWithGooglePressed get _value => super._value as SignInWithGooglePressed;
+}
+
+/// @nodoc
+
+class _$SignInWithGooglePressed implements SignInWithGooglePressed {
+  const _$SignInWithGooglePressed();
+
+  @override
+  String toString() {
+    return 'SignInEvent.signInWithGooglePressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SignInWithGooglePressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String value) emailInputChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() onLifeCycleChanged,
+    required TResult Function() signInWithGooglePressed,
+  }) {
+    return signInWithGooglePressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String value)? emailInputChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? onLifeCycleChanged,
+    TResult Function()? signInWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (signInWithGooglePressed != null) {
+      return signInWithGooglePressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(EmailInputChanged value) emailInputChanged,
+    required TResult Function(SignInPressed value) signInPressed,
+    required TResult Function(OnLifecycleChanged value) onLifeCycleChanged,
+    required TResult Function(SignInWithGooglePressed value)
+        signInWithGooglePressed,
+  }) {
+    return signInWithGooglePressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(EmailInputChanged value)? emailInputChanged,
+    TResult Function(SignInPressed value)? signInPressed,
+    TResult Function(OnLifecycleChanged value)? onLifeCycleChanged,
+    TResult Function(SignInWithGooglePressed value)? signInWithGooglePressed,
+    required TResult orElse(),
+  }) {
+    if (signInWithGooglePressed != null) {
+      return signInWithGooglePressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignInWithGooglePressed implements SignInEvent {
+  const factory SignInWithGooglePressed() = _$SignInWithGooglePressed;
+}
+
+/// @nodoc
 class _$SignInStateTearOff {
   const _$SignInStateTearOff();
 
   _SignInState call(
       {required EmailAddress email,
       required bool sendingLinkToEmail,
+      required bool isSubmitting,
       required bool showErrorMessages,
       required Option<Either<AuthFailure, Unit>> linkSentToEmailOption}) {
     return _SignInState(
       email: email,
       sendingLinkToEmail: sendingLinkToEmail,
+      isSubmitting: isSubmitting,
       showErrorMessages: showErrorMessages,
       linkSentToEmailOption: linkSentToEmailOption,
     );
@@ -408,6 +529,7 @@ const $SignInState = _$SignInStateTearOff();
 mixin _$SignInState {
   EmailAddress get email => throw _privateConstructorUsedError;
   bool get sendingLinkToEmail => throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get linkSentToEmailOption =>
       throw _privateConstructorUsedError;
@@ -425,6 +547,7 @@ abstract class $SignInStateCopyWith<$Res> {
   $Res call(
       {EmailAddress email,
       bool sendingLinkToEmail,
+      bool isSubmitting,
       bool showErrorMessages,
       Option<Either<AuthFailure, Unit>> linkSentToEmailOption});
 }
@@ -441,6 +564,7 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
   $Res call({
     Object? email = freezed,
     Object? sendingLinkToEmail = freezed,
+    Object? isSubmitting = freezed,
     Object? showErrorMessages = freezed,
     Object? linkSentToEmailOption = freezed,
   }) {
@@ -452,6 +576,10 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
       sendingLinkToEmail: sendingLinkToEmail == freezed
           ? _value.sendingLinkToEmail
           : sendingLinkToEmail // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubmitting: isSubmitting == freezed
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
@@ -475,6 +603,7 @@ abstract class _$SignInStateCopyWith<$Res>
   $Res call(
       {EmailAddress email,
       bool sendingLinkToEmail,
+      bool isSubmitting,
       bool showErrorMessages,
       Option<Either<AuthFailure, Unit>> linkSentToEmailOption});
 }
@@ -493,6 +622,7 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
   $Res call({
     Object? email = freezed,
     Object? sendingLinkToEmail = freezed,
+    Object? isSubmitting = freezed,
     Object? showErrorMessages = freezed,
     Object? linkSentToEmailOption = freezed,
   }) {
@@ -504,6 +634,10 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
       sendingLinkToEmail: sendingLinkToEmail == freezed
           ? _value.sendingLinkToEmail
           : sendingLinkToEmail // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubmitting: isSubmitting == freezed
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
@@ -523,6 +657,7 @@ class _$_SignInState implements _SignInState {
   const _$_SignInState(
       {required this.email,
       required this.sendingLinkToEmail,
+      required this.isSubmitting,
       required this.showErrorMessages,
       required this.linkSentToEmailOption});
 
@@ -531,13 +666,15 @@ class _$_SignInState implements _SignInState {
   @override
   final bool sendingLinkToEmail;
   @override
+  final bool isSubmitting;
+  @override
   final bool showErrorMessages;
   @override
   final Option<Either<AuthFailure, Unit>> linkSentToEmailOption;
 
   @override
   String toString() {
-    return 'SignInState(email: $email, sendingLinkToEmail: $sendingLinkToEmail, showErrorMessages: $showErrorMessages, linkSentToEmailOption: $linkSentToEmailOption)';
+    return 'SignInState(email: $email, sendingLinkToEmail: $sendingLinkToEmail, isSubmitting: $isSubmitting, showErrorMessages: $showErrorMessages, linkSentToEmailOption: $linkSentToEmailOption)';
   }
 
   @override
@@ -549,6 +686,9 @@ class _$_SignInState implements _SignInState {
             (identical(other.sendingLinkToEmail, sendingLinkToEmail) ||
                 const DeepCollectionEquality()
                     .equals(other.sendingLinkToEmail, sendingLinkToEmail)) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSubmitting, isSubmitting)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
                     .equals(other.showErrorMessages, showErrorMessages)) &&
@@ -562,6 +702,7 @@ class _$_SignInState implements _SignInState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(sendingLinkToEmail) ^
+      const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(linkSentToEmailOption);
 
@@ -575,6 +716,7 @@ abstract class _SignInState implements SignInState {
   const factory _SignInState(
           {required EmailAddress email,
           required bool sendingLinkToEmail,
+          required bool isSubmitting,
           required bool showErrorMessages,
           required Option<Either<AuthFailure, Unit>> linkSentToEmailOption}) =
       _$_SignInState;
@@ -583,6 +725,8 @@ abstract class _SignInState implements SignInState {
   EmailAddress get email => throw _privateConstructorUsedError;
   @override
   bool get sendingLinkToEmail => throw _privateConstructorUsedError;
+  @override
+  bool get isSubmitting => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
   @override
