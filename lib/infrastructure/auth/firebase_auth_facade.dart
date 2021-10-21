@@ -41,10 +41,18 @@ class FirebaseAuthFacade implements IAuthFacade {
 
     try {
       print("inside try");
-      await googleSignIn.signIn();
-      // await firebaseAuth.signInWithPopup(authProvider);
-      print("instancePassed");
-      return right(unit);
+      var googleUser = await googleSignIn.signIn();
+      if (googleUser != null) {
+        final googleAuthentication = await googleUser.authentication;
+        final authCredential = GoogleAuthProvider.credential(
+          accessToken: googleAuthentication.accessToken,
+          idToken: googleAuthentication.idToken,
+        );
+        await firebaseAuth.signInWithCredential(authCredential);
+        return right(unit);
+      } else {
+        return left(const AuthFailure.serverError());
+      }
     } catch (e) {
       print("failed");
       return left(const AuthFailure.serverError());
