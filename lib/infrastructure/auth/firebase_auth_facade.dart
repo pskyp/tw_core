@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:tw_core/models/auth/auth_failure.dart';
 import 'package:tw_core/models/auth/i_auth_facade.dart';
@@ -8,8 +9,6 @@ import 'package:tw_core/models/password/password.dart';
 import 'package:crypto/crypto.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'dart:convert';
-
-
 
 class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth firebaseAuth;
@@ -121,6 +120,34 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   Future<Either<AuthFailure, Unit>> signInWithApple() async {
+    if (kIsWeb) {
+      try {
+        final rawNonce = generateNonce();
+        final nonce = sha256ofString(rawNonce);
+        var redirectURL = "https://labour-link.firebaseapp.com/__/auth/handler";
+        var clientID = "uk.tradework.mobileapp";
+        final appleCredential = await SignInWithApple.getAppleIDCredential(
+            scopes: [
+              AppleIDAuthorizationScopes.email,
+              AppleIDAuthorizationScopes.fullName,
+            ],
+            nonce: nonce,
+            webAuthenticationOptions: WebAuthenticationOptions(
+                clientId: clientID, redirectUri: Uri.parse(redirectURL)));
+
+        final oauthCredential = OAuthProvider("apple.com").credential(
+            idToken: appleCredential.identityToken,
+            rawNonce: rawNonce,
+            accessToken: appleCredential.authorizationCode);
+
+        await firebaseAuth.signInWithCredential(oauthCredential);
+        return right(unit);
+      } catch (e) {
+        print(e);
+        print("failed");
+        return left(AuthFailure.serverError());
+      }
+    }
     try {
       final rawNonce = generateNonce();
       final nonce = sha256ofString(rawNonce);
@@ -137,10 +164,11 @@ class FirebaseAuthFacade implements IAuthFacade {
         idToken: appleCredential.identityToken,
         rawNonce: rawNonce,
       );
-      var authResult;
+
       await firebaseAuth.signInWithCredential(oauthCredential);
       return right(unit);
     } catch (e) {
+      print(e);
       print("failed");
       return left(AuthFailure.serverError());
     }
