@@ -1,38 +1,46 @@
-import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/models/location/location_model.dart';
-import 'package:tw_core/models/tender/tender_model.dart';
-import 'package:tw_core/models/trades.dart';
 
+part 'development.freezed.dart';
 part 'development.g.dart';
 
-@JsonSerializable(explicitToJson: true)
-class Development extends Equatable {
-  final String id;
-  final String developerId;
-  final String devTitle;
-  final LocationModel location;
-  final String description;
+@freezed
+class Development with _$Development {
+  const Development._();
+  factory Development({
+    required DevelopmentIdentifier developmentIdentifier,
+    required String description,
+    required LocationModel location,
+  }) = _Development;
 
-  const Development({
-    required this.id,
-    required this.developerId,
-    required this.devTitle,
-    required this.description,
-    required this.location,
-  });
+  String get id => developmentIdentifier.id;
+  String get title => developmentIdentifier.title;
 
-  Map<String, dynamic> toJson() => _$DevelopmentToJson(this);
   factory Development.fromJson(Map<String, dynamic> json) =>
       _$DevelopmentFromJson(json);
+}
 
-  @override
-  List<Object?> get props => [
-        id,
-        developerId,
-        devTitle,
-        location,
-        description,
-      ];
+@freezed
+class DevelopmentIdentifier with _$DevelopmentIdentifier {
+  const DevelopmentIdentifier._();
+  factory DevelopmentIdentifier({
+    required String id,
+    required String title,
+    required String developerId,
+  }) = _DevelopmentIdentifier;
+
+  factory DevelopmentIdentifier.pseudo({
+    required String title,
+  }) =>
+      _DevelopmentIdentifier(
+        id: 'id + ${DateTime.now()}',
+        title: title,
+        developerId: 'developerId',
+      );
+
+  bool get isPseudo => id.startsWith('id + ');
+  // bool get isValid =>
+
+  factory DevelopmentIdentifier.fromJson(Map<String, dynamic> json) =>
+      _$DevelopmentIdentifierFromJson(json);
 }

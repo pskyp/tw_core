@@ -16,7 +16,6 @@ class Tender with _$Tender implements Work {
     required WorkIdentifier workIdentifier,
     required DateTime createdOn,
     required String developerId,
-    required String developmentId,
     required TenderStatus tenderStatus,
     required String? inviteEmailOne,
     required String? inviteEmailTwo,

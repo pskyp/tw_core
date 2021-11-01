@@ -13,11 +13,9 @@ enum SupplementStatus { Active, Completed }
 class Supplement with _$Supplement implements Work {
   const factory Supplement({
     required WorkIdentifier workIdentifier,
-    required String developmentId,
     required String developerId,
     required SupplementStatus status,
     required Developer developer,
-    required String developmentTitle,
     required String title,
     required String description,
     required double hourlyRate,

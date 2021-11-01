@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tw_core/models/development/development.dart';
 import 'package:tw_core/models/location/location_model.dart';
 import 'package:tw_core/models/trades.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
@@ -38,6 +39,7 @@ class BidIdentifier with _$BidIdentifier {
 @freezed
 class WorkIdentifier with _$WorkIdentifier {
   const factory WorkIdentifier({
+    required DevelopmentIdentifier developmentIdentifier,
     required String workId,
     required String title,
     required TWUser employer,
@@ -45,11 +47,13 @@ class WorkIdentifier with _$WorkIdentifier {
   }) = _WorkIdentifier;
 
   factory WorkIdentifier.tender({
+    required DevelopmentIdentifier developmentIdentifier,
     required String workId,
     required String title,
     required TWUser employer,
   }) =>
       _WorkIdentifier(
+        developmentIdentifier: developmentIdentifier,
         workId: workId,
         title: title,
         employer: employer,
@@ -57,11 +61,13 @@ class WorkIdentifier with _$WorkIdentifier {
       );
 
   factory WorkIdentifier.supplement({
+    required DevelopmentIdentifier developmentIdentifier,
     required String workId,
     required String title,
     required TWUser employer,
   }) =>
       _WorkIdentifier(
+        developmentIdentifier: developmentIdentifier,
         workId: workId,
         title: title,
         employer: employer,
@@ -69,11 +75,13 @@ class WorkIdentifier with _$WorkIdentifier {
       );
 
   factory WorkIdentifier.job({
+    required DevelopmentIdentifier developmentIdentifier,
     required String workId,
     required String title,
     required TWUser employer,
   }) =>
       _WorkIdentifier(
+        developmentIdentifier: developmentIdentifier,
         workId: workId,
         title: title,
         employer: employer,

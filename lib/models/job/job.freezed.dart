@@ -28,7 +28,6 @@ class _$JobTearOff {
       required Trade trade,
       required JobStatus status,
       required int totalUnseenBids,
-      required String developmentTitle,
       required String description,
       required double hourlyRate,
       required int applications,
@@ -47,7 +46,6 @@ class _$JobTearOff {
       trade: trade,
       status: status,
       totalUnseenBids: totalUnseenBids,
-      developmentTitle: developmentTitle,
       description: description,
       hourlyRate: hourlyRate,
       applications: applications,
@@ -78,7 +76,6 @@ mixin _$Job {
   Trade get trade => throw _privateConstructorUsedError;
   JobStatus get status => throw _privateConstructorUsedError;
   int get totalUnseenBids => throw _privateConstructorUsedError;
-  String get developmentTitle => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   double get hourlyRate => throw _privateConstructorUsedError;
   int get applications => throw _privateConstructorUsedError;
@@ -107,7 +104,6 @@ abstract class $JobCopyWith<$Res> {
       Trade trade,
       JobStatus status,
       int totalUnseenBids,
-      String developmentTitle,
       String description,
       double hourlyRate,
       int applications,
@@ -139,7 +135,6 @@ class _$JobCopyWithImpl<$Res> implements $JobCopyWith<$Res> {
     Object? trade = freezed,
     Object? status = freezed,
     Object? totalUnseenBids = freezed,
-    Object? developmentTitle = freezed,
     Object? description = freezed,
     Object? hourlyRate = freezed,
     Object? applications = freezed,
@@ -180,10 +175,6 @@ class _$JobCopyWithImpl<$Res> implements $JobCopyWith<$Res> {
           ? _value.totalUnseenBids
           : totalUnseenBids // ignore: cast_nullable_to_non_nullable
               as int,
-      developmentTitle: developmentTitle == freezed
-          ? _value.developmentTitle
-          : developmentTitle // ignore: cast_nullable_to_non_nullable
-              as String,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -248,7 +239,6 @@ abstract class _$JobCopyWith<$Res> implements $JobCopyWith<$Res> {
       Trade trade,
       JobStatus status,
       int totalUnseenBids,
-      String developmentTitle,
       String description,
       double hourlyRate,
       int applications,
@@ -282,7 +272,6 @@ class __$JobCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res>
     Object? trade = freezed,
     Object? status = freezed,
     Object? totalUnseenBids = freezed,
-    Object? developmentTitle = freezed,
     Object? description = freezed,
     Object? hourlyRate = freezed,
     Object? applications = freezed,
@@ -323,10 +312,6 @@ class __$JobCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res>
           ? _value.totalUnseenBids
           : totalUnseenBids // ignore: cast_nullable_to_non_nullable
               as int,
-      developmentTitle: developmentTitle == freezed
-          ? _value.developmentTitle
-          : developmentTitle // ignore: cast_nullable_to_non_nullable
-              as String,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -382,7 +367,6 @@ class _$_Job implements _Job {
       required this.trade,
       required this.status,
       required this.totalUnseenBids,
-      required this.developmentTitle,
       required this.description,
       required this.hourlyRate,
       required this.applications,
@@ -411,8 +395,6 @@ class _$_Job implements _Job {
   @override
   final int totalUnseenBids;
   @override
-  final String developmentTitle;
-  @override
   final String description;
   @override
   final double hourlyRate;
@@ -435,7 +417,7 @@ class _$_Job implements _Job {
 
   @override
   String toString() {
-    return 'Job(workIdentifier: $workIdentifier, createdOn: $createdOn, contractorId: $contractorId, location: $location, trade: $trade, status: $status, totalUnseenBids: $totalUnseenBids, developmentTitle: $developmentTitle, description: $description, hourlyRate: $hourlyRate, applications: $applications, subbiesRequired: $subbiesRequired, subbiesWorking: $subbiesWorking, endDate: $endDate, hrsPerDay: $hrsPerDay, startDate: $startDate, requirements: $requirements, acceptingBids: $acceptingBids)';
+    return 'Job(workIdentifier: $workIdentifier, createdOn: $createdOn, contractorId: $contractorId, location: $location, trade: $trade, status: $status, totalUnseenBids: $totalUnseenBids, description: $description, hourlyRate: $hourlyRate, applications: $applications, subbiesRequired: $subbiesRequired, subbiesWorking: $subbiesWorking, endDate: $endDate, hrsPerDay: $hrsPerDay, startDate: $startDate, requirements: $requirements, acceptingBids: $acceptingBids)';
   }
 
   @override
@@ -461,9 +443,6 @@ class _$_Job implements _Job {
             (identical(other.totalUnseenBids, totalUnseenBids) ||
                 const DeepCollectionEquality()
                     .equals(other.totalUnseenBids, totalUnseenBids)) &&
-            (identical(other.developmentTitle, developmentTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.developmentTitle, developmentTitle)) &&
             (identical(other.description, description) ||
                 const DeepCollectionEquality()
                     .equals(other.description, description)) &&
@@ -506,7 +485,6 @@ class _$_Job implements _Job {
       const DeepCollectionEquality().hash(trade) ^
       const DeepCollectionEquality().hash(status) ^
       const DeepCollectionEquality().hash(totalUnseenBids) ^
-      const DeepCollectionEquality().hash(developmentTitle) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(hourlyRate) ^
       const DeepCollectionEquality().hash(applications) ^
@@ -538,7 +516,6 @@ abstract class _Job implements Job {
       required Trade trade,
       required JobStatus status,
       required int totalUnseenBids,
-      required String developmentTitle,
       required String description,
       required double hourlyRate,
       required int applications,
@@ -566,8 +543,6 @@ abstract class _Job implements Job {
   JobStatus get status => throw _privateConstructorUsedError;
   @override
   int get totalUnseenBids => throw _privateConstructorUsedError;
-  @override
-  String get developmentTitle => throw _privateConstructorUsedError;
   @override
   String get description => throw _privateConstructorUsedError;
   @override

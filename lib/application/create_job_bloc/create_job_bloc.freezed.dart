@@ -28,9 +28,12 @@ class _$CreateJobEventTearOff {
     );
   }
 
-  DevelopmentNameChanged developmentNameChanged(String value) {
-    return DevelopmentNameChanged(
-      value,
+  DevelopmentIdentifierInput developmentIdentifierInput(
+      {String? developmentTitle,
+      DevelopmentIdentifier? developmentIdentifier}) {
+    return DevelopmentIdentifierInput(
+      developmentTitle: developmentTitle,
+      developmentIdentifier: developmentIdentifier,
     );
   }
 
@@ -90,7 +93,9 @@ mixin _$CreateJobEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime startDate) onJobStartDateChanged,
     required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
+    required TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)
+        developmentIdentifierInput,
     required TResult Function(String value) jobTitleChanged,
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
@@ -105,7 +110,9 @@ mixin _$CreateJobEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        developmentIdentifierInput,
     TResult Function(String value)? jobTitleChanged,
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
@@ -122,8 +129,8 @@ mixin _$CreateJobEvent {
     required TResult Function(OnJobStartDateChanged value)
         onJobStartDateChanged,
     required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
+    required TResult Function(DevelopmentIdentifierInput value)
+        developmentIdentifierInput,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -138,7 +145,8 @@ mixin _$CreateJobEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
+    TResult Function(DevelopmentIdentifierInput value)?
+        developmentIdentifierInput,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
@@ -238,7 +246,9 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime startDate) onJobStartDateChanged,
     required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
+    required TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)
+        developmentIdentifierInput,
     required TResult Function(String value) jobTitleChanged,
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
@@ -256,7 +266,9 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        developmentIdentifierInput,
     TResult Function(String value)? jobTitleChanged,
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
@@ -279,8 +291,8 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     required TResult Function(OnJobStartDateChanged value)
         onJobStartDateChanged,
     required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
+    required TResult Function(DevelopmentIdentifierInput value)
+        developmentIdentifierInput,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -298,7 +310,8 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
+    TResult Function(DevelopmentIdentifierInput value)?
+        developmentIdentifierInput,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
@@ -393,7 +406,9 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime startDate) onJobStartDateChanged,
     required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
+    required TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)
+        developmentIdentifierInput,
     required TResult Function(String value) jobTitleChanged,
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
@@ -411,7 +426,9 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        developmentIdentifierInput,
     TResult Function(String value)? jobTitleChanged,
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
@@ -434,8 +451,8 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     required TResult Function(OnJobStartDateChanged value)
         onJobStartDateChanged,
     required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
+    required TResult Function(DevelopmentIdentifierInput value)
+        developmentIdentifierInput,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -453,7 +470,8 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
+    TResult Function(DevelopmentIdentifierInput value)?
+        developmentIdentifierInput,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
@@ -481,74 +499,107 @@ abstract class OnJobEndDateChanged implements CreateJobEvent {
 }
 
 /// @nodoc
-abstract class $DevelopmentNameChangedCopyWith<$Res> {
-  factory $DevelopmentNameChangedCopyWith(DevelopmentNameChanged value,
-          $Res Function(DevelopmentNameChanged) then) =
-      _$DevelopmentNameChangedCopyWithImpl<$Res>;
-  $Res call({String value});
+abstract class $DevelopmentIdentifierInputCopyWith<$Res> {
+  factory $DevelopmentIdentifierInputCopyWith(DevelopmentIdentifierInput value,
+          $Res Function(DevelopmentIdentifierInput) then) =
+      _$DevelopmentIdentifierInputCopyWithImpl<$Res>;
+  $Res call(
+      {String? developmentTitle, DevelopmentIdentifier? developmentIdentifier});
+
+  $DevelopmentIdentifierCopyWith<$Res>? get developmentIdentifier;
 }
 
 /// @nodoc
-class _$DevelopmentNameChangedCopyWithImpl<$Res>
+class _$DevelopmentIdentifierInputCopyWithImpl<$Res>
     extends _$CreateJobEventCopyWithImpl<$Res>
-    implements $DevelopmentNameChangedCopyWith<$Res> {
-  _$DevelopmentNameChangedCopyWithImpl(DevelopmentNameChanged _value,
-      $Res Function(DevelopmentNameChanged) _then)
-      : super(_value, (v) => _then(v as DevelopmentNameChanged));
+    implements $DevelopmentIdentifierInputCopyWith<$Res> {
+  _$DevelopmentIdentifierInputCopyWithImpl(DevelopmentIdentifierInput _value,
+      $Res Function(DevelopmentIdentifierInput) _then)
+      : super(_value, (v) => _then(v as DevelopmentIdentifierInput));
 
   @override
-  DevelopmentNameChanged get _value => super._value as DevelopmentNameChanged;
+  DevelopmentIdentifierInput get _value =>
+      super._value as DevelopmentIdentifierInput;
 
   @override
   $Res call({
-    Object? value = freezed,
+    Object? developmentTitle = freezed,
+    Object? developmentIdentifier = freezed,
   }) {
-    return _then(DevelopmentNameChanged(
-      value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(DevelopmentIdentifierInput(
+      developmentTitle: developmentTitle == freezed
+          ? _value.developmentTitle
+          : developmentTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
+      developmentIdentifier: developmentIdentifier == freezed
+          ? _value.developmentIdentifier
+          : developmentIdentifier // ignore: cast_nullable_to_non_nullable
+              as DevelopmentIdentifier?,
     ));
+  }
+
+  @override
+  $DevelopmentIdentifierCopyWith<$Res>? get developmentIdentifier {
+    if (_value.developmentIdentifier == null) {
+      return null;
+    }
+
+    return $DevelopmentIdentifierCopyWith<$Res>(_value.developmentIdentifier!,
+        (value) {
+      return _then(_value.copyWith(developmentIdentifier: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$DevelopmentNameChanged implements DevelopmentNameChanged {
-  const _$DevelopmentNameChanged(this.value);
+class _$DevelopmentIdentifierInput implements DevelopmentIdentifierInput {
+  const _$DevelopmentIdentifierInput(
+      {this.developmentTitle, this.developmentIdentifier});
 
   @override
-  final String value;
+  final String? developmentTitle;
+  @override
+  final DevelopmentIdentifier? developmentIdentifier;
 
   @override
   String toString() {
-    return 'CreateJobEvent.developmentNameChanged(value: $value)';
+    return 'CreateJobEvent.developmentIdentifierInput(developmentTitle: $developmentTitle, developmentIdentifier: $developmentIdentifier)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is DevelopmentNameChanged &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other is DevelopmentIdentifierInput &&
+            (identical(other.developmentTitle, developmentTitle) ||
+                const DeepCollectionEquality()
+                    .equals(other.developmentTitle, developmentTitle)) &&
+            (identical(other.developmentIdentifier, developmentIdentifier) ||
+                const DeepCollectionEquality().equals(
+                    other.developmentIdentifier, developmentIdentifier)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(developmentTitle) ^
+      const DeepCollectionEquality().hash(developmentIdentifier);
 
   @JsonKey(ignore: true)
   @override
-  $DevelopmentNameChangedCopyWith<DevelopmentNameChanged> get copyWith =>
-      _$DevelopmentNameChangedCopyWithImpl<DevelopmentNameChanged>(
-          this, _$identity);
+  $DevelopmentIdentifierInputCopyWith<DevelopmentIdentifierInput>
+      get copyWith =>
+          _$DevelopmentIdentifierInputCopyWithImpl<DevelopmentIdentifierInput>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime startDate) onJobStartDateChanged,
     required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
+    required TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)
+        developmentIdentifierInput,
     required TResult Function(String value) jobTitleChanged,
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
@@ -558,7 +609,7 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
-    return developmentNameChanged(value);
+    return developmentIdentifierInput(developmentTitle, developmentIdentifier);
   }
 
   @override
@@ -566,7 +617,9 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        developmentIdentifierInput,
     TResult Function(String value)? jobTitleChanged,
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
@@ -577,8 +630,9 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     TResult Function(LocationModel location)? onLocationChanged,
     required TResult orElse(),
   }) {
-    if (developmentNameChanged != null) {
-      return developmentNameChanged(value);
+    if (developmentIdentifierInput != null) {
+      return developmentIdentifierInput(
+          developmentTitle, developmentIdentifier);
     }
     return orElse();
   }
@@ -589,8 +643,8 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     required TResult Function(OnJobStartDateChanged value)
         onJobStartDateChanged,
     required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
+    required TResult Function(DevelopmentIdentifierInput value)
+        developmentIdentifierInput,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -600,7 +654,7 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
   }) {
-    return developmentNameChanged(this);
+    return developmentIdentifierInput(this);
   }
 
   @override
@@ -608,7 +662,8 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
+    TResult Function(DevelopmentIdentifierInput value)?
+        developmentIdentifierInput,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
@@ -619,20 +674,25 @@ class _$DevelopmentNameChanged implements DevelopmentNameChanged {
     TResult Function(OnLocationChanged value)? onLocationChanged,
     required TResult orElse(),
   }) {
-    if (developmentNameChanged != null) {
-      return developmentNameChanged(this);
+    if (developmentIdentifierInput != null) {
+      return developmentIdentifierInput(this);
     }
     return orElse();
   }
 }
 
-abstract class DevelopmentNameChanged implements CreateJobEvent {
-  const factory DevelopmentNameChanged(String value) = _$DevelopmentNameChanged;
+abstract class DevelopmentIdentifierInput implements CreateJobEvent {
+  const factory DevelopmentIdentifierInput(
+          {String? developmentTitle,
+          DevelopmentIdentifier? developmentIdentifier}) =
+      _$DevelopmentIdentifierInput;
 
-  String get value => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DevelopmentNameChangedCopyWith<DevelopmentNameChanged> get copyWith =>
+  String? get developmentTitle => throw _privateConstructorUsedError;
+  DevelopmentIdentifier? get developmentIdentifier =>
       throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DevelopmentIdentifierInputCopyWith<DevelopmentIdentifierInput>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -702,7 +762,9 @@ class _$JobTitleChanged implements JobTitleChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime startDate) onJobStartDateChanged,
     required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
+    required TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)
+        developmentIdentifierInput,
     required TResult Function(String value) jobTitleChanged,
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
@@ -720,7 +782,9 @@ class _$JobTitleChanged implements JobTitleChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        developmentIdentifierInput,
     TResult Function(String value)? jobTitleChanged,
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
@@ -743,8 +807,8 @@ class _$JobTitleChanged implements JobTitleChanged {
     required TResult Function(OnJobStartDateChanged value)
         onJobStartDateChanged,
     required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
+    required TResult Function(DevelopmentIdentifierInput value)
+        developmentIdentifierInput,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -762,7 +826,8 @@ class _$JobTitleChanged implements JobTitleChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
+    TResult Function(DevelopmentIdentifierInput value)?
+        developmentIdentifierInput,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
@@ -857,7 +922,9 @@ class _$RequiredSubbiesInput implements RequiredSubbiesInput {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime startDate) onJobStartDateChanged,
     required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
+    required TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)
+        developmentIdentifierInput,
     required TResult Function(String value) jobTitleChanged,
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
@@ -875,7 +942,9 @@ class _$RequiredSubbiesInput implements RequiredSubbiesInput {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        developmentIdentifierInput,
     TResult Function(String value)? jobTitleChanged,
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
@@ -898,8 +967,8 @@ class _$RequiredSubbiesInput implements RequiredSubbiesInput {
     required TResult Function(OnJobStartDateChanged value)
         onJobStartDateChanged,
     required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
+    required TResult Function(DevelopmentIdentifierInput value)
+        developmentIdentifierInput,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -917,7 +986,8 @@ class _$RequiredSubbiesInput implements RequiredSubbiesInput {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
+    TResult Function(DevelopmentIdentifierInput value)?
+        developmentIdentifierInput,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
@@ -1011,7 +1081,9 @@ class _$OnRateChanged implements OnRateChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime startDate) onJobStartDateChanged,
     required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
+    required TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)
+        developmentIdentifierInput,
     required TResult Function(String value) jobTitleChanged,
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
@@ -1029,7 +1101,9 @@ class _$OnRateChanged implements OnRateChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        developmentIdentifierInput,
     TResult Function(String value)? jobTitleChanged,
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
@@ -1052,8 +1126,8 @@ class _$OnRateChanged implements OnRateChanged {
     required TResult Function(OnJobStartDateChanged value)
         onJobStartDateChanged,
     required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
+    required TResult Function(DevelopmentIdentifierInput value)
+        developmentIdentifierInput,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -1071,7 +1145,8 @@ class _$OnRateChanged implements OnRateChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
+    TResult Function(DevelopmentIdentifierInput value)?
+        developmentIdentifierInput,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
@@ -1166,7 +1241,9 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime startDate) onJobStartDateChanged,
     required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
+    required TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)
+        developmentIdentifierInput,
     required TResult Function(String value) jobTitleChanged,
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
@@ -1184,7 +1261,9 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        developmentIdentifierInput,
     TResult Function(String value)? jobTitleChanged,
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
@@ -1207,8 +1286,8 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     required TResult Function(OnJobStartDateChanged value)
         onJobStartDateChanged,
     required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
+    required TResult Function(DevelopmentIdentifierInput value)
+        developmentIdentifierInput,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -1226,7 +1305,8 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
+    TResult Function(DevelopmentIdentifierInput value)?
+        developmentIdentifierInput,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
@@ -1322,7 +1402,9 @@ class _$OnRequirementAdded implements OnRequirementAdded {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime startDate) onJobStartDateChanged,
     required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
+    required TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)
+        developmentIdentifierInput,
     required TResult Function(String value) jobTitleChanged,
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
@@ -1340,7 +1422,9 @@ class _$OnRequirementAdded implements OnRequirementAdded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        developmentIdentifierInput,
     TResult Function(String value)? jobTitleChanged,
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
@@ -1363,8 +1447,8 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     required TResult Function(OnJobStartDateChanged value)
         onJobStartDateChanged,
     required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
+    required TResult Function(DevelopmentIdentifierInput value)
+        developmentIdentifierInput,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -1382,7 +1466,8 @@ class _$OnRequirementAdded implements OnRequirementAdded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
+    TResult Function(DevelopmentIdentifierInput value)?
+        developmentIdentifierInput,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
@@ -1477,7 +1562,9 @@ class _$TradeChanged implements TradeChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime startDate) onJobStartDateChanged,
     required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
+    required TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)
+        developmentIdentifierInput,
     required TResult Function(String value) jobTitleChanged,
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
@@ -1495,7 +1582,9 @@ class _$TradeChanged implements TradeChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        developmentIdentifierInput,
     TResult Function(String value)? jobTitleChanged,
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
@@ -1518,8 +1607,8 @@ class _$TradeChanged implements TradeChanged {
     required TResult Function(OnJobStartDateChanged value)
         onJobStartDateChanged,
     required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
+    required TResult Function(DevelopmentIdentifierInput value)
+        developmentIdentifierInput,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -1537,7 +1626,8 @@ class _$TradeChanged implements TradeChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
+    TResult Function(DevelopmentIdentifierInput value)?
+        developmentIdentifierInput,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
@@ -1606,7 +1696,9 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime startDate) onJobStartDateChanged,
     required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
+    required TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)
+        developmentIdentifierInput,
     required TResult Function(String value) jobTitleChanged,
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
@@ -1624,7 +1716,9 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        developmentIdentifierInput,
     TResult Function(String value)? jobTitleChanged,
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
@@ -1647,8 +1741,8 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     required TResult Function(OnJobStartDateChanged value)
         onJobStartDateChanged,
     required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
+    required TResult Function(DevelopmentIdentifierInput value)
+        developmentIdentifierInput,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -1666,7 +1760,8 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
+    TResult Function(DevelopmentIdentifierInput value)?
+        developmentIdentifierInput,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
@@ -1756,7 +1851,9 @@ class _$OnLocationChanged implements OnLocationChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime startDate) onJobStartDateChanged,
     required TResult Function(DateTime endDate) onJobEndDateChanged,
-    required TResult Function(String value) developmentNameChanged,
+    required TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)
+        developmentIdentifierInput,
     required TResult Function(String value) jobTitleChanged,
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
@@ -1774,7 +1871,9 @@ class _$OnLocationChanged implements OnLocationChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
-    TResult Function(String value)? developmentNameChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        developmentIdentifierInput,
     TResult Function(String value)? jobTitleChanged,
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
@@ -1797,8 +1896,8 @@ class _$OnLocationChanged implements OnLocationChanged {
     required TResult Function(OnJobStartDateChanged value)
         onJobStartDateChanged,
     required TResult Function(OnJobEndDateChanged value) onJobEndDateChanged,
-    required TResult Function(DevelopmentNameChanged value)
-        developmentNameChanged,
+    required TResult Function(DevelopmentIdentifierInput value)
+        developmentIdentifierInput,
     required TResult Function(JobTitleChanged value) jobTitleChanged,
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
@@ -1816,7 +1915,8 @@ class _$OnLocationChanged implements OnLocationChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
-    TResult Function(DevelopmentNameChanged value)? developmentNameChanged,
+    TResult Function(DevelopmentIdentifierInput value)?
+        developmentIdentifierInput,
     TResult Function(JobTitleChanged value)? jobTitleChanged,
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
@@ -1848,7 +1948,7 @@ class _$CreateJobStateTearOff {
   const _$CreateJobStateTearOff();
 
   _CreateJobState call(
-      {required TWString developmentTitle,
+      {required DevelopmentIdentifier developmentIdentifier,
       required TWString jobTitle,
       required TWString jobDescription,
       required Trade selectedTrade,
@@ -1861,7 +1961,7 @@ class _$CreateJobStateTearOff {
       required bool isSubmitting,
       required Option<Either<TWServerError, Unit>> failureOrSuccessOption}) {
     return _CreateJobState(
-      developmentTitle: developmentTitle,
+      developmentIdentifier: developmentIdentifier,
       jobTitle: jobTitle,
       jobDescription: jobDescription,
       selectedTrade: selectedTrade,
@@ -1882,7 +1982,8 @@ const $CreateJobState = _$CreateJobStateTearOff();
 
 /// @nodoc
 mixin _$CreateJobState {
-  TWString get developmentTitle => throw _privateConstructorUsedError;
+  DevelopmentIdentifier get developmentIdentifier =>
+      throw _privateConstructorUsedError;
   TWString get jobTitle => throw _privateConstructorUsedError;
   TWString get jobDescription => throw _privateConstructorUsedError;
   Trade get selectedTrade => throw _privateConstructorUsedError;
@@ -1907,7 +2008,7 @@ abstract class $CreateJobStateCopyWith<$Res> {
           CreateJobState value, $Res Function(CreateJobState) then) =
       _$CreateJobStateCopyWithImpl<$Res>;
   $Res call(
-      {TWString developmentTitle,
+      {DevelopmentIdentifier developmentIdentifier,
       TWString jobTitle,
       TWString jobDescription,
       Trade selectedTrade,
@@ -1919,6 +2020,8 @@ abstract class $CreateJobStateCopyWith<$Res> {
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<TWServerError, Unit>> failureOrSuccessOption});
+
+  $DevelopmentIdentifierCopyWith<$Res> get developmentIdentifier;
 }
 
 /// @nodoc
@@ -1932,7 +2035,7 @@ class _$CreateJobStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? developmentTitle = freezed,
+    Object? developmentIdentifier = freezed,
     Object? jobTitle = freezed,
     Object? jobDescription = freezed,
     Object? selectedTrade = freezed,
@@ -1946,10 +2049,10 @@ class _$CreateJobStateCopyWithImpl<$Res>
     Object? failureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
-      developmentTitle: developmentTitle == freezed
-          ? _value.developmentTitle
-          : developmentTitle // ignore: cast_nullable_to_non_nullable
-              as TWString,
+      developmentIdentifier: developmentIdentifier == freezed
+          ? _value.developmentIdentifier
+          : developmentIdentifier // ignore: cast_nullable_to_non_nullable
+              as DevelopmentIdentifier,
       jobTitle: jobTitle == freezed
           ? _value.jobTitle
           : jobTitle // ignore: cast_nullable_to_non_nullable
@@ -1996,6 +2099,14 @@ class _$CreateJobStateCopyWithImpl<$Res>
               as Option<Either<TWServerError, Unit>>,
     ));
   }
+
+  @override
+  $DevelopmentIdentifierCopyWith<$Res> get developmentIdentifier {
+    return $DevelopmentIdentifierCopyWith<$Res>(_value.developmentIdentifier,
+        (value) {
+      return _then(_value.copyWith(developmentIdentifier: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -2006,7 +2117,7 @@ abstract class _$CreateJobStateCopyWith<$Res>
       __$CreateJobStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {TWString developmentTitle,
+      {DevelopmentIdentifier developmentIdentifier,
       TWString jobTitle,
       TWString jobDescription,
       Trade selectedTrade,
@@ -2018,6 +2129,9 @@ abstract class _$CreateJobStateCopyWith<$Res>
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<TWServerError, Unit>> failureOrSuccessOption});
+
+  @override
+  $DevelopmentIdentifierCopyWith<$Res> get developmentIdentifier;
 }
 
 /// @nodoc
@@ -2033,7 +2147,7 @@ class __$CreateJobStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? developmentTitle = freezed,
+    Object? developmentIdentifier = freezed,
     Object? jobTitle = freezed,
     Object? jobDescription = freezed,
     Object? selectedTrade = freezed,
@@ -2047,10 +2161,10 @@ class __$CreateJobStateCopyWithImpl<$Res>
     Object? failureOrSuccessOption = freezed,
   }) {
     return _then(_CreateJobState(
-      developmentTitle: developmentTitle == freezed
-          ? _value.developmentTitle
-          : developmentTitle // ignore: cast_nullable_to_non_nullable
-              as TWString,
+      developmentIdentifier: developmentIdentifier == freezed
+          ? _value.developmentIdentifier
+          : developmentIdentifier // ignore: cast_nullable_to_non_nullable
+              as DevelopmentIdentifier,
       jobTitle: jobTitle == freezed
           ? _value.jobTitle
           : jobTitle // ignore: cast_nullable_to_non_nullable
@@ -2103,7 +2217,7 @@ class __$CreateJobStateCopyWithImpl<$Res>
 
 class _$_CreateJobState extends _CreateJobState {
   const _$_CreateJobState(
-      {required this.developmentTitle,
+      {required this.developmentIdentifier,
       required this.jobTitle,
       required this.jobDescription,
       required this.selectedTrade,
@@ -2118,7 +2232,7 @@ class _$_CreateJobState extends _CreateJobState {
       : super._();
 
   @override
-  final TWString developmentTitle;
+  final DevelopmentIdentifier developmentIdentifier;
   @override
   final TWString jobTitle;
   @override
@@ -2144,16 +2258,16 @@ class _$_CreateJobState extends _CreateJobState {
 
   @override
   String toString() {
-    return 'CreateJobState(developmentTitle: $developmentTitle, jobTitle: $jobTitle, jobDescription: $jobDescription, selectedTrade: $selectedTrade, jobTimeLine: $jobTimeLine, jobRate: $jobRate, numberOfSubbies: $numberOfSubbies, location: $location, requirements: $requirements, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'CreateJobState(developmentIdentifier: $developmentIdentifier, jobTitle: $jobTitle, jobDescription: $jobDescription, selectedTrade: $selectedTrade, jobTimeLine: $jobTimeLine, jobRate: $jobRate, numberOfSubbies: $numberOfSubbies, location: $location, requirements: $requirements, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _CreateJobState &&
-            (identical(other.developmentTitle, developmentTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.developmentTitle, developmentTitle)) &&
+            (identical(other.developmentIdentifier, developmentIdentifier) ||
+                const DeepCollectionEquality().equals(
+                    other.developmentIdentifier, developmentIdentifier)) &&
             (identical(other.jobTitle, jobTitle) ||
                 const DeepCollectionEquality()
                     .equals(other.jobTitle, jobTitle)) &&
@@ -2192,7 +2306,7 @@ class _$_CreateJobState extends _CreateJobState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(developmentTitle) ^
+      const DeepCollectionEquality().hash(developmentIdentifier) ^
       const DeepCollectionEquality().hash(jobTitle) ^
       const DeepCollectionEquality().hash(jobDescription) ^
       const DeepCollectionEquality().hash(selectedTrade) ^
@@ -2213,7 +2327,7 @@ class _$_CreateJobState extends _CreateJobState {
 
 abstract class _CreateJobState extends CreateJobState {
   const factory _CreateJobState(
-      {required TWString developmentTitle,
+      {required DevelopmentIdentifier developmentIdentifier,
       required TWString jobTitle,
       required TWString jobDescription,
       required Trade selectedTrade,
@@ -2229,7 +2343,8 @@ abstract class _CreateJobState extends CreateJobState {
   const _CreateJobState._() : super._();
 
   @override
-  TWString get developmentTitle => throw _privateConstructorUsedError;
+  DevelopmentIdentifier get developmentIdentifier =>
+      throw _privateConstructorUsedError;
   @override
   TWString get jobTitle => throw _privateConstructorUsedError;
   @override

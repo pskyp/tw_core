@@ -8,8 +8,10 @@ class CreateJobEvent with _$CreateJobEvent {
   const factory CreateJobEvent.onJobEndDateChanged(DateTime endDate) =
       OnJobEndDateChanged;
 
-  const factory CreateJobEvent.developmentNameChanged(String value) =
-      DevelopmentNameChanged;
+  const factory CreateJobEvent.developmentIdentifierInput({
+    String? developmentTitle,
+    DevelopmentIdentifier? developmentIdentifier,
+  }) = DevelopmentIdentifierInput;
 
   const factory CreateJobEvent.jobTitleChanged(String value) = JobTitleChanged;
 

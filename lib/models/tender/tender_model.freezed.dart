@@ -24,7 +24,6 @@ class _$TenderTearOff {
       {required WorkIdentifier workIdentifier,
       required DateTime createdOn,
       required String developerId,
-      required String developmentId,
       required TenderStatus tenderStatus,
       required String? inviteEmailOne,
       required String? inviteEmailTwo,
@@ -46,7 +45,6 @@ class _$TenderTearOff {
       workIdentifier: workIdentifier,
       createdOn: createdOn,
       developerId: developerId,
-      developmentId: developmentId,
       tenderStatus: tenderStatus,
       inviteEmailOne: inviteEmailOne,
       inviteEmailTwo: inviteEmailTwo,
@@ -80,7 +78,6 @@ mixin _$Tender {
   WorkIdentifier get workIdentifier => throw _privateConstructorUsedError;
   DateTime get createdOn => throw _privateConstructorUsedError;
   String get developerId => throw _privateConstructorUsedError;
-  String get developmentId => throw _privateConstructorUsedError;
   TenderStatus get tenderStatus => throw _privateConstructorUsedError;
   String? get inviteEmailOne => throw _privateConstructorUsedError;
   String? get inviteEmailTwo => throw _privateConstructorUsedError;
@@ -113,7 +110,6 @@ abstract class $TenderCopyWith<$Res> {
       {WorkIdentifier workIdentifier,
       DateTime createdOn,
       String developerId,
-      String developmentId,
       TenderStatus tenderStatus,
       String? inviteEmailOne,
       String? inviteEmailTwo,
@@ -148,7 +144,6 @@ class _$TenderCopyWithImpl<$Res> implements $TenderCopyWith<$Res> {
     Object? workIdentifier = freezed,
     Object? createdOn = freezed,
     Object? developerId = freezed,
-    Object? developmentId = freezed,
     Object? tenderStatus = freezed,
     Object? inviteEmailOne = freezed,
     Object? inviteEmailTwo = freezed,
@@ -179,10 +174,6 @@ class _$TenderCopyWithImpl<$Res> implements $TenderCopyWith<$Res> {
       developerId: developerId == freezed
           ? _value.developerId
           : developerId // ignore: cast_nullable_to_non_nullable
-              as String,
-      developmentId: developmentId == freezed
-          ? _value.developmentId
-          : developmentId // ignore: cast_nullable_to_non_nullable
               as String,
       tenderStatus: tenderStatus == freezed
           ? _value.tenderStatus
@@ -272,7 +263,6 @@ abstract class _$TenderCopyWith<$Res> implements $TenderCopyWith<$Res> {
       {WorkIdentifier workIdentifier,
       DateTime createdOn,
       String developerId,
-      String developmentId,
       TenderStatus tenderStatus,
       String? inviteEmailOne,
       String? inviteEmailTwo,
@@ -309,7 +299,6 @@ class __$TenderCopyWithImpl<$Res> extends _$TenderCopyWithImpl<$Res>
     Object? workIdentifier = freezed,
     Object? createdOn = freezed,
     Object? developerId = freezed,
-    Object? developmentId = freezed,
     Object? tenderStatus = freezed,
     Object? inviteEmailOne = freezed,
     Object? inviteEmailTwo = freezed,
@@ -340,10 +329,6 @@ class __$TenderCopyWithImpl<$Res> extends _$TenderCopyWithImpl<$Res>
       developerId: developerId == freezed
           ? _value.developerId
           : developerId // ignore: cast_nullable_to_non_nullable
-              as String,
-      developmentId: developmentId == freezed
-          ? _value.developmentId
-          : developmentId // ignore: cast_nullable_to_non_nullable
               as String,
       tenderStatus: tenderStatus == freezed
           ? _value.tenderStatus
@@ -424,7 +409,6 @@ class _$_Tender extends _Tender {
       {required this.workIdentifier,
       required this.createdOn,
       required this.developerId,
-      required this.developmentId,
       required this.tenderStatus,
       required this.inviteEmailOne,
       required this.inviteEmailTwo,
@@ -453,8 +437,6 @@ class _$_Tender extends _Tender {
   final DateTime createdOn;
   @override
   final String developerId;
-  @override
-  final String developmentId;
   @override
   final TenderStatus tenderStatus;
   @override
@@ -492,7 +474,7 @@ class _$_Tender extends _Tender {
 
   @override
   String toString() {
-    return 'Tender(workIdentifier: $workIdentifier, createdOn: $createdOn, developerId: $developerId, developmentId: $developmentId, tenderStatus: $tenderStatus, inviteEmailOne: $inviteEmailOne, inviteEmailTwo: $inviteEmailTwo, trade: $trade, requirements: $requirements, location: $location, startDate: $startDate, applicationDeadLine: $applicationDeadLine, queriesDate: $queriesDate, submissionDate: $submissionDate, feedbackDate: $feedbackDate, awardDate: $awardDate, endDate: $endDate, tenderTimeLineStatus: $tenderTimeLineStatus, feedbackByDeveloper: $feedbackByDeveloper, feedbackByContractor: $feedbackByContractor, rating: $rating)';
+    return 'Tender(workIdentifier: $workIdentifier, createdOn: $createdOn, developerId: $developerId, tenderStatus: $tenderStatus, inviteEmailOne: $inviteEmailOne, inviteEmailTwo: $inviteEmailTwo, trade: $trade, requirements: $requirements, location: $location, startDate: $startDate, applicationDeadLine: $applicationDeadLine, queriesDate: $queriesDate, submissionDate: $submissionDate, feedbackDate: $feedbackDate, awardDate: $awardDate, endDate: $endDate, tenderTimeLineStatus: $tenderTimeLineStatus, feedbackByDeveloper: $feedbackByDeveloper, feedbackByContractor: $feedbackByContractor, rating: $rating)';
   }
 
   @override
@@ -508,9 +490,6 @@ class _$_Tender extends _Tender {
             (identical(other.developerId, developerId) ||
                 const DeepCollectionEquality()
                     .equals(other.developerId, developerId)) &&
-            (identical(other.developmentId, developmentId) ||
-                const DeepCollectionEquality()
-                    .equals(other.developmentId, developmentId)) &&
             (identical(other.tenderStatus, tenderStatus) ||
                 const DeepCollectionEquality()
                     .equals(other.tenderStatus, tenderStatus)) &&
@@ -568,7 +547,6 @@ class _$_Tender extends _Tender {
       const DeepCollectionEquality().hash(workIdentifier) ^
       const DeepCollectionEquality().hash(createdOn) ^
       const DeepCollectionEquality().hash(developerId) ^
-      const DeepCollectionEquality().hash(developmentId) ^
       const DeepCollectionEquality().hash(tenderStatus) ^
       const DeepCollectionEquality().hash(inviteEmailOne) ^
       const DeepCollectionEquality().hash(inviteEmailTwo) ^
@@ -603,7 +581,6 @@ abstract class _Tender extends Tender {
       {required WorkIdentifier workIdentifier,
       required DateTime createdOn,
       required String developerId,
-      required String developmentId,
       required TenderStatus tenderStatus,
       required String? inviteEmailOne,
       required String? inviteEmailTwo,
@@ -631,8 +608,6 @@ abstract class _Tender extends Tender {
   DateTime get createdOn => throw _privateConstructorUsedError;
   @override
   String get developerId => throw _privateConstructorUsedError;
-  @override
-  String get developmentId => throw _privateConstructorUsedError;
   @override
   TenderStatus get tenderStatus => throw _privateConstructorUsedError;
   @override

@@ -22,11 +22,9 @@ class _$SupplementTearOff {
 
   _Supplement call(
       {required WorkIdentifier workIdentifier,
-      required String developmentId,
       required String developerId,
       required SupplementStatus status,
       required Developer developer,
-      required String developmentTitle,
       required String title,
       required String description,
       required double hourlyRate,
@@ -44,11 +42,9 @@ class _$SupplementTearOff {
       required LocationModel location}) {
     return _Supplement(
       workIdentifier: workIdentifier,
-      developmentId: developmentId,
       developerId: developerId,
       status: status,
       developer: developer,
-      developmentTitle: developmentTitle,
       title: title,
       description: description,
       hourlyRate: hourlyRate,
@@ -78,11 +74,9 @@ const $Supplement = _$SupplementTearOff();
 /// @nodoc
 mixin _$Supplement {
   WorkIdentifier get workIdentifier => throw _privateConstructorUsedError;
-  String get developmentId => throw _privateConstructorUsedError;
   String get developerId => throw _privateConstructorUsedError;
   SupplementStatus get status => throw _privateConstructorUsedError;
   Developer get developer => throw _privateConstructorUsedError;
-  String get developmentTitle => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   double get hourlyRate => throw _privateConstructorUsedError;
@@ -112,11 +106,9 @@ abstract class $SupplementCopyWith<$Res> {
       _$SupplementCopyWithImpl<$Res>;
   $Res call(
       {WorkIdentifier workIdentifier,
-      String developmentId,
       String developerId,
       SupplementStatus status,
       Developer developer,
-      String developmentTitle,
       String title,
       String description,
       double hourlyRate,
@@ -147,11 +139,9 @@ class _$SupplementCopyWithImpl<$Res> implements $SupplementCopyWith<$Res> {
   @override
   $Res call({
     Object? workIdentifier = freezed,
-    Object? developmentId = freezed,
     Object? developerId = freezed,
     Object? status = freezed,
     Object? developer = freezed,
-    Object? developmentTitle = freezed,
     Object? title = freezed,
     Object? description = freezed,
     Object? hourlyRate = freezed,
@@ -173,10 +163,6 @@ class _$SupplementCopyWithImpl<$Res> implements $SupplementCopyWith<$Res> {
           ? _value.workIdentifier
           : workIdentifier // ignore: cast_nullable_to_non_nullable
               as WorkIdentifier,
-      developmentId: developmentId == freezed
-          ? _value.developmentId
-          : developmentId // ignore: cast_nullable_to_non_nullable
-              as String,
       developerId: developerId == freezed
           ? _value.developerId
           : developerId // ignore: cast_nullable_to_non_nullable
@@ -189,10 +175,6 @@ class _$SupplementCopyWithImpl<$Res> implements $SupplementCopyWith<$Res> {
           ? _value.developer
           : developer // ignore: cast_nullable_to_non_nullable
               as Developer,
-      developmentTitle: developmentTitle == freezed
-          ? _value.developmentTitle
-          : developmentTitle // ignore: cast_nullable_to_non_nullable
-              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -272,11 +254,9 @@ abstract class _$SupplementCopyWith<$Res> implements $SupplementCopyWith<$Res> {
   @override
   $Res call(
       {WorkIdentifier workIdentifier,
-      String developmentId,
       String developerId,
       SupplementStatus status,
       Developer developer,
-      String developmentTitle,
       String title,
       String description,
       double hourlyRate,
@@ -310,11 +290,9 @@ class __$SupplementCopyWithImpl<$Res> extends _$SupplementCopyWithImpl<$Res>
   @override
   $Res call({
     Object? workIdentifier = freezed,
-    Object? developmentId = freezed,
     Object? developerId = freezed,
     Object? status = freezed,
     Object? developer = freezed,
-    Object? developmentTitle = freezed,
     Object? title = freezed,
     Object? description = freezed,
     Object? hourlyRate = freezed,
@@ -336,10 +314,6 @@ class __$SupplementCopyWithImpl<$Res> extends _$SupplementCopyWithImpl<$Res>
           ? _value.workIdentifier
           : workIdentifier // ignore: cast_nullable_to_non_nullable
               as WorkIdentifier,
-      developmentId: developmentId == freezed
-          ? _value.developmentId
-          : developmentId // ignore: cast_nullable_to_non_nullable
-              as String,
       developerId: developerId == freezed
           ? _value.developerId
           : developerId // ignore: cast_nullable_to_non_nullable
@@ -352,10 +326,6 @@ class __$SupplementCopyWithImpl<$Res> extends _$SupplementCopyWithImpl<$Res>
           ? _value.developer
           : developer // ignore: cast_nullable_to_non_nullable
               as Developer,
-      developmentTitle: developmentTitle == freezed
-          ? _value.developmentTitle
-          : developmentTitle // ignore: cast_nullable_to_non_nullable
-              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -425,11 +395,9 @@ class __$SupplementCopyWithImpl<$Res> extends _$SupplementCopyWithImpl<$Res>
 class _$_Supplement implements _Supplement {
   const _$_Supplement(
       {required this.workIdentifier,
-      required this.developmentId,
       required this.developerId,
       required this.status,
       required this.developer,
-      required this.developmentTitle,
       required this.title,
       required this.description,
       required this.hourlyRate,
@@ -452,15 +420,11 @@ class _$_Supplement implements _Supplement {
   @override
   final WorkIdentifier workIdentifier;
   @override
-  final String developmentId;
-  @override
   final String developerId;
   @override
   final SupplementStatus status;
   @override
   final Developer developer;
-  @override
-  final String developmentTitle;
   @override
   final String title;
   @override
@@ -494,7 +458,7 @@ class _$_Supplement implements _Supplement {
 
   @override
   String toString() {
-    return 'Supplement(workIdentifier: $workIdentifier, developmentId: $developmentId, developerId: $developerId, status: $status, developer: $developer, developmentTitle: $developmentTitle, title: $title, description: $description, hourlyRate: $hourlyRate, hrsPerDay: $hrsPerDay, startDate: $startDate, endDate: $endDate, createdOn: $createdOn, applications: $applications, subbiesWorking: $subbiesWorking, subbiesRequired: $subbiesRequired, requirements: $requirements, trade: $trade, acceptingBids: $acceptingBids, totalUnseenBids: $totalUnseenBids, location: $location)';
+    return 'Supplement(workIdentifier: $workIdentifier, developerId: $developerId, status: $status, developer: $developer, title: $title, description: $description, hourlyRate: $hourlyRate, hrsPerDay: $hrsPerDay, startDate: $startDate, endDate: $endDate, createdOn: $createdOn, applications: $applications, subbiesWorking: $subbiesWorking, subbiesRequired: $subbiesRequired, requirements: $requirements, trade: $trade, acceptingBids: $acceptingBids, totalUnseenBids: $totalUnseenBids, location: $location)';
   }
 
   @override
@@ -504,9 +468,6 @@ class _$_Supplement implements _Supplement {
             (identical(other.workIdentifier, workIdentifier) ||
                 const DeepCollectionEquality()
                     .equals(other.workIdentifier, workIdentifier)) &&
-            (identical(other.developmentId, developmentId) ||
-                const DeepCollectionEquality()
-                    .equals(other.developmentId, developmentId)) &&
             (identical(other.developerId, developerId) ||
                 const DeepCollectionEquality()
                     .equals(other.developerId, developerId)) &&
@@ -515,9 +476,6 @@ class _$_Supplement implements _Supplement {
             (identical(other.developer, developer) ||
                 const DeepCollectionEquality()
                     .equals(other.developer, developer)) &&
-            (identical(other.developmentTitle, developmentTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.developmentTitle, developmentTitle)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.description, description) ||
@@ -567,11 +525,9 @@ class _$_Supplement implements _Supplement {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(workIdentifier) ^
-      const DeepCollectionEquality().hash(developmentId) ^
       const DeepCollectionEquality().hash(developerId) ^
       const DeepCollectionEquality().hash(status) ^
       const DeepCollectionEquality().hash(developer) ^
-      const DeepCollectionEquality().hash(developmentTitle) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(hourlyRate) ^
@@ -602,11 +558,9 @@ class _$_Supplement implements _Supplement {
 abstract class _Supplement implements Supplement {
   const factory _Supplement(
       {required WorkIdentifier workIdentifier,
-      required String developmentId,
       required String developerId,
       required SupplementStatus status,
       required Developer developer,
-      required String developmentTitle,
       required String title,
       required String description,
       required double hourlyRate,
@@ -629,15 +583,11 @@ abstract class _Supplement implements Supplement {
   @override
   WorkIdentifier get workIdentifier => throw _privateConstructorUsedError;
   @override
-  String get developmentId => throw _privateConstructorUsedError;
-  @override
   String get developerId => throw _privateConstructorUsedError;
   @override
   SupplementStatus get status => throw _privateConstructorUsedError;
   @override
   Developer get developer => throw _privateConstructorUsedError;
-  @override
-  String get developmentTitle => throw _privateConstructorUsedError;
   @override
   String get title => throw _privateConstructorUsedError;
   @override

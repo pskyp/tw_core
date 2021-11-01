@@ -286,11 +286,13 @@ class _$WorkIdentifierTearOff {
   const _$WorkIdentifierTearOff();
 
   _WorkIdentifier call(
-      {required String workId,
+      {required DevelopmentIdentifier developmentIdentifier,
+      required String workId,
       required String title,
       required TWUser employer,
       required WorkType type}) {
     return _WorkIdentifier(
+      developmentIdentifier: developmentIdentifier,
       workId: workId,
       title: title,
       employer: employer,
@@ -308,6 +310,8 @@ const $WorkIdentifier = _$WorkIdentifierTearOff();
 
 /// @nodoc
 mixin _$WorkIdentifier {
+  DevelopmentIdentifier get developmentIdentifier =>
+      throw _privateConstructorUsedError;
   String get workId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   TWUser get employer => throw _privateConstructorUsedError;
@@ -324,7 +328,14 @@ abstract class $WorkIdentifierCopyWith<$Res> {
   factory $WorkIdentifierCopyWith(
           WorkIdentifier value, $Res Function(WorkIdentifier) then) =
       _$WorkIdentifierCopyWithImpl<$Res>;
-  $Res call({String workId, String title, TWUser employer, WorkType type});
+  $Res call(
+      {DevelopmentIdentifier developmentIdentifier,
+      String workId,
+      String title,
+      TWUser employer,
+      WorkType type});
+
+  $DevelopmentIdentifierCopyWith<$Res> get developmentIdentifier;
 }
 
 /// @nodoc
@@ -338,12 +349,17 @@ class _$WorkIdentifierCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? developmentIdentifier = freezed,
     Object? workId = freezed,
     Object? title = freezed,
     Object? employer = freezed,
     Object? type = freezed,
   }) {
     return _then(_value.copyWith(
+      developmentIdentifier: developmentIdentifier == freezed
+          ? _value.developmentIdentifier
+          : developmentIdentifier // ignore: cast_nullable_to_non_nullable
+              as DevelopmentIdentifier,
       workId: workId == freezed
           ? _value.workId
           : workId // ignore: cast_nullable_to_non_nullable
@@ -362,6 +378,14 @@ class _$WorkIdentifierCopyWithImpl<$Res>
               as WorkType,
     ));
   }
+
+  @override
+  $DevelopmentIdentifierCopyWith<$Res> get developmentIdentifier {
+    return $DevelopmentIdentifierCopyWith<$Res>(_value.developmentIdentifier,
+        (value) {
+      return _then(_value.copyWith(developmentIdentifier: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -371,7 +395,15 @@ abstract class _$WorkIdentifierCopyWith<$Res>
           _WorkIdentifier value, $Res Function(_WorkIdentifier) then) =
       __$WorkIdentifierCopyWithImpl<$Res>;
   @override
-  $Res call({String workId, String title, TWUser employer, WorkType type});
+  $Res call(
+      {DevelopmentIdentifier developmentIdentifier,
+      String workId,
+      String title,
+      TWUser employer,
+      WorkType type});
+
+  @override
+  $DevelopmentIdentifierCopyWith<$Res> get developmentIdentifier;
 }
 
 /// @nodoc
@@ -387,12 +419,17 @@ class __$WorkIdentifierCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? developmentIdentifier = freezed,
     Object? workId = freezed,
     Object? title = freezed,
     Object? employer = freezed,
     Object? type = freezed,
   }) {
     return _then(_WorkIdentifier(
+      developmentIdentifier: developmentIdentifier == freezed
+          ? _value.developmentIdentifier
+          : developmentIdentifier // ignore: cast_nullable_to_non_nullable
+              as DevelopmentIdentifier,
       workId: workId == freezed
           ? _value.workId
           : workId // ignore: cast_nullable_to_non_nullable
@@ -417,7 +454,8 @@ class __$WorkIdentifierCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_WorkIdentifier implements _WorkIdentifier {
   const _$_WorkIdentifier(
-      {required this.workId,
+      {required this.developmentIdentifier,
+      required this.workId,
       required this.title,
       required this.employer,
       required this.type});
@@ -425,6 +463,8 @@ class _$_WorkIdentifier implements _WorkIdentifier {
   factory _$_WorkIdentifier.fromJson(Map<String, dynamic> json) =>
       _$$_WorkIdentifierFromJson(json);
 
+  @override
+  final DevelopmentIdentifier developmentIdentifier;
   @override
   final String workId;
   @override
@@ -436,13 +476,16 @@ class _$_WorkIdentifier implements _WorkIdentifier {
 
   @override
   String toString() {
-    return 'WorkIdentifier(workId: $workId, title: $title, employer: $employer, type: $type)';
+    return 'WorkIdentifier(developmentIdentifier: $developmentIdentifier, workId: $workId, title: $title, employer: $employer, type: $type)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _WorkIdentifier &&
+            (identical(other.developmentIdentifier, developmentIdentifier) ||
+                const DeepCollectionEquality().equals(
+                    other.developmentIdentifier, developmentIdentifier)) &&
             (identical(other.workId, workId) ||
                 const DeepCollectionEquality().equals(other.workId, workId)) &&
             (identical(other.title, title) ||
@@ -457,6 +500,7 @@ class _$_WorkIdentifier implements _WorkIdentifier {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(developmentIdentifier) ^
       const DeepCollectionEquality().hash(workId) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(employer) ^
@@ -475,7 +519,8 @@ class _$_WorkIdentifier implements _WorkIdentifier {
 
 abstract class _WorkIdentifier implements WorkIdentifier {
   const factory _WorkIdentifier(
-      {required String workId,
+      {required DevelopmentIdentifier developmentIdentifier,
+      required String workId,
       required String title,
       required TWUser employer,
       required WorkType type}) = _$_WorkIdentifier;
@@ -483,6 +528,9 @@ abstract class _WorkIdentifier implements WorkIdentifier {
   factory _WorkIdentifier.fromJson(Map<String, dynamic> json) =
       _$_WorkIdentifier.fromJson;
 
+  @override
+  DevelopmentIdentifier get developmentIdentifier =>
+      throw _privateConstructorUsedError;
   @override
   String get workId => throw _privateConstructorUsedError;
   @override

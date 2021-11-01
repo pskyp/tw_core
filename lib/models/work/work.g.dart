@@ -59,6 +59,8 @@ const _$BidTypeEnumMap = {
 
 _$_WorkIdentifier _$$_WorkIdentifierFromJson(Map<String, dynamic> json) =>
     _$_WorkIdentifier(
+      developmentIdentifier: DevelopmentIdentifier.fromJson(
+          json['developmentIdentifier'] as Map<String, dynamic>),
       workId: json['workId'] as String,
       title: json['title'] as String,
       employer: TWUser.fromJson(json['employer'] as Map<String, dynamic>),
@@ -67,6 +69,7 @@ _$_WorkIdentifier _$$_WorkIdentifierFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_WorkIdentifierToJson(_$_WorkIdentifier instance) =>
     <String, dynamic>{
+      'developmentIdentifier': instance.developmentIdentifier.toJson(),
       'workId': instance.workId,
       'title': instance.title,
       'employer': instance.employer.toJson(),
