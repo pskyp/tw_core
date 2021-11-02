@@ -5,16 +5,22 @@ import 'package:tw_core/models/errors.dart';
 part 'tw_number.freezed.dart';
 
 class TWNumber {
-  static const Job_Daily_Rate_Min = 1;
+  static const Job_Daily_Rate_Min = 40;
+  static const Job_Daily_Rate_Max = 500;
+
   static const Job_Required_Subbies_Min = 1;
+  static const Job_Required_Subbies_Max = 100;
+
   final Either<TWNumberFailure, int> value;
 
   TWNumber({
     required int input,
     required int minValue,
+    required int maxValue,
   }) : value = _validator(
           input: input,
           minValue: minValue,
+          maxValue: maxValue,
         );
 
   bool get isValid => value.isRight();
@@ -24,15 +30,31 @@ class TWNumber {
   static Either<TWNumberFailure, int> _validator({
     required int input,
     required int minValue,
+    required int maxValue,
   }) {
-    return input > minValue
-        ? right(input)
-        : left(TWNumberFailure.lessThanMinimum(value: input));
+    return input < minValue
+        ? left(TWNumberFailure.lessThanMinimum(
+            value: input,
+            failureMessage: 'less than minimum',
+          ))
+        : input > maxValue
+            ? left(TWNumberFailure.lessThanMinimum(
+                value: input,
+                failureMessage: 'less than minimum',
+              ))
+            : right(input);
   }
 }
 
 @freezed
 class TWNumberFailure with _$TWNumberFailure {
-  const factory TWNumberFailure.lessThanMinimum({required int value}) =
-      LessThanMinimum;
+  const factory TWNumberFailure.lessThanMinimum({
+    required int value,
+    required String failureMessage,
+  }) = LessThanMinimum;
+
+  const factory TWNumberFailure.moreThanMaximum({
+    required int value,
+    required String failureMessage,
+  }) = MoreThanMaximum;
 }

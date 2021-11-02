@@ -70,16 +70,19 @@ class CreateJobBloc extends Bloc<CreateJobEvent, CreateJobState> {
         yield state.copyWith(
           numberOfSubbies: TWNumber(
             input: input,
+            maxValue: TWNumber.Job_Required_Subbies_Max,
             minValue: TWNumber.Job_Required_Subbies_Min,
           ),
         );
       },
       onRateChanged: (e) async* {
-        int? input = int.tryParse(e.value);
+        double? input = double.tryParse(e.value);
+        print(input);
         if (input != null) {
           yield state.copyWith(
             jobRate: TWNumber(
-              input: input,
+              input: input.floor(),
+              maxValue: TWNumber.Job_Daily_Rate_Max,
               minValue: TWNumber.Job_Daily_Rate_Min,
             ),
           );

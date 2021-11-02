@@ -24,12 +24,13 @@ class CreateJobState with _$CreateJobState {
         jobDescription: TWString('', TWString.Job_Desc_ML),
         selectedTrade: Trade.allTrades.first,
         jobRate: TWNumber(
-          input: TWNumber.Job_Daily_Rate_Min,
-          minValue: TWNumber.Job_Daily_Rate_Min,
-        ),
+            input: TWNumber.Job_Daily_Rate_Min,
+            minValue: TWNumber.Job_Daily_Rate_Min,
+            maxValue: TWNumber.Job_Daily_Rate_Max),
         numberOfSubbies: TWNumber(
           input: TWNumber.Job_Required_Subbies_Min,
           minValue: TWNumber.Job_Required_Subbies_Min,
+          maxValue: TWNumber.Job_Required_Subbies_Max,
         ),
         jobTimeLine: JobTimeLine(
           createdOn: DateTime.now(),

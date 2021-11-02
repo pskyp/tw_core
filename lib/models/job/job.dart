@@ -14,6 +14,7 @@ part 'job.g.dart';
 
 @freezed
 class Job with _$Job implements Work {
+  const Job._();
   const factory Job({
     required WorkIdentifier workIdentifier,
     required DateTime createdOn,
@@ -71,5 +72,6 @@ class Job with _$Job implements Work {
         acceptingBids: true,
       );
 
+  String get developmentTitle => workIdentifier.developmentIdentifier.title;
   factory Job.fromJson(Map<String, dynamic> json) => _$JobFromJson(json);
 }

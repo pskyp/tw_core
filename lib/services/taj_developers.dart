@@ -247,7 +247,7 @@ class TAJDeveloper extends TAJFacade {
   Stream<List<Tender>> streamAllTendersForDevelopment(
       {required Development dev}) {
     return TWFC.tendersCollection
-        .where('developmentId', isEqualTo: dev.id)
+        .where('workIdentifier.developmentIdentifier.id', isEqualTo: dev.id)
         .snapshots()
         .map((list) =>
             list.docs.map((doc) => Tender.fromJson(doc.data())).toList());
@@ -257,7 +257,7 @@ class TAJDeveloper extends TAJFacade {
     required TWUser developer,
   }) {
     return TWFC.supplementCollection
-        .where('developerId', isEqualTo: developer.uid)
+        .where('developmentIdentifier.developerId', isEqualTo: developer.uid)
         .snapshots()
         .map((list) {
       allSupplements = optionOf(
@@ -285,7 +285,7 @@ class TAJDeveloper extends TAJFacade {
     required TWUser developer,
   }) {
     return TWFC.developmentsCollection
-        .where('developerId', isEqualTo: developer.uid)
+        .where('developmentIdentifier.developerId', isEqualTo: developer.uid)
         .snapshots()
         .map((list) {
       allDevelopments = optionOf(

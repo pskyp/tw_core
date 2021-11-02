@@ -358,7 +358,7 @@ class __$JobCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Job implements _Job {
+class _$_Job extends _Job {
   const _$_Job(
       {required this.workIdentifier,
       required this.createdOn,
@@ -376,7 +376,8 @@ class _$_Job implements _Job {
       required this.hrsPerDay,
       required this.startDate,
       required this.requirements,
-      required this.acceptingBids});
+      required this.acceptingBids})
+      : super._();
 
   factory _$_Job.fromJson(Map<String, dynamic> json) => _$$_JobFromJson(json);
 
@@ -507,7 +508,7 @@ class _$_Job implements _Job {
   }
 }
 
-abstract class _Job implements Job {
+abstract class _Job extends Job {
   const factory _Job(
       {required WorkIdentifier workIdentifier,
       required DateTime createdOn,
@@ -526,6 +527,7 @@ abstract class _Job implements Job {
       required DateTime startDate,
       required List<String> requirements,
       required bool acceptingBids}) = _$_Job;
+  const _Job._() : super._();
 
   factory _Job.fromJson(Map<String, dynamic> json) = _$_Job.fromJson;
 

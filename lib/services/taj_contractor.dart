@@ -10,7 +10,7 @@ class TAJContractor extends TAJFacade {
   static Option<List<Tender>> allTenders = optionOf(null);
   // static Option<List<Tender>> allTendersWonByContractor = optionOf(null);
 
-  Option<List<TenderBid>> allTendersWonByContractor() {
+  Option<List<TenderBid>> awardedTenderBidsOption() {
     return allTenderBids.fold(
       () => optionOf(null),
       (allTenderBidsByContractor) => optionOf(
