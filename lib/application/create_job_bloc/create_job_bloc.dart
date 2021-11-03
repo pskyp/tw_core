@@ -24,7 +24,7 @@ class CreateJobBloc extends Bloc<CreateJobEvent, CreateJobState> {
     CreateJobEvent event,
   ) async* {
     yield* event.map(
-      developmentIdentifierInput: (e) async* {
+      onDevelopmentIdentifierInput: (e) async* {
         assert(e.developmentIdentifier != null || e.developmentTitle != null);
         yield state.copyWith(
           developmentIdentifier: e.developmentTitle != null
