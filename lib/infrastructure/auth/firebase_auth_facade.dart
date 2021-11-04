@@ -122,25 +122,12 @@ class FirebaseAuthFacade implements IAuthFacade {
   Future<Either<AuthFailure, Unit>> signInWithApple() async {
     if (kIsWeb) {
       try {
-        final rawNonce = generateNonce();
-        final nonce = sha256ofString(rawNonce);
-        var redirectURL = "https://labour-link.firebaseapp.com/__/auth/handler";
-        var clientID = "uk.tradework.mobileapp";
-        final appleCredential = await SignInWithApple.getAppleIDCredential(
-            scopes: [
-              AppleIDAuthorizationScopes.email,
-              AppleIDAuthorizationScopes.fullName,
-            ],
-            nonce: nonce,
-            webAuthenticationOptions: WebAuthenticationOptions(
-                clientId: clientID, redirectUri: Uri.parse(redirectURL)));
+        final oauthCredential = OAuthProvider("apple.com")
+          ..addScope('email')
+          ..addScope('name');
 
-        final oauthCredential = OAuthProvider("apple.com").credential(
-            idToken: appleCredential.identityToken,
-            rawNonce: rawNonce,
-            accessToken: appleCredential.authorizationCode);
 
-        await firebaseAuth.signInWithCredential(oauthCredential);
+        await firebaseAuth.signInWithPopup(oauthCredential);
         return right(unit);
       } catch (e) {
         print(e);
