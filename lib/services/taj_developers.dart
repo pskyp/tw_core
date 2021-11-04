@@ -57,9 +57,11 @@ class TAJDeveloper extends TAJFacade {
     required Developer developer,
   }) async {
     Development dev = Development(
-      id: devId,
-      developerId: developer.twUser.uid,
-      devTitle: title.getOrCrash(),
+      developmentIdentifier: DevelopmentIdentifier(
+        developerId: developer.twUser.uid,
+        id: devId,
+        title: title.getOrCrash(),
+      ),
       description: description.getOrCrash(),
       location: devLocation.getOrCrash(),
     );
@@ -81,15 +83,14 @@ class TAJDeveloper extends TAJFacade {
   }) async {
     Supplement supplement = Supplement(
       workIdentifier: WorkIdentifier.supplement(
+        developmentIdentifier: development.developmentIdentifier,
         workId: supplementId,
         title: supplementTitle.getOrCrash(),
         employer: CacheService().developer.twUser,
       ),
       developerId: CacheService().developer.twUser.uid,
-      developmentId: development.id,
       status: SupplementStatus.Active,
       developer: developer,
-      developmentTitle: development.devTitle,
       description: development.description,
       hourlyRate: 100,
       hrsPerDay: 0,
@@ -128,9 +129,9 @@ class TAJDeveloper extends TAJFacade {
   }) async {
     try {
       Tender tender = Tender(
-          developmentId: development.id,
           createdOn: tenderTimeline.createdAt.getOrCrash(),
           workIdentifier: WorkIdentifier.tender(
+            developmentIdentifier: development.developmentIdentifier,
             workId: tenderId,
             title: tenderTitle,
             employer: developer.twUser,
@@ -246,7 +247,7 @@ class TAJDeveloper extends TAJFacade {
   Stream<List<Tender>> streamAllTendersForDevelopment(
       {required Development dev}) {
     return TWFC.tendersCollection
-        .where('developmentId', isEqualTo: dev.id)
+        .where('workIdentifier.developmentIdentifier.id', isEqualTo: dev.id)
         .snapshots()
         .map((list) =>
             list.docs.map((doc) => Tender.fromJson(doc.data())).toList());
@@ -256,7 +257,7 @@ class TAJDeveloper extends TAJFacade {
     required TWUser developer,
   }) {
     return TWFC.supplementCollection
-        .where('developerId', isEqualTo: developer.uid)
+        .where('developmentIdentifier.developerId', isEqualTo: developer.uid)
         .snapshots()
         .map((list) {
       allSupplements = optionOf(
@@ -270,7 +271,10 @@ class TAJDeveloper extends TAJFacade {
     required Development development,
   }) {
     return TWFC.supplementCollection
-        .where('developmentId', isEqualTo: development.id)
+        .where(
+          'developmentId',
+          isEqualTo: development.id,
+        )
         .snapshots()
         .map((list) {
       return list.docs.map((doc) => Supplement.fromJson(doc.data())).toList();
@@ -281,7 +285,7 @@ class TAJDeveloper extends TAJFacade {
     required TWUser developer,
   }) {
     return TWFC.developmentsCollection
-        .where('developerId', isEqualTo: developer.uid)
+        .where('developmentIdentifier.developerId', isEqualTo: developer.uid)
         .snapshots()
         .map((list) {
       allDevelopments = optionOf(

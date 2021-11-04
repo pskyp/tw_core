@@ -8,10 +8,25 @@ class TAJContractor extends TAJFacade {
   static Option<List<Supplement>> allSupplements = optionOf(null);
   static Option<List<TenderBid>> allTenderBids = optionOf(null);
   static Option<List<Tender>> allTenders = optionOf(null);
+  // static Option<List<Tender>> allTendersWonByContractor = optionOf(null);
+
+  Option<List<TenderBid>> awardedTenderBidsOption() {
+    return allTenderBids.fold(
+      () => optionOf(null),
+      (allTenderBidsByContractor) => optionOf(
+        allTenderBidsByContractor
+            .where(
+              (tenderBid) =>
+                  tenderBid.tenderBidStatus == TenderBidStatus.Awarded,
+            )
+            .toList(),
+      ),
+    );
+  }
 
   Future<Either<TWServerError, Unit>> createJob({
+    required DevelopmentIdentifier developmentIdentifier,
     required LocationModel location,
-    required TWString devTitle,
     required TWString jobTitle,
     required TWString jobDescription,
     required TWNumber jobRate,
@@ -21,8 +36,8 @@ class TAJContractor extends TAJFacade {
     required Trade selectedTrade,
   }) async {
     Job job = Job.neu(
+      developmentIdentifier: developmentIdentifier,
       location: location,
-      devTitle: devTitle,
       jobTitle: jobTitle,
       jobDescription: jobDescription,
       jobRate: jobRate,

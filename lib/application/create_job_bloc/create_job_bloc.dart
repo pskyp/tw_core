@@ -5,6 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/models/core/tw_min_length_string/tw_min_length_string.dart';
 import 'package:tw_core/models/core/tw_number/tw_number.dart';
+import 'package:tw_core/models/development/development.dart';
 import 'package:tw_core/models/errors.dart';
 import 'package:tw_core/models/job/value_objects/job_timeline/job_timeline.dart';
 import 'package:tw_core/models/location/location_model.dart';
@@ -23,9 +24,12 @@ class CreateJobBloc extends Bloc<CreateJobEvent, CreateJobState> {
     CreateJobEvent event,
   ) async* {
     yield* event.map(
-      developmentNameChanged: (e) async* {
+      onDevelopmentIdentifierInput: (e) async* {
+        assert(e.developmentIdentifier != null || e.developmentTitle != null);
         yield state.copyWith(
-          developmentTitle: TWString(e.value, TWString.DEV_TITLE_ML),
+          developmentIdentifier: e.developmentTitle != null
+              ? DevelopmentIdentifier.pseudo(title: e.developmentTitle!)
+              : e.developmentIdentifier!,
         );
       },
       onJobStartDateChanged: (e) async* {
@@ -66,16 +70,19 @@ class CreateJobBloc extends Bloc<CreateJobEvent, CreateJobState> {
         yield state.copyWith(
           numberOfSubbies: TWNumber(
             input: input,
+            maxValue: TWNumber.Job_Required_Subbies_Max,
             minValue: TWNumber.Job_Required_Subbies_Min,
           ),
         );
       },
       onRateChanged: (e) async* {
-        int? input = int.tryParse(e.value);
+        double? input = double.tryParse(e.value);
+        print(input);
         if (input != null) {
           yield state.copyWith(
             jobRate: TWNumber(
-              input: input,
+              input: input.floor(),
+              maxValue: TWNumber.Job_Daily_Rate_Max,
               minValue: TWNumber.Job_Daily_Rate_Min,
             ),
           );
@@ -97,7 +104,7 @@ class CreateJobBloc extends Bloc<CreateJobEvent, CreateJobState> {
         yield state.copyWith(isSubmitting: true);
         Either<TWServerError, Unit> result;
         result = await TAJContractor().createJob(
-          devTitle: state.developmentTitle,
+          developmentIdentifier: state.developmentIdentifier,
           jobDescription: state.jobDescription,
           jobRate: state.jobRate,
           jobTimeLine: state.jobTimeLine,

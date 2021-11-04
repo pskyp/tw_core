@@ -10,11 +10,9 @@ _$_Supplement _$$_SupplementFromJson(Map<String, dynamic> json) =>
     _$_Supplement(
       workIdentifier: WorkIdentifier.fromJson(
           json['workIdentifier'] as Map<String, dynamic>),
-      developmentId: json['developmentId'] as String,
       developerId: json['developerId'] as String,
       status: _$enumDecode(_$SupplementStatusEnumMap, json['status']),
       developer: Developer.fromJson(json['developer'] as Map<String, dynamic>),
-      developmentTitle: json['developmentTitle'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
       hourlyRate: (json['hourlyRate'] as num).toDouble(),
@@ -36,11 +34,9 @@ _$_Supplement _$$_SupplementFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_SupplementToJson(_$_Supplement instance) =>
     <String, dynamic>{
       'workIdentifier': instance.workIdentifier.toJson(),
-      'developmentId': instance.developmentId,
       'developerId': instance.developerId,
       'status': _$SupplementStatusEnumMap[instance.status],
       'developer': instance.developer.toJson(),
-      'developmentTitle': instance.developmentTitle,
       'title': instance.title,
       'description': instance.description,
       'hourlyRate': instance.hourlyRate,

@@ -16,9 +16,19 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$TWNumberFailureTearOff {
   const _$TWNumberFailureTearOff();
 
-  LessThanMinimum lessThanMinimum({required int value}) {
+  LessThanMinimum lessThanMinimum(
+      {required int value, required String failureMessage}) {
     return LessThanMinimum(
       value: value,
+      failureMessage: failureMessage,
+    );
+  }
+
+  MoreThanMaximum moreThanMaximum(
+      {required int value, required String failureMessage}) {
+    return MoreThanMaximum(
+      value: value,
+      failureMessage: failureMessage,
     );
   }
 }
@@ -29,26 +39,31 @@ const $TWNumberFailure = _$TWNumberFailureTearOff();
 /// @nodoc
 mixin _$TWNumberFailure {
   int get value => throw _privateConstructorUsedError;
+  String get failureMessage => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int value) lessThanMinimum,
+    required TResult Function(int value, String failureMessage) lessThanMinimum,
+    required TResult Function(int value, String failureMessage) moreThanMaximum,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int value)? lessThanMinimum,
+    TResult Function(int value, String failureMessage)? lessThanMinimum,
+    TResult Function(int value, String failureMessage)? moreThanMaximum,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LessThanMinimum value) lessThanMinimum,
+    required TResult Function(MoreThanMaximum value) moreThanMaximum,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LessThanMinimum value)? lessThanMinimum,
+    TResult Function(MoreThanMaximum value)? moreThanMaximum,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -63,7 +78,7 @@ abstract class $TWNumberFailureCopyWith<$Res> {
   factory $TWNumberFailureCopyWith(
           TWNumberFailure value, $Res Function(TWNumberFailure) then) =
       _$TWNumberFailureCopyWithImpl<$Res>;
-  $Res call({int value});
+  $Res call({int value, String failureMessage});
 }
 
 /// @nodoc
@@ -78,12 +93,17 @@ class _$TWNumberFailureCopyWithImpl<$Res>
   @override
   $Res call({
     Object? value = freezed,
+    Object? failureMessage = freezed,
   }) {
     return _then(_value.copyWith(
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
+      failureMessage: failureMessage == freezed
+          ? _value.failureMessage
+          : failureMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -95,7 +115,7 @@ abstract class $LessThanMinimumCopyWith<$Res>
           LessThanMinimum value, $Res Function(LessThanMinimum) then) =
       _$LessThanMinimumCopyWithImpl<$Res>;
   @override
-  $Res call({int value});
+  $Res call({int value, String failureMessage});
 }
 
 /// @nodoc
@@ -112,12 +132,17 @@ class _$LessThanMinimumCopyWithImpl<$Res>
   @override
   $Res call({
     Object? value = freezed,
+    Object? failureMessage = freezed,
   }) {
     return _then(LessThanMinimum(
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as int,
+      failureMessage: failureMessage == freezed
+          ? _value.failureMessage
+          : failureMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -125,14 +150,16 @@ class _$LessThanMinimumCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LessThanMinimum implements LessThanMinimum {
-  const _$LessThanMinimum({required this.value});
+  const _$LessThanMinimum({required this.value, required this.failureMessage});
 
   @override
   final int value;
+  @override
+  final String failureMessage;
 
   @override
   String toString() {
-    return 'TWNumberFailure.lessThanMinimum(value: $value)';
+    return 'TWNumberFailure.lessThanMinimum(value: $value, failureMessage: $failureMessage)';
   }
 
   @override
@@ -140,12 +167,17 @@ class _$LessThanMinimum implements LessThanMinimum {
     return identical(this, other) ||
         (other is LessThanMinimum &&
             (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+                const DeepCollectionEquality().equals(other.value, value)) &&
+            (identical(other.failureMessage, failureMessage) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureMessage, failureMessage)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(value) ^
+      const DeepCollectionEquality().hash(failureMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -155,19 +187,21 @@ class _$LessThanMinimum implements LessThanMinimum {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int value) lessThanMinimum,
+    required TResult Function(int value, String failureMessage) lessThanMinimum,
+    required TResult Function(int value, String failureMessage) moreThanMaximum,
   }) {
-    return lessThanMinimum(value);
+    return lessThanMinimum(value, failureMessage);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int value)? lessThanMinimum,
+    TResult Function(int value, String failureMessage)? lessThanMinimum,
+    TResult Function(int value, String failureMessage)? moreThanMaximum,
     required TResult orElse(),
   }) {
     if (lessThanMinimum != null) {
-      return lessThanMinimum(value);
+      return lessThanMinimum(value, failureMessage);
     }
     return orElse();
   }
@@ -176,6 +210,7 @@ class _$LessThanMinimum implements LessThanMinimum {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LessThanMinimum value) lessThanMinimum,
+    required TResult Function(MoreThanMaximum value) moreThanMaximum,
   }) {
     return lessThanMinimum(this);
   }
@@ -184,6 +219,7 @@ class _$LessThanMinimum implements LessThanMinimum {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LessThanMinimum value)? lessThanMinimum,
+    TResult Function(MoreThanMaximum value)? moreThanMaximum,
     required TResult orElse(),
   }) {
     if (lessThanMinimum != null) {
@@ -194,12 +230,150 @@ class _$LessThanMinimum implements LessThanMinimum {
 }
 
 abstract class LessThanMinimum implements TWNumberFailure {
-  const factory LessThanMinimum({required int value}) = _$LessThanMinimum;
+  const factory LessThanMinimum(
+      {required int value, required String failureMessage}) = _$LessThanMinimum;
 
   @override
   int get value => throw _privateConstructorUsedError;
   @override
+  String get failureMessage => throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
   $LessThanMinimumCopyWith<LessThanMinimum> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MoreThanMaximumCopyWith<$Res>
+    implements $TWNumberFailureCopyWith<$Res> {
+  factory $MoreThanMaximumCopyWith(
+          MoreThanMaximum value, $Res Function(MoreThanMaximum) then) =
+      _$MoreThanMaximumCopyWithImpl<$Res>;
+  @override
+  $Res call({int value, String failureMessage});
+}
+
+/// @nodoc
+class _$MoreThanMaximumCopyWithImpl<$Res>
+    extends _$TWNumberFailureCopyWithImpl<$Res>
+    implements $MoreThanMaximumCopyWith<$Res> {
+  _$MoreThanMaximumCopyWithImpl(
+      MoreThanMaximum _value, $Res Function(MoreThanMaximum) _then)
+      : super(_value, (v) => _then(v as MoreThanMaximum));
+
+  @override
+  MoreThanMaximum get _value => super._value as MoreThanMaximum;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+    Object? failureMessage = freezed,
+  }) {
+    return _then(MoreThanMaximum(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+      failureMessage: failureMessage == freezed
+          ? _value.failureMessage
+          : failureMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$MoreThanMaximum implements MoreThanMaximum {
+  const _$MoreThanMaximum({required this.value, required this.failureMessage});
+
+  @override
+  final int value;
+  @override
+  final String failureMessage;
+
+  @override
+  String toString() {
+    return 'TWNumberFailure.moreThanMaximum(value: $value, failureMessage: $failureMessage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is MoreThanMaximum &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)) &&
+            (identical(other.failureMessage, failureMessage) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureMessage, failureMessage)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(value) ^
+      const DeepCollectionEquality().hash(failureMessage);
+
+  @JsonKey(ignore: true)
+  @override
+  $MoreThanMaximumCopyWith<MoreThanMaximum> get copyWith =>
+      _$MoreThanMaximumCopyWithImpl<MoreThanMaximum>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int value, String failureMessage) lessThanMinimum,
+    required TResult Function(int value, String failureMessage) moreThanMaximum,
+  }) {
+    return moreThanMaximum(value, failureMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int value, String failureMessage)? lessThanMinimum,
+    TResult Function(int value, String failureMessage)? moreThanMaximum,
+    required TResult orElse(),
+  }) {
+    if (moreThanMaximum != null) {
+      return moreThanMaximum(value, failureMessage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LessThanMinimum value) lessThanMinimum,
+    required TResult Function(MoreThanMaximum value) moreThanMaximum,
+  }) {
+    return moreThanMaximum(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LessThanMinimum value)? lessThanMinimum,
+    TResult Function(MoreThanMaximum value)? moreThanMaximum,
+    required TResult orElse(),
+  }) {
+    if (moreThanMaximum != null) {
+      return moreThanMaximum(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MoreThanMaximum implements TWNumberFailure {
+  const factory MoreThanMaximum(
+      {required int value, required String failureMessage}) = _$MoreThanMaximum;
+
+  @override
+  int get value => throw _privateConstructorUsedError;
+  @override
+  String get failureMessage => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  $MoreThanMaximumCopyWith<MoreThanMaximum> get copyWith =>
       throw _privateConstructorUsedError;
 }

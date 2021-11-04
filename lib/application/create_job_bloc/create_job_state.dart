@@ -4,7 +4,7 @@ part of 'create_job_bloc.dart';
 class CreateJobState with _$CreateJobState {
   const CreateJobState._();
   const factory CreateJobState({
-    required TWString developmentTitle,
+    required DevelopmentIdentifier developmentIdentifier,
     required TWString jobTitle,
     required TWString jobDescription,
     required Trade selectedTrade,
@@ -19,17 +19,18 @@ class CreateJobState with _$CreateJobState {
   }) = _CreateJobState;
 
   factory CreateJobState.initial() => _CreateJobState(
-        developmentTitle: TWString('', TWString.DEV_TITLE_ML),
+        developmentIdentifier: DevelopmentIdentifier.pseudo(title: ''),
         jobTitle: TWString('', TWString.Job_Title_ML),
         jobDescription: TWString('', TWString.Job_Desc_ML),
         selectedTrade: Trade.allTrades.first,
         jobRate: TWNumber(
-          input: TWNumber.Job_Daily_Rate_Min,
-          minValue: TWNumber.Job_Daily_Rate_Min,
-        ),
+            input: TWNumber.Job_Daily_Rate_Min,
+            minValue: TWNumber.Job_Daily_Rate_Min,
+            maxValue: TWNumber.Job_Daily_Rate_Max),
         numberOfSubbies: TWNumber(
           input: TWNumber.Job_Required_Subbies_Min,
           minValue: TWNumber.Job_Required_Subbies_Min,
+          maxValue: TWNumber.Job_Required_Subbies_Max,
         ),
         jobTimeLine: JobTimeLine(
           createdOn: DateTime.now(),
@@ -47,7 +48,8 @@ class CreateJobState with _$CreateJobState {
     return jobTitle.isValid &&
         jobDescription.isValid &&
         location.isSome() &&
-        developmentTitle.isValid &&
+        // developmentIdentifierOption.fold(
+        //     () => false, (developmentIdentifier) => true) &&
         jobRate.isValid &&
         numberOfSubbies.isValid &&
         jobTimeLine.isValid;

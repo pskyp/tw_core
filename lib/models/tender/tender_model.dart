@@ -16,7 +16,6 @@ class Tender with _$Tender implements Work {
     required WorkIdentifier workIdentifier,
     required DateTime createdOn,
     required String developerId,
-    required String developmentId,
     required TenderStatus tenderStatus,
     required String? inviteEmailOne,
     required String? inviteEmailTwo,
@@ -39,6 +38,8 @@ class Tender with _$Tender implements Work {
   factory Tender.fromJson(Map<String, dynamic> json) => _$TenderFromJson(json);
 
   bool get isCompleted => tenderStatus == TenderStatus.Completed;
+  String get developmentId => workIdentifier.developmentIdentifier.id;
+  String get devTitle => workIdentifier.developmentIdentifier.title;
 }
 
 // class Tender with _$Tender implements Work {
