@@ -39,6 +39,18 @@ class _$AuthFailureTearOff {
   InvalidCredentials invalidCredentials() {
     return const InvalidCredentials();
   }
+
+  UserNotFound userNotFound() {
+    return const UserNotFound();
+  }
+
+  UserDisabled userDisabled() {
+    return const UserDisabled();
+  }
+
+  WrongEmailOrPassword wrongEmailOrPassword() {
+    return const WrongEmailOrPassword();
+  }
 }
 
 /// @nodoc
@@ -54,6 +66,9 @@ mixin _$AuthFailure {
     required TResult Function() invalidEmail,
     required TResult Function() emaillAlreadyInUse,
     required TResult Function() invalidCredentials,
+    required TResult Function() userNotFound,
+    required TResult Function() userDisabled,
+    required TResult Function() wrongEmailOrPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +79,9 @@ mixin _$AuthFailure {
     TResult Function()? invalidEmail,
     TResult Function()? emaillAlreadyInUse,
     TResult Function()? invalidCredentials,
+    TResult Function()? userNotFound,
+    TResult Function()? userDisabled,
+    TResult Function()? wrongEmailOrPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,6 +93,9 @@ mixin _$AuthFailure {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
     required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(WrongEmailOrPassword value) wrongEmailOrPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,6 +106,9 @@ mixin _$AuthFailure {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
     TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(WrongEmailOrPassword value)? wrongEmailOrPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -152,6 +176,9 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function() invalidEmail,
     required TResult Function() emaillAlreadyInUse,
     required TResult Function() invalidCredentials,
+    required TResult Function() userNotFound,
+    required TResult Function() userDisabled,
+    required TResult Function() wrongEmailOrPassword,
   }) {
     return cancelledByUser();
   }
@@ -165,6 +192,9 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function()? invalidEmail,
     TResult Function()? emaillAlreadyInUse,
     TResult Function()? invalidCredentials,
+    TResult Function()? userNotFound,
+    TResult Function()? userDisabled,
+    TResult Function()? wrongEmailOrPassword,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -182,6 +212,9 @@ class _$CancelledByUser implements CancelledByUser {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
     required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(WrongEmailOrPassword value) wrongEmailOrPassword,
   }) {
     return cancelledByUser(this);
   }
@@ -195,6 +228,9 @@ class _$CancelledByUser implements CancelledByUser {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
     TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(WrongEmailOrPassword value)? wrongEmailOrPassword,
     required TResult orElse(),
   }) {
     if (cancelledByUser != null) {
@@ -253,6 +289,9 @@ class _$ServerError implements ServerError {
     required TResult Function() invalidEmail,
     required TResult Function() emaillAlreadyInUse,
     required TResult Function() invalidCredentials,
+    required TResult Function() userNotFound,
+    required TResult Function() userDisabled,
+    required TResult Function() wrongEmailOrPassword,
   }) {
     return serverError();
   }
@@ -266,6 +305,9 @@ class _$ServerError implements ServerError {
     TResult Function()? invalidEmail,
     TResult Function()? emaillAlreadyInUse,
     TResult Function()? invalidCredentials,
+    TResult Function()? userNotFound,
+    TResult Function()? userDisabled,
+    TResult Function()? wrongEmailOrPassword,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -283,6 +325,9 @@ class _$ServerError implements ServerError {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
     required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(WrongEmailOrPassword value) wrongEmailOrPassword,
   }) {
     return serverError(this);
   }
@@ -296,6 +341,9 @@ class _$ServerError implements ServerError {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
     TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(WrongEmailOrPassword value)? wrongEmailOrPassword,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -354,6 +402,9 @@ class _$SignOutFailed implements SignOutFailed {
     required TResult Function() invalidEmail,
     required TResult Function() emaillAlreadyInUse,
     required TResult Function() invalidCredentials,
+    required TResult Function() userNotFound,
+    required TResult Function() userDisabled,
+    required TResult Function() wrongEmailOrPassword,
   }) {
     return signOutFailed();
   }
@@ -367,6 +418,9 @@ class _$SignOutFailed implements SignOutFailed {
     TResult Function()? invalidEmail,
     TResult Function()? emaillAlreadyInUse,
     TResult Function()? invalidCredentials,
+    TResult Function()? userNotFound,
+    TResult Function()? userDisabled,
+    TResult Function()? wrongEmailOrPassword,
     required TResult orElse(),
   }) {
     if (signOutFailed != null) {
@@ -384,6 +438,9 @@ class _$SignOutFailed implements SignOutFailed {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
     required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(WrongEmailOrPassword value) wrongEmailOrPassword,
   }) {
     return signOutFailed(this);
   }
@@ -397,6 +454,9 @@ class _$SignOutFailed implements SignOutFailed {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
     TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(WrongEmailOrPassword value)? wrongEmailOrPassword,
     required TResult orElse(),
   }) {
     if (signOutFailed != null) {
@@ -455,6 +515,9 @@ class _$InvalidEmail implements InvalidEmail {
     required TResult Function() invalidEmail,
     required TResult Function() emaillAlreadyInUse,
     required TResult Function() invalidCredentials,
+    required TResult Function() userNotFound,
+    required TResult Function() userDisabled,
+    required TResult Function() wrongEmailOrPassword,
   }) {
     return invalidEmail();
   }
@@ -468,6 +531,9 @@ class _$InvalidEmail implements InvalidEmail {
     TResult Function()? invalidEmail,
     TResult Function()? emaillAlreadyInUse,
     TResult Function()? invalidCredentials,
+    TResult Function()? userNotFound,
+    TResult Function()? userDisabled,
+    TResult Function()? wrongEmailOrPassword,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -485,6 +551,9 @@ class _$InvalidEmail implements InvalidEmail {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
     required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(WrongEmailOrPassword value) wrongEmailOrPassword,
   }) {
     return invalidEmail(this);
   }
@@ -498,6 +567,9 @@ class _$InvalidEmail implements InvalidEmail {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
     TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(WrongEmailOrPassword value)? wrongEmailOrPassword,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -557,6 +629,9 @@ class _$EmaillAlreadyInUse implements EmaillAlreadyInUse {
     required TResult Function() invalidEmail,
     required TResult Function() emaillAlreadyInUse,
     required TResult Function() invalidCredentials,
+    required TResult Function() userNotFound,
+    required TResult Function() userDisabled,
+    required TResult Function() wrongEmailOrPassword,
   }) {
     return emaillAlreadyInUse();
   }
@@ -570,6 +645,9 @@ class _$EmaillAlreadyInUse implements EmaillAlreadyInUse {
     TResult Function()? invalidEmail,
     TResult Function()? emaillAlreadyInUse,
     TResult Function()? invalidCredentials,
+    TResult Function()? userNotFound,
+    TResult Function()? userDisabled,
+    TResult Function()? wrongEmailOrPassword,
     required TResult orElse(),
   }) {
     if (emaillAlreadyInUse != null) {
@@ -587,6 +665,9 @@ class _$EmaillAlreadyInUse implements EmaillAlreadyInUse {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
     required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(WrongEmailOrPassword value) wrongEmailOrPassword,
   }) {
     return emaillAlreadyInUse(this);
   }
@@ -600,6 +681,9 @@ class _$EmaillAlreadyInUse implements EmaillAlreadyInUse {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
     TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(WrongEmailOrPassword value)? wrongEmailOrPassword,
     required TResult orElse(),
   }) {
     if (emaillAlreadyInUse != null) {
@@ -659,6 +743,9 @@ class _$InvalidCredentials implements InvalidCredentials {
     required TResult Function() invalidEmail,
     required TResult Function() emaillAlreadyInUse,
     required TResult Function() invalidCredentials,
+    required TResult Function() userNotFound,
+    required TResult Function() userDisabled,
+    required TResult Function() wrongEmailOrPassword,
   }) {
     return invalidCredentials();
   }
@@ -672,6 +759,9 @@ class _$InvalidCredentials implements InvalidCredentials {
     TResult Function()? invalidEmail,
     TResult Function()? emaillAlreadyInUse,
     TResult Function()? invalidCredentials,
+    TResult Function()? userNotFound,
+    TResult Function()? userDisabled,
+    TResult Function()? wrongEmailOrPassword,
     required TResult orElse(),
   }) {
     if (invalidCredentials != null) {
@@ -689,6 +779,9 @@ class _$InvalidCredentials implements InvalidCredentials {
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
     required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(WrongEmailOrPassword value) wrongEmailOrPassword,
   }) {
     return invalidCredentials(this);
   }
@@ -702,6 +795,9 @@ class _$InvalidCredentials implements InvalidCredentials {
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
     TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(WrongEmailOrPassword value)? wrongEmailOrPassword,
     required TResult orElse(),
   }) {
     if (invalidCredentials != null) {
@@ -713,4 +809,344 @@ class _$InvalidCredentials implements InvalidCredentials {
 
 abstract class InvalidCredentials implements AuthFailure {
   const factory InvalidCredentials() = _$InvalidCredentials;
+}
+
+/// @nodoc
+abstract class $UserNotFoundCopyWith<$Res> {
+  factory $UserNotFoundCopyWith(
+          UserNotFound value, $Res Function(UserNotFound) then) =
+      _$UserNotFoundCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UserNotFoundCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements $UserNotFoundCopyWith<$Res> {
+  _$UserNotFoundCopyWithImpl(
+      UserNotFound _value, $Res Function(UserNotFound) _then)
+      : super(_value, (v) => _then(v as UserNotFound));
+
+  @override
+  UserNotFound get _value => super._value as UserNotFound;
+}
+
+/// @nodoc
+
+class _$UserNotFound implements UserNotFound {
+  const _$UserNotFound();
+
+  @override
+  String toString() {
+    return 'AuthFailure.userNotFound()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is UserNotFound);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() signOutFailed,
+    required TResult Function() invalidEmail,
+    required TResult Function() emaillAlreadyInUse,
+    required TResult Function() invalidCredentials,
+    required TResult Function() userNotFound,
+    required TResult Function() userDisabled,
+    required TResult Function() wrongEmailOrPassword,
+  }) {
+    return userNotFound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? signOutFailed,
+    TResult Function()? invalidEmail,
+    TResult Function()? emaillAlreadyInUse,
+    TResult Function()? invalidCredentials,
+    TResult Function()? userNotFound,
+    TResult Function()? userDisabled,
+    TResult Function()? wrongEmailOrPassword,
+    required TResult orElse(),
+  }) {
+    if (userNotFound != null) {
+      return userNotFound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(SignOutFailed value) signOutFailed,
+    required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
+    required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(WrongEmailOrPassword value) wrongEmailOrPassword,
+  }) {
+    return userNotFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(SignOutFailed value)? signOutFailed,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
+    TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(WrongEmailOrPassword value)? wrongEmailOrPassword,
+    required TResult orElse(),
+  }) {
+    if (userNotFound != null) {
+      return userNotFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserNotFound implements AuthFailure {
+  const factory UserNotFound() = _$UserNotFound;
+}
+
+/// @nodoc
+abstract class $UserDisabledCopyWith<$Res> {
+  factory $UserDisabledCopyWith(
+          UserDisabled value, $Res Function(UserDisabled) then) =
+      _$UserDisabledCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UserDisabledCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements $UserDisabledCopyWith<$Res> {
+  _$UserDisabledCopyWithImpl(
+      UserDisabled _value, $Res Function(UserDisabled) _then)
+      : super(_value, (v) => _then(v as UserDisabled));
+
+  @override
+  UserDisabled get _value => super._value as UserDisabled;
+}
+
+/// @nodoc
+
+class _$UserDisabled implements UserDisabled {
+  const _$UserDisabled();
+
+  @override
+  String toString() {
+    return 'AuthFailure.userDisabled()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is UserDisabled);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() signOutFailed,
+    required TResult Function() invalidEmail,
+    required TResult Function() emaillAlreadyInUse,
+    required TResult Function() invalidCredentials,
+    required TResult Function() userNotFound,
+    required TResult Function() userDisabled,
+    required TResult Function() wrongEmailOrPassword,
+  }) {
+    return userDisabled();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? signOutFailed,
+    TResult Function()? invalidEmail,
+    TResult Function()? emaillAlreadyInUse,
+    TResult Function()? invalidCredentials,
+    TResult Function()? userNotFound,
+    TResult Function()? userDisabled,
+    TResult Function()? wrongEmailOrPassword,
+    required TResult orElse(),
+  }) {
+    if (userDisabled != null) {
+      return userDisabled();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(SignOutFailed value) signOutFailed,
+    required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
+    required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(WrongEmailOrPassword value) wrongEmailOrPassword,
+  }) {
+    return userDisabled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(SignOutFailed value)? signOutFailed,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
+    TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(WrongEmailOrPassword value)? wrongEmailOrPassword,
+    required TResult orElse(),
+  }) {
+    if (userDisabled != null) {
+      return userDisabled(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserDisabled implements AuthFailure {
+  const factory UserDisabled() = _$UserDisabled;
+}
+
+/// @nodoc
+abstract class $WrongEmailOrPasswordCopyWith<$Res> {
+  factory $WrongEmailOrPasswordCopyWith(WrongEmailOrPassword value,
+          $Res Function(WrongEmailOrPassword) then) =
+      _$WrongEmailOrPasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$WrongEmailOrPasswordCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $WrongEmailOrPasswordCopyWith<$Res> {
+  _$WrongEmailOrPasswordCopyWithImpl(
+      WrongEmailOrPassword _value, $Res Function(WrongEmailOrPassword) _then)
+      : super(_value, (v) => _then(v as WrongEmailOrPassword));
+
+  @override
+  WrongEmailOrPassword get _value => super._value as WrongEmailOrPassword;
+}
+
+/// @nodoc
+
+class _$WrongEmailOrPassword implements WrongEmailOrPassword {
+  const _$WrongEmailOrPassword();
+
+  @override
+  String toString() {
+    return 'AuthFailure.wrongEmailOrPassword()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is WrongEmailOrPassword);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cancelledByUser,
+    required TResult Function() serverError,
+    required TResult Function() signOutFailed,
+    required TResult Function() invalidEmail,
+    required TResult Function() emaillAlreadyInUse,
+    required TResult Function() invalidCredentials,
+    required TResult Function() userNotFound,
+    required TResult Function() userDisabled,
+    required TResult Function() wrongEmailOrPassword,
+  }) {
+    return wrongEmailOrPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cancelledByUser,
+    TResult Function()? serverError,
+    TResult Function()? signOutFailed,
+    TResult Function()? invalidEmail,
+    TResult Function()? emaillAlreadyInUse,
+    TResult Function()? invalidCredentials,
+    TResult Function()? userNotFound,
+    TResult Function()? userDisabled,
+    TResult Function()? wrongEmailOrPassword,
+    required TResult orElse(),
+  }) {
+    if (wrongEmailOrPassword != null) {
+      return wrongEmailOrPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CancelledByUser value) cancelledByUser,
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(SignOutFailed value) signOutFailed,
+    required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(EmaillAlreadyInUse value) emaillAlreadyInUse,
+    required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(WrongEmailOrPassword value) wrongEmailOrPassword,
+  }) {
+    return wrongEmailOrPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CancelledByUser value)? cancelledByUser,
+    TResult Function(ServerError value)? serverError,
+    TResult Function(SignOutFailed value)? signOutFailed,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(EmaillAlreadyInUse value)? emaillAlreadyInUse,
+    TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(WrongEmailOrPassword value)? wrongEmailOrPassword,
+    required TResult orElse(),
+  }) {
+    if (wrongEmailOrPassword != null) {
+      return wrongEmailOrPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WrongEmailOrPassword implements AuthFailure {
+  const factory WrongEmailOrPassword() = _$WrongEmailOrPassword;
 }

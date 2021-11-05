@@ -36,6 +36,7 @@ dependencies:
   open_file: ^3.2.1
   path_provider: ^2.0.5
   pdf: ^3.6.0
+  sign_in_with_apple: ^3.2.0
 
 dependency_overrides:
   meta: ^1.4.0
