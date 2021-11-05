@@ -8,6 +8,7 @@ import 'package:tw_core/models/core/tw_min_length_string/tw_min_length_string.da
 import 'package:tw_core/models/errors.dart';
 import 'package:tw_core/models/tw_document/tw_document.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
+import 'package:tw_core/services/storage_facade.dart';
 
 part 'upload_doc_bloc.freezed.dart';
 part 'upload_doc_event.dart';
@@ -44,27 +45,27 @@ class UploadDocBloc extends Bloc<UploadDocEvent, UploadDocState> {
         }
       },
       uploadPressed: (e) async* {
-        // yield state.copyWith(showErrorMessages: true);
-        // if (!state.allInputsValid) return;
-        // yield state.copyWith(uploadInProgress: true);
-        // Either<TWServerError, Unit> result =
-        //     await StorageFacade().uploadDocument(
-        //   loggedInUser: state.loggedInUser,
-        //   typeId: state.typeId,
-        //   file: state.selectedFile!,
-        //   instructions:
-        //       (state.requireInstructions == null || state.requireInstructions!)
-        //           ? state.instruction
-        //           : TWString(
-        //               'No instructions found',
-        //               TWString.min_length,
-        //             ),
-        //   docType: state.docType,
-        // );
-        // yield state.copyWith(
-        //   uploadInProgress: false,
-        //   resultOption: optionOf(result),
-        // );
+        yield state.copyWith(showErrorMessages: true);
+        if (!state.allInputsValid) return;
+        yield state.copyWith(uploadInProgress: true);
+        Either<TWServerError, Unit> result =
+            await StorageFacade().uploadDocument(
+          loggedInUser: state.loggedInUser,
+          typeId: state.typeId,
+          file: state.selectedFile!,
+          instructions:
+              (state.requireInstructions == null || state.requireInstructions!)
+                  ? state.instruction
+                  : TWString(
+                      'No instructions found',
+                      TWString.min_length,
+                    ),
+          docType: state.docType,
+        );
+        yield state.copyWith(
+          uploadInProgress: false,
+          resultOption: optionOf(result),
+        );
       },
     );
   }
