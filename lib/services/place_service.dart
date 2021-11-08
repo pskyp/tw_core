@@ -137,8 +137,8 @@ class PlaceService {
       if (data.result.adminCounty.length < 1) data.result.adminCounty.add('');
       LocationModel location = LocationModel(
           postcode: placeId['postcode'],
-          latitude: data.result.longitude,
-          longitude: data.result.latitude,
+          latitude: data.result.latitude,
+          longitude: data.result.longitude,
           formattedAddress: [],
           thoroughfare: '',
           buildingName: '',
