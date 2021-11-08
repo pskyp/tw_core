@@ -82,8 +82,8 @@ class CreateJobBloc extends Bloc<CreateJobEvent, CreateJobState> {
           yield state.copyWith(
             jobRate: TWNumber(
               input: input.floor(),
-              maxValue: TWNumber.Job_Daily_Rate_Max,
-              minValue: TWNumber.Job_Daily_Rate_Min,
+              maxValue: TWNumber.Job_Hourly_Rate_Max,
+              minValue: TWNumber.Job_Hourly_Rate_Min,
             ),
           );
         }

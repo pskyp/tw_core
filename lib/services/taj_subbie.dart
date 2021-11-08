@@ -15,7 +15,11 @@ class TAJSubbie extends TAJFacade {
     batch.update(
       TWFC.bidsCollection.doc(jobBid.bidIdentifier.bidId),
       jobBid.copyWith(jobBidStatus: JobBidStatuses.Hired).toJson(),
+  
     );
+     batch.update(TWFC.jobCollection.doc(job.workIdentifier.workId), {
+        'subbiesWorking': FieldValue.increment(1),
+      });
     return (await commitBatch(batch));
   }
 

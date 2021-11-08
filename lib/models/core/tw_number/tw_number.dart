@@ -7,6 +7,8 @@ part 'tw_number.freezed.dart';
 class TWNumber {
   static const Job_Daily_Rate_Min = 40;
   static const Job_Daily_Rate_Max = 500;
+  static const Job_Hourly_Rate_Min = 8;
+  static const Job_Hourly_Rate_Max = 60;
 
   static const Job_Required_Subbies_Min = 1;
   static const Job_Required_Subbies_Max = 100;
@@ -38,9 +40,9 @@ class TWNumber {
             failureMessage: 'less than minimum',
           ))
         : input > maxValue
-            ? left(TWNumberFailure.lessThanMinimum(
+            ? left(TWNumberFailure.moreThanMaximum(
                 value: input,
-                failureMessage: 'less than minimum',
+                failureMessage: 'more than maximum',
               ))
             : right(input);
   }
