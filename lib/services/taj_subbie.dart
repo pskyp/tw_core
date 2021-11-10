@@ -6,6 +6,13 @@ class TAJSubbie extends TAJFacade {
   static Option<List<Job>> allJobs = optionOf(null);
   static Option<List<InviteToBid>> allInvites = optionOf(null);
 
+  Stream<List<Job>> streamAllJobs(TWUser subbie) =>
+      TWFC.jobCollection.snapshots().map((list) {
+        allJobs =
+            optionOf(list.docs.map((doc) => Job.fromJson(doc.data())).toList());
+        return allJobs.getOrElse(() => []);
+      });
+
   Future<Either<TWServerError, Unit>> acceptJobOffer({
     required Job job,
     required JobBid jobBid,
@@ -15,11 +22,10 @@ class TAJSubbie extends TAJFacade {
     batch.update(
       TWFC.bidsCollection.doc(jobBid.bidIdentifier.bidId),
       jobBid.copyWith(jobBidStatus: JobBidStatuses.Hired).toJson(),
-  
     );
-     batch.update(TWFC.jobCollection.doc(job.workIdentifier.workId), {
-        'subbiesWorking': FieldValue.increment(1),
-      });
+    batch.update(TWFC.jobCollection.doc(job.workIdentifier.workId), {
+      'subbiesWorking': FieldValue.increment(1),
+    });
     return (await commitBatch(batch));
   }
 
@@ -241,13 +247,6 @@ class TAJSubbie extends TAJFacade {
         allInvites = optionOf(
             list.docs.map((doc) => InviteToBid.fromMap(doc.data())).toList());
         return allInvites.getOrElse(() => []);
-      });
-
-  Stream<List<Job>> streamAllJobs(TWUser subbie) =>
-      TWFC.jobCollection.snapshots().map((list) {
-        allJobs =
-            optionOf(list.docs.map((doc) => Job.fromJson(doc.data())).toList());
-        return allJobs.getOrElse(() => []);
       });
 
   Stream<List<TWUser>?> blacklistedContractors(Subbie subbie) =>
