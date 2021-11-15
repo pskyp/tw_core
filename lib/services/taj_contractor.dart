@@ -24,6 +24,20 @@ class TAJContractor extends TAJFacade {
     );
   }
 
+  Stream<List<TenderBid>> streamTenderBids() {
+    Contractor contractor = CacheService().contractor;
+    return TWFC.tenderBidsCollection
+        .where('bidIdentifier.bidder.uid',
+            isEqualTo: contractor.basicProfile.uid)
+        .snapshots()
+        .map((list) {
+      List<TenderBid>? tenderBids =
+          list.docs.map((doc) => TenderBid.fromJson(doc.data())).toList();
+      allTenderBids = optionOf(tenderBids);
+      return tenderBids;
+    });
+  }
+
   Future<Either<TWServerError, Unit>> createJob({
     required DevelopmentIdentifier developmentIdentifier,
     required LocationModel location,
@@ -229,18 +243,6 @@ class TAJContractor extends TAJFacade {
         .snapshots()
         .map((list) =>
             list.docs.map((doc) => Invoice.fromJson(doc.data())).toList());
-  }
-
-  Stream<List<TenderBid>> streamTenderBids(TWUser user) {
-    return TWFC.tenderBidsCollection
-        .where('bidIdentifier.bidder.uid', isEqualTo: user.uid)
-        .snapshots()
-        .map((list) {
-      List<TenderBid>? tenderBids =
-          list.docs.map((doc) => TenderBid.fromJson(doc.data())).toList();
-      allTenderBids = optionOf(tenderBids);
-      return tenderBids;
-    });
   }
 
   Stream<List<Supplement>> streamAllSupplements() {

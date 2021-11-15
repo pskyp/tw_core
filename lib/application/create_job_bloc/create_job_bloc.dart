@@ -18,7 +18,16 @@ part 'create_job_event.dart';
 part 'create_job_state.dart';
 
 class CreateJobBloc extends Bloc<CreateJobEvent, CreateJobState> {
-  CreateJobBloc() : super(CreateJobState.initial());
+  StreamSubscription? tenderBidsStream;
+  CreateJobBloc() : super(CreateJobState.initial()) {
+    tenderBidsStream = TAJContractor().streamTenderBids().listen((event) {});
+  }
+
+  @override
+  Future<void> close() {
+    tenderBidsStream?.cancel();
+    return super.close();
+  }
 
   @override
   Stream<CreateJobState> mapEventToState(

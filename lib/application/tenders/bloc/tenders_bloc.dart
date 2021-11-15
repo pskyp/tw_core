@@ -29,9 +29,7 @@ class TendersBloc extends Bloc<TendersEvent, TendersState> {
     tendersStream = TAJContractor().streamAllTenders().listen((event) {
       add(TendersEvent.tendersStreamUpdated(event));
     });
-    tenderBidsStream = TAJContractor()
-        .streamTenderBids(contractor.basicProfile)
-        .listen((event) {
+    tenderBidsStream = TAJContractor().streamTenderBids().listen((event) {
       add(TendersEvent.tenderBidsStreamUpdated(event));
     });
     supplementsStream = TAJContractor().streamAllSupplements().listen((event) {

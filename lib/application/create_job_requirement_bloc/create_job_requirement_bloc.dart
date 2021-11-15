@@ -14,10 +14,11 @@ part 'create_job_requirement_state.dart';
 
 class CreateJobRequirementBloc
     extends Bloc<CreateJobRequirementEvent, CreateJobRequirementState> {
+  // StreamSubscription tendersAndSupple
   final CreateJobBloc createJobBloc;
   CreateJobRequirementBloc({
     required this.createJobBloc,
-  }) : super(CreateJobRequirementState.initial());
+  }) : super(CreateJobRequirementState.initial()) {}
 
   @override
   Stream<CreateJobRequirementState> mapEventToState(
