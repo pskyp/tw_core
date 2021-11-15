@@ -12,7 +12,7 @@ class CreateJobState with _$CreateJobState {
     required TWNumber jobRate,
     required TWNumber numberOfSubbies,
     required Option<LocationModel> location,
-    required List<String> requirements,
+    required KtList<String> requirements,
     required bool showErrorMessages,
     required bool isSubmitting,
     required Option<Either<TWServerError, Unit>> failureOrSuccessOption,
@@ -38,11 +38,13 @@ class CreateJobState with _$CreateJobState {
           endDateInput: DateTime.now().add(Duration(days: 1)),
         ),
         location: optionOf(null),
-        requirements: [],
+        requirements: KtList.empty(),
         isSubmitting: false,
         showErrorMessages: false,
         failureOrSuccessOption: optionOf(null),
       );
+
+  bool hasRequirement(String requirement) => requirements.contains(requirement);
 
   bool get allInputsValid {
     return jobTitle.isValid &&

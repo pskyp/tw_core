@@ -16,8 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CreateJobRequirementEventTearOff {
   const _$CreateJobRequirementEventTearOff();
 
-  SubmitPressed submitPressed(String input) {
-    return SubmitPressed(
+  SubmitPressed submitPressed() {
+    return const SubmitPressed();
+  }
+
+  RequirementInput requirementInput(String input) {
+    return RequirementInput(
       input,
     );
   }
@@ -28,33 +32,31 @@ const $CreateJobRequirementEvent = _$CreateJobRequirementEventTearOff();
 
 /// @nodoc
 mixin _$CreateJobRequirementEvent {
-  String get input => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String input) submitPressed,
+    required TResult Function() submitPressed,
+    required TResult Function(String input) requirementInput,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String input)? submitPressed,
+    TResult Function()? submitPressed,
+    TResult Function(String input)? requirementInput,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SubmitPressed value) submitPressed,
+    required TResult Function(RequirementInput value) requirementInput,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SubmitPressed value)? submitPressed,
+    TResult Function(RequirementInput value)? requirementInput,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CreateJobRequirementEventCopyWith<CreateJobRequirementEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -63,7 +65,6 @@ abstract class $CreateJobRequirementEventCopyWith<$Res> {
   factory $CreateJobRequirementEventCopyWith(CreateJobRequirementEvent value,
           $Res Function(CreateJobRequirementEvent) then) =
       _$CreateJobRequirementEventCopyWithImpl<$Res>;
-  $Res call({String input});
 }
 
 /// @nodoc
@@ -74,28 +75,13 @@ class _$CreateJobRequirementEventCopyWithImpl<$Res>
   final CreateJobRequirementEvent _value;
   // ignore: unused_field
   final $Res Function(CreateJobRequirementEvent) _then;
-
-  @override
-  $Res call({
-    Object? input = freezed,
-  }) {
-    return _then(_value.copyWith(
-      input: input == freezed
-          ? _value.input
-          : input // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class $SubmitPressedCopyWith<$Res>
-    implements $CreateJobRequirementEventCopyWith<$Res> {
+abstract class $SubmitPressedCopyWith<$Res> {
   factory $SubmitPressedCopyWith(
           SubmitPressed value, $Res Function(SubmitPressed) then) =
       _$SubmitPressedCopyWithImpl<$Res>;
-  @override
-  $Res call({String input});
 }
 
 /// @nodoc
@@ -108,66 +94,44 @@ class _$SubmitPressedCopyWithImpl<$Res>
 
   @override
   SubmitPressed get _value => super._value as SubmitPressed;
-
-  @override
-  $Res call({
-    Object? input = freezed,
-  }) {
-    return _then(SubmitPressed(
-      input == freezed
-          ? _value.input
-          : input // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$SubmitPressed implements SubmitPressed {
-  const _$SubmitPressed(this.input);
-
-  @override
-  final String input;
+  const _$SubmitPressed();
 
   @override
   String toString() {
-    return 'CreateJobRequirementEvent.submitPressed(input: $input)';
+    return 'CreateJobRequirementEvent.submitPressed()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is SubmitPressed &&
-            (identical(other.input, input) ||
-                const DeepCollectionEquality().equals(other.input, input)));
+    return identical(this, other) || (other is SubmitPressed);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(input);
-
-  @JsonKey(ignore: true)
-  @override
-  $SubmitPressedCopyWith<SubmitPressed> get copyWith =>
-      _$SubmitPressedCopyWithImpl<SubmitPressed>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String input) submitPressed,
+    required TResult Function() submitPressed,
+    required TResult Function(String input) requirementInput,
   }) {
-    return submitPressed(input);
+    return submitPressed();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String input)? submitPressed,
+    TResult Function()? submitPressed,
+    TResult Function(String input)? requirementInput,
     required TResult orElse(),
   }) {
     if (submitPressed != null) {
-      return submitPressed(input);
+      return submitPressed();
     }
     return orElse();
   }
@@ -176,6 +140,7 @@ class _$SubmitPressed implements SubmitPressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SubmitPressed value) submitPressed,
+    required TResult Function(RequirementInput value) requirementInput,
   }) {
     return submitPressed(this);
   }
@@ -184,6 +149,7 @@ class _$SubmitPressed implements SubmitPressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SubmitPressed value)? submitPressed,
+    TResult Function(RequirementInput value)? requirementInput,
     required TResult orElse(),
   }) {
     if (submitPressed != null) {
@@ -194,13 +160,122 @@ class _$SubmitPressed implements SubmitPressed {
 }
 
 abstract class SubmitPressed implements CreateJobRequirementEvent {
-  const factory SubmitPressed(String input) = _$SubmitPressed;
+  const factory SubmitPressed() = _$SubmitPressed;
+}
+
+/// @nodoc
+abstract class $RequirementInputCopyWith<$Res> {
+  factory $RequirementInputCopyWith(
+          RequirementInput value, $Res Function(RequirementInput) then) =
+      _$RequirementInputCopyWithImpl<$Res>;
+  $Res call({String input});
+}
+
+/// @nodoc
+class _$RequirementInputCopyWithImpl<$Res>
+    extends _$CreateJobRequirementEventCopyWithImpl<$Res>
+    implements $RequirementInputCopyWith<$Res> {
+  _$RequirementInputCopyWithImpl(
+      RequirementInput _value, $Res Function(RequirementInput) _then)
+      : super(_value, (v) => _then(v as RequirementInput));
 
   @override
-  String get input => throw _privateConstructorUsedError;
+  RequirementInput get _value => super._value as RequirementInput;
+
   @override
+  $Res call({
+    Object? input = freezed,
+  }) {
+    return _then(RequirementInput(
+      input == freezed
+          ? _value.input
+          : input // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RequirementInput implements RequirementInput {
+  const _$RequirementInput(this.input);
+
+  @override
+  final String input;
+
+  @override
+  String toString() {
+    return 'CreateJobRequirementEvent.requirementInput(input: $input)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is RequirementInput &&
+            (identical(other.input, input) ||
+                const DeepCollectionEquality().equals(other.input, input)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(input);
+
   @JsonKey(ignore: true)
-  $SubmitPressedCopyWith<SubmitPressed> get copyWith =>
+  @override
+  $RequirementInputCopyWith<RequirementInput> get copyWith =>
+      _$RequirementInputCopyWithImpl<RequirementInput>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() submitPressed,
+    required TResult Function(String input) requirementInput,
+  }) {
+    return requirementInput(input);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? submitPressed,
+    TResult Function(String input)? requirementInput,
+    required TResult orElse(),
+  }) {
+    if (requirementInput != null) {
+      return requirementInput(input);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SubmitPressed value) submitPressed,
+    required TResult Function(RequirementInput value) requirementInput,
+  }) {
+    return requirementInput(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SubmitPressed value)? submitPressed,
+    TResult Function(RequirementInput value)? requirementInput,
+    required TResult orElse(),
+  }) {
+    if (requirementInput != null) {
+      return requirementInput(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RequirementInput implements CreateJobRequirementEvent {
+  const factory RequirementInput(String input) = _$RequirementInput;
+
+  String get input => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RequirementInputCopyWith<RequirementInput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -343,12 +418,13 @@ class __$CreateJobRequirementStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CreateJobRequirementState implements _CreateJobRequirementState {
+class _$_CreateJobRequirementState extends _CreateJobRequirementState {
   const _$_CreateJobRequirementState(
       {required this.requirementInput,
       required this.submissionInProgress,
       required this.showErrorMessages,
-      required this.resultOption});
+      required this.resultOption})
+      : super._();
 
   @override
   final TWString requirementInput;
@@ -398,13 +474,14 @@ class _$_CreateJobRequirementState implements _CreateJobRequirementState {
               this, _$identity);
 }
 
-abstract class _CreateJobRequirementState implements CreateJobRequirementState {
+abstract class _CreateJobRequirementState extends CreateJobRequirementState {
   const factory _CreateJobRequirementState(
           {required TWString requirementInput,
           required bool submissionInProgress,
           required bool showErrorMessages,
           required Option<Either<TWServerError, Unit>> resultOption}) =
       _$_CreateJobRequirementState;
+  const _CreateJobRequirementState._() : super._();
 
   @override
   TWString get requirementInput => throw _privateConstructorUsedError;

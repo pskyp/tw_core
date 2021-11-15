@@ -23,8 +23,8 @@ class CreateJobEvent with _$CreateJobEvent {
   const factory CreateJobEvent.onDescriptionChanged(String value) =
       OnDescriptionChanged;
 
-  const factory CreateJobEvent.onRequirementAdded(String requirementInput) =
-      OnRequirementAdded;
+  const factory CreateJobEvent.toggleRequirement(String requirementInput) =
+      ToggleRequirement;
 
   const factory CreateJobEvent.tradeChanged(Trade trade) = TradeChanged;
 

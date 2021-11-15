@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:kt_dart/kt.dart';
 import 'package:tw_core/models/core/tw_min_length_string/tw_min_length_string.dart';
 import 'package:tw_core/models/core/tw_number/tw_number.dart';
 import 'package:tw_core/models/development/development.dart';
@@ -54,14 +55,21 @@ class CreateJobBloc extends Bloc<CreateJobEvent, CreateJobState> {
           jobTitle: TWString(e.value, TWString.Job_Title_ML),
         );
       },
-      onRequirementAdded: (e) async* {
+      toggleRequirement: (e) async* {
         TWString requirement = TWString(
           e.requirementInput,
           TWString.Job_Requirement_ML,
         );
         if (!requirement.isValid) return;
+        var list = state.requirements.toMutableList();
+        if (list.contains(requirement.getOrCrash())) {
+          list.remove(requirement.getOrCrash());
+        } else {
+          list.add(requirement.getOrCrash());
+        }
         yield state.copyWith(
-          requirements: state.requirements..add(requirement.getOrCrash()),
+          requirements: list
+              .toList(), //state.requirements..add(requirement.getOrCrash()),
         );
       },
       requiredSubbiesInput: (e) async* {
@@ -111,7 +119,7 @@ class CreateJobBloc extends Bloc<CreateJobEvent, CreateJobState> {
           jobTitle: state.jobTitle,
           location: state.location.getOrElse(() => null!),
           requiredNumberOfSubbies: state.numberOfSubbies,
-          selectedRequirements: state.requirements,
+          selectedRequirements: state.requirements.asList(),
           selectedTrade: state.selectedTrade,
         );
         yield state.copyWith(

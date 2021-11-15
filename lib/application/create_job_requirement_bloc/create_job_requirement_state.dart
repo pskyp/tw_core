@@ -2,6 +2,7 @@ part of 'create_job_requirement_bloc.dart';
 
 @freezed
 class CreateJobRequirementState with _$CreateJobRequirementState {
+  const CreateJobRequirementState._();
   const factory CreateJobRequirementState({
     required TWString requirementInput,
     required bool submissionInProgress,

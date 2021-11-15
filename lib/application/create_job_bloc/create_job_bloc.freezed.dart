@@ -61,8 +61,8 @@ class _$CreateJobEventTearOff {
     );
   }
 
-  OnRequirementAdded onRequirementAdded(String requirementInput) {
-    return OnRequirementAdded(
+  ToggleRequirement toggleRequirement(String requirementInput) {
+    return ToggleRequirement(
       requirementInput,
     );
   }
@@ -100,7 +100,7 @@ mixin _$CreateJobEvent {
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
+    required TResult Function(String requirementInput) toggleRequirement,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -117,7 +117,7 @@ mixin _$CreateJobEvent {
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
+    TResult Function(String requirementInput)? toggleRequirement,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -135,7 +135,7 @@ mixin _$CreateJobEvent {
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
+    required TResult Function(ToggleRequirement value) toggleRequirement,
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
@@ -151,7 +151,7 @@ mixin _$CreateJobEvent {
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
     TResult Function(TradeChanged value)? tradeChanged,
     TResult Function(SubmitButtonPressed value)? submitButtonPressed,
     TResult Function(OnLocationChanged value)? onLocationChanged,
@@ -253,7 +253,7 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
+    required TResult Function(String requirementInput) toggleRequirement,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -273,7 +273,7 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
+    TResult Function(String requirementInput)? toggleRequirement,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -297,7 +297,7 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
+    required TResult Function(ToggleRequirement value) toggleRequirement,
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
@@ -316,7 +316,7 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
     TResult Function(TradeChanged value)? tradeChanged,
     TResult Function(SubmitButtonPressed value)? submitButtonPressed,
     TResult Function(OnLocationChanged value)? onLocationChanged,
@@ -413,7 +413,7 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
+    required TResult Function(String requirementInput) toggleRequirement,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -433,7 +433,7 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
+    TResult Function(String requirementInput)? toggleRequirement,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -457,7 +457,7 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
+    required TResult Function(ToggleRequirement value) toggleRequirement,
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
@@ -476,7 +476,7 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
     TResult Function(TradeChanged value)? tradeChanged,
     TResult Function(SubmitButtonPressed value)? submitButtonPressed,
     TResult Function(OnLocationChanged value)? onLocationChanged,
@@ -605,7 +605,7 @@ class _$OnDevelopmentIdentifierInput implements OnDevelopmentIdentifierInput {
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
+    required TResult Function(String requirementInput) toggleRequirement,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -626,7 +626,7 @@ class _$OnDevelopmentIdentifierInput implements OnDevelopmentIdentifierInput {
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
+    TResult Function(String requirementInput)? toggleRequirement,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -651,7 +651,7 @@ class _$OnDevelopmentIdentifierInput implements OnDevelopmentIdentifierInput {
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
+    required TResult Function(ToggleRequirement value) toggleRequirement,
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
@@ -670,7 +670,7 @@ class _$OnDevelopmentIdentifierInput implements OnDevelopmentIdentifierInput {
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
     TResult Function(TradeChanged value)? tradeChanged,
     TResult Function(SubmitButtonPressed value)? submitButtonPressed,
     TResult Function(OnLocationChanged value)? onLocationChanged,
@@ -771,7 +771,7 @@ class _$JobTitleChanged implements JobTitleChanged {
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
+    required TResult Function(String requirementInput) toggleRequirement,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -791,7 +791,7 @@ class _$JobTitleChanged implements JobTitleChanged {
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
+    TResult Function(String requirementInput)? toggleRequirement,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -815,7 +815,7 @@ class _$JobTitleChanged implements JobTitleChanged {
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
+    required TResult Function(ToggleRequirement value) toggleRequirement,
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
@@ -834,7 +834,7 @@ class _$JobTitleChanged implements JobTitleChanged {
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
     TResult Function(TradeChanged value)? tradeChanged,
     TResult Function(SubmitButtonPressed value)? submitButtonPressed,
     TResult Function(OnLocationChanged value)? onLocationChanged,
@@ -931,7 +931,7 @@ class _$RequiredSubbiesInput implements RequiredSubbiesInput {
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
+    required TResult Function(String requirementInput) toggleRequirement,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -951,7 +951,7 @@ class _$RequiredSubbiesInput implements RequiredSubbiesInput {
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
+    TResult Function(String requirementInput)? toggleRequirement,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -975,7 +975,7 @@ class _$RequiredSubbiesInput implements RequiredSubbiesInput {
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
+    required TResult Function(ToggleRequirement value) toggleRequirement,
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
@@ -994,7 +994,7 @@ class _$RequiredSubbiesInput implements RequiredSubbiesInput {
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
     TResult Function(TradeChanged value)? tradeChanged,
     TResult Function(SubmitButtonPressed value)? submitButtonPressed,
     TResult Function(OnLocationChanged value)? onLocationChanged,
@@ -1090,7 +1090,7 @@ class _$OnRateChanged implements OnRateChanged {
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
+    required TResult Function(String requirementInput) toggleRequirement,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -1110,7 +1110,7 @@ class _$OnRateChanged implements OnRateChanged {
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
+    TResult Function(String requirementInput)? toggleRequirement,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -1134,7 +1134,7 @@ class _$OnRateChanged implements OnRateChanged {
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
+    required TResult Function(ToggleRequirement value) toggleRequirement,
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
@@ -1153,7 +1153,7 @@ class _$OnRateChanged implements OnRateChanged {
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
     TResult Function(TradeChanged value)? tradeChanged,
     TResult Function(SubmitButtonPressed value)? submitButtonPressed,
     TResult Function(OnLocationChanged value)? onLocationChanged,
@@ -1250,7 +1250,7 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
+    required TResult Function(String requirementInput) toggleRequirement,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -1270,7 +1270,7 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
+    TResult Function(String requirementInput)? toggleRequirement,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -1294,7 +1294,7 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
+    required TResult Function(ToggleRequirement value) toggleRequirement,
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
@@ -1313,7 +1313,7 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
     TResult Function(TradeChanged value)? tradeChanged,
     TResult Function(SubmitButtonPressed value)? submitButtonPressed,
     TResult Function(OnLocationChanged value)? onLocationChanged,
@@ -1336,29 +1336,29 @@ abstract class OnDescriptionChanged implements CreateJobEvent {
 }
 
 /// @nodoc
-abstract class $OnRequirementAddedCopyWith<$Res> {
-  factory $OnRequirementAddedCopyWith(
-          OnRequirementAdded value, $Res Function(OnRequirementAdded) then) =
-      _$OnRequirementAddedCopyWithImpl<$Res>;
+abstract class $ToggleRequirementCopyWith<$Res> {
+  factory $ToggleRequirementCopyWith(
+          ToggleRequirement value, $Res Function(ToggleRequirement) then) =
+      _$ToggleRequirementCopyWithImpl<$Res>;
   $Res call({String requirementInput});
 }
 
 /// @nodoc
-class _$OnRequirementAddedCopyWithImpl<$Res>
+class _$ToggleRequirementCopyWithImpl<$Res>
     extends _$CreateJobEventCopyWithImpl<$Res>
-    implements $OnRequirementAddedCopyWith<$Res> {
-  _$OnRequirementAddedCopyWithImpl(
-      OnRequirementAdded _value, $Res Function(OnRequirementAdded) _then)
-      : super(_value, (v) => _then(v as OnRequirementAdded));
+    implements $ToggleRequirementCopyWith<$Res> {
+  _$ToggleRequirementCopyWithImpl(
+      ToggleRequirement _value, $Res Function(ToggleRequirement) _then)
+      : super(_value, (v) => _then(v as ToggleRequirement));
 
   @override
-  OnRequirementAdded get _value => super._value as OnRequirementAdded;
+  ToggleRequirement get _value => super._value as ToggleRequirement;
 
   @override
   $Res call({
     Object? requirementInput = freezed,
   }) {
-    return _then(OnRequirementAdded(
+    return _then(ToggleRequirement(
       requirementInput == freezed
           ? _value.requirementInput
           : requirementInput // ignore: cast_nullable_to_non_nullable
@@ -1369,21 +1369,21 @@ class _$OnRequirementAddedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OnRequirementAdded implements OnRequirementAdded {
-  const _$OnRequirementAdded(this.requirementInput);
+class _$ToggleRequirement implements ToggleRequirement {
+  const _$ToggleRequirement(this.requirementInput);
 
   @override
   final String requirementInput;
 
   @override
   String toString() {
-    return 'CreateJobEvent.onRequirementAdded(requirementInput: $requirementInput)';
+    return 'CreateJobEvent.toggleRequirement(requirementInput: $requirementInput)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is OnRequirementAdded &&
+        (other is ToggleRequirement &&
             (identical(other.requirementInput, requirementInput) ||
                 const DeepCollectionEquality()
                     .equals(other.requirementInput, requirementInput)));
@@ -1396,8 +1396,8 @@ class _$OnRequirementAdded implements OnRequirementAdded {
 
   @JsonKey(ignore: true)
   @override
-  $OnRequirementAddedCopyWith<OnRequirementAdded> get copyWith =>
-      _$OnRequirementAddedCopyWithImpl<OnRequirementAdded>(this, _$identity);
+  $ToggleRequirementCopyWith<ToggleRequirement> get copyWith =>
+      _$ToggleRequirementCopyWithImpl<ToggleRequirement>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1411,12 +1411,12 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
+    required TResult Function(String requirementInput) toggleRequirement,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
-    return onRequirementAdded(requirementInput);
+    return toggleRequirement(requirementInput);
   }
 
   @override
@@ -1431,14 +1431,14 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
+    TResult Function(String requirementInput)? toggleRequirement,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
     required TResult orElse(),
   }) {
-    if (onRequirementAdded != null) {
-      return onRequirementAdded(requirementInput);
+    if (toggleRequirement != null) {
+      return toggleRequirement(requirementInput);
     }
     return orElse();
   }
@@ -1455,12 +1455,12 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
+    required TResult Function(ToggleRequirement value) toggleRequirement,
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
   }) {
-    return onRequirementAdded(this);
+    return toggleRequirement(this);
   }
 
   @override
@@ -1474,26 +1474,26 @@ class _$OnRequirementAdded implements OnRequirementAdded {
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
     TResult Function(TradeChanged value)? tradeChanged,
     TResult Function(SubmitButtonPressed value)? submitButtonPressed,
     TResult Function(OnLocationChanged value)? onLocationChanged,
     required TResult orElse(),
   }) {
-    if (onRequirementAdded != null) {
-      return onRequirementAdded(this);
+    if (toggleRequirement != null) {
+      return toggleRequirement(this);
     }
     return orElse();
   }
 }
 
-abstract class OnRequirementAdded implements CreateJobEvent {
-  const factory OnRequirementAdded(String requirementInput) =
-      _$OnRequirementAdded;
+abstract class ToggleRequirement implements CreateJobEvent {
+  const factory ToggleRequirement(String requirementInput) =
+      _$ToggleRequirement;
 
   String get requirementInput => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OnRequirementAddedCopyWith<OnRequirementAdded> get copyWith =>
+  $ToggleRequirementCopyWith<ToggleRequirement> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1571,7 +1571,7 @@ class _$TradeChanged implements TradeChanged {
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
+    required TResult Function(String requirementInput) toggleRequirement,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -1591,7 +1591,7 @@ class _$TradeChanged implements TradeChanged {
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
+    TResult Function(String requirementInput)? toggleRequirement,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -1615,7 +1615,7 @@ class _$TradeChanged implements TradeChanged {
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
+    required TResult Function(ToggleRequirement value) toggleRequirement,
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
@@ -1634,7 +1634,7 @@ class _$TradeChanged implements TradeChanged {
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
     TResult Function(TradeChanged value)? tradeChanged,
     TResult Function(SubmitButtonPressed value)? submitButtonPressed,
     TResult Function(OnLocationChanged value)? onLocationChanged,
@@ -1705,7 +1705,7 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
+    required TResult Function(String requirementInput) toggleRequirement,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -1725,7 +1725,7 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
+    TResult Function(String requirementInput)? toggleRequirement,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -1749,7 +1749,7 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
+    required TResult Function(ToggleRequirement value) toggleRequirement,
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
@@ -1768,7 +1768,7 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
     TResult Function(TradeChanged value)? tradeChanged,
     TResult Function(SubmitButtonPressed value)? submitButtonPressed,
     TResult Function(OnLocationChanged value)? onLocationChanged,
@@ -1860,7 +1860,7 @@ class _$OnLocationChanged implements OnLocationChanged {
     required TResult Function(String input) requiredSubbiesInput,
     required TResult Function(String value) onRateChanged,
     required TResult Function(String value) onDescriptionChanged,
-    required TResult Function(String requirementInput) onRequirementAdded,
+    required TResult Function(String requirementInput) toggleRequirement,
     required TResult Function(Trade trade) tradeChanged,
     required TResult Function() submitButtonPressed,
     required TResult Function(LocationModel location) onLocationChanged,
@@ -1880,7 +1880,7 @@ class _$OnLocationChanged implements OnLocationChanged {
     TResult Function(String input)? requiredSubbiesInput,
     TResult Function(String value)? onRateChanged,
     TResult Function(String value)? onDescriptionChanged,
-    TResult Function(String requirementInput)? onRequirementAdded,
+    TResult Function(String requirementInput)? toggleRequirement,
     TResult Function(Trade trade)? tradeChanged,
     TResult Function()? submitButtonPressed,
     TResult Function(LocationModel location)? onLocationChanged,
@@ -1904,7 +1904,7 @@ class _$OnLocationChanged implements OnLocationChanged {
     required TResult Function(RequiredSubbiesInput value) requiredSubbiesInput,
     required TResult Function(OnRateChanged value) onRateChanged,
     required TResult Function(OnDescriptionChanged value) onDescriptionChanged,
-    required TResult Function(OnRequirementAdded value) onRequirementAdded,
+    required TResult Function(ToggleRequirement value) toggleRequirement,
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
@@ -1923,7 +1923,7 @@ class _$OnLocationChanged implements OnLocationChanged {
     TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
     TResult Function(OnRateChanged value)? onRateChanged,
     TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
-    TResult Function(OnRequirementAdded value)? onRequirementAdded,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
     TResult Function(TradeChanged value)? tradeChanged,
     TResult Function(SubmitButtonPressed value)? submitButtonPressed,
     TResult Function(OnLocationChanged value)? onLocationChanged,
@@ -1958,7 +1958,7 @@ class _$CreateJobStateTearOff {
       required TWNumber jobRate,
       required TWNumber numberOfSubbies,
       required Option<LocationModel> location,
-      required List<String> requirements,
+      required KtList<String> requirements,
       required bool showErrorMessages,
       required bool isSubmitting,
       required Option<Either<TWServerError, Unit>> failureOrSuccessOption}) {
@@ -1993,7 +1993,7 @@ mixin _$CreateJobState {
   TWNumber get jobRate => throw _privateConstructorUsedError;
   TWNumber get numberOfSubbies => throw _privateConstructorUsedError;
   Option<LocationModel> get location => throw _privateConstructorUsedError;
-  List<String> get requirements => throw _privateConstructorUsedError;
+  KtList<String> get requirements => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<TWServerError, Unit>> get failureOrSuccessOption =>
@@ -2018,7 +2018,7 @@ abstract class $CreateJobStateCopyWith<$Res> {
       TWNumber jobRate,
       TWNumber numberOfSubbies,
       Option<LocationModel> location,
-      List<String> requirements,
+      KtList<String> requirements,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<TWServerError, Unit>> failureOrSuccessOption});
@@ -2086,7 +2086,7 @@ class _$CreateJobStateCopyWithImpl<$Res>
       requirements: requirements == freezed
           ? _value.requirements
           : requirements // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as KtList<String>,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -2127,7 +2127,7 @@ abstract class _$CreateJobStateCopyWith<$Res>
       TWNumber jobRate,
       TWNumber numberOfSubbies,
       Option<LocationModel> location,
-      List<String> requirements,
+      KtList<String> requirements,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<TWServerError, Unit>> failureOrSuccessOption});
@@ -2198,7 +2198,7 @@ class __$CreateJobStateCopyWithImpl<$Res>
       requirements: requirements == freezed
           ? _value.requirements
           : requirements // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as KtList<String>,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -2250,7 +2250,7 @@ class _$_CreateJobState extends _CreateJobState {
   @override
   final Option<LocationModel> location;
   @override
-  final List<String> requirements;
+  final KtList<String> requirements;
   @override
   final bool showErrorMessages;
   @override
@@ -2337,7 +2337,7 @@ abstract class _CreateJobState extends CreateJobState {
       required TWNumber jobRate,
       required TWNumber numberOfSubbies,
       required Option<LocationModel> location,
-      required List<String> requirements,
+      required KtList<String> requirements,
       required bool showErrorMessages,
       required bool isSubmitting,
       required Option<Either<TWServerError, Unit>>
@@ -2362,7 +2362,7 @@ abstract class _CreateJobState extends CreateJobState {
   @override
   Option<LocationModel> get location => throw _privateConstructorUsedError;
   @override
-  List<String> get requirements => throw _privateConstructorUsedError;
+  KtList<String> get requirements => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
   @override
