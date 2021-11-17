@@ -24,6 +24,20 @@ class TAJContractor extends TAJFacade {
     );
   }
 
+  Future<Either<TWServerError, Unit>> toggleSubscription() async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    Contractor contractor = CacheService().contractor;
+    batch.update(
+      TWFC.contractorsCollection.doc(contractor.basicProfile.uid),
+      {
+        'subscribed': contractor.subscribed ? false : true,
+      },
+    );
+
+    await batch.commit();
+    return right(unit);
+  }
+
   Stream<List<TenderBid>> streamTenderBids() {
     Contractor contractor = CacheService().contractor;
     return TWFC.tenderBidsCollection

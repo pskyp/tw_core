@@ -20,8 +20,10 @@ TenderFeedback _$TenderFeedbackFromJson(Map<String, dynamic> json) {
 class _$TenderFeedbackTearOff {
   const _$TenderFeedbackTearOff();
 
-  _TenderFeedback call() {
-    return _TenderFeedback();
+  _TenderFeedback call({required double rating}) {
+    return _TenderFeedback(
+      rating: rating,
+    );
   }
 
   TenderFeedback fromJson(Map<String, Object> json) {
@@ -34,7 +36,12 @@ const $TenderFeedback = _$TenderFeedbackTearOff();
 
 /// @nodoc
 mixin _$TenderFeedback {
+  double get rating => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TenderFeedbackCopyWith<TenderFeedback> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -42,6 +49,7 @@ abstract class $TenderFeedbackCopyWith<$Res> {
   factory $TenderFeedbackCopyWith(
           TenderFeedback value, $Res Function(TenderFeedback) then) =
       _$TenderFeedbackCopyWithImpl<$Res>;
+  $Res call({double rating});
 }
 
 /// @nodoc
@@ -52,13 +60,28 @@ class _$TenderFeedbackCopyWithImpl<$Res>
   final TenderFeedback _value;
   // ignore: unused_field
   final $Res Function(TenderFeedback) _then;
+
+  @override
+  $Res call({
+    Object? rating = freezed,
+  }) {
+    return _then(_value.copyWith(
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$TenderFeedbackCopyWith<$Res> {
+abstract class _$TenderFeedbackCopyWith<$Res>
+    implements $TenderFeedbackCopyWith<$Res> {
   factory _$TenderFeedbackCopyWith(
           _TenderFeedback value, $Res Function(_TenderFeedback) then) =
       __$TenderFeedbackCopyWithImpl<$Res>;
+  @override
+  $Res call({double rating});
 }
 
 /// @nodoc
@@ -71,28 +94,52 @@ class __$TenderFeedbackCopyWithImpl<$Res>
 
   @override
   _TenderFeedback get _value => super._value as _TenderFeedback;
+
+  @override
+  $Res call({
+    Object? rating = freezed,
+  }) {
+    return _then(_TenderFeedback(
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$_TenderFeedback implements _TenderFeedback {
-  _$_TenderFeedback();
+  _$_TenderFeedback({required this.rating});
 
   factory _$_TenderFeedback.fromJson(Map<String, dynamic> json) =>
       _$$_TenderFeedbackFromJson(json);
 
   @override
+  final double rating;
+
+  @override
   String toString() {
-    return 'TenderFeedback()';
+    return 'TenderFeedback(rating: $rating)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _TenderFeedback);
+    return identical(this, other) ||
+        (other is _TenderFeedback &&
+            (identical(other.rating, rating) ||
+                const DeepCollectionEquality().equals(other.rating, rating)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(rating);
+
+  @JsonKey(ignore: true)
+  @override
+  _$TenderFeedbackCopyWith<_TenderFeedback> get copyWith =>
+      __$TenderFeedbackCopyWithImpl<_TenderFeedback>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -101,8 +148,15 @@ class _$_TenderFeedback implements _TenderFeedback {
 }
 
 abstract class _TenderFeedback implements TenderFeedback {
-  factory _TenderFeedback() = _$_TenderFeedback;
+  factory _TenderFeedback({required double rating}) = _$_TenderFeedback;
 
   factory _TenderFeedback.fromJson(Map<String, dynamic> json) =
       _$_TenderFeedback.fromJson;
+
+  @override
+  double get rating => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$TenderFeedbackCopyWith<_TenderFeedback> get copyWith =>
+      throw _privateConstructorUsedError;
 }

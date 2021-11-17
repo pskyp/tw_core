@@ -6,7 +6,9 @@ part 'tender_feedback.g.dart';
 
 @freezed
 class TenderFeedback with _$TenderFeedback implements WorkFeedback {
-  factory TenderFeedback() = _TenderFeedback;
+  factory TenderFeedback({
+    required double rating,
+  }) = _TenderFeedback;
 
   factory TenderFeedback.fromJson(Map<String, dynamic> json) =>
       _$TenderFeedbackFromJson(json);
