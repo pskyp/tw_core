@@ -84,6 +84,13 @@ class TAJFacade {
     }
   }
 
+  Stream<Job> streamJob({required String jobId}) {
+    return TWFC.jobCollection
+        .doc(jobId)
+        .snapshots()
+        .map((doc) => Job.fromJson(doc.data() as Map<String, dynamic>));
+  }
+
   Stream<Tender> streamTender({required String tenderId}) {
     return TWFC.tendersCollection
         .doc(tenderId)
