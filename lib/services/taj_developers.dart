@@ -33,8 +33,10 @@ class TAJDeveloper extends TAJFacade {
     await TWFC.tenderBidsCollection.doc(tenderBid.bidIdentifier.bidId).set(
           (tenderBid
               .copyWith(
-                rating: rating.getOrCrash().toDouble(),
                 tenderBidStatus: TenderBidStatus.Completed,
+                feedback: TenderBidFeedback(
+                  rating: rating.getOrCrash().toDouble(),
+                ),
               )
               .toJson()),
         );
@@ -106,6 +108,7 @@ class TAJDeveloper extends TAJFacade {
       acceptingBids: true,
       totalUnseenBids: 0,
       location: development.location,
+      feedback: null,
     );
     WriteBatch batch = FirebaseFirestore.instance.batch();
 
@@ -129,31 +132,32 @@ class TAJDeveloper extends TAJFacade {
   }) async {
     try {
       Tender tender = Tender(
-          createdOn: tenderTimeline.createdAt.getOrCrash(),
-          workIdentifier: WorkIdentifier.tender(
-            developmentIdentifier: development.developmentIdentifier,
-            workId: tenderId,
-            title: tenderTitle,
-            employer: developer.twUser,
-          ),
-          tenderStatus: TenderStatus.UnAwarded,
-          tenderTimeLineStatus: TenderTimeLineStatus.New,
-          feedbackByContractor: false,
-          feedbackByDeveloper: false,
-          developerId: developer.twUser.uid,
-          trade: trade,
-          inviteEmailOne: emailOne?.getOrCrash(),
-          inviteEmailTwo: emailTwo?.getOrCrash(),
-          requirements: requirements,
-          location: development.location,
-          applicationDeadLine: tenderTimeline.applicationDeadline.getOrCrash(),
-          startDate: tenderTimeline.startDeadline.getOrCrash(),
-          queriesDate: tenderTimeline.queriesDeadline.getOrCrash(),
-          submissionDate: tenderTimeline.submissionDeadline.getOrCrash(),
-          feedbackDate: tenderTimeline.feedbackDeadline.getOrCrash(),
-          awardDate: tenderTimeline.awardDeadline.getOrCrash(),
-          endDate: tenderTimeline.endDeadline.getOrCrash(),
-          rating: 0);
+        createdOn: tenderTimeline.createdAt.getOrCrash(),
+        workIdentifier: WorkIdentifier.tender(
+          developmentIdentifier: development.developmentIdentifier,
+          workId: tenderId,
+          title: tenderTitle,
+          employer: developer.twUser,
+        ),
+        tenderStatus: TenderStatus.UnAwarded,
+        tenderTimeLineStatus: TenderTimeLineStatus.New,
+        feedbackByContractor: false,
+        feedbackByDeveloper: false,
+        developerId: developer.twUser.uid,
+        trade: trade,
+        inviteEmailOne: emailOne?.getOrCrash(),
+        inviteEmailTwo: emailTwo?.getOrCrash(),
+        requirements: requirements,
+        location: development.location,
+        applicationDeadLine: tenderTimeline.applicationDeadline.getOrCrash(),
+        startDate: tenderTimeline.startDeadline.getOrCrash(),
+        queriesDate: tenderTimeline.queriesDeadline.getOrCrash(),
+        submissionDate: tenderTimeline.submissionDeadline.getOrCrash(),
+        feedbackDate: tenderTimeline.feedbackDeadline.getOrCrash(),
+        awardDate: tenderTimeline.awardDeadline.getOrCrash(),
+        endDate: tenderTimeline.endDeadline.getOrCrash(),
+        feedback: null,
+      );
       await TWFC.tendersCollection.doc(tenderId).set(tender.toJson());
 
       String emailSubject = "Invitation to bid on tender";

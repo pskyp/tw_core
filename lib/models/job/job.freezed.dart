@@ -37,7 +37,8 @@ class _$JobTearOff {
       required int hrsPerDay,
       required DateTime startDate,
       required List<String> requirements,
-      required bool acceptingBids}) {
+      required bool acceptingBids,
+      required List<JobFeedback>? feedback}) {
     return _Job(
       workIdentifier: workIdentifier,
       createdOn: createdOn,
@@ -56,6 +57,7 @@ class _$JobTearOff {
       startDate: startDate,
       requirements: requirements,
       acceptingBids: acceptingBids,
+      feedback: feedback,
     );
   }
 
@@ -86,6 +88,7 @@ mixin _$Job {
   DateTime get startDate => throw _privateConstructorUsedError;
   List<String> get requirements => throw _privateConstructorUsedError;
   bool get acceptingBids => throw _privateConstructorUsedError;
+  List<JobFeedback>? get feedback => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -113,7 +116,8 @@ abstract class $JobCopyWith<$Res> {
       int hrsPerDay,
       DateTime startDate,
       List<String> requirements,
-      bool acceptingBids});
+      bool acceptingBids,
+      List<JobFeedback>? feedback});
 
   $WorkIdentifierCopyWith<$Res> get workIdentifier;
 }
@@ -145,6 +149,7 @@ class _$JobCopyWithImpl<$Res> implements $JobCopyWith<$Res> {
     Object? startDate = freezed,
     Object? requirements = freezed,
     Object? acceptingBids = freezed,
+    Object? feedback = freezed,
   }) {
     return _then(_value.copyWith(
       workIdentifier: workIdentifier == freezed
@@ -215,6 +220,10 @@ class _$JobCopyWithImpl<$Res> implements $JobCopyWith<$Res> {
           ? _value.acceptingBids
           : acceptingBids // ignore: cast_nullable_to_non_nullable
               as bool,
+      feedback: feedback == freezed
+          ? _value.feedback
+          : feedback // ignore: cast_nullable_to_non_nullable
+              as List<JobFeedback>?,
     ));
   }
 
@@ -248,7 +257,8 @@ abstract class _$JobCopyWith<$Res> implements $JobCopyWith<$Res> {
       int hrsPerDay,
       DateTime startDate,
       List<String> requirements,
-      bool acceptingBids});
+      bool acceptingBids,
+      List<JobFeedback>? feedback});
 
   @override
   $WorkIdentifierCopyWith<$Res> get workIdentifier;
@@ -282,6 +292,7 @@ class __$JobCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res>
     Object? startDate = freezed,
     Object? requirements = freezed,
     Object? acceptingBids = freezed,
+    Object? feedback = freezed,
   }) {
     return _then(_Job(
       workIdentifier: workIdentifier == freezed
@@ -352,6 +363,10 @@ class __$JobCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res>
           ? _value.acceptingBids
           : acceptingBids // ignore: cast_nullable_to_non_nullable
               as bool,
+      feedback: feedback == freezed
+          ? _value.feedback
+          : feedback // ignore: cast_nullable_to_non_nullable
+              as List<JobFeedback>?,
     ));
   }
 }
@@ -376,7 +391,8 @@ class _$_Job extends _Job {
       required this.hrsPerDay,
       required this.startDate,
       required this.requirements,
-      required this.acceptingBids})
+      required this.acceptingBids,
+      required this.feedback})
       : super._();
 
   factory _$_Job.fromJson(Map<String, dynamic> json) => _$$_JobFromJson(json);
@@ -415,10 +431,12 @@ class _$_Job extends _Job {
   final List<String> requirements;
   @override
   final bool acceptingBids;
+  @override
+  final List<JobFeedback>? feedback;
 
   @override
   String toString() {
-    return 'Job(workIdentifier: $workIdentifier, createdOn: $createdOn, contractorId: $contractorId, location: $location, trade: $trade, status: $status, totalUnseenBids: $totalUnseenBids, description: $description, hourlyRate: $hourlyRate, applications: $applications, subbiesRequired: $subbiesRequired, subbiesWorking: $subbiesWorking, endDate: $endDate, hrsPerDay: $hrsPerDay, startDate: $startDate, requirements: $requirements, acceptingBids: $acceptingBids)';
+    return 'Job(workIdentifier: $workIdentifier, createdOn: $createdOn, contractorId: $contractorId, location: $location, trade: $trade, status: $status, totalUnseenBids: $totalUnseenBids, description: $description, hourlyRate: $hourlyRate, applications: $applications, subbiesRequired: $subbiesRequired, subbiesWorking: $subbiesWorking, endDate: $endDate, hrsPerDay: $hrsPerDay, startDate: $startDate, requirements: $requirements, acceptingBids: $acceptingBids, feedback: $feedback)';
   }
 
   @override
@@ -473,7 +491,10 @@ class _$_Job extends _Job {
                     .equals(other.requirements, requirements)) &&
             (identical(other.acceptingBids, acceptingBids) ||
                 const DeepCollectionEquality()
-                    .equals(other.acceptingBids, acceptingBids)));
+                    .equals(other.acceptingBids, acceptingBids)) &&
+            (identical(other.feedback, feedback) ||
+                const DeepCollectionEquality()
+                    .equals(other.feedback, feedback)));
   }
 
   @override
@@ -495,7 +516,8 @@ class _$_Job extends _Job {
       const DeepCollectionEquality().hash(hrsPerDay) ^
       const DeepCollectionEquality().hash(startDate) ^
       const DeepCollectionEquality().hash(requirements) ^
-      const DeepCollectionEquality().hash(acceptingBids);
+      const DeepCollectionEquality().hash(acceptingBids) ^
+      const DeepCollectionEquality().hash(feedback);
 
   @JsonKey(ignore: true)
   @override
@@ -526,7 +548,8 @@ abstract class _Job extends Job {
       required int hrsPerDay,
       required DateTime startDate,
       required List<String> requirements,
-      required bool acceptingBids}) = _$_Job;
+      required bool acceptingBids,
+      required List<JobFeedback>? feedback}) = _$_Job;
   const _Job._() : super._();
 
   factory _Job.fromJson(Map<String, dynamic> json) = _$_Job.fromJson;
@@ -565,6 +588,8 @@ abstract class _Job extends Job {
   List<String> get requirements => throw _privateConstructorUsedError;
   @override
   bool get acceptingBids => throw _privateConstructorUsedError;
+  @override
+  List<JobFeedback>? get feedback => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$JobCopyWith<_Job> get copyWith => throw _privateConstructorUsedError;

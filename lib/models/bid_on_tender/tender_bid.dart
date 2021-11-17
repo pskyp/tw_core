@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/models/contractor/contractor_model.dart';
+import 'package:tw_core/models/feedback/bid_feedback/tender_bid_feedback/tender_bid_feedback.dart';
 import 'package:tw_core/models/tender/tender_model.dart';
 import 'package:tw_core/models/work/work.dart';
 
@@ -13,7 +14,7 @@ class TenderBid with _$TenderBid implements WorkBid {
   const factory TenderBid({
     required BidIdentifier bidIdentifier,
     required TenderBidStatus tenderBidStatus,
-    required double? rating,
+    required TenderBidFeedback? feedback,
   }) = _TenderBid;
 
   factory TenderBid.fromContractorAndTender({
@@ -29,7 +30,7 @@ class TenderBid with _$TenderBid implements WorkBid {
         workIdentifier: tender.workIdentifier,
       ),
       tenderBidStatus: TenderBidStatus.New,
-      rating: null,
+      feedback: null,
     );
   }
 

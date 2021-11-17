@@ -80,7 +80,7 @@ class TAJContractor extends TAJFacade {
   }
 
   Stream<List<JobBid>> streamBidsOnJob(String jobId) => TWFC.bidsCollection
-          .where('jobId', isEqualTo: jobId)
+          .where('bidIdentifier.workIdentifier.workId', isEqualTo: jobId)
           .snapshots()
           .map((list) {
         allBids = optionOf(
@@ -255,11 +255,12 @@ class TAJContractor extends TAJFacade {
     });
   }
 
-  Stream<List<JobReview>> streamRatings(String jobId) =>
-      TWFC.jobReviewCollection.where('jobId', isEqualTo: jobId).snapshots().map(
-            (list) =>
-                list.docs.map((doc) => JobReview.fromJson(doc.data())).toList(),
-          );
+  // Stream<List<JobFeedback>> streamRatings(String jobId) =>
+  //     TWFC.jobReviewCollection.where('jobId', isEqualTo: jobId).snapshots().map(
+  //           (list) => list.docs
+  //               .map((doc) => JobFeedback.fromJson(doc.data()))
+  //               .toList(),
+  //         );
 
   Stream<List<Job>> streamOldJobs({required TWUser contractor}) => TWFC
       .oldJobsCollection
@@ -334,5 +335,22 @@ class TAJContractor extends TAJFacade {
     TWFC.jobCollection.doc(job.workIdentifier.workId).set(
           job.toJson(),
         );
+  }
+
+  Future<Either<TWServerError, Unit>> onJobComplete({
+    //this list of job bids is supposed to have ratings
+    required List<JobBidFeedback> jobBidsFeedbacks,
+    required Job job,
+  }) async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    for (final feedback in jobBidsFeedbacks) {
+      batch.update(TWFC.bidsCollection.doc(feedback.bidId),
+          {'feedback': feedback.toJson()});
+    }
+    batch.update(TWFC.jobCollection.doc(job.workIdentifier.workId), {
+      'status': JobStatus(JobStatuses.Completed).toJson(),
+    });
+    await batch.commit();
+    return right(unit);
   }
 }

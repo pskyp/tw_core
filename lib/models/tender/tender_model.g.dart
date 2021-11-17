@@ -30,7 +30,9 @@ _$_Tender _$$_TenderFromJson(Map<String, dynamic> json) => _$_Tender(
           _$TenderTimeLineStatusEnumMap, json['tenderTimeLineStatus']),
       feedbackByDeveloper: json['feedbackByDeveloper'] as bool,
       feedbackByContractor: json['feedbackByContractor'] as bool,
-      rating: (json['rating'] as num).toDouble(),
+      feedback: (json['feedback'] as List<dynamic>?)
+          ?.map((e) => TenderFeedback.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_TenderToJson(_$_Tender instance) => <String, dynamic>{
@@ -54,7 +56,7 @@ Map<String, dynamic> _$$_TenderToJson(_$_Tender instance) => <String, dynamic>{
           _$TenderTimeLineStatusEnumMap[instance.tenderTimeLineStatus],
       'feedbackByDeveloper': instance.feedbackByDeveloper,
       'feedbackByContractor': instance.feedbackByContractor,
-      'rating': instance.rating,
+      'feedback': instance.feedback?.map((e) => e.toJson()).toList(),
     };
 
 K _$enumDecode<K, V>(

@@ -1,4 +1,4 @@
-enum JobActions { toggleBidding, jobComplete, inviteFavourites }
+enum JobActions { ToggleBidding, CompleteJob, InviteFavourites }
 
 class JobAction {
   final String text;

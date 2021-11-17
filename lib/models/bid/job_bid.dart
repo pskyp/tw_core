@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tw_core/models/feedback/bid_feedback/job_bid_feedback/job_bid_feedback.dart';
 import 'package:tw_core/models/job/job.dart';
 import 'package:tw_core/models/subbie/subbie_model.dart';
 import 'package:tw_core/models/work/work.dart';
@@ -12,12 +13,13 @@ enum JobBidStatuses { New, Negotiating, Offered, Hired, Rejected, Old }
 class JobBid with _$JobBid implements WorkBid {
   const factory JobBid({
     required BidIdentifier bidIdentifier,
-    required double? rating,
     required JobBidStatuses jobBidStatus,
+    required JobBidFeedback? feedback,
   }) = _JobBid;
 
   factory JobBid.neu({required Job job, required Subbie subbie}) {
     return _JobBid(
+      feedback: null,
       bidIdentifier: BidIdentifier(
         workIdentifier: job.workIdentifier,
         bidType: BidType.JobBid,
@@ -26,7 +28,6 @@ class JobBid with _$JobBid implements WorkBid {
         appliedOn: DateTime.now(),
       ),
       jobBidStatus: JobBidStatuses.New,
-      rating: null,
     );
   }
 

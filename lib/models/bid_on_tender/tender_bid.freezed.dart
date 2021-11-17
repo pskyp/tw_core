@@ -23,11 +23,11 @@ class _$TenderBidTearOff {
   _TenderBid call(
       {required BidIdentifier bidIdentifier,
       required TenderBidStatus tenderBidStatus,
-      required double? rating}) {
+      required TenderBidFeedback? feedback}) {
     return _TenderBid(
       bidIdentifier: bidIdentifier,
       tenderBidStatus: tenderBidStatus,
-      rating: rating,
+      feedback: feedback,
     );
   }
 
@@ -43,7 +43,7 @@ const $TenderBid = _$TenderBidTearOff();
 mixin _$TenderBid {
   BidIdentifier get bidIdentifier => throw _privateConstructorUsedError;
   TenderBidStatus get tenderBidStatus => throw _privateConstructorUsedError;
-  double? get rating => throw _privateConstructorUsedError;
+  TenderBidFeedback? get feedback => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -58,9 +58,10 @@ abstract class $TenderBidCopyWith<$Res> {
   $Res call(
       {BidIdentifier bidIdentifier,
       TenderBidStatus tenderBidStatus,
-      double? rating});
+      TenderBidFeedback? feedback});
 
   $BidIdentifierCopyWith<$Res> get bidIdentifier;
+  $TenderBidFeedbackCopyWith<$Res>? get feedback;
 }
 
 /// @nodoc
@@ -75,7 +76,7 @@ class _$TenderBidCopyWithImpl<$Res> implements $TenderBidCopyWith<$Res> {
   $Res call({
     Object? bidIdentifier = freezed,
     Object? tenderBidStatus = freezed,
-    Object? rating = freezed,
+    Object? feedback = freezed,
   }) {
     return _then(_value.copyWith(
       bidIdentifier: bidIdentifier == freezed
@@ -86,10 +87,10 @@ class _$TenderBidCopyWithImpl<$Res> implements $TenderBidCopyWith<$Res> {
           ? _value.tenderBidStatus
           : tenderBidStatus // ignore: cast_nullable_to_non_nullable
               as TenderBidStatus,
-      rating: rating == freezed
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as double?,
+      feedback: feedback == freezed
+          ? _value.feedback
+          : feedback // ignore: cast_nullable_to_non_nullable
+              as TenderBidFeedback?,
     ));
   }
 
@@ -97,6 +98,17 @@ class _$TenderBidCopyWithImpl<$Res> implements $TenderBidCopyWith<$Res> {
   $BidIdentifierCopyWith<$Res> get bidIdentifier {
     return $BidIdentifierCopyWith<$Res>(_value.bidIdentifier, (value) {
       return _then(_value.copyWith(bidIdentifier: value));
+    });
+  }
+
+  @override
+  $TenderBidFeedbackCopyWith<$Res>? get feedback {
+    if (_value.feedback == null) {
+      return null;
+    }
+
+    return $TenderBidFeedbackCopyWith<$Res>(_value.feedback!, (value) {
+      return _then(_value.copyWith(feedback: value));
     });
   }
 }
@@ -110,10 +122,12 @@ abstract class _$TenderBidCopyWith<$Res> implements $TenderBidCopyWith<$Res> {
   $Res call(
       {BidIdentifier bidIdentifier,
       TenderBidStatus tenderBidStatus,
-      double? rating});
+      TenderBidFeedback? feedback});
 
   @override
   $BidIdentifierCopyWith<$Res> get bidIdentifier;
+  @override
+  $TenderBidFeedbackCopyWith<$Res>? get feedback;
 }
 
 /// @nodoc
@@ -129,7 +143,7 @@ class __$TenderBidCopyWithImpl<$Res> extends _$TenderBidCopyWithImpl<$Res>
   $Res call({
     Object? bidIdentifier = freezed,
     Object? tenderBidStatus = freezed,
-    Object? rating = freezed,
+    Object? feedback = freezed,
   }) {
     return _then(_TenderBid(
       bidIdentifier: bidIdentifier == freezed
@@ -140,10 +154,10 @@ class __$TenderBidCopyWithImpl<$Res> extends _$TenderBidCopyWithImpl<$Res>
           ? _value.tenderBidStatus
           : tenderBidStatus // ignore: cast_nullable_to_non_nullable
               as TenderBidStatus,
-      rating: rating == freezed
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as double?,
+      feedback: feedback == freezed
+          ? _value.feedback
+          : feedback // ignore: cast_nullable_to_non_nullable
+              as TenderBidFeedback?,
     ));
   }
 }
@@ -154,7 +168,7 @@ class _$_TenderBid implements _TenderBid {
   const _$_TenderBid(
       {required this.bidIdentifier,
       required this.tenderBidStatus,
-      required this.rating});
+      required this.feedback});
 
   factory _$_TenderBid.fromJson(Map<String, dynamic> json) =>
       _$$_TenderBidFromJson(json);
@@ -164,11 +178,11 @@ class _$_TenderBid implements _TenderBid {
   @override
   final TenderBidStatus tenderBidStatus;
   @override
-  final double? rating;
+  final TenderBidFeedback? feedback;
 
   @override
   String toString() {
-    return 'TenderBid(bidIdentifier: $bidIdentifier, tenderBidStatus: $tenderBidStatus, rating: $rating)';
+    return 'TenderBid(bidIdentifier: $bidIdentifier, tenderBidStatus: $tenderBidStatus, feedback: $feedback)';
   }
 
   @override
@@ -181,8 +195,9 @@ class _$_TenderBid implements _TenderBid {
             (identical(other.tenderBidStatus, tenderBidStatus) ||
                 const DeepCollectionEquality()
                     .equals(other.tenderBidStatus, tenderBidStatus)) &&
-            (identical(other.rating, rating) ||
-                const DeepCollectionEquality().equals(other.rating, rating)));
+            (identical(other.feedback, feedback) ||
+                const DeepCollectionEquality()
+                    .equals(other.feedback, feedback)));
   }
 
   @override
@@ -190,7 +205,7 @@ class _$_TenderBid implements _TenderBid {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(bidIdentifier) ^
       const DeepCollectionEquality().hash(tenderBidStatus) ^
-      const DeepCollectionEquality().hash(rating);
+      const DeepCollectionEquality().hash(feedback);
 
   @JsonKey(ignore: true)
   @override
@@ -207,7 +222,7 @@ abstract class _TenderBid implements TenderBid {
   const factory _TenderBid(
       {required BidIdentifier bidIdentifier,
       required TenderBidStatus tenderBidStatus,
-      required double? rating}) = _$_TenderBid;
+      required TenderBidFeedback? feedback}) = _$_TenderBid;
 
   factory _TenderBid.fromJson(Map<String, dynamic> json) =
       _$_TenderBid.fromJson;
@@ -217,7 +232,7 @@ abstract class _TenderBid implements TenderBid {
   @override
   TenderBidStatus get tenderBidStatus => throw _privateConstructorUsedError;
   @override
-  double? get rating => throw _privateConstructorUsedError;
+  TenderBidFeedback? get feedback => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$TenderBidCopyWith<_TenderBid> get copyWith =>

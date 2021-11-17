@@ -9,14 +9,16 @@ part of 'job_bid.dart';
 _$_JobBid _$$_JobBidFromJson(Map<String, dynamic> json) => _$_JobBid(
       bidIdentifier:
           BidIdentifier.fromJson(json['bidIdentifier'] as Map<String, dynamic>),
-      rating: (json['rating'] as num?)?.toDouble(),
       jobBidStatus: _$enumDecode(_$JobBidStatusesEnumMap, json['jobBidStatus']),
+      feedback: json['feedback'] == null
+          ? null
+          : JobBidFeedback.fromJson(json['feedback'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_JobBidToJson(_$_JobBid instance) => <String, dynamic>{
       'bidIdentifier': instance.bidIdentifier.toJson(),
-      'rating': instance.rating,
       'jobBidStatus': _$JobBidStatusesEnumMap[instance.jobBidStatus],
+      'feedback': instance.feedback?.toJson(),
     };
 
 K _$enumDecode<K, V>(

@@ -29,6 +29,9 @@ _$_Supplement _$$_SupplementFromJson(Map<String, dynamic> json) =>
       totalUnseenBids: json['totalUnseenBids'] as int,
       location:
           LocationModel.fromJson(json['location'] as Map<String, dynamic>),
+      feedback: (json['feedback'] as List<dynamic>?)
+          ?.map((e) => SupplementFeedback.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_SupplementToJson(_$_Supplement instance) =>
@@ -52,6 +55,7 @@ Map<String, dynamic> _$$_SupplementToJson(_$_Supplement instance) =>
       'acceptingBids': instance.acceptingBids,
       'totalUnseenBids': instance.totalUnseenBids,
       'location': instance.location.toJson(),
+      'feedback': instance.feedback?.map((e) => e.toJson()).toList(),
     };
 
 K _$enumDecode<K, V>(

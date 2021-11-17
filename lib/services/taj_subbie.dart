@@ -102,46 +102,34 @@ class TAJSubbie extends TAJFacade {
     }
   }
 
-  onJobReviewsSubmit({
-    required List<JobReview> jobReviews,
-    required Subbie subbie,
-  }) {
-    var batch = FirebaseFirestore.instance.batch();
-    for (final jobReview in jobReviews) {
-      //store rating in ratings subcollcection
-      batch.set(
-          TWFC.jobReviewCollection
-              .doc(jobReview.contractorId + jobReview.jobId),
-          jobReview.toJson());
-      //update total_ratings, and other attributes in contractor doc
-      batch.update(TWFC.contractorsCollection.doc(jobReview.contractorId), {
-        'totalRatings': FieldValue.increment(1),
-        'totalReliability': FieldValue.increment(jobReview.rating.reliability),
-        'totalEnvironment': FieldValue.increment(jobReview.rating.environment),
-        'totalCommunication':
-            FieldValue.increment(jobReview.rating.communication)
-      });
-    }
-
-    //delete the pending ratings subcollection of user
-    for (final jobReview in jobReviews) {
-      batch.delete(TWFC.subbieCollection
-          .doc(subbie.basicProfile.uid)
-          .collection('pending_job_ratings')
-          .doc('pending_rating_contractor.uid: ${jobReview.contractorId}'));
-    }
-    batch.commit();
-  }
-
-  @override
-  Stream<List<PendingContractorRating>?> pendingJobRatings(Subbie subbie) =>
-      TWFC.subbieCollection
-          .doc(subbie.basicProfile.uid)
-          .collection('pending_job_ratings')
-          .snapshots()
-          .map((list) => list.docs
-              .map((doc) => PendingContractorRating.fromJson(doc.data()))
-              .toList());
+  // onJobReviewsSubmit({
+  //   required JobFeedback jobFeedback,
+  //   required Subbie subbie,
+  // }) {
+  //   var batch = FirebaseFirestore.instance.batch();
+  //     //store rating in ratings subcollcection
+  //     batch.set(
+  //         TWFC.jobCollection
+  //             .doc(jobReview.contractorId + jobReview.jobId),
+  //         jobReview.toJson());
+  //     //update total_ratings, and other attributes in contractor doc
+  //     batch.update(TWFC.contractorsCollection.doc(jobReview.contractorId), {
+  //       'totalRatings': FieldValue.increment(1),
+  //       'totalReliability': FieldValue.increment(jobReview.rating.reliability),
+  //       'totalEnvironment': FieldValue.increment(jobReview.rating.environment),
+  //       'totalCommunication':
+  //           FieldValue.increment(jobReview.rating.communication)
+  //     });
+  //
+  //   //delete the pending ratings subcollection of user
+  //   for (final jobReview in jobReviews) {
+  //     batch.delete(TWFC.subbieCollection
+  //         .doc(subbie.basicProfile.uid)
+  //         .collection('pending_job_ratings')
+  //         .doc('pending_rating_contractor.uid: ${jobReview.contractorId}'));
+  //   }
+  //   batch.commit();
+  // }
 
   Future<Either<TWServerError, Unit>> removeContractorFromBlackList({
     required String contractorId,

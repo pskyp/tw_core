@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tw_core/models/feedback/work_feedback/tender_feedback/tender_feedback.dart';
 import 'package:tw_core/models/location/location_model.dart';
 import 'package:tw_core/models/trades.dart';
 import 'package:tw_core/models/work/work.dart';
@@ -32,7 +33,7 @@ class Tender with _$Tender implements Work {
     required TenderTimeLineStatus tenderTimeLineStatus,
     required bool feedbackByDeveloper,
     required bool feedbackByContractor,
-    required double rating,
+    required List<TenderFeedback>? feedback,
   }) = _Tender;
 
   factory Tender.fromJson(Map<String, dynamic> json) => _$TenderFromJson(json);

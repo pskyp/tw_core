@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/models/developer/developer.dart';
+import 'package:tw_core/models/feedback/work_feedback/supplement_feedback/supplement_feedback.dart';
 import 'package:tw_core/models/location/location_model.dart';
 import 'package:tw_core/models/trades.dart';
 import 'package:tw_core/models/work/work.dart';
@@ -31,6 +32,7 @@ class Supplement with _$Supplement implements Work {
     required bool acceptingBids,
     required int totalUnseenBids,
     required LocationModel location,
+    required List<SupplementFeedback>? feedback,
   }) = _Supplement;
 
   factory Supplement.fromJson(Map<String, dynamic> json) =>

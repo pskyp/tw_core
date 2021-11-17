@@ -39,7 +39,8 @@ class _$SupplementTearOff {
       required Trade trade,
       required bool acceptingBids,
       required int totalUnseenBids,
-      required LocationModel location}) {
+      required LocationModel location,
+      required List<SupplementFeedback>? feedback}) {
     return _Supplement(
       workIdentifier: workIdentifier,
       developerId: developerId,
@@ -60,6 +61,7 @@ class _$SupplementTearOff {
       acceptingBids: acceptingBids,
       totalUnseenBids: totalUnseenBids,
       location: location,
+      feedback: feedback,
     );
   }
 
@@ -92,6 +94,7 @@ mixin _$Supplement {
   bool get acceptingBids => throw _privateConstructorUsedError;
   int get totalUnseenBids => throw _privateConstructorUsedError;
   LocationModel get location => throw _privateConstructorUsedError;
+  List<SupplementFeedback>? get feedback => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -123,7 +126,8 @@ abstract class $SupplementCopyWith<$Res> {
       Trade trade,
       bool acceptingBids,
       int totalUnseenBids,
-      LocationModel location});
+      LocationModel location,
+      List<SupplementFeedback>? feedback});
 
   $WorkIdentifierCopyWith<$Res> get workIdentifier;
 }
@@ -157,6 +161,7 @@ class _$SupplementCopyWithImpl<$Res> implements $SupplementCopyWith<$Res> {
     Object? acceptingBids = freezed,
     Object? totalUnseenBids = freezed,
     Object? location = freezed,
+    Object? feedback = freezed,
   }) {
     return _then(_value.copyWith(
       workIdentifier: workIdentifier == freezed
@@ -235,6 +240,10 @@ class _$SupplementCopyWithImpl<$Res> implements $SupplementCopyWith<$Res> {
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as LocationModel,
+      feedback: feedback == freezed
+          ? _value.feedback
+          : feedback // ignore: cast_nullable_to_non_nullable
+              as List<SupplementFeedback>?,
     ));
   }
 
@@ -271,7 +280,8 @@ abstract class _$SupplementCopyWith<$Res> implements $SupplementCopyWith<$Res> {
       Trade trade,
       bool acceptingBids,
       int totalUnseenBids,
-      LocationModel location});
+      LocationModel location,
+      List<SupplementFeedback>? feedback});
 
   @override
   $WorkIdentifierCopyWith<$Res> get workIdentifier;
@@ -308,6 +318,7 @@ class __$SupplementCopyWithImpl<$Res> extends _$SupplementCopyWithImpl<$Res>
     Object? acceptingBids = freezed,
     Object? totalUnseenBids = freezed,
     Object? location = freezed,
+    Object? feedback = freezed,
   }) {
     return _then(_Supplement(
       workIdentifier: workIdentifier == freezed
@@ -386,6 +397,10 @@ class __$SupplementCopyWithImpl<$Res> extends _$SupplementCopyWithImpl<$Res>
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
               as LocationModel,
+      feedback: feedback == freezed
+          ? _value.feedback
+          : feedback // ignore: cast_nullable_to_non_nullable
+              as List<SupplementFeedback>?,
     ));
   }
 }
@@ -412,7 +427,8 @@ class _$_Supplement implements _Supplement {
       required this.trade,
       required this.acceptingBids,
       required this.totalUnseenBids,
-      required this.location});
+      required this.location,
+      required this.feedback});
 
   factory _$_Supplement.fromJson(Map<String, dynamic> json) =>
       _$$_SupplementFromJson(json);
@@ -455,10 +471,12 @@ class _$_Supplement implements _Supplement {
   final int totalUnseenBids;
   @override
   final LocationModel location;
+  @override
+  final List<SupplementFeedback>? feedback;
 
   @override
   String toString() {
-    return 'Supplement(workIdentifier: $workIdentifier, developerId: $developerId, status: $status, developer: $developer, title: $title, description: $description, hourlyRate: $hourlyRate, hrsPerDay: $hrsPerDay, startDate: $startDate, endDate: $endDate, createdOn: $createdOn, applications: $applications, subbiesWorking: $subbiesWorking, subbiesRequired: $subbiesRequired, requirements: $requirements, trade: $trade, acceptingBids: $acceptingBids, totalUnseenBids: $totalUnseenBids, location: $location)';
+    return 'Supplement(workIdentifier: $workIdentifier, developerId: $developerId, status: $status, developer: $developer, title: $title, description: $description, hourlyRate: $hourlyRate, hrsPerDay: $hrsPerDay, startDate: $startDate, endDate: $endDate, createdOn: $createdOn, applications: $applications, subbiesWorking: $subbiesWorking, subbiesRequired: $subbiesRequired, requirements: $requirements, trade: $trade, acceptingBids: $acceptingBids, totalUnseenBids: $totalUnseenBids, location: $location, feedback: $feedback)';
   }
 
   @override
@@ -518,7 +536,10 @@ class _$_Supplement implements _Supplement {
                     .equals(other.totalUnseenBids, totalUnseenBids)) &&
             (identical(other.location, location) ||
                 const DeepCollectionEquality()
-                    .equals(other.location, location)));
+                    .equals(other.location, location)) &&
+            (identical(other.feedback, feedback) ||
+                const DeepCollectionEquality()
+                    .equals(other.feedback, feedback)));
   }
 
   @override
@@ -542,7 +563,8 @@ class _$_Supplement implements _Supplement {
       const DeepCollectionEquality().hash(trade) ^
       const DeepCollectionEquality().hash(acceptingBids) ^
       const DeepCollectionEquality().hash(totalUnseenBids) ^
-      const DeepCollectionEquality().hash(location);
+      const DeepCollectionEquality().hash(location) ^
+      const DeepCollectionEquality().hash(feedback);
 
   @JsonKey(ignore: true)
   @override
@@ -575,7 +597,8 @@ abstract class _Supplement implements Supplement {
       required Trade trade,
       required bool acceptingBids,
       required int totalUnseenBids,
-      required LocationModel location}) = _$_Supplement;
+      required LocationModel location,
+      required List<SupplementFeedback>? feedback}) = _$_Supplement;
 
   factory _Supplement.fromJson(Map<String, dynamic> json) =
       _$_Supplement.fromJson;
@@ -618,6 +641,8 @@ abstract class _Supplement implements Supplement {
   int get totalUnseenBids => throw _privateConstructorUsedError;
   @override
   LocationModel get location => throw _privateConstructorUsedError;
+  @override
+  List<SupplementFeedback>? get feedback => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$SupplementCopyWith<_Supplement> get copyWith =>

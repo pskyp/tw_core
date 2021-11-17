@@ -11,14 +11,17 @@ _$_TenderBid _$$_TenderBidFromJson(Map<String, dynamic> json) => _$_TenderBid(
           BidIdentifier.fromJson(json['bidIdentifier'] as Map<String, dynamic>),
       tenderBidStatus:
           _$enumDecode(_$TenderBidStatusEnumMap, json['tenderBidStatus']),
-      rating: (json['rating'] as num?)?.toDouble(),
+      feedback: json['feedback'] == null
+          ? null
+          : TenderBidFeedback.fromJson(
+              json['feedback'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_TenderBidToJson(_$_TenderBid instance) =>
     <String, dynamic>{
       'bidIdentifier': instance.bidIdentifier.toJson(),
       'tenderBidStatus': _$TenderBidStatusEnumMap[instance.tenderBidStatus],
-      'rating': instance.rating,
+      'feedback': instance.feedback?.toJson(),
     };
 
 K _$enumDecode<K, V>(

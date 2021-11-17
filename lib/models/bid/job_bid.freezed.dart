@@ -22,12 +22,12 @@ class _$JobBidTearOff {
 
   _JobBid call(
       {required BidIdentifier bidIdentifier,
-      required double? rating,
-      required JobBidStatuses jobBidStatus}) {
+      required JobBidStatuses jobBidStatus,
+      required JobBidFeedback? feedback}) {
     return _JobBid(
       bidIdentifier: bidIdentifier,
-      rating: rating,
       jobBidStatus: jobBidStatus,
+      feedback: feedback,
     );
   }
 
@@ -42,8 +42,8 @@ const $JobBid = _$JobBidTearOff();
 /// @nodoc
 mixin _$JobBid {
   BidIdentifier get bidIdentifier => throw _privateConstructorUsedError;
-  double? get rating => throw _privateConstructorUsedError;
   JobBidStatuses get jobBidStatus => throw _privateConstructorUsedError;
+  JobBidFeedback? get feedback => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,10 +56,11 @@ abstract class $JobBidCopyWith<$Res> {
       _$JobBidCopyWithImpl<$Res>;
   $Res call(
       {BidIdentifier bidIdentifier,
-      double? rating,
-      JobBidStatuses jobBidStatus});
+      JobBidStatuses jobBidStatus,
+      JobBidFeedback? feedback});
 
   $BidIdentifierCopyWith<$Res> get bidIdentifier;
+  $JobBidFeedbackCopyWith<$Res>? get feedback;
 }
 
 /// @nodoc
@@ -73,22 +74,22 @@ class _$JobBidCopyWithImpl<$Res> implements $JobBidCopyWith<$Res> {
   @override
   $Res call({
     Object? bidIdentifier = freezed,
-    Object? rating = freezed,
     Object? jobBidStatus = freezed,
+    Object? feedback = freezed,
   }) {
     return _then(_value.copyWith(
       bidIdentifier: bidIdentifier == freezed
           ? _value.bidIdentifier
           : bidIdentifier // ignore: cast_nullable_to_non_nullable
               as BidIdentifier,
-      rating: rating == freezed
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as double?,
       jobBidStatus: jobBidStatus == freezed
           ? _value.jobBidStatus
           : jobBidStatus // ignore: cast_nullable_to_non_nullable
               as JobBidStatuses,
+      feedback: feedback == freezed
+          ? _value.feedback
+          : feedback // ignore: cast_nullable_to_non_nullable
+              as JobBidFeedback?,
     ));
   }
 
@@ -96,6 +97,17 @@ class _$JobBidCopyWithImpl<$Res> implements $JobBidCopyWith<$Res> {
   $BidIdentifierCopyWith<$Res> get bidIdentifier {
     return $BidIdentifierCopyWith<$Res>(_value.bidIdentifier, (value) {
       return _then(_value.copyWith(bidIdentifier: value));
+    });
+  }
+
+  @override
+  $JobBidFeedbackCopyWith<$Res>? get feedback {
+    if (_value.feedback == null) {
+      return null;
+    }
+
+    return $JobBidFeedbackCopyWith<$Res>(_value.feedback!, (value) {
+      return _then(_value.copyWith(feedback: value));
     });
   }
 }
@@ -107,11 +119,13 @@ abstract class _$JobBidCopyWith<$Res> implements $JobBidCopyWith<$Res> {
   @override
   $Res call(
       {BidIdentifier bidIdentifier,
-      double? rating,
-      JobBidStatuses jobBidStatus});
+      JobBidStatuses jobBidStatus,
+      JobBidFeedback? feedback});
 
   @override
   $BidIdentifierCopyWith<$Res> get bidIdentifier;
+  @override
+  $JobBidFeedbackCopyWith<$Res>? get feedback;
 }
 
 /// @nodoc
@@ -126,22 +140,22 @@ class __$JobBidCopyWithImpl<$Res> extends _$JobBidCopyWithImpl<$Res>
   @override
   $Res call({
     Object? bidIdentifier = freezed,
-    Object? rating = freezed,
     Object? jobBidStatus = freezed,
+    Object? feedback = freezed,
   }) {
     return _then(_JobBid(
       bidIdentifier: bidIdentifier == freezed
           ? _value.bidIdentifier
           : bidIdentifier // ignore: cast_nullable_to_non_nullable
               as BidIdentifier,
-      rating: rating == freezed
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as double?,
       jobBidStatus: jobBidStatus == freezed
           ? _value.jobBidStatus
           : jobBidStatus // ignore: cast_nullable_to_non_nullable
               as JobBidStatuses,
+      feedback: feedback == freezed
+          ? _value.feedback
+          : feedback // ignore: cast_nullable_to_non_nullable
+              as JobBidFeedback?,
     ));
   }
 }
@@ -151,8 +165,8 @@ class __$JobBidCopyWithImpl<$Res> extends _$JobBidCopyWithImpl<$Res>
 class _$_JobBid implements _JobBid {
   const _$_JobBid(
       {required this.bidIdentifier,
-      required this.rating,
-      required this.jobBidStatus});
+      required this.jobBidStatus,
+      required this.feedback});
 
   factory _$_JobBid.fromJson(Map<String, dynamic> json) =>
       _$$_JobBidFromJson(json);
@@ -160,13 +174,13 @@ class _$_JobBid implements _JobBid {
   @override
   final BidIdentifier bidIdentifier;
   @override
-  final double? rating;
-  @override
   final JobBidStatuses jobBidStatus;
+  @override
+  final JobBidFeedback? feedback;
 
   @override
   String toString() {
-    return 'JobBid(bidIdentifier: $bidIdentifier, rating: $rating, jobBidStatus: $jobBidStatus)';
+    return 'JobBid(bidIdentifier: $bidIdentifier, jobBidStatus: $jobBidStatus, feedback: $feedback)';
   }
 
   @override
@@ -176,19 +190,20 @@ class _$_JobBid implements _JobBid {
             (identical(other.bidIdentifier, bidIdentifier) ||
                 const DeepCollectionEquality()
                     .equals(other.bidIdentifier, bidIdentifier)) &&
-            (identical(other.rating, rating) ||
-                const DeepCollectionEquality().equals(other.rating, rating)) &&
             (identical(other.jobBidStatus, jobBidStatus) ||
                 const DeepCollectionEquality()
-                    .equals(other.jobBidStatus, jobBidStatus)));
+                    .equals(other.jobBidStatus, jobBidStatus)) &&
+            (identical(other.feedback, feedback) ||
+                const DeepCollectionEquality()
+                    .equals(other.feedback, feedback)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(bidIdentifier) ^
-      const DeepCollectionEquality().hash(rating) ^
-      const DeepCollectionEquality().hash(jobBidStatus);
+      const DeepCollectionEquality().hash(jobBidStatus) ^
+      const DeepCollectionEquality().hash(feedback);
 
   @JsonKey(ignore: true)
   @override
@@ -204,17 +219,17 @@ class _$_JobBid implements _JobBid {
 abstract class _JobBid implements JobBid {
   const factory _JobBid(
       {required BidIdentifier bidIdentifier,
-      required double? rating,
-      required JobBidStatuses jobBidStatus}) = _$_JobBid;
+      required JobBidStatuses jobBidStatus,
+      required JobBidFeedback? feedback}) = _$_JobBid;
 
   factory _JobBid.fromJson(Map<String, dynamic> json) = _$_JobBid.fromJson;
 
   @override
   BidIdentifier get bidIdentifier => throw _privateConstructorUsedError;
   @override
-  double? get rating => throw _privateConstructorUsedError;
-  @override
   JobBidStatuses get jobBidStatus => throw _privateConstructorUsedError;
+  @override
+  JobBidFeedback? get feedback => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$JobBidCopyWith<_JobBid> get copyWith => throw _privateConstructorUsedError;

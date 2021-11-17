@@ -15,12 +15,17 @@ abstract class Work {
   DateTime get createdOn;
   Trade get trade;
   LocationModel get location;
+  List<WorkFeedback>? get feedback;
 }
+
+abstract class WorkFeedback {}
 
 abstract class WorkBid {
   BidIdentifier get bidIdentifier;
-  double? get rating;
+  BidFeedback? get feedback;
 }
+
+abstract class BidFeedback {}
 
 @freezed
 class BidIdentifier with _$BidIdentifier {

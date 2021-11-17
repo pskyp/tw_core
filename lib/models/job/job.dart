@@ -2,6 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/models/core/tw_min_length_string/tw_min_length_string.dart';
 import 'package:tw_core/models/core/tw_number/tw_number.dart';
 import 'package:tw_core/models/development/development.dart';
+import 'package:tw_core/models/feedback/work_feedback/job_feedback/job_feedback.dart';
+import 'package:tw_core/models/job/job_action.dart';
 import 'package:tw_core/models/job/job_status.dart';
 import 'package:tw_core/models/job/value_objects/job_timeline/job_timeline.dart';
 import 'package:tw_core/models/location/location_model.dart';
@@ -33,6 +35,7 @@ class Job with _$Job implements Work {
     required DateTime startDate,
     required List<String> requirements,
     required bool acceptingBids,
+    required List<JobFeedback>? feedback,
   }) = _Job;
 
   factory Job.neu({
@@ -70,8 +73,22 @@ class Job with _$Job implements Work {
         startDate: jobTimeLine.startDate.getOrCrash(),
         requirements: selectedRequirements,
         acceptingBids: true,
+        feedback: null,
       );
 
   String get developmentTitle => workIdentifier.developmentIdentifier.title;
   factory Job.fromJson(Map<String, dynamic> json) => _$JobFromJson(json);
+
+  bool get isComplete => status == JobStatus(JobStatuses.Completed);
+
+  List<JobAction> get availableActions {
+    List<JobAction> actions = [];
+    if (status != JobStatuses.Completed) {
+      actions.add(
+        JobAction(JobActions.CompleteJob, 'Complete Job'),
+      );
+    }
+
+    return actions;
+  }
 }
