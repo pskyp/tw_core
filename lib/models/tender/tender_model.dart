@@ -39,6 +39,8 @@ class Tender with _$Tender implements Work {
   factory Tender.fromJson(Map<String, dynamic> json) => _$TenderFromJson(json);
 
   bool get isCompleted => tenderStatus == TenderStatus.Completed;
+  bool get isAwarded => tenderStatus == TenderStatus.Awarded;
+    bool get isUnAwarded => tenderStatus == TenderStatus.UnAwarded;
   String get developmentId => workIdentifier.developmentIdentifier.id;
   String get devTitle => workIdentifier.developmentIdentifier.title;
 }
