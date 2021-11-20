@@ -10,7 +10,7 @@ class TenderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Card(elevation: 4,
       child: ListTile(
         leading: CircleAvatar(
           backgroundImage: AssetImage(tender.trade.imagePath),

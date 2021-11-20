@@ -348,11 +348,43 @@ class TAJDeveloper extends TAJFacade {
   }) {
     return TWFC.tenderBidsCollection
         .where(
-          'tenderId',
+          'bidIdentifier.workIdentifier.workId',
           whereIn:
               tenders.map((tender) => tender.workIdentifier.workId).toList(),
         )
-        .where('status', isEqualTo: 'Awarded')
+        .where('tenderBidStatus', isEqualTo: 'UnAwarded')
+        .snapshots()
+        .map((list) {
+      return list.docs.map((doc) => TenderBid.fromJson(doc.data())).toList();
+    });
+  }
+
+  Stream<List<TenderBid>> streamAllAwardedBidsForDevelopment({
+    required List<Tender> tenders,
+  }) {
+    return TWFC.tenderBidsCollection
+        .where(
+          'bidIdentifier.workIdentifier.workId',
+          whereIn:
+              tenders.map((tender) => tender.workIdentifier.workId).toList(),
+        )
+        .where('tenderBidStatus', isEqualTo: 'Awarded')
+        .snapshots()
+        .map((list) {
+      return list.docs.map((doc) => TenderBid.fromJson(doc.data())).toList();
+    });
+  }
+
+  Stream<List<TenderBid>> streamAllCompletedWorkForDevelopment({
+    required List<Tender> tenders,
+  }) {
+    return TWFC.tenderBidsCollection
+        .where(
+          'bidIdentifier.workIdentifier.workId',
+          whereIn:
+              tenders.map((tender) => tender.workIdentifier.workId).toList(),
+        )
+        .where('tenderBidStatus', isEqualTo: 'Completed')
         .snapshots()
         .map((list) {
       return list.docs.map((doc) => TenderBid.fromJson(doc.data())).toList();
