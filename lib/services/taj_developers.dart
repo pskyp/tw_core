@@ -345,7 +345,7 @@ class TAJDeveloper extends TAJFacade {
   Stream<List<TenderBid>> streamAllBidsForAllTendersByDeveloper({
     required TWUser developer,
   }) {
-    print(developer);
+   
     assert(developer.type == TWUserType.Developer);
     return TWFC.tenderBidsCollection
         .where('bidIdentifier.workIdentifier.developmentIdentifier.developerId',
@@ -362,7 +362,7 @@ class TAJDeveloper extends TAJFacade {
   Stream<List<TenderBid>> streamAllWonBidsForAllTendersByDeveloper({
     required TWUser developer,
   }) {
-    print(developer);
+    
     assert(developer.type == TWUserType.Developer);
     return TWFC.tenderBidsCollection
         .where('bidIdentifier.workIdentifier.developmentIdentifier.developerId',
