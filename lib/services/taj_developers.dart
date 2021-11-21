@@ -332,13 +332,34 @@ class TAJDeveloper extends TAJFacade {
   Stream<List<TenderBid>> streamAllBidsForAllTendersByDeveloper({
     required TWUser developer,
   }) {
+    print(developer);
     assert(developer.type == TWUserType.Developer);
     return TWFC.tenderBidsCollection
-        .where('developerId', isEqualTo: developer.uid)
+        .where('bidIdentifier.workIdentifier.developmentIdentifier.developerId',
+            isEqualTo: developer.uid)
         .snapshots()
         .map((list) {
       allTenderBids = optionOf(
           list.docs.map((doc) => TenderBid.fromJson(doc.data())).toList());
+
+      return allTenderBids.getOrElse(() => []);
+    });
+  }
+
+  Stream<List<TenderBid>> streamAllWonBidsForAllTendersByDeveloper({
+    required TWUser developer,
+  }) {
+    print(developer);
+    assert(developer.type == TWUserType.Developer);
+    return TWFC.tenderBidsCollection
+        .where('bidIdentifier.workIdentifier.developmentIdentifier.developerId',
+            isEqualTo: developer.uid)
+        .where('tenderBidStatus', isEqualTo: 'Awarded')
+        .snapshots()
+        .map((list) {
+      allTenderBids = optionOf(
+          list.docs.map((doc) => TenderBid.fromJson(doc.data())).toList());
+
       return allTenderBids.getOrElse(() => []);
     });
   }
