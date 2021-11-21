@@ -248,6 +248,19 @@ class TAJDeveloper extends TAJFacade {
     });
   }
 
+    Stream<List<Tender>> streamTendersByTenderId({
+    required String tenderId,
+  }) {
+    return TWFC.tendersCollection
+        .where('workIdentifier.workId', isEqualTo: tenderId)
+        .snapshots()
+        .map((list) {
+      allTenders = optionOf(
+          list.docs.map((doc) => Tender.fromJson(doc.data())).toList());
+      return allTenders.getOrElse(() => []);
+    });
+  }
+
   Stream<List<Tender>> streamAllTendersForDevelopment(
       {required Development dev}) {
     return TWFC.tendersCollection
