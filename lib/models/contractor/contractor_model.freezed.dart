@@ -30,6 +30,7 @@ class _$ContractorTearOff {
       required double totalReliability,
       required bool subscribed,
       required DateTime subscriptionToggledOn,
+      required ContractorCompanyDetails? companyDetails,
       UserBio? userBio,
       TWDocument? portfolioDocument}) {
     return _Contractor(
@@ -42,6 +43,7 @@ class _$ContractorTearOff {
       totalReliability: totalReliability,
       subscribed: subscribed,
       subscriptionToggledOn: subscriptionToggledOn,
+      companyDetails: companyDetails,
       userBio: userBio,
       portfolioDocument: portfolioDocument,
     );
@@ -66,6 +68,8 @@ mixin _$Contractor {
   double get totalReliability => throw _privateConstructorUsedError;
   bool get subscribed => throw _privateConstructorUsedError;
   DateTime get subscriptionToggledOn => throw _privateConstructorUsedError;
+  ContractorCompanyDetails? get companyDetails =>
+      throw _privateConstructorUsedError;
   UserBio? get userBio => throw _privateConstructorUsedError;
   TWDocument? get portfolioDocument => throw _privateConstructorUsedError;
 
@@ -90,9 +94,11 @@ abstract class $ContractorCopyWith<$Res> {
       double totalReliability,
       bool subscribed,
       DateTime subscriptionToggledOn,
+      ContractorCompanyDetails? companyDetails,
       UserBio? userBio,
       TWDocument? portfolioDocument});
 
+  $ContractorCompanyDetailsCopyWith<$Res>? get companyDetails;
   $UserBioCopyWith<$Res>? get userBio;
   $TWDocumentCopyWith<$Res>? get portfolioDocument;
 }
@@ -116,6 +122,7 @@ class _$ContractorCopyWithImpl<$Res> implements $ContractorCopyWith<$Res> {
     Object? totalReliability = freezed,
     Object? subscribed = freezed,
     Object? subscriptionToggledOn = freezed,
+    Object? companyDetails = freezed,
     Object? userBio = freezed,
     Object? portfolioDocument = freezed,
   }) {
@@ -156,6 +163,10 @@ class _$ContractorCopyWithImpl<$Res> implements $ContractorCopyWith<$Res> {
           ? _value.subscriptionToggledOn
           : subscriptionToggledOn // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      companyDetails: companyDetails == freezed
+          ? _value.companyDetails
+          : companyDetails // ignore: cast_nullable_to_non_nullable
+              as ContractorCompanyDetails?,
       userBio: userBio == freezed
           ? _value.userBio
           : userBio // ignore: cast_nullable_to_non_nullable
@@ -165,6 +176,18 @@ class _$ContractorCopyWithImpl<$Res> implements $ContractorCopyWith<$Res> {
           : portfolioDocument // ignore: cast_nullable_to_non_nullable
               as TWDocument?,
     ));
+  }
+
+  @override
+  $ContractorCompanyDetailsCopyWith<$Res>? get companyDetails {
+    if (_value.companyDetails == null) {
+      return null;
+    }
+
+    return $ContractorCompanyDetailsCopyWith<$Res>(_value.companyDetails!,
+        (value) {
+      return _then(_value.copyWith(companyDetails: value));
+    });
   }
 
   @override
@@ -206,9 +229,12 @@ abstract class _$ContractorCopyWith<$Res> implements $ContractorCopyWith<$Res> {
       double totalReliability,
       bool subscribed,
       DateTime subscriptionToggledOn,
+      ContractorCompanyDetails? companyDetails,
       UserBio? userBio,
       TWDocument? portfolioDocument});
 
+  @override
+  $ContractorCompanyDetailsCopyWith<$Res>? get companyDetails;
   @override
   $UserBioCopyWith<$Res>? get userBio;
   @override
@@ -236,6 +262,7 @@ class __$ContractorCopyWithImpl<$Res> extends _$ContractorCopyWithImpl<$Res>
     Object? totalReliability = freezed,
     Object? subscribed = freezed,
     Object? subscriptionToggledOn = freezed,
+    Object? companyDetails = freezed,
     Object? userBio = freezed,
     Object? portfolioDocument = freezed,
   }) {
@@ -276,6 +303,10 @@ class __$ContractorCopyWithImpl<$Res> extends _$ContractorCopyWithImpl<$Res>
           ? _value.subscriptionToggledOn
           : subscriptionToggledOn // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      companyDetails: companyDetails == freezed
+          ? _value.companyDetails
+          : companyDetails // ignore: cast_nullable_to_non_nullable
+              as ContractorCompanyDetails?,
       userBio: userBio == freezed
           ? _value.userBio
           : userBio // ignore: cast_nullable_to_non_nullable
@@ -301,6 +332,7 @@ class _$_Contractor extends _Contractor {
       required this.totalReliability,
       required this.subscribed,
       required this.subscriptionToggledOn,
+      required this.companyDetails,
       this.userBio,
       this.portfolioDocument})
       : super._();
@@ -327,13 +359,15 @@ class _$_Contractor extends _Contractor {
   @override
   final DateTime subscriptionToggledOn;
   @override
+  final ContractorCompanyDetails? companyDetails;
+  @override
   final UserBio? userBio;
   @override
   final TWDocument? portfolioDocument;
 
   @override
   String toString() {
-    return 'Contractor(basicProfile: $basicProfile, savedJobRequirements: $savedJobRequirements, totalJobs: $totalJobs, totalRatings: $totalRatings, totalCommunication: $totalCommunication, totalEnvironment: $totalEnvironment, totalReliability: $totalReliability, subscribed: $subscribed, subscriptionToggledOn: $subscriptionToggledOn, userBio: $userBio, portfolioDocument: $portfolioDocument)';
+    return 'Contractor(basicProfile: $basicProfile, savedJobRequirements: $savedJobRequirements, totalJobs: $totalJobs, totalRatings: $totalRatings, totalCommunication: $totalCommunication, totalEnvironment: $totalEnvironment, totalReliability: $totalReliability, subscribed: $subscribed, subscriptionToggledOn: $subscriptionToggledOn, companyDetails: $companyDetails, userBio: $userBio, portfolioDocument: $portfolioDocument)';
   }
 
   @override
@@ -367,6 +401,9 @@ class _$_Contractor extends _Contractor {
             (identical(other.subscriptionToggledOn, subscriptionToggledOn) ||
                 const DeepCollectionEquality().equals(
                     other.subscriptionToggledOn, subscriptionToggledOn)) &&
+            (identical(other.companyDetails, companyDetails) ||
+                const DeepCollectionEquality()
+                    .equals(other.companyDetails, companyDetails)) &&
             (identical(other.userBio, userBio) ||
                 const DeepCollectionEquality()
                     .equals(other.userBio, userBio)) &&
@@ -387,6 +424,7 @@ class _$_Contractor extends _Contractor {
       const DeepCollectionEquality().hash(totalReliability) ^
       const DeepCollectionEquality().hash(subscribed) ^
       const DeepCollectionEquality().hash(subscriptionToggledOn) ^
+      const DeepCollectionEquality().hash(companyDetails) ^
       const DeepCollectionEquality().hash(userBio) ^
       const DeepCollectionEquality().hash(portfolioDocument);
 
@@ -412,6 +450,7 @@ abstract class _Contractor extends Contractor {
       required double totalReliability,
       required bool subscribed,
       required DateTime subscriptionToggledOn,
+      required ContractorCompanyDetails? companyDetails,
       UserBio? userBio,
       TWDocument? portfolioDocument}) = _$_Contractor;
   const _Contractor._() : super._();
@@ -437,6 +476,9 @@ abstract class _Contractor extends Contractor {
   bool get subscribed => throw _privateConstructorUsedError;
   @override
   DateTime get subscriptionToggledOn => throw _privateConstructorUsedError;
+  @override
+  ContractorCompanyDetails? get companyDetails =>
+      throw _privateConstructorUsedError;
   @override
   UserBio? get userBio => throw _privateConstructorUsedError;
   @override

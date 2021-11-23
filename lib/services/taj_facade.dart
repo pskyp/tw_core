@@ -11,7 +11,9 @@ import 'package:tw_core/firebase_collections/tw_firebase_collections.dart';
 import 'package:tw_core/models/bid/job_bid.dart';
 import 'package:tw_core/models/bid_on_tender/tender_bid.dart';
 import 'package:tw_core/models/chat_models/chat_room.dart';
+import 'package:tw_core/models/contractor/contractor_company_details.dart';
 import 'package:tw_core/models/contractor/contractor_model.dart';
+import 'package:tw_core/models/core/company_name/company_name.dart';
 import 'package:tw_core/models/core/marked_user/marked_user.dart';
 import 'package:tw_core/models/core/tw_location/tw_location.dart';
 import 'package:tw_core/models/core/tw_min_length_string/tw_min_length_string.dart';
@@ -28,7 +30,6 @@ import 'package:tw_core/models/feedback/bid_feedback/tender_bid_feedback/tender_
 import 'package:tw_core/models/feedback/work_feedback/job_feedback/job_feedback.dart';
 import 'package:tw_core/models/invite_to_bid.dart';
 import 'package:tw_core/models/invoicing/invoice_model.dart';
-import 'package:tw_core/models/invoicing/invoicing_details_model.dart';
 import 'package:tw_core/models/invoicing/receipt_phooto.dart';
 import 'package:tw_core/models/invoicing/value_objects/company_number/company_number.dart';
 import 'package:tw_core/models/invoicing/value_objects/trading_name/trading_name.dart';

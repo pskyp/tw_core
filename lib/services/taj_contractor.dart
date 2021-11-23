@@ -24,6 +24,30 @@ class TAJContractor extends TAJFacade {
     );
   }
 
+  Future<Either<TWServerError, Unit>> saveCompanyDetails({
+    required TWCompanyName companyName,
+    required CompanyNumber companyNumber,
+    required VATNumber vatNumber,
+    required TWLocation registeredAddress,
+    required TWLocation companyAddress,
+  }) async {
+    ContractorCompanyDetails companyDetails = ContractorCompanyDetails(
+      companyName: companyName.getOrCrash(),
+      companyNumber: companyNumber.getOrCrash(),
+      vatNumber: vatNumber.getOrCrash(),
+      registeredAddress: registeredAddress.getOrCrash(),
+      companyAddress: companyAddress.getOrCrash(),
+    );
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    batch.update(
+      TWFC.contractorsCollection
+          .doc(CacheService().contractor.basicProfile.uid),
+      {'companyDetails': companyDetails.toJson()},
+    );
+
+    return (await commitBatch(batch));
+  }
+
   Future<Either<TWServerError, Unit>> toggleSubscription() async {
     WriteBatch batch = FirebaseFirestore.instance.batch();
     Contractor contractor = CacheService().contractor;

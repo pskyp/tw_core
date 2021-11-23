@@ -21,6 +21,10 @@ _$_Contractor _$$_ContractorFromJson(Map<String, dynamic> json) =>
       subscribed: json['subscribed'] as bool,
       subscriptionToggledOn:
           DateTime.parse(json['subscriptionToggledOn'] as String),
+      companyDetails: json['companyDetails'] == null
+          ? null
+          : ContractorCompanyDetails.fromJson(
+              json['companyDetails'] as Map<String, dynamic>),
       userBio: json['userBio'] == null
           ? null
           : UserBio.fromJson(json['userBio'] as Map<String, dynamic>),
@@ -41,6 +45,7 @@ Map<String, dynamic> _$$_ContractorToJson(_$_Contractor instance) =>
       'totalReliability': instance.totalReliability,
       'subscribed': instance.subscribed,
       'subscriptionToggledOn': instance.subscriptionToggledOn.toIso8601String(),
+      'companyDetails': instance.companyDetails?.toJson(),
       'userBio': instance.userBio?.toJson(),
       'portfolioDocument': instance.portfolioDocument?.toJson(),
     };

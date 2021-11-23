@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tw_core/models/contractor/contractor_company_details.dart';
 import 'package:tw_core/models/core/user_bio/user_bio.dart';
 import 'package:tw_core/models/tw_document/tw_document.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
@@ -19,6 +20,7 @@ class Contractor with _$Contractor {
     required double totalReliability,
     required bool subscribed,
     required DateTime subscriptionToggledOn,
+    required ContractorCompanyDetails? companyDetails,
     UserBio? userBio,
     TWDocument? portfolioDocument,
   }) = _Contractor;
