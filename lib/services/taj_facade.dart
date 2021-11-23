@@ -115,25 +115,38 @@ class TAJFacade {
     return await commitBatch(batch);
   }
 
+  Future<Either<TWServerError, Unit>> unMarkContractor({
+    required TWUser userToBeUnMarked,
+  }) async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    batch.delete(
+      TWFC.subbieCollection
+          .doc(CacheService().subbie.basicProfile.uid)
+          .collection('marked_users')
+          .doc(userToBeUnMarked.uid),
+    );
+    return await commitBatch(batch);
+  }
+
   Future<Either<TWServerError, Unit>> markContractor({
     required TWUser userToBeMarked,
     required bool markedAsFavourite,
   }) async {
     WriteBatch batch = FirebaseFirestore.instance.batch();
     batch.set(
-      TWFC.contractorsCollection
-          .doc(CacheService().contractor.basicProfile.uid)
+      TWFC.subbieCollection
+          .doc(CacheService().subbie.basicProfile.uid)
           .collection('marked_users')
           .doc(userToBeMarked.uid),
       {
-        'userDocRef': TWFC.subbieCollection.doc(userToBeMarked.uid),
+        'userDocRef': TWFC.contractorsCollection.doc(userToBeMarked.uid),
         'markedAsFavourite': markedAsFavourite,
       },
     );
     return await commitBatch(batch);
   }
 
-  Future<List<MarkedContractor>> fetchMarkedContractors() async {
+  Future<KtList<MarkedContractor>> fetchMarkedContractors() async {
     List<MarkedContractor> markedUsers = [];
 
     QuerySnapshot snapshot = await TWFC.subbieCollection
@@ -158,7 +171,7 @@ class TAJFacade {
       }
     }
 
-    return markedUsers;
+    return KtList.from(markedUsers);
   }
 
   Future<Either<TWServerError, Unit>> saveCoverLetter({
