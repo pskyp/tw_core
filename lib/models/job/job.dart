@@ -36,6 +36,7 @@ class Job with _$Job implements Work {
     required List<String> requirements,
     required bool acceptingBids,
     required List<JobFeedback>? feedback,
+    required List<String>? uidOfSubbiesInvitedToBid,
   }) = _Job;
 
   factory Job.neu({
@@ -74,6 +75,7 @@ class Job with _$Job implements Work {
         requirements: selectedRequirements,
         acceptingBids: true,
         feedback: null,
+        uidOfSubbiesInvitedToBid: null,
       );
 
   String get developmentTitle => workIdentifier.developmentIdentifier.title;
@@ -86,6 +88,9 @@ class Job with _$Job implements Work {
     if (status != JobStatuses.Completed) {
       actions.add(
         JobAction(JobActions.CompleteJob, 'Complete Job'),
+      );
+      actions.add(
+        JobAction(JobActions.InviteFavourites, 'Invite subbies'),
       );
     }
 

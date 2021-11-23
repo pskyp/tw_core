@@ -31,6 +31,10 @@ _$_Job _$$_JobFromJson(Map<String, dynamic> json) => _$_Job(
       feedback: (json['feedback'] as List<dynamic>?)
           ?.map((e) => JobFeedback.fromJson(e as Map<String, dynamic>))
           .toList(),
+      uidOfSubbiesInvitedToBid:
+          (json['uidOfSubbiesInvitedToBid'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList(),
     );
 
 Map<String, dynamic> _$$_JobToJson(_$_Job instance) => <String, dynamic>{
@@ -52,4 +56,5 @@ Map<String, dynamic> _$$_JobToJson(_$_Job instance) => <String, dynamic>{
       'requirements': instance.requirements,
       'acceptingBids': instance.acceptingBids,
       'feedback': instance.feedback?.map((e) => e.toJson()).toList(),
+      'uidOfSubbiesInvitedToBid': instance.uidOfSubbiesInvitedToBid,
     };

@@ -6,11 +6,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:intl/intl.dart';
+import 'package:kt_dart/kt.dart';
 import 'package:tw_core/firebase_collections/tw_firebase_collections.dart';
 import 'package:tw_core/models/bid/job_bid.dart';
 import 'package:tw_core/models/bid_on_tender/tender_bid.dart';
 import 'package:tw_core/models/chat_models/chat_room.dart';
 import 'package:tw_core/models/contractor/contractor_model.dart';
+import 'package:tw_core/models/core/marked_user/marked_user.dart';
 import 'package:tw_core/models/core/tw_location/tw_location.dart';
 import 'package:tw_core/models/core/tw_min_length_string/tw_min_length_string.dart';
 import 'package:tw_core/models/core/tw_number/tw_number.dart';
@@ -52,6 +54,112 @@ class TAJFacade {
   TAJFacade();
 
   static Option<List<ChatRoom>> allChatRooms = optionOf(null);
+  static Option<KtList<MarkedUser>> markedUsers = optionOf(null);
+
+  Future<KtList<MarkedUser>> fetchMarkedUsers() async {
+    List<MarkedUser> markedUsers = [];
+
+    QuerySnapshot snapshot = await TWFC.contractorsCollection
+        .doc(CacheService().contractor.basicProfile.uid)
+        .collection('marked_users')
+        .get();
+
+    print(snapshot.docs.length);
+
+    for (final doc in snapshot.docs) {
+      Map<String, dynamic> map = doc.data() as Map<String, dynamic>;
+      print(map['userDocRef']);
+
+      DocumentReference reference = map['userDocRef'];
+
+      DocumentSnapshot docSnap = await reference.get();
+      if (docSnap.exists) {
+        markedUsers.add(MarkedUser(
+          user: Subbie.fromJson(docSnap.data() as Map<String, dynamic>),
+          markedAsFavourite: map['markedAsFavourite'],
+        ));
+      }
+    }
+
+    return KtList.from(markedUsers);
+  }
+
+  Future<Either<TWServerError, Unit>> markUser({
+    required TWUser userToBeMarked,
+    required bool markAsFavourite,
+  }) async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    batch.set(
+      TWFC.contractorsCollection
+          .doc(CacheService().contractor.basicProfile.uid)
+          .collection('marked_users')
+          .doc(userToBeMarked.uid),
+      {
+        'userDocRef': TWFC.subbieCollection.doc(userToBeMarked.uid),
+        'markedAsFavourite': markAsFavourite,
+      },
+    );
+    return await commitBatch(batch);
+  }
+
+  Future<Either<TWServerError, Unit>> unMarkUser({
+    required TWUser userToBeUnMarked,
+  }) async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    batch.delete(
+      TWFC.contractorsCollection
+          .doc(CacheService().contractor.basicProfile.uid)
+          .collection('marked_users')
+          .doc(userToBeUnMarked.uid),
+    );
+    return await commitBatch(batch);
+  }
+
+  Future<Either<TWServerError, Unit>> markContractor({
+    required TWUser userToBeMarked,
+    required bool markedAsFavourite,
+  }) async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    batch.set(
+      TWFC.contractorsCollection
+          .doc(CacheService().contractor.basicProfile.uid)
+          .collection('marked_users')
+          .doc(userToBeMarked.uid),
+      {
+        'userDocRef': TWFC.subbieCollection.doc(userToBeMarked.uid),
+        'markedAsFavourite': markedAsFavourite,
+      },
+    );
+    return await commitBatch(batch);
+  }
+
+  Future<List<MarkedContractor>> fetchMarkedContractors() async {
+    List<MarkedContractor> markedUsers = [];
+
+    QuerySnapshot snapshot = await TWFC.subbieCollection
+        .doc(CacheService().subbie.basicProfile.uid)
+        .collection('marked_users')
+        .get();
+
+    print(snapshot.docs.length);
+
+    for (final doc in snapshot.docs) {
+      Map<String, dynamic> map = doc.data() as Map<String, dynamic>;
+      print(map['userDocRef']);
+
+      DocumentReference reference = map['userDocRef'];
+
+      DocumentSnapshot docSnap = await reference.get();
+      if (docSnap.exists) {
+        markedUsers.add(MarkedContractor(
+          user: Contractor.fromJson(docSnap.data() as Map<String, dynamic>),
+          markedAsFavourite: map['markedAsFavourite'],
+        ));
+      }
+    }
+
+    return markedUsers;
+  }
 
   Future<Either<TWServerError, Unit>> saveCoverLetter({
     required Contractor contractor,

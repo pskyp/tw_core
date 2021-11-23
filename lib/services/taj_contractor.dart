@@ -201,44 +201,29 @@ class TAJContractor extends TAJFacade {
     return commitBatch(batch);
   }
 
-  sendInviteToBid({
-    required List<TWUser> subbiesToInvite,
+  Future<Either<TWServerError, Unit>> sendInviteToBid({
+    required List<Subbie> subbiesToInvite,
     required Job job,
-  }) {
+  }) async {
     WriteBatch batch = FirebaseFirestore.instance.batch();
+
     for (final subbie in subbiesToInvite) {
-      print('invited subbie id: ${subbie.uid}');
-      batch.set(
-        TWFC.subbieCollection
-            .doc(subbie.uid)
-            .collection('invites')
-            .doc("inviteToBidForJobId: ${job.workIdentifier.workId}"),
-        {
-          'jobId': job.workIdentifier.workId,
-          'jobTitle': job.workIdentifier.title,
-        },
-      );
+      batch.update(TWFC.jobCollection.doc(job.workIdentifier.workId), {
+        'uidOfSubbiesInvitedToBid':
+            FieldValue.arrayUnion([subbie.basicProfile.uid])
+      });
+      // batch.set(
+      //   TWFC.subbieCollection
+      //       .doc(subbie.uid)
+      //       .collection('invites')
+      //       .doc("inviteToBidForJobId: ${job.workIdentifier.workId}"),
+      //   {
+      //     'jobId': job.workIdentifier.workId,
+      //     'jobTitle': job.workIdentifier.title,
+      //   },
+      // );
     }
 
-    return commitBatch(batch);
-  }
-
-  addSubbieInBlackList({
-    required TWUser subbie,
-    required TWUser contractor,
-  }) {
-    WriteBatch batch = FirebaseFirestore.instance.batch();
-    batch.delete(TWFC.contractorsCollection
-        .doc(contractor.uid)
-        .collection('favourite_subbies')
-        .doc('favourite-subbie-id: ${subbie.uid}'));
-    batch.set(
-      TWFC.contractorsCollection
-          .doc(contractor.uid)
-          .collection('blacklisted_subbies')
-          .doc('blacklisted-subbie-id: ${subbie.uid}'),
-      subbie.toJson(),
-    );
     return commitBatch(batch);
   }
 
@@ -276,49 +261,82 @@ class TAJContractor extends TAJFacade {
   //               .toList(),
   //         );
 
-  Stream<List<Job>> streamOldJobs({required TWUser contractor}) => TWFC
-      .oldJobsCollection
-      .where('contractorId', isEqualTo: contractor.uid)
-      .snapshots()
-      .map((list) => list.docs.map((doc) => Job.fromJson(doc.data())).toList());
+  // Stream<List<Job>> streamOldJobs({required TWUser contractor}) => TWFC
+  //     .oldJobsCollection
+  //     .where('contractorId', isEqualTo: contractor.uid)
+  //     .snapshots()
+  //     .map((list) => list.docs.map((doc) => Job.fromJson(doc.data())).toList());
 
-  addSubbieInFavouriteList({
-    required TWUser subbie,
-    required TWUser contractor,
-  }) {
-    WriteBatch batch = FirebaseFirestore.instance.batch();
-    batch.delete(TWFC.contractorsCollection
-        .doc(contractor.uid)
-        .collection('blacklisted_subbies')
-        .doc('blacklisted-subbie-id: ${subbie.uid}'));
-    batch.set(
-      TWFC.contractorsCollection
-          .doc(contractor.uid)
-          .collection('favourite_subbies')
-          .doc('favourite-subbie-id: ${subbie.uid}'),
-      subbie.toJson(),
-    );
-    return commitBatch(batch);
-  }
+  // Future<Stream<List<MarkedUser>>> streamMarkedUsers() async {
+  //   return await TWFC.subbieCollection
+  //       .doc(CacheService().subbie.basicProfile.uid)
+  //       .collection('marked_users')
+  //       .snapshots()
+  //       .map(
+  //     (list) async {
+  //       return await list.docs.map(
+  //         (doc)  {
+  //           Map<String, dynamic> map = doc.data() as Map<String, dynamic>;
+  //           print(map['userDocRef']);
+  //
+  //           DocumentReference reference = map['userDocRef'];
+  //
+  //           // DocumentSnapshot subbieSnap = await reference.get();
+  //           // Subbie subbie =
+  //           //     Subbie.fromJson(subbieSnap.data() as Map<String, dynamic>);
+  //           return MarkedUser(
+  //             user: subbie,
+  //             markedAsFavourite: true,
+  //           );
+  //
+  //           // if (subbieSnap.exists) {
+  //           //
+  //           // }
+  //         },
+  //       ).toList();
+  //     },
+  //   );
+  //
+  //
+  // }
 
-  Stream<List<TWUser>> blacklistedSubbies({required TWUser contractor}) =>
-      TWFC.contractorsCollection
-          .doc(contractor.uid)
-          .collection('blacklisted_subbies')
-          .snapshots()
-          .map((list) =>
-              list.docs.map((doc) => TWUser.fromJson(doc.data())).toList());
+  // Stream<List<TWUser>> markedUsers() => TWFC.contractorsCollection
+  //         .doc(CacheService().contractor.basicProfile.uid)
+  //         .collection('marked_users')
+  //         .snapshots()
+  //         .map((list) {
+  //       List<TWUser> favouriteSubbies =
+  //           list.docs.map((doc) => TWUser.fromJson(doc.data())).toList();
+  //       return favouriteSubbies;
+  //     });
 
-  Stream<List<TWUser>> favouriteSubbies({required TWUser contractor}) =>
-      TWFC.contractorsCollection
-          .doc(contractor.uid)
-          .collection('favourite_subbies')
-          .snapshots()
-          .map((list) {
-        List<TWUser> favouriteSubbies =
-            list.docs.map((doc) => TWUser.fromJson(doc.data())).toList();
-        return favouriteSubbies;
-      });
+  // addSubbieInBlackList({
+  //   required TWUser subbie,
+  //   required TWUser contractor,
+  // }) {
+  //   WriteBatch batch = FirebaseFirestore.instance.batch();
+  //   batch.delete(TWFC.contractorsCollection
+  //       .doc(contractor.uid)
+  //       .collection('favourite_subbies')
+  //       .doc('favourite-subbie-id: ${subbie.uid}'));
+  //   batch.set(
+  //     TWFC.contractorsCollection
+  //         .doc(contractor.uid)
+  //         .collection('blacklisted_subbies')
+  //         .doc('blacklisted-subbie-id: ${subbie.uid}'),
+  //     subbie.toJson(),
+  //   );
+  //   return commitBatch(batch);
+  // }
+
+  // Stream<List<TWUser>> blacklistedSubbies({required TWUser contractor}) =>
+  //     TWFC.contractorsCollection
+  //         .doc(contractor.uid)
+  //         .collection('blacklisted_subbies')
+  //         .snapshots()
+  //         .map((list) =>
+  //             list.docs.map((doc) => TWUser.fromJson(doc.data())).toList());
+  //
 
   stopBidding(String jobId) {
     WriteBatch batch = FirebaseFirestore.instance.batch();
