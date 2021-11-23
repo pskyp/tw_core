@@ -28,11 +28,16 @@ import 'package:tw_core/models/feedback/bid_feedback/tender_bid_feedback/tender_
 import 'package:tw_core/models/feedback/work_feedback/job_feedback/job_feedback.dart';
 import 'package:tw_core/models/invite_to_bid.dart';
 import 'package:tw_core/models/invoicing/invoice_model.dart';
+import 'package:tw_core/models/invoicing/invoicing_details_model.dart';
 import 'package:tw_core/models/invoicing/receipt_phooto.dart';
+import 'package:tw_core/models/invoicing/value_objects/company_number/company_number.dart';
+import 'package:tw_core/models/invoicing/value_objects/trading_name/trading_name.dart';
+import 'package:tw_core/models/invoicing/value_objects/vat_number/vat_number.dart';
 import 'package:tw_core/models/job/job.dart';
 import 'package:tw_core/models/job/job_status.dart';
 import 'package:tw_core/models/job/value_objects/job_timeline/job_timeline.dart';
 import 'package:tw_core/models/location/location_model.dart';
+import 'package:tw_core/models/subbie/subbie_invoicing_details.dart';
 import 'package:tw_core/models/subbie/subbie_model.dart';
 import 'package:tw_core/models/supplement/supplement_model.dart';
 import 'package:tw_core/models/supplement/value_objects/supplement_timeline.dart';

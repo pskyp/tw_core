@@ -1,6 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tw_core/models/person/person.dart';
+import 'package:tw_core/models/invoicing/invoicing_details_model.dart';
+import 'package:tw_core/models/subbie/subbie_invoicing_details.dart';
 
 import '../trades.dart';
 import '../tw_user/tw_user.dart';
@@ -16,11 +16,13 @@ class Subbie {
   bool cscsVerified;
   DateTime cscsValidTo;
   List<dynamic> cscsQualifications;
+  final SubbieInvoicingDetails? invoicingDetails;
   final DateTime subscriptionToggledOn;
   final List<Trade> selectedTrades;
   final double totalServiceQuality, totalProfessionalism, totalTimeManagement;
 
   Subbie({
+    required this.invoicingDetails,
     required this.basicProfile,
     required this.subscriptionToggledOn,
     required this.cscsQualifications,

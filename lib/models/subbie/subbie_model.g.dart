@@ -7,6 +7,10 @@ part of 'subbie_model.dart';
 // **************************************************************************
 
 Subbie _$SubbieFromJson(Map<String, dynamic> json) => Subbie(
+      invoicingDetails: json['invoicingDetails'] == null
+          ? null
+          : SubbieInvoicingDetails.fromJson(
+              json['invoicingDetails'] as Map<String, dynamic>),
       basicProfile:
           TWUser.fromJson(json['basicProfile'] as Map<String, dynamic>),
       subscriptionToggledOn:
@@ -33,6 +37,7 @@ Map<String, dynamic> _$SubbieToJson(Subbie instance) => <String, dynamic>{
       'cscsVerified': instance.cscsVerified,
       'cscsValidTo': instance.cscsValidTo.toIso8601String(),
       'cscsQualifications': instance.cscsQualifications,
+      'invoicingDetails': instance.invoicingDetails?.toJson(),
       'subscriptionToggledOn': instance.subscriptionToggledOn.toIso8601String(),
       'selectedTrades': instance.selectedTrades.map((e) => e.toJson()).toList(),
       'totalServiceQuality': instance.totalServiceQuality,
