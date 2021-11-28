@@ -22,6 +22,7 @@ class Tender with _$Tender implements Work {
     required String? inviteEmailTwo,
     required Trade trade,
     required String requirements,
+     required String instructions,
     required LocationModel location,
     required DateTime startDate,
     required DateTime applicationDeadLine,

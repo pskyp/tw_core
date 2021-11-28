@@ -16,6 +16,7 @@ _$_Tender _$$_TenderFromJson(Map<String, dynamic> json) => _$_Tender(
       inviteEmailTwo: json['inviteEmailTwo'] as String?,
       trade: Trade.fromJson(json['trade'] as Map<String, dynamic>),
       requirements: json['requirements'] as String,
+      instructions: json['instructions'] as String,
       location:
           LocationModel.fromJson(json['location'] as Map<String, dynamic>),
       startDate: DateTime.parse(json['startDate'] as String),
@@ -44,6 +45,7 @@ Map<String, dynamic> _$$_TenderToJson(_$_Tender instance) => <String, dynamic>{
       'inviteEmailTwo': instance.inviteEmailTwo,
       'trade': instance.trade.toJson(),
       'requirements': instance.requirements,
+      'instructions': instance.instructions,
       'location': instance.location.toJson(),
       'startDate': instance.startDate.toIso8601String(),
       'applicationDeadLine': instance.applicationDeadLine.toIso8601String(),

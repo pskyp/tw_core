@@ -29,6 +29,7 @@ class _$TenderTearOff {
       required String? inviteEmailTwo,
       required Trade trade,
       required String requirements,
+      required String instructions,
       required LocationModel location,
       required DateTime startDate,
       required DateTime applicationDeadLine,
@@ -50,6 +51,7 @@ class _$TenderTearOff {
       inviteEmailTwo: inviteEmailTwo,
       trade: trade,
       requirements: requirements,
+      instructions: instructions,
       location: location,
       startDate: startDate,
       applicationDeadLine: applicationDeadLine,
@@ -83,6 +85,7 @@ mixin _$Tender {
   String? get inviteEmailTwo => throw _privateConstructorUsedError;
   Trade get trade => throw _privateConstructorUsedError;
   String get requirements => throw _privateConstructorUsedError;
+  String get instructions => throw _privateConstructorUsedError;
   LocationModel get location => throw _privateConstructorUsedError;
   DateTime get startDate => throw _privateConstructorUsedError;
   DateTime get applicationDeadLine => throw _privateConstructorUsedError;
@@ -115,6 +118,7 @@ abstract class $TenderCopyWith<$Res> {
       String? inviteEmailTwo,
       Trade trade,
       String requirements,
+      String instructions,
       LocationModel location,
       DateTime startDate,
       DateTime applicationDeadLine,
@@ -149,6 +153,7 @@ class _$TenderCopyWithImpl<$Res> implements $TenderCopyWith<$Res> {
     Object? inviteEmailTwo = freezed,
     Object? trade = freezed,
     Object? requirements = freezed,
+    Object? instructions = freezed,
     Object? location = freezed,
     Object? startDate = freezed,
     Object? applicationDeadLine = freezed,
@@ -194,6 +199,10 @@ class _$TenderCopyWithImpl<$Res> implements $TenderCopyWith<$Res> {
       requirements: requirements == freezed
           ? _value.requirements
           : requirements // ignore: cast_nullable_to_non_nullable
+              as String,
+      instructions: instructions == freezed
+          ? _value.instructions
+          : instructions // ignore: cast_nullable_to_non_nullable
               as String,
       location: location == freezed
           ? _value.location
@@ -268,6 +277,7 @@ abstract class _$TenderCopyWith<$Res> implements $TenderCopyWith<$Res> {
       String? inviteEmailTwo,
       Trade trade,
       String requirements,
+      String instructions,
       LocationModel location,
       DateTime startDate,
       DateTime applicationDeadLine,
@@ -304,6 +314,7 @@ class __$TenderCopyWithImpl<$Res> extends _$TenderCopyWithImpl<$Res>
     Object? inviteEmailTwo = freezed,
     Object? trade = freezed,
     Object? requirements = freezed,
+    Object? instructions = freezed,
     Object? location = freezed,
     Object? startDate = freezed,
     Object? applicationDeadLine = freezed,
@@ -349,6 +360,10 @@ class __$TenderCopyWithImpl<$Res> extends _$TenderCopyWithImpl<$Res>
       requirements: requirements == freezed
           ? _value.requirements
           : requirements // ignore: cast_nullable_to_non_nullable
+              as String,
+      instructions: instructions == freezed
+          ? _value.instructions
+          : instructions // ignore: cast_nullable_to_non_nullable
               as String,
       location: location == freezed
           ? _value.location
@@ -414,6 +429,7 @@ class _$_Tender extends _Tender {
       required this.inviteEmailTwo,
       required this.trade,
       required this.requirements,
+      required this.instructions,
       required this.location,
       required this.startDate,
       required this.applicationDeadLine,
@@ -448,6 +464,8 @@ class _$_Tender extends _Tender {
   @override
   final String requirements;
   @override
+  final String instructions;
+  @override
   final LocationModel location;
   @override
   final DateTime startDate;
@@ -474,7 +492,7 @@ class _$_Tender extends _Tender {
 
   @override
   String toString() {
-    return 'Tender(workIdentifier: $workIdentifier, createdOn: $createdOn, developerId: $developerId, tenderStatus: $tenderStatus, inviteEmailOne: $inviteEmailOne, inviteEmailTwo: $inviteEmailTwo, trade: $trade, requirements: $requirements, location: $location, startDate: $startDate, applicationDeadLine: $applicationDeadLine, queriesDate: $queriesDate, submissionDate: $submissionDate, feedbackDate: $feedbackDate, awardDate: $awardDate, endDate: $endDate, tenderTimeLineStatus: $tenderTimeLineStatus, feedbackByDeveloper: $feedbackByDeveloper, feedbackByContractor: $feedbackByContractor, feedback: $feedback)';
+    return 'Tender(workIdentifier: $workIdentifier, createdOn: $createdOn, developerId: $developerId, tenderStatus: $tenderStatus, inviteEmailOne: $inviteEmailOne, inviteEmailTwo: $inviteEmailTwo, trade: $trade, requirements: $requirements, instructions: $instructions, location: $location, startDate: $startDate, applicationDeadLine: $applicationDeadLine, queriesDate: $queriesDate, submissionDate: $submissionDate, feedbackDate: $feedbackDate, awardDate: $awardDate, endDate: $endDate, tenderTimeLineStatus: $tenderTimeLineStatus, feedbackByDeveloper: $feedbackByDeveloper, feedbackByContractor: $feedbackByContractor, feedback: $feedback)';
   }
 
   @override
@@ -504,6 +522,9 @@ class _$_Tender extends _Tender {
             (identical(other.requirements, requirements) ||
                 const DeepCollectionEquality()
                     .equals(other.requirements, requirements)) &&
+            (identical(other.instructions, instructions) ||
+                const DeepCollectionEquality()
+                    .equals(other.instructions, instructions)) &&
             (identical(other.location, location) ||
                 const DeepCollectionEquality()
                     .equals(other.location, location)) &&
@@ -553,6 +574,7 @@ class _$_Tender extends _Tender {
       const DeepCollectionEquality().hash(inviteEmailTwo) ^
       const DeepCollectionEquality().hash(trade) ^
       const DeepCollectionEquality().hash(requirements) ^
+      const DeepCollectionEquality().hash(instructions) ^
       const DeepCollectionEquality().hash(location) ^
       const DeepCollectionEquality().hash(startDate) ^
       const DeepCollectionEquality().hash(applicationDeadLine) ^
@@ -587,6 +609,7 @@ abstract class _Tender extends Tender {
       required String? inviteEmailTwo,
       required Trade trade,
       required String requirements,
+      required String instructions,
       required LocationModel location,
       required DateTime startDate,
       required DateTime applicationDeadLine,
@@ -619,6 +642,8 @@ abstract class _Tender extends Tender {
   Trade get trade => throw _privateConstructorUsedError;
   @override
   String get requirements => throw _privateConstructorUsedError;
+  @override
+  String get instructions => throw _privateConstructorUsedError;
   @override
   LocationModel get location => throw _privateConstructorUsedError;
   @override
