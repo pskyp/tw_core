@@ -10,7 +10,7 @@ class PlaceService {
 
   Future<List<RawAddressModel>> fetchSuggestions(String input) async {
     final request =
-        'https://api.getAddress.io/autocomplete/$input?api-key=$apiKey';
+        'https://api.getAddress.io/autocomplete/$input?api-key=$apiKey&all=true&top=20';
 
     final response = await http.get(Uri.parse(request));
     if (response.statusCode == 200) {
