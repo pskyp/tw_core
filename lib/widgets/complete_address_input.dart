@@ -11,12 +11,14 @@ class TWLocationInput extends StatelessWidget {
     required this.errorText,
     required this.selectedLocation,
     required this.showCompleteAddress,
+    required this.labelText,
   }) : super(key: key);
 
   final Function(LocationModel location) onLocationSelected;
   final String? errorText;
   final LocationModel? selectedLocation;
   final bool showCompleteAddress;
+  final String? labelText;
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +42,7 @@ class TWLocationInput extends StatelessWidget {
                   ),
                   autofocus: false,
                   decoration: InputDecoration(
-                    labelText: 'Company Address',
-                    hintText: 'Start typing',
+                    labelText: labelText ?? 'location',
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     enabledBorder: InputBorder.none,

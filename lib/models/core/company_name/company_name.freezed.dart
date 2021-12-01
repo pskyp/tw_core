@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CompanyNameFailureTearOff {
   const _$CompanyNameFailureTearOff();
 
-  ShortCompanyName shortCompanyName() {
-    return const ShortCompanyName();
+  ShortCompanyName shortCompanyName(String input) {
+    return ShortCompanyName(
+      input,
+    );
   }
 }
 
@@ -26,14 +28,16 @@ const $CompanyNameFailure = _$CompanyNameFailureTearOff();
 
 /// @nodoc
 mixin _$CompanyNameFailure {
+  String get input => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() shortCompanyName,
+    required TResult Function(String input) shortCompanyName,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? shortCompanyName,
+    TResult Function(String input)? shortCompanyName,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +52,10 @@ mixin _$CompanyNameFailure {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CompanyNameFailureCopyWith<CompanyNameFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,6 +63,7 @@ abstract class $CompanyNameFailureCopyWith<$Res> {
   factory $CompanyNameFailureCopyWith(
           CompanyNameFailure value, $Res Function(CompanyNameFailure) then) =
       _$CompanyNameFailureCopyWithImpl<$Res>;
+  $Res call({String input});
 }
 
 /// @nodoc
@@ -65,13 +74,28 @@ class _$CompanyNameFailureCopyWithImpl<$Res>
   final CompanyNameFailure _value;
   // ignore: unused_field
   final $Res Function(CompanyNameFailure) _then;
+
+  @override
+  $Res call({
+    Object? input = freezed,
+  }) {
+    return _then(_value.copyWith(
+      input: input == freezed
+          ? _value.input
+          : input // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class $ShortCompanyNameCopyWith<$Res> {
+abstract class $ShortCompanyNameCopyWith<$Res>
+    implements $CompanyNameFailureCopyWith<$Res> {
   factory $ShortCompanyNameCopyWith(
           ShortCompanyName value, $Res Function(ShortCompanyName) then) =
       _$ShortCompanyNameCopyWithImpl<$Res>;
+  @override
+  $Res call({String input});
 }
 
 /// @nodoc
@@ -84,42 +108,66 @@ class _$ShortCompanyNameCopyWithImpl<$Res>
 
   @override
   ShortCompanyName get _value => super._value as ShortCompanyName;
+
+  @override
+  $Res call({
+    Object? input = freezed,
+  }) {
+    return _then(ShortCompanyName(
+      input == freezed
+          ? _value.input
+          : input // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ShortCompanyName implements ShortCompanyName {
-  const _$ShortCompanyName();
+  const _$ShortCompanyName(this.input);
+
+  @override
+  final String input;
 
   @override
   String toString() {
-    return 'CompanyNameFailure.shortCompanyName()';
+    return 'CompanyNameFailure.shortCompanyName(input: $input)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ShortCompanyName);
+    return identical(this, other) ||
+        (other is ShortCompanyName &&
+            (identical(other.input, input) ||
+                const DeepCollectionEquality().equals(other.input, input)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(input);
+
+  @JsonKey(ignore: true)
+  @override
+  $ShortCompanyNameCopyWith<ShortCompanyName> get copyWith =>
+      _$ShortCompanyNameCopyWithImpl<ShortCompanyName>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() shortCompanyName,
+    required TResult Function(String input) shortCompanyName,
   }) {
-    return shortCompanyName();
+    return shortCompanyName(input);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? shortCompanyName,
+    TResult Function(String input)? shortCompanyName,
     required TResult orElse(),
   }) {
     if (shortCompanyName != null) {
-      return shortCompanyName();
+      return shortCompanyName(input);
     }
     return orElse();
   }
@@ -146,5 +194,12 @@ class _$ShortCompanyName implements ShortCompanyName {
 }
 
 abstract class ShortCompanyName implements CompanyNameFailure {
-  const factory ShortCompanyName() = _$ShortCompanyName;
+  const factory ShortCompanyName(String input) = _$ShortCompanyName;
+
+  @override
+  String get input => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  $ShortCompanyNameCopyWith<ShortCompanyName> get copyWith =>
+      throw _privateConstructorUsedError;
 }
