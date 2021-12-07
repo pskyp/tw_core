@@ -4,7 +4,7 @@ class TWFC {
   static final developerCollection =
       FirebaseFirestore.instance.collection('developer');
   static final twNotificationsCollection =
-  FirebaseFirestore.instance.collection('twNotifications');
+      FirebaseFirestore.instance.collection('twNotifications');
   static final invoicesCollection =
       FirebaseFirestore.instance.collection('invoices');
   static final contractorsCollection =
@@ -26,8 +26,8 @@ class TWFC {
       FirebaseFirestore.instance.collection('supplements');
   static final bidReviewsCollection =
       FirebaseFirestore.instance.collection('bidReviews');
-  static final oldJobsCollection =
-      FirebaseFirestore.instance.collection('oldJobs');
   static final jobReviewCollection =
       FirebaseFirestore.instance.collection('jobReviews');
+  static final pendingJobReviewsCollection =
+      FirebaseFirestore.instance.collection('pendingobReviews');
 }

@@ -13,12 +13,17 @@ _$_JobBid _$$_JobBidFromJson(Map<String, dynamic> json) => _$_JobBid(
       feedback: json['feedback'] == null
           ? null
           : JobBidFeedback.fromJson(json['feedback'] as Map<String, dynamic>),
+      feedbackProvidedToContractor:
+          json['feedbackProvidedToContractor'] as bool?,
+      feedbackSkipped: json['feedbackSkipped'] as bool?,
     );
 
 Map<String, dynamic> _$$_JobBidToJson(_$_JobBid instance) => <String, dynamic>{
       'bidIdentifier': instance.bidIdentifier.toJson(),
       'jobBidStatus': _$JobBidStatusesEnumMap[instance.jobBidStatus],
       'feedback': instance.feedback?.toJson(),
+      'feedbackProvidedToContractor': instance.feedbackProvidedToContractor,
+      'feedbackSkipped': instance.feedbackSkipped,
     };
 
 K _$enumDecode<K, V>(

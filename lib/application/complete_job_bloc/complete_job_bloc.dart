@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:meta/meta.dart';
 import 'package:tw_core/models/bid/job_bid.dart';
+import 'package:tw_core/models/errors.dart';
 import 'package:tw_core/models/feedback/bid_feedback/job_bid_feedback/job_bid_feedback.dart';
 import 'package:tw_core/models/job/job.dart';
 import 'package:tw_core/services/taj_facade.dart';
@@ -24,18 +25,16 @@ class CompleteJobBloc extends Bloc<CompleteJobEvent, CompleteJobState> {
         .listen((event) {
       add(CompleteJobEvent.bidsOnJobFetched(event));
     });
-    on<SubmitPressed>((event, emit) {
-      List<JobBidFeedback> feedback = event.feedback;
-      // for (int i = 0; i < state.hiredBids.size; i++) {
-      //   bidReviews.add(JobBidFeedback(
-      //     bidIdentifier: hiredBids[i].bidIdentifier,
-      //     rating: hiredSubbieRatings[i],
-      //   ));
-      // }
-      TAJContractor().onJobComplete(
+    on<SubmitPressed>((event, emit) async {
+      emit(state.copyWith(submissionInProgress: true));
+      final result = await TAJContractor().onJobComplete(
         job: state.job,
         jobBidsFeedbacks: event.feedback,
       );
+      emit(state.copyWith(
+        submissionInProgress: false,
+        resultOption: optionOf(result),
+      ));
     });
 
     on<BidsOnJobFetched>((event, emit) {

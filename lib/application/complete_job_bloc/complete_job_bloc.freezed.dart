@@ -319,11 +319,15 @@ class _$CompleteJobStateTearOff {
   _CompleteJobState call(
       {required Job job,
       required Option<KtList<JobBid>> allBidsOnJobOption,
-      required List<JobBidFeedback> feedback}) {
+      required List<JobBidFeedback> feedback,
+      required bool submissionInProgress,
+      required Option<Either<TWServerError, Unit>> resultOption}) {
     return _CompleteJobState(
       job: job,
       allBidsOnJobOption: allBidsOnJobOption,
       feedback: feedback,
+      submissionInProgress: submissionInProgress,
+      resultOption: resultOption,
     );
   }
 }
@@ -337,6 +341,9 @@ mixin _$CompleteJobState {
   Option<KtList<JobBid>> get allBidsOnJobOption =>
       throw _privateConstructorUsedError;
   List<JobBidFeedback> get feedback => throw _privateConstructorUsedError;
+  bool get submissionInProgress => throw _privateConstructorUsedError;
+  Option<Either<TWServerError, Unit>> get resultOption =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CompleteJobStateCopyWith<CompleteJobState> get copyWith =>
@@ -351,7 +358,9 @@ abstract class $CompleteJobStateCopyWith<$Res> {
   $Res call(
       {Job job,
       Option<KtList<JobBid>> allBidsOnJobOption,
-      List<JobBidFeedback> feedback});
+      List<JobBidFeedback> feedback,
+      bool submissionInProgress,
+      Option<Either<TWServerError, Unit>> resultOption});
 
   $JobCopyWith<$Res> get job;
 }
@@ -370,6 +379,8 @@ class _$CompleteJobStateCopyWithImpl<$Res>
     Object? job = freezed,
     Object? allBidsOnJobOption = freezed,
     Object? feedback = freezed,
+    Object? submissionInProgress = freezed,
+    Object? resultOption = freezed,
   }) {
     return _then(_value.copyWith(
       job: job == freezed
@@ -384,6 +395,14 @@ class _$CompleteJobStateCopyWithImpl<$Res>
           ? _value.feedback
           : feedback // ignore: cast_nullable_to_non_nullable
               as List<JobBidFeedback>,
+      submissionInProgress: submissionInProgress == freezed
+          ? _value.submissionInProgress
+          : submissionInProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
+      resultOption: resultOption == freezed
+          ? _value.resultOption
+          : resultOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<TWServerError, Unit>>,
     ));
   }
 
@@ -405,7 +424,9 @@ abstract class _$CompleteJobStateCopyWith<$Res>
   $Res call(
       {Job job,
       Option<KtList<JobBid>> allBidsOnJobOption,
-      List<JobBidFeedback> feedback});
+      List<JobBidFeedback> feedback,
+      bool submissionInProgress,
+      Option<Either<TWServerError, Unit>> resultOption});
 
   @override
   $JobCopyWith<$Res> get job;
@@ -427,6 +448,8 @@ class __$CompleteJobStateCopyWithImpl<$Res>
     Object? job = freezed,
     Object? allBidsOnJobOption = freezed,
     Object? feedback = freezed,
+    Object? submissionInProgress = freezed,
+    Object? resultOption = freezed,
   }) {
     return _then(_CompleteJobState(
       job: job == freezed
@@ -441,6 +464,14 @@ class __$CompleteJobStateCopyWithImpl<$Res>
           ? _value.feedback
           : feedback // ignore: cast_nullable_to_non_nullable
               as List<JobBidFeedback>,
+      submissionInProgress: submissionInProgress == freezed
+          ? _value.submissionInProgress
+          : submissionInProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
+      resultOption: resultOption == freezed
+          ? _value.resultOption
+          : resultOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<TWServerError, Unit>>,
     ));
   }
 }
@@ -451,7 +482,9 @@ class _$_CompleteJobState extends _CompleteJobState {
   _$_CompleteJobState(
       {required this.job,
       required this.allBidsOnJobOption,
-      required this.feedback})
+      required this.feedback,
+      required this.submissionInProgress,
+      required this.resultOption})
       : super._();
 
   @override
@@ -460,10 +493,14 @@ class _$_CompleteJobState extends _CompleteJobState {
   final Option<KtList<JobBid>> allBidsOnJobOption;
   @override
   final List<JobBidFeedback> feedback;
+  @override
+  final bool submissionInProgress;
+  @override
+  final Option<Either<TWServerError, Unit>> resultOption;
 
   @override
   String toString() {
-    return 'CompleteJobState(job: $job, allBidsOnJobOption: $allBidsOnJobOption, feedback: $feedback)';
+    return 'CompleteJobState(job: $job, allBidsOnJobOption: $allBidsOnJobOption, feedback: $feedback, submissionInProgress: $submissionInProgress, resultOption: $resultOption)';
   }
 
   @override
@@ -477,7 +514,13 @@ class _$_CompleteJobState extends _CompleteJobState {
                     .equals(other.allBidsOnJobOption, allBidsOnJobOption)) &&
             (identical(other.feedback, feedback) ||
                 const DeepCollectionEquality()
-                    .equals(other.feedback, feedback)));
+                    .equals(other.feedback, feedback)) &&
+            (identical(other.submissionInProgress, submissionInProgress) ||
+                const DeepCollectionEquality().equals(
+                    other.submissionInProgress, submissionInProgress)) &&
+            (identical(other.resultOption, resultOption) ||
+                const DeepCollectionEquality()
+                    .equals(other.resultOption, resultOption)));
   }
 
   @override
@@ -485,7 +528,9 @@ class _$_CompleteJobState extends _CompleteJobState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(job) ^
       const DeepCollectionEquality().hash(allBidsOnJobOption) ^
-      const DeepCollectionEquality().hash(feedback);
+      const DeepCollectionEquality().hash(feedback) ^
+      const DeepCollectionEquality().hash(submissionInProgress) ^
+      const DeepCollectionEquality().hash(resultOption);
 
   @JsonKey(ignore: true)
   @override
@@ -495,9 +540,12 @@ class _$_CompleteJobState extends _CompleteJobState {
 
 abstract class _CompleteJobState extends CompleteJobState {
   factory _CompleteJobState(
-      {required Job job,
-      required Option<KtList<JobBid>> allBidsOnJobOption,
-      required List<JobBidFeedback> feedback}) = _$_CompleteJobState;
+          {required Job job,
+          required Option<KtList<JobBid>> allBidsOnJobOption,
+          required List<JobBidFeedback> feedback,
+          required bool submissionInProgress,
+          required Option<Either<TWServerError, Unit>> resultOption}) =
+      _$_CompleteJobState;
   _CompleteJobState._() : super._();
 
   @override
@@ -507,6 +555,11 @@ abstract class _CompleteJobState extends CompleteJobState {
       throw _privateConstructorUsedError;
   @override
   List<JobBidFeedback> get feedback => throw _privateConstructorUsedError;
+  @override
+  bool get submissionInProgress => throw _privateConstructorUsedError;
+  @override
+  Option<Either<TWServerError, Unit>> get resultOption =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CompleteJobStateCopyWith<_CompleteJobState> get copyWith =>

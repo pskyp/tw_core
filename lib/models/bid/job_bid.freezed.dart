@@ -23,11 +23,15 @@ class _$JobBidTearOff {
   _JobBid call(
       {required BidIdentifier bidIdentifier,
       required JobBidStatuses jobBidStatus,
-      required JobBidFeedback? feedback}) {
+      required JobBidFeedback? feedback,
+      required bool? feedbackProvidedToContractor,
+      required bool? feedbackSkipped}) {
     return _JobBid(
       bidIdentifier: bidIdentifier,
       jobBidStatus: jobBidStatus,
       feedback: feedback,
+      feedbackProvidedToContractor: feedbackProvidedToContractor,
+      feedbackSkipped: feedbackSkipped,
     );
   }
 
@@ -44,6 +48,8 @@ mixin _$JobBid {
   BidIdentifier get bidIdentifier => throw _privateConstructorUsedError;
   JobBidStatuses get jobBidStatus => throw _privateConstructorUsedError;
   JobBidFeedback? get feedback => throw _privateConstructorUsedError;
+  bool? get feedbackProvidedToContractor => throw _privateConstructorUsedError;
+  bool? get feedbackSkipped => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -57,7 +63,9 @@ abstract class $JobBidCopyWith<$Res> {
   $Res call(
       {BidIdentifier bidIdentifier,
       JobBidStatuses jobBidStatus,
-      JobBidFeedback? feedback});
+      JobBidFeedback? feedback,
+      bool? feedbackProvidedToContractor,
+      bool? feedbackSkipped});
 
   $BidIdentifierCopyWith<$Res> get bidIdentifier;
   $JobBidFeedbackCopyWith<$Res>? get feedback;
@@ -76,6 +84,8 @@ class _$JobBidCopyWithImpl<$Res> implements $JobBidCopyWith<$Res> {
     Object? bidIdentifier = freezed,
     Object? jobBidStatus = freezed,
     Object? feedback = freezed,
+    Object? feedbackProvidedToContractor = freezed,
+    Object? feedbackSkipped = freezed,
   }) {
     return _then(_value.copyWith(
       bidIdentifier: bidIdentifier == freezed
@@ -90,6 +100,14 @@ class _$JobBidCopyWithImpl<$Res> implements $JobBidCopyWith<$Res> {
           ? _value.feedback
           : feedback // ignore: cast_nullable_to_non_nullable
               as JobBidFeedback?,
+      feedbackProvidedToContractor: feedbackProvidedToContractor == freezed
+          ? _value.feedbackProvidedToContractor
+          : feedbackProvidedToContractor // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      feedbackSkipped: feedbackSkipped == freezed
+          ? _value.feedbackSkipped
+          : feedbackSkipped // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 
@@ -120,7 +138,9 @@ abstract class _$JobBidCopyWith<$Res> implements $JobBidCopyWith<$Res> {
   $Res call(
       {BidIdentifier bidIdentifier,
       JobBidStatuses jobBidStatus,
-      JobBidFeedback? feedback});
+      JobBidFeedback? feedback,
+      bool? feedbackProvidedToContractor,
+      bool? feedbackSkipped});
 
   @override
   $BidIdentifierCopyWith<$Res> get bidIdentifier;
@@ -142,6 +162,8 @@ class __$JobBidCopyWithImpl<$Res> extends _$JobBidCopyWithImpl<$Res>
     Object? bidIdentifier = freezed,
     Object? jobBidStatus = freezed,
     Object? feedback = freezed,
+    Object? feedbackProvidedToContractor = freezed,
+    Object? feedbackSkipped = freezed,
   }) {
     return _then(_JobBid(
       bidIdentifier: bidIdentifier == freezed
@@ -156,6 +178,14 @@ class __$JobBidCopyWithImpl<$Res> extends _$JobBidCopyWithImpl<$Res>
           ? _value.feedback
           : feedback // ignore: cast_nullable_to_non_nullable
               as JobBidFeedback?,
+      feedbackProvidedToContractor: feedbackProvidedToContractor == freezed
+          ? _value.feedbackProvidedToContractor
+          : feedbackProvidedToContractor // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      feedbackSkipped: feedbackSkipped == freezed
+          ? _value.feedbackSkipped
+          : feedbackSkipped // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -166,7 +196,9 @@ class _$_JobBid implements _JobBid {
   const _$_JobBid(
       {required this.bidIdentifier,
       required this.jobBidStatus,
-      required this.feedback});
+      required this.feedback,
+      required this.feedbackProvidedToContractor,
+      required this.feedbackSkipped});
 
   factory _$_JobBid.fromJson(Map<String, dynamic> json) =>
       _$$_JobBidFromJson(json);
@@ -177,10 +209,14 @@ class _$_JobBid implements _JobBid {
   final JobBidStatuses jobBidStatus;
   @override
   final JobBidFeedback? feedback;
+  @override
+  final bool? feedbackProvidedToContractor;
+  @override
+  final bool? feedbackSkipped;
 
   @override
   String toString() {
-    return 'JobBid(bidIdentifier: $bidIdentifier, jobBidStatus: $jobBidStatus, feedback: $feedback)';
+    return 'JobBid(bidIdentifier: $bidIdentifier, jobBidStatus: $jobBidStatus, feedback: $feedback, feedbackProvidedToContractor: $feedbackProvidedToContractor, feedbackSkipped: $feedbackSkipped)';
   }
 
   @override
@@ -195,7 +231,15 @@ class _$_JobBid implements _JobBid {
                     .equals(other.jobBidStatus, jobBidStatus)) &&
             (identical(other.feedback, feedback) ||
                 const DeepCollectionEquality()
-                    .equals(other.feedback, feedback)));
+                    .equals(other.feedback, feedback)) &&
+            (identical(other.feedbackProvidedToContractor,
+                    feedbackProvidedToContractor) ||
+                const DeepCollectionEquality().equals(
+                    other.feedbackProvidedToContractor,
+                    feedbackProvidedToContractor)) &&
+            (identical(other.feedbackSkipped, feedbackSkipped) ||
+                const DeepCollectionEquality()
+                    .equals(other.feedbackSkipped, feedbackSkipped)));
   }
 
   @override
@@ -203,7 +247,9 @@ class _$_JobBid implements _JobBid {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(bidIdentifier) ^
       const DeepCollectionEquality().hash(jobBidStatus) ^
-      const DeepCollectionEquality().hash(feedback);
+      const DeepCollectionEquality().hash(feedback) ^
+      const DeepCollectionEquality().hash(feedbackProvidedToContractor) ^
+      const DeepCollectionEquality().hash(feedbackSkipped);
 
   @JsonKey(ignore: true)
   @override
@@ -220,7 +266,9 @@ abstract class _JobBid implements JobBid {
   const factory _JobBid(
       {required BidIdentifier bidIdentifier,
       required JobBidStatuses jobBidStatus,
-      required JobBidFeedback? feedback}) = _$_JobBid;
+      required JobBidFeedback? feedback,
+      required bool? feedbackProvidedToContractor,
+      required bool? feedbackSkipped}) = _$_JobBid;
 
   factory _JobBid.fromJson(Map<String, dynamic> json) = _$_JobBid.fromJson;
 
@@ -230,6 +278,10 @@ abstract class _JobBid implements JobBid {
   JobBidStatuses get jobBidStatus => throw _privateConstructorUsedError;
   @override
   JobBidFeedback? get feedback => throw _privateConstructorUsedError;
+  @override
+  bool? get feedbackProvidedToContractor => throw _privateConstructorUsedError;
+  @override
+  bool? get feedbackSkipped => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$JobBidCopyWith<_JobBid> get copyWith => throw _privateConstructorUsedError;

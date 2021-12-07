@@ -193,35 +193,9 @@ class TAJContractor extends TAJFacade {
     return commitBatch(batch);
   }
 
-  removeSubbieFromFavouriteList({
-    required TWUser subbie,
-    required TWUser contractor,
-  }) {
-    WriteBatch batch = FirebaseFirestore.instance.batch();
-
-    batch.delete(TWFC.contractorsCollection
-        .doc(contractor.uid)
-        .collection('favourite_subbies')
-        .doc('favourite-subbie-id: ${subbie.uid}'));
-    return commitBatch(batch);
-  }
-
   startBidding(String jobId) {
     WriteBatch batch = FirebaseFirestore.instance.batch();
     batch.update(TWFC.jobCollection.doc(jobId), {'acceptingBids': true});
-    return commitBatch(batch);
-  }
-
-  removeSubbieFromBlackList({
-    required TWUser subbie,
-    required TWUser contractor,
-  }) {
-    WriteBatch batch = FirebaseFirestore.instance.batch();
-
-    batch.delete(TWFC.contractorsCollection
-        .doc(contractor.uid)
-        .collection('blacklisted_subbies')
-        .doc('blacklisted-subbie-id: ${subbie.uid}'));
     return commitBatch(batch);
   }
 
@@ -400,8 +374,10 @@ class TAJContractor extends TAJFacade {
   }) async {
     WriteBatch batch = FirebaseFirestore.instance.batch();
     for (final feedback in jobBidsFeedbacks) {
-      batch.update(TWFC.bidsCollection.doc(feedback.bidId),
-          {'feedback': feedback.toJson()});
+      batch.update(
+        TWFC.bidsCollection.doc(feedback.bidId),
+        {'feedback': feedback.toJson()},
+      );
     }
     batch.update(TWFC.jobCollection.doc(job.workIdentifier.workId), {
       'status': JobStatus(JobStatuses.Completed).toJson(),
@@ -409,4 +385,31 @@ class TAJContractor extends TAJFacade {
     await batch.commit();
     return right(unit);
   }
+
+  // removeSubbieFromFavouriteList({
+  //   required TWUser subbie,
+  //   required TWUser contractor,
+  // }) {
+  //   WriteBatch batch = FirebaseFirestore.instance.batch();
+  //
+  //   batch.delete(TWFC.contractorsCollection
+  //       .doc(contractor.uid)
+  //       .collection('favourite_subbies')
+  //       .doc('favourite-subbie-id: ${subbie.uid}'));
+  //   return commitBatch(batch);
+  // }
+  // removeSubbieFromBlackList({
+  //   required TWUser subbie,
+  //   required TWUser contractor,
+  // }) {
+  //   WriteBatch batch = FirebaseFirestore.instance.batch();
+  //
+  //   batch.delete(TWFC.contractorsCollection
+  //       .doc(contractor.uid)
+  //       .collection('blacklisted_subbies')
+  //       .doc('blacklisted-subbie-id: ${subbie.uid}'));
+  //   return commitBatch(batch);
+  // }
+  //
+
 }

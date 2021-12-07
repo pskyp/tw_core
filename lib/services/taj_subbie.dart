@@ -102,6 +102,53 @@ class TAJSubbie extends TAJFacade {
     }
   }
 
+  Future<Either<TWServerError, Unit>> skipFeedback(JobBid jobBid) async {
+    await TWFC.bidsCollection.doc(jobBid.bidIdentifier.bidId).update({
+      'feedbackSkipped': true,
+    });
+
+    return right(unit);
+  }
+
+  Stream<KtList<JobBid>> streamBidsOfPendingJobRatings() {
+    return TWFC.bidsCollection
+        .where('feedback', isNull: false)
+        .where('feedbackProvidedToContractor', isNull: true)
+        .where('feedbackSkipped', isNull: true)
+        .snapshots()
+        .map(
+          (event) => KtList.from(
+            event.docs.map(
+              (e) => JobBid.fromJson(e.data()),
+            ),
+          ),
+        );
+
+    // List<JobBid> bidsOfPendingJobRatings = [];
+    //
+    // QuerySnapshot snapshot = await TWFC.subbieCollection
+    //     .doc(CacheService().subbie.basicProfile.uid)
+    //     .collection('bidIdOfPendingJobRatings')
+    //     .get();
+    //
+    // print(snapshot.docs.length);
+    //
+    // for (final doc in snapshot.docs) {
+    //   Map<String, dynamic> map = doc.data() as Map<String, dynamic>;
+    //   print(map['bidDocRef']);
+    //
+    //   DocumentReference reference = map['bidDocRef'];
+    //
+    //   DocumentSnapshot docSnap = await reference.get();
+    //   if (docSnap.exists) {
+    //     bidsOfPendingJobRatings
+    //         .add(JobBid.fromJson(docSnap.data() as Map<String, dynamic>));
+    //   }
+    // }
+    //
+    // return KtList.from(bidsOfPendingJobRatings);
+  }
+
   Future<Either<TWServerError, Unit>> saveInvoicingDetails({
     required VATNumber vatNumber,
     required TradingName tradingName,

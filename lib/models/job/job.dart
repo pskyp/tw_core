@@ -85,7 +85,7 @@ class Job with _$Job implements Work {
 
   List<JobAction> get availableActions {
     List<JobAction> actions = [];
-    if (status != JobStatuses.Completed) {
+    if (status != JobStatus(JobStatuses.Completed)) {
       actions.add(
         JobAction(JobActions.CompleteJob, 'Complete Job'),
       );
