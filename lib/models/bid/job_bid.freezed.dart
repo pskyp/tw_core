@@ -24,8 +24,8 @@ class _$JobBidTearOff {
       {required BidIdentifier bidIdentifier,
       required JobBidStatuses jobBidStatus,
       required JobBidFeedback? feedback,
-      required bool? feedbackProvidedToContractor,
-      required bool? feedbackSkipped}) {
+      required bool feedbackProvidedToContractor,
+      required bool feedbackSkipped}) {
     return _JobBid(
       bidIdentifier: bidIdentifier,
       jobBidStatus: jobBidStatus,
@@ -48,8 +48,8 @@ mixin _$JobBid {
   BidIdentifier get bidIdentifier => throw _privateConstructorUsedError;
   JobBidStatuses get jobBidStatus => throw _privateConstructorUsedError;
   JobBidFeedback? get feedback => throw _privateConstructorUsedError;
-  bool? get feedbackProvidedToContractor => throw _privateConstructorUsedError;
-  bool? get feedbackSkipped => throw _privateConstructorUsedError;
+  bool get feedbackProvidedToContractor => throw _privateConstructorUsedError;
+  bool get feedbackSkipped => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -64,8 +64,8 @@ abstract class $JobBidCopyWith<$Res> {
       {BidIdentifier bidIdentifier,
       JobBidStatuses jobBidStatus,
       JobBidFeedback? feedback,
-      bool? feedbackProvidedToContractor,
-      bool? feedbackSkipped});
+      bool feedbackProvidedToContractor,
+      bool feedbackSkipped});
 
   $BidIdentifierCopyWith<$Res> get bidIdentifier;
   $JobBidFeedbackCopyWith<$Res>? get feedback;
@@ -103,11 +103,11 @@ class _$JobBidCopyWithImpl<$Res> implements $JobBidCopyWith<$Res> {
       feedbackProvidedToContractor: feedbackProvidedToContractor == freezed
           ? _value.feedbackProvidedToContractor
           : feedbackProvidedToContractor // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       feedbackSkipped: feedbackSkipped == freezed
           ? _value.feedbackSkipped
           : feedbackSkipped // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ));
   }
 
@@ -139,8 +139,8 @@ abstract class _$JobBidCopyWith<$Res> implements $JobBidCopyWith<$Res> {
       {BidIdentifier bidIdentifier,
       JobBidStatuses jobBidStatus,
       JobBidFeedback? feedback,
-      bool? feedbackProvidedToContractor,
-      bool? feedbackSkipped});
+      bool feedbackProvidedToContractor,
+      bool feedbackSkipped});
 
   @override
   $BidIdentifierCopyWith<$Res> get bidIdentifier;
@@ -181,11 +181,11 @@ class __$JobBidCopyWithImpl<$Res> extends _$JobBidCopyWithImpl<$Res>
       feedbackProvidedToContractor: feedbackProvidedToContractor == freezed
           ? _value.feedbackProvidedToContractor
           : feedbackProvidedToContractor // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       feedbackSkipped: feedbackSkipped == freezed
           ? _value.feedbackSkipped
           : feedbackSkipped // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ));
   }
 }
@@ -210,9 +210,9 @@ class _$_JobBid implements _JobBid {
   @override
   final JobBidFeedback? feedback;
   @override
-  final bool? feedbackProvidedToContractor;
+  final bool feedbackProvidedToContractor;
   @override
-  final bool? feedbackSkipped;
+  final bool feedbackSkipped;
 
   @override
   String toString() {
@@ -267,8 +267,8 @@ abstract class _JobBid implements JobBid {
       {required BidIdentifier bidIdentifier,
       required JobBidStatuses jobBidStatus,
       required JobBidFeedback? feedback,
-      required bool? feedbackProvidedToContractor,
-      required bool? feedbackSkipped}) = _$_JobBid;
+      required bool feedbackProvidedToContractor,
+      required bool feedbackSkipped}) = _$_JobBid;
 
   factory _JobBid.fromJson(Map<String, dynamic> json) = _$_JobBid.fromJson;
 
@@ -279,9 +279,9 @@ abstract class _JobBid implements JobBid {
   @override
   JobBidFeedback? get feedback => throw _privateConstructorUsedError;
   @override
-  bool? get feedbackProvidedToContractor => throw _privateConstructorUsedError;
+  bool get feedbackProvidedToContractor => throw _privateConstructorUsedError;
   @override
-  bool? get feedbackSkipped => throw _privateConstructorUsedError;
+  bool get feedbackSkipped => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$JobBidCopyWith<_JobBid> get copyWith => throw _privateConstructorUsedError;

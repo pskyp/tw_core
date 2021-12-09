@@ -14,8 +14,8 @@ _$_JobBid _$$_JobBidFromJson(Map<String, dynamic> json) => _$_JobBid(
           ? null
           : JobBidFeedback.fromJson(json['feedback'] as Map<String, dynamic>),
       feedbackProvidedToContractor:
-          json['feedbackProvidedToContractor'] as bool?,
-      feedbackSkipped: json['feedbackSkipped'] as bool?,
+          json['feedbackProvidedToContractor'] as bool,
+      feedbackSkipped: json['feedbackSkipped'] as bool,
     );
 
 Map<String, dynamic> _$$_JobBidToJson(_$_JobBid instance) => <String, dynamic>{

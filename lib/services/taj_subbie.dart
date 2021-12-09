@@ -112,9 +112,11 @@ class TAJSubbie extends TAJFacade {
 
   Stream<KtList<JobBid>> streamBidsOfPendingJobRatings() {
     return TWFC.bidsCollection
+        .where('bidIdentifier.bidder.uid',
+            isEqualTo: CacheService().subbie.basicProfile.uid)
         .where('feedback', isNull: false)
-        .where('feedbackProvidedToContractor', isNull: true)
-        .where('feedbackSkipped', isNull: true)
+        .where('feedbackProvidedToContractor', isEqualTo: false)
+        .where('feedbackSkipped', isEqualTo: false)
         .snapshots()
         .map(
           (event) => KtList.from(
@@ -176,6 +178,7 @@ class TAJSubbie extends TAJFacade {
 
   Future<Either<TWServerError, Unit>> jobFeedbackSubmit({
     required JobFeedback jobFeedback,
+    required String bidId,
   }) async {
     var batch = FirebaseFirestore.instance.batch();
     batch.update(
@@ -184,6 +187,13 @@ class TAJSubbie extends TAJFacade {
         'feedback': FieldValue.arrayUnion([jobFeedback.toJson()]),
       },
     );
+    batch.update(
+      TWFC.bidsCollection.doc(bidId),
+      {
+        'feedbackProvidedToContractor': true,
+      },
+    );
+
     //update total_ratings, and other attributes in contractor doc
     // batch.update(TWFC.contractorsCollection.doc(jobReview.contractorId), {
     //   'totalRatings': FieldValue.increment(1),

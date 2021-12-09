@@ -15,8 +15,8 @@ class JobBid with _$JobBid implements WorkBid {
     required BidIdentifier bidIdentifier,
     required JobBidStatuses jobBidStatus,
     required JobBidFeedback? feedback,
-    required bool? feedbackProvidedToContractor,
-    required bool? feedbackSkipped,
+    required bool feedbackProvidedToContractor,
+    required bool feedbackSkipped,
   }) = _JobBid;
 
   factory JobBid.neu({required Job job, required Subbie subbie}) {
