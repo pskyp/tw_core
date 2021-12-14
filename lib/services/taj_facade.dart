@@ -35,7 +35,6 @@ import 'package:tw_core/models/invoicing/value_objects/company_number/company_nu
 import 'package:tw_core/models/invoicing/value_objects/trading_name/trading_name.dart';
 import 'package:tw_core/models/invoicing/value_objects/vat_number/vat_number.dart';
 import 'package:tw_core/models/job/job.dart';
-import 'package:tw_core/models/job/job_status.dart';
 import 'package:tw_core/models/job/value_objects/job_timeline/job_timeline.dart';
 import 'package:tw_core/models/location/location_model.dart';
 import 'package:tw_core/models/subbie/subbie_invoicing_details.dart';

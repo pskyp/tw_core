@@ -5,7 +5,6 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meta/meta.dart';
 import 'package:tw_core/models/auth/auth_failure.dart';
 import 'package:tw_core/models/auth/i_auth_facade.dart';
 import 'package:tw_core/models/email/email.dart';
@@ -66,18 +65,31 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
           ))
               .user;
         }
-        FirebaseDynamicLinks.instance.onLink(
-            onSuccess: (PendingDynamicLinkData? dynamicLink) async {
-          final Uri deepLink = dynamicLink!.link;
+
+        FirebaseDynamicLinks.instance.onLink.listen((event) async {
+          final Uri deepLink = event.link;
           final user = (await FirebaseAuth.instance.signInWithEmailLink(
             email: state.email.getOrCrash(),
             emailLink: deepLink.toString(),
           ))
               .user;
-        }, onError: (OnLinkErrorException e) async {
-          print('onLinkError');
-          print(e.message);
+        }).onError((error) {
+          print('onLink error');
+          print(error.message);
         });
+
+        // FirebaseDynamicLinks.instance.onLink(
+        //     onSuccess: (PendingDynamicLinkData? dynamicLink) async {
+        //   final Uri deepLink = dynamicLink!.link;
+        //   final user = (await FirebaseAuth.instance.signInWithEmailLink(
+        //     email: state.email.getOrCrash(),
+        //     emailLink: deepLink.toString(),
+        //   ))
+        //       .user;
+        // }, onError: (OnLinkErrorException e) async {
+        //   print('onLinkError');
+        //   print(e.message);
+        // });
       },
       signInWithGooglePressed: (e) async* {
         print("reaching here");

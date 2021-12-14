@@ -26,7 +26,7 @@ class _$JobTearOff {
       required String contractorId,
       required LocationModel location,
       required Trade trade,
-      required JobStatus status,
+      required JobStatuses status,
       required int totalUnseenBids,
       required String description,
       required double hourlyRate,
@@ -78,7 +78,7 @@ mixin _$Job {
   String get contractorId => throw _privateConstructorUsedError;
   LocationModel get location => throw _privateConstructorUsedError;
   Trade get trade => throw _privateConstructorUsedError;
-  JobStatus get status => throw _privateConstructorUsedError;
+  JobStatuses get status => throw _privateConstructorUsedError;
   int get totalUnseenBids => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   double get hourlyRate => throw _privateConstructorUsedError;
@@ -109,7 +109,7 @@ abstract class $JobCopyWith<$Res> {
       String contractorId,
       LocationModel location,
       Trade trade,
-      JobStatus status,
+      JobStatuses status,
       int totalUnseenBids,
       String description,
       double hourlyRate,
@@ -181,7 +181,7 @@ class _$JobCopyWithImpl<$Res> implements $JobCopyWith<$Res> {
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as JobStatus,
+              as JobStatuses,
       totalUnseenBids: totalUnseenBids == freezed
           ? _value.totalUnseenBids
           : totalUnseenBids // ignore: cast_nullable_to_non_nullable
@@ -256,7 +256,7 @@ abstract class _$JobCopyWith<$Res> implements $JobCopyWith<$Res> {
       String contractorId,
       LocationModel location,
       Trade trade,
-      JobStatus status,
+      JobStatuses status,
       int totalUnseenBids,
       String description,
       double hourlyRate,
@@ -330,7 +330,7 @@ class __$JobCopyWithImpl<$Res> extends _$JobCopyWithImpl<$Res>
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as JobStatus,
+              as JobStatuses,
       totalUnseenBids: totalUnseenBids == freezed
           ? _value.totalUnseenBids
           : totalUnseenBids // ignore: cast_nullable_to_non_nullable
@@ -425,7 +425,7 @@ class _$_Job extends _Job {
   @override
   final Trade trade;
   @override
-  final JobStatus status;
+  final JobStatuses status;
   @override
   final int totalUnseenBids;
   @override
@@ -561,7 +561,7 @@ abstract class _Job extends Job {
       required String contractorId,
       required LocationModel location,
       required Trade trade,
-      required JobStatus status,
+      required JobStatuses status,
       required int totalUnseenBids,
       required String description,
       required double hourlyRate,
@@ -590,7 +590,7 @@ abstract class _Job extends Job {
   @override
   Trade get trade => throw _privateConstructorUsedError;
   @override
-  JobStatus get status => throw _privateConstructorUsedError;
+  JobStatuses get status => throw _privateConstructorUsedError;
   @override
   int get totalUnseenBids => throw _privateConstructorUsedError;
   @override
