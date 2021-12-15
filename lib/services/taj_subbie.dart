@@ -151,6 +151,21 @@ class TAJSubbie extends TAJFacade {
     // return KtList.from(bidsOfPendingJobRatings);
   }
 
+Future<Either<TWServerError, Unit>> toggleSubscription() async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    Subbie subbie = CacheService().subbie;
+    batch.update(
+      TWFC.subbieCollection.doc(subbie.basicProfile.uid),
+      {
+        'subscribed': subbie.subscribed ? false : true,
+      },
+    );
+
+    await batch.commit();
+    return right(unit);
+  }
+
+
   Future<Either<TWServerError, Unit>> saveInvoicingDetails({
     required VATNumber vatNumber,
     required TradingName tradingName,
