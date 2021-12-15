@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -49,6 +50,13 @@ mixin _$ChatroomEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(ChatItem chatItem)? messageSeen,
+    TResult Function(List<ChatItem>? chatItems)? messagesStreamUpdated,
+    TResult Function(String text)? sendMessagePressed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ChatItem chatItem)? messageSeen,
     TResult Function(List<ChatItem>? chatItems)? messagesStreamUpdated,
@@ -62,6 +70,13 @@ mixin _$ChatroomEvent {
     required TResult Function(MessagesStreamUpdated value)
         messagesStreamUpdated,
     required TResult Function(SendMessagePressed value) sendMessagePressed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(MessageSeen value)? messageSeen,
+    TResult Function(MessagesStreamUpdated value)? messagesStreamUpdated,
+    TResult Function(SendMessagePressed value)? sendMessagePressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -138,15 +153,14 @@ class _$MessageSeen implements MessageSeen {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is MessageSeen &&
-            (identical(other.chatItem, chatItem) ||
-                const DeepCollectionEquality()
-                    .equals(other.chatItem, chatItem)));
+        (other.runtimeType == runtimeType &&
+            other is MessageSeen &&
+            const DeepCollectionEquality().equals(other.chatItem, chatItem));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(chatItem);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(chatItem));
 
   @JsonKey(ignore: true)
   @override
@@ -161,6 +175,16 @@ class _$MessageSeen implements MessageSeen {
     required TResult Function(String text) sendMessagePressed,
   }) {
     return messageSeen(chatItem);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(ChatItem chatItem)? messageSeen,
+    TResult Function(List<ChatItem>? chatItems)? messagesStreamUpdated,
+    TResult Function(String text)? sendMessagePressed,
+  }) {
+    return messageSeen?.call(chatItem);
   }
 
   @override
@@ -190,6 +214,16 @@ class _$MessageSeen implements MessageSeen {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(MessageSeen value)? messageSeen,
+    TResult Function(MessagesStreamUpdated value)? messagesStreamUpdated,
+    TResult Function(SendMessagePressed value)? sendMessagePressed,
+  }) {
+    return messageSeen?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MessageSeen value)? messageSeen,
     TResult Function(MessagesStreamUpdated value)? messagesStreamUpdated,
@@ -206,7 +240,7 @@ class _$MessageSeen implements MessageSeen {
 abstract class MessageSeen implements ChatroomEvent {
   const factory MessageSeen({required ChatItem chatItem}) = _$MessageSeen;
 
-  ChatItem get chatItem => throw _privateConstructorUsedError;
+  ChatItem get chatItem;
   @JsonKey(ignore: true)
   $MessageSeenCopyWith<MessageSeen> get copyWith =>
       throw _privateConstructorUsedError;
@@ -260,15 +294,14 @@ class _$MessagesStreamUpdated implements MessagesStreamUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is MessagesStreamUpdated &&
-            (identical(other.chatItems, chatItems) ||
-                const DeepCollectionEquality()
-                    .equals(other.chatItems, chatItems)));
+        (other.runtimeType == runtimeType &&
+            other is MessagesStreamUpdated &&
+            const DeepCollectionEquality().equals(other.chatItems, chatItems));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(chatItems);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(chatItems));
 
   @JsonKey(ignore: true)
   @override
@@ -284,6 +317,16 @@ class _$MessagesStreamUpdated implements MessagesStreamUpdated {
     required TResult Function(String text) sendMessagePressed,
   }) {
     return messagesStreamUpdated(chatItems);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(ChatItem chatItem)? messageSeen,
+    TResult Function(List<ChatItem>? chatItems)? messagesStreamUpdated,
+    TResult Function(String text)? sendMessagePressed,
+  }) {
+    return messagesStreamUpdated?.call(chatItems);
   }
 
   @override
@@ -313,6 +356,16 @@ class _$MessagesStreamUpdated implements MessagesStreamUpdated {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(MessageSeen value)? messageSeen,
+    TResult Function(MessagesStreamUpdated value)? messagesStreamUpdated,
+    TResult Function(SendMessagePressed value)? sendMessagePressed,
+  }) {
+    return messagesStreamUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MessageSeen value)? messageSeen,
     TResult Function(MessagesStreamUpdated value)? messagesStreamUpdated,
@@ -330,7 +383,7 @@ abstract class MessagesStreamUpdated implements ChatroomEvent {
   const factory MessagesStreamUpdated({required List<ChatItem>? chatItems}) =
       _$MessagesStreamUpdated;
 
-  List<ChatItem>? get chatItems => throw _privateConstructorUsedError;
+  List<ChatItem>? get chatItems;
   @JsonKey(ignore: true)
   $MessagesStreamUpdatedCopyWith<MessagesStreamUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -384,14 +437,14 @@ class _$SendMessagePressed implements SendMessagePressed {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SendMessagePressed &&
-            (identical(other.text, text) ||
-                const DeepCollectionEquality().equals(other.text, text)));
+        (other.runtimeType == runtimeType &&
+            other is SendMessagePressed &&
+            const DeepCollectionEquality().equals(other.text, text));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(text);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(text));
 
   @JsonKey(ignore: true)
   @override
@@ -406,6 +459,16 @@ class _$SendMessagePressed implements SendMessagePressed {
     required TResult Function(String text) sendMessagePressed,
   }) {
     return sendMessagePressed(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(ChatItem chatItem)? messageSeen,
+    TResult Function(List<ChatItem>? chatItems)? messagesStreamUpdated,
+    TResult Function(String text)? sendMessagePressed,
+  }) {
+    return sendMessagePressed?.call(text);
   }
 
   @override
@@ -435,6 +498,16 @@ class _$SendMessagePressed implements SendMessagePressed {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(MessageSeen value)? messageSeen,
+    TResult Function(MessagesStreamUpdated value)? messagesStreamUpdated,
+    TResult Function(SendMessagePressed value)? sendMessagePressed,
+  }) {
+    return sendMessagePressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MessageSeen value)? messageSeen,
     TResult Function(MessagesStreamUpdated value)? messagesStreamUpdated,
@@ -451,7 +524,7 @@ class _$SendMessagePressed implements SendMessagePressed {
 abstract class SendMessagePressed implements ChatroomEvent {
   const factory SendMessagePressed(String text) = _$SendMessagePressed;
 
-  String get text => throw _privateConstructorUsedError;
+  String get text;
   @JsonKey(ignore: true)
   $SendMessagePressedCopyWith<SendMessagePressed> get copyWith =>
       throw _privateConstructorUsedError;
@@ -588,20 +661,17 @@ class _$_ChatroomState extends _ChatroomState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChatroomState &&
-            (identical(other.chatRoom, chatRoom) ||
-                const DeepCollectionEquality()
-                    .equals(other.chatRoom, chatRoom)) &&
-            (identical(other.chatItems, chatItems) ||
-                const DeepCollectionEquality()
-                    .equals(other.chatItems, chatItems)));
+        (other.runtimeType == runtimeType &&
+            other is _ChatroomState &&
+            const DeepCollectionEquality().equals(other.chatRoom, chatRoom) &&
+            const DeepCollectionEquality().equals(other.chatItems, chatItems));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(chatRoom) ^
-      const DeepCollectionEquality().hash(chatItems);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(chatRoom),
+      const DeepCollectionEquality().hash(chatItems));
 
   @JsonKey(ignore: true)
   @override
@@ -616,9 +686,9 @@ abstract class _ChatroomState extends ChatroomState {
   const _ChatroomState._() : super._();
 
   @override
-  ChatRoom get chatRoom => throw _privateConstructorUsedError;
+  ChatRoom get chatRoom;
   @override
-  Option<List<ChatItem>> get chatItems => throw _privateConstructorUsedError;
+  Option<List<ChatItem>> get chatItems;
   @override
   @JsonKey(ignore: true)
   _$ChatroomStateCopyWith<_ChatroomState> get copyWith =>

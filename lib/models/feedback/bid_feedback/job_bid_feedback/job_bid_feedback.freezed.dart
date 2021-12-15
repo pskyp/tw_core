@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -27,7 +28,7 @@ class _$JobBidFeedbackTearOff {
     );
   }
 
-  JobBidFeedback fromJson(Map<String, Object> json) {
+  JobBidFeedback fromJson(Map<String, Object?> json) {
     return JobBidFeedback.fromJson(json);
   }
 }
@@ -141,18 +142,17 @@ class _$_JobBidFeedback implements _JobBidFeedback {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _JobBidFeedback &&
-            (identical(other.rating, rating) ||
-                const DeepCollectionEquality().equals(other.rating, rating)) &&
-            (identical(other.bidId, bidId) ||
-                const DeepCollectionEquality().equals(other.bidId, bidId)));
+        (other.runtimeType == runtimeType &&
+            other is _JobBidFeedback &&
+            const DeepCollectionEquality().equals(other.rating, rating) &&
+            const DeepCollectionEquality().equals(other.bidId, bidId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(rating) ^
-      const DeepCollectionEquality().hash(bidId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(rating),
+      const DeepCollectionEquality().hash(bidId));
 
   @JsonKey(ignore: true)
   @override
@@ -174,9 +174,9 @@ abstract class _JobBidFeedback implements JobBidFeedback {
       _$_JobBidFeedback.fromJson;
 
   @override
-  SubbieRating get rating => throw _privateConstructorUsedError;
+  SubbieRating get rating;
   @override
-  String get bidId => throw _privateConstructorUsedError;
+  String get bidId;
   @override
   @JsonKey(ignore: true)
   _$JobBidFeedbackCopyWith<_JobBidFeedback> get copyWith =>

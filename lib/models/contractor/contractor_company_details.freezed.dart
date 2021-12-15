@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,7 +37,7 @@ class _$ContractorCompanyDetailsTearOff {
     );
   }
 
-  ContractorCompanyDetails fromJson(Map<String, Object> json) {
+  ContractorCompanyDetails fromJson(Map<String, Object?> json) {
     return ContractorCompanyDetails.fromJson(json);
   }
 }
@@ -205,32 +206,27 @@ class _$_ContractorCompanyDetails implements _ContractorCompanyDetails {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ContractorCompanyDetails &&
-            (identical(other.companyName, companyName) ||
-                const DeepCollectionEquality()
-                    .equals(other.companyName, companyName)) &&
-            (identical(other.companyNumber, companyNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.companyNumber, companyNumber)) &&
-            (identical(other.vatNumber, vatNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.vatNumber, vatNumber)) &&
-            (identical(other.registeredAddress, registeredAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.registeredAddress, registeredAddress)) &&
-            (identical(other.companyAddress, companyAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.companyAddress, companyAddress)));
+        (other.runtimeType == runtimeType &&
+            other is _ContractorCompanyDetails &&
+            const DeepCollectionEquality()
+                .equals(other.companyName, companyName) &&
+            const DeepCollectionEquality()
+                .equals(other.companyNumber, companyNumber) &&
+            const DeepCollectionEquality().equals(other.vatNumber, vatNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.registeredAddress, registeredAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.companyAddress, companyAddress));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(companyName) ^
-      const DeepCollectionEquality().hash(companyNumber) ^
-      const DeepCollectionEquality().hash(vatNumber) ^
-      const DeepCollectionEquality().hash(registeredAddress) ^
-      const DeepCollectionEquality().hash(companyAddress);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(companyName),
+      const DeepCollectionEquality().hash(companyNumber),
+      const DeepCollectionEquality().hash(vatNumber),
+      const DeepCollectionEquality().hash(registeredAddress),
+      const DeepCollectionEquality().hash(companyAddress));
 
   @JsonKey(ignore: true)
   @override
@@ -256,15 +252,15 @@ abstract class _ContractorCompanyDetails implements ContractorCompanyDetails {
       _$_ContractorCompanyDetails.fromJson;
 
   @override
-  String get companyName => throw _privateConstructorUsedError;
+  String get companyName;
   @override
-  String get companyNumber => throw _privateConstructorUsedError;
+  String get companyNumber;
   @override
-  String get vatNumber => throw _privateConstructorUsedError;
+  String get vatNumber;
   @override
-  LocationModel get registeredAddress => throw _privateConstructorUsedError;
+  LocationModel get registeredAddress;
   @override
-  LocationModel get companyAddress => throw _privateConstructorUsedError;
+  LocationModel get companyAddress;
   @override
   @JsonKey(ignore: true)
   _$ContractorCompanyDetailsCopyWith<_ContractorCompanyDetails> get copyWith =>

@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -39,6 +40,12 @@ mixin _$CreateJobRequirementEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? submitPressed,
+    TResult Function(String input)? requirementInput,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? submitPressed,
     TResult Function(String input)? requirementInput,
@@ -49,6 +56,12 @@ mixin _$CreateJobRequirementEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(SubmitPressed value) submitPressed,
     required TResult Function(RequirementInput value) requirementInput,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(SubmitPressed value)? submitPressed,
+    TResult Function(RequirementInput value)? requirementInput,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -108,7 +121,8 @@ class _$SubmitPressed implements SubmitPressed {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SubmitPressed);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SubmitPressed);
   }
 
   @override
@@ -121,6 +135,15 @@ class _$SubmitPressed implements SubmitPressed {
     required TResult Function(String input) requirementInput,
   }) {
     return submitPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? submitPressed,
+    TResult Function(String input)? requirementInput,
+  }) {
+    return submitPressed?.call();
   }
 
   @override
@@ -143,6 +166,15 @@ class _$SubmitPressed implements SubmitPressed {
     required TResult Function(RequirementInput value) requirementInput,
   }) {
     return submitPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(SubmitPressed value)? submitPressed,
+    TResult Function(RequirementInput value)? requirementInput,
+  }) {
+    return submitPressed?.call(this);
   }
 
   @override
@@ -211,14 +243,14 @@ class _$RequirementInput implements RequirementInput {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is RequirementInput &&
-            (identical(other.input, input) ||
-                const DeepCollectionEquality().equals(other.input, input)));
+        (other.runtimeType == runtimeType &&
+            other is RequirementInput &&
+            const DeepCollectionEquality().equals(other.input, input));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(input);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(input));
 
   @JsonKey(ignore: true)
   @override
@@ -232,6 +264,15 @@ class _$RequirementInput implements RequirementInput {
     required TResult Function(String input) requirementInput,
   }) {
     return requirementInput(input);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? submitPressed,
+    TResult Function(String input)? requirementInput,
+  }) {
+    return requirementInput?.call(input);
   }
 
   @override
@@ -258,6 +299,15 @@ class _$RequirementInput implements RequirementInput {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(SubmitPressed value)? submitPressed,
+    TResult Function(RequirementInput value)? requirementInput,
+  }) {
+    return requirementInput?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SubmitPressed value)? submitPressed,
     TResult Function(RequirementInput value)? requirementInput,
@@ -273,7 +323,7 @@ class _$RequirementInput implements RequirementInput {
 abstract class RequirementInput implements CreateJobRequirementEvent {
   const factory RequirementInput(String input) = _$RequirementInput;
 
-  String get input => throw _privateConstructorUsedError;
+  String get input;
   @JsonKey(ignore: true)
   $RequirementInputCopyWith<RequirementInput> get copyWith =>
       throw _privateConstructorUsedError;
@@ -443,28 +493,25 @@ class _$_CreateJobRequirementState extends _CreateJobRequirementState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CreateJobRequirementState &&
-            (identical(other.requirementInput, requirementInput) ||
-                const DeepCollectionEquality()
-                    .equals(other.requirementInput, requirementInput)) &&
-            (identical(other.submissionInProgress, submissionInProgress) ||
-                const DeepCollectionEquality().equals(
-                    other.submissionInProgress, submissionInProgress)) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
-            (identical(other.resultOption, resultOption) ||
-                const DeepCollectionEquality()
-                    .equals(other.resultOption, resultOption)));
+        (other.runtimeType == runtimeType &&
+            other is _CreateJobRequirementState &&
+            const DeepCollectionEquality()
+                .equals(other.requirementInput, requirementInput) &&
+            const DeepCollectionEquality()
+                .equals(other.submissionInProgress, submissionInProgress) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality()
+                .equals(other.resultOption, resultOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(requirementInput) ^
-      const DeepCollectionEquality().hash(submissionInProgress) ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(resultOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(requirementInput),
+      const DeepCollectionEquality().hash(submissionInProgress),
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(resultOption));
 
   @JsonKey(ignore: true)
   @override
@@ -484,14 +531,13 @@ abstract class _CreateJobRequirementState extends CreateJobRequirementState {
   const _CreateJobRequirementState._() : super._();
 
   @override
-  TWString get requirementInput => throw _privateConstructorUsedError;
+  TWString get requirementInput;
   @override
-  bool get submissionInProgress => throw _privateConstructorUsedError;
+  bool get submissionInProgress;
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get showErrorMessages;
   @override
-  Option<Either<TWServerError, Unit>> get resultOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<TWServerError, Unit>> get resultOption;
   @override
   @JsonKey(ignore: true)
   _$CreateJobRequirementStateCopyWith<_CreateJobRequirementState>

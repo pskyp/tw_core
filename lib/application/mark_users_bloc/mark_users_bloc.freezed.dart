@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -52,6 +53,14 @@ mixin _$MarkUsersEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(TWUser userToBeMarked, bool markAsFavourite)?
+        markUserRequest,
+    TResult Function(TWUser userToBeUnMarked)? unMarkUserRequest,
+    TResult Function(KtList<MarkedUser> markedUsers)? markedUsersFetched,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(TWUser userToBeMarked, bool markAsFavourite)?
         markUserRequest,
@@ -65,6 +74,13 @@ mixin _$MarkUsersEvent {
     required TResult Function(MarkUserRequest value) markUserRequest,
     required TResult Function(UnMarkUserRequest value) unMarkUserRequest,
     required TResult Function(MarkedUsersFetched value) markedUsersFetched,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(MarkUserRequest value)? markUserRequest,
+    TResult Function(UnMarkUserRequest value)? unMarkUserRequest,
+    TResult Function(MarkedUsersFetched value)? markedUsersFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -150,20 +166,19 @@ class _$MarkUserRequest implements MarkUserRequest {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is MarkUserRequest &&
-            (identical(other.userToBeMarked, userToBeMarked) ||
-                const DeepCollectionEquality()
-                    .equals(other.userToBeMarked, userToBeMarked)) &&
-            (identical(other.markAsFavourite, markAsFavourite) ||
-                const DeepCollectionEquality()
-                    .equals(other.markAsFavourite, markAsFavourite)));
+        (other.runtimeType == runtimeType &&
+            other is MarkUserRequest &&
+            const DeepCollectionEquality()
+                .equals(other.userToBeMarked, userToBeMarked) &&
+            const DeepCollectionEquality()
+                .equals(other.markAsFavourite, markAsFavourite));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(userToBeMarked) ^
-      const DeepCollectionEquality().hash(markAsFavourite);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(userToBeMarked),
+      const DeepCollectionEquality().hash(markAsFavourite));
 
   @JsonKey(ignore: true)
   @override
@@ -180,6 +195,17 @@ class _$MarkUserRequest implements MarkUserRequest {
         markedUsersFetched,
   }) {
     return markUserRequest(userToBeMarked, markAsFavourite);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(TWUser userToBeMarked, bool markAsFavourite)?
+        markUserRequest,
+    TResult Function(TWUser userToBeUnMarked)? unMarkUserRequest,
+    TResult Function(KtList<MarkedUser> markedUsers)? markedUsersFetched,
+  }) {
+    return markUserRequest?.call(userToBeMarked, markAsFavourite);
   }
 
   @override
@@ -209,6 +235,16 @@ class _$MarkUserRequest implements MarkUserRequest {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(MarkUserRequest value)? markUserRequest,
+    TResult Function(UnMarkUserRequest value)? unMarkUserRequest,
+    TResult Function(MarkedUsersFetched value)? markedUsersFetched,
+  }) {
+    return markUserRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MarkUserRequest value)? markUserRequest,
     TResult Function(UnMarkUserRequest value)? unMarkUserRequest,
@@ -227,8 +263,8 @@ abstract class MarkUserRequest implements MarkUsersEvent {
       {required TWUser userToBeMarked,
       required bool markAsFavourite}) = _$MarkUserRequest;
 
-  TWUser get userToBeMarked => throw _privateConstructorUsedError;
-  bool get markAsFavourite => throw _privateConstructorUsedError;
+  TWUser get userToBeMarked;
+  bool get markAsFavourite;
   @JsonKey(ignore: true)
   $MarkUserRequestCopyWith<MarkUserRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -282,16 +318,15 @@ class _$UnMarkUserRequest implements UnMarkUserRequest {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is UnMarkUserRequest &&
-            (identical(other.userToBeUnMarked, userToBeUnMarked) ||
-                const DeepCollectionEquality()
-                    .equals(other.userToBeUnMarked, userToBeUnMarked)));
+        (other.runtimeType == runtimeType &&
+            other is UnMarkUserRequest &&
+            const DeepCollectionEquality()
+                .equals(other.userToBeUnMarked, userToBeUnMarked));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(userToBeUnMarked);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(userToBeUnMarked));
 
   @JsonKey(ignore: true)
   @override
@@ -308,6 +343,17 @@ class _$UnMarkUserRequest implements UnMarkUserRequest {
         markedUsersFetched,
   }) {
     return unMarkUserRequest(userToBeUnMarked);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(TWUser userToBeMarked, bool markAsFavourite)?
+        markUserRequest,
+    TResult Function(TWUser userToBeUnMarked)? unMarkUserRequest,
+    TResult Function(KtList<MarkedUser> markedUsers)? markedUsersFetched,
+  }) {
+    return unMarkUserRequest?.call(userToBeUnMarked);
   }
 
   @override
@@ -337,6 +383,16 @@ class _$UnMarkUserRequest implements UnMarkUserRequest {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(MarkUserRequest value)? markUserRequest,
+    TResult Function(UnMarkUserRequest value)? unMarkUserRequest,
+    TResult Function(MarkedUsersFetched value)? markedUsersFetched,
+  }) {
+    return unMarkUserRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MarkUserRequest value)? markUserRequest,
     TResult Function(UnMarkUserRequest value)? unMarkUserRequest,
@@ -354,7 +410,7 @@ abstract class UnMarkUserRequest implements MarkUsersEvent {
   factory UnMarkUserRequest({required TWUser userToBeUnMarked}) =
       _$UnMarkUserRequest;
 
-  TWUser get userToBeUnMarked => throw _privateConstructorUsedError;
+  TWUser get userToBeUnMarked;
   @JsonKey(ignore: true)
   $UnMarkUserRequestCopyWith<UnMarkUserRequest> get copyWith =>
       throw _privateConstructorUsedError;
@@ -408,15 +464,15 @@ class _$MarkedUsersFetched implements MarkedUsersFetched {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is MarkedUsersFetched &&
-            (identical(other.markedUsers, markedUsers) ||
-                const DeepCollectionEquality()
-                    .equals(other.markedUsers, markedUsers)));
+        (other.runtimeType == runtimeType &&
+            other is MarkedUsersFetched &&
+            const DeepCollectionEquality()
+                .equals(other.markedUsers, markedUsers));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(markedUsers);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(markedUsers));
 
   @JsonKey(ignore: true)
   @override
@@ -433,6 +489,17 @@ class _$MarkedUsersFetched implements MarkedUsersFetched {
         markedUsersFetched,
   }) {
     return markedUsersFetched(markedUsers);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(TWUser userToBeMarked, bool markAsFavourite)?
+        markUserRequest,
+    TResult Function(TWUser userToBeUnMarked)? unMarkUserRequest,
+    TResult Function(KtList<MarkedUser> markedUsers)? markedUsersFetched,
+  }) {
+    return markedUsersFetched?.call(markedUsers);
   }
 
   @override
@@ -462,6 +529,16 @@ class _$MarkedUsersFetched implements MarkedUsersFetched {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(MarkUserRequest value)? markUserRequest,
+    TResult Function(UnMarkUserRequest value)? unMarkUserRequest,
+    TResult Function(MarkedUsersFetched value)? markedUsersFetched,
+  }) {
+    return markedUsersFetched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MarkUserRequest value)? markUserRequest,
     TResult Function(UnMarkUserRequest value)? unMarkUserRequest,
@@ -479,7 +556,7 @@ abstract class MarkedUsersFetched implements MarkUsersEvent {
   factory MarkedUsersFetched(KtList<MarkedUser> markedUsers) =
       _$MarkedUsersFetched;
 
-  KtList<MarkedUser> get markedUsers => throw _privateConstructorUsedError;
+  KtList<MarkedUser> get markedUsers;
   @JsonKey(ignore: true)
   $MarkedUsersFetchedCopyWith<MarkedUsersFetched> get copyWith =>
       throw _privateConstructorUsedError;
@@ -649,28 +726,25 @@ class _$_MarkUsersState extends _MarkUsersState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _MarkUsersState &&
-            (identical(other.markedUsersOption, markedUsersOption) ||
-                const DeepCollectionEquality()
-                    .equals(other.markedUsersOption, markedUsersOption)) &&
-            (identical(other.fetchingMarkedUsers, fetchingMarkedUsers) ||
-                const DeepCollectionEquality()
-                    .equals(other.fetchingMarkedUsers, fetchingMarkedUsers)) &&
-            (identical(other.resultOption, resultOption) ||
-                const DeepCollectionEquality()
-                    .equals(other.resultOption, resultOption)) &&
-            (identical(other.submissionInProgress, submissionInProgress) ||
-                const DeepCollectionEquality()
-                    .equals(other.submissionInProgress, submissionInProgress)));
+        (other.runtimeType == runtimeType &&
+            other is _MarkUsersState &&
+            const DeepCollectionEquality()
+                .equals(other.markedUsersOption, markedUsersOption) &&
+            const DeepCollectionEquality()
+                .equals(other.fetchingMarkedUsers, fetchingMarkedUsers) &&
+            const DeepCollectionEquality()
+                .equals(other.resultOption, resultOption) &&
+            const DeepCollectionEquality()
+                .equals(other.submissionInProgress, submissionInProgress));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(markedUsersOption) ^
-      const DeepCollectionEquality().hash(fetchingMarkedUsers) ^
-      const DeepCollectionEquality().hash(resultOption) ^
-      const DeepCollectionEquality().hash(submissionInProgress);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(markedUsersOption),
+      const DeepCollectionEquality().hash(fetchingMarkedUsers),
+      const DeepCollectionEquality().hash(resultOption),
+      const DeepCollectionEquality().hash(submissionInProgress));
 
   @JsonKey(ignore: true)
   @override
@@ -687,15 +761,13 @@ abstract class _MarkUsersState extends MarkUsersState {
   _MarkUsersState._() : super._();
 
   @override
-  Option<KtList<MarkedUser>> get markedUsersOption =>
-      throw _privateConstructorUsedError;
+  Option<KtList<MarkedUser>> get markedUsersOption;
   @override
-  bool get fetchingMarkedUsers => throw _privateConstructorUsedError;
+  bool get fetchingMarkedUsers;
   @override
-  Option<Either<TWServerError, Unit>> get resultOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<TWServerError, Unit>> get resultOption;
   @override
-  bool get submissionInProgress => throw _privateConstructorUsedError;
+  bool get submissionInProgress;
   @override
   @JsonKey(ignore: true)
   _$MarkUsersStateCopyWith<_MarkUsersState> get copyWith =>

@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,6 +37,11 @@ mixin _$InvoiceDescriptionFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? shortDescription,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String value)? shortDescription,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$InvoiceDescriptionFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShortInvoiceDescription value) shortDescription,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ShortInvoiceDescription value)? shortDescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -138,14 +149,14 @@ class _$ShortInvoiceDescription implements ShortInvoiceDescription {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ShortInvoiceDescription &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is ShortInvoiceDescription &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -159,6 +170,14 @@ class _$ShortInvoiceDescription implements ShortInvoiceDescription {
     required TResult Function(String value) shortDescription,
   }) {
     return shortDescription(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? shortDescription,
+  }) {
+    return shortDescription?.call(value);
   }
 
   @override
@@ -183,6 +202,14 @@ class _$ShortInvoiceDescription implements ShortInvoiceDescription {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ShortInvoiceDescription value)? shortDescription,
+  }) {
+    return shortDescription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShortInvoiceDescription value)? shortDescription,
     required TResult orElse(),
@@ -199,7 +226,7 @@ abstract class ShortInvoiceDescription implements InvoiceDescriptionFailure {
       _$ShortInvoiceDescription;
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   $ShortInvoiceDescriptionCopyWith<ShortInvoiceDescription> get copyWith =>

@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,6 +37,11 @@ mixin _$JobEndDateFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime date)? endDateBeforeStartDate,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? endDateBeforeStartDate,
     required TResult orElse(),
@@ -45,6 +51,11 @@ mixin _$JobEndDateFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(EndDateBeforeStartDate value)
         endDateBeforeStartDate,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(EndDateBeforeStartDate value)? endDateBeforeStartDate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -139,14 +150,14 @@ class _$EndDateBeforeStartDate implements EndDateBeforeStartDate {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is EndDateBeforeStartDate &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)));
+        (other.runtimeType == runtimeType &&
+            other is EndDateBeforeStartDate &&
+            const DeepCollectionEquality().equals(other.date, date));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
   @override
@@ -160,6 +171,14 @@ class _$EndDateBeforeStartDate implements EndDateBeforeStartDate {
     required TResult Function(DateTime date) endDateBeforeStartDate,
   }) {
     return endDateBeforeStartDate(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime date)? endDateBeforeStartDate,
+  }) {
+    return endDateBeforeStartDate?.call(date);
   }
 
   @override
@@ -185,6 +204,14 @@ class _$EndDateBeforeStartDate implements EndDateBeforeStartDate {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(EndDateBeforeStartDate value)? endDateBeforeStartDate,
+  }) {
+    return endDateBeforeStartDate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(EndDateBeforeStartDate value)? endDateBeforeStartDate,
     required TResult orElse(),
@@ -201,7 +228,7 @@ abstract class EndDateBeforeStartDate implements JobEndDateFailure {
       _$EndDateBeforeStartDate;
 
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get date;
   @override
   @JsonKey(ignore: true)
   $EndDateBeforeStartDateCopyWith<EndDateBeforeStartDate> get copyWith =>
@@ -232,6 +259,11 @@ mixin _$JobStartDateFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime date)? startDateBeforeToday,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? startDateBeforeToday,
     required TResult orElse(),
@@ -240,6 +272,11 @@ mixin _$JobStartDateFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(StartDateBeforeToday value) startDateBeforeToday,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(StartDateBeforeToday value)? startDateBeforeToday,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -334,14 +371,14 @@ class _$StartDateBeforeToday implements StartDateBeforeToday {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is StartDateBeforeToday &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)));
+        (other.runtimeType == runtimeType &&
+            other is StartDateBeforeToday &&
+            const DeepCollectionEquality().equals(other.date, date));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
   @override
@@ -355,6 +392,14 @@ class _$StartDateBeforeToday implements StartDateBeforeToday {
     required TResult Function(DateTime date) startDateBeforeToday,
   }) {
     return startDateBeforeToday(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime date)? startDateBeforeToday,
+  }) {
+    return startDateBeforeToday?.call(date);
   }
 
   @override
@@ -379,6 +424,14 @@ class _$StartDateBeforeToday implements StartDateBeforeToday {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(StartDateBeforeToday value)? startDateBeforeToday,
+  }) {
+    return startDateBeforeToday?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StartDateBeforeToday value)? startDateBeforeToday,
     required TResult orElse(),
@@ -394,7 +447,7 @@ abstract class StartDateBeforeToday implements JobStartDateFailure {
   const factory StartDateBeforeToday(DateTime date) = _$StartDateBeforeToday;
 
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get date;
   @override
   @JsonKey(ignore: true)
   $StartDateBeforeTodayCopyWith<StartDateBeforeToday> get copyWith =>

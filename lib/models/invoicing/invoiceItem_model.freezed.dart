@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -39,7 +40,7 @@ class _$InvoiceItemTearOff {
     );
   }
 
-  InvoiceItem fromJson(Map<String, Object> json) {
+  InvoiceItem fromJson(Map<String, Object?> json) {
     return InvoiceItem.fromJson(json);
   }
 }
@@ -238,38 +239,29 @@ class _$_InvoiceItem extends _InvoiceItem {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _InvoiceItem &&
-            (identical(other.itemName, itemName) ||
-                const DeepCollectionEquality()
-                    .equals(other.itemName, itemName)) &&
-            (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
-            (identical(other.qty, qty) ||
-                const DeepCollectionEquality().equals(other.qty, qty)) &&
-            (identical(other.unitPrice, unitPrice) ||
-                const DeepCollectionEquality()
-                    .equals(other.unitPrice, unitPrice)) &&
-            (identical(other.taxRate, taxRate) ||
-                const DeepCollectionEquality()
-                    .equals(other.taxRate, taxRate)) &&
-            (identical(other.receiptPhotoId, receiptPhotoId) ||
-                const DeepCollectionEquality()
-                    .equals(other.receiptPhotoId, receiptPhotoId)) &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)));
+        (other.runtimeType == runtimeType &&
+            other is _InvoiceItem &&
+            const DeepCollectionEquality().equals(other.itemName, itemName) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality().equals(other.qty, qty) &&
+            const DeepCollectionEquality().equals(other.unitPrice, unitPrice) &&
+            const DeepCollectionEquality().equals(other.taxRate, taxRate) &&
+            const DeepCollectionEquality()
+                .equals(other.receiptPhotoId, receiptPhotoId) &&
+            const DeepCollectionEquality().equals(other.date, date));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(itemName) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(qty) ^
-      const DeepCollectionEquality().hash(unitPrice) ^
-      const DeepCollectionEquality().hash(taxRate) ^
-      const DeepCollectionEquality().hash(receiptPhotoId) ^
-      const DeepCollectionEquality().hash(date);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(itemName),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(qty),
+      const DeepCollectionEquality().hash(unitPrice),
+      const DeepCollectionEquality().hash(taxRate),
+      const DeepCollectionEquality().hash(receiptPhotoId),
+      const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
   @override
@@ -297,19 +289,19 @@ abstract class _InvoiceItem extends InvoiceItem {
       _$_InvoiceItem.fromJson;
 
   @override
-  String get itemName => throw _privateConstructorUsedError;
+  String get itemName;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
-  double get qty => throw _privateConstructorUsedError;
+  double get qty;
   @override
-  double get unitPrice => throw _privateConstructorUsedError;
+  double get unitPrice;
   @override
-  double get taxRate => throw _privateConstructorUsedError;
+  double get taxRate;
   @override
-  String? get receiptPhotoId => throw _privateConstructorUsedError;
+  String? get receiptPhotoId;
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get date;
   @override
   @JsonKey(ignore: true)
   _$InvoiceItemCopyWith<_InvoiceItem> get copyWith =>

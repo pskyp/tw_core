@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -32,6 +33,11 @@ mixin _$ApplyTenderFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     required TResult orElse(),
@@ -40,6 +46,11 @@ mixin _$ApplyTenderFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ServerErrorApplyTender value) serverError,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerErrorApplyTender value)? serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -98,7 +109,8 @@ class _$ServerErrorApplyTender implements ServerErrorApplyTender {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ServerErrorApplyTender);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ServerErrorApplyTender);
   }
 
   @override
@@ -110,6 +122,14 @@ class _$ServerErrorApplyTender implements ServerErrorApplyTender {
     required TResult Function() serverError,
   }) {
     return serverError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+  }) {
+    return serverError?.call();
   }
 
   @override
@@ -130,6 +150,14 @@ class _$ServerErrorApplyTender implements ServerErrorApplyTender {
     required TResult Function(ServerErrorApplyTender value) serverError,
   }) {
     return serverError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerErrorApplyTender value)? serverError,
+  }) {
+    return serverError?.call(this);
   }
 
   @override

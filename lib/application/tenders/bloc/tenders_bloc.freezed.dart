@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -51,6 +52,13 @@ mixin _$TendersEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Tender> tenders)? tendersStreamUpdated,
+    TResult Function(List<TenderBid> tenderBids)? tenderBidsStreamUpdated,
+    TResult Function(List<Supplement> supplements)? supplementsStreamUpdated,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Tender> tenders)? tendersStreamUpdated,
     TResult Function(List<TenderBid> tenderBids)? tenderBidsStreamUpdated,
@@ -65,6 +73,13 @@ mixin _$TendersEvent {
         tenderBidsStreamUpdated,
     required TResult Function(SupplementsStreamUpdated value)
         supplementsStreamUpdated,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TendersStreamUpdated value)? tendersStreamUpdated,
+    TResult Function(TenderBidsStreamUpdated value)? tenderBidsStreamUpdated,
+    TResult Function(SupplementsStreamUpdated value)? supplementsStreamUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -141,14 +156,14 @@ class _$TendersStreamUpdated implements TendersStreamUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is TendersStreamUpdated &&
-            (identical(other.tenders, tenders) ||
-                const DeepCollectionEquality().equals(other.tenders, tenders)));
+        (other.runtimeType == runtimeType &&
+            other is TendersStreamUpdated &&
+            const DeepCollectionEquality().equals(other.tenders, tenders));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(tenders);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(tenders));
 
   @JsonKey(ignore: true)
   @override
@@ -166,6 +181,16 @@ class _$TendersStreamUpdated implements TendersStreamUpdated {
         supplementsStreamUpdated,
   }) {
     return tendersStreamUpdated(tenders);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Tender> tenders)? tendersStreamUpdated,
+    TResult Function(List<TenderBid> tenderBids)? tenderBidsStreamUpdated,
+    TResult Function(List<Supplement> supplements)? supplementsStreamUpdated,
+  }) {
+    return tendersStreamUpdated?.call(tenders);
   }
 
   @override
@@ -196,6 +221,16 @@ class _$TendersStreamUpdated implements TendersStreamUpdated {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TendersStreamUpdated value)? tendersStreamUpdated,
+    TResult Function(TenderBidsStreamUpdated value)? tenderBidsStreamUpdated,
+    TResult Function(SupplementsStreamUpdated value)? supplementsStreamUpdated,
+  }) {
+    return tendersStreamUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TendersStreamUpdated value)? tendersStreamUpdated,
     TResult Function(TenderBidsStreamUpdated value)? tenderBidsStreamUpdated,
@@ -213,7 +248,7 @@ abstract class TendersStreamUpdated implements TendersEvent {
   const factory TendersStreamUpdated(List<Tender> tenders) =
       _$TendersStreamUpdated;
 
-  List<Tender> get tenders => throw _privateConstructorUsedError;
+  List<Tender> get tenders;
   @JsonKey(ignore: true)
   $TendersStreamUpdatedCopyWith<TendersStreamUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -267,15 +302,15 @@ class _$TenderBidsStreamUpdated implements TenderBidsStreamUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is TenderBidsStreamUpdated &&
-            (identical(other.tenderBids, tenderBids) ||
-                const DeepCollectionEquality()
-                    .equals(other.tenderBids, tenderBids)));
+        (other.runtimeType == runtimeType &&
+            other is TenderBidsStreamUpdated &&
+            const DeepCollectionEquality()
+                .equals(other.tenderBids, tenderBids));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(tenderBids);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(tenderBids));
 
   @JsonKey(ignore: true)
   @override
@@ -293,6 +328,16 @@ class _$TenderBidsStreamUpdated implements TenderBidsStreamUpdated {
         supplementsStreamUpdated,
   }) {
     return tenderBidsStreamUpdated(tenderBids);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Tender> tenders)? tendersStreamUpdated,
+    TResult Function(List<TenderBid> tenderBids)? tenderBidsStreamUpdated,
+    TResult Function(List<Supplement> supplements)? supplementsStreamUpdated,
+  }) {
+    return tenderBidsStreamUpdated?.call(tenderBids);
   }
 
   @override
@@ -323,6 +368,16 @@ class _$TenderBidsStreamUpdated implements TenderBidsStreamUpdated {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TendersStreamUpdated value)? tendersStreamUpdated,
+    TResult Function(TenderBidsStreamUpdated value)? tenderBidsStreamUpdated,
+    TResult Function(SupplementsStreamUpdated value)? supplementsStreamUpdated,
+  }) {
+    return tenderBidsStreamUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TendersStreamUpdated value)? tendersStreamUpdated,
     TResult Function(TenderBidsStreamUpdated value)? tenderBidsStreamUpdated,
@@ -340,7 +395,7 @@ abstract class TenderBidsStreamUpdated implements TendersEvent {
   const factory TenderBidsStreamUpdated(List<TenderBid> tenderBids) =
       _$TenderBidsStreamUpdated;
 
-  List<TenderBid> get tenderBids => throw _privateConstructorUsedError;
+  List<TenderBid> get tenderBids;
   @JsonKey(ignore: true)
   $TenderBidsStreamUpdatedCopyWith<TenderBidsStreamUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -395,15 +450,15 @@ class _$SupplementsStreamUpdated implements SupplementsStreamUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SupplementsStreamUpdated &&
-            (identical(other.supplements, supplements) ||
-                const DeepCollectionEquality()
-                    .equals(other.supplements, supplements)));
+        (other.runtimeType == runtimeType &&
+            other is SupplementsStreamUpdated &&
+            const DeepCollectionEquality()
+                .equals(other.supplements, supplements));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(supplements);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(supplements));
 
   @JsonKey(ignore: true)
   @override
@@ -421,6 +476,16 @@ class _$SupplementsStreamUpdated implements SupplementsStreamUpdated {
         supplementsStreamUpdated,
   }) {
     return supplementsStreamUpdated(supplements);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Tender> tenders)? tendersStreamUpdated,
+    TResult Function(List<TenderBid> tenderBids)? tenderBidsStreamUpdated,
+    TResult Function(List<Supplement> supplements)? supplementsStreamUpdated,
+  }) {
+    return supplementsStreamUpdated?.call(supplements);
   }
 
   @override
@@ -451,6 +516,16 @@ class _$SupplementsStreamUpdated implements SupplementsStreamUpdated {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TendersStreamUpdated value)? tendersStreamUpdated,
+    TResult Function(TenderBidsStreamUpdated value)? tenderBidsStreamUpdated,
+    TResult Function(SupplementsStreamUpdated value)? supplementsStreamUpdated,
+  }) {
+    return supplementsStreamUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TendersStreamUpdated value)? tendersStreamUpdated,
     TResult Function(TenderBidsStreamUpdated value)? tenderBidsStreamUpdated,
@@ -468,7 +543,7 @@ abstract class SupplementsStreamUpdated implements TendersEvent {
   const factory SupplementsStreamUpdated(List<Supplement> supplements) =
       _$SupplementsStreamUpdated;
 
-  List<Supplement> get supplements => throw _privateConstructorUsedError;
+  List<Supplement> get supplements;
   @JsonKey(ignore: true)
   $SupplementsStreamUpdatedCopyWith<SupplementsStreamUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -618,24 +693,22 @@ class _$_TendersState extends _TendersState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TendersState &&
-            (identical(other.allTenders, allTenders) ||
-                const DeepCollectionEquality()
-                    .equals(other.allTenders, allTenders)) &&
-            (identical(other.allTenderBids, allTenderBids) ||
-                const DeepCollectionEquality()
-                    .equals(other.allTenderBids, allTenderBids)) &&
-            (identical(other.allSupplements, allSupplements) ||
-                const DeepCollectionEquality()
-                    .equals(other.allSupplements, allSupplements)));
+        (other.runtimeType == runtimeType &&
+            other is _TendersState &&
+            const DeepCollectionEquality()
+                .equals(other.allTenders, allTenders) &&
+            const DeepCollectionEquality()
+                .equals(other.allTenderBids, allTenderBids) &&
+            const DeepCollectionEquality()
+                .equals(other.allSupplements, allSupplements));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(allTenders) ^
-      const DeepCollectionEquality().hash(allTenderBids) ^
-      const DeepCollectionEquality().hash(allSupplements);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(allTenders),
+      const DeepCollectionEquality().hash(allTenderBids),
+      const DeepCollectionEquality().hash(allSupplements));
 
   @JsonKey(ignore: true)
   @override
@@ -651,13 +724,11 @@ abstract class _TendersState extends TendersState {
   const _TendersState._() : super._();
 
   @override
-  Option<List<Tender>> get allTenders => throw _privateConstructorUsedError;
+  Option<List<Tender>> get allTenders;
   @override
-  Option<List<TenderBid>> get allTenderBids =>
-      throw _privateConstructorUsedError;
+  Option<List<TenderBid>> get allTenderBids;
   @override
-  Option<List<Supplement>> get allSupplements =>
-      throw _privateConstructorUsedError;
+  Option<List<Supplement>> get allSupplements;
   @override
   @JsonKey(ignore: true)
   _$TendersStateCopyWith<_TendersState> get copyWith =>

@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,6 +37,11 @@ mixin _$DevDescriptionFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(dynamic val)? tooShort,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(dynamic val)? tooShort,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$DevDescriptionFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(TooShort value) tooShort,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TooShort value)? tooShort,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -133,14 +144,14 @@ class _$TooShort implements TooShort {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is TooShort &&
-            (identical(other.val, val) ||
-                const DeepCollectionEquality().equals(other.val, val)));
+        (other.runtimeType == runtimeType &&
+            other is TooShort &&
+            const DeepCollectionEquality().equals(other.val, val));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(val);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(val));
 
   @JsonKey(ignore: true)
   @override
@@ -153,6 +164,14 @@ class _$TooShort implements TooShort {
     required TResult Function(dynamic val) tooShort,
   }) {
     return tooShort(val);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(dynamic val)? tooShort,
+  }) {
+    return tooShort?.call(val);
   }
 
   @override
@@ -177,6 +196,14 @@ class _$TooShort implements TooShort {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TooShort value)? tooShort,
+  }) {
+    return tooShort?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TooShort value)? tooShort,
     required TResult orElse(),
@@ -192,7 +219,7 @@ abstract class TooShort implements DevDescriptionFailure {
   const factory TooShort(dynamic val) = _$TooShort;
 
   @override
-  dynamic get val => throw _privateConstructorUsedError;
+  dynamic get val;
   @override
   @JsonKey(ignore: true)
   $TooShortCopyWith<TooShort> get copyWith =>

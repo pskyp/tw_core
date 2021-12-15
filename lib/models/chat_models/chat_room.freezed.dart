@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -35,7 +36,7 @@ class _$ChatRoomTearOff {
     );
   }
 
-  ChatRoom fromJson(Map<String, Object> json) {
+  ChatRoom fromJson(Map<String, Object?> json) {
     return ChatRoom.fromJson(json);
   }
 }
@@ -209,32 +210,27 @@ class _$_ChatRoom implements _ChatRoom {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChatRoom &&
-            (identical(other.chatRoomId, chatRoomId) ||
-                const DeepCollectionEquality()
-                    .equals(other.chatRoomId, chatRoomId)) &&
-            (identical(other.bidIdentifier, bidIdentifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.bidIdentifier, bidIdentifier)) &&
-            (identical(other.participantUIDs, participantUIDs) ||
-                const DeepCollectionEquality()
-                    .equals(other.participantUIDs, participantUIDs)) &&
-            (identical(other.lastChatItem, lastChatItem) ||
-                const DeepCollectionEquality()
-                    .equals(other.lastChatItem, lastChatItem)) &&
-            (identical(other.chatType, chatType) ||
-                const DeepCollectionEquality()
-                    .equals(other.chatType, chatType)));
+        (other.runtimeType == runtimeType &&
+            other is _ChatRoom &&
+            const DeepCollectionEquality()
+                .equals(other.chatRoomId, chatRoomId) &&
+            const DeepCollectionEquality()
+                .equals(other.bidIdentifier, bidIdentifier) &&
+            const DeepCollectionEquality()
+                .equals(other.participantUIDs, participantUIDs) &&
+            const DeepCollectionEquality()
+                .equals(other.lastChatItem, lastChatItem) &&
+            const DeepCollectionEquality().equals(other.chatType, chatType));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(chatRoomId) ^
-      const DeepCollectionEquality().hash(bidIdentifier) ^
-      const DeepCollectionEquality().hash(participantUIDs) ^
-      const DeepCollectionEquality().hash(lastChatItem) ^
-      const DeepCollectionEquality().hash(chatType);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(chatRoomId),
+      const DeepCollectionEquality().hash(bidIdentifier),
+      const DeepCollectionEquality().hash(participantUIDs),
+      const DeepCollectionEquality().hash(lastChatItem),
+      const DeepCollectionEquality().hash(chatType));
 
   @JsonKey(ignore: true)
   @override
@@ -258,15 +254,15 @@ abstract class _ChatRoom implements ChatRoom {
   factory _ChatRoom.fromJson(Map<String, dynamic> json) = _$_ChatRoom.fromJson;
 
   @override
-  String get chatRoomId => throw _privateConstructorUsedError;
+  String get chatRoomId;
   @override
-  BidIdentifier get bidIdentifier => throw _privateConstructorUsedError;
+  BidIdentifier get bidIdentifier;
   @override
-  List<String> get participantUIDs => throw _privateConstructorUsedError;
+  List<String> get participantUIDs;
   @override
-  ChatItem? get lastChatItem => throw _privateConstructorUsedError;
+  ChatItem? get lastChatItem;
   @override
-  ChatType get chatType => throw _privateConstructorUsedError;
+  ChatType get chatType;
   @override
   @JsonKey(ignore: true)
   _$ChatRoomCopyWith<_ChatRoom> get copyWith =>

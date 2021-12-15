@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,7 +37,7 @@ class _$SubbieInvoicingDetailsTearOff {
     );
   }
 
-  SubbieInvoicingDetails fromJson(Map<String, Object> json) {
+  SubbieInvoicingDetails fromJson(Map<String, Object?> json) {
     return SubbieInvoicingDetails.fromJson(json);
   }
 }
@@ -204,32 +205,27 @@ class _$_SubbieInvoicingDetails implements _SubbieInvoicingDetails {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SubbieInvoicingDetails &&
-            (identical(other.vatNumber, vatNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.vatNumber, vatNumber)) &&
-            (identical(other.tradingName, tradingName) ||
-                const DeepCollectionEquality()
-                    .equals(other.tradingName, tradingName)) &&
-            (identical(other.companyNumber, companyNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.companyNumber, companyNumber)) &&
-            (identical(other.registeredAddress, registeredAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.registeredAddress, registeredAddress)) &&
-            (identical(other.invoicingAddress, invoicingAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.invoicingAddress, invoicingAddress)));
+        (other.runtimeType == runtimeType &&
+            other is _SubbieInvoicingDetails &&
+            const DeepCollectionEquality().equals(other.vatNumber, vatNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.tradingName, tradingName) &&
+            const DeepCollectionEquality()
+                .equals(other.companyNumber, companyNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.registeredAddress, registeredAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.invoicingAddress, invoicingAddress));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(vatNumber) ^
-      const DeepCollectionEquality().hash(tradingName) ^
-      const DeepCollectionEquality().hash(companyNumber) ^
-      const DeepCollectionEquality().hash(registeredAddress) ^
-      const DeepCollectionEquality().hash(invoicingAddress);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(vatNumber),
+      const DeepCollectionEquality().hash(tradingName),
+      const DeepCollectionEquality().hash(companyNumber),
+      const DeepCollectionEquality().hash(registeredAddress),
+      const DeepCollectionEquality().hash(invoicingAddress));
 
   @JsonKey(ignore: true)
   @override
@@ -255,15 +251,15 @@ abstract class _SubbieInvoicingDetails implements SubbieInvoicingDetails {
       _$_SubbieInvoicingDetails.fromJson;
 
   @override
-  String get vatNumber => throw _privateConstructorUsedError;
+  String get vatNumber;
   @override
-  String get tradingName => throw _privateConstructorUsedError;
+  String get tradingName;
   @override
-  String get companyNumber => throw _privateConstructorUsedError;
+  String get companyNumber;
   @override
-  LocationModel get registeredAddress => throw _privateConstructorUsedError;
+  LocationModel get registeredAddress;
   @override
-  LocationModel get invoicingAddress => throw _privateConstructorUsedError;
+  LocationModel get invoicingAddress;
   @override
   @JsonKey(ignore: true)
   _$SubbieInvoicingDetailsCopyWith<_SubbieInvoicingDetails> get copyWith =>

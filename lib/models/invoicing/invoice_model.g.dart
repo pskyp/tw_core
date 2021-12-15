@@ -29,7 +29,7 @@ _$_Invoice _$$_InvoiceFromJson(Map<String, dynamic> json) => _$_Invoice(
       amountPayable: (json['amountPayable'] as num).toDouble(),
       netAmount: (json['netAmount'] as num).toDouble(),
       totalTax: (json['totalTax'] as num).toDouble(),
-      status: _$enumDecode(_$InvoiceStatusEnumMap, json['status']),
+      status: $enumDecode(_$InvoiceStatusEnumMap, json['status']),
       invoiceAddress: json['invoiceAddress'] as String,
       development: json['development'] as String,
     );
@@ -58,32 +58,6 @@ Map<String, dynamic> _$$_InvoiceToJson(_$_Invoice instance) =>
       'invoiceAddress': instance.invoiceAddress,
       'development': instance.development,
     };
-
-K _$enumDecode<K, V>(
-  Map<K, V> enumValues,
-  Object? source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError(
-      'A value must be provided. Supported values: '
-      '${enumValues.values.join(', ')}',
-    );
-  }
-
-  return enumValues.entries.singleWhere(
-    (e) => e.value == source,
-    orElse: () {
-      if (unknownValue == null) {
-        throw ArgumentError(
-          '`$source` is not one of the supported values: '
-          '${enumValues.values.join(', ')}',
-        );
-      }
-      return MapEntry(unknownValue, enumValues.values.first);
-    },
-  ).key;
-}
 
 const _$InvoiceStatusEnumMap = {
   InvoiceStatus.draft: 'draft',

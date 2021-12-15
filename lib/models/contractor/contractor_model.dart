@@ -21,6 +21,7 @@ class Contractor with _$Contractor {
     required bool subscribed,
     required DateTime subscriptionToggledOn,
     required ContractorCompanyDetails? companyDetails,
+    // BankDetails
     UserBio? userBio,
     TWDocument? portfolioDocument,
   }) = _Contractor;

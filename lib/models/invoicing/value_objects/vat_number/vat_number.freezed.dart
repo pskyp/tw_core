@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,6 +37,11 @@ mixin _$VATNumberFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String val)? invalid,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String val)? invalid,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$VATNumberFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Ivalid value) invalid,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Ivalid value)? invalid,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -135,14 +146,14 @@ class _$Ivalid implements Ivalid {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Ivalid &&
-            (identical(other.val, val) ||
-                const DeepCollectionEquality().equals(other.val, val)));
+        (other.runtimeType == runtimeType &&
+            other is Ivalid &&
+            const DeepCollectionEquality().equals(other.val, val));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(val);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(val));
 
   @JsonKey(ignore: true)
   @override
@@ -155,6 +166,14 @@ class _$Ivalid implements Ivalid {
     required TResult Function(String val) invalid,
   }) {
     return invalid(val);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String val)? invalid,
+  }) {
+    return invalid?.call(val);
   }
 
   @override
@@ -179,6 +198,14 @@ class _$Ivalid implements Ivalid {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Ivalid value)? invalid,
+  }) {
+    return invalid?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Ivalid value)? invalid,
     required TResult orElse(),
@@ -194,7 +221,7 @@ abstract class Ivalid implements VATNumberFailure {
   const factory Ivalid(String val) = _$Ivalid;
 
   @override
-  String get val => throw _privateConstructorUsedError;
+  String get val;
   @override
   @JsonKey(ignore: true)
   $IvalidCopyWith<Ivalid> get copyWith => throw _privateConstructorUsedError;

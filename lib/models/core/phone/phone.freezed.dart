@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,6 +37,11 @@ mixin _$PhoneValueFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? invalidPhone,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String value)? invalidPhone,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$PhoneValueFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidPhone value) invalidPhone,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidPhone value)? invalidPhone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -138,14 +149,14 @@ class _$InvalidPhone implements InvalidPhone {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is InvalidPhone &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is InvalidPhone &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -158,6 +169,14 @@ class _$InvalidPhone implements InvalidPhone {
     required TResult Function(String value) invalidPhone,
   }) {
     return invalidPhone(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? invalidPhone,
+  }) {
+    return invalidPhone?.call(value);
   }
 
   @override
@@ -182,6 +201,14 @@ class _$InvalidPhone implements InvalidPhone {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidPhone value)? invalidPhone,
+  }) {
+    return invalidPhone?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidPhone value)? invalidPhone,
     required TResult orElse(),
@@ -197,7 +224,7 @@ abstract class InvalidPhone implements PhoneValueFailure {
   const factory InvalidPhone(String value) = _$InvalidPhone;
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   $InvalidPhoneCopyWith<InvalidPhone> get copyWith =>

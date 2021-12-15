@@ -7,6 +7,10 @@ part of 'subbie_model.dart';
 // **************************************************************************
 
 Subbie _$SubbieFromJson(Map<String, dynamic> json) => Subbie(
+      userBankDetails: json['userBankDetails'] == null
+          ? null
+          : UserBankDetails.fromJson(
+              json['userBankDetails'] as Map<String, dynamic>),
       invoicingDetails: json['invoicingDetails'] == null
           ? null
           : SubbieInvoicingDetails.fromJson(
@@ -40,6 +44,7 @@ Map<String, dynamic> _$SubbieToJson(Subbie instance) => <String, dynamic>{
       'invoicingDetails': instance.invoicingDetails?.toJson(),
       'subscriptionToggledOn': instance.subscriptionToggledOn.toIso8601String(),
       'selectedTrades': instance.selectedTrades.map((e) => e.toJson()).toList(),
+      'userBankDetails': instance.userBankDetails?.toJson(),
       'totalServiceQuality': instance.totalServiceQuality,
       'totalProfessionalism': instance.totalProfessionalism,
       'totalTimeManagement': instance.totalTimeManagement,

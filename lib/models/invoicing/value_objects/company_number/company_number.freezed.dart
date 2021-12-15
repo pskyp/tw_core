@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,6 +37,11 @@ mixin _$CompanyNumberFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String input)? tooShort,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String input)? tooShort,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$CompanyNumberFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(TooShort value) tooShort,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TooShort value)? tooShort,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -136,14 +147,14 @@ class _$TooShort implements TooShort {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is TooShort &&
-            (identical(other.input, input) ||
-                const DeepCollectionEquality().equals(other.input, input)));
+        (other.runtimeType == runtimeType &&
+            other is TooShort &&
+            const DeepCollectionEquality().equals(other.input, input));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(input);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(input));
 
   @JsonKey(ignore: true)
   @override
@@ -156,6 +167,14 @@ class _$TooShort implements TooShort {
     required TResult Function(String input) tooShort,
   }) {
     return tooShort(input);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String input)? tooShort,
+  }) {
+    return tooShort?.call(input);
   }
 
   @override
@@ -180,6 +199,14 @@ class _$TooShort implements TooShort {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(TooShort value)? tooShort,
+  }) {
+    return tooShort?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TooShort value)? tooShort,
     required TResult orElse(),
@@ -195,7 +222,7 @@ abstract class TooShort implements CompanyNumberFailure {
   const factory TooShort(String input) = _$TooShort;
 
   @override
-  String get input => throw _privateConstructorUsedError;
+  String get input;
   @override
   @JsonKey(ignore: true)
   $TooShortCopyWith<TooShort> get copyWith =>

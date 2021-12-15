@@ -8,7 +8,7 @@ part of 'tw_document.dart';
 
 _$TWDocumentData _$$TWDocumentDataFromJson(Map<String, dynamic> json) =>
     _$TWDocumentData(
-      type: _$enumDecode(_$TWDocTypeEnumMap, json['type']),
+      type: $enumDecode(_$TWDocTypeEnumMap, json['type']),
       typeId: json['typeId'] as String,
       documentID: json['documentID'] as String,
       docName: json['docName'] as String,
@@ -19,7 +19,7 @@ _$TWDocumentData _$$TWDocumentDataFromJson(Map<String, dynamic> json) =>
       seenByUsers: (json['seenByUsers'] as List<dynamic>?)
               ?.map((e) => TWUser.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          [],
+          const <TWUser>[],
       deleted: json['deleted'] as bool? ?? false,
     );
 
@@ -36,32 +36,6 @@ Map<String, dynamic> _$$TWDocumentDataToJson(_$TWDocumentData instance) =>
       'seenByUsers': instance.seenByUsers.map((e) => e.toJson()).toList(),
       'deleted': instance.deleted,
     };
-
-K _$enumDecode<K, V>(
-  Map<K, V> enumValues,
-  Object? source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError(
-      'A value must be provided. Supported values: '
-      '${enumValues.values.join(', ')}',
-    );
-  }
-
-  return enumValues.entries.singleWhere(
-    (e) => e.value == source,
-    orElse: () {
-      if (unknownValue == null) {
-        throw ArgumentError(
-          '`$source` is not one of the supported values: '
-          '${enumValues.values.join(', ')}',
-        );
-      }
-      return MapEntry(unknownValue, enumValues.values.first);
-    },
-  ).key;
-}
 
 const _$TWDocTypeEnumMap = {
   TWDocType.Dev: 'Dev',

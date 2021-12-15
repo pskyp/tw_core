@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,6 +37,11 @@ mixin _$CompanyNameFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String input)? shortCompanyName,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String input)? shortCompanyName,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$CompanyNameFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShortCompanyName value) shortCompanyName,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ShortCompanyName value)? shortCompanyName,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -138,14 +149,14 @@ class _$ShortCompanyName implements ShortCompanyName {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ShortCompanyName &&
-            (identical(other.input, input) ||
-                const DeepCollectionEquality().equals(other.input, input)));
+        (other.runtimeType == runtimeType &&
+            other is ShortCompanyName &&
+            const DeepCollectionEquality().equals(other.input, input));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(input);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(input));
 
   @JsonKey(ignore: true)
   @override
@@ -158,6 +169,14 @@ class _$ShortCompanyName implements ShortCompanyName {
     required TResult Function(String input) shortCompanyName,
   }) {
     return shortCompanyName(input);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String input)? shortCompanyName,
+  }) {
+    return shortCompanyName?.call(input);
   }
 
   @override
@@ -182,6 +201,14 @@ class _$ShortCompanyName implements ShortCompanyName {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ShortCompanyName value)? shortCompanyName,
+  }) {
+    return shortCompanyName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ShortCompanyName value)? shortCompanyName,
     required TResult orElse(),
@@ -197,7 +224,7 @@ abstract class ShortCompanyName implements CompanyNameFailure {
   const factory ShortCompanyName(String input) = _$ShortCompanyName;
 
   @override
-  String get input => throw _privateConstructorUsedError;
+  String get input;
   @override
   @JsonKey(ignore: true)
   $ShortCompanyNameCopyWith<ShortCompanyName> get copyWith =>

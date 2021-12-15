@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -39,6 +40,12 @@ mixin _$BioInputEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String input)? coverLetterInpput,
+    TResult Function()? submitPressed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String input)? coverLetterInpput,
     TResult Function()? submitPressed,
@@ -49,6 +56,12 @@ mixin _$BioInputEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(CoverLetterInput value) coverLetterInpput,
     required TResult Function(SubmitPressed value) submitPressed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CoverLetterInput value)? coverLetterInpput,
+    TResult Function(SubmitPressed value)? submitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -125,14 +138,14 @@ class _$CoverLetterInput implements CoverLetterInput {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is CoverLetterInput &&
-            (identical(other.input, input) ||
-                const DeepCollectionEquality().equals(other.input, input)));
+        (other.runtimeType == runtimeType &&
+            other is CoverLetterInput &&
+            const DeepCollectionEquality().equals(other.input, input));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(input);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(input));
 
   @JsonKey(ignore: true)
   @override
@@ -146,6 +159,15 @@ class _$CoverLetterInput implements CoverLetterInput {
     required TResult Function() submitPressed,
   }) {
     return coverLetterInpput(input);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String input)? coverLetterInpput,
+    TResult Function()? submitPressed,
+  }) {
+    return coverLetterInpput?.call(input);
   }
 
   @override
@@ -172,6 +194,15 @@ class _$CoverLetterInput implements CoverLetterInput {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CoverLetterInput value)? coverLetterInpput,
+    TResult Function(SubmitPressed value)? submitPressed,
+  }) {
+    return coverLetterInpput?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CoverLetterInput value)? coverLetterInpput,
     TResult Function(SubmitPressed value)? submitPressed,
@@ -187,7 +218,7 @@ class _$CoverLetterInput implements CoverLetterInput {
 abstract class CoverLetterInput implements BioInputEvent {
   const factory CoverLetterInput(String input) = _$CoverLetterInput;
 
-  String get input => throw _privateConstructorUsedError;
+  String get input;
   @JsonKey(ignore: true)
   $CoverLetterInputCopyWith<CoverLetterInput> get copyWith =>
       throw _privateConstructorUsedError;
@@ -224,7 +255,8 @@ class _$SubmitPressed implements SubmitPressed {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SubmitPressed);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SubmitPressed);
   }
 
   @override
@@ -237,6 +269,15 @@ class _$SubmitPressed implements SubmitPressed {
     required TResult Function() submitPressed,
   }) {
     return submitPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String input)? coverLetterInpput,
+    TResult Function()? submitPressed,
+  }) {
+    return submitPressed?.call();
   }
 
   @override
@@ -259,6 +300,15 @@ class _$SubmitPressed implements SubmitPressed {
     required TResult Function(SubmitPressed value) submitPressed,
   }) {
     return submitPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(CoverLetterInput value)? coverLetterInpput,
+    TResult Function(SubmitPressed value)? submitPressed,
+  }) {
+    return submitPressed?.call(this);
   }
 
   @override
@@ -441,28 +491,25 @@ class _$_BioInputState implements _BioInputState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _BioInputState &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
-            (identical(other.submissionInProgress, submissionInProgress) ||
-                const DeepCollectionEquality().equals(
-                    other.submissionInProgress, submissionInProgress)) &&
-            (identical(other.resultOption, resultOption) ||
-                const DeepCollectionEquality()
-                    .equals(other.resultOption, resultOption)) &&
-            (identical(other.coverLetter, coverLetter) ||
-                const DeepCollectionEquality()
-                    .equals(other.coverLetter, coverLetter)));
+        (other.runtimeType == runtimeType &&
+            other is _BioInputState &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality()
+                .equals(other.submissionInProgress, submissionInProgress) &&
+            const DeepCollectionEquality()
+                .equals(other.resultOption, resultOption) &&
+            const DeepCollectionEquality()
+                .equals(other.coverLetter, coverLetter));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(submissionInProgress) ^
-      const DeepCollectionEquality().hash(resultOption) ^
-      const DeepCollectionEquality().hash(coverLetter);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(submissionInProgress),
+      const DeepCollectionEquality().hash(resultOption),
+      const DeepCollectionEquality().hash(coverLetter));
 
   @JsonKey(ignore: true)
   @override
@@ -478,14 +525,13 @@ abstract class _BioInputState implements BioInputState {
       required TWString coverLetter}) = _$_BioInputState;
 
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get showErrorMessages;
   @override
-  bool get submissionInProgress => throw _privateConstructorUsedError;
+  bool get submissionInProgress;
   @override
-  Option<Either<TWServerError, Unit>> get resultOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<TWServerError, Unit>> get resultOption;
   @override
-  TWString get coverLetter => throw _privateConstructorUsedError;
+  TWString get coverLetter;
   @override
   @JsonKey(ignore: true)
   _$BioInputStateCopyWith<_BioInputState> get copyWith =>

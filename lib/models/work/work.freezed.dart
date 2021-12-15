@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -35,7 +36,7 @@ class _$BidIdentifierTearOff {
     );
   }
 
-  BidIdentifier fromJson(Map<String, Object> json) {
+  BidIdentifier fromJson(Map<String, Object?> json) {
     return BidIdentifier.fromJson(json);
   }
 }
@@ -215,29 +216,24 @@ class _$_BidIdentifier implements _BidIdentifier {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _BidIdentifier &&
-            (identical(other.bidId, bidId) ||
-                const DeepCollectionEquality().equals(other.bidId, bidId)) &&
-            (identical(other.workIdentifier, workIdentifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.workIdentifier, workIdentifier)) &&
-            (identical(other.bidder, bidder) ||
-                const DeepCollectionEquality().equals(other.bidder, bidder)) &&
-            (identical(other.appliedOn, appliedOn) ||
-                const DeepCollectionEquality()
-                    .equals(other.appliedOn, appliedOn)) &&
-            (identical(other.bidType, bidType) ||
-                const DeepCollectionEquality().equals(other.bidType, bidType)));
+        (other.runtimeType == runtimeType &&
+            other is _BidIdentifier &&
+            const DeepCollectionEquality().equals(other.bidId, bidId) &&
+            const DeepCollectionEquality()
+                .equals(other.workIdentifier, workIdentifier) &&
+            const DeepCollectionEquality().equals(other.bidder, bidder) &&
+            const DeepCollectionEquality().equals(other.appliedOn, appliedOn) &&
+            const DeepCollectionEquality().equals(other.bidType, bidType));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(bidId) ^
-      const DeepCollectionEquality().hash(workIdentifier) ^
-      const DeepCollectionEquality().hash(bidder) ^
-      const DeepCollectionEquality().hash(appliedOn) ^
-      const DeepCollectionEquality().hash(bidType);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(bidId),
+      const DeepCollectionEquality().hash(workIdentifier),
+      const DeepCollectionEquality().hash(bidder),
+      const DeepCollectionEquality().hash(appliedOn),
+      const DeepCollectionEquality().hash(bidType));
 
   @JsonKey(ignore: true)
   @override
@@ -262,15 +258,15 @@ abstract class _BidIdentifier implements BidIdentifier {
       _$_BidIdentifier.fromJson;
 
   @override
-  String get bidId => throw _privateConstructorUsedError;
+  String get bidId;
   @override
-  WorkIdentifier get workIdentifier => throw _privateConstructorUsedError;
+  WorkIdentifier get workIdentifier;
   @override
-  TWUser get bidder => throw _privateConstructorUsedError;
+  TWUser get bidder;
   @override
-  DateTime get appliedOn => throw _privateConstructorUsedError;
+  DateTime get appliedOn;
   @override
-  BidType get bidType => throw _privateConstructorUsedError;
+  BidType get bidType;
   @override
   @JsonKey(ignore: true)
   _$BidIdentifierCopyWith<_BidIdentifier> get copyWith =>
@@ -300,7 +296,7 @@ class _$WorkIdentifierTearOff {
     );
   }
 
-  WorkIdentifier fromJson(Map<String, Object> json) {
+  WorkIdentifier fromJson(Map<String, Object?> json) {
     return WorkIdentifier.fromJson(json);
   }
 }
@@ -482,29 +478,24 @@ class _$_WorkIdentifier implements _WorkIdentifier {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _WorkIdentifier &&
-            (identical(other.developmentIdentifier, developmentIdentifier) ||
-                const DeepCollectionEquality().equals(
-                    other.developmentIdentifier, developmentIdentifier)) &&
-            (identical(other.workId, workId) ||
-                const DeepCollectionEquality().equals(other.workId, workId)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.employer, employer) ||
-                const DeepCollectionEquality()
-                    .equals(other.employer, employer)) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)));
+        (other.runtimeType == runtimeType &&
+            other is _WorkIdentifier &&
+            const DeepCollectionEquality()
+                .equals(other.developmentIdentifier, developmentIdentifier) &&
+            const DeepCollectionEquality().equals(other.workId, workId) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.employer, employer) &&
+            const DeepCollectionEquality().equals(other.type, type));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(developmentIdentifier) ^
-      const DeepCollectionEquality().hash(workId) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(employer) ^
-      const DeepCollectionEquality().hash(type);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(developmentIdentifier),
+      const DeepCollectionEquality().hash(workId),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(employer),
+      const DeepCollectionEquality().hash(type));
 
   @JsonKey(ignore: true)
   @override
@@ -529,16 +520,15 @@ abstract class _WorkIdentifier implements WorkIdentifier {
       _$_WorkIdentifier.fromJson;
 
   @override
-  DevelopmentIdentifier get developmentIdentifier =>
-      throw _privateConstructorUsedError;
+  DevelopmentIdentifier get developmentIdentifier;
   @override
-  String get workId => throw _privateConstructorUsedError;
+  String get workId;
   @override
-  String get title => throw _privateConstructorUsedError;
+  String get title;
   @override
-  TWUser get employer => throw _privateConstructorUsedError;
+  TWUser get employer;
   @override
-  WorkType get type => throw _privateConstructorUsedError;
+  WorkType get type;
   @override
   @JsonKey(ignore: true)
   _$WorkIdentifierCopyWith<_WorkIdentifier> get copyWith =>

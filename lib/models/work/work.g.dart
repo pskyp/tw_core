@@ -13,7 +13,7 @@ _$_BidIdentifier _$$_BidIdentifierFromJson(Map<String, dynamic> json) =>
           json['workIdentifier'] as Map<String, dynamic>),
       bidder: TWUser.fromJson(json['bidder'] as Map<String, dynamic>),
       appliedOn: DateTime.parse(json['appliedOn'] as String),
-      bidType: _$enumDecode(_$BidTypeEnumMap, json['bidType']),
+      bidType: $enumDecode(_$BidTypeEnumMap, json['bidType']),
     );
 
 Map<String, dynamic> _$$_BidIdentifierToJson(_$_BidIdentifier instance) =>
@@ -24,32 +24,6 @@ Map<String, dynamic> _$$_BidIdentifierToJson(_$_BidIdentifier instance) =>
       'appliedOn': instance.appliedOn.toIso8601String(),
       'bidType': _$BidTypeEnumMap[instance.bidType],
     };
-
-K _$enumDecode<K, V>(
-  Map<K, V> enumValues,
-  Object? source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError(
-      'A value must be provided. Supported values: '
-      '${enumValues.values.join(', ')}',
-    );
-  }
-
-  return enumValues.entries.singleWhere(
-    (e) => e.value == source,
-    orElse: () {
-      if (unknownValue == null) {
-        throw ArgumentError(
-          '`$source` is not one of the supported values: '
-          '${enumValues.values.join(', ')}',
-        );
-      }
-      return MapEntry(unknownValue, enumValues.values.first);
-    },
-  ).key;
-}
 
 const _$BidTypeEnumMap = {
   BidType.TenderBid: 'TenderBid',
@@ -64,7 +38,7 @@ _$_WorkIdentifier _$$_WorkIdentifierFromJson(Map<String, dynamic> json) =>
       workId: json['workId'] as String,
       title: json['title'] as String,
       employer: TWUser.fromJson(json['employer'] as Map<String, dynamic>),
-      type: _$enumDecode(_$WorkTypeEnumMap, json['type']),
+      type: $enumDecode(_$WorkTypeEnumMap, json['type']),
     );
 
 Map<String, dynamic> _$$_WorkIdentifierToJson(_$_WorkIdentifier instance) =>

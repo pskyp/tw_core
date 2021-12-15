@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -65,7 +66,7 @@ class _$SupplementTearOff {
     );
   }
 
-  Supplement fromJson(Map<String, Object> json) {
+  Supplement fromJson(Map<String, Object?> json) {
     return Supplement.fromJson(json);
   }
 }
@@ -482,89 +483,64 @@ class _$_Supplement implements _Supplement {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Supplement &&
-            (identical(other.workIdentifier, workIdentifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.workIdentifier, workIdentifier)) &&
-            (identical(other.developerId, developerId) ||
-                const DeepCollectionEquality()
-                    .equals(other.developerId, developerId)) &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)) &&
-            (identical(other.developer, developer) ||
-                const DeepCollectionEquality()
-                    .equals(other.developer, developer)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
-            (identical(other.hourlyRate, hourlyRate) ||
-                const DeepCollectionEquality()
-                    .equals(other.hourlyRate, hourlyRate)) &&
-            (identical(other.hrsPerDay, hrsPerDay) ||
-                const DeepCollectionEquality()
-                    .equals(other.hrsPerDay, hrsPerDay)) &&
-            (identical(other.startDate, startDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.startDate, startDate)) &&
-            (identical(other.endDate, endDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.endDate, endDate)) &&
-            (identical(other.createdOn, createdOn) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdOn, createdOn)) &&
-            (identical(other.applications, applications) ||
-                const DeepCollectionEquality()
-                    .equals(other.applications, applications)) &&
-            (identical(other.subbiesWorking, subbiesWorking) ||
-                const DeepCollectionEquality()
-                    .equals(other.subbiesWorking, subbiesWorking)) &&
-            (identical(other.subbiesRequired, subbiesRequired) ||
-                const DeepCollectionEquality()
-                    .equals(other.subbiesRequired, subbiesRequired)) &&
-            (identical(other.requirements, requirements) ||
-                const DeepCollectionEquality()
-                    .equals(other.requirements, requirements)) &&
-            (identical(other.trade, trade) ||
-                const DeepCollectionEquality().equals(other.trade, trade)) &&
-            (identical(other.acceptingBids, acceptingBids) ||
-                const DeepCollectionEquality()
-                    .equals(other.acceptingBids, acceptingBids)) &&
-            (identical(other.totalUnseenBids, totalUnseenBids) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalUnseenBids, totalUnseenBids)) &&
-            (identical(other.location, location) ||
-                const DeepCollectionEquality()
-                    .equals(other.location, location)) &&
-            (identical(other.feedback, feedback) ||
-                const DeepCollectionEquality()
-                    .equals(other.feedback, feedback)));
+        (other.runtimeType == runtimeType &&
+            other is _Supplement &&
+            const DeepCollectionEquality()
+                .equals(other.workIdentifier, workIdentifier) &&
+            const DeepCollectionEquality()
+                .equals(other.developerId, developerId) &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality().equals(other.developer, developer) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality()
+                .equals(other.hourlyRate, hourlyRate) &&
+            const DeepCollectionEquality().equals(other.hrsPerDay, hrsPerDay) &&
+            const DeepCollectionEquality().equals(other.startDate, startDate) &&
+            const DeepCollectionEquality().equals(other.endDate, endDate) &&
+            const DeepCollectionEquality().equals(other.createdOn, createdOn) &&
+            const DeepCollectionEquality()
+                .equals(other.applications, applications) &&
+            const DeepCollectionEquality()
+                .equals(other.subbiesWorking, subbiesWorking) &&
+            const DeepCollectionEquality()
+                .equals(other.subbiesRequired, subbiesRequired) &&
+            const DeepCollectionEquality()
+                .equals(other.requirements, requirements) &&
+            const DeepCollectionEquality().equals(other.trade, trade) &&
+            const DeepCollectionEquality()
+                .equals(other.acceptingBids, acceptingBids) &&
+            const DeepCollectionEquality()
+                .equals(other.totalUnseenBids, totalUnseenBids) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality().equals(other.feedback, feedback));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(workIdentifier) ^
-      const DeepCollectionEquality().hash(developerId) ^
-      const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(developer) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(hourlyRate) ^
-      const DeepCollectionEquality().hash(hrsPerDay) ^
-      const DeepCollectionEquality().hash(startDate) ^
-      const DeepCollectionEquality().hash(endDate) ^
-      const DeepCollectionEquality().hash(createdOn) ^
-      const DeepCollectionEquality().hash(applications) ^
-      const DeepCollectionEquality().hash(subbiesWorking) ^
-      const DeepCollectionEquality().hash(subbiesRequired) ^
-      const DeepCollectionEquality().hash(requirements) ^
-      const DeepCollectionEquality().hash(trade) ^
-      const DeepCollectionEquality().hash(acceptingBids) ^
-      const DeepCollectionEquality().hash(totalUnseenBids) ^
-      const DeepCollectionEquality().hash(location) ^
-      const DeepCollectionEquality().hash(feedback);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(workIdentifier),
+        const DeepCollectionEquality().hash(developerId),
+        const DeepCollectionEquality().hash(status),
+        const DeepCollectionEquality().hash(developer),
+        const DeepCollectionEquality().hash(title),
+        const DeepCollectionEquality().hash(description),
+        const DeepCollectionEquality().hash(hourlyRate),
+        const DeepCollectionEquality().hash(hrsPerDay),
+        const DeepCollectionEquality().hash(startDate),
+        const DeepCollectionEquality().hash(endDate),
+        const DeepCollectionEquality().hash(createdOn),
+        const DeepCollectionEquality().hash(applications),
+        const DeepCollectionEquality().hash(subbiesWorking),
+        const DeepCollectionEquality().hash(subbiesRequired),
+        const DeepCollectionEquality().hash(requirements),
+        const DeepCollectionEquality().hash(trade),
+        const DeepCollectionEquality().hash(acceptingBids),
+        const DeepCollectionEquality().hash(totalUnseenBids),
+        const DeepCollectionEquality().hash(location),
+        const DeepCollectionEquality().hash(feedback)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -604,45 +580,45 @@ abstract class _Supplement implements Supplement {
       _$_Supplement.fromJson;
 
   @override
-  WorkIdentifier get workIdentifier => throw _privateConstructorUsedError;
+  WorkIdentifier get workIdentifier;
   @override
-  String get developerId => throw _privateConstructorUsedError;
+  String get developerId;
   @override
-  SupplementStatus get status => throw _privateConstructorUsedError;
+  SupplementStatus get status;
   @override
-  Developer get developer => throw _privateConstructorUsedError;
+  Developer get developer;
   @override
-  String get title => throw _privateConstructorUsedError;
+  String get title;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
-  double get hourlyRate => throw _privateConstructorUsedError;
+  double get hourlyRate;
   @override
-  int get hrsPerDay => throw _privateConstructorUsedError;
+  int get hrsPerDay;
   @override
-  DateTime get startDate => throw _privateConstructorUsedError;
+  DateTime get startDate;
   @override
-  DateTime get endDate => throw _privateConstructorUsedError;
+  DateTime get endDate;
   @override
-  DateTime get createdOn => throw _privateConstructorUsedError;
+  DateTime get createdOn;
   @override
-  int get applications => throw _privateConstructorUsedError;
+  int get applications;
   @override
-  int get subbiesWorking => throw _privateConstructorUsedError;
+  int get subbiesWorking;
   @override
-  int get subbiesRequired => throw _privateConstructorUsedError;
+  int get subbiesRequired;
   @override
-  String get requirements => throw _privateConstructorUsedError;
+  String get requirements;
   @override
-  Trade get trade => throw _privateConstructorUsedError;
+  Trade get trade;
   @override
-  bool get acceptingBids => throw _privateConstructorUsedError;
+  bool get acceptingBids;
   @override
-  int get totalUnseenBids => throw _privateConstructorUsedError;
+  int get totalUnseenBids;
   @override
-  LocationModel get location => throw _privateConstructorUsedError;
+  LocationModel get location;
   @override
-  List<SupplementFeedback>? get feedback => throw _privateConstructorUsedError;
+  List<SupplementFeedback>? get feedback;
   @override
   @JsonKey(ignore: true)
   _$SupplementCopyWith<_Supplement> get copyWith =>

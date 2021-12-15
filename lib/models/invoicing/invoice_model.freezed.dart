@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -67,7 +68,7 @@ class _$InvoiceTearOff {
     );
   }
 
-  Invoice fromJson(Map<String, Object> json) {
+  Invoice fromJson(Map<String, Object?> json) {
     return Invoice.fromJson(json);
   }
 }
@@ -484,87 +485,70 @@ class _$_Invoice implements _Invoice {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Invoice &&
-            (identical(other.contractorTWUser, contractorTWUser) ||
-                const DeepCollectionEquality()
-                    .equals(other.contractorTWUser, contractorTWUser)) &&
-            (identical(other.subbieTWUser, subbieTWUser) ||
-                const DeepCollectionEquality()
-                    .equals(other.subbieTWUser, subbieTWUser)) &&
-            (identical(other.paidOn, paidOn) ||
-                const DeepCollectionEquality().equals(other.paidOn, paidOn)) &&
-            (identical(other.companyRegisteredAddress, companyRegisteredAddress) ||
-                const DeepCollectionEquality().equals(
-                    other.companyRegisteredAddress,
-                    companyRegisteredAddress)) &&
-            (identical(other.invoiceType, invoiceType) ||
-                const DeepCollectionEquality()
-                    .equals(other.invoiceType, invoiceType)) &&
-            (identical(other.companyOrTradingName, companyOrTradingName) ||
-                const DeepCollectionEquality().equals(
-                    other.companyOrTradingName, companyOrTradingName)) &&
-            (identical(other.invoiceItems, invoiceItems) ||
-                const DeepCollectionEquality()
-                    .equals(other.invoiceItems, invoiceItems)) &&
-            (identical(other.vatNumber, vatNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.vatNumber, vatNumber)) &&
-            (identical(other.companyNumber, companyNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.companyNumber, companyNumber)) &&
-            (identical(other.invoiceID, invoiceID) ||
-                const DeepCollectionEquality()
-                    .equals(other.invoiceID, invoiceID)) &&
-            (identical(other.invoiceReference, invoiceReference) ||
-                const DeepCollectionEquality()
-                    .equals(other.invoiceReference, invoiceReference)) &&
-            (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
-            (identical(other.jobID, jobID) ||
-                const DeepCollectionEquality().equals(other.jobID, jobID)) &&
-            (identical(other.invoiceDate, invoiceDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.invoiceDate, invoiceDate)) &&
-            (identical(other.paymentTerm, paymentTerm) ||
-                const DeepCollectionEquality()
-                    .equals(other.paymentTerm, paymentTerm)) &&
-            (identical(other.amountPayable, amountPayable) ||
-                const DeepCollectionEquality()
-                    .equals(other.amountPayable, amountPayable)) &&
-            (identical(other.netAmount, netAmount) ||
-                const DeepCollectionEquality()
-                    .equals(other.netAmount, netAmount)) &&
-            (identical(other.totalTax, totalTax) || const DeepCollectionEquality().equals(other.totalTax, totalTax)) &&
-            (identical(other.status, status) || const DeepCollectionEquality().equals(other.status, status)) &&
-            (identical(other.invoiceAddress, invoiceAddress) || const DeepCollectionEquality().equals(other.invoiceAddress, invoiceAddress)) &&
-            (identical(other.development, development) || const DeepCollectionEquality().equals(other.development, development)));
+        (other.runtimeType == runtimeType &&
+            other is _Invoice &&
+            const DeepCollectionEquality()
+                .equals(other.contractorTWUser, contractorTWUser) &&
+            const DeepCollectionEquality()
+                .equals(other.subbieTWUser, subbieTWUser) &&
+            const DeepCollectionEquality().equals(other.paidOn, paidOn) &&
+            const DeepCollectionEquality().equals(
+                other.companyRegisteredAddress, companyRegisteredAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.invoiceType, invoiceType) &&
+            const DeepCollectionEquality()
+                .equals(other.companyOrTradingName, companyOrTradingName) &&
+            const DeepCollectionEquality()
+                .equals(other.invoiceItems, invoiceItems) &&
+            const DeepCollectionEquality().equals(other.vatNumber, vatNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.companyNumber, companyNumber) &&
+            const DeepCollectionEquality().equals(other.invoiceID, invoiceID) &&
+            const DeepCollectionEquality()
+                .equals(other.invoiceReference, invoiceReference) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality().equals(other.jobID, jobID) &&
+            const DeepCollectionEquality()
+                .equals(other.invoiceDate, invoiceDate) &&
+            const DeepCollectionEquality()
+                .equals(other.paymentTerm, paymentTerm) &&
+            const DeepCollectionEquality()
+                .equals(other.amountPayable, amountPayable) &&
+            const DeepCollectionEquality().equals(other.netAmount, netAmount) &&
+            const DeepCollectionEquality().equals(other.totalTax, totalTax) &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality()
+                .equals(other.invoiceAddress, invoiceAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.development, development));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(contractorTWUser) ^
-      const DeepCollectionEquality().hash(subbieTWUser) ^
-      const DeepCollectionEquality().hash(paidOn) ^
-      const DeepCollectionEquality().hash(companyRegisteredAddress) ^
-      const DeepCollectionEquality().hash(invoiceType) ^
-      const DeepCollectionEquality().hash(companyOrTradingName) ^
-      const DeepCollectionEquality().hash(invoiceItems) ^
-      const DeepCollectionEquality().hash(vatNumber) ^
-      const DeepCollectionEquality().hash(companyNumber) ^
-      const DeepCollectionEquality().hash(invoiceID) ^
-      const DeepCollectionEquality().hash(invoiceReference) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(jobID) ^
-      const DeepCollectionEquality().hash(invoiceDate) ^
-      const DeepCollectionEquality().hash(paymentTerm) ^
-      const DeepCollectionEquality().hash(amountPayable) ^
-      const DeepCollectionEquality().hash(netAmount) ^
-      const DeepCollectionEquality().hash(totalTax) ^
-      const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(invoiceAddress) ^
-      const DeepCollectionEquality().hash(development);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(contractorTWUser),
+        const DeepCollectionEquality().hash(subbieTWUser),
+        const DeepCollectionEquality().hash(paidOn),
+        const DeepCollectionEquality().hash(companyRegisteredAddress),
+        const DeepCollectionEquality().hash(invoiceType),
+        const DeepCollectionEquality().hash(companyOrTradingName),
+        const DeepCollectionEquality().hash(invoiceItems),
+        const DeepCollectionEquality().hash(vatNumber),
+        const DeepCollectionEquality().hash(companyNumber),
+        const DeepCollectionEquality().hash(invoiceID),
+        const DeepCollectionEquality().hash(invoiceReference),
+        const DeepCollectionEquality().hash(description),
+        const DeepCollectionEquality().hash(jobID),
+        const DeepCollectionEquality().hash(invoiceDate),
+        const DeepCollectionEquality().hash(paymentTerm),
+        const DeepCollectionEquality().hash(amountPayable),
+        const DeepCollectionEquality().hash(netAmount),
+        const DeepCollectionEquality().hash(totalTax),
+        const DeepCollectionEquality().hash(status),
+        const DeepCollectionEquality().hash(invoiceAddress),
+        const DeepCollectionEquality().hash(development)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -604,47 +588,47 @@ abstract class _Invoice implements Invoice {
   factory _Invoice.fromJson(Map<String, dynamic> json) = _$_Invoice.fromJson;
 
   @override
-  TWUser get contractorTWUser => throw _privateConstructorUsedError;
+  TWUser get contractorTWUser;
   @override
-  TWUser get subbieTWUser => throw _privateConstructorUsedError;
+  TWUser get subbieTWUser;
   @override
-  DateTime get paidOn => throw _privateConstructorUsedError;
+  DateTime get paidOn;
   @override
-  String get companyRegisteredAddress => throw _privateConstructorUsedError;
+  String get companyRegisteredAddress;
   @override
-  String get invoiceType => throw _privateConstructorUsedError;
+  String get invoiceType;
   @override
-  String get companyOrTradingName => throw _privateConstructorUsedError;
+  String get companyOrTradingName;
   @override
-  List<InvoiceItem> get invoiceItems => throw _privateConstructorUsedError;
+  List<InvoiceItem> get invoiceItems;
   @override
-  String get vatNumber => throw _privateConstructorUsedError;
+  String get vatNumber;
   @override
-  String get companyNumber => throw _privateConstructorUsedError;
+  String get companyNumber;
   @override
-  String get invoiceID => throw _privateConstructorUsedError;
+  String get invoiceID;
   @override
-  String get invoiceReference => throw _privateConstructorUsedError;
+  String get invoiceReference;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
-  String get jobID => throw _privateConstructorUsedError;
+  String get jobID;
   @override
-  DateTime get invoiceDate => throw _privateConstructorUsedError;
+  DateTime get invoiceDate;
   @override
-  int get paymentTerm => throw _privateConstructorUsedError;
+  int get paymentTerm;
   @override
-  double get amountPayable => throw _privateConstructorUsedError;
+  double get amountPayable;
   @override
-  double get netAmount => throw _privateConstructorUsedError;
+  double get netAmount;
   @override
-  double get totalTax => throw _privateConstructorUsedError;
+  double get totalTax;
   @override
-  InvoiceStatus get status => throw _privateConstructorUsedError;
+  InvoiceStatus get status;
   @override
-  String get invoiceAddress => throw _privateConstructorUsedError;
+  String get invoiceAddress;
   @override
-  String get development => throw _privateConstructorUsedError;
+  String get development;
   @override
   @JsonKey(ignore: true)
   _$InvoiceCopyWith<_Invoice> get copyWith =>

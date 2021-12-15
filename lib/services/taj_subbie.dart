@@ -151,7 +151,23 @@ class TAJSubbie extends TAJFacade {
     // return KtList.from(bidsOfPendingJobRatings);
   }
 
-Future<Either<TWServerError, Unit>> toggleSubscription() async {
+  Future<Either<TWServerError, Unit>> saveBankDetails({
+    required BankAccountNumber accountNumber,
+    required BankSortCode sortCode,
+  }) async {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    final userBankDetails = UserBankDetails(
+      accountNumber: accountNumber.getOrCrash,
+      sortCode: sortCode.getOrCrash,
+    );
+    batch.update(
+      TWFC.subbieCollection.doc(CacheService().subbie.basicProfile.uid),
+      {'userBankDetails': userBankDetails.toJson()},
+    );
+    return await commitBatch(batch);
+  }
+
+  Future<Either<TWServerError, Unit>> toggleSubscription() async {
     WriteBatch batch = FirebaseFirestore.instance.batch();
     Subbie subbie = CacheService().subbie;
     batch.update(
@@ -164,7 +180,6 @@ Future<Either<TWServerError, Unit>> toggleSubscription() async {
     await batch.commit();
     return right(unit);
   }
-
 
   Future<Either<TWServerError, Unit>> saveInvoicingDetails({
     required VATNumber vatNumber,

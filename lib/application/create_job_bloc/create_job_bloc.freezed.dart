@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -107,6 +108,23 @@ mixin _$CreateJobEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime startDate)? onJobStartDateChanged,
+    TResult Function(DateTime endDate)? onJobEndDateChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        onDevelopmentIdentifierInput,
+    TResult Function(String value)? jobTitleChanged,
+    TResult Function(String input)? requiredSubbiesInput,
+    TResult Function(String value)? onRateChanged,
+    TResult Function(String value)? onDescriptionChanged,
+    TResult Function(String requirementInput)? toggleRequirement,
+    TResult Function(Trade trade)? tradeChanged,
+    TResult Function()? submitButtonPressed,
+    TResult Function(LocationModel location)? onLocationChanged,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime startDate)? onJobStartDateChanged,
     TResult Function(DateTime endDate)? onJobEndDateChanged,
@@ -139,6 +157,22 @@ mixin _$CreateJobEvent {
     required TResult Function(TradeChanged value) tradeChanged,
     required TResult Function(SubmitButtonPressed value) submitButtonPressed,
     required TResult Function(OnLocationChanged value) onLocationChanged,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
+    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
+    TResult Function(OnDevelopmentIdentifierInput value)?
+        onDevelopmentIdentifierInput,
+    TResult Function(JobTitleChanged value)? jobTitleChanged,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
+    TResult Function(OnRateChanged value)? onRateChanged,
+    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
+    TResult Function(TradeChanged value)? tradeChanged,
+    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
+    TResult Function(OnLocationChanged value)? onLocationChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -225,15 +259,14 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is OnJobStartDateChanged &&
-            (identical(other.startDate, startDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.startDate, startDate)));
+        (other.runtimeType == runtimeType &&
+            other is OnJobStartDateChanged &&
+            const DeepCollectionEquality().equals(other.startDate, startDate));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(startDate);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(startDate));
 
   @JsonKey(ignore: true)
   @override
@@ -259,6 +292,26 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
     return onJobStartDateChanged(startDate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime startDate)? onJobStartDateChanged,
+    TResult Function(DateTime endDate)? onJobEndDateChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        onDevelopmentIdentifierInput,
+    TResult Function(String value)? jobTitleChanged,
+    TResult Function(String input)? requiredSubbiesInput,
+    TResult Function(String value)? onRateChanged,
+    TResult Function(String value)? onDescriptionChanged,
+    TResult Function(String requirementInput)? toggleRequirement,
+    TResult Function(Trade trade)? tradeChanged,
+    TResult Function()? submitButtonPressed,
+    TResult Function(LocationModel location)? onLocationChanged,
+  }) {
+    return onJobStartDateChanged?.call(startDate);
   }
 
   @override
@@ -307,6 +360,25 @@ class _$OnJobStartDateChanged implements OnJobStartDateChanged {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
+    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
+    TResult Function(OnDevelopmentIdentifierInput value)?
+        onDevelopmentIdentifierInput,
+    TResult Function(JobTitleChanged value)? jobTitleChanged,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
+    TResult Function(OnRateChanged value)? onRateChanged,
+    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
+    TResult Function(TradeChanged value)? tradeChanged,
+    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
+    TResult Function(OnLocationChanged value)? onLocationChanged,
+  }) {
+    return onJobStartDateChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
@@ -333,7 +405,7 @@ abstract class OnJobStartDateChanged implements CreateJobEvent {
   const factory OnJobStartDateChanged(DateTime startDate) =
       _$OnJobStartDateChanged;
 
-  DateTime get startDate => throw _privateConstructorUsedError;
+  DateTime get startDate;
   @JsonKey(ignore: true)
   $OnJobStartDateChangedCopyWith<OnJobStartDateChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -387,14 +459,14 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is OnJobEndDateChanged &&
-            (identical(other.endDate, endDate) ||
-                const DeepCollectionEquality().equals(other.endDate, endDate)));
+        (other.runtimeType == runtimeType &&
+            other is OnJobEndDateChanged &&
+            const DeepCollectionEquality().equals(other.endDate, endDate));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(endDate);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(endDate));
 
   @JsonKey(ignore: true)
   @override
@@ -419,6 +491,26 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
     return onJobEndDateChanged(endDate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime startDate)? onJobStartDateChanged,
+    TResult Function(DateTime endDate)? onJobEndDateChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        onDevelopmentIdentifierInput,
+    TResult Function(String value)? jobTitleChanged,
+    TResult Function(String input)? requiredSubbiesInput,
+    TResult Function(String value)? onRateChanged,
+    TResult Function(String value)? onDescriptionChanged,
+    TResult Function(String requirementInput)? toggleRequirement,
+    TResult Function(Trade trade)? tradeChanged,
+    TResult Function()? submitButtonPressed,
+    TResult Function(LocationModel location)? onLocationChanged,
+  }) {
+    return onJobEndDateChanged?.call(endDate);
   }
 
   @override
@@ -467,6 +559,25 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
+    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
+    TResult Function(OnDevelopmentIdentifierInput value)?
+        onDevelopmentIdentifierInput,
+    TResult Function(JobTitleChanged value)? jobTitleChanged,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
+    TResult Function(OnRateChanged value)? onRateChanged,
+    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
+    TResult Function(TradeChanged value)? tradeChanged,
+    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
+    TResult Function(OnLocationChanged value)? onLocationChanged,
+  }) {
+    return onJobEndDateChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
@@ -492,7 +603,7 @@ class _$OnJobEndDateChanged implements OnJobEndDateChanged {
 abstract class OnJobEndDateChanged implements CreateJobEvent {
   const factory OnJobEndDateChanged(DateTime endDate) = _$OnJobEndDateChanged;
 
-  DateTime get endDate => throw _privateConstructorUsedError;
+  DateTime get endDate;
   @JsonKey(ignore: true)
   $OnJobEndDateChangedCopyWith<OnJobEndDateChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -572,20 +683,19 @@ class _$OnDevelopmentIdentifierInput implements OnDevelopmentIdentifierInput {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is OnDevelopmentIdentifierInput &&
-            (identical(other.developmentTitle, developmentTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.developmentTitle, developmentTitle)) &&
-            (identical(other.developmentIdentifier, developmentIdentifier) ||
-                const DeepCollectionEquality().equals(
-                    other.developmentIdentifier, developmentIdentifier)));
+        (other.runtimeType == runtimeType &&
+            other is OnDevelopmentIdentifierInput &&
+            const DeepCollectionEquality()
+                .equals(other.developmentTitle, developmentTitle) &&
+            const DeepCollectionEquality()
+                .equals(other.developmentIdentifier, developmentIdentifier));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(developmentTitle) ^
-      const DeepCollectionEquality().hash(developmentIdentifier);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(developmentTitle),
+      const DeepCollectionEquality().hash(developmentIdentifier));
 
   @JsonKey(ignore: true)
   @override
@@ -611,6 +721,27 @@ class _$OnDevelopmentIdentifierInput implements OnDevelopmentIdentifierInput {
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
     return onDevelopmentIdentifierInput(
+        developmentTitle, developmentIdentifier);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime startDate)? onJobStartDateChanged,
+    TResult Function(DateTime endDate)? onJobEndDateChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        onDevelopmentIdentifierInput,
+    TResult Function(String value)? jobTitleChanged,
+    TResult Function(String input)? requiredSubbiesInput,
+    TResult Function(String value)? onRateChanged,
+    TResult Function(String value)? onDescriptionChanged,
+    TResult Function(String requirementInput)? toggleRequirement,
+    TResult Function(Trade trade)? tradeChanged,
+    TResult Function()? submitButtonPressed,
+    TResult Function(LocationModel location)? onLocationChanged,
+  }) {
+    return onDevelopmentIdentifierInput?.call(
         developmentTitle, developmentIdentifier);
   }
 
@@ -661,6 +792,25 @@ class _$OnDevelopmentIdentifierInput implements OnDevelopmentIdentifierInput {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
+    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
+    TResult Function(OnDevelopmentIdentifierInput value)?
+        onDevelopmentIdentifierInput,
+    TResult Function(JobTitleChanged value)? jobTitleChanged,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
+    TResult Function(OnRateChanged value)? onRateChanged,
+    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
+    TResult Function(TradeChanged value)? tradeChanged,
+    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
+    TResult Function(OnLocationChanged value)? onLocationChanged,
+  }) {
+    return onDevelopmentIdentifierInput?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
@@ -689,9 +839,8 @@ abstract class OnDevelopmentIdentifierInput implements CreateJobEvent {
           DevelopmentIdentifier? developmentIdentifier}) =
       _$OnDevelopmentIdentifierInput;
 
-  String? get developmentTitle => throw _privateConstructorUsedError;
-  DevelopmentIdentifier? get developmentIdentifier =>
-      throw _privateConstructorUsedError;
+  String? get developmentTitle;
+  DevelopmentIdentifier? get developmentIdentifier;
   @JsonKey(ignore: true)
   $OnDevelopmentIdentifierInputCopyWith<OnDevelopmentIdentifierInput>
       get copyWith => throw _privateConstructorUsedError;
@@ -745,14 +894,14 @@ class _$JobTitleChanged implements JobTitleChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is JobTitleChanged &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is JobTitleChanged &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -777,6 +926,26 @@ class _$JobTitleChanged implements JobTitleChanged {
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
     return jobTitleChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime startDate)? onJobStartDateChanged,
+    TResult Function(DateTime endDate)? onJobEndDateChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        onDevelopmentIdentifierInput,
+    TResult Function(String value)? jobTitleChanged,
+    TResult Function(String input)? requiredSubbiesInput,
+    TResult Function(String value)? onRateChanged,
+    TResult Function(String value)? onDescriptionChanged,
+    TResult Function(String requirementInput)? toggleRequirement,
+    TResult Function(Trade trade)? tradeChanged,
+    TResult Function()? submitButtonPressed,
+    TResult Function(LocationModel location)? onLocationChanged,
+  }) {
+    return jobTitleChanged?.call(value);
   }
 
   @override
@@ -825,6 +994,25 @@ class _$JobTitleChanged implements JobTitleChanged {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
+    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
+    TResult Function(OnDevelopmentIdentifierInput value)?
+        onDevelopmentIdentifierInput,
+    TResult Function(JobTitleChanged value)? jobTitleChanged,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
+    TResult Function(OnRateChanged value)? onRateChanged,
+    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
+    TResult Function(TradeChanged value)? tradeChanged,
+    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
+    TResult Function(OnLocationChanged value)? onLocationChanged,
+  }) {
+    return jobTitleChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
@@ -850,7 +1038,7 @@ class _$JobTitleChanged implements JobTitleChanged {
 abstract class JobTitleChanged implements CreateJobEvent {
   const factory JobTitleChanged(String value) = _$JobTitleChanged;
 
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @JsonKey(ignore: true)
   $JobTitleChangedCopyWith<JobTitleChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -904,14 +1092,14 @@ class _$RequiredSubbiesInput implements RequiredSubbiesInput {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is RequiredSubbiesInput &&
-            (identical(other.input, input) ||
-                const DeepCollectionEquality().equals(other.input, input)));
+        (other.runtimeType == runtimeType &&
+            other is RequiredSubbiesInput &&
+            const DeepCollectionEquality().equals(other.input, input));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(input);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(input));
 
   @JsonKey(ignore: true)
   @override
@@ -937,6 +1125,26 @@ class _$RequiredSubbiesInput implements RequiredSubbiesInput {
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
     return requiredSubbiesInput(input);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime startDate)? onJobStartDateChanged,
+    TResult Function(DateTime endDate)? onJobEndDateChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        onDevelopmentIdentifierInput,
+    TResult Function(String value)? jobTitleChanged,
+    TResult Function(String input)? requiredSubbiesInput,
+    TResult Function(String value)? onRateChanged,
+    TResult Function(String value)? onDescriptionChanged,
+    TResult Function(String requirementInput)? toggleRequirement,
+    TResult Function(Trade trade)? tradeChanged,
+    TResult Function()? submitButtonPressed,
+    TResult Function(LocationModel location)? onLocationChanged,
+  }) {
+    return requiredSubbiesInput?.call(input);
   }
 
   @override
@@ -985,6 +1193,25 @@ class _$RequiredSubbiesInput implements RequiredSubbiesInput {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
+    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
+    TResult Function(OnDevelopmentIdentifierInput value)?
+        onDevelopmentIdentifierInput,
+    TResult Function(JobTitleChanged value)? jobTitleChanged,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
+    TResult Function(OnRateChanged value)? onRateChanged,
+    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
+    TResult Function(TradeChanged value)? tradeChanged,
+    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
+    TResult Function(OnLocationChanged value)? onLocationChanged,
+  }) {
+    return requiredSubbiesInput?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
@@ -1010,7 +1237,7 @@ class _$RequiredSubbiesInput implements RequiredSubbiesInput {
 abstract class RequiredSubbiesInput implements CreateJobEvent {
   const factory RequiredSubbiesInput(String input) = _$RequiredSubbiesInput;
 
-  String get input => throw _privateConstructorUsedError;
+  String get input;
   @JsonKey(ignore: true)
   $RequiredSubbiesInputCopyWith<RequiredSubbiesInput> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1064,14 +1291,14 @@ class _$OnRateChanged implements OnRateChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is OnRateChanged &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is OnRateChanged &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -1096,6 +1323,26 @@ class _$OnRateChanged implements OnRateChanged {
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
     return onRateChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime startDate)? onJobStartDateChanged,
+    TResult Function(DateTime endDate)? onJobEndDateChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        onDevelopmentIdentifierInput,
+    TResult Function(String value)? jobTitleChanged,
+    TResult Function(String input)? requiredSubbiesInput,
+    TResult Function(String value)? onRateChanged,
+    TResult Function(String value)? onDescriptionChanged,
+    TResult Function(String requirementInput)? toggleRequirement,
+    TResult Function(Trade trade)? tradeChanged,
+    TResult Function()? submitButtonPressed,
+    TResult Function(LocationModel location)? onLocationChanged,
+  }) {
+    return onRateChanged?.call(value);
   }
 
   @override
@@ -1144,6 +1391,25 @@ class _$OnRateChanged implements OnRateChanged {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
+    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
+    TResult Function(OnDevelopmentIdentifierInput value)?
+        onDevelopmentIdentifierInput,
+    TResult Function(JobTitleChanged value)? jobTitleChanged,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
+    TResult Function(OnRateChanged value)? onRateChanged,
+    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
+    TResult Function(TradeChanged value)? tradeChanged,
+    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
+    TResult Function(OnLocationChanged value)? onLocationChanged,
+  }) {
+    return onRateChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
@@ -1169,7 +1435,7 @@ class _$OnRateChanged implements OnRateChanged {
 abstract class OnRateChanged implements CreateJobEvent {
   const factory OnRateChanged(String value) = _$OnRateChanged;
 
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @JsonKey(ignore: true)
   $OnRateChangedCopyWith<OnRateChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1223,14 +1489,14 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is OnDescriptionChanged &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is OnDescriptionChanged &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -1256,6 +1522,26 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
     return onDescriptionChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime startDate)? onJobStartDateChanged,
+    TResult Function(DateTime endDate)? onJobEndDateChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        onDevelopmentIdentifierInput,
+    TResult Function(String value)? jobTitleChanged,
+    TResult Function(String input)? requiredSubbiesInput,
+    TResult Function(String value)? onRateChanged,
+    TResult Function(String value)? onDescriptionChanged,
+    TResult Function(String requirementInput)? toggleRequirement,
+    TResult Function(Trade trade)? tradeChanged,
+    TResult Function()? submitButtonPressed,
+    TResult Function(LocationModel location)? onLocationChanged,
+  }) {
+    return onDescriptionChanged?.call(value);
   }
 
   @override
@@ -1304,6 +1590,25 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
+    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
+    TResult Function(OnDevelopmentIdentifierInput value)?
+        onDevelopmentIdentifierInput,
+    TResult Function(JobTitleChanged value)? jobTitleChanged,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
+    TResult Function(OnRateChanged value)? onRateChanged,
+    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
+    TResult Function(TradeChanged value)? tradeChanged,
+    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
+    TResult Function(OnLocationChanged value)? onLocationChanged,
+  }) {
+    return onDescriptionChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
@@ -1329,7 +1634,7 @@ class _$OnDescriptionChanged implements OnDescriptionChanged {
 abstract class OnDescriptionChanged implements CreateJobEvent {
   const factory OnDescriptionChanged(String value) = _$OnDescriptionChanged;
 
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @JsonKey(ignore: true)
   $OnDescriptionChangedCopyWith<OnDescriptionChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1383,16 +1688,15 @@ class _$ToggleRequirement implements ToggleRequirement {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ToggleRequirement &&
-            (identical(other.requirementInput, requirementInput) ||
-                const DeepCollectionEquality()
-                    .equals(other.requirementInput, requirementInput)));
+        (other.runtimeType == runtimeType &&
+            other is ToggleRequirement &&
+            const DeepCollectionEquality()
+                .equals(other.requirementInput, requirementInput));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(requirementInput);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(requirementInput));
 
   @JsonKey(ignore: true)
   @override
@@ -1417,6 +1721,26 @@ class _$ToggleRequirement implements ToggleRequirement {
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
     return toggleRequirement(requirementInput);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime startDate)? onJobStartDateChanged,
+    TResult Function(DateTime endDate)? onJobEndDateChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        onDevelopmentIdentifierInput,
+    TResult Function(String value)? jobTitleChanged,
+    TResult Function(String input)? requiredSubbiesInput,
+    TResult Function(String value)? onRateChanged,
+    TResult Function(String value)? onDescriptionChanged,
+    TResult Function(String requirementInput)? toggleRequirement,
+    TResult Function(Trade trade)? tradeChanged,
+    TResult Function()? submitButtonPressed,
+    TResult Function(LocationModel location)? onLocationChanged,
+  }) {
+    return toggleRequirement?.call(requirementInput);
   }
 
   @override
@@ -1465,6 +1789,25 @@ class _$ToggleRequirement implements ToggleRequirement {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
+    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
+    TResult Function(OnDevelopmentIdentifierInput value)?
+        onDevelopmentIdentifierInput,
+    TResult Function(JobTitleChanged value)? jobTitleChanged,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
+    TResult Function(OnRateChanged value)? onRateChanged,
+    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
+    TResult Function(TradeChanged value)? tradeChanged,
+    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
+    TResult Function(OnLocationChanged value)? onLocationChanged,
+  }) {
+    return toggleRequirement?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
@@ -1491,7 +1834,7 @@ abstract class ToggleRequirement implements CreateJobEvent {
   const factory ToggleRequirement(String requirementInput) =
       _$ToggleRequirement;
 
-  String get requirementInput => throw _privateConstructorUsedError;
+  String get requirementInput;
   @JsonKey(ignore: true)
   $ToggleRequirementCopyWith<ToggleRequirement> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1545,14 +1888,14 @@ class _$TradeChanged implements TradeChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is TradeChanged &&
-            (identical(other.trade, trade) ||
-                const DeepCollectionEquality().equals(other.trade, trade)));
+        (other.runtimeType == runtimeType &&
+            other is TradeChanged &&
+            const DeepCollectionEquality().equals(other.trade, trade));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(trade);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(trade));
 
   @JsonKey(ignore: true)
   @override
@@ -1577,6 +1920,26 @@ class _$TradeChanged implements TradeChanged {
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
     return tradeChanged(trade);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime startDate)? onJobStartDateChanged,
+    TResult Function(DateTime endDate)? onJobEndDateChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        onDevelopmentIdentifierInput,
+    TResult Function(String value)? jobTitleChanged,
+    TResult Function(String input)? requiredSubbiesInput,
+    TResult Function(String value)? onRateChanged,
+    TResult Function(String value)? onDescriptionChanged,
+    TResult Function(String requirementInput)? toggleRequirement,
+    TResult Function(Trade trade)? tradeChanged,
+    TResult Function()? submitButtonPressed,
+    TResult Function(LocationModel location)? onLocationChanged,
+  }) {
+    return tradeChanged?.call(trade);
   }
 
   @override
@@ -1625,6 +1988,25 @@ class _$TradeChanged implements TradeChanged {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
+    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
+    TResult Function(OnDevelopmentIdentifierInput value)?
+        onDevelopmentIdentifierInput,
+    TResult Function(JobTitleChanged value)? jobTitleChanged,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
+    TResult Function(OnRateChanged value)? onRateChanged,
+    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
+    TResult Function(TradeChanged value)? tradeChanged,
+    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
+    TResult Function(OnLocationChanged value)? onLocationChanged,
+  }) {
+    return tradeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
@@ -1650,7 +2032,7 @@ class _$TradeChanged implements TradeChanged {
 abstract class TradeChanged implements CreateJobEvent {
   const factory TradeChanged(Trade trade) = _$TradeChanged;
 
-  Trade get trade => throw _privateConstructorUsedError;
+  Trade get trade;
   @JsonKey(ignore: true)
   $TradeChangedCopyWith<TradeChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1687,7 +2069,8 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SubmitButtonPressed);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SubmitButtonPressed);
   }
 
   @override
@@ -1711,6 +2094,26 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
     return submitButtonPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime startDate)? onJobStartDateChanged,
+    TResult Function(DateTime endDate)? onJobEndDateChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        onDevelopmentIdentifierInput,
+    TResult Function(String value)? jobTitleChanged,
+    TResult Function(String input)? requiredSubbiesInput,
+    TResult Function(String value)? onRateChanged,
+    TResult Function(String value)? onDescriptionChanged,
+    TResult Function(String requirementInput)? toggleRequirement,
+    TResult Function(Trade trade)? tradeChanged,
+    TResult Function()? submitButtonPressed,
+    TResult Function(LocationModel location)? onLocationChanged,
+  }) {
+    return submitButtonPressed?.call();
   }
 
   @override
@@ -1755,6 +2158,25 @@ class _$SubmitButtonPressed implements SubmitButtonPressed {
     required TResult Function(OnLocationChanged value) onLocationChanged,
   }) {
     return submitButtonPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
+    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
+    TResult Function(OnDevelopmentIdentifierInput value)?
+        onDevelopmentIdentifierInput,
+    TResult Function(JobTitleChanged value)? jobTitleChanged,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
+    TResult Function(OnRateChanged value)? onRateChanged,
+    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
+    TResult Function(TradeChanged value)? tradeChanged,
+    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
+    TResult Function(OnLocationChanged value)? onLocationChanged,
+  }) {
+    return submitButtonPressed?.call(this);
   }
 
   @override
@@ -1833,15 +2255,14 @@ class _$OnLocationChanged implements OnLocationChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is OnLocationChanged &&
-            (identical(other.location, location) ||
-                const DeepCollectionEquality()
-                    .equals(other.location, location)));
+        (other.runtimeType == runtimeType &&
+            other is OnLocationChanged &&
+            const DeepCollectionEquality().equals(other.location, location));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(location);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(location));
 
   @JsonKey(ignore: true)
   @override
@@ -1866,6 +2287,26 @@ class _$OnLocationChanged implements OnLocationChanged {
     required TResult Function(LocationModel location) onLocationChanged,
   }) {
     return onLocationChanged(location);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime startDate)? onJobStartDateChanged,
+    TResult Function(DateTime endDate)? onJobEndDateChanged,
+    TResult Function(String? developmentTitle,
+            DevelopmentIdentifier? developmentIdentifier)?
+        onDevelopmentIdentifierInput,
+    TResult Function(String value)? jobTitleChanged,
+    TResult Function(String input)? requiredSubbiesInput,
+    TResult Function(String value)? onRateChanged,
+    TResult Function(String value)? onDescriptionChanged,
+    TResult Function(String requirementInput)? toggleRequirement,
+    TResult Function(Trade trade)? tradeChanged,
+    TResult Function()? submitButtonPressed,
+    TResult Function(LocationModel location)? onLocationChanged,
+  }) {
+    return onLocationChanged?.call(location);
   }
 
   @override
@@ -1914,6 +2355,25 @@ class _$OnLocationChanged implements OnLocationChanged {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
+    TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
+    TResult Function(OnDevelopmentIdentifierInput value)?
+        onDevelopmentIdentifierInput,
+    TResult Function(JobTitleChanged value)? jobTitleChanged,
+    TResult Function(RequiredSubbiesInput value)? requiredSubbiesInput,
+    TResult Function(OnRateChanged value)? onRateChanged,
+    TResult Function(OnDescriptionChanged value)? onDescriptionChanged,
+    TResult Function(ToggleRequirement value)? toggleRequirement,
+    TResult Function(TradeChanged value)? tradeChanged,
+    TResult Function(SubmitButtonPressed value)? submitButtonPressed,
+    TResult Function(OnLocationChanged value)? onLocationChanged,
+  }) {
+    return onLocationChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OnJobStartDateChanged value)? onJobStartDateChanged,
     TResult Function(OnJobEndDateChanged value)? onJobEndDateChanged,
@@ -1939,7 +2399,7 @@ class _$OnLocationChanged implements OnLocationChanged {
 abstract class OnLocationChanged implements CreateJobEvent {
   const factory OnLocationChanged(LocationModel location) = _$OnLocationChanged;
 
-  LocationModel get location => throw _privateConstructorUsedError;
+  LocationModel get location;
   @JsonKey(ignore: true)
   $OnLocationChangedCopyWith<OnLocationChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2266,60 +2726,46 @@ class _$_CreateJobState extends _CreateJobState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CreateJobState &&
-            (identical(other.developmentIdentifier, developmentIdentifier) ||
-                const DeepCollectionEquality().equals(
-                    other.developmentIdentifier, developmentIdentifier)) &&
-            (identical(other.jobTitle, jobTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.jobTitle, jobTitle)) &&
-            (identical(other.jobDescription, jobDescription) ||
-                const DeepCollectionEquality()
-                    .equals(other.jobDescription, jobDescription)) &&
-            (identical(other.selectedTrade, selectedTrade) ||
-                const DeepCollectionEquality()
-                    .equals(other.selectedTrade, selectedTrade)) &&
-            (identical(other.jobTimeLine, jobTimeLine) ||
-                const DeepCollectionEquality()
-                    .equals(other.jobTimeLine, jobTimeLine)) &&
-            (identical(other.jobRate, jobRate) ||
-                const DeepCollectionEquality()
-                    .equals(other.jobRate, jobRate)) &&
-            (identical(other.numberOfSubbies, numberOfSubbies) ||
-                const DeepCollectionEquality()
-                    .equals(other.numberOfSubbies, numberOfSubbies)) &&
-            (identical(other.location, location) ||
-                const DeepCollectionEquality()
-                    .equals(other.location, location)) &&
-            (identical(other.requirements, requirements) ||
-                const DeepCollectionEquality()
-                    .equals(other.requirements, requirements)) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
-            (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrSuccessOption, failureOrSuccessOption)));
+        (other.runtimeType == runtimeType &&
+            other is _CreateJobState &&
+            const DeepCollectionEquality()
+                .equals(other.developmentIdentifier, developmentIdentifier) &&
+            const DeepCollectionEquality().equals(other.jobTitle, jobTitle) &&
+            const DeepCollectionEquality()
+                .equals(other.jobDescription, jobDescription) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedTrade, selectedTrade) &&
+            const DeepCollectionEquality()
+                .equals(other.jobTimeLine, jobTimeLine) &&
+            const DeepCollectionEquality().equals(other.jobRate, jobRate) &&
+            const DeepCollectionEquality()
+                .equals(other.numberOfSubbies, numberOfSubbies) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality()
+                .equals(other.requirements, requirements) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality()
+                .equals(other.isSubmitting, isSubmitting) &&
+            const DeepCollectionEquality()
+                .equals(other.failureOrSuccessOption, failureOrSuccessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(developmentIdentifier) ^
-      const DeepCollectionEquality().hash(jobTitle) ^
-      const DeepCollectionEquality().hash(jobDescription) ^
-      const DeepCollectionEquality().hash(selectedTrade) ^
-      const DeepCollectionEquality().hash(jobTimeLine) ^
-      const DeepCollectionEquality().hash(jobRate) ^
-      const DeepCollectionEquality().hash(numberOfSubbies) ^
-      const DeepCollectionEquality().hash(location) ^
-      const DeepCollectionEquality().hash(requirements) ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(failureOrSuccessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(developmentIdentifier),
+      const DeepCollectionEquality().hash(jobTitle),
+      const DeepCollectionEquality().hash(jobDescription),
+      const DeepCollectionEquality().hash(selectedTrade),
+      const DeepCollectionEquality().hash(jobTimeLine),
+      const DeepCollectionEquality().hash(jobRate),
+      const DeepCollectionEquality().hash(numberOfSubbies),
+      const DeepCollectionEquality().hash(location),
+      const DeepCollectionEquality().hash(requirements),
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(isSubmitting),
+      const DeepCollectionEquality().hash(failureOrSuccessOption));
 
   @JsonKey(ignore: true)
   @override
@@ -2345,31 +2791,29 @@ abstract class _CreateJobState extends CreateJobState {
   const _CreateJobState._() : super._();
 
   @override
-  DevelopmentIdentifier get developmentIdentifier =>
-      throw _privateConstructorUsedError;
+  DevelopmentIdentifier get developmentIdentifier;
   @override
-  TWString get jobTitle => throw _privateConstructorUsedError;
+  TWString get jobTitle;
   @override
-  TWString get jobDescription => throw _privateConstructorUsedError;
+  TWString get jobDescription;
   @override
-  Trade get selectedTrade => throw _privateConstructorUsedError;
+  Trade get selectedTrade;
   @override
-  JobTimeLine get jobTimeLine => throw _privateConstructorUsedError;
+  JobTimeLine get jobTimeLine;
   @override
-  TWNumber get jobRate => throw _privateConstructorUsedError;
+  TWNumber get jobRate;
   @override
-  TWNumber get numberOfSubbies => throw _privateConstructorUsedError;
+  TWNumber get numberOfSubbies;
   @override
-  Option<LocationModel> get location => throw _privateConstructorUsedError;
+  Option<LocationModel> get location;
   @override
-  KtList<String> get requirements => throw _privateConstructorUsedError;
+  KtList<String> get requirements;
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get showErrorMessages;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  Option<Either<TWServerError, Unit>> get failureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<TWServerError, Unit>> get failureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$CreateJobStateCopyWith<_CreateJobState> get copyWith =>

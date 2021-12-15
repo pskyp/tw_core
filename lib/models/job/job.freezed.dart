@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -63,7 +64,7 @@ class _$JobTearOff {
     );
   }
 
-  Job fromJson(Map<String, Object> json) {
+  Job fromJson(Map<String, Object?> json) {
     return Job.fromJson(json);
   }
 }
@@ -461,87 +462,63 @@ class _$_Job extends _Job {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Job &&
-            (identical(other.workIdentifier, workIdentifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.workIdentifier, workIdentifier)) &&
-            (identical(other.createdOn, createdOn) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdOn, createdOn)) &&
-            (identical(other.contractorId, contractorId) ||
-                const DeepCollectionEquality()
-                    .equals(other.contractorId, contractorId)) &&
-            (identical(other.location, location) ||
-                const DeepCollectionEquality()
-                    .equals(other.location, location)) &&
-            (identical(other.trade, trade) ||
-                const DeepCollectionEquality().equals(other.trade, trade)) &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)) &&
-            (identical(other.totalUnseenBids, totalUnseenBids) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalUnseenBids, totalUnseenBids)) &&
-            (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
-            (identical(other.hourlyRate, hourlyRate) ||
-                const DeepCollectionEquality()
-                    .equals(other.hourlyRate, hourlyRate)) &&
-            (identical(other.applications, applications) ||
-                const DeepCollectionEquality()
-                    .equals(other.applications, applications)) &&
-            (identical(other.subbiesRequired, subbiesRequired) ||
-                const DeepCollectionEquality()
-                    .equals(other.subbiesRequired, subbiesRequired)) &&
-            (identical(other.subbiesWorking, subbiesWorking) ||
-                const DeepCollectionEquality()
-                    .equals(other.subbiesWorking, subbiesWorking)) &&
-            (identical(other.endDate, endDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.endDate, endDate)) &&
-            (identical(other.hrsPerDay, hrsPerDay) ||
-                const DeepCollectionEquality()
-                    .equals(other.hrsPerDay, hrsPerDay)) &&
-            (identical(other.startDate, startDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.startDate, startDate)) &&
-            (identical(other.requirements, requirements) ||
-                const DeepCollectionEquality()
-                    .equals(other.requirements, requirements)) &&
-            (identical(other.acceptingBids, acceptingBids) ||
-                const DeepCollectionEquality()
-                    .equals(other.acceptingBids, acceptingBids)) &&
-            (identical(other.feedback, feedback) ||
-                const DeepCollectionEquality()
-                    .equals(other.feedback, feedback)) &&
-            (identical(
-                    other.uidOfSubbiesInvitedToBid, uidOfSubbiesInvitedToBid) ||
-                const DeepCollectionEquality().equals(
-                    other.uidOfSubbiesInvitedToBid, uidOfSubbiesInvitedToBid)));
+        (other.runtimeType == runtimeType &&
+            other is _Job &&
+            const DeepCollectionEquality()
+                .equals(other.workIdentifier, workIdentifier) &&
+            const DeepCollectionEquality().equals(other.createdOn, createdOn) &&
+            const DeepCollectionEquality()
+                .equals(other.contractorId, contractorId) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality().equals(other.trade, trade) &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality()
+                .equals(other.totalUnseenBids, totalUnseenBids) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality()
+                .equals(other.hourlyRate, hourlyRate) &&
+            const DeepCollectionEquality()
+                .equals(other.applications, applications) &&
+            const DeepCollectionEquality()
+                .equals(other.subbiesRequired, subbiesRequired) &&
+            const DeepCollectionEquality()
+                .equals(other.subbiesWorking, subbiesWorking) &&
+            const DeepCollectionEquality().equals(other.endDate, endDate) &&
+            const DeepCollectionEquality().equals(other.hrsPerDay, hrsPerDay) &&
+            const DeepCollectionEquality().equals(other.startDate, startDate) &&
+            const DeepCollectionEquality()
+                .equals(other.requirements, requirements) &&
+            const DeepCollectionEquality()
+                .equals(other.acceptingBids, acceptingBids) &&
+            const DeepCollectionEquality().equals(other.feedback, feedback) &&
+            const DeepCollectionEquality().equals(
+                other.uidOfSubbiesInvitedToBid, uidOfSubbiesInvitedToBid));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(workIdentifier) ^
-      const DeepCollectionEquality().hash(createdOn) ^
-      const DeepCollectionEquality().hash(contractorId) ^
-      const DeepCollectionEquality().hash(location) ^
-      const DeepCollectionEquality().hash(trade) ^
-      const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(totalUnseenBids) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(hourlyRate) ^
-      const DeepCollectionEquality().hash(applications) ^
-      const DeepCollectionEquality().hash(subbiesRequired) ^
-      const DeepCollectionEquality().hash(subbiesWorking) ^
-      const DeepCollectionEquality().hash(endDate) ^
-      const DeepCollectionEquality().hash(hrsPerDay) ^
-      const DeepCollectionEquality().hash(startDate) ^
-      const DeepCollectionEquality().hash(requirements) ^
-      const DeepCollectionEquality().hash(acceptingBids) ^
-      const DeepCollectionEquality().hash(feedback) ^
-      const DeepCollectionEquality().hash(uidOfSubbiesInvitedToBid);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(workIdentifier),
+        const DeepCollectionEquality().hash(createdOn),
+        const DeepCollectionEquality().hash(contractorId),
+        const DeepCollectionEquality().hash(location),
+        const DeepCollectionEquality().hash(trade),
+        const DeepCollectionEquality().hash(status),
+        const DeepCollectionEquality().hash(totalUnseenBids),
+        const DeepCollectionEquality().hash(description),
+        const DeepCollectionEquality().hash(hourlyRate),
+        const DeepCollectionEquality().hash(applications),
+        const DeepCollectionEquality().hash(subbiesRequired),
+        const DeepCollectionEquality().hash(subbiesWorking),
+        const DeepCollectionEquality().hash(endDate),
+        const DeepCollectionEquality().hash(hrsPerDay),
+        const DeepCollectionEquality().hash(startDate),
+        const DeepCollectionEquality().hash(requirements),
+        const DeepCollectionEquality().hash(acceptingBids),
+        const DeepCollectionEquality().hash(feedback),
+        const DeepCollectionEquality().hash(uidOfSubbiesInvitedToBid)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -580,44 +557,43 @@ abstract class _Job extends Job {
   factory _Job.fromJson(Map<String, dynamic> json) = _$_Job.fromJson;
 
   @override
-  WorkIdentifier get workIdentifier => throw _privateConstructorUsedError;
+  WorkIdentifier get workIdentifier;
   @override
-  DateTime get createdOn => throw _privateConstructorUsedError;
+  DateTime get createdOn;
   @override
-  String get contractorId => throw _privateConstructorUsedError;
+  String get contractorId;
   @override
-  LocationModel get location => throw _privateConstructorUsedError;
+  LocationModel get location;
   @override
-  Trade get trade => throw _privateConstructorUsedError;
+  Trade get trade;
   @override
-  JobStatuses get status => throw _privateConstructorUsedError;
+  JobStatuses get status;
   @override
-  int get totalUnseenBids => throw _privateConstructorUsedError;
+  int get totalUnseenBids;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
-  double get hourlyRate => throw _privateConstructorUsedError;
+  double get hourlyRate;
   @override
-  int get applications => throw _privateConstructorUsedError;
+  int get applications;
   @override
-  int get subbiesRequired => throw _privateConstructorUsedError;
+  int get subbiesRequired;
   @override
-  int get subbiesWorking => throw _privateConstructorUsedError;
+  int get subbiesWorking;
   @override
-  DateTime get endDate => throw _privateConstructorUsedError;
+  DateTime get endDate;
   @override
-  int get hrsPerDay => throw _privateConstructorUsedError;
+  int get hrsPerDay;
   @override
-  DateTime get startDate => throw _privateConstructorUsedError;
+  DateTime get startDate;
   @override
-  List<String> get requirements => throw _privateConstructorUsedError;
+  List<String> get requirements;
   @override
-  bool get acceptingBids => throw _privateConstructorUsedError;
+  bool get acceptingBids;
   @override
-  List<JobFeedback>? get feedback => throw _privateConstructorUsedError;
+  List<JobFeedback>? get feedback;
   @override
-  List<String>? get uidOfSubbiesInvitedToBid =>
-      throw _privateConstructorUsedError;
+  List<String>? get uidOfSubbiesInvitedToBid;
   @override
   @JsonKey(ignore: true)
   _$JobCopyWith<_Job> get copyWith => throw _privateConstructorUsedError;

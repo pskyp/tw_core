@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -67,7 +68,7 @@ class _$TenderTearOff {
     );
   }
 
-  Tender fromJson(Map<String, Object> json) {
+  Tender fromJson(Map<String, Object?> json) {
     return Tender.fromJson(json);
   }
 }
@@ -498,95 +499,70 @@ class _$_Tender extends _Tender {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Tender &&
-            (identical(other.workIdentifier, workIdentifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.workIdentifier, workIdentifier)) &&
-            (identical(other.createdOn, createdOn) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdOn, createdOn)) &&
-            (identical(other.developerId, developerId) ||
-                const DeepCollectionEquality()
-                    .equals(other.developerId, developerId)) &&
-            (identical(other.tenderStatus, tenderStatus) ||
-                const DeepCollectionEquality()
-                    .equals(other.tenderStatus, tenderStatus)) &&
-            (identical(other.inviteEmailOne, inviteEmailOne) ||
-                const DeepCollectionEquality()
-                    .equals(other.inviteEmailOne, inviteEmailOne)) &&
-            (identical(other.inviteEmailTwo, inviteEmailTwo) ||
-                const DeepCollectionEquality()
-                    .equals(other.inviteEmailTwo, inviteEmailTwo)) &&
-            (identical(other.trade, trade) ||
-                const DeepCollectionEquality().equals(other.trade, trade)) &&
-            (identical(other.requirements, requirements) ||
-                const DeepCollectionEquality()
-                    .equals(other.requirements, requirements)) &&
-            (identical(other.instructions, instructions) ||
-                const DeepCollectionEquality()
-                    .equals(other.instructions, instructions)) &&
-            (identical(other.location, location) ||
-                const DeepCollectionEquality()
-                    .equals(other.location, location)) &&
-            (identical(other.startDate, startDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.startDate, startDate)) &&
-            (identical(other.applicationDeadLine, applicationDeadLine) ||
-                const DeepCollectionEquality()
-                    .equals(other.applicationDeadLine, applicationDeadLine)) &&
-            (identical(other.queriesDate, queriesDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.queriesDate, queriesDate)) &&
-            (identical(other.submissionDate, submissionDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.submissionDate, submissionDate)) &&
-            (identical(other.feedbackDate, feedbackDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.feedbackDate, feedbackDate)) &&
-            (identical(other.awardDate, awardDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.awardDate, awardDate)) &&
-            (identical(other.endDate, endDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.endDate, endDate)) &&
-            (identical(other.tenderTimeLineStatus, tenderTimeLineStatus) ||
-                const DeepCollectionEquality().equals(
-                    other.tenderTimeLineStatus, tenderTimeLineStatus)) &&
-            (identical(other.feedbackByDeveloper, feedbackByDeveloper) ||
-                const DeepCollectionEquality()
-                    .equals(other.feedbackByDeveloper, feedbackByDeveloper)) &&
-            (identical(other.feedbackByContractor, feedbackByContractor) ||
-                const DeepCollectionEquality().equals(
-                    other.feedbackByContractor, feedbackByContractor)) &&
-            (identical(other.feedback, feedback) ||
-                const DeepCollectionEquality()
-                    .equals(other.feedback, feedback)));
+        (other.runtimeType == runtimeType &&
+            other is _Tender &&
+            const DeepCollectionEquality()
+                .equals(other.workIdentifier, workIdentifier) &&
+            const DeepCollectionEquality().equals(other.createdOn, createdOn) &&
+            const DeepCollectionEquality()
+                .equals(other.developerId, developerId) &&
+            const DeepCollectionEquality()
+                .equals(other.tenderStatus, tenderStatus) &&
+            const DeepCollectionEquality()
+                .equals(other.inviteEmailOne, inviteEmailOne) &&
+            const DeepCollectionEquality()
+                .equals(other.inviteEmailTwo, inviteEmailTwo) &&
+            const DeepCollectionEquality().equals(other.trade, trade) &&
+            const DeepCollectionEquality()
+                .equals(other.requirements, requirements) &&
+            const DeepCollectionEquality()
+                .equals(other.instructions, instructions) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality().equals(other.startDate, startDate) &&
+            const DeepCollectionEquality()
+                .equals(other.applicationDeadLine, applicationDeadLine) &&
+            const DeepCollectionEquality()
+                .equals(other.queriesDate, queriesDate) &&
+            const DeepCollectionEquality()
+                .equals(other.submissionDate, submissionDate) &&
+            const DeepCollectionEquality()
+                .equals(other.feedbackDate, feedbackDate) &&
+            const DeepCollectionEquality().equals(other.awardDate, awardDate) &&
+            const DeepCollectionEquality().equals(other.endDate, endDate) &&
+            const DeepCollectionEquality()
+                .equals(other.tenderTimeLineStatus, tenderTimeLineStatus) &&
+            const DeepCollectionEquality()
+                .equals(other.feedbackByDeveloper, feedbackByDeveloper) &&
+            const DeepCollectionEquality()
+                .equals(other.feedbackByContractor, feedbackByContractor) &&
+            const DeepCollectionEquality().equals(other.feedback, feedback));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(workIdentifier) ^
-      const DeepCollectionEquality().hash(createdOn) ^
-      const DeepCollectionEquality().hash(developerId) ^
-      const DeepCollectionEquality().hash(tenderStatus) ^
-      const DeepCollectionEquality().hash(inviteEmailOne) ^
-      const DeepCollectionEquality().hash(inviteEmailTwo) ^
-      const DeepCollectionEquality().hash(trade) ^
-      const DeepCollectionEquality().hash(requirements) ^
-      const DeepCollectionEquality().hash(instructions) ^
-      const DeepCollectionEquality().hash(location) ^
-      const DeepCollectionEquality().hash(startDate) ^
-      const DeepCollectionEquality().hash(applicationDeadLine) ^
-      const DeepCollectionEquality().hash(queriesDate) ^
-      const DeepCollectionEquality().hash(submissionDate) ^
-      const DeepCollectionEquality().hash(feedbackDate) ^
-      const DeepCollectionEquality().hash(awardDate) ^
-      const DeepCollectionEquality().hash(endDate) ^
-      const DeepCollectionEquality().hash(tenderTimeLineStatus) ^
-      const DeepCollectionEquality().hash(feedbackByDeveloper) ^
-      const DeepCollectionEquality().hash(feedbackByContractor) ^
-      const DeepCollectionEquality().hash(feedback);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(workIdentifier),
+        const DeepCollectionEquality().hash(createdOn),
+        const DeepCollectionEquality().hash(developerId),
+        const DeepCollectionEquality().hash(tenderStatus),
+        const DeepCollectionEquality().hash(inviteEmailOne),
+        const DeepCollectionEquality().hash(inviteEmailTwo),
+        const DeepCollectionEquality().hash(trade),
+        const DeepCollectionEquality().hash(requirements),
+        const DeepCollectionEquality().hash(instructions),
+        const DeepCollectionEquality().hash(location),
+        const DeepCollectionEquality().hash(startDate),
+        const DeepCollectionEquality().hash(applicationDeadLine),
+        const DeepCollectionEquality().hash(queriesDate),
+        const DeepCollectionEquality().hash(submissionDate),
+        const DeepCollectionEquality().hash(feedbackDate),
+        const DeepCollectionEquality().hash(awardDate),
+        const DeepCollectionEquality().hash(endDate),
+        const DeepCollectionEquality().hash(tenderTimeLineStatus),
+        const DeepCollectionEquality().hash(feedbackByDeveloper),
+        const DeepCollectionEquality().hash(feedbackByContractor),
+        const DeepCollectionEquality().hash(feedback)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -627,48 +603,47 @@ abstract class _Tender extends Tender {
   factory _Tender.fromJson(Map<String, dynamic> json) = _$_Tender.fromJson;
 
   @override
-  WorkIdentifier get workIdentifier => throw _privateConstructorUsedError;
+  WorkIdentifier get workIdentifier;
   @override
-  DateTime get createdOn => throw _privateConstructorUsedError;
+  DateTime get createdOn;
   @override
-  String get developerId => throw _privateConstructorUsedError;
+  String get developerId;
   @override
-  TenderStatus get tenderStatus => throw _privateConstructorUsedError;
+  TenderStatus get tenderStatus;
   @override
-  String? get inviteEmailOne => throw _privateConstructorUsedError;
+  String? get inviteEmailOne;
   @override
-  String? get inviteEmailTwo => throw _privateConstructorUsedError;
+  String? get inviteEmailTwo;
   @override
-  Trade get trade => throw _privateConstructorUsedError;
+  Trade get trade;
   @override
-  String get requirements => throw _privateConstructorUsedError;
+  String get requirements;
   @override
-  String get instructions => throw _privateConstructorUsedError;
+  String get instructions;
   @override
-  LocationModel get location => throw _privateConstructorUsedError;
+  LocationModel get location;
   @override
-  DateTime get startDate => throw _privateConstructorUsedError;
+  DateTime get startDate;
   @override
-  DateTime get applicationDeadLine => throw _privateConstructorUsedError;
+  DateTime get applicationDeadLine;
   @override
-  DateTime get queriesDate => throw _privateConstructorUsedError;
+  DateTime get queriesDate;
   @override
-  DateTime get submissionDate => throw _privateConstructorUsedError;
+  DateTime get submissionDate;
   @override
-  DateTime get feedbackDate => throw _privateConstructorUsedError;
+  DateTime get feedbackDate;
   @override
-  DateTime get awardDate => throw _privateConstructorUsedError;
+  DateTime get awardDate;
   @override
-  DateTime get endDate => throw _privateConstructorUsedError;
+  DateTime get endDate;
   @override
-  TenderTimeLineStatus get tenderTimeLineStatus =>
-      throw _privateConstructorUsedError;
+  TenderTimeLineStatus get tenderTimeLineStatus;
   @override
-  bool get feedbackByDeveloper => throw _privateConstructorUsedError;
+  bool get feedbackByDeveloper;
   @override
-  bool get feedbackByContractor => throw _privateConstructorUsedError;
+  bool get feedbackByContractor;
   @override
-  List<TenderFeedback>? get feedback => throw _privateConstructorUsedError;
+  List<TenderFeedback>? get feedback;
   @override
   @JsonKey(ignore: true)
   _$TenderCopyWith<_Tender> get copyWith => throw _privateConstructorUsedError;

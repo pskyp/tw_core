@@ -11,7 +11,7 @@ _$_Tender _$$_TenderFromJson(Map<String, dynamic> json) => _$_Tender(
           json['workIdentifier'] as Map<String, dynamic>),
       createdOn: DateTime.parse(json['createdOn'] as String),
       developerId: json['developerId'] as String,
-      tenderStatus: _$enumDecode(_$TenderStatusEnumMap, json['tenderStatus']),
+      tenderStatus: $enumDecode(_$TenderStatusEnumMap, json['tenderStatus']),
       inviteEmailOne: json['inviteEmailOne'] as String?,
       inviteEmailTwo: json['inviteEmailTwo'] as String?,
       trade: Trade.fromJson(json['trade'] as Map<String, dynamic>),
@@ -27,7 +27,7 @@ _$_Tender _$$_TenderFromJson(Map<String, dynamic> json) => _$_Tender(
       feedbackDate: DateTime.parse(json['feedbackDate'] as String),
       awardDate: DateTime.parse(json['awardDate'] as String),
       endDate: DateTime.parse(json['endDate'] as String),
-      tenderTimeLineStatus: _$enumDecode(
+      tenderTimeLineStatus: $enumDecode(
           _$TenderTimeLineStatusEnumMap, json['tenderTimeLineStatus']),
       feedbackByDeveloper: json['feedbackByDeveloper'] as bool,
       feedbackByContractor: json['feedbackByContractor'] as bool,
@@ -60,32 +60,6 @@ Map<String, dynamic> _$$_TenderToJson(_$_Tender instance) => <String, dynamic>{
       'feedbackByContractor': instance.feedbackByContractor,
       'feedback': instance.feedback?.map((e) => e.toJson()).toList(),
     };
-
-K _$enumDecode<K, V>(
-  Map<K, V> enumValues,
-  Object? source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError(
-      'A value must be provided. Supported values: '
-      '${enumValues.values.join(', ')}',
-    );
-  }
-
-  return enumValues.entries.singleWhere(
-    (e) => e.value == source,
-    orElse: () {
-      if (unknownValue == null) {
-        throw ArgumentError(
-          '`$source` is not one of the supported values: '
-          '${enumValues.values.join(', ')}',
-        );
-      }
-      return MapEntry(unknownValue, enumValues.values.first);
-    },
-  ).key;
-}
 
 const _$TenderStatusEnumMap = {
   TenderStatus.UnAwarded: 'UnAwarded',

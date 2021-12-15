@@ -48,6 +48,9 @@ import 'package:tw_core/models/trades.dart';
 import 'package:tw_core/models/tw_document/tw_document.dart';
 import 'package:tw_core/models/tw_notification/tw_notification.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
+import 'package:tw_core/models/user_bank_details/bank_account_number.dart';
+import 'package:tw_core/models/user_bank_details/bank_sort_code.dart';
+import 'package:tw_core/models/user_bank_details/user_bank_details.dart';
 import 'package:tw_core/models/work/work.dart';
 import 'package:tw_core/services/cache_service.dart';
 

@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -31,7 +32,7 @@ class _$DevelopmentTearOff {
     );
   }
 
-  Development fromJson(Map<String, Object> json) {
+  Development fromJson(Map<String, Object?> json) {
     return Development.fromJson(json);
   }
 }
@@ -180,24 +181,21 @@ class _$_Development extends _Development {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Development &&
-            (identical(other.developmentIdentifier, developmentIdentifier) ||
-                const DeepCollectionEquality().equals(
-                    other.developmentIdentifier, developmentIdentifier)) &&
-            (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
-            (identical(other.location, location) ||
-                const DeepCollectionEquality()
-                    .equals(other.location, location)));
+        (other.runtimeType == runtimeType &&
+            other is _Development &&
+            const DeepCollectionEquality()
+                .equals(other.developmentIdentifier, developmentIdentifier) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality().equals(other.location, location));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(developmentIdentifier) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(location);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(developmentIdentifier),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(location));
 
   @JsonKey(ignore: true)
   @override
@@ -221,12 +219,11 @@ abstract class _Development extends Development {
       _$_Development.fromJson;
 
   @override
-  DevelopmentIdentifier get developmentIdentifier =>
-      throw _privateConstructorUsedError;
+  DevelopmentIdentifier get developmentIdentifier;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
-  LocationModel get location => throw _privateConstructorUsedError;
+  LocationModel get location;
   @override
   @JsonKey(ignore: true)
   _$DevelopmentCopyWith<_Development> get copyWith =>
@@ -253,7 +250,7 @@ class _$DevelopmentIdentifierTearOff {
     );
   }
 
-  DevelopmentIdentifier fromJson(Map<String, Object> json) {
+  DevelopmentIdentifier fromJson(Map<String, Object?> json) {
     return DevelopmentIdentifier.fromJson(json);
   }
 }
@@ -382,22 +379,20 @@ class _$_DevelopmentIdentifier extends _DevelopmentIdentifier {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _DevelopmentIdentifier &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.developerId, developerId) ||
-                const DeepCollectionEquality()
-                    .equals(other.developerId, developerId)));
+        (other.runtimeType == runtimeType &&
+            other is _DevelopmentIdentifier &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality()
+                .equals(other.developerId, developerId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(developerId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(developerId));
 
   @JsonKey(ignore: true)
   @override
@@ -422,11 +417,11 @@ abstract class _DevelopmentIdentifier extends DevelopmentIdentifier {
       _$_DevelopmentIdentifier.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get title => throw _privateConstructorUsedError;
+  String get title;
   @override
-  String get developerId => throw _privateConstructorUsedError;
+  String get developerId;
   @override
   @JsonKey(ignore: true)
   _$DevelopmentIdentifierCopyWith<_DevelopmentIdentifier> get copyWith =>

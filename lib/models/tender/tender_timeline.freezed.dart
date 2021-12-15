@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -79,6 +80,17 @@ mixin _$TenderTimelineFailures {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime date)? applicationDeadlineBeforeCreatedAt,
+    TResult Function(DateTime date)? queriesBeforeCreatedAt,
+    TResult Function(DateTime date)? submissionBeforeQueries,
+    TResult Function(DateTime date)? feedbackBeforeSubmission,
+    TResult Function(DateTime date)? startDateBeforeAwardDate,
+    TResult Function(DateTime date)? awardBeforeFeedback,
+    TResult Function(DateTime date)? endDateBeforeStart,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? applicationDeadlineBeforeCreatedAt,
     TResult Function(DateTime date)? queriesBeforeCreatedAt,
@@ -104,6 +116,18 @@ mixin _$TenderTimelineFailures {
         startDateBeforeAwardDate,
     required TResult Function(AwardBeforeFeedback value) awardBeforeFeedback,
     required TResult Function(EndDateBeforeAward value) endDateBeforeStart,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
+        applicationDeadlineBeforeCreatedAt,
+    TResult Function(QueriesBeforeCreatedAt value)? queriesBeforeCreatedAt,
+    TResult Function(SubmissionBeforeQueries value)? submissionBeforeQueries,
+    TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
+    TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
+    TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -209,14 +233,14 @@ class _$ApplicationDeadlineBeforeCreatedAt
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ApplicationDeadlineBeforeCreatedAt &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)));
+        (other.runtimeType == runtimeType &&
+            other is ApplicationDeadlineBeforeCreatedAt &&
+            const DeepCollectionEquality().equals(other.date, date));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
   @override
@@ -237,6 +261,20 @@ class _$ApplicationDeadlineBeforeCreatedAt
     required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return applicationDeadlineBeforeCreatedAt(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime date)? applicationDeadlineBeforeCreatedAt,
+    TResult Function(DateTime date)? queriesBeforeCreatedAt,
+    TResult Function(DateTime date)? submissionBeforeQueries,
+    TResult Function(DateTime date)? feedbackBeforeSubmission,
+    TResult Function(DateTime date)? startDateBeforeAwardDate,
+    TResult Function(DateTime date)? awardBeforeFeedback,
+    TResult Function(DateTime date)? endDateBeforeStart,
+  }) {
+    return applicationDeadlineBeforeCreatedAt?.call(date);
   }
 
   @override
@@ -278,6 +316,21 @@ class _$ApplicationDeadlineBeforeCreatedAt
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
+        applicationDeadlineBeforeCreatedAt,
+    TResult Function(QueriesBeforeCreatedAt value)? queriesBeforeCreatedAt,
+    TResult Function(SubmissionBeforeQueries value)? submissionBeforeQueries,
+    TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
+    TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
+    TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
+  }) {
+    return applicationDeadlineBeforeCreatedAt?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
         applicationDeadlineBeforeCreatedAt,
@@ -302,7 +355,7 @@ abstract class ApplicationDeadlineBeforeCreatedAt
       _$ApplicationDeadlineBeforeCreatedAt;
 
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get date;
   @override
   @JsonKey(ignore: true)
   $ApplicationDeadlineBeforeCreatedAtCopyWith<
@@ -360,14 +413,14 @@ class _$QueriesBeforeCreatedAt implements QueriesBeforeCreatedAt {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is QueriesBeforeCreatedAt &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)));
+        (other.runtimeType == runtimeType &&
+            other is QueriesBeforeCreatedAt &&
+            const DeepCollectionEquality().equals(other.date, date));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
   @override
@@ -387,6 +440,20 @@ class _$QueriesBeforeCreatedAt implements QueriesBeforeCreatedAt {
     required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return queriesBeforeCreatedAt(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime date)? applicationDeadlineBeforeCreatedAt,
+    TResult Function(DateTime date)? queriesBeforeCreatedAt,
+    TResult Function(DateTime date)? submissionBeforeQueries,
+    TResult Function(DateTime date)? feedbackBeforeSubmission,
+    TResult Function(DateTime date)? startDateBeforeAwardDate,
+    TResult Function(DateTime date)? awardBeforeFeedback,
+    TResult Function(DateTime date)? endDateBeforeStart,
+  }) {
+    return queriesBeforeCreatedAt?.call(date);
   }
 
   @override
@@ -428,6 +495,21 @@ class _$QueriesBeforeCreatedAt implements QueriesBeforeCreatedAt {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
+        applicationDeadlineBeforeCreatedAt,
+    TResult Function(QueriesBeforeCreatedAt value)? queriesBeforeCreatedAt,
+    TResult Function(SubmissionBeforeQueries value)? submissionBeforeQueries,
+    TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
+    TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
+    TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
+  }) {
+    return queriesBeforeCreatedAt?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
         applicationDeadlineBeforeCreatedAt,
@@ -451,7 +533,7 @@ abstract class QueriesBeforeCreatedAt implements TenderTimelineFailures {
       _$QueriesBeforeCreatedAt;
 
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get date;
   @override
   @JsonKey(ignore: true)
   $QueriesBeforeCreatedAtCopyWith<QueriesBeforeCreatedAt> get copyWith =>
@@ -508,14 +590,14 @@ class _$SubmissionBeforeQueries implements SubmissionBeforeQueries {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SubmissionBeforeQueries &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)));
+        (other.runtimeType == runtimeType &&
+            other is SubmissionBeforeQueries &&
+            const DeepCollectionEquality().equals(other.date, date));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
   @override
@@ -535,6 +617,20 @@ class _$SubmissionBeforeQueries implements SubmissionBeforeQueries {
     required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return submissionBeforeQueries(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime date)? applicationDeadlineBeforeCreatedAt,
+    TResult Function(DateTime date)? queriesBeforeCreatedAt,
+    TResult Function(DateTime date)? submissionBeforeQueries,
+    TResult Function(DateTime date)? feedbackBeforeSubmission,
+    TResult Function(DateTime date)? startDateBeforeAwardDate,
+    TResult Function(DateTime date)? awardBeforeFeedback,
+    TResult Function(DateTime date)? endDateBeforeStart,
+  }) {
+    return submissionBeforeQueries?.call(date);
   }
 
   @override
@@ -576,6 +672,21 @@ class _$SubmissionBeforeQueries implements SubmissionBeforeQueries {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
+        applicationDeadlineBeforeCreatedAt,
+    TResult Function(QueriesBeforeCreatedAt value)? queriesBeforeCreatedAt,
+    TResult Function(SubmissionBeforeQueries value)? submissionBeforeQueries,
+    TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
+    TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
+    TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
+  }) {
+    return submissionBeforeQueries?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
         applicationDeadlineBeforeCreatedAt,
@@ -599,7 +710,7 @@ abstract class SubmissionBeforeQueries implements TenderTimelineFailures {
       _$SubmissionBeforeQueries;
 
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get date;
   @override
   @JsonKey(ignore: true)
   $SubmissionBeforeQueriesCopyWith<SubmissionBeforeQueries> get copyWith =>
@@ -657,14 +768,14 @@ class _$FeedbackBeforeSubmission implements FeedbackBeforeSubmission {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is FeedbackBeforeSubmission &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)));
+        (other.runtimeType == runtimeType &&
+            other is FeedbackBeforeSubmission &&
+            const DeepCollectionEquality().equals(other.date, date));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
   @override
@@ -684,6 +795,20 @@ class _$FeedbackBeforeSubmission implements FeedbackBeforeSubmission {
     required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return feedbackBeforeSubmission(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime date)? applicationDeadlineBeforeCreatedAt,
+    TResult Function(DateTime date)? queriesBeforeCreatedAt,
+    TResult Function(DateTime date)? submissionBeforeQueries,
+    TResult Function(DateTime date)? feedbackBeforeSubmission,
+    TResult Function(DateTime date)? startDateBeforeAwardDate,
+    TResult Function(DateTime date)? awardBeforeFeedback,
+    TResult Function(DateTime date)? endDateBeforeStart,
+  }) {
+    return feedbackBeforeSubmission?.call(date);
   }
 
   @override
@@ -725,6 +850,21 @@ class _$FeedbackBeforeSubmission implements FeedbackBeforeSubmission {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
+        applicationDeadlineBeforeCreatedAt,
+    TResult Function(QueriesBeforeCreatedAt value)? queriesBeforeCreatedAt,
+    TResult Function(SubmissionBeforeQueries value)? submissionBeforeQueries,
+    TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
+    TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
+    TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
+  }) {
+    return feedbackBeforeSubmission?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
         applicationDeadlineBeforeCreatedAt,
@@ -748,7 +888,7 @@ abstract class FeedbackBeforeSubmission implements TenderTimelineFailures {
       _$FeedbackBeforeSubmission;
 
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get date;
   @override
   @JsonKey(ignore: true)
   $FeedbackBeforeSubmissionCopyWith<FeedbackBeforeSubmission> get copyWith =>
@@ -806,14 +946,14 @@ class _$StartDateBeforeAwardDate implements StartDateBeforeAwardDate {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is StartDateBeforeAwardDate &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)));
+        (other.runtimeType == runtimeType &&
+            other is StartDateBeforeAwardDate &&
+            const DeepCollectionEquality().equals(other.date, date));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
   @override
@@ -833,6 +973,20 @@ class _$StartDateBeforeAwardDate implements StartDateBeforeAwardDate {
     required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return startDateBeforeAwardDate(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime date)? applicationDeadlineBeforeCreatedAt,
+    TResult Function(DateTime date)? queriesBeforeCreatedAt,
+    TResult Function(DateTime date)? submissionBeforeQueries,
+    TResult Function(DateTime date)? feedbackBeforeSubmission,
+    TResult Function(DateTime date)? startDateBeforeAwardDate,
+    TResult Function(DateTime date)? awardBeforeFeedback,
+    TResult Function(DateTime date)? endDateBeforeStart,
+  }) {
+    return startDateBeforeAwardDate?.call(date);
   }
 
   @override
@@ -874,6 +1028,21 @@ class _$StartDateBeforeAwardDate implements StartDateBeforeAwardDate {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
+        applicationDeadlineBeforeCreatedAt,
+    TResult Function(QueriesBeforeCreatedAt value)? queriesBeforeCreatedAt,
+    TResult Function(SubmissionBeforeQueries value)? submissionBeforeQueries,
+    TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
+    TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
+    TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
+  }) {
+    return startDateBeforeAwardDate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
         applicationDeadlineBeforeCreatedAt,
@@ -897,7 +1066,7 @@ abstract class StartDateBeforeAwardDate implements TenderTimelineFailures {
       _$StartDateBeforeAwardDate;
 
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get date;
   @override
   @JsonKey(ignore: true)
   $StartDateBeforeAwardDateCopyWith<StartDateBeforeAwardDate> get copyWith =>
@@ -954,14 +1123,14 @@ class _$AwardBeforeFeedback implements AwardBeforeFeedback {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is AwardBeforeFeedback &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)));
+        (other.runtimeType == runtimeType &&
+            other is AwardBeforeFeedback &&
+            const DeepCollectionEquality().equals(other.date, date));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
   @override
@@ -980,6 +1149,20 @@ class _$AwardBeforeFeedback implements AwardBeforeFeedback {
     required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return awardBeforeFeedback(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime date)? applicationDeadlineBeforeCreatedAt,
+    TResult Function(DateTime date)? queriesBeforeCreatedAt,
+    TResult Function(DateTime date)? submissionBeforeQueries,
+    TResult Function(DateTime date)? feedbackBeforeSubmission,
+    TResult Function(DateTime date)? startDateBeforeAwardDate,
+    TResult Function(DateTime date)? awardBeforeFeedback,
+    TResult Function(DateTime date)? endDateBeforeStart,
+  }) {
+    return awardBeforeFeedback?.call(date);
   }
 
   @override
@@ -1021,6 +1204,21 @@ class _$AwardBeforeFeedback implements AwardBeforeFeedback {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
+        applicationDeadlineBeforeCreatedAt,
+    TResult Function(QueriesBeforeCreatedAt value)? queriesBeforeCreatedAt,
+    TResult Function(SubmissionBeforeQueries value)? submissionBeforeQueries,
+    TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
+    TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
+    TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
+  }) {
+    return awardBeforeFeedback?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
         applicationDeadlineBeforeCreatedAt,
@@ -1043,7 +1241,7 @@ abstract class AwardBeforeFeedback implements TenderTimelineFailures {
   const factory AwardBeforeFeedback(DateTime date) = _$AwardBeforeFeedback;
 
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get date;
   @override
   @JsonKey(ignore: true)
   $AwardBeforeFeedbackCopyWith<AwardBeforeFeedback> get copyWith =>
@@ -1100,14 +1298,14 @@ class _$EndDateBeforeAward implements EndDateBeforeAward {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is EndDateBeforeAward &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)));
+        (other.runtimeType == runtimeType &&
+            other is EndDateBeforeAward &&
+            const DeepCollectionEquality().equals(other.date, date));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(date);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(date));
 
   @JsonKey(ignore: true)
   @override
@@ -1126,6 +1324,20 @@ class _$EndDateBeforeAward implements EndDateBeforeAward {
     required TResult Function(DateTime date) endDateBeforeStart,
   }) {
     return endDateBeforeStart(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(DateTime date)? applicationDeadlineBeforeCreatedAt,
+    TResult Function(DateTime date)? queriesBeforeCreatedAt,
+    TResult Function(DateTime date)? submissionBeforeQueries,
+    TResult Function(DateTime date)? feedbackBeforeSubmission,
+    TResult Function(DateTime date)? startDateBeforeAwardDate,
+    TResult Function(DateTime date)? awardBeforeFeedback,
+    TResult Function(DateTime date)? endDateBeforeStart,
+  }) {
+    return endDateBeforeStart?.call(date);
   }
 
   @override
@@ -1167,6 +1379,21 @@ class _$EndDateBeforeAward implements EndDateBeforeAward {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
+        applicationDeadlineBeforeCreatedAt,
+    TResult Function(QueriesBeforeCreatedAt value)? queriesBeforeCreatedAt,
+    TResult Function(SubmissionBeforeQueries value)? submissionBeforeQueries,
+    TResult Function(FeedbackBeforeSubmission value)? feedbackBeforeSubmission,
+    TResult Function(StartDateBeforeAwardDate value)? startDateBeforeAwardDate,
+    TResult Function(AwardBeforeFeedback value)? awardBeforeFeedback,
+    TResult Function(EndDateBeforeAward value)? endDateBeforeStart,
+  }) {
+    return endDateBeforeStart?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ApplicationDeadlineBeforeCreatedAt value)?
         applicationDeadlineBeforeCreatedAt,
@@ -1189,7 +1416,7 @@ abstract class EndDateBeforeAward implements TenderTimelineFailures {
   const factory EndDateBeforeAward(DateTime date) = _$EndDateBeforeAward;
 
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime get date;
   @override
   @JsonKey(ignore: true)
   $EndDateBeforeAwardCopyWith<EndDateBeforeAward> get copyWith =>

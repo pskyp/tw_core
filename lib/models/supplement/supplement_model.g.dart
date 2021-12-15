@@ -11,7 +11,7 @@ _$_Supplement _$$_SupplementFromJson(Map<String, dynamic> json) =>
       workIdentifier: WorkIdentifier.fromJson(
           json['workIdentifier'] as Map<String, dynamic>),
       developerId: json['developerId'] as String,
-      status: _$enumDecode(_$SupplementStatusEnumMap, json['status']),
+      status: $enumDecode(_$SupplementStatusEnumMap, json['status']),
       developer: Developer.fromJson(json['developer'] as Map<String, dynamic>),
       title: json['title'] as String,
       description: json['description'] as String,
@@ -57,32 +57,6 @@ Map<String, dynamic> _$$_SupplementToJson(_$_Supplement instance) =>
       'location': instance.location.toJson(),
       'feedback': instance.feedback?.map((e) => e.toJson()).toList(),
     };
-
-K _$enumDecode<K, V>(
-  Map<K, V> enumValues,
-  Object? source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError(
-      'A value must be provided. Supported values: '
-      '${enumValues.values.join(', ')}',
-    );
-  }
-
-  return enumValues.entries.singleWhere(
-    (e) => e.value == source,
-    orElse: () {
-      if (unknownValue == null) {
-        throw ArgumentError(
-          '`$source` is not one of the supported values: '
-          '${enumValues.values.join(', ')}',
-        );
-      }
-      return MapEntry(unknownValue, enumValues.values.first);
-    },
-  ).key;
-}
 
 const _$SupplementStatusEnumMap = {
   SupplementStatus.Active: 'Active',

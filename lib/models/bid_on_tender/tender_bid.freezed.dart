@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -31,7 +32,7 @@ class _$TenderBidTearOff {
     );
   }
 
-  TenderBid fromJson(Map<String, Object> json) {
+  TenderBid fromJson(Map<String, Object?> json) {
     return TenderBid.fromJson(json);
   }
 }
@@ -188,24 +189,21 @@ class _$_TenderBid implements _TenderBid {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TenderBid &&
-            (identical(other.bidIdentifier, bidIdentifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.bidIdentifier, bidIdentifier)) &&
-            (identical(other.tenderBidStatus, tenderBidStatus) ||
-                const DeepCollectionEquality()
-                    .equals(other.tenderBidStatus, tenderBidStatus)) &&
-            (identical(other.feedback, feedback) ||
-                const DeepCollectionEquality()
-                    .equals(other.feedback, feedback)));
+        (other.runtimeType == runtimeType &&
+            other is _TenderBid &&
+            const DeepCollectionEquality()
+                .equals(other.bidIdentifier, bidIdentifier) &&
+            const DeepCollectionEquality()
+                .equals(other.tenderBidStatus, tenderBidStatus) &&
+            const DeepCollectionEquality().equals(other.feedback, feedback));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(bidIdentifier) ^
-      const DeepCollectionEquality().hash(tenderBidStatus) ^
-      const DeepCollectionEquality().hash(feedback);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(bidIdentifier),
+      const DeepCollectionEquality().hash(tenderBidStatus),
+      const DeepCollectionEquality().hash(feedback));
 
   @JsonKey(ignore: true)
   @override
@@ -228,11 +226,11 @@ abstract class _TenderBid implements TenderBid {
       _$_TenderBid.fromJson;
 
   @override
-  BidIdentifier get bidIdentifier => throw _privateConstructorUsedError;
+  BidIdentifier get bidIdentifier;
   @override
-  TenderBidStatus get tenderBidStatus => throw _privateConstructorUsedError;
+  TenderBidStatus get tenderBidStatus;
   @override
-  TenderBidFeedback? get feedback => throw _privateConstructorUsedError;
+  TenderBidFeedback? get feedback;
   @override
   @JsonKey(ignore: true)
   _$TenderBidCopyWith<_TenderBid> get copyWith =>

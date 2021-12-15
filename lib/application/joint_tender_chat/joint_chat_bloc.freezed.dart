@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,6 +37,11 @@ mixin _$JointChatEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(ChatRoom chatRoom)? openChatRoom,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ChatRoom chatRoom)? openChatRoom,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$JointChatEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(OpenTenderChatRoom value) openChatRoom,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OpenTenderChatRoom value)? openChatRoom,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -150,15 +161,14 @@ class _$OpenTenderChatRoom implements OpenTenderChatRoom {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is OpenTenderChatRoom &&
-            (identical(other.chatRoom, chatRoom) ||
-                const DeepCollectionEquality()
-                    .equals(other.chatRoom, chatRoom)));
+        (other.runtimeType == runtimeType &&
+            other is OpenTenderChatRoom &&
+            const DeepCollectionEquality().equals(other.chatRoom, chatRoom));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(chatRoom);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(chatRoom));
 
   @JsonKey(ignore: true)
   @override
@@ -171,6 +181,14 @@ class _$OpenTenderChatRoom implements OpenTenderChatRoom {
     required TResult Function(ChatRoom chatRoom) openChatRoom,
   }) {
     return openChatRoom(chatRoom);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(ChatRoom chatRoom)? openChatRoom,
+  }) {
+    return openChatRoom?.call(chatRoom);
   }
 
   @override
@@ -195,6 +213,14 @@ class _$OpenTenderChatRoom implements OpenTenderChatRoom {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(OpenTenderChatRoom value)? openChatRoom,
+  }) {
+    return openChatRoom?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(OpenTenderChatRoom value)? openChatRoom,
     required TResult orElse(),
@@ -211,7 +237,7 @@ abstract class OpenTenderChatRoom implements JointChatEvent {
       _$OpenTenderChatRoom;
 
   @override
-  ChatRoom get chatRoom => throw _privateConstructorUsedError;
+  ChatRoom get chatRoom;
   @override
   @JsonKey(ignore: true)
   $OpenTenderChatRoomCopyWith<OpenTenderChatRoom> get copyWith =>

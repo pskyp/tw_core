@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -31,7 +32,7 @@ class _$ContractorRatingTearOff {
     );
   }
 
-  ContractorRating fromJson(Map<String, Object> json) {
+  ContractorRating fromJson(Map<String, Object?> json) {
     return ContractorRating.fromJson(json);
   }
 }
@@ -161,24 +162,22 @@ class _$_ContractorRating implements _ContractorRating {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ContractorRating &&
-            (identical(other.reliability, reliability) ||
-                const DeepCollectionEquality()
-                    .equals(other.reliability, reliability)) &&
-            (identical(other.communication, communication) ||
-                const DeepCollectionEquality()
-                    .equals(other.communication, communication)) &&
-            (identical(other.environment, environment) ||
-                const DeepCollectionEquality()
-                    .equals(other.environment, environment)));
+        (other.runtimeType == runtimeType &&
+            other is _ContractorRating &&
+            const DeepCollectionEquality()
+                .equals(other.reliability, reliability) &&
+            const DeepCollectionEquality()
+                .equals(other.communication, communication) &&
+            const DeepCollectionEquality()
+                .equals(other.environment, environment));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(reliability) ^
-      const DeepCollectionEquality().hash(communication) ^
-      const DeepCollectionEquality().hash(environment);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(reliability),
+      const DeepCollectionEquality().hash(communication),
+      const DeepCollectionEquality().hash(environment));
 
   @JsonKey(ignore: true)
   @override
@@ -201,11 +200,11 @@ abstract class _ContractorRating implements ContractorRating {
       _$_ContractorRating.fromJson;
 
   @override
-  double get reliability => throw _privateConstructorUsedError;
+  double get reliability;
   @override
-  double get communication => throw _privateConstructorUsedError;
+  double get communication;
   @override
-  double get environment => throw _privateConstructorUsedError;
+  double get environment;
   @override
   @JsonKey(ignore: true)
   _$ContractorRatingCopyWith<_ContractorRating> get copyWith =>

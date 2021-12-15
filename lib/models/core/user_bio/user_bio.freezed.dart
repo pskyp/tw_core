@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -26,7 +27,7 @@ class _$UserBioTearOff {
     );
   }
 
-  UserBio fromJson(Map<String, Object> json) {
+  UserBio fromJson(Map<String, Object?> json) {
     return UserBio.fromJson(json);
   }
 }
@@ -120,15 +121,15 @@ class _$_UserBio implements _UserBio {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UserBio &&
-            (identical(other.coverLetter, coverLetter) ||
-                const DeepCollectionEquality()
-                    .equals(other.coverLetter, coverLetter)));
+        (other.runtimeType == runtimeType &&
+            other is _UserBio &&
+            const DeepCollectionEquality()
+                .equals(other.coverLetter, coverLetter));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(coverLetter);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(coverLetter));
 
   @JsonKey(ignore: true)
   @override
@@ -147,7 +148,7 @@ abstract class _UserBio implements UserBio {
   factory _UserBio.fromJson(Map<String, dynamic> json) = _$_UserBio.fromJson;
 
   @override
-  String get coverLetter => throw _privateConstructorUsedError;
+  String get coverLetter;
   @override
   @JsonKey(ignore: true)
   _$UserBioCopyWith<_UserBio> get copyWith =>

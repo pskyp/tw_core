@@ -9,7 +9,7 @@ part of 'tw_user.dart';
 TWUser _$TWUserFromJson(Map<String, dynamic> json) => TWUser(
       companyDomain: json['companyDomain'] as String,
       shouldDisplayShowcase: json['shouldDisplayShowcase'] as bool,
-      type: _$enumDecode(_$TWUserTypeEnumMap, json['type']),
+      type: $enumDecode(_$TWUserTypeEnumMap, json['type']),
       uid: json['uid'] as String,
       company: json['company'] as String,
       profileImage: json['profileImage'] as String,
@@ -40,32 +40,6 @@ Map<String, dynamic> _$TWUserToJson(TWUser instance) => <String, dynamic>{
       'invoicingDetails': instance.invoicingDetails?.toJson(),
       'shouldDisplayShowcase': instance.shouldDisplayShowcase,
     };
-
-K _$enumDecode<K, V>(
-  Map<K, V> enumValues,
-  Object? source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError(
-      'A value must be provided. Supported values: '
-      '${enumValues.values.join(', ')}',
-    );
-  }
-
-  return enumValues.entries.singleWhere(
-    (e) => e.value == source,
-    orElse: () {
-      if (unknownValue == null) {
-        throw ArgumentError(
-          '`$source` is not one of the supported values: '
-          '${enumValues.values.join(', ')}',
-        );
-      }
-      return MapEntry(unknownValue, enumValues.values.first);
-    },
-  ).key;
-}
 
 const _$TWUserTypeEnumMap = {
   TWUserType.Developer: 'Developer',

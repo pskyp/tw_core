@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -67,6 +68,16 @@ mixin _$ProfilecompletionEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? displayNameChanged,
+    TResult Function(String value)? phoneChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
+    TResult Function(LocationModel value)? locationChanged,
+    TResult Function()? submitPressed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String value)? displayNameChanged,
     TResult Function(String value)? phoneChanged,
@@ -85,6 +96,16 @@ mixin _$ProfilecompletionEvent {
     required TResult Function(CompanyDomainChanged value) companyDomainChanged,
     required TResult Function(LocationChanged value) locationChanged,
     required TResult Function(SubmitPressed value) submitPressed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DisplayNameChanged value)? displayNameChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(SubmitPressed value)? submitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -165,14 +186,14 @@ class _$DisplayNameChanged implements DisplayNameChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is DisplayNameChanged &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is DisplayNameChanged &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -190,6 +211,19 @@ class _$DisplayNameChanged implements DisplayNameChanged {
     required TResult Function() submitPressed,
   }) {
     return displayNameChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? displayNameChanged,
+    TResult Function(String value)? phoneChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
+    TResult Function(LocationModel value)? locationChanged,
+    TResult Function()? submitPressed,
+  }) {
+    return displayNameChanged?.call(value);
   }
 
   @override
@@ -224,6 +258,19 @@ class _$DisplayNameChanged implements DisplayNameChanged {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DisplayNameChanged value)? displayNameChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(SubmitPressed value)? submitPressed,
+  }) {
+    return displayNameChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DisplayNameChanged value)? displayNameChanged,
     TResult Function(PhoneChanged value)? phoneChanged,
@@ -243,7 +290,7 @@ class _$DisplayNameChanged implements DisplayNameChanged {
 abstract class DisplayNameChanged implements ProfilecompletionEvent {
   const factory DisplayNameChanged(String value) = _$DisplayNameChanged;
 
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @JsonKey(ignore: true)
   $DisplayNameChangedCopyWith<DisplayNameChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -297,14 +344,14 @@ class _$PhoneChanged implements PhoneChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is PhoneChanged &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is PhoneChanged &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -322,6 +369,19 @@ class _$PhoneChanged implements PhoneChanged {
     required TResult Function() submitPressed,
   }) {
     return phoneChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? displayNameChanged,
+    TResult Function(String value)? phoneChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
+    TResult Function(LocationModel value)? locationChanged,
+    TResult Function()? submitPressed,
+  }) {
+    return phoneChanged?.call(value);
   }
 
   @override
@@ -356,6 +416,19 @@ class _$PhoneChanged implements PhoneChanged {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DisplayNameChanged value)? displayNameChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(SubmitPressed value)? submitPressed,
+  }) {
+    return phoneChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DisplayNameChanged value)? displayNameChanged,
     TResult Function(PhoneChanged value)? phoneChanged,
@@ -375,7 +448,7 @@ class _$PhoneChanged implements PhoneChanged {
 abstract class PhoneChanged implements ProfilecompletionEvent {
   const factory PhoneChanged(String value) = _$PhoneChanged;
 
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @JsonKey(ignore: true)
   $PhoneChangedCopyWith<PhoneChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -429,14 +502,14 @@ class _$CompanyNameChanged implements CompanyNameChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is CompanyNameChanged &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is CompanyNameChanged &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -454,6 +527,19 @@ class _$CompanyNameChanged implements CompanyNameChanged {
     required TResult Function() submitPressed,
   }) {
     return companyNameChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? displayNameChanged,
+    TResult Function(String value)? phoneChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
+    TResult Function(LocationModel value)? locationChanged,
+    TResult Function()? submitPressed,
+  }) {
+    return companyNameChanged?.call(value);
   }
 
   @override
@@ -488,6 +574,19 @@ class _$CompanyNameChanged implements CompanyNameChanged {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DisplayNameChanged value)? displayNameChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(SubmitPressed value)? submitPressed,
+  }) {
+    return companyNameChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DisplayNameChanged value)? displayNameChanged,
     TResult Function(PhoneChanged value)? phoneChanged,
@@ -507,7 +606,7 @@ class _$CompanyNameChanged implements CompanyNameChanged {
 abstract class CompanyNameChanged implements ProfilecompletionEvent {
   const factory CompanyNameChanged(String value) = _$CompanyNameChanged;
 
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @JsonKey(ignore: true)
   $CompanyNameChangedCopyWith<CompanyNameChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -561,14 +660,14 @@ class _$CompanyDomainChanged implements CompanyDomainChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is CompanyDomainChanged &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is CompanyDomainChanged &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -587,6 +686,19 @@ class _$CompanyDomainChanged implements CompanyDomainChanged {
     required TResult Function() submitPressed,
   }) {
     return companyDomainChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? displayNameChanged,
+    TResult Function(String value)? phoneChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
+    TResult Function(LocationModel value)? locationChanged,
+    TResult Function()? submitPressed,
+  }) {
+    return companyDomainChanged?.call(value);
   }
 
   @override
@@ -621,6 +733,19 @@ class _$CompanyDomainChanged implements CompanyDomainChanged {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DisplayNameChanged value)? displayNameChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(SubmitPressed value)? submitPressed,
+  }) {
+    return companyDomainChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DisplayNameChanged value)? displayNameChanged,
     TResult Function(PhoneChanged value)? phoneChanged,
@@ -640,7 +765,7 @@ class _$CompanyDomainChanged implements CompanyDomainChanged {
 abstract class CompanyDomainChanged implements ProfilecompletionEvent {
   const factory CompanyDomainChanged(String value) = _$CompanyDomainChanged;
 
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @JsonKey(ignore: true)
   $CompanyDomainChangedCopyWith<CompanyDomainChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -694,14 +819,14 @@ class _$LocationChanged implements LocationChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LocationChanged &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is LocationChanged &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -719,6 +844,19 @@ class _$LocationChanged implements LocationChanged {
     required TResult Function() submitPressed,
   }) {
     return locationChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? displayNameChanged,
+    TResult Function(String value)? phoneChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
+    TResult Function(LocationModel value)? locationChanged,
+    TResult Function()? submitPressed,
+  }) {
+    return locationChanged?.call(value);
   }
 
   @override
@@ -753,6 +891,19 @@ class _$LocationChanged implements LocationChanged {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DisplayNameChanged value)? displayNameChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(SubmitPressed value)? submitPressed,
+  }) {
+    return locationChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DisplayNameChanged value)? displayNameChanged,
     TResult Function(PhoneChanged value)? phoneChanged,
@@ -772,7 +923,7 @@ class _$LocationChanged implements LocationChanged {
 abstract class LocationChanged implements ProfilecompletionEvent {
   const factory LocationChanged(LocationModel value) = _$LocationChanged;
 
-  LocationModel get value => throw _privateConstructorUsedError;
+  LocationModel get value;
   @JsonKey(ignore: true)
   $LocationChangedCopyWith<LocationChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -809,7 +960,8 @@ class _$SubmitPressed implements SubmitPressed {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SubmitPressed);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SubmitPressed);
   }
 
   @override
@@ -826,6 +978,19 @@ class _$SubmitPressed implements SubmitPressed {
     required TResult Function() submitPressed,
   }) {
     return submitPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? displayNameChanged,
+    TResult Function(String value)? phoneChanged,
+    TResult Function(String value)? companyNameChanged,
+    TResult Function(String value)? companyDomainChanged,
+    TResult Function(LocationModel value)? locationChanged,
+    TResult Function()? submitPressed,
+  }) {
+    return submitPressed?.call();
   }
 
   @override
@@ -856,6 +1021,19 @@ class _$SubmitPressed implements SubmitPressed {
     required TResult Function(SubmitPressed value) submitPressed,
   }) {
     return submitPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DisplayNameChanged value)? displayNameChanged,
+    TResult Function(PhoneChanged value)? phoneChanged,
+    TResult Function(CompanyNameChanged value)? companyNameChanged,
+    TResult Function(CompanyDomainChanged value)? companyDomainChanged,
+    TResult Function(LocationChanged value)? locationChanged,
+    TResult Function(SubmitPressed value)? submitPressed,
+  }) {
+    return submitPressed?.call(this);
   }
 
   @override
@@ -1115,43 +1293,35 @@ class _$_ProfilecompletionState implements _ProfilecompletionState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ProfilecompletionState &&
-            (identical(other.phone, phone) ||
-                const DeepCollectionEquality().equals(other.phone, phone)) &&
-            (identical(other.companyName, companyName) ||
-                const DeepCollectionEquality()
-                    .equals(other.companyName, companyName)) &&
-            (identical(other.companyDomain, companyDomain) ||
-                const DeepCollectionEquality()
-                    .equals(other.companyDomain, companyDomain)) &&
-            (identical(other.displayName, displayName) ||
-                const DeepCollectionEquality()
-                    .equals(other.displayName, displayName)) &&
-            (identical(other.location, location) ||
-                const DeepCollectionEquality()
-                    .equals(other.location, location)) &&
-            (identical(other.isSubmitting, isSubmitting) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
-            (identical(other.failureOrSucessOption, failureOrSucessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrSucessOption, failureOrSucessOption)));
+        (other.runtimeType == runtimeType &&
+            other is _ProfilecompletionState &&
+            const DeepCollectionEquality().equals(other.phone, phone) &&
+            const DeepCollectionEquality()
+                .equals(other.companyName, companyName) &&
+            const DeepCollectionEquality()
+                .equals(other.companyDomain, companyDomain) &&
+            const DeepCollectionEquality()
+                .equals(other.displayName, displayName) &&
+            const DeepCollectionEquality().equals(other.location, location) &&
+            const DeepCollectionEquality()
+                .equals(other.isSubmitting, isSubmitting) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality()
+                .equals(other.failureOrSucessOption, failureOrSucessOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(phone) ^
-      const DeepCollectionEquality().hash(companyName) ^
-      const DeepCollectionEquality().hash(companyDomain) ^
-      const DeepCollectionEquality().hash(displayName) ^
-      const DeepCollectionEquality().hash(location) ^
-      const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(failureOrSucessOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(phone),
+      const DeepCollectionEquality().hash(companyName),
+      const DeepCollectionEquality().hash(companyDomain),
+      const DeepCollectionEquality().hash(displayName),
+      const DeepCollectionEquality().hash(location),
+      const DeepCollectionEquality().hash(isSubmitting),
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(failureOrSucessOption));
 
   @JsonKey(ignore: true)
   @override
@@ -1173,22 +1343,21 @@ abstract class _ProfilecompletionState implements ProfilecompletionState {
           failureOrSucessOption}) = _$_ProfilecompletionState;
 
   @override
-  TWPhone get phone => throw _privateConstructorUsedError;
+  TWPhone get phone;
   @override
-  TWCompanyName get companyName => throw _privateConstructorUsedError;
+  TWCompanyName get companyName;
   @override
-  TWCompanyDomain get companyDomain => throw _privateConstructorUsedError;
+  TWCompanyDomain get companyDomain;
   @override
-  TWDisplayName get displayName => throw _privateConstructorUsedError;
+  TWDisplayName get displayName;
   @override
-  LocationModel? get location => throw _privateConstructorUsedError;
+  LocationModel? get location;
   @override
-  bool get isSubmitting => throw _privateConstructorUsedError;
+  bool get isSubmitting;
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get showErrorMessages;
   @override
-  Option<Either<ProfileCompletionFailure, Unit>> get failureOrSucessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ProfileCompletionFailure, Unit>> get failureOrSucessOption;
   @override
   @JsonKey(ignore: true)
   _$ProfilecompletionStateCopyWith<_ProfilecompletionState> get copyWith =>

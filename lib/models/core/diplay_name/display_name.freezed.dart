@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -32,6 +33,11 @@ mixin _$DisplayNameFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? shortName,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? shortName,
     required TResult orElse(),
@@ -40,6 +46,11 @@ mixin _$DisplayNameFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ShortName value) shortName,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ShortName value)? shortName,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,7 +107,8 @@ class _$ShortName implements ShortName {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ShortName);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ShortName);
   }
 
   @override
@@ -108,6 +120,14 @@ class _$ShortName implements ShortName {
     required TResult Function() shortName,
   }) {
     return shortName();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? shortName,
+  }) {
+    return shortName?.call();
   }
 
   @override
@@ -128,6 +148,14 @@ class _$ShortName implements ShortName {
     required TResult Function(ShortName value) shortName,
   }) {
     return shortName(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ShortName value)? shortName,
+  }) {
+    return shortName?.call(this);
   }
 
   @override

@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,6 +37,11 @@ mixin _$EmailValueFailures {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? invalidEmail,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String value)? invalidEmail,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$EmailValueFailures {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail value) invalidEmail,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidEmail value)? invalidEmail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -138,14 +149,14 @@ class _$InvalidEmail implements InvalidEmail {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is InvalidEmail &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is InvalidEmail &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -158,6 +169,14 @@ class _$InvalidEmail implements InvalidEmail {
     required TResult Function(String value) invalidEmail,
   }) {
     return invalidEmail(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String value)? invalidEmail,
+  }) {
+    return invalidEmail?.call(value);
   }
 
   @override
@@ -182,6 +201,14 @@ class _$InvalidEmail implements InvalidEmail {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidEmail value)? invalidEmail,
+  }) {
+    return invalidEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail value)? invalidEmail,
     required TResult orElse(),
@@ -197,7 +224,7 @@ abstract class InvalidEmail implements EmailValueFailures {
   const factory InvalidEmail(String value) = _$InvalidEmail;
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   $InvalidEmailCopyWith<InvalidEmail> get copyWith =>

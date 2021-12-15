@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -49,7 +50,7 @@ class _$ContractorTearOff {
     );
   }
 
-  Contractor fromJson(Map<String, Object> json) {
+  Contractor fromJson(Map<String, Object?> json) {
     return Contractor.fromJson(json);
   }
 }
@@ -69,7 +70,7 @@ mixin _$Contractor {
   bool get subscribed => throw _privateConstructorUsedError;
   DateTime get subscriptionToggledOn => throw _privateConstructorUsedError;
   ContractorCompanyDetails? get companyDetails =>
-      throw _privateConstructorUsedError;
+      throw _privateConstructorUsedError; // BankDetails
   UserBio? get userBio => throw _privateConstructorUsedError;
   TWDocument? get portfolioDocument => throw _privateConstructorUsedError;
 
@@ -360,7 +361,7 @@ class _$_Contractor extends _Contractor {
   final DateTime subscriptionToggledOn;
   @override
   final ContractorCompanyDetails? companyDetails;
-  @override
+  @override // BankDetails
   final UserBio? userBio;
   @override
   final TWDocument? portfolioDocument;
@@ -373,60 +374,47 @@ class _$_Contractor extends _Contractor {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Contractor &&
-            (identical(other.basicProfile, basicProfile) ||
-                const DeepCollectionEquality()
-                    .equals(other.basicProfile, basicProfile)) &&
-            (identical(other.savedJobRequirements, savedJobRequirements) ||
-                const DeepCollectionEquality().equals(
-                    other.savedJobRequirements, savedJobRequirements)) &&
-            (identical(other.totalJobs, totalJobs) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalJobs, totalJobs)) &&
-            (identical(other.totalRatings, totalRatings) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalRatings, totalRatings)) &&
-            (identical(other.totalCommunication, totalCommunication) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalCommunication, totalCommunication)) &&
-            (identical(other.totalEnvironment, totalEnvironment) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalEnvironment, totalEnvironment)) &&
-            (identical(other.totalReliability, totalReliability) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalReliability, totalReliability)) &&
-            (identical(other.subscribed, subscribed) ||
-                const DeepCollectionEquality()
-                    .equals(other.subscribed, subscribed)) &&
-            (identical(other.subscriptionToggledOn, subscriptionToggledOn) ||
-                const DeepCollectionEquality().equals(
-                    other.subscriptionToggledOn, subscriptionToggledOn)) &&
-            (identical(other.companyDetails, companyDetails) ||
-                const DeepCollectionEquality()
-                    .equals(other.companyDetails, companyDetails)) &&
-            (identical(other.userBio, userBio) ||
-                const DeepCollectionEquality()
-                    .equals(other.userBio, userBio)) &&
-            (identical(other.portfolioDocument, portfolioDocument) ||
-                const DeepCollectionEquality()
-                    .equals(other.portfolioDocument, portfolioDocument)));
+        (other.runtimeType == runtimeType &&
+            other is _Contractor &&
+            const DeepCollectionEquality()
+                .equals(other.basicProfile, basicProfile) &&
+            const DeepCollectionEquality()
+                .equals(other.savedJobRequirements, savedJobRequirements) &&
+            const DeepCollectionEquality().equals(other.totalJobs, totalJobs) &&
+            const DeepCollectionEquality()
+                .equals(other.totalRatings, totalRatings) &&
+            const DeepCollectionEquality()
+                .equals(other.totalCommunication, totalCommunication) &&
+            const DeepCollectionEquality()
+                .equals(other.totalEnvironment, totalEnvironment) &&
+            const DeepCollectionEquality()
+                .equals(other.totalReliability, totalReliability) &&
+            const DeepCollectionEquality()
+                .equals(other.subscribed, subscribed) &&
+            const DeepCollectionEquality()
+                .equals(other.subscriptionToggledOn, subscriptionToggledOn) &&
+            const DeepCollectionEquality()
+                .equals(other.companyDetails, companyDetails) &&
+            const DeepCollectionEquality().equals(other.userBio, userBio) &&
+            const DeepCollectionEquality()
+                .equals(other.portfolioDocument, portfolioDocument));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(basicProfile) ^
-      const DeepCollectionEquality().hash(savedJobRequirements) ^
-      const DeepCollectionEquality().hash(totalJobs) ^
-      const DeepCollectionEquality().hash(totalRatings) ^
-      const DeepCollectionEquality().hash(totalCommunication) ^
-      const DeepCollectionEquality().hash(totalEnvironment) ^
-      const DeepCollectionEquality().hash(totalReliability) ^
-      const DeepCollectionEquality().hash(subscribed) ^
-      const DeepCollectionEquality().hash(subscriptionToggledOn) ^
-      const DeepCollectionEquality().hash(companyDetails) ^
-      const DeepCollectionEquality().hash(userBio) ^
-      const DeepCollectionEquality().hash(portfolioDocument);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(basicProfile),
+      const DeepCollectionEquality().hash(savedJobRequirements),
+      const DeepCollectionEquality().hash(totalJobs),
+      const DeepCollectionEquality().hash(totalRatings),
+      const DeepCollectionEquality().hash(totalCommunication),
+      const DeepCollectionEquality().hash(totalEnvironment),
+      const DeepCollectionEquality().hash(totalReliability),
+      const DeepCollectionEquality().hash(subscribed),
+      const DeepCollectionEquality().hash(subscriptionToggledOn),
+      const DeepCollectionEquality().hash(companyDetails),
+      const DeepCollectionEquality().hash(userBio),
+      const DeepCollectionEquality().hash(portfolioDocument));
 
   @JsonKey(ignore: true)
   @override
@@ -459,30 +447,29 @@ abstract class _Contractor extends Contractor {
       _$_Contractor.fromJson;
 
   @override
-  TWUser get basicProfile => throw _privateConstructorUsedError;
+  TWUser get basicProfile;
   @override
-  List<String> get savedJobRequirements => throw _privateConstructorUsedError;
+  List<String> get savedJobRequirements;
   @override
-  int get totalJobs => throw _privateConstructorUsedError;
+  int get totalJobs;
   @override
-  int get totalRatings => throw _privateConstructorUsedError;
+  int get totalRatings;
   @override
-  double get totalCommunication => throw _privateConstructorUsedError;
+  double get totalCommunication;
   @override
-  double get totalEnvironment => throw _privateConstructorUsedError;
+  double get totalEnvironment;
   @override
-  double get totalReliability => throw _privateConstructorUsedError;
+  double get totalReliability;
   @override
-  bool get subscribed => throw _privateConstructorUsedError;
+  bool get subscribed;
   @override
-  DateTime get subscriptionToggledOn => throw _privateConstructorUsedError;
+  DateTime get subscriptionToggledOn;
   @override
-  ContractorCompanyDetails? get companyDetails =>
-      throw _privateConstructorUsedError;
+  ContractorCompanyDetails? get companyDetails;
+  @override // BankDetails
+  UserBio? get userBio;
   @override
-  UserBio? get userBio => throw _privateConstructorUsedError;
-  @override
-  TWDocument? get portfolioDocument => throw _privateConstructorUsedError;
+  TWDocument? get portfolioDocument;
   @override
   @JsonKey(ignore: true)
   _$ContractorCopyWith<_Contractor> get copyWith =>

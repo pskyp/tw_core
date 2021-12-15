@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:tw_core/models/invoicing/invoicing_details_model.dart';
 import 'package:tw_core/models/subbie/subbie_invoicing_details.dart';
+import 'package:tw_core/models/user_bank_details/user_bank_details.dart';
 
 import '../trades.dart';
 import '../tw_user/tw_user.dart';
@@ -19,9 +19,11 @@ class Subbie {
   final SubbieInvoicingDetails? invoicingDetails;
   final DateTime subscriptionToggledOn;
   final List<Trade> selectedTrades;
+  final UserBankDetails? userBankDetails;
   final double totalServiceQuality, totalProfessionalism, totalTimeManagement;
 
   Subbie({
+    this.userBankDetails,
     required this.invoicingDetails,
     required this.basicProfile,
     required this.subscriptionToggledOn,

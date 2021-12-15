@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,6 +37,11 @@ mixin _$AllchatsEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<ChatRoom> chatRooms)? streamChatRoomsUpdated,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<ChatRoom> chatRooms)? streamChatRoomsUpdated,
     required TResult orElse(),
@@ -45,6 +51,11 @@ mixin _$AllchatsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(StreamChatRoomsUpdated value)
         streamChatRoomsUpdated,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(StreamChatRoomsUpdated value)? streamChatRoomsUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -139,15 +150,14 @@ class _$StreamChatRoomsUpdated implements StreamChatRoomsUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is StreamChatRoomsUpdated &&
-            (identical(other.chatRooms, chatRooms) ||
-                const DeepCollectionEquality()
-                    .equals(other.chatRooms, chatRooms)));
+        (other.runtimeType == runtimeType &&
+            other is StreamChatRoomsUpdated &&
+            const DeepCollectionEquality().equals(other.chatRooms, chatRooms));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(chatRooms);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(chatRooms));
 
   @JsonKey(ignore: true)
   @override
@@ -161,6 +171,14 @@ class _$StreamChatRoomsUpdated implements StreamChatRoomsUpdated {
     required TResult Function(List<ChatRoom> chatRooms) streamChatRoomsUpdated,
   }) {
     return streamChatRoomsUpdated(chatRooms);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<ChatRoom> chatRooms)? streamChatRoomsUpdated,
+  }) {
+    return streamChatRoomsUpdated?.call(chatRooms);
   }
 
   @override
@@ -186,6 +204,14 @@ class _$StreamChatRoomsUpdated implements StreamChatRoomsUpdated {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(StreamChatRoomsUpdated value)? streamChatRoomsUpdated,
+  }) {
+    return streamChatRoomsUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StreamChatRoomsUpdated value)? streamChatRoomsUpdated,
     required TResult orElse(),
@@ -202,7 +228,7 @@ abstract class StreamChatRoomsUpdated implements AllchatsEvent {
       _$StreamChatRoomsUpdated;
 
   @override
-  List<ChatRoom> get chatRooms => throw _privateConstructorUsedError;
+  List<ChatRoom> get chatRooms;
   @override
   @JsonKey(ignore: true)
   $StreamChatRoomsUpdatedCopyWith<StreamChatRoomsUpdated> get copyWith =>

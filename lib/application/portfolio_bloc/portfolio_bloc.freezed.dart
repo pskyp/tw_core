@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -41,6 +42,12 @@ mixin _$PortfolioEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<TWDocument> dcos)? docsStreamUpdated,
+    TResult Function(TWDocument doc)? uploadDocPressed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<TWDocument> dcos)? docsStreamUpdated,
     TResult Function(TWDocument doc)? uploadDocPressed,
@@ -51,6 +58,12 @@ mixin _$PortfolioEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(DocsStreamUpdated value) docsStreamUpdated,
     required TResult Function(UploadDocPressed value) uploadDocPressed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DocsStreamUpdated value)? docsStreamUpdated,
+    TResult Function(UploadDocPressed value)? uploadDocPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -127,14 +140,14 @@ class _$DocsStreamUpdated implements DocsStreamUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is DocsStreamUpdated &&
-            (identical(other.dcos, dcos) ||
-                const DeepCollectionEquality().equals(other.dcos, dcos)));
+        (other.runtimeType == runtimeType &&
+            other is DocsStreamUpdated &&
+            const DeepCollectionEquality().equals(other.dcos, dcos));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(dcos);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(dcos));
 
   @JsonKey(ignore: true)
   @override
@@ -148,6 +161,15 @@ class _$DocsStreamUpdated implements DocsStreamUpdated {
     required TResult Function(TWDocument doc) uploadDocPressed,
   }) {
     return docsStreamUpdated(dcos);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<TWDocument> dcos)? docsStreamUpdated,
+    TResult Function(TWDocument doc)? uploadDocPressed,
+  }) {
+    return docsStreamUpdated?.call(dcos);
   }
 
   @override
@@ -174,6 +196,15 @@ class _$DocsStreamUpdated implements DocsStreamUpdated {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DocsStreamUpdated value)? docsStreamUpdated,
+    TResult Function(UploadDocPressed value)? uploadDocPressed,
+  }) {
+    return docsStreamUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DocsStreamUpdated value)? docsStreamUpdated,
     TResult Function(UploadDocPressed value)? uploadDocPressed,
@@ -189,7 +220,7 @@ class _$DocsStreamUpdated implements DocsStreamUpdated {
 abstract class DocsStreamUpdated implements PortfolioEvent {
   factory DocsStreamUpdated(List<TWDocument> dcos) = _$DocsStreamUpdated;
 
-  List<TWDocument> get dcos => throw _privateConstructorUsedError;
+  List<TWDocument> get dcos;
   @JsonKey(ignore: true)
   $DocsStreamUpdatedCopyWith<DocsStreamUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -252,14 +283,14 @@ class _$UploadDocPressed implements UploadDocPressed {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is UploadDocPressed &&
-            (identical(other.doc, doc) ||
-                const DeepCollectionEquality().equals(other.doc, doc)));
+        (other.runtimeType == runtimeType &&
+            other is UploadDocPressed &&
+            const DeepCollectionEquality().equals(other.doc, doc));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(doc);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(doc));
 
   @JsonKey(ignore: true)
   @override
@@ -273,6 +304,15 @@ class _$UploadDocPressed implements UploadDocPressed {
     required TResult Function(TWDocument doc) uploadDocPressed,
   }) {
     return uploadDocPressed(doc);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<TWDocument> dcos)? docsStreamUpdated,
+    TResult Function(TWDocument doc)? uploadDocPressed,
+  }) {
+    return uploadDocPressed?.call(doc);
   }
 
   @override
@@ -299,6 +339,15 @@ class _$UploadDocPressed implements UploadDocPressed {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DocsStreamUpdated value)? docsStreamUpdated,
+    TResult Function(UploadDocPressed value)? uploadDocPressed,
+  }) {
+    return uploadDocPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DocsStreamUpdated value)? docsStreamUpdated,
     TResult Function(UploadDocPressed value)? uploadDocPressed,
@@ -314,7 +363,7 @@ class _$UploadDocPressed implements UploadDocPressed {
 abstract class UploadDocPressed implements PortfolioEvent {
   factory UploadDocPressed(TWDocument doc) = _$UploadDocPressed;
 
-  TWDocument get doc => throw _privateConstructorUsedError;
+  TWDocument get doc;
   @JsonKey(ignore: true)
   $UploadDocPressedCopyWith<UploadDocPressed> get copyWith =>
       throw _privateConstructorUsedError;
@@ -465,24 +514,21 @@ class _$_PortfolioState implements _PortfolioState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PortfolioState &&
-            (identical(other.portfolioDocsOption, portfolioDocsOption) ||
-                const DeepCollectionEquality()
-                    .equals(other.portfolioDocsOption, portfolioDocsOption)) &&
-            (identical(other.uploading, uploading) ||
-                const DeepCollectionEquality()
-                    .equals(other.uploading, uploading)) &&
-            (identical(other.uploadResultOption, uploadResultOption) ||
-                const DeepCollectionEquality()
-                    .equals(other.uploadResultOption, uploadResultOption)));
+        (other.runtimeType == runtimeType &&
+            other is _PortfolioState &&
+            const DeepCollectionEquality()
+                .equals(other.portfolioDocsOption, portfolioDocsOption) &&
+            const DeepCollectionEquality().equals(other.uploading, uploading) &&
+            const DeepCollectionEquality()
+                .equals(other.uploadResultOption, uploadResultOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(portfolioDocsOption) ^
-      const DeepCollectionEquality().hash(uploading) ^
-      const DeepCollectionEquality().hash(uploadResultOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(portfolioDocsOption),
+      const DeepCollectionEquality().hash(uploading),
+      const DeepCollectionEquality().hash(uploadResultOption));
 
   @JsonKey(ignore: true)
   @override
@@ -498,13 +544,11 @@ abstract class _PortfolioState implements PortfolioState {
       _$_PortfolioState;
 
   @override
-  Option<List<TWDocument>> get portfolioDocsOption =>
-      throw _privateConstructorUsedError;
+  Option<List<TWDocument>> get portfolioDocsOption;
   @override
-  bool get uploading => throw _privateConstructorUsedError;
+  bool get uploading;
   @override
-  Option<Either<ServerError, Unit>> get uploadResultOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ServerError, Unit>> get uploadResultOption;
   @override
   @JsonKey(ignore: true)
   _$PortfolioStateCopyWith<_PortfolioState> get copyWith =>

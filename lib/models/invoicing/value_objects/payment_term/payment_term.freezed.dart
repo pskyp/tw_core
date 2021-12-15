@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -36,6 +37,11 @@ mixin _$PaymentTermFailure {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String val)? invalid,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String val)? invalid,
     required TResult orElse(),
@@ -44,6 +50,11 @@ mixin _$PaymentTermFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Invalid value) invalid,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Invalid value)? invalid,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -135,14 +146,14 @@ class _$Invalid implements Invalid {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Invalid &&
-            (identical(other.val, val) ||
-                const DeepCollectionEquality().equals(other.val, val)));
+        (other.runtimeType == runtimeType &&
+            other is Invalid &&
+            const DeepCollectionEquality().equals(other.val, val));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(val);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(val));
 
   @JsonKey(ignore: true)
   @override
@@ -155,6 +166,14 @@ class _$Invalid implements Invalid {
     required TResult Function(String val) invalid,
   }) {
     return invalid(val);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String val)? invalid,
+  }) {
+    return invalid?.call(val);
   }
 
   @override
@@ -179,6 +198,14 @@ class _$Invalid implements Invalid {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Invalid value)? invalid,
+  }) {
+    return invalid?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Invalid value)? invalid,
     required TResult orElse(),
@@ -194,7 +221,7 @@ abstract class Invalid implements PaymentTermFailure {
   const factory Invalid(String val) = _$Invalid;
 
   @override
-  String get val => throw _privateConstructorUsedError;
+  String get val;
   @override
   @JsonKey(ignore: true)
   $InvalidCopyWith<Invalid> get copyWith => throw _privateConstructorUsedError;

@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -26,7 +27,7 @@ class _$TenderBidFeedbackTearOff {
     );
   }
 
-  TenderBidFeedback fromJson(Map<String, Object> json) {
+  TenderBidFeedback fromJson(Map<String, Object?> json) {
     return TenderBidFeedback.fromJson(json);
   }
 }
@@ -127,14 +128,14 @@ class _$_TenderBidFeedback implements _TenderBidFeedback {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TenderBidFeedback &&
-            (identical(other.rating, rating) ||
-                const DeepCollectionEquality().equals(other.rating, rating)));
+        (other.runtimeType == runtimeType &&
+            other is _TenderBidFeedback &&
+            const DeepCollectionEquality().equals(other.rating, rating));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(rating);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(rating));
 
   @JsonKey(ignore: true)
   @override
@@ -154,7 +155,7 @@ abstract class _TenderBidFeedback implements TenderBidFeedback {
       _$_TenderBidFeedback.fromJson;
 
   @override
-  double get rating => throw _privateConstructorUsedError;
+  double get rating;
   @override
   @JsonKey(ignore: true)
   _$TenderBidFeedbackCopyWith<_TenderBidFeedback> get copyWith =>

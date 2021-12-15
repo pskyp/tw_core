@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -45,7 +46,7 @@ class _$TWDocumentTearOff {
     );
   }
 
-  TWDocument fromJson(Map<String, Object> json) {
+  TWDocument fromJson(Map<String, Object?> json) {
     return TWDocument.fromJson(json);
   }
 }
@@ -274,15 +275,15 @@ class _$TWDocumentData implements TWDocumentData {
   final String docPath;
   @override
   final String downloadURL;
-  @JsonKey(defaultValue: 'No instructions found')
+  @JsonKey()
   @override
   final String instructions;
   @override
   final String uploadedByUID;
-  @JsonKey(defaultValue: const <TWUser>[])
+  @JsonKey()
   @override
   final List<TWUser> seenByUsers;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool deleted;
 
@@ -294,49 +295,38 @@ class _$TWDocumentData implements TWDocumentData {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is TWDocumentData &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
-            (identical(other.typeId, typeId) ||
-                const DeepCollectionEquality().equals(other.typeId, typeId)) &&
-            (identical(other.documentID, documentID) ||
-                const DeepCollectionEquality()
-                    .equals(other.documentID, documentID)) &&
-            (identical(other.docName, docName) ||
-                const DeepCollectionEquality()
-                    .equals(other.docName, docName)) &&
-            (identical(other.docPath, docPath) ||
-                const DeepCollectionEquality()
-                    .equals(other.docPath, docPath)) &&
-            (identical(other.downloadURL, downloadURL) ||
-                const DeepCollectionEquality()
-                    .equals(other.downloadURL, downloadURL)) &&
-            (identical(other.instructions, instructions) ||
-                const DeepCollectionEquality()
-                    .equals(other.instructions, instructions)) &&
-            (identical(other.uploadedByUID, uploadedByUID) ||
-                const DeepCollectionEquality()
-                    .equals(other.uploadedByUID, uploadedByUID)) &&
-            (identical(other.seenByUsers, seenByUsers) ||
-                const DeepCollectionEquality()
-                    .equals(other.seenByUsers, seenByUsers)) &&
-            (identical(other.deleted, deleted) ||
-                const DeepCollectionEquality().equals(other.deleted, deleted)));
+        (other.runtimeType == runtimeType &&
+            other is TWDocumentData &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality().equals(other.typeId, typeId) &&
+            const DeepCollectionEquality()
+                .equals(other.documentID, documentID) &&
+            const DeepCollectionEquality().equals(other.docName, docName) &&
+            const DeepCollectionEquality().equals(other.docPath, docPath) &&
+            const DeepCollectionEquality()
+                .equals(other.downloadURL, downloadURL) &&
+            const DeepCollectionEquality()
+                .equals(other.instructions, instructions) &&
+            const DeepCollectionEquality()
+                .equals(other.uploadedByUID, uploadedByUID) &&
+            const DeepCollectionEquality()
+                .equals(other.seenByUsers, seenByUsers) &&
+            const DeepCollectionEquality().equals(other.deleted, deleted));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(typeId) ^
-      const DeepCollectionEquality().hash(documentID) ^
-      const DeepCollectionEquality().hash(docName) ^
-      const DeepCollectionEquality().hash(docPath) ^
-      const DeepCollectionEquality().hash(downloadURL) ^
-      const DeepCollectionEquality().hash(instructions) ^
-      const DeepCollectionEquality().hash(uploadedByUID) ^
-      const DeepCollectionEquality().hash(seenByUsers) ^
-      const DeepCollectionEquality().hash(deleted);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(typeId),
+      const DeepCollectionEquality().hash(documentID),
+      const DeepCollectionEquality().hash(docName),
+      const DeepCollectionEquality().hash(docPath),
+      const DeepCollectionEquality().hash(downloadURL),
+      const DeepCollectionEquality().hash(instructions),
+      const DeepCollectionEquality().hash(uploadedByUID),
+      const DeepCollectionEquality().hash(seenByUsers),
+      const DeepCollectionEquality().hash(deleted));
 
   @JsonKey(ignore: true)
   @override
@@ -366,25 +356,25 @@ abstract class TWDocumentData implements TWDocument {
       _$TWDocumentData.fromJson;
 
   @override
-  TWDocType get type => throw _privateConstructorUsedError;
+  TWDocType get type;
   @override
-  String get typeId => throw _privateConstructorUsedError;
+  String get typeId;
   @override
-  String get documentID => throw _privateConstructorUsedError;
+  String get documentID;
   @override
-  String get docName => throw _privateConstructorUsedError;
+  String get docName;
   @override
-  String get docPath => throw _privateConstructorUsedError;
+  String get docPath;
   @override
-  String get downloadURL => throw _privateConstructorUsedError;
+  String get downloadURL;
   @override
-  String get instructions => throw _privateConstructorUsedError;
+  String get instructions;
   @override
-  String get uploadedByUID => throw _privateConstructorUsedError;
+  String get uploadedByUID;
   @override
-  List<TWUser> get seenByUsers => throw _privateConstructorUsedError;
+  List<TWUser> get seenByUsers;
   @override
-  bool get deleted => throw _privateConstructorUsedError;
+  bool get deleted;
   @override
   @JsonKey(ignore: true)
   $TWDocumentDataCopyWith<TWDocumentData> get copyWith =>

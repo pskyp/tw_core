@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -46,6 +47,13 @@ mixin _$MUploadDocEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String input)? docInstructionsInput,
+    TResult Function(FilePickerResult? file)? filedPicked,
+    TResult Function()? uploadPressed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String input)? docInstructionsInput,
     TResult Function(FilePickerResult? file)? filedPicked,
@@ -58,6 +66,13 @@ mixin _$MUploadDocEvent {
     required TResult Function(DocInstructionsInput value) docInstructionsInput,
     required TResult Function(FiledPicked value) filedPicked,
     required TResult Function(UploadPressed value) uploadPressed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DocInstructionsInput value)? docInstructionsInput,
+    TResult Function(FiledPicked value)? filedPicked,
+    TResult Function(UploadPressed value)? uploadPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -135,14 +150,14 @@ class _$DocInstructionsInput implements DocInstructionsInput {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is DocInstructionsInput &&
-            (identical(other.input, input) ||
-                const DeepCollectionEquality().equals(other.input, input)));
+        (other.runtimeType == runtimeType &&
+            other is DocInstructionsInput &&
+            const DeepCollectionEquality().equals(other.input, input));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(input);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(input));
 
   @JsonKey(ignore: true)
   @override
@@ -158,6 +173,16 @@ class _$DocInstructionsInput implements DocInstructionsInput {
     required TResult Function() uploadPressed,
   }) {
     return docInstructionsInput(input);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String input)? docInstructionsInput,
+    TResult Function(FilePickerResult? file)? filedPicked,
+    TResult Function()? uploadPressed,
+  }) {
+    return docInstructionsInput?.call(input);
   }
 
   @override
@@ -186,6 +211,16 @@ class _$DocInstructionsInput implements DocInstructionsInput {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DocInstructionsInput value)? docInstructionsInput,
+    TResult Function(FiledPicked value)? filedPicked,
+    TResult Function(UploadPressed value)? uploadPressed,
+  }) {
+    return docInstructionsInput?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DocInstructionsInput value)? docInstructionsInput,
     TResult Function(FiledPicked value)? filedPicked,
@@ -202,7 +237,7 @@ class _$DocInstructionsInput implements DocInstructionsInput {
 abstract class DocInstructionsInput implements MUploadDocEvent {
   const factory DocInstructionsInput(String input) = _$DocInstructionsInput;
 
-  String get input => throw _privateConstructorUsedError;
+  String get input;
   @JsonKey(ignore: true)
   $DocInstructionsInputCopyWith<DocInstructionsInput> get copyWith =>
       throw _privateConstructorUsedError;
@@ -256,14 +291,14 @@ class _$FiledPicked implements FiledPicked {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is FiledPicked &&
-            (identical(other.file, file) ||
-                const DeepCollectionEquality().equals(other.file, file)));
+        (other.runtimeType == runtimeType &&
+            other is FiledPicked &&
+            const DeepCollectionEquality().equals(other.file, file));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(file);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(file));
 
   @JsonKey(ignore: true)
   @override
@@ -278,6 +313,16 @@ class _$FiledPicked implements FiledPicked {
     required TResult Function() uploadPressed,
   }) {
     return filedPicked(file);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String input)? docInstructionsInput,
+    TResult Function(FilePickerResult? file)? filedPicked,
+    TResult Function()? uploadPressed,
+  }) {
+    return filedPicked?.call(file);
   }
 
   @override
@@ -306,6 +351,16 @@ class _$FiledPicked implements FiledPicked {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DocInstructionsInput value)? docInstructionsInput,
+    TResult Function(FiledPicked value)? filedPicked,
+    TResult Function(UploadPressed value)? uploadPressed,
+  }) {
+    return filedPicked?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(DocInstructionsInput value)? docInstructionsInput,
     TResult Function(FiledPicked value)? filedPicked,
@@ -322,7 +377,7 @@ class _$FiledPicked implements FiledPicked {
 abstract class FiledPicked implements MUploadDocEvent {
   const factory FiledPicked(FilePickerResult? file) = _$FiledPicked;
 
-  FilePickerResult? get file => throw _privateConstructorUsedError;
+  FilePickerResult? get file;
   @JsonKey(ignore: true)
   $FiledPickedCopyWith<FiledPicked> get copyWith =>
       throw _privateConstructorUsedError;
@@ -359,7 +414,8 @@ class _$UploadPressed implements UploadPressed {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UploadPressed);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UploadPressed);
   }
 
   @override
@@ -373,6 +429,16 @@ class _$UploadPressed implements UploadPressed {
     required TResult Function() uploadPressed,
   }) {
     return uploadPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String input)? docInstructionsInput,
+    TResult Function(FilePickerResult? file)? filedPicked,
+    TResult Function()? uploadPressed,
+  }) {
+    return uploadPressed?.call();
   }
 
   @override
@@ -397,6 +463,16 @@ class _$UploadPressed implements UploadPressed {
     required TResult Function(UploadPressed value) uploadPressed,
   }) {
     return uploadPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(DocInstructionsInput value)? docInstructionsInput,
+    TResult Function(FiledPicked value)? filedPicked,
+    TResult Function(UploadPressed value)? uploadPressed,
+  }) {
+    return uploadPressed?.call(this);
   }
 
   @override
@@ -671,47 +747,38 @@ class _$_MUploadDocState extends _MUploadDocState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _MUploadDocState &&
-            (identical(other.instruction, instruction) ||
-                const DeepCollectionEquality()
-                    .equals(other.instruction, instruction)) &&
-            (identical(other.requireInstructions, requireInstructions) ||
-                const DeepCollectionEquality()
-                    .equals(other.requireInstructions, requireInstructions)) &&
-            (identical(other.selectedFile, selectedFile) ||
-                const DeepCollectionEquality()
-                    .equals(other.selectedFile, selectedFile)) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
-            (identical(other.uploadInProgress, uploadInProgress) ||
-                const DeepCollectionEquality()
-                    .equals(other.uploadInProgress, uploadInProgress)) &&
-            (identical(other.loggedInUser, loggedInUser) ||
-                const DeepCollectionEquality()
-                    .equals(other.loggedInUser, loggedInUser)) &&
-            (identical(other.typeId, typeId) ||
-                const DeepCollectionEquality().equals(other.typeId, typeId)) &&
-            (identical(other.docType, docType) ||
-                const DeepCollectionEquality()
-                    .equals(other.docType, docType)) &&
-            (identical(other.resultOption, resultOption) ||
-                const DeepCollectionEquality()
-                    .equals(other.resultOption, resultOption)));
+        (other.runtimeType == runtimeType &&
+            other is _MUploadDocState &&
+            const DeepCollectionEquality()
+                .equals(other.instruction, instruction) &&
+            const DeepCollectionEquality()
+                .equals(other.requireInstructions, requireInstructions) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedFile, selectedFile) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages) &&
+            const DeepCollectionEquality()
+                .equals(other.uploadInProgress, uploadInProgress) &&
+            const DeepCollectionEquality()
+                .equals(other.loggedInUser, loggedInUser) &&
+            const DeepCollectionEquality().equals(other.typeId, typeId) &&
+            const DeepCollectionEquality().equals(other.docType, docType) &&
+            const DeepCollectionEquality()
+                .equals(other.resultOption, resultOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(instruction) ^
-      const DeepCollectionEquality().hash(requireInstructions) ^
-      const DeepCollectionEquality().hash(selectedFile) ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(uploadInProgress) ^
-      const DeepCollectionEquality().hash(loggedInUser) ^
-      const DeepCollectionEquality().hash(typeId) ^
-      const DeepCollectionEquality().hash(docType) ^
-      const DeepCollectionEquality().hash(resultOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(instruction),
+      const DeepCollectionEquality().hash(requireInstructions),
+      const DeepCollectionEquality().hash(selectedFile),
+      const DeepCollectionEquality().hash(showErrorMessages),
+      const DeepCollectionEquality().hash(uploadInProgress),
+      const DeepCollectionEquality().hash(loggedInUser),
+      const DeepCollectionEquality().hash(typeId),
+      const DeepCollectionEquality().hash(docType),
+      const DeepCollectionEquality().hash(resultOption));
 
   @JsonKey(ignore: true)
   @override
@@ -734,24 +801,23 @@ abstract class _MUploadDocState extends MUploadDocState {
   const _MUploadDocState._() : super._();
 
   @override
-  TWString get instruction => throw _privateConstructorUsedError;
+  TWString get instruction;
   @override
-  bool? get requireInstructions => throw _privateConstructorUsedError;
+  bool? get requireInstructions;
   @override
-  FilePickerResult? get selectedFile => throw _privateConstructorUsedError;
+  FilePickerResult? get selectedFile;
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get showErrorMessages;
   @override
-  bool get uploadInProgress => throw _privateConstructorUsedError;
+  bool get uploadInProgress;
   @override
-  TWUser get loggedInUser => throw _privateConstructorUsedError;
+  TWUser get loggedInUser;
   @override
-  String get typeId => throw _privateConstructorUsedError;
+  String get typeId;
   @override
-  TWDocType get docType => throw _privateConstructorUsedError;
+  TWDocType get docType;
   @override
-  Option<Either<TWServerError, Unit>> get resultOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<TWServerError, Unit>> get resultOption;
   @override
   @JsonKey(ignore: true)
   _$MUploadDocStateCopyWith<_MUploadDocState> get copyWith =>

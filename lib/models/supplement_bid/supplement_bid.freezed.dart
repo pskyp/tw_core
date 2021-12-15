@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -161,22 +162,20 @@ class _$_SupplementBid implements _SupplementBid {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SupplementBid &&
-            (identical(other.bidder, bidder) ||
-                const DeepCollectionEquality().equals(other.bidder, bidder)) &&
-            (identical(other.bidId, bidId) ||
-                const DeepCollectionEquality().equals(other.bidId, bidId)) &&
-            (identical(other.workIdentifier, workIdentifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.workIdentifier, workIdentifier)));
+        (other.runtimeType == runtimeType &&
+            other is _SupplementBid &&
+            const DeepCollectionEquality().equals(other.bidder, bidder) &&
+            const DeepCollectionEquality().equals(other.bidId, bidId) &&
+            const DeepCollectionEquality()
+                .equals(other.workIdentifier, workIdentifier));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(bidder) ^
-      const DeepCollectionEquality().hash(bidId) ^
-      const DeepCollectionEquality().hash(workIdentifier);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(bidder),
+      const DeepCollectionEquality().hash(bidId),
+      const DeepCollectionEquality().hash(workIdentifier));
 
   @JsonKey(ignore: true)
   @override
@@ -191,11 +190,11 @@ abstract class _SupplementBid implements SupplementBid {
       required WorkIdentifier workIdentifier}) = _$_SupplementBid;
 
   @override
-  TWUser get bidder => throw _privateConstructorUsedError;
+  TWUser get bidder;
   @override
-  String get bidId => throw _privateConstructorUsedError;
+  String get bidId;
   @override
-  WorkIdentifier get workIdentifier => throw _privateConstructorUsedError;
+  WorkIdentifier get workIdentifier;
   @override
   @JsonKey(ignore: true)
   _$SupplementBidCopyWith<_SupplementBid> get copyWith =>
@@ -346,22 +345,20 @@ class _$_TenderBid implements _TenderBid {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TenderBid &&
-            (identical(other.bidder, bidder) ||
-                const DeepCollectionEquality().equals(other.bidder, bidder)) &&
-            (identical(other.bidId, bidId) ||
-                const DeepCollectionEquality().equals(other.bidId, bidId)) &&
-            (identical(other.workIdentifier, workIdentifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.workIdentifier, workIdentifier)));
+        (other.runtimeType == runtimeType &&
+            other is _TenderBid &&
+            const DeepCollectionEquality().equals(other.bidder, bidder) &&
+            const DeepCollectionEquality().equals(other.bidId, bidId) &&
+            const DeepCollectionEquality()
+                .equals(other.workIdentifier, workIdentifier));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(bidder) ^
-      const DeepCollectionEquality().hash(bidId) ^
-      const DeepCollectionEquality().hash(workIdentifier);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(bidder),
+      const DeepCollectionEquality().hash(bidId),
+      const DeepCollectionEquality().hash(workIdentifier));
 
   @JsonKey(ignore: true)
   @override
@@ -376,11 +373,11 @@ abstract class _TenderBid implements TenderBid {
       required WorkIdentifier workIdentifier}) = _$_TenderBid;
 
   @override
-  TWUser get bidder => throw _privateConstructorUsedError;
+  TWUser get bidder;
   @override
-  String get bidId => throw _privateConstructorUsedError;
+  String get bidId;
   @override
-  WorkIdentifier get workIdentifier => throw _privateConstructorUsedError;
+  WorkIdentifier get workIdentifier;
   @override
   @JsonKey(ignore: true)
   _$TenderBidCopyWith<_TenderBid> get copyWith =>

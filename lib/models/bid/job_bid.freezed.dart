@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -35,7 +36,7 @@ class _$JobBidTearOff {
     );
   }
 
-  JobBid fromJson(Map<String, Object> json) {
+  JobBid fromJson(Map<String, Object?> json) {
     return JobBid.fromJson(json);
   }
 }
@@ -222,34 +223,28 @@ class _$_JobBid implements _JobBid {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _JobBid &&
-            (identical(other.bidIdentifier, bidIdentifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.bidIdentifier, bidIdentifier)) &&
-            (identical(other.jobBidStatus, jobBidStatus) ||
-                const DeepCollectionEquality()
-                    .equals(other.jobBidStatus, jobBidStatus)) &&
-            (identical(other.feedback, feedback) ||
-                const DeepCollectionEquality()
-                    .equals(other.feedback, feedback)) &&
-            (identical(other.feedbackProvidedToContractor,
-                    feedbackProvidedToContractor) ||
-                const DeepCollectionEquality().equals(
-                    other.feedbackProvidedToContractor,
-                    feedbackProvidedToContractor)) &&
-            (identical(other.feedbackSkipped, feedbackSkipped) ||
-                const DeepCollectionEquality()
-                    .equals(other.feedbackSkipped, feedbackSkipped)));
+        (other.runtimeType == runtimeType &&
+            other is _JobBid &&
+            const DeepCollectionEquality()
+                .equals(other.bidIdentifier, bidIdentifier) &&
+            const DeepCollectionEquality()
+                .equals(other.jobBidStatus, jobBidStatus) &&
+            const DeepCollectionEquality().equals(other.feedback, feedback) &&
+            const DeepCollectionEquality().equals(
+                other.feedbackProvidedToContractor,
+                feedbackProvidedToContractor) &&
+            const DeepCollectionEquality()
+                .equals(other.feedbackSkipped, feedbackSkipped));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(bidIdentifier) ^
-      const DeepCollectionEquality().hash(jobBidStatus) ^
-      const DeepCollectionEquality().hash(feedback) ^
-      const DeepCollectionEquality().hash(feedbackProvidedToContractor) ^
-      const DeepCollectionEquality().hash(feedbackSkipped);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(bidIdentifier),
+      const DeepCollectionEquality().hash(jobBidStatus),
+      const DeepCollectionEquality().hash(feedback),
+      const DeepCollectionEquality().hash(feedbackProvidedToContractor),
+      const DeepCollectionEquality().hash(feedbackSkipped));
 
   @JsonKey(ignore: true)
   @override
@@ -273,15 +268,15 @@ abstract class _JobBid implements JobBid {
   factory _JobBid.fromJson(Map<String, dynamic> json) = _$_JobBid.fromJson;
 
   @override
-  BidIdentifier get bidIdentifier => throw _privateConstructorUsedError;
+  BidIdentifier get bidIdentifier;
   @override
-  JobBidStatuses get jobBidStatus => throw _privateConstructorUsedError;
+  JobBidStatuses get jobBidStatus;
   @override
-  JobBidFeedback? get feedback => throw _privateConstructorUsedError;
+  JobBidFeedback? get feedback;
   @override
-  bool get feedbackProvidedToContractor => throw _privateConstructorUsedError;
+  bool get feedbackProvidedToContractor;
   @override
-  bool get feedbackSkipped => throw _privateConstructorUsedError;
+  bool get feedbackSkipped;
   @override
   @JsonKey(ignore: true)
   _$JobBidCopyWith<_JobBid> get copyWith => throw _privateConstructorUsedError;

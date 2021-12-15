@@ -1,3 +1,4 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
@@ -41,6 +42,12 @@ mixin _$CompleteJobEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<JobBid> bids)? bidsOnJobFetched,
+    TResult Function(List<JobBidFeedback> feedback)? submitPressed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<JobBid> bids)? bidsOnJobFetched,
     TResult Function(List<JobBidFeedback> feedback)? submitPressed,
@@ -51,6 +58,12 @@ mixin _$CompleteJobEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(BidsOnJobFetched value) bidsOnJobFetched,
     required TResult Function(SubmitPressed value) submitPressed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(BidsOnJobFetched value)? bidsOnJobFetched,
+    TResult Function(SubmitPressed value)? submitPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -127,14 +140,14 @@ class _$BidsOnJobFetched implements BidsOnJobFetched {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is BidsOnJobFetched &&
-            (identical(other.bids, bids) ||
-                const DeepCollectionEquality().equals(other.bids, bids)));
+        (other.runtimeType == runtimeType &&
+            other is BidsOnJobFetched &&
+            const DeepCollectionEquality().equals(other.bids, bids));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(bids);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(bids));
 
   @JsonKey(ignore: true)
   @override
@@ -148,6 +161,15 @@ class _$BidsOnJobFetched implements BidsOnJobFetched {
     required TResult Function(List<JobBidFeedback> feedback) submitPressed,
   }) {
     return bidsOnJobFetched(bids);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<JobBid> bids)? bidsOnJobFetched,
+    TResult Function(List<JobBidFeedback> feedback)? submitPressed,
+  }) {
+    return bidsOnJobFetched?.call(bids);
   }
 
   @override
@@ -174,6 +196,15 @@ class _$BidsOnJobFetched implements BidsOnJobFetched {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(BidsOnJobFetched value)? bidsOnJobFetched,
+    TResult Function(SubmitPressed value)? submitPressed,
+  }) {
+    return bidsOnJobFetched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BidsOnJobFetched value)? bidsOnJobFetched,
     TResult Function(SubmitPressed value)? submitPressed,
@@ -189,7 +220,7 @@ class _$BidsOnJobFetched implements BidsOnJobFetched {
 abstract class BidsOnJobFetched implements CompleteJobEvent {
   factory BidsOnJobFetched(List<JobBid> bids) = _$BidsOnJobFetched;
 
-  List<JobBid> get bids => throw _privateConstructorUsedError;
+  List<JobBid> get bids;
   @JsonKey(ignore: true)
   $BidsOnJobFetchedCopyWith<BidsOnJobFetched> get copyWith =>
       throw _privateConstructorUsedError;
@@ -243,15 +274,14 @@ class _$SubmitPressed implements SubmitPressed {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SubmitPressed &&
-            (identical(other.feedback, feedback) ||
-                const DeepCollectionEquality()
-                    .equals(other.feedback, feedback)));
+        (other.runtimeType == runtimeType &&
+            other is SubmitPressed &&
+            const DeepCollectionEquality().equals(other.feedback, feedback));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(feedback);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(feedback));
 
   @JsonKey(ignore: true)
   @override
@@ -265,6 +295,15 @@ class _$SubmitPressed implements SubmitPressed {
     required TResult Function(List<JobBidFeedback> feedback) submitPressed,
   }) {
     return submitPressed(feedback);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<JobBid> bids)? bidsOnJobFetched,
+    TResult Function(List<JobBidFeedback> feedback)? submitPressed,
+  }) {
+    return submitPressed?.call(feedback);
   }
 
   @override
@@ -291,6 +330,15 @@ class _$SubmitPressed implements SubmitPressed {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(BidsOnJobFetched value)? bidsOnJobFetched,
+    TResult Function(SubmitPressed value)? submitPressed,
+  }) {
+    return submitPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(BidsOnJobFetched value)? bidsOnJobFetched,
     TResult Function(SubmitPressed value)? submitPressed,
@@ -306,7 +354,7 @@ class _$SubmitPressed implements SubmitPressed {
 abstract class SubmitPressed implements CompleteJobEvent {
   factory SubmitPressed(List<JobBidFeedback> feedback) = _$SubmitPressed;
 
-  List<JobBidFeedback> get feedback => throw _privateConstructorUsedError;
+  List<JobBidFeedback> get feedback;
   @JsonKey(ignore: true)
   $SubmitPressedCopyWith<SubmitPressed> get copyWith =>
       throw _privateConstructorUsedError;
@@ -506,31 +554,26 @@ class _$_CompleteJobState extends _CompleteJobState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CompleteJobState &&
-            (identical(other.job, job) ||
-                const DeepCollectionEquality().equals(other.job, job)) &&
-            (identical(other.allBidsOnJobOption, allBidsOnJobOption) ||
-                const DeepCollectionEquality()
-                    .equals(other.allBidsOnJobOption, allBidsOnJobOption)) &&
-            (identical(other.feedback, feedback) ||
-                const DeepCollectionEquality()
-                    .equals(other.feedback, feedback)) &&
-            (identical(other.submissionInProgress, submissionInProgress) ||
-                const DeepCollectionEquality().equals(
-                    other.submissionInProgress, submissionInProgress)) &&
-            (identical(other.resultOption, resultOption) ||
-                const DeepCollectionEquality()
-                    .equals(other.resultOption, resultOption)));
+        (other.runtimeType == runtimeType &&
+            other is _CompleteJobState &&
+            const DeepCollectionEquality().equals(other.job, job) &&
+            const DeepCollectionEquality()
+                .equals(other.allBidsOnJobOption, allBidsOnJobOption) &&
+            const DeepCollectionEquality().equals(other.feedback, feedback) &&
+            const DeepCollectionEquality()
+                .equals(other.submissionInProgress, submissionInProgress) &&
+            const DeepCollectionEquality()
+                .equals(other.resultOption, resultOption));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(job) ^
-      const DeepCollectionEquality().hash(allBidsOnJobOption) ^
-      const DeepCollectionEquality().hash(feedback) ^
-      const DeepCollectionEquality().hash(submissionInProgress) ^
-      const DeepCollectionEquality().hash(resultOption);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(job),
+      const DeepCollectionEquality().hash(allBidsOnJobOption),
+      const DeepCollectionEquality().hash(feedback),
+      const DeepCollectionEquality().hash(submissionInProgress),
+      const DeepCollectionEquality().hash(resultOption));
 
   @JsonKey(ignore: true)
   @override
@@ -549,17 +592,15 @@ abstract class _CompleteJobState extends CompleteJobState {
   _CompleteJobState._() : super._();
 
   @override
-  Job get job => throw _privateConstructorUsedError;
+  Job get job;
   @override
-  Option<KtList<JobBid>> get allBidsOnJobOption =>
-      throw _privateConstructorUsedError;
+  Option<KtList<JobBid>> get allBidsOnJobOption;
   @override
-  List<JobBidFeedback> get feedback => throw _privateConstructorUsedError;
+  List<JobBidFeedback> get feedback;
   @override
-  bool get submissionInProgress => throw _privateConstructorUsedError;
+  bool get submissionInProgress;
   @override
-  Option<Either<TWServerError, Unit>> get resultOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<TWServerError, Unit>> get resultOption;
   @override
   @JsonKey(ignore: true)
   _$CompleteJobStateCopyWith<_CompleteJobState> get copyWith =>
