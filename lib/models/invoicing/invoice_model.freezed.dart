@@ -13,6 +13,340 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+/// @nodoc
+class _$IndividualInvoiceDetailsTearOff {
+  const _$IndividualInvoiceDetailsTearOff();
+
+  _IndividualInvoiceDetails call(
+      {required String companyName,
+      required String companyNumber,
+      required String registeredAddress}) {
+    return _IndividualInvoiceDetails(
+      companyName: companyName,
+      companyNumber: companyNumber,
+      registeredAddress: registeredAddress,
+    );
+  }
+}
+
+/// @nodoc
+const $IndividualInvoiceDetails = _$IndividualInvoiceDetailsTearOff();
+
+/// @nodoc
+mixin _$IndividualInvoiceDetails {
+  String get companyName => throw _privateConstructorUsedError;
+  String get companyNumber => throw _privateConstructorUsedError;
+  String get registeredAddress => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $IndividualInvoiceDetailsCopyWith<IndividualInvoiceDetails> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $IndividualInvoiceDetailsCopyWith<$Res> {
+  factory $IndividualInvoiceDetailsCopyWith(IndividualInvoiceDetails value,
+          $Res Function(IndividualInvoiceDetails) then) =
+      _$IndividualInvoiceDetailsCopyWithImpl<$Res>;
+  $Res call(
+      {String companyName, String companyNumber, String registeredAddress});
+}
+
+/// @nodoc
+class _$IndividualInvoiceDetailsCopyWithImpl<$Res>
+    implements $IndividualInvoiceDetailsCopyWith<$Res> {
+  _$IndividualInvoiceDetailsCopyWithImpl(this._value, this._then);
+
+  final IndividualInvoiceDetails _value;
+  // ignore: unused_field
+  final $Res Function(IndividualInvoiceDetails) _then;
+
+  @override
+  $Res call({
+    Object? companyName = freezed,
+    Object? companyNumber = freezed,
+    Object? registeredAddress = freezed,
+  }) {
+    return _then(_value.copyWith(
+      companyName: companyName == freezed
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
+              as String,
+      companyNumber: companyNumber == freezed
+          ? _value.companyNumber
+          : companyNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      registeredAddress: registeredAddress == freezed
+          ? _value.registeredAddress
+          : registeredAddress // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$IndividualInvoiceDetailsCopyWith<$Res>
+    implements $IndividualInvoiceDetailsCopyWith<$Res> {
+  factory _$IndividualInvoiceDetailsCopyWith(_IndividualInvoiceDetails value,
+          $Res Function(_IndividualInvoiceDetails) then) =
+      __$IndividualInvoiceDetailsCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String companyName, String companyNumber, String registeredAddress});
+}
+
+/// @nodoc
+class __$IndividualInvoiceDetailsCopyWithImpl<$Res>
+    extends _$IndividualInvoiceDetailsCopyWithImpl<$Res>
+    implements _$IndividualInvoiceDetailsCopyWith<$Res> {
+  __$IndividualInvoiceDetailsCopyWithImpl(_IndividualInvoiceDetails _value,
+      $Res Function(_IndividualInvoiceDetails) _then)
+      : super(_value, (v) => _then(v as _IndividualInvoiceDetails));
+
+  @override
+  _IndividualInvoiceDetails get _value =>
+      super._value as _IndividualInvoiceDetails;
+
+  @override
+  $Res call({
+    Object? companyName = freezed,
+    Object? companyNumber = freezed,
+    Object? registeredAddress = freezed,
+  }) {
+    return _then(_IndividualInvoiceDetails(
+      companyName: companyName == freezed
+          ? _value.companyName
+          : companyName // ignore: cast_nullable_to_non_nullable
+              as String,
+      companyNumber: companyNumber == freezed
+          ? _value.companyNumber
+          : companyNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      registeredAddress: registeredAddress == freezed
+          ? _value.registeredAddress
+          : registeredAddress // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_IndividualInvoiceDetails implements _IndividualInvoiceDetails {
+  _$_IndividualInvoiceDetails(
+      {required this.companyName,
+      required this.companyNumber,
+      required this.registeredAddress});
+
+  @override
+  final String companyName;
+  @override
+  final String companyNumber;
+  @override
+  final String registeredAddress;
+
+  @override
+  String toString() {
+    return 'IndividualInvoiceDetails(companyName: $companyName, companyNumber: $companyNumber, registeredAddress: $registeredAddress)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _IndividualInvoiceDetails &&
+            const DeepCollectionEquality()
+                .equals(other.companyName, companyName) &&
+            const DeepCollectionEquality()
+                .equals(other.companyNumber, companyNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.registeredAddress, registeredAddress));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(companyName),
+      const DeepCollectionEquality().hash(companyNumber),
+      const DeepCollectionEquality().hash(registeredAddress));
+
+  @JsonKey(ignore: true)
+  @override
+  _$IndividualInvoiceDetailsCopyWith<_IndividualInvoiceDetails> get copyWith =>
+      __$IndividualInvoiceDetailsCopyWithImpl<_IndividualInvoiceDetails>(
+          this, _$identity);
+}
+
+abstract class _IndividualInvoiceDetails implements IndividualInvoiceDetails {
+  factory _IndividualInvoiceDetails(
+      {required String companyName,
+      required String companyNumber,
+      required String registeredAddress}) = _$_IndividualInvoiceDetails;
+
+  @override
+  String get companyName;
+  @override
+  String get companyNumber;
+  @override
+  String get registeredAddress;
+  @override
+  @JsonKey(ignore: true)
+  _$IndividualInvoiceDetailsCopyWith<_IndividualInvoiceDetails> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+class _$CompanyInvoiceDetailsTearOff {
+  const _$CompanyInvoiceDetailsTearOff();
+
+  _CompanyInvoiceDetails call(
+      {required String name, required String location}) {
+    return _CompanyInvoiceDetails(
+      name: name,
+      location: location,
+    );
+  }
+}
+
+/// @nodoc
+const $CompanyInvoiceDetails = _$CompanyInvoiceDetailsTearOff();
+
+/// @nodoc
+mixin _$CompanyInvoiceDetails {
+  String get name => throw _privateConstructorUsedError;
+  String get location => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CompanyInvoiceDetailsCopyWith<CompanyInvoiceDetails> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CompanyInvoiceDetailsCopyWith<$Res> {
+  factory $CompanyInvoiceDetailsCopyWith(CompanyInvoiceDetails value,
+          $Res Function(CompanyInvoiceDetails) then) =
+      _$CompanyInvoiceDetailsCopyWithImpl<$Res>;
+  $Res call({String name, String location});
+}
+
+/// @nodoc
+class _$CompanyInvoiceDetailsCopyWithImpl<$Res>
+    implements $CompanyInvoiceDetailsCopyWith<$Res> {
+  _$CompanyInvoiceDetailsCopyWithImpl(this._value, this._then);
+
+  final CompanyInvoiceDetails _value;
+  // ignore: unused_field
+  final $Res Function(CompanyInvoiceDetails) _then;
+
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? location = freezed,
+  }) {
+    return _then(_value.copyWith(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$CompanyInvoiceDetailsCopyWith<$Res>
+    implements $CompanyInvoiceDetailsCopyWith<$Res> {
+  factory _$CompanyInvoiceDetailsCopyWith(_CompanyInvoiceDetails value,
+          $Res Function(_CompanyInvoiceDetails) then) =
+      __$CompanyInvoiceDetailsCopyWithImpl<$Res>;
+  @override
+  $Res call({String name, String location});
+}
+
+/// @nodoc
+class __$CompanyInvoiceDetailsCopyWithImpl<$Res>
+    extends _$CompanyInvoiceDetailsCopyWithImpl<$Res>
+    implements _$CompanyInvoiceDetailsCopyWith<$Res> {
+  __$CompanyInvoiceDetailsCopyWithImpl(_CompanyInvoiceDetails _value,
+      $Res Function(_CompanyInvoiceDetails) _then)
+      : super(_value, (v) => _then(v as _CompanyInvoiceDetails));
+
+  @override
+  _CompanyInvoiceDetails get _value => super._value as _CompanyInvoiceDetails;
+
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? location = freezed,
+  }) {
+    return _then(_CompanyInvoiceDetails(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      location: location == freezed
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CompanyInvoiceDetails implements _CompanyInvoiceDetails {
+  _$_CompanyInvoiceDetails({required this.name, required this.location});
+
+  @override
+  final String name;
+  @override
+  final String location;
+
+  @override
+  String toString() {
+    return 'CompanyInvoiceDetails(name: $name, location: $location)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _CompanyInvoiceDetails &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.location, location));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(location));
+
+  @JsonKey(ignore: true)
+  @override
+  _$CompanyInvoiceDetailsCopyWith<_CompanyInvoiceDetails> get copyWith =>
+      __$CompanyInvoiceDetailsCopyWithImpl<_CompanyInvoiceDetails>(
+          this, _$identity);
+}
+
+abstract class _CompanyInvoiceDetails implements CompanyInvoiceDetails {
+  factory _CompanyInvoiceDetails(
+      {required String name,
+      required String location}) = _$_CompanyInvoiceDetails;
+
+  @override
+  String get name;
+  @override
+  String get location;
+  @override
+  @JsonKey(ignore: true)
+  _$CompanyInvoiceDetailsCopyWith<_CompanyInvoiceDetails> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 Invoice _$InvoiceFromJson(Map<String, dynamic> json) {
   return _Invoice.fromJson(json);
 }

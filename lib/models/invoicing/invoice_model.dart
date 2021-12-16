@@ -7,6 +7,23 @@ part 'invoice_model.freezed.dart';
 part 'invoice_model.g.dart';
 
 @freezed
+class IndividualInvoiceDetails with _$IndividualInvoiceDetails {
+  factory IndividualInvoiceDetails({
+    required String companyName,
+    required String companyNumber,
+    required String registeredAddress,
+  }) = _IndividualInvoiceDetails;
+}
+
+@freezed
+class CompanyInvoiceDetails with _$CompanyInvoiceDetails {
+  factory CompanyInvoiceDetails({
+    required String name,
+    required String location,
+  }) = _CompanyInvoiceDetails;
+}
+
+@freezed
 class Invoice with _$Invoice {
   const factory Invoice({
     required TWUser contractorTWUser,
