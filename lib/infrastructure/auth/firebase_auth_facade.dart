@@ -118,7 +118,24 @@ class FirebaseAuthFacade implements IAuthFacade {
     final digest = sha256.convert(bytes);
     return digest.toString();
   }
-
+@override
+  Future<Either<AuthFailure, Unit>> signUpWithEmailAndPassword({
+    required EmailAddress email,
+    required Password password,
+  }) async {
+    try {
+      await firebaseAuth.createUserWithEmailAndPassword(
+        email: email.getOrCrash(),
+        password: password.getOrCrash(),
+      );
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use')
+        return left(AuthFailure.emaillAlreadyInUse());
+      if (e.code == 'invalid-email') return left(AuthFailure.invalidEmail());
+      return left(AuthFailure.serverError());
+    }
+  }
   Future<Either<AuthFailure, Unit>> signInWithApple() async {
     if (kIsWeb) {
       try {
@@ -166,3 +183,4 @@ class FirebaseAuthFacade implements IAuthFacade {
     await firebaseAuth.signOut();
   }
 }
+
