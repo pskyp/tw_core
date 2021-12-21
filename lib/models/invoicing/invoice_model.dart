@@ -13,7 +13,7 @@ class SoleTraderDetails with _$SoleTraderDetails {
   factory SoleTraderDetails({
     required String individualName,
     required String? businessName,
-    required String correspondenceAddress,
+    required LocationModel correspondenceAddress,
   }) = _SoleTraderDetails;
 
   factory SoleTraderDetails.fromJson(Map<String, dynamic> json) =>

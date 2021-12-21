@@ -24,7 +24,7 @@ class _$SoleTraderDetailsTearOff {
   _SoleTraderDetails call(
       {required String individualName,
       required String? businessName,
-      required String correspondenceAddress}) {
+      required LocationModel correspondenceAddress}) {
     return _SoleTraderDetails(
       individualName: individualName,
       businessName: businessName,
@@ -44,7 +44,7 @@ const $SoleTraderDetails = _$SoleTraderDetailsTearOff();
 mixin _$SoleTraderDetails {
   String get individualName => throw _privateConstructorUsedError;
   String? get businessName => throw _privateConstructorUsedError;
-  String get correspondenceAddress => throw _privateConstructorUsedError;
+  LocationModel get correspondenceAddress => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -60,7 +60,7 @@ abstract class $SoleTraderDetailsCopyWith<$Res> {
   $Res call(
       {String individualName,
       String? businessName,
-      String correspondenceAddress});
+      LocationModel correspondenceAddress});
 }
 
 /// @nodoc
@@ -90,7 +90,7 @@ class _$SoleTraderDetailsCopyWithImpl<$Res>
       correspondenceAddress: correspondenceAddress == freezed
           ? _value.correspondenceAddress
           : correspondenceAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as LocationModel,
     ));
   }
 }
@@ -105,7 +105,7 @@ abstract class _$SoleTraderDetailsCopyWith<$Res>
   $Res call(
       {String individualName,
       String? businessName,
-      String correspondenceAddress});
+      LocationModel correspondenceAddress});
 }
 
 /// @nodoc
@@ -137,7 +137,7 @@ class __$SoleTraderDetailsCopyWithImpl<$Res>
       correspondenceAddress: correspondenceAddress == freezed
           ? _value.correspondenceAddress
           : correspondenceAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as LocationModel,
     ));
   }
 }
@@ -158,7 +158,7 @@ class _$_SoleTraderDetails implements _SoleTraderDetails {
   @override
   final String? businessName;
   @override
-  final String correspondenceAddress;
+  final LocationModel correspondenceAddress;
 
   @override
   String toString() {
@@ -200,7 +200,7 @@ abstract class _SoleTraderDetails implements SoleTraderDetails {
   factory _SoleTraderDetails(
       {required String individualName,
       required String? businessName,
-      required String correspondenceAddress}) = _$_SoleTraderDetails;
+      required LocationModel correspondenceAddress}) = _$_SoleTraderDetails;
 
   factory _SoleTraderDetails.fromJson(Map<String, dynamic> json) =
       _$_SoleTraderDetails.fromJson;
@@ -210,7 +210,7 @@ abstract class _SoleTraderDetails implements SoleTraderDetails {
   @override
   String? get businessName;
   @override
-  String get correspondenceAddress;
+  LocationModel get correspondenceAddress;
   @override
   @JsonKey(ignore: true)
   _$SoleTraderDetailsCopyWith<_SoleTraderDetails> get copyWith =>

@@ -10,7 +10,8 @@ _$_SoleTraderDetails _$$_SoleTraderDetailsFromJson(Map<String, dynamic> json) =>
     _$_SoleTraderDetails(
       individualName: json['individualName'] as String,
       businessName: json['businessName'] as String?,
-      correspondenceAddress: json['correspondenceAddress'] as String,
+      correspondenceAddress: LocationModel.fromJson(
+          json['correspondenceAddress'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_SoleTraderDetailsToJson(
@@ -18,7 +19,7 @@ Map<String, dynamic> _$$_SoleTraderDetailsToJson(
     <String, dynamic>{
       'individualName': instance.individualName,
       'businessName': instance.businessName,
-      'correspondenceAddress': instance.correspondenceAddress,
+      'correspondenceAddress': instance.correspondenceAddress.toJson(),
     };
 
 _$_LimitedCompanyDetails _$$_LimitedCompanyDetailsFromJson(

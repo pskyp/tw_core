@@ -13,6 +13,7 @@ part 'subbie_model.g.dart';
 @freezed
 class Subbie with _$Subbie {
   const Subbie._();
+
   factory Subbie({
     required TWUser basicProfile,
     required int totalJobs,
@@ -28,11 +29,22 @@ class Subbie with _$Subbie {
     required double totalProfessionalism,
     required double totalTimeManagement,
     @JsonKey(
-      fromJson: employeeDetailsFromJson,
-      toJson: employeeDetailsToJson,
+      fromJson: soleTraderDetailsFromJson,
+      toJson: soleTraderDetailsToJson,
     )
-        required Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
-            invoicingDetailsOption,
+        required Option<SoleTraderDetails> soleTraderDetailsOption,
+    @JsonKey(
+      fromJson: limitedCompanyDetailsFromJson,
+      toJson: limitedCompanyDetailsToJson,
+    )
+        required Option<LimitedCompanyDetails> limitedCompanyDetailsOption,
+
+    // @JsonKey(
+    //   fromJson: employeeDetailsFromJson,
+    //   toJson: employeeDetailsToJson,
+    // )
+    //     required Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
+    //         invoicingDetailsOption,
   }) = _Subbie;
 
   factory Subbie.fromJson(Map<String, dynamic> json) => _$SubbieFromJson(json);
@@ -52,6 +64,50 @@ class Subbie with _$Subbie {
 
   double get timeManagementRating =>
       totalTimeManagement / (totalJobs == 0 ? 1 : totalJobs);
+}
+
+Option<SoleTraderDetails> soleTraderDetailsFromJson(
+  Map<String, dynamic> json,
+) {
+  if (json.containsKey('soleTraderDetailsAreNull'))
+    return none();
+  else
+    return some(SoleTraderDetails.fromJson(json));
+}
+
+Map<String, dynamic> soleTraderDetailsToJson(
+  Option<SoleTraderDetails> soleTraderDetailsOption,
+) {
+  return soleTraderDetailsOption.fold(
+    () {
+      return {'soleTraderDetailsAreNull': true};
+    },
+    (soleTraderDetails) {
+      return soleTraderDetails.toJson();
+    },
+  );
+}
+
+Option<LimitedCompanyDetails> limitedCompanyDetailsFromJson(
+  Map<String, dynamic> json,
+) {
+  if (json.containsKey('limitedCompanyDetailsAreNull'))
+    return none();
+  else
+    return some(LimitedCompanyDetails.fromJson(json));
+}
+
+Map<String, dynamic> limitedCompanyDetailsToJson(
+  Option<LimitedCompanyDetails> limitedCompanyDetailsOption,
+) {
+  return limitedCompanyDetailsOption.fold(
+    () {
+      return {'limitedCompanyDetailsAreNull': true};
+    },
+    (limitedCompanyDetails) {
+      return limitedCompanyDetails.toJson();
+    },
+  );
 }
 
 Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
