@@ -380,7 +380,7 @@ class TAJContractor extends TAJFacade {
       );
     }
     batch.update(TWFC.jobCollection.doc(job.workIdentifier.workId), {
-      'status': JobStatuses.Completed,
+      'status': 'Completed',
     });
     await batch.commit();
     return right(unit);

@@ -15,11 +15,16 @@ class TendersState with _$TendersState {
     if (allTenders.isNone() || allSupplements.isNone()) return none();
     List<Either<Tender, Supplement>> combinedWorkList = [];
     allTendersList.forEach((tender) {
-      if (!hasAppliedTo(tender)) combinedWorkList.add(left(tender));
+      if (!hasAppliedTo(tender) &&
+          tender.tenderStatus != TenderStatus.Completed &&
+          tender.applicationDeadLine.isAfter(DateTime.now()) &&
+          tender.tenderStatus != TenderStatus.Awarded)
+        combinedWorkList.add(left(tender));
     });
     allSupplementsList.forEach((supplement) {
       combinedWorkList.add(right(supplement));
     });
+    print(combinedWorkList.length);
     return optionOf(combinedWorkList);
   }
 

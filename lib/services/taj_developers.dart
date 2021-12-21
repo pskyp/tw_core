@@ -250,7 +250,7 @@ class TAJDeveloper extends TAJFacade {
     });
   }
 
-    Stream<List<Tender>> streamTendersByTenderId({
+  Stream<List<Tender>> streamTendersByTenderId({
     required String tenderId,
   }) {
     return TWFC.tendersCollection
@@ -314,6 +314,12 @@ class TAJDeveloper extends TAJFacade {
     });
   }
 
+  updateTenderInstructtion({required Tender tender,required String newInstructions}) async {
+    await TWFC.tendersCollection
+        .doc(tender.workIdentifier.workId)
+        .set((tender.copyWith(instructions: newInstructions)).toJson());
+  }
+
   inviteToTendering({
     required Tender tender,
     required TenderBid tenderBid,
@@ -347,7 +353,6 @@ class TAJDeveloper extends TAJFacade {
   Stream<List<TenderBid>> streamAllBidsForAllTendersByDeveloper({
     required TWUser developer,
   }) {
-   
     assert(developer.type == TWUserType.Developer);
     return TWFC.tenderBidsCollection
         .where('bidIdentifier.workIdentifier.developmentIdentifier.developerId',
@@ -364,7 +369,6 @@ class TAJDeveloper extends TAJFacade {
   Stream<List<TenderBid>> streamAllWonBidsForAllTendersByDeveloper({
     required TWUser developer,
   }) {
-    
     assert(developer.type == TWUserType.Developer);
     return TWFC.tenderBidsCollection
         .where('bidIdentifier.workIdentifier.developmentIdentifier.developerId',

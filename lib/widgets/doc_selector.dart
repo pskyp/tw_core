@@ -6,6 +6,46 @@ import 'package:tw_core/application/upload_doc/upload_doc_bloc.dart';
 import 'package:tw_core/models/tw_document/tw_document.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 
+class DocumentSelectorIcon extends StatelessWidget {
+  final TWDocType docType;
+  final String typeId;
+  final TWUser loggedInUser;
+  final bool? requireInstructions;
+
+  DocumentSelectorIcon({
+    Key? key,
+    required this.loggedInUser,
+    required this.typeId,
+    required this.docType,
+    this.requireInstructions,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () async {
+        await showDialog(
+          context: context,
+          builder: (BuildContext dialogContext) {
+            return BlocProvider(
+              create: (context) => UploadDocBloc(
+                typeId: typeId,
+                docType: docType,
+                loggedInUser: loggedInUser,
+                requireInstructions: requireInstructions,
+              ),
+              child: FilePickerDialog(
+                requireInstructions: requireInstructions ?? true,
+              ),
+            );
+          },
+        );
+      },
+      icon: Icon(Icons.attach_file),
+    );
+  }
+}
+
 class DocumentSelector extends StatelessWidget {
   final TWDocType docType;
   final String typeId;
