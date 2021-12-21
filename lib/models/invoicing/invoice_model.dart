@@ -1,77 +1,87 @@
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/models/invoicing/invoiceItem_model.dart';
 import 'package:tw_core/models/invoicing/invoice_status.dart';
-import 'package:tw_core/models/tw_user/tw_user.dart';
+import 'package:tw_core/models/location/location_model.dart';
+import 'package:tw_core/models/work/work.dart';
 
 part 'invoice_model.freezed.dart';
 part 'invoice_model.g.dart';
 
 @freezed
-class IndividualInvoiceDetails with _$IndividualInvoiceDetails {
-  factory IndividualInvoiceDetails({
+class SoleTraderDetails with _$SoleTraderDetails {
+  factory SoleTraderDetails({
+    required String individualName,
+    required String? businessName,
+    required String correspondenceAddress,
+  }) = _SoleTraderDetails;
+
+  factory SoleTraderDetails.fromJson(Map<String, dynamic> json) =>
+      _$SoleTraderDetailsFromJson(json);
+}
+
+@freezed
+class LimitedCompanyDetails with _$LimitedCompanyDetails {
+  factory LimitedCompanyDetails({
     required String companyName,
-    required String companyNumber,
-    required String registeredAddress,
-  }) = _IndividualInvoiceDetails;
-}
-
-@freezed
-class CompanyInvoiceDetails with _$CompanyInvoiceDetails {
-  factory CompanyInvoiceDetails({
-    required String name,
     required String location,
-  }) = _CompanyInvoiceDetails;
+    required String companyNumber,
+    required String? vatNumber,
+    required LocationModel invoiceAddress,
+    required LocationModel companyRegisteredAddress,
+  }) = _LimitedCompanyDetails;
+
+  factory LimitedCompanyDetails.fromJson(Map<String, dynamic> json) =>
+      _$LimitedCompanyDetailsFromJson(json);
 }
 
 @freezed
+// @CustomEmployeeDetailsConverter()
 class Invoice with _$Invoice {
   const factory Invoice({
-    required TWUser contractorTWUser,
-    required TWUser subbieTWUser,
+    required BidIdentifier bidIdentifier,
     required DateTime paidOn,
-    required String companyRegisteredAddress,
-    required String invoiceType,
-    required String companyOrTradingName,
+    @JsonKey(
+      name: 'employeeDetails',
+      fromJson: employeeDetailsFromJson,
+      toJson: employeeDetailsToJson,
+    )
+        required Either<SoleTraderDetails, LimitedCompanyDetails>
+            employeeDetails,
     required List<InvoiceItem> invoiceItems,
-    required String vatNumber,
-    required String companyNumber,
     required String invoiceID,
     required String invoiceReference,
     required String description,
-    required String jobID,
     required DateTime invoiceDate,
     required int paymentTerm,
     required double amountPayable,
     required double netAmount,
     required double totalTax,
     required InvoiceStatus status,
-    required String invoiceAddress,
-    required String development,
   }) = _Invoice;
 
-  // Map<String, dynamic> toJson() => _$InvoiceToJson(this);
   factory Invoice.fromJson(Map<String, dynamic> json) =>
       _$InvoiceFromJson(json);
 }
 
-// final double netAmount, totalTax, amountPayable;
-// final TWUser subbieTWUser;
-// final TWUser contractorTWUser;
-// final String companyNumber;
-//
-// final String jobID,
-//     invoiceID,
-//     development,
-//     companyRegisteredAddress,
-//     invoiceAddress,
-//     vatNumber,
-//     companyOrTradingName,
-//     description,
-//     invoiceReference,
-//     invoiceType;
-// final DateTime invoiceDate, paidOn;
-// final int paymentTerm;
-// final InvoiceStatus status;
-// final List<InvoiceItem> invoiceItems;
-// // final SubbyInvoiceStatus subbyInvoiceStatus;
-// // final ContractorInvoiceStatus contractorInvoiceStatus;
+Either<SoleTraderDetails, LimitedCompanyDetails> employeeDetailsFromJson(
+  Map<String, dynamic> json,
+) {
+  if (json.containsKey('companyNumber')) {
+    return right(LimitedCompanyDetails.fromJson(json));
+  } else
+    return left(SoleTraderDetails.fromJson(json));
+}
+
+Map<String, dynamic> employeeDetailsToJson(
+  Either<SoleTraderDetails, LimitedCompanyDetails> employeeDetails,
+) {
+  return employeeDetails.fold(
+    (soleTrader) {
+      return soleTrader.toJson();
+    },
+    (limitedCompany) {
+      return limitedCompany.toJson();
+    },
+  );
+}

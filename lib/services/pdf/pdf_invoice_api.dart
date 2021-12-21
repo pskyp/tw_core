@@ -1,6 +1,5 @@
 import 'dart:io';
 
-
 import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
@@ -57,9 +56,8 @@ class PdfInvoiceApi {
           ),
           SizedBox(height: 1 * PdfPageFormat.cm),
           Row(
-           
             children: [
-              Expanded(child:buildCustomerAddress(invoice)),
+              Expanded(child: buildCustomerAddress(invoice)),
               Spacer(),
               buildInvoiceInfo(invoice),
             ],
@@ -70,10 +68,10 @@ class PdfInvoiceApi {
   static Widget buildCustomerAddress(Invoice invoice) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(invoice.contractorTWUser.displayName,
+          Text(invoice.bidIdentifier.workIdentifier.employer.displayName,
               style: TextStyle(fontWeight: FontWeight.bold)),
-        
-          Text(invoice.contractorTWUser.location.completeAddress),
+          Text(invoice
+              .bidIdentifier.workIdentifier.employer.location.completeAddress),
         ],
       );
 
@@ -104,7 +102,7 @@ class PdfInvoiceApi {
   static Widget buildSupplierAddress(Invoice invoice) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(invoice.subbieTWUser.displayName,
+          Text(invoice.bidIdentifier.bidder.displayName,
               style: TextStyle(fontWeight: FontWeight.bold)),
           if (invoice.companyOrTradingName != null ||
               invoice.companyOrTradingName != '')
