@@ -31,7 +31,7 @@ class PdfInvoiceApi {
         SizedBox(height: 1 * PdfPageFormat.cm),
         buildPayment(accountNumber, sortCode),
       ],
-      footer: (context) => buildFooter(invoice, image),
+      // footer: (context) => buildFooter(invoice, image),
     ));
 
     return PdfApi.saveDocument(
@@ -45,7 +45,7 @@ class PdfInvoiceApi {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              buildSupplierAddress(invoice),
+              // buildSupplierAddress(invoice),
               Container(
                 height: 50,
                 width: 50,
@@ -99,21 +99,21 @@ class PdfInvoiceApi {
     );
   }
 
-  static Widget buildSupplierAddress(Invoice invoice) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(invoice.bidIdentifier.bidder.displayName,
-              style: TextStyle(fontWeight: FontWeight.bold)),
-          if (invoice.companyOrTradingName != null ||
-              invoice.companyOrTradingName != '')
-            SizedBox(height: 1 * PdfPageFormat.mm),
-          if (invoice.companyOrTradingName != null ||
-              invoice.companyOrTradingName != '')
-            Text(invoice.companyOrTradingName),
-          SizedBox(height: 1 * PdfPageFormat.mm),
-          Text(invoice.invoiceAddress),
-        ],
-      );
+  // static Widget buildSupplierAddress(Invoice invoice) => Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Text(invoice.bidIdentifier.bidder.displayName,
+  //             style: TextStyle(fontWeight: FontWeight.bold)),
+  //         if (invoice.companyOrTradingName != null ||
+  //             invoice.companyOrTradingName != '')
+  //           SizedBox(height: 1 * PdfPageFormat.mm),
+  //         if (invoice.companyOrTradingName != null ||
+  //             invoice.companyOrTradingName != '')
+  //           Text(invoice.companyOrTradingName),
+  //         SizedBox(height: 1 * PdfPageFormat.mm),
+  //         Text(invoice.invoiceAddress),
+  //       ],
+  //     );
 
   static Widget buildTitle(Invoice invoice) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -219,28 +219,28 @@ class PdfInvoiceApi {
     );
   }
 
-  static Widget buildFooter(Invoice invoice, ImageProvider image) => Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [Text('Invoicing via'), Image(image, height: 30)])
-          ]),
-          Divider(),
-          SizedBox(height: 2 * PdfPageFormat.mm),
-          if (invoice.invoiceType == 'Company')
-            Text(invoice.companyOrTradingName +
-                ', ' +
-                invoice.companyRegisteredAddress),
-          SizedBox(height: 1 * PdfPageFormat.mm),
-          if (invoice.invoiceType == 'Company')
-            Text('Company Number : ' + invoice.companyNumber),
-          // Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-          //   Column( crossAxisAlignment: CrossAxisAlignment.center,children: [Text('Invoicing via'), Image(image, height: 30)])
-          // ])
-        ],
-      );
+  // static Widget buildFooter(Invoice invoice, ImageProvider image) => Column(
+  //       crossAxisAlignment: CrossAxisAlignment.center,
+  //       children: [
+  //         Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+  //           Column(
+  //               crossAxisAlignment: CrossAxisAlignment.center,
+  //               children: [Text('Invoicing via'), Image(image, height: 30)])
+  //         ]),
+  //         Divider(),
+  //         SizedBox(height: 2 * PdfPageFormat.mm),
+  //         if (invoice.invoiceType == 'Company')
+  //           Text(invoice.companyOrTradingName +
+  //               ', ' +
+  //               invoice.companyRegisteredAddress),
+  //         SizedBox(height: 1 * PdfPageFormat.mm),
+  //         if (invoice.invoiceType == 'Company')
+  //           Text('Company Number : ' + invoice.companyNumber),
+  //         // Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+  //         //   Column( crossAxisAlignment: CrossAxisAlignment.center,children: [Text('Invoicing via'), Image(image, height: 30)])
+  //         // ])
+  //       ],
+  //     );
 
   static Widget buildPayment(String accountNumber, String sortCode) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -37,7 +37,6 @@ import 'package:tw_core/models/invoicing/value_objects/vat_number/vat_number.dar
 import 'package:tw_core/models/job/job.dart';
 import 'package:tw_core/models/job/value_objects/job_timeline/job_timeline.dart';
 import 'package:tw_core/models/location/location_model.dart';
-import 'package:tw_core/models/subbie/subbie_invoicing_details.dart';
 import 'package:tw_core/models/subbie/subbie_model.dart';
 import 'package:tw_core/models/supplement/supplement_model.dart';
 import 'package:tw_core/models/supplement/value_objects/supplement_timeline.dart';

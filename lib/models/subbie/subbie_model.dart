@@ -31,8 +31,8 @@ class Subbie with _$Subbie {
       fromJson: employeeDetailsFromJson,
       toJson: employeeDetailsToJson,
     )
-        required Either<SoleTraderDetails, LimitedCompanyDetails>?
-            invoicingDetails,
+        required Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
+            invoicingDetailsOption,
   }) = _Subbie;
 
   factory Subbie.fromJson(Map<String, dynamic> json) => _$SubbieFromJson(json);
@@ -54,26 +54,34 @@ class Subbie with _$Subbie {
       totalTimeManagement / (totalJobs == 0 ? 1 : totalJobs);
 }
 
-Either<SoleTraderDetails, LimitedCompanyDetails>? employeeDetailsFromJson(
+Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
+    employeeDetailsFromJson(
   Map<String, dynamic> json,
 ) {
-  if (json.containsKey('employeeDetails')) return null;
+  if (json.containsKey('invoicingDetailsAreNull')) return none();
   if (json.containsKey('companyNumber')) {
-    return right(LimitedCompanyDetails.fromJson(json));
+    return some(right(LimitedCompanyDetails.fromJson(json)));
   } else
-    return left(SoleTraderDetails.fromJson(json));
+    return some(left(SoleTraderDetails.fromJson(json)));
 }
 
 Map<String, dynamic> employeeDetailsToJson(
-  Either<SoleTraderDetails, LimitedCompanyDetails>? employeeDetails,
+  Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
+      employeeDetailsOption,
 ) {
-  if (employeeDetails == null) return {'invoicingDetailsAreNull': true};
-  return employeeDetails.fold(
-    (soleTrader) {
-      return soleTrader.toJson();
+  return employeeDetailsOption.fold(
+    () {
+      return {'invoicingDetailsAreNull': true};
     },
-    (limitedCompany) {
-      return limitedCompany.toJson();
+    (employeeDetails) {
+      return employeeDetails.fold(
+        (soleTrader) {
+          return soleTrader.toJson();
+        },
+        (limitedCompany) {
+          return limitedCompany.toJson();
+        },
+      );
     },
   );
 }

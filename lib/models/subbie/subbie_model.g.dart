@@ -27,8 +27,8 @@ _$_Subbie _$$_SubbieFromJson(Map<String, dynamic> json) => _$_Subbie(
       totalServiceQuality: (json['totalServiceQuality'] as num).toDouble(),
       totalProfessionalism: (json['totalProfessionalism'] as num).toDouble(),
       totalTimeManagement: (json['totalTimeManagement'] as num).toDouble(),
-      invoicingDetails: employeeDetailsFromJson(
-          json['invoicingDetails'] as Map<String, dynamic>),
+      invoicingDetailsOption: employeeDetailsFromJson(
+          json['invoicingDetailsOption'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_SubbieToJson(_$_Subbie instance) => <String, dynamic>{
@@ -45,5 +45,6 @@ Map<String, dynamic> _$$_SubbieToJson(_$_Subbie instance) => <String, dynamic>{
       'totalServiceQuality': instance.totalServiceQuality,
       'totalProfessionalism': instance.totalProfessionalism,
       'totalTimeManagement': instance.totalTimeManagement,
-      'invoicingDetails': employeeDetailsToJson(instance.invoicingDetails),
+      'invoicingDetailsOption':
+          employeeDetailsToJson(instance.invoicingDetailsOption),
     };

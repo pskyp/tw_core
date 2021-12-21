@@ -36,8 +36,8 @@ class _$SubbieTearOff {
       required double totalProfessionalism,
       required double totalTimeManagement,
       @JsonKey(fromJson: employeeDetailsFromJson, toJson: employeeDetailsToJson)
-          required Either<SoleTraderDetails, LimitedCompanyDetails>?
-              invoicingDetails}) {
+          required Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
+              invoicingDetailsOption}) {
     return _Subbie(
       basicProfile: basicProfile,
       totalJobs: totalJobs,
@@ -52,7 +52,7 @@ class _$SubbieTearOff {
       totalServiceQuality: totalServiceQuality,
       totalProfessionalism: totalProfessionalism,
       totalTimeManagement: totalTimeManagement,
-      invoicingDetails: invoicingDetails,
+      invoicingDetailsOption: invoicingDetailsOption,
     );
   }
 
@@ -80,8 +80,8 @@ mixin _$Subbie {
   double get totalProfessionalism => throw _privateConstructorUsedError;
   double get totalTimeManagement => throw _privateConstructorUsedError;
   @JsonKey(fromJson: employeeDetailsFromJson, toJson: employeeDetailsToJson)
-  Either<SoleTraderDetails, LimitedCompanyDetails>? get invoicingDetails =>
-      throw _privateConstructorUsedError;
+  Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
+      get invoicingDetailsOption => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -107,7 +107,8 @@ abstract class $SubbieCopyWith<$Res> {
       double totalProfessionalism,
       double totalTimeManagement,
       @JsonKey(fromJson: employeeDetailsFromJson, toJson: employeeDetailsToJson)
-          Either<SoleTraderDetails, LimitedCompanyDetails>? invoicingDetails});
+          Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
+              invoicingDetailsOption});
 
   $UserBankDetailsCopyWith<$Res>? get userBankDetails;
 }
@@ -135,7 +136,7 @@ class _$SubbieCopyWithImpl<$Res> implements $SubbieCopyWith<$Res> {
     Object? totalServiceQuality = freezed,
     Object? totalProfessionalism = freezed,
     Object? totalTimeManagement = freezed,
-    Object? invoicingDetails = freezed,
+    Object? invoicingDetailsOption = freezed,
   }) {
     return _then(_value.copyWith(
       basicProfile: basicProfile == freezed
@@ -190,10 +191,10 @@ class _$SubbieCopyWithImpl<$Res> implements $SubbieCopyWith<$Res> {
           ? _value.totalTimeManagement
           : totalTimeManagement // ignore: cast_nullable_to_non_nullable
               as double,
-      invoicingDetails: invoicingDetails == freezed
-          ? _value.invoicingDetails
-          : invoicingDetails // ignore: cast_nullable_to_non_nullable
-              as Either<SoleTraderDetails, LimitedCompanyDetails>?,
+      invoicingDetailsOption: invoicingDetailsOption == freezed
+          ? _value.invoicingDetailsOption
+          : invoicingDetailsOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<SoleTraderDetails, LimitedCompanyDetails>>,
     ));
   }
 
@@ -229,7 +230,8 @@ abstract class _$SubbieCopyWith<$Res> implements $SubbieCopyWith<$Res> {
       double totalProfessionalism,
       double totalTimeManagement,
       @JsonKey(fromJson: employeeDetailsFromJson, toJson: employeeDetailsToJson)
-          Either<SoleTraderDetails, LimitedCompanyDetails>? invoicingDetails});
+          Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
+              invoicingDetailsOption});
 
   @override
   $UserBankDetailsCopyWith<$Res>? get userBankDetails;
@@ -259,7 +261,7 @@ class __$SubbieCopyWithImpl<$Res> extends _$SubbieCopyWithImpl<$Res>
     Object? totalServiceQuality = freezed,
     Object? totalProfessionalism = freezed,
     Object? totalTimeManagement = freezed,
-    Object? invoicingDetails = freezed,
+    Object? invoicingDetailsOption = freezed,
   }) {
     return _then(_Subbie(
       basicProfile: basicProfile == freezed
@@ -314,10 +316,10 @@ class __$SubbieCopyWithImpl<$Res> extends _$SubbieCopyWithImpl<$Res>
           ? _value.totalTimeManagement
           : totalTimeManagement // ignore: cast_nullable_to_non_nullable
               as double,
-      invoicingDetails: invoicingDetails == freezed
-          ? _value.invoicingDetails
-          : invoicingDetails // ignore: cast_nullable_to_non_nullable
-              as Either<SoleTraderDetails, LimitedCompanyDetails>?,
+      invoicingDetailsOption: invoicingDetailsOption == freezed
+          ? _value.invoicingDetailsOption
+          : invoicingDetailsOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<SoleTraderDetails, LimitedCompanyDetails>>,
     ));
   }
 }
@@ -340,7 +342,7 @@ class _$_Subbie extends _Subbie {
       required this.totalProfessionalism,
       required this.totalTimeManagement,
       @JsonKey(fromJson: employeeDetailsFromJson, toJson: employeeDetailsToJson)
-          required this.invoicingDetails})
+          required this.invoicingDetailsOption})
       : super._();
 
   factory _$_Subbie.fromJson(Map<String, dynamic> json) =>
@@ -374,11 +376,12 @@ class _$_Subbie extends _Subbie {
   final double totalTimeManagement;
   @override
   @JsonKey(fromJson: employeeDetailsFromJson, toJson: employeeDetailsToJson)
-  final Either<SoleTraderDetails, LimitedCompanyDetails>? invoicingDetails;
+  final Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
+      invoicingDetailsOption;
 
   @override
   String toString() {
-    return 'Subbie(basicProfile: $basicProfile, totalJobs: $totalJobs, subscribed: $subscribed, searchRadius: $searchRadius, cscsVerified: $cscsVerified, cscsValidTo: $cscsValidTo, cscsQualifications: $cscsQualifications, subscriptionToggledOn: $subscriptionToggledOn, selectedTrades: $selectedTrades, userBankDetails: $userBankDetails, totalServiceQuality: $totalServiceQuality, totalProfessionalism: $totalProfessionalism, totalTimeManagement: $totalTimeManagement, invoicingDetails: $invoicingDetails)';
+    return 'Subbie(basicProfile: $basicProfile, totalJobs: $totalJobs, subscribed: $subscribed, searchRadius: $searchRadius, cscsVerified: $cscsVerified, cscsValidTo: $cscsValidTo, cscsQualifications: $cscsQualifications, subscriptionToggledOn: $subscriptionToggledOn, selectedTrades: $selectedTrades, userBankDetails: $userBankDetails, totalServiceQuality: $totalServiceQuality, totalProfessionalism: $totalProfessionalism, totalTimeManagement: $totalTimeManagement, invoicingDetailsOption: $invoicingDetailsOption)';
   }
 
   @override
@@ -412,7 +415,7 @@ class _$_Subbie extends _Subbie {
             const DeepCollectionEquality()
                 .equals(other.totalTimeManagement, totalTimeManagement) &&
             const DeepCollectionEquality()
-                .equals(other.invoicingDetails, invoicingDetails));
+                .equals(other.invoicingDetailsOption, invoicingDetailsOption));
   }
 
   @override
@@ -431,7 +434,7 @@ class _$_Subbie extends _Subbie {
       const DeepCollectionEquality().hash(totalServiceQuality),
       const DeepCollectionEquality().hash(totalProfessionalism),
       const DeepCollectionEquality().hash(totalTimeManagement),
-      const DeepCollectionEquality().hash(invoicingDetails));
+      const DeepCollectionEquality().hash(invoicingDetailsOption));
 
   @JsonKey(ignore: true)
   @override
@@ -460,8 +463,8 @@ abstract class _Subbie extends Subbie {
       required double totalProfessionalism,
       required double totalTimeManagement,
       @JsonKey(fromJson: employeeDetailsFromJson, toJson: employeeDetailsToJson)
-          required Either<SoleTraderDetails, LimitedCompanyDetails>?
-              invoicingDetails}) = _$_Subbie;
+          required Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
+              invoicingDetailsOption}) = _$_Subbie;
   _Subbie._() : super._();
 
   factory _Subbie.fromJson(Map<String, dynamic> json) = _$_Subbie.fromJson;
@@ -494,7 +497,8 @@ abstract class _Subbie extends Subbie {
   double get totalTimeManagement;
   @override
   @JsonKey(fromJson: employeeDetailsFromJson, toJson: employeeDetailsToJson)
-  Either<SoleTraderDetails, LimitedCompanyDetails>? get invoicingDetails;
+  Option<Either<SoleTraderDetails, LimitedCompanyDetails>>
+      get invoicingDetailsOption;
   @override
   @JsonKey(ignore: true)
   _$SubbieCopyWith<_Subbie> get copyWith => throw _privateConstructorUsedError;
