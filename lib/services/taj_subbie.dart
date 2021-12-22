@@ -314,9 +314,9 @@ class TAJSubbie extends TAJFacade {
 
   Stream<List<Invoice>> streamInvoiceBySubbieForJob({required String jobId}) {
     return TWFC.invoicesCollection
-        .where('subbieTWUser.uid',
+        .where('bidIdentifier.bidder.uid',
             isEqualTo: CacheService().subbie.basicProfile.uid)
-        .where('jobID', isEqualTo: jobId)
+        .where('bidIdentifier.workIdentifier.workId', isEqualTo: jobId)
         .snapshots()
         .map((list) {
       Option<List<Invoice>> invoicesOption = optionOf(
