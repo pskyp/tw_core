@@ -24,7 +24,6 @@ class SoleTraderDetails with _$SoleTraderDetails {
 class LimitedCompanyDetails with _$LimitedCompanyDetails {
   factory LimitedCompanyDetails({
     required String companyName,
-    required String location,
     required String companyNumber,
     required String? vatNumber,
     required LocationModel invoiceAddress,

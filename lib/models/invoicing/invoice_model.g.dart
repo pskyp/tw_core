@@ -26,7 +26,6 @@ _$_LimitedCompanyDetails _$$_LimitedCompanyDetailsFromJson(
         Map<String, dynamic> json) =>
     _$_LimitedCompanyDetails(
       companyName: json['companyName'] as String,
-      location: json['location'] as String,
       companyNumber: json['companyNumber'] as String,
       vatNumber: json['vatNumber'] as String?,
       invoiceAddress: LocationModel.fromJson(
@@ -39,7 +38,6 @@ Map<String, dynamic> _$$_LimitedCompanyDetailsToJson(
         _$_LimitedCompanyDetails instance) =>
     <String, dynamic>{
       'companyName': instance.companyName,
-      'location': instance.location,
       'companyNumber': instance.companyNumber,
       'vatNumber': instance.vatNumber,
       'invoiceAddress': instance.invoiceAddress.toJson(),

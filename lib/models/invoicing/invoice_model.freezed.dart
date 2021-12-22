@@ -228,14 +228,12 @@ class _$LimitedCompanyDetailsTearOff {
 
   _LimitedCompanyDetails call(
       {required String companyName,
-      required String location,
       required String companyNumber,
       required String? vatNumber,
       required LocationModel invoiceAddress,
       required LocationModel companyRegisteredAddress}) {
     return _LimitedCompanyDetails(
       companyName: companyName,
-      location: location,
       companyNumber: companyNumber,
       vatNumber: vatNumber,
       invoiceAddress: invoiceAddress,
@@ -254,7 +252,6 @@ const $LimitedCompanyDetails = _$LimitedCompanyDetailsTearOff();
 /// @nodoc
 mixin _$LimitedCompanyDetails {
   String get companyName => throw _privateConstructorUsedError;
-  String get location => throw _privateConstructorUsedError;
   String get companyNumber => throw _privateConstructorUsedError;
   String? get vatNumber => throw _privateConstructorUsedError;
   LocationModel get invoiceAddress => throw _privateConstructorUsedError;
@@ -274,7 +271,6 @@ abstract class $LimitedCompanyDetailsCopyWith<$Res> {
       _$LimitedCompanyDetailsCopyWithImpl<$Res>;
   $Res call(
       {String companyName,
-      String location,
       String companyNumber,
       String? vatNumber,
       LocationModel invoiceAddress,
@@ -293,7 +289,6 @@ class _$LimitedCompanyDetailsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? companyName = freezed,
-    Object? location = freezed,
     Object? companyNumber = freezed,
     Object? vatNumber = freezed,
     Object? invoiceAddress = freezed,
@@ -303,10 +298,6 @@ class _$LimitedCompanyDetailsCopyWithImpl<$Res>
       companyName: companyName == freezed
           ? _value.companyName
           : companyName // ignore: cast_nullable_to_non_nullable
-              as String,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
               as String,
       companyNumber: companyNumber == freezed
           ? _value.companyNumber
@@ -337,7 +328,6 @@ abstract class _$LimitedCompanyDetailsCopyWith<$Res>
   @override
   $Res call(
       {String companyName,
-      String location,
       String companyNumber,
       String? vatNumber,
       LocationModel invoiceAddress,
@@ -358,7 +348,6 @@ class __$LimitedCompanyDetailsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? companyName = freezed,
-    Object? location = freezed,
     Object? companyNumber = freezed,
     Object? vatNumber = freezed,
     Object? invoiceAddress = freezed,
@@ -368,10 +357,6 @@ class __$LimitedCompanyDetailsCopyWithImpl<$Res>
       companyName: companyName == freezed
           ? _value.companyName
           : companyName // ignore: cast_nullable_to_non_nullable
-              as String,
-      location: location == freezed
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
               as String,
       companyNumber: companyNumber == freezed
           ? _value.companyNumber
@@ -398,7 +383,6 @@ class __$LimitedCompanyDetailsCopyWithImpl<$Res>
 class _$_LimitedCompanyDetails implements _LimitedCompanyDetails {
   _$_LimitedCompanyDetails(
       {required this.companyName,
-      required this.location,
       required this.companyNumber,
       required this.vatNumber,
       required this.invoiceAddress,
@@ -410,8 +394,6 @@ class _$_LimitedCompanyDetails implements _LimitedCompanyDetails {
   @override
   final String companyName;
   @override
-  final String location;
-  @override
   final String companyNumber;
   @override
   final String? vatNumber;
@@ -422,7 +404,7 @@ class _$_LimitedCompanyDetails implements _LimitedCompanyDetails {
 
   @override
   String toString() {
-    return 'LimitedCompanyDetails(companyName: $companyName, location: $location, companyNumber: $companyNumber, vatNumber: $vatNumber, invoiceAddress: $invoiceAddress, companyRegisteredAddress: $companyRegisteredAddress)';
+    return 'LimitedCompanyDetails(companyName: $companyName, companyNumber: $companyNumber, vatNumber: $vatNumber, invoiceAddress: $invoiceAddress, companyRegisteredAddress: $companyRegisteredAddress)';
   }
 
   @override
@@ -432,7 +414,6 @@ class _$_LimitedCompanyDetails implements _LimitedCompanyDetails {
             other is _LimitedCompanyDetails &&
             const DeepCollectionEquality()
                 .equals(other.companyName, companyName) &&
-            const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality()
                 .equals(other.companyNumber, companyNumber) &&
             const DeepCollectionEquality().equals(other.vatNumber, vatNumber) &&
@@ -446,7 +427,6 @@ class _$_LimitedCompanyDetails implements _LimitedCompanyDetails {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(companyName),
-      const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(companyNumber),
       const DeepCollectionEquality().hash(vatNumber),
       const DeepCollectionEquality().hash(invoiceAddress),
@@ -467,7 +447,6 @@ class _$_LimitedCompanyDetails implements _LimitedCompanyDetails {
 abstract class _LimitedCompanyDetails implements LimitedCompanyDetails {
   factory _LimitedCompanyDetails(
           {required String companyName,
-          required String location,
           required String companyNumber,
           required String? vatNumber,
           required LocationModel invoiceAddress,
@@ -479,8 +458,6 @@ abstract class _LimitedCompanyDetails implements LimitedCompanyDetails {
 
   @override
   String get companyName;
-  @override
-  String get location;
   @override
   String get companyNumber;
   @override

@@ -202,28 +202,28 @@ class TAJSubbie extends TAJFacade {
     return right(unit);
   }
 
-  Future<Either<TWServerError, Unit>> saveInvoicingDetails({
+  Future<Either<TWServerError, Unit>> saveLimitedCompanyDetails({
     required VATNumber vatNumber,
     required TradingName tradingName,
     required TWLocation registeredAddress,
     required TWLocation invoicingAddress,
     required CompanyNumber companyNumber,
   }) async {
-    // SubbieInvoicingDetails invoicingDetails = SubbieInvoicingDetails(
-    //   vatNumber: vatNumber.getOrCrash(),
-    //   tradingName: tradingName.getOrCrash(),
-    //   companyNumber: companyNumber.getOrCrash(),
-    //   registeredAddress: registeredAddress.getOrCrash(),
-    //   invoicingAddress: invoicingAddress.getOrCrash(),
-    // );
-    // var batch = FirebaseFirestore.instance.batch();
-    // batch.update(
-    //   TWFC.subbieCollection.doc(CacheService().subbie.basicProfile.uid),
-    //   {
-    //     'invoicingDetails': invoicingDetails.toJson(),
-    //   },
-    // );
-    // await batch.commit();
+    final LimitedCompanyDetails limitedCompanyDetails = LimitedCompanyDetails(
+      vatNumber: vatNumber.getOrCrash(),
+      companyName: tradingName.getOrCrash(),
+      companyNumber: companyNumber.getOrCrash(),
+      companyRegisteredAddress: registeredAddress.getOrCrash(),
+      invoiceAddress: invoicingAddress.getOrCrash(),
+    );
+    var batch = FirebaseFirestore.instance.batch();
+    batch.update(
+      TWFC.usersCollection.doc(CacheService().subbie.basicProfile.uid),
+      {
+        'limitedCompanyDetailsOption': limitedCompanyDetails.toJson(),
+      },
+    );
+    await batch.commit();
     return right(unit);
   }
 
