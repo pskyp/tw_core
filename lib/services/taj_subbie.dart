@@ -48,6 +48,27 @@ class TAJSubbie extends TAJFacade {
     return (await commitBatch(batch));
   }
 
+  Future<Either<TWServerError, Unit>> saveSoleTraderDetails({
+    required TWString individualName,
+    required String? businessName,
+    required TWLocation correspondenceAddress,
+  }) async {
+    final SoleTraderDetails soleTraderDetails = SoleTraderDetails(
+      individualName: individualName.getOrCrash(),
+      businessName: businessName,
+      correspondenceAddress: correspondenceAddress.getOrCrash(),
+    );
+    var batch = FirebaseFirestore.instance.batch();
+    batch.update(
+      TWFC.usersCollection.doc(CacheService().subbie.basicProfile.uid),
+      {
+        'soleTraderDetailsOption': soleTraderDetails.toJson(),
+      },
+    );
+
+    return (await commitBatch(batch));
+  }
+
   Future<Either<TWServerError, Unit>> addContractorInFavouriteList({
     required Contractor contractor,
     required Subbie subbie,
