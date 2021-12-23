@@ -83,8 +83,7 @@ Map<String, dynamic> _$$_InvoiceToJson(_$_Invoice instance) =>
 
 const _$InvoiceStatusEnumMap = {
   InvoiceStatus.draft: 'draft',
-  InvoiceStatus.sent: 'sent',
-  InvoiceStatus.unseen: 'unseen',
+  InvoiceStatus.published: 'published',
   InvoiceStatus.seen: 'seen',
   InvoiceStatus.approved: 'approved',
   InvoiceStatus.rejected: 'rejected',

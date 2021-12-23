@@ -91,6 +91,19 @@ class TAJFacade {
     return KtList.from(markedUsers);
   }
 
+  Future<Either<TWServerError, Unit>> markInvoiceAs({
+    required Invoice invoice,
+    required InvoiceStatus neoStatus,
+  }) {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    final invoiceWithUpdatedStatus = invoice.copyWith(status: neoStatus);
+    batch.set(
+      TWFC.invoicesCollection.doc(invoice.invoiceID),
+      invoiceWithUpdatedStatus.toJson(),
+    );
+    return commitBatch(batch);
+  }
+
   Future<Either<TWServerError, Unit>> markUser({
     required TWUser userToBeMarked,
     required bool markAsFavourite,

@@ -126,6 +126,11 @@ class TAJContractor extends TAJFacade {
         return allBids.getOrElse(() => []);
       });
 
+  Stream<Invoice> streamInvoice(Invoice invoice) => TWFC.invoicesCollection
+      .doc(invoice.invoiceID)
+      .snapshots()
+      .map((doc) => Invoice.fromJson(doc.data() as Map<String, dynamic>));
+
   Stream<List<Job>> allJobsByContractor({required TWUser contractor}) =>
       TWFC.jobCollection
           .where('contractorId', isEqualTo: contractor.uid)
@@ -166,6 +171,19 @@ class TAJContractor extends TAJFacade {
     TWFC.jobCollection
         .doc(jobBid.bidIdentifier.workIdentifier.workId)
         .update({'totalUnseenBids': FieldValue.increment(-1)});
+  }
+
+  Future<Either<TWServerError, Unit>> markInvoiceAs({
+    required Invoice invoice,
+    required InvoiceStatus neoStatus,
+  }) {
+    WriteBatch batch = FirebaseFirestore.instance.batch();
+    final invoiceWithUpdatedStatus = invoice.copyWith(status: neoStatus);
+    batch.set(
+      TWFC.invoicesCollection.doc(invoice.invoiceID),
+      invoiceWithUpdatedStatus.toJson(),
+    );
+    return commitBatch(batch);
   }
 
   Future<Either<TWServerError, Unit>> postJob({
@@ -234,10 +252,11 @@ class TAJContractor extends TAJFacade {
             list.docs.map((doc) => JobBid.fromJson(doc.data())).toList());
   }
 
-  Stream<List<Invoice>> streamInvoicesOnJob({required Job job}) {
+  Stream<List<Invoice>> streamPublishedInvoicesOnJob({required Job job}) {
     return TWFC.invoicesCollection
         .where('bidIdentifier.workIdentifier.workId',
             isEqualTo: job.workIdentifier.workId)
+        .where('status', isNotEqualTo: InvoiceStatus.draft.name)
         .snapshots()
         .map((list) =>
             list.docs.map((doc) => Invoice.fromJson(doc.data())).toList());
@@ -259,45 +278,6 @@ class TAJContractor extends TAJFacade {
   //               .map((doc) => JobFeedback.fromJson(doc.data()))
   //               .toList(),
   //         );
-
-  // Stream<List<Job>> streamOldJobs({required TWUser contractor}) => TWFC
-  //     .oldJobsCollection
-  //     .where('contractorId', isEqualTo: contractor.uid)
-  //     .snapshots()
-  //     .map((list) => list.docs.map((doc) => Job.fromJson(doc.data())).toList());
-
-  // Future<Stream<List<MarkedUser>>> streamMarkedUsers() async {
-  //   return await TWFC.subbieCollection
-  //       .doc(CacheService().subbie.basicProfile.uid)
-  //       .collection('marked_users')
-  //       .snapshots()
-  //       .map(
-  //     (list) async {
-  //       return await list.docs.map(
-  //         (doc)  {
-  //           Map<String, dynamic> map = doc.data() as Map<String, dynamic>;
-  //           print(map['userDocRef']);
-  //
-  //           DocumentReference reference = map['userDocRef'];
-  //
-  //           // DocumentSnapshot subbieSnap = await reference.get();
-  //           // Subbie subbie =
-  //           //     Subbie.fromJson(subbieSnap.data() as Map<String, dynamic>);
-  //           return MarkedUser(
-  //             user: subbie,
-  //             markedAsFavourite: true,
-  //           );
-  //
-  //           // if (subbieSnap.exists) {
-  //           //
-  //           // }
-  //         },
-  //       ).toList();
-  //     },
-  //   );
-  //
-  //
-  // }
 
   // Stream<List<TWUser>> markedUsers() => TWFC.contractorsCollection
   //         .doc(CacheService().contractor.basicProfile.uid)
@@ -386,31 +366,4 @@ class TAJContractor extends TAJFacade {
     await batch.commit();
     return right(unit);
   }
-
-  // removeSubbieFromFavouriteList({
-  //   required TWUser subbie,
-  //   required TWUser contractor,
-  // }) {
-  //   WriteBatch batch = FirebaseFirestore.instance.batch();
-  //
-  //   batch.delete(TWFC.contractorsCollection
-  //       .doc(contractor.uid)
-  //       .collection('favourite_subbies')
-  //       .doc('favourite-subbie-id: ${subbie.uid}'));
-  //   return commitBatch(batch);
-  // }
-  // removeSubbieFromBlackList({
-  //   required TWUser subbie,
-  //   required TWUser contractor,
-  // }) {
-  //   WriteBatch batch = FirebaseFirestore.instance.batch();
-  //
-  //   batch.delete(TWFC.contractorsCollection
-  //       .doc(contractor.uid)
-  //       .collection('blacklisted_subbies')
-  //       .doc('blacklisted-subbie-id: ${subbie.uid}'));
-  //   return commitBatch(batch);
-  // }
-  //
-
 }

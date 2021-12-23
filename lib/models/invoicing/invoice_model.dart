@@ -1,12 +1,22 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/models/invoicing/invoiceItem_model.dart';
-import 'package:tw_core/models/invoicing/invoice_status.dart';
 import 'package:tw_core/models/location/location_model.dart';
 import 'package:tw_core/models/work/work.dart';
 
 part 'invoice_model.freezed.dart';
 part 'invoice_model.g.dart';
+
+enum InvoiceStatus {
+  draft,
+  published,
+  seen,
+  approved,
+  rejected,
+  paid,
+  reconciled,
+  overdue,
+}
 
 @freezed
 class SoleTraderDetails with _$SoleTraderDetails {
