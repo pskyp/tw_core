@@ -276,7 +276,7 @@ class TAJDeveloper extends TAJFacade {
     required TWUser developer,
   }) {
     return TWFC.supplementCollection
-        .where('developmentIdentifier.developerId', isEqualTo: developer.uid)
+        .where('workIdentifier.developmentIdentifier.developerId', isEqualTo: developer.uid)
         .snapshots()
         .map((list) {
       allSupplements = optionOf(
