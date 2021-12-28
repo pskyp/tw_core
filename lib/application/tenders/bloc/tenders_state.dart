@@ -16,8 +16,8 @@ class TendersState with _$TendersState {
     List<Either<Tender, Supplement>> combinedWorkList = [];
     allTendersList.forEach((tender) {
       if (!hasAppliedTo(tender) &&
-          tender.tenderStatus != TenderStatus.Completed ||
-          tender.applicationDeadLine.isAfter(DateTime.now()) ||
+          tender.tenderStatus != TenderStatus.Completed &&
+          tender.applicationDeadLine.isAfter(DateTime.now()) &&
           tender.tenderStatus != TenderStatus.Awarded)
         combinedWorkList.add(left(tender));
     });
