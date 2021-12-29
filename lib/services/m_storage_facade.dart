@@ -1,5 +1,7 @@
 import 'dart:io';
 
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:file_picker/file_picker.dart';
@@ -49,14 +51,7 @@ class MStorageFacade {
     }
   }
 
-  // Future downloadFile({required TWDocument document}) async {
-  //   String downloadURL = document.downloadURL;
-  //
-  //   html.AnchorElement anchorElement =
-  //   new html.AnchorElement(href: downloadURL);
-  //   anchorElement.download = downloadURL;
-  //   anchorElement.click();
-  // }
+
 
   Future<Either<TWServerError, Unit>> deleteDoc(TWDocument doc) async {
     try {
