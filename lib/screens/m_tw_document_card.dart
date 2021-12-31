@@ -1,7 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:open_file/open_file.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart' as p;
 import 'package:tw_core/models/tw_document/tw_document.dart';
 import 'package:tw_core/services/m_storage_facade.dart';
+import 'package:tw_core/theme/tw_theme.dart';
 
 class MobileTWDocumentCard extends StatelessWidget {
   final TWDocument doc;
@@ -19,12 +24,13 @@ class MobileTWDocumentCard extends StatelessWidget {
         leading: DownloadDocBTN(doc),
         title: Text(doc.docName),
         subtitle: doc.deleted ? Text(deleteText) : Text(doc.instructions),
-        trailing: Row(
+        trailing: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             if (loggedInUserUID == doc.uploadedByUID && !doc.deleted) ...[
-              SeenBy(doc),
-              DeleteDocBTN(doc: doc)
+              Expanded(child: SeenBy(doc)),
+              Spacer(),
+              Expanded(child: DeleteDocBTN(doc: doc))
             ]
           ],
         ),
@@ -50,8 +56,13 @@ class DeleteDocBTN extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      child: Text("Delete"),
+    return MaterialButton(shape: RoundedRectangleBorder(borderRadius: BorderRadiusDirectional.circular(16)),
+      color: Colors.red,
+      visualDensity: VisualDensity.compact,
+      child: Text(
+        "Delete",
+        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+      ),
       onPressed: () async {
         await MStorageFacade().deleteDoc(doc);
       },
@@ -59,19 +70,111 @@ class DeleteDocBTN extends StatelessWidget {
   }
 }
 
-class DownloadDocBTN extends StatelessWidget {
+class DownloadDocBTN extends StatefulWidget {
   final TWDocument doc;
   const DownloadDocBTN(this.doc, {Key? key}) : super(key: key);
 
   @override
+  State<DownloadDocBTN> createState() => _DownloadDocBTNState();
+}
+
+class _DownloadDocBTNState extends State<DownloadDocBTN> {
+  bool _downloading = false;
+  bool _isDownloaded = false;
+  String progress = '0';
+  @override
   Widget build(BuildContext context) {
-    if (doc.deleted) return Text('');
+    if (widget.doc.deleted) return Text('');
     return InkWell(
-      child: Icon(Icons.download_outlined),
-      onTap: () {
-        // if (!doc.deleted) MStorageFacade().downloadFile(document: doc);
+      child: _isDownloaded
+          ? Icon(
+              Icons.download_done,
+              color: TWTheme.twOrange,
+            )
+          : !_downloading
+              ? Icon(
+                  Icons.download_outlined,
+                  color: TWTheme.twOrange,
+                )
+              : CircularProgressIndicator(
+                  value: double.parse(
+                        progress,
+                      ) /
+                      100),
+      onTap: () async {
+        final appStorage = await getApplicationDocumentsDirectory();
+
+        String fullPath = p.join(appStorage.path,widget.doc.docName);
+        print('full path $fullPath');
+        !_isDownloaded
+            ? downloadFile(document: widget.doc, fullPath: fullPath)
+            : OpenFile.open(fullPath);
       },
     );
+  }
+
+  Future downloadFile(
+      {required TWDocument document, required String fullPath}) async {
+    var dio = Dio();
+    download2(dio, document.downloadURL, fullPath);
+  }
+
+  Future download2(Dio dio, String url, String savePath) async {
+    dio.download(url, savePath, onReceiveProgress: (received, total) {
+      if (total != -1) {
+        setState(() {
+          progress = ((received / total * 100).toStringAsFixed(0));
+        });
+        if (progress == '100') {
+          setState(() {
+            _isDownloaded = true;
+          });
+        } else if (double.parse(progress) < 100) {
+          _downloading = true;
+        }
+      }
+    }, deleteOnError: true).then((_) {
+      setState(() {
+        if (progress == '100') {
+          _isDownloaded = true;
+        }
+        _downloading = false;
+      });
+    });
+  }
+  // try {
+  //   Response response = await dio.get(
+  //     url,
+  //     onReceiveProgress: showDownloadProgress,
+  //     //Received data with List<int>
+  //     options: Options(
+  //         responseType: ResponseType.bytes,
+  //         followRedirects: false,
+  //         validateStatus: (status) {
+  //           return status! < 500;
+  //         }),
+  //   );
+  //   // print(response.headers);
+  //   File file = File(savePath);
+  //   var raf = file.openSync(mode: FileMode.write);
+  //   // response.data is List<int> type
+  //   raf.writeFromSync(response.data);
+  //   await raf.close();
+  // } catch (e) {
+  //   print(e);
+  // }
+
+  void showDownloadProgress(received, total) {
+    if (total != -1) {
+      setState(() {
+        progress = ((received / total * 100).toStringAsFixed(0));
+      });
+      if (progress == '100') {
+        setState(() {
+          _isDownloaded = true;
+        });
+      } else if (double.parse(progress) < 100) {}
+    }
   }
 }
 
@@ -83,7 +186,14 @@ class SeenBy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      child: Text("Seen By"),
+      color: TWTheme.twOrange,
+      visualDensity: VisualDensity.compact,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusDirectional.circular(16)),
+      child: Text(
+        "Seen By",
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      ),
       onPressed: () async {
         showDialog(
             context: context,

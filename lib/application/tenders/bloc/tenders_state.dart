@@ -64,6 +64,10 @@ class TendersState with _$TendersState {
     return allTendersList.where((tender) => tenderBid(tender) == null).toList();
   }
 
+  // List<Supplement> newSupplements() {
+  //   return allSupplementsList.where((supplement) => tenderBid(supplement) == null).toList();
+  // }
+
   List<Tender> completedTenders() {
     return allTendersList
         .where((tender) => tender.tenderStatus == TenderStatus.Completed)
