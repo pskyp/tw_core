@@ -9,6 +9,7 @@ environment:
   sdk: ">=2.15.0-0 <3.0.0"
 
 dependencies:
+  asn1lib: ^1.1.0
   bloc: 7.2.0
   cache:
     path: packages/cache
@@ -38,6 +39,9 @@ dependencies:
   path: ^1.8.0
   path_provider: ^2.0.8
   pdf: ^3.6.0
+  pointycastle: ^3.5.0
+  secure_random: ^1.0.1
+  shared_preferences: ^2.0.12
   sign_in_with_apple: ^3.2.0
 
 dependency_overrides:

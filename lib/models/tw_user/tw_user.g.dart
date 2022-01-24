@@ -20,10 +20,13 @@ TWUser _$TWUserFromJson(Map<String, dynamic> json) => TWUser(
       phone: json['phone'] as String,
       location:
           LocationModel.fromJson(json['location'] as Map<String, dynamic>),
-    )..invoicingDetails = json['invoicingDetails'] == null
-        ? null
-        : InvoicingDetails.fromJson(
-            json['invoicingDetails'] as Map<String, dynamic>);
+    )
+      ..publicKey = json['publicKey'] as String?
+      ..privateKey = json['privateKey'] as String?
+      ..invoicingDetails = json['invoicingDetails'] == null
+          ? null
+          : InvoicingDetails.fromJson(
+              json['invoicingDetails'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$TWUserToJson(TWUser instance) => <String, dynamic>{
       'uid': instance.uid,
@@ -37,6 +40,8 @@ Map<String, dynamic> _$TWUserToJson(TWUser instance) => <String, dynamic>{
       'phone': instance.phone,
       'location': instance.location.toJson(),
       'memberSince': instance.memberSince.toIso8601String(),
+      'publicKey': instance.publicKey,
+      'privateKey': instance.privateKey,
       'invoicingDetails': instance.invoicingDetails?.toJson(),
       'shouldDisplayShowcase': instance.shouldDisplayShowcase,
     };

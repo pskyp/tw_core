@@ -24,6 +24,9 @@ class TWUser {
   // String address;
   // String city;
   final DateTime memberSince;
+  String? publicKey;
+  String? privateKey;
+
   InvoicingDetails? invoicingDetails;
   final bool shouldDisplayShowcase;
 
