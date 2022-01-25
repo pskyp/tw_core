@@ -1,11 +1,19 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:encrypt/encrypt.dart';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tw_core/firebase_collections/tw_firebase_collections.dart';
 import 'package:tw_core/models/chat_models/chat_item.dart';
 import 'package:tw_core/models/chat_models/chat_room.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 import 'package:tw_core/models/work/work.dart';
+import 'package:tw_core/services/encryption/rsa_generator.dart';
+
+import 'encryption/get_public_key.dart';
 
 part 'chat_facade.freezed.dart';
 
@@ -27,30 +35,98 @@ class ChatFacade {
     );
 
     return (await sendMessageFromChatRoom(
-      chatRoom: chatRoom,
-      text: text,
-      sender: sender,
-    ));
+        chatRoom: chatRoom, text: text, sender: sender, encyrpt: false));
   }
 
   sendMessageFromChatRoom({
     required ChatRoom chatRoom,
     required String text,
     required TWUser sender,
+    required bool encyrpt,
   }) async {
-    ChatItem chatItem = ChatItem.neu(
-      chatRoomId: chatRoom.chatRoomId,
-      text: text,
-      sender: sender,
-    );
-    ChatRoom neuChatRoom = chatRoom.copyWith(
-      lastChatItem: chatItem,
-    );
+    TWUserType recipientType =TWUserType.Contractor ;
+    if (sender.type == TWUserType.Contractor) recipientType = TWUserType.Subbie;
+    if (sender.type == TWUserType.Subbie) recipientType = TWUserType.Contractor;
+    // remove sender from room participants so can get the recipeint uid and hence their public key
+    List<String> recipients = [];
+    String recipientPublicKey = '';
+    chatRoom.participantUIDs.forEach((element) {
+      print(element);
+      if (element != sender.uid) recipients.add(element);
+    });
 
-    return (await _sendMessage(
-      chatItem: chatItem,
-      chatRoom: neuChatRoom,
-    ));
+// gets the list recipient (not working for group chat)
+    String recipientUID = recipients.first;
+    print('RecipeintUID = $recipientUID');
+    if (encyrpt) {
+      String? publicKey = await getUserDetails(type: recipientType, uid: recipientUID);
+      print(publicKey);
+      recipientPublicKey = publicKey;
+    }
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String privateKeyAsJson = (prefs.getString('privateKey') ?? '');
+    String publicKeyAsJson = (prefs.getString('publicKey') ?? '');
+
+    if (encyrpt) {
+//encryptor for the senders version of the message - encyrpted with senders public key
+
+      final encrypter_sender = Encrypter(RSA(
+          // publicKey: RsaKeyHelper().parsePublicKeyFromPem(recipientPublicKey),
+
+          publicKey:
+              RsaKeyHelper().parsePublicKeyFromPem(jsonDecode(publicKeyAsJson)),
+
+          // publicKey:
+          //     RsaKeyHelper().parsePublicKeyFromPem(jsonDecode(publicKeyAsJson)),
+          privateKey: RsaKeyHelper()
+              .parsePrivateKeyFromPem(jsonDecode(privateKeyAsJson))));
+//encryptor for the recipeints version of the message - encytpted with recipient public key
+      final encrypter_recipient = Encrypter(RSA(
+          // publicKey: RsaKeyHelper().parsePublicKeyFromPem(recipientPublicKey),
+
+          publicKey: RsaKeyHelper().parsePublicKeyFromPem(recipientPublicKey),
+
+          // publicKey:
+          //     RsaKeyHelper().parsePublicKeyFromPem(jsonDecode(publicKeyAsJson)),
+          privateKey: RsaKeyHelper()
+              .parsePrivateKeyFromPem(jsonDecode(privateKeyAsJson))));
+
+      ChatItem chatItem = ChatItem.neu(
+          chatRoomId: chatRoom.chatRoomId,
+          text_sender: encrypter_sender.encrypt(text).base64,
+          text_reciever: encrypter_recipient.encrypt(text).base64,
+          encrypted: true,
+          sender: sender,
+          // recepientPublicKey: recipientPublicKey);
+          recepientPublicKey: jsonDecode(publicKeyAsJson));
+
+      ChatRoom neuChatRoom = chatRoom.copyWith(
+        lastChatItem: chatItem,
+      );
+      print('encryped ' + chatItem.toString());
+      return (await _sendMessage(
+        chatItem: chatItem,
+        chatRoom: neuChatRoom,
+      ));
+    } else {
+      ChatItem chatItem = ChatItem.neu(
+          chatRoomId: chatRoom.chatRoomId,
+          text_sender: text,
+          text_reciever: text,
+          encrypted: false,
+          sender: sender,
+          recepientPublicKey: recipientPublicKey);
+
+      ChatRoom neuChatRoom = chatRoom.copyWith(
+        lastChatItem: chatItem,
+      );
+      print('not encryped ' + chatItem.toString());
+      return (await _sendMessage(
+        chatItem: chatItem,
+        chatRoom: neuChatRoom,
+      ));
+    }
   }
 
   Future<Either<ChatFacadeFailure, Unit>> _sendMessage({

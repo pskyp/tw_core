@@ -9,17 +9,23 @@ part of 'chat_item.dart';
 ChatItem _$ChatItemFromJson(Map<String, dynamic> json) => ChatItem(
       chatItemId: json['chatItemId'] as String,
       chatRoomId: json['chatRoomId'] as String,
-      text: json['text'] as String,
+      text_sender: json['text_sender'] as String,
+      text_reciever: json['text_reciever'] as String,
       senderUID: json['senderUID'] as String,
       sendTime: DateTime.parse(json['sendTime'] as String),
       seenByAll: json['seenByAll'] as bool,
+      encrypted: json['encrypted'] as bool,
+      recepientPublicKey: json['recepientPublicKey'] as String,
     );
 
 Map<String, dynamic> _$ChatItemToJson(ChatItem instance) => <String, dynamic>{
       'chatItemId': instance.chatItemId,
       'chatRoomId': instance.chatRoomId,
-      'text': instance.text,
+      'text_sender': instance.text_sender,
+      'text_reciever': instance.text_reciever,
       'senderUID': instance.senderUID,
       'sendTime': instance.sendTime.toIso8601String(),
       'seenByAll': instance.seenByAll,
+      'encrypted': instance.encrypted,
+      'recepientPublicKey': instance.recepientPublicKey,
     };

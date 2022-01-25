@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -12,36 +14,47 @@ part 'chat_item.g.dart';
 class ChatItem extends Equatable {
   final String chatItemId;
   final String chatRoomId;
-  final String text;
+  final String text_sender;
+    final String text_reciever;
   final String senderUID;
   final DateTime sendTime;
   final bool seenByAll;
+  final bool encrypted;
+  final String recepientPublicKey;
 
   ChatItem({
     required this.chatItemId,
     required this.chatRoomId,
-    required this.text,
+    required this.text_sender,
+    required this.text_reciever,
     required this.senderUID,
     required this.sendTime,
     required this.seenByAll,
+    required this.encrypted,
+    required this.recepientPublicKey
   });
 
   factory ChatItem.neu({
-    required String text,
+    required String text_sender,
+    required String text_reciever,
     required TWUser sender,
     required String chatRoomId,
+     required bool encrypted,
+      required String recepientPublicKey
+,
   }) {
     return ChatItem(
       chatItemId: sender.uid + DateTime.now().toString(),
       chatRoomId: chatRoomId,
-      text: text,
+      text_sender: text_sender,
+      text_reciever: text_reciever,
       senderUID: sender.uid,
       sendTime: DateTime.now(),
-      seenByAll: false,
+      seenByAll: false, encrypted: encrypted, recepientPublicKey: recepientPublicKey,
     );
   }
 
-  get shortText => text.length < 30 ? text : text.substring(0, 30) + '...';
+  get shortText => text_sender.length < 30 ? text_sender : text_sender.substring(0, 30) + '...';
 
   Map<String, dynamic> toJson() => _$ChatItemToJson(this);
   factory ChatItem.fromJson(Map<String, dynamic> json) =>
@@ -51,10 +64,13 @@ class ChatItem extends Equatable {
   List<Object> get props => [
         chatItemId,
         chatRoomId,
-        text,
+        text_sender,
+                text_reciever,
         senderUID,
         sendTime,
         seenByAll,
+        encrypted,
+        recepientPublicKey
       ];
 }
 

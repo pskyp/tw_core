@@ -17,6 +17,7 @@ dependencies:
   dartz: ^0.10.1
   dio: ^4.0.4
   dotted_border: ^2.0.0+2
+  encrypt: ^5.0.1
   equatable: ^2.0.3
   file_picker: ^4.2.7
   firebase_auth: ^3.3.3

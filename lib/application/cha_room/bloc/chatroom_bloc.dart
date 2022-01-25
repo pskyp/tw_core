@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/models/chat_models/chat_item.dart';
 import 'package:tw_core/models/chat_models/chat_room.dart';
+
 import 'package:tw_core/models/tw_user/tw_user.dart';
 import 'package:tw_core/services/chat_facade.dart';
 
@@ -59,10 +60,12 @@ class ChatroomBloc extends Bloc<ChatroomEvent, ChatroomState> {
 
     on<SendMessagePressed>((e, emit) {
       if (e.text.isEmpty) return;
+
       ChatFacade().sendMessageFromChatRoom(
         sender: loggedInUser,
         chatRoom: state.chatRoom,
         text: e.text,
+        encyrpt: true,
       );
     });
   }
