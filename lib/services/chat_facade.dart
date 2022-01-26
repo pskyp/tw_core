@@ -47,6 +47,7 @@ class ChatFacade {
     TWUserType recipientType =TWUserType.Contractor ;
     if (sender.type == TWUserType.Contractor) recipientType = TWUserType.Subbie;
     if (sender.type == TWUserType.Subbie) recipientType = TWUserType.Contractor;
+    if (sender.type == TWUserType.Developer) recipientType = TWUserType.Contractor;
     // remove sender from room participants so can get the recipeint uid and hence their public key
     List<String> recipients = [];
     String recipientPublicKey = '';
