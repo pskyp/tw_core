@@ -9,7 +9,7 @@ Future<String> getUserDetails(
   switch (type) {
     case TWUserType.Developer:
       print('doing a contractor public key lookup');
-      var snap = await TWFC.developerCollection.doc(uid).get();
+      var snap = await TWFC.usersCollection.doc(uid).get();
       if (snap.exists) {
         var data = Developer.fromJson(snap.data()!);
         TWUser user = TWUser.fromJson(data.twUser.toJson());

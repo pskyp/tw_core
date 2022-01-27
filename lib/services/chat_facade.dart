@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:encrypt/encrypt.dart';
+
+import 'package:fast_rsa/fast_rsa.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,10 +45,18 @@ class ChatFacade {
     required TWUser sender,
     required bool encyrpt,
   }) async {
-    TWUserType recipientType =TWUserType.Contractor ;
-    if (sender.type == TWUserType.Contractor) recipientType = TWUserType.Subbie;
+    TWUserType recipientType = TWUserType.Contractor;
+    print(chatRoom.bidIdentifier.bidType);
+    if (sender.type == TWUserType.Contractor) {
+      if (chatRoom.bidIdentifier.bidType == BidType.JobBid) {
+        recipientType = TWUserType.Subbie;
+      } else
+        recipientType = TWUserType.Developer;
+    }
     if (sender.type == TWUserType.Subbie) recipientType = TWUserType.Contractor;
-    if (sender.type == TWUserType.Developer) recipientType = TWUserType.Contractor;
+    if (sender.type == TWUserType.Developer)
+      recipientType = TWUserType.Contractor;
+    print(recipientType);
     // remove sender from room participants so can get the recipeint uid and hence their public key
     List<String> recipients = [];
     String recipientPublicKey = '';
@@ -60,7 +69,8 @@ class ChatFacade {
     String recipientUID = recipients.first;
     print('RecipeintUID = $recipientUID');
     if (encyrpt) {
-      String? publicKey = await getUserDetails(type: recipientType, uid: recipientUID);
+      String? publicKey =
+          await getUserDetails(type: recipientType, uid: recipientUID);
       print(publicKey);
       recipientPublicKey = publicKey;
     }
@@ -72,35 +82,35 @@ class ChatFacade {
     if (encyrpt) {
 //encryptor for the senders version of the message - encyrpted with senders public key
 
-      final encrypter_sender = Encrypter(RSA(
-          // publicKey: RsaKeyHelper().parsePublicKeyFromPem(recipientPublicKey),
+//       final encrypter_sender = Encrypter(RSA(
+//           // publicKey: RsaKeyHelper().parsePublicKeyFromPem(recipientPublicKey),
 
-          publicKey:
-              RsaKeyHelper().parsePublicKeyFromPem(jsonDecode(publicKeyAsJson)),
+//           publicKey:
+//               RsaKeyHelper().parsePublicKeyFromPem(jsonDecode(publicKeyAsJson)),
 
-          // publicKey:
-          //     RsaKeyHelper().parsePublicKeyFromPem(jsonDecode(publicKeyAsJson)),
-          privateKey: RsaKeyHelper()
-              .parsePrivateKeyFromPem(jsonDecode(privateKeyAsJson))));
-//encryptor for the recipeints version of the message - encytpted with recipient public key
-      final encrypter_recipient = Encrypter(RSA(
-          // publicKey: RsaKeyHelper().parsePublicKeyFromPem(recipientPublicKey),
+//           // publicKey:
+//           //     RsaKeyHelper().parsePublicKeyFromPem(jsonDecode(publicKeyAsJson)),
+//           privateKey: RsaKeyHelper()
+//               .parsePrivateKeyFromPem(jsonDecode(privateKeyAsJson))));
+// //encryptor for the recipeints version of the message - encytpted with recipient public key
+//       final encrypter_recipient = Encrypter(RSA(
+//           // publicKey: RsaKeyHelper().parsePublicKeyFromPem(recipientPublicKey),
 
-          publicKey: RsaKeyHelper().parsePublicKeyFromPem(recipientPublicKey),
+//           publicKey: RsaKeyHelper().parsePublicKeyFromPem(recipientPublicKey),
 
-          // publicKey:
-          //     RsaKeyHelper().parsePublicKeyFromPem(jsonDecode(publicKeyAsJson)),
-          privateKey: RsaKeyHelper()
-              .parsePrivateKeyFromPem(jsonDecode(privateKeyAsJson))));
+//           // publicKey:
+//           //     RsaKeyHelper().parsePublicKeyFromPem(jsonDecode(publicKeyAsJson)),
+//           privateKey: RsaKeyHelper()
+//               .parsePrivateKeyFromPem(jsonDecode(privateKeyAsJson))));
 
       ChatItem chatItem = ChatItem.neu(
           chatRoomId: chatRoom.chatRoomId,
-          text_sender: encrypter_sender.encrypt(text).base64,
-          text_reciever: encrypter_recipient.encrypt(text).base64,
+          text_sender: await RSA.encryptPKCS1v15(text, publicKeyAsJson),
+          text_reciever: await RSA.encryptPKCS1v15(text, recipientPublicKey),
           encrypted: true,
           sender: sender,
           // recepientPublicKey: recipientPublicKey);
-          recepientPublicKey: jsonDecode(publicKeyAsJson));
+          recepientPublicKey: publicKeyAsJson);
 
       ChatRoom neuChatRoom = chatRoom.copyWith(
         lastChatItem: chatItem,

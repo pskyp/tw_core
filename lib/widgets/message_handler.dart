@@ -21,7 +21,7 @@ class TWMessageHandler extends StatelessWidget {
                   border: Border.all(color: TWTheme.kMainThemeColor, width: 6),
                   color: Colors.grey[100],
                 ),
-                child: TextFormField(
+                child: TextFormField(maxLength:500,
                   controller: _controller,
                   decoration: InputDecoration(
                       border: InputBorder.none,

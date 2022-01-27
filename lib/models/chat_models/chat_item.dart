@@ -1,7 +1,7 @@
-import 'dart:ffi';
+
 
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
