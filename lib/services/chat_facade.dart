@@ -12,7 +12,7 @@ import 'package:tw_core/models/chat_models/chat_item.dart';
 import 'package:tw_core/models/chat_models/chat_room.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 import 'package:tw_core/models/work/work.dart';
-import 'package:tw_core/services/encryption/rsa_generator.dart';
+
 
 import 'encryption/get_public_key.dart';
 
