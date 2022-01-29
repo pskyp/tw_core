@@ -4,9 +4,19 @@ import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 import 'package:pdf/widgets.dart' as pw;
+import 'package:printing/printing.dart';
 import 'package:tw_core/models/invoicing/invoice_model.dart';
 import 'package:tw_core/services/pdf/pdf_api.dart';
 import 'package:tw_core/services/pdf/utils.dart';
+
+Future<ThemeData> getTheme() async {
+  var myTheme = ThemeData.withFont(
+      base: await PdfGoogleFonts.openSansRegular(),
+      bold: await PdfGoogleFonts.openSansBold(),
+      icons: await PdfGoogleFonts.materialIcons(),
+      italic: await PdfGoogleFonts.openSansItalic());
+  return myTheme;
+}
 
 class PdfInvoiceApi {
   static Future<File> generate(
@@ -22,7 +32,7 @@ class PdfInvoiceApi {
     pdf.addPage(MultiPage(
       pageFormat: PdfPageFormat.a4,
       build: (context) => [
-        buildHeader(invoice),
+        buildHeader(invoice, image),
         SizedBox(height: 3 * PdfPageFormat.cm),
         buildTitle(invoice),
         buildInvoice(invoice),
@@ -31,14 +41,14 @@ class PdfInvoiceApi {
         SizedBox(height: 1 * PdfPageFormat.cm),
         buildPayment(accountNumber, sortCode),
       ],
-      // footer: (context) => buildFooter(invoice, image),
+      footer: (context) => buildFooter(invoice, image),
     ));
 
     return PdfApi.saveDocument(
         name: invoice.invoiceReference + '.pdf', pdf: pdf);
   }
 
-  static Widget buildHeader(Invoice invoice) => Column(
+  static Widget buildHeader(Invoice invoice, ImageProvider image) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 1 * PdfPageFormat.cm),
@@ -52,6 +62,9 @@ class PdfInvoiceApi {
                 child: BarcodeWidget(
                     barcode: Barcode.qrCode(), data: invoice.description),
               ),
+              Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Text('Invoicing via'), Image(image, height: 30)])
             ],
           ),
           SizedBox(height: 1 * PdfPageFormat.cm),
@@ -219,28 +232,30 @@ class PdfInvoiceApi {
     );
   }
 
-  // static Widget buildFooter(Invoice invoice, ImageProvider image) => Column(
-  //       crossAxisAlignment: CrossAxisAlignment.center,
-  //       children: [
-  //         Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-  //           Column(
-  //               crossAxisAlignment: CrossAxisAlignment.center,
-  //               children: [Text('Invoicing via'), Image(image, height: 30)])
-  //         ]),
-  //         Divider(),
-  //         SizedBox(height: 2 * PdfPageFormat.mm),
-  //         if (invoice.invoiceType == 'Company')
-  //           Text(invoice.companyOrTradingName +
-  //               ', ' +
-  //               invoice.companyRegisteredAddress),
-  //         SizedBox(height: 1 * PdfPageFormat.mm),
-  //         if (invoice.invoiceType == 'Company')
-  //           Text('Company Number : ' + invoice.companyNumber),
-  //         // Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-  //         //   Column( crossAxisAlignment: CrossAxisAlignment.center,children: [Text('Invoicing via'), Image(image, height: 30)])
-  //         // ])
-  //       ],
-  //     );
+  static Widget buildFooter(Invoice invoice, ImageProvider image) => Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          //   Column(
+          //       crossAxisAlignment: CrossAxisAlignment.center,
+          //       children: [Text('Invoicing via'), Image(image, height: 30)])
+          // ]),
+          Divider(),
+          SizedBox(height: 2 * PdfPageFormat.mm),
+          if (invoice.employeeDetails.isRight())
+            Text(invoice.employeeDetails.fold(
+                (l) => '',
+                (r) =>
+                    r.companyName +
+                    ' ' +
+                    r.companyNumber +
+                    '\n' +
+                    'Registered Office - ' +
+                    r.companyRegisteredAddress.completeAddress)),
+
+          SizedBox(height: 1 * PdfPageFormat.mm),
+        ],
+      );
 
   static Widget buildPayment(String accountNumber, String sortCode) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
