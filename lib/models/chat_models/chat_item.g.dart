@@ -16,6 +16,8 @@ ChatItem _$ChatItemFromJson(Map<String, dynamic> json) => ChatItem(
       seenByAll: json['seenByAll'] as bool,
       encrypted: json['encrypted'] as bool,
       recepientPublicKey: json['recepientPublicKey'] as String,
+      recepientUID: json['recepientUID'] as String,
+      recepientPushToken: json['recepientPushToken'] as String,
     );
 
 Map<String, dynamic> _$ChatItemToJson(ChatItem instance) => <String, dynamic>{
@@ -28,4 +30,6 @@ Map<String, dynamic> _$ChatItemToJson(ChatItem instance) => <String, dynamic>{
       'seenByAll': instance.seenByAll,
       'encrypted': instance.encrypted,
       'recepientPublicKey': instance.recepientPublicKey,
+      'recepientUID': instance.recepientUID,
+      'recepientPushToken': instance.recepientPushToken,
     };

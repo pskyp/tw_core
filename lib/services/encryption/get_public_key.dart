@@ -4,7 +4,7 @@ import 'package:tw_core/models/developer/developer.dart';
 import 'package:tw_core/models/subbie/subbie_model.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 
-Future<String> getUserDetails(
+Future<TWUser?> getUserDetails(
     {required String uid, required TWUserType type}) async {
   switch (type) {
     case TWUserType.Developer:
@@ -13,7 +13,7 @@ Future<String> getUserDetails(
       if (snap.exists) {
         var data = Developer.fromJson(snap.data()!);
         TWUser user = TWUser.fromJson(data.twUser.toJson());
-        return user.publicKey!;
+        return user;
       }
       break;
     case TWUserType.Contractor:
@@ -22,7 +22,7 @@ Future<String> getUserDetails(
       if (snap.exists) {
         var data = Contractor.fromJson(snap.data()!);
         TWUser user = TWUser.fromJson(data.basicProfile.toJson());
-        return user.publicKey!;
+        return user;
       }
       break;
 
@@ -33,20 +33,20 @@ Future<String> getUserDetails(
         print('subbie public key lookup');
         var data = Subbie.fromJson(snap.data()!);
         TWUser user = TWUser.fromJson(data.basicProfile.toJson());
-        return user.publicKey!;
+        return user;
       } else {
         var snap = await TWFC.developerCollection.doc(uid).get();
         if (snap.exists) {
           print('subbie public key lookup');
           var data = Developer.fromJson(snap.data()!);
           TWUser user = TWUser.fromJson(data.twUser.toJson());
-          return user.publicKey!;
+          return user;
         }
         break;
       }
   }
-  print('error getting looking Public Key ');
-  return 'error getting looking Public Key';
+  print('no user found to return');
+  return null;
 
 // var snap = await TWFC.contractorsCollection.doc(uid).get();
 //   print('contractor public key lookup');

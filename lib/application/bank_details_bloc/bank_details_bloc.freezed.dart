@@ -647,13 +647,14 @@ class __$BankDetailsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_BankDetailsState implements _BankDetailsState {
+class _$_BankDetailsState extends _BankDetailsState {
   _$_BankDetailsState(
       {required this.accountNumber,
       required this.sortCode,
       required this.showErrors,
       required this.submissionInProgress,
-      required this.resultOption});
+      required this.resultOption})
+      : super._();
 
   @override
   final BankAccountNumber accountNumber;
@@ -702,7 +703,7 @@ class _$_BankDetailsState implements _BankDetailsState {
       __$BankDetailsStateCopyWithImpl<_BankDetailsState>(this, _$identity);
 }
 
-abstract class _BankDetailsState implements BankDetailsState {
+abstract class _BankDetailsState extends BankDetailsState {
   factory _BankDetailsState(
           {required BankAccountNumber accountNumber,
           required BankSortCode sortCode,
@@ -710,6 +711,7 @@ abstract class _BankDetailsState implements BankDetailsState {
           required bool submissionInProgress,
           required Option<Either<TWServerError, Unit>> resultOption}) =
       _$_BankDetailsState;
+  _BankDetailsState._() : super._();
 
   @override
   BankAccountNumber get accountNumber;

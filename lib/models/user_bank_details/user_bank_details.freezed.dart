@@ -21,7 +21,8 @@ UserBankDetails _$UserBankDetailsFromJson(Map<String, dynamic> json) {
 class _$UserBankDetailsTearOff {
   const _$UserBankDetailsTearOff();
 
-  _UserBankDetails call({required int accountNumber, required int sortCode}) {
+  _UserBankDetails call(
+      {required String accountNumber, required String sortCode}) {
     return _UserBankDetails(
       accountNumber: accountNumber,
       sortCode: sortCode,
@@ -38,8 +39,8 @@ const $UserBankDetails = _$UserBankDetailsTearOff();
 
 /// @nodoc
 mixin _$UserBankDetails {
-  int get accountNumber => throw _privateConstructorUsedError;
-  int get sortCode => throw _privateConstructorUsedError;
+  String get accountNumber => throw _privateConstructorUsedError;
+  String get sortCode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +53,7 @@ abstract class $UserBankDetailsCopyWith<$Res> {
   factory $UserBankDetailsCopyWith(
           UserBankDetails value, $Res Function(UserBankDetails) then) =
       _$UserBankDetailsCopyWithImpl<$Res>;
-  $Res call({int accountNumber, int sortCode});
+  $Res call({String accountNumber, String sortCode});
 }
 
 /// @nodoc
@@ -73,11 +74,11 @@ class _$UserBankDetailsCopyWithImpl<$Res>
       accountNumber: accountNumber == freezed
           ? _value.accountNumber
           : accountNumber // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       sortCode: sortCode == freezed
           ? _value.sortCode
           : sortCode // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -89,7 +90,7 @@ abstract class _$UserBankDetailsCopyWith<$Res>
           _UserBankDetails value, $Res Function(_UserBankDetails) then) =
       __$UserBankDetailsCopyWithImpl<$Res>;
   @override
-  $Res call({int accountNumber, int sortCode});
+  $Res call({String accountNumber, String sortCode});
 }
 
 /// @nodoc
@@ -112,11 +113,11 @@ class __$UserBankDetailsCopyWithImpl<$Res>
       accountNumber: accountNumber == freezed
           ? _value.accountNumber
           : accountNumber // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       sortCode: sortCode == freezed
           ? _value.sortCode
           : sortCode // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -130,9 +131,9 @@ class _$_UserBankDetails implements _UserBankDetails {
       _$$_UserBankDetailsFromJson(json);
 
   @override
-  final int accountNumber;
+  final String accountNumber;
   @override
-  final int sortCode;
+  final String sortCode;
 
   @override
   String toString() {
@@ -168,15 +169,16 @@ class _$_UserBankDetails implements _UserBankDetails {
 
 abstract class _UserBankDetails implements UserBankDetails {
   factory _UserBankDetails(
-      {required int accountNumber, required int sortCode}) = _$_UserBankDetails;
+      {required String accountNumber,
+      required String sortCode}) = _$_UserBankDetails;
 
   factory _UserBankDetails.fromJson(Map<String, dynamic> json) =
       _$_UserBankDetails.fromJson;
 
   @override
-  int get accountNumber;
+  String get accountNumber;
   @override
-  int get sortCode;
+  String get sortCode;
   @override
   @JsonKey(ignore: true)
   _$UserBankDetailsCopyWith<_UserBankDetails> get copyWith =>

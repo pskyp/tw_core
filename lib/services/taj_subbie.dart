@@ -178,8 +178,8 @@ class TAJSubbie extends TAJFacade {
   }) async {
     WriteBatch batch = FirebaseFirestore.instance.batch();
     final userBankDetails = UserBankDetails(
-      accountNumber: accountNumber.getOrCrash,
-      sortCode: sortCode.getOrCrash,
+      accountNumber: await RSA.encryptPKCS1v15(accountNumber.getOrCrash.toString(), CacheService().subbie.basicProfile.publicKey!),
+      sortCode: await RSA.encryptPKCS1v15(sortCode.getOrCrash.toString(), CacheService().subbie.basicProfile.publicKey!),
     );
     batch.update(
       TWFC.subbieCollection.doc(CacheService().subbie.basicProfile.uid),

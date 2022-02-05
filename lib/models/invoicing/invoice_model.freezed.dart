@@ -495,7 +495,9 @@ class _$InvoiceTearOff {
       required double amountPayable,
       required double netAmount,
       required double totalTax,
-      required InvoiceStatus status}) {
+      required InvoiceStatus status,
+      required UserBankDetails senderBankDetailsSenderVersion,
+      required UserBankDetails senderBankDetailsRecipientVersion}) {
     return _Invoice(
       bidIdentifier: bidIdentifier,
       paidOn: paidOn,
@@ -510,6 +512,8 @@ class _$InvoiceTearOff {
       netAmount: netAmount,
       totalTax: totalTax,
       status: status,
+      senderBankDetailsSenderVersion: senderBankDetailsSenderVersion,
+      senderBankDetailsRecipientVersion: senderBankDetailsRecipientVersion,
     );
   }
 
@@ -541,6 +545,10 @@ mixin _$Invoice {
   double get netAmount => throw _privateConstructorUsedError;
   double get totalTax => throw _privateConstructorUsedError;
   InvoiceStatus get status => throw _privateConstructorUsedError;
+  UserBankDetails get senderBankDetailsSenderVersion =>
+      throw _privateConstructorUsedError;
+  UserBankDetails get senderBankDetailsRecipientVersion =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -565,9 +573,13 @@ abstract class $InvoiceCopyWith<$Res> {
       double amountPayable,
       double netAmount,
       double totalTax,
-      InvoiceStatus status});
+      InvoiceStatus status,
+      UserBankDetails senderBankDetailsSenderVersion,
+      UserBankDetails senderBankDetailsRecipientVersion});
 
   $BidIdentifierCopyWith<$Res> get bidIdentifier;
+  $UserBankDetailsCopyWith<$Res> get senderBankDetailsSenderVersion;
+  $UserBankDetailsCopyWith<$Res> get senderBankDetailsRecipientVersion;
 }
 
 /// @nodoc
@@ -593,6 +605,8 @@ class _$InvoiceCopyWithImpl<$Res> implements $InvoiceCopyWith<$Res> {
     Object? netAmount = freezed,
     Object? totalTax = freezed,
     Object? status = freezed,
+    Object? senderBankDetailsSenderVersion = freezed,
+    Object? senderBankDetailsRecipientVersion = freezed,
   }) {
     return _then(_value.copyWith(
       bidIdentifier: bidIdentifier == freezed
@@ -647,6 +661,15 @@ class _$InvoiceCopyWithImpl<$Res> implements $InvoiceCopyWith<$Res> {
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as InvoiceStatus,
+      senderBankDetailsSenderVersion: senderBankDetailsSenderVersion == freezed
+          ? _value.senderBankDetailsSenderVersion
+          : senderBankDetailsSenderVersion // ignore: cast_nullable_to_non_nullable
+              as UserBankDetails,
+      senderBankDetailsRecipientVersion: senderBankDetailsRecipientVersion ==
+              freezed
+          ? _value.senderBankDetailsRecipientVersion
+          : senderBankDetailsRecipientVersion // ignore: cast_nullable_to_non_nullable
+              as UserBankDetails,
     ));
   }
 
@@ -654,6 +677,22 @@ class _$InvoiceCopyWithImpl<$Res> implements $InvoiceCopyWith<$Res> {
   $BidIdentifierCopyWith<$Res> get bidIdentifier {
     return $BidIdentifierCopyWith<$Res>(_value.bidIdentifier, (value) {
       return _then(_value.copyWith(bidIdentifier: value));
+    });
+  }
+
+  @override
+  $UserBankDetailsCopyWith<$Res> get senderBankDetailsSenderVersion {
+    return $UserBankDetailsCopyWith<$Res>(_value.senderBankDetailsSenderVersion,
+        (value) {
+      return _then(_value.copyWith(senderBankDetailsSenderVersion: value));
+    });
+  }
+
+  @override
+  $UserBankDetailsCopyWith<$Res> get senderBankDetailsRecipientVersion {
+    return $UserBankDetailsCopyWith<$Res>(
+        _value.senderBankDetailsRecipientVersion, (value) {
+      return _then(_value.copyWith(senderBankDetailsRecipientVersion: value));
     });
   }
 }
@@ -677,10 +716,16 @@ abstract class _$InvoiceCopyWith<$Res> implements $InvoiceCopyWith<$Res> {
       double amountPayable,
       double netAmount,
       double totalTax,
-      InvoiceStatus status});
+      InvoiceStatus status,
+      UserBankDetails senderBankDetailsSenderVersion,
+      UserBankDetails senderBankDetailsRecipientVersion});
 
   @override
   $BidIdentifierCopyWith<$Res> get bidIdentifier;
+  @override
+  $UserBankDetailsCopyWith<$Res> get senderBankDetailsSenderVersion;
+  @override
+  $UserBankDetailsCopyWith<$Res> get senderBankDetailsRecipientVersion;
 }
 
 /// @nodoc
@@ -707,6 +752,8 @@ class __$InvoiceCopyWithImpl<$Res> extends _$InvoiceCopyWithImpl<$Res>
     Object? netAmount = freezed,
     Object? totalTax = freezed,
     Object? status = freezed,
+    Object? senderBankDetailsSenderVersion = freezed,
+    Object? senderBankDetailsRecipientVersion = freezed,
   }) {
     return _then(_Invoice(
       bidIdentifier: bidIdentifier == freezed
@@ -761,6 +808,15 @@ class __$InvoiceCopyWithImpl<$Res> extends _$InvoiceCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as InvoiceStatus,
+      senderBankDetailsSenderVersion: senderBankDetailsSenderVersion == freezed
+          ? _value.senderBankDetailsSenderVersion
+          : senderBankDetailsSenderVersion // ignore: cast_nullable_to_non_nullable
+              as UserBankDetails,
+      senderBankDetailsRecipientVersion: senderBankDetailsRecipientVersion ==
+              freezed
+          ? _value.senderBankDetailsRecipientVersion
+          : senderBankDetailsRecipientVersion // ignore: cast_nullable_to_non_nullable
+              as UserBankDetails,
     ));
   }
 }
@@ -782,7 +838,9 @@ class _$_Invoice implements _Invoice {
       required this.amountPayable,
       required this.netAmount,
       required this.totalTax,
-      required this.status});
+      required this.status,
+      required this.senderBankDetailsSenderVersion,
+      required this.senderBankDetailsRecipientVersion});
 
   factory _$_Invoice.fromJson(Map<String, dynamic> json) =>
       _$$_InvoiceFromJson(json);
@@ -817,10 +875,14 @@ class _$_Invoice implements _Invoice {
   final double totalTax;
   @override
   final InvoiceStatus status;
+  @override
+  final UserBankDetails senderBankDetailsSenderVersion;
+  @override
+  final UserBankDetails senderBankDetailsRecipientVersion;
 
   @override
   String toString() {
-    return 'Invoice(bidIdentifier: $bidIdentifier, paidOn: $paidOn, employeeDetails: $employeeDetails, invoiceItems: $invoiceItems, invoiceID: $invoiceID, invoiceReference: $invoiceReference, description: $description, invoiceDate: $invoiceDate, paymentTerm: $paymentTerm, amountPayable: $amountPayable, netAmount: $netAmount, totalTax: $totalTax, status: $status)';
+    return 'Invoice(bidIdentifier: $bidIdentifier, paidOn: $paidOn, employeeDetails: $employeeDetails, invoiceItems: $invoiceItems, invoiceID: $invoiceID, invoiceReference: $invoiceReference, description: $description, invoiceDate: $invoiceDate, paymentTerm: $paymentTerm, amountPayable: $amountPayable, netAmount: $netAmount, totalTax: $totalTax, status: $status, senderBankDetailsSenderVersion: $senderBankDetailsSenderVersion, senderBankDetailsRecipientVersion: $senderBankDetailsRecipientVersion)';
   }
 
   @override
@@ -848,7 +910,13 @@ class _$_Invoice implements _Invoice {
                 .equals(other.amountPayable, amountPayable) &&
             const DeepCollectionEquality().equals(other.netAmount, netAmount) &&
             const DeepCollectionEquality().equals(other.totalTax, totalTax) &&
-            const DeepCollectionEquality().equals(other.status, status));
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality().equals(
+                other.senderBankDetailsSenderVersion,
+                senderBankDetailsSenderVersion) &&
+            const DeepCollectionEquality().equals(
+                other.senderBankDetailsRecipientVersion,
+                senderBankDetailsRecipientVersion));
   }
 
   @override
@@ -866,7 +934,9 @@ class _$_Invoice implements _Invoice {
       const DeepCollectionEquality().hash(amountPayable),
       const DeepCollectionEquality().hash(netAmount),
       const DeepCollectionEquality().hash(totalTax),
-      const DeepCollectionEquality().hash(status));
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(senderBankDetailsSenderVersion),
+      const DeepCollectionEquality().hash(senderBankDetailsRecipientVersion));
 
   @JsonKey(ignore: true)
   @override
@@ -895,7 +965,9 @@ abstract class _Invoice implements Invoice {
       required double amountPayable,
       required double netAmount,
       required double totalTax,
-      required InvoiceStatus status}) = _$_Invoice;
+      required InvoiceStatus status,
+      required UserBankDetails senderBankDetailsSenderVersion,
+      required UserBankDetails senderBankDetailsRecipientVersion}) = _$_Invoice;
 
   factory _Invoice.fromJson(Map<String, dynamic> json) = _$_Invoice.fromJson;
 
@@ -929,6 +1001,10 @@ abstract class _Invoice implements Invoice {
   double get totalTax;
   @override
   InvoiceStatus get status;
+  @override
+  UserBankDetails get senderBankDetailsSenderVersion;
+  @override
+  UserBankDetails get senderBankDetailsRecipientVersion;
   @override
   @JsonKey(ignore: true)
   _$InvoiceCopyWith<_Invoice> get copyWith =>

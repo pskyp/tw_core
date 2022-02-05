@@ -1,5 +1,3 @@
-
-
 import 'package:equatable/equatable.dart';
 
 import 'package:flutter/material.dart';
@@ -15,12 +13,14 @@ class ChatItem extends Equatable {
   final String chatItemId;
   final String chatRoomId;
   final String text_sender;
-    final String text_reciever;
+  final String text_reciever;
   final String senderUID;
   final DateTime sendTime;
   final bool seenByAll;
   final bool encrypted;
   final String recepientPublicKey;
+  final String recepientUID;
+  final String recepientPushToken;
 
   ChatItem({
     required this.chatItemId,
@@ -31,7 +31,9 @@ class ChatItem extends Equatable {
     required this.sendTime,
     required this.seenByAll,
     required this.encrypted,
-    required this.recepientPublicKey
+    required this.recepientPublicKey,
+    required this.recepientUID,
+    required this.recepientPushToken,
   });
 
   factory ChatItem.neu({
@@ -39,9 +41,10 @@ class ChatItem extends Equatable {
     required String text_reciever,
     required TWUser sender,
     required String chatRoomId,
-     required bool encrypted,
-      required String recepientPublicKey
-,
+    required bool encrypted,
+    required String recepientPublicKey,
+    required String recepientUID,
+    required String recepientPushToken,
   }) {
     return ChatItem(
       chatItemId: sender.uid + DateTime.now().toString(),
@@ -50,11 +53,17 @@ class ChatItem extends Equatable {
       text_reciever: text_reciever,
       senderUID: sender.uid,
       sendTime: DateTime.now(),
-      seenByAll: false, encrypted: encrypted, recepientPublicKey: recepientPublicKey,
+      seenByAll: false,
+      encrypted: encrypted,
+      recepientPublicKey: recepientPublicKey,
+      recepientPushToken: recepientPushToken,
+      recepientUID: recepientUID,
     );
   }
 
-  get shortText => text_sender.length < 30 ? text_sender : text_sender.substring(0, 30) + '...';
+  get shortText => text_sender.length < 30
+      ? text_sender
+      : text_sender.substring(0, 30) + '...';
 
   Map<String, dynamic> toJson() => _$ChatItemToJson(this);
   factory ChatItem.fromJson(Map<String, dynamic> json) =>
@@ -65,12 +74,12 @@ class ChatItem extends Equatable {
         chatItemId,
         chatRoomId,
         text_sender,
-                text_reciever,
+        text_reciever,
         senderUID,
         sendTime,
         seenByAll,
         encrypted,
-        recepientPublicKey
+        
       ];
 }
 

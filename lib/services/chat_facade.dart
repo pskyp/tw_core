@@ -13,7 +13,6 @@ import 'package:tw_core/models/chat_models/chat_room.dart';
 import 'package:tw_core/models/tw_user/tw_user.dart';
 import 'package:tw_core/models/work/work.dart';
 
-
 import 'encryption/get_public_key.dart';
 
 part 'chat_facade.freezed.dart';
@@ -59,7 +58,7 @@ class ChatFacade {
     print(recipientType);
     // remove sender from room participants so can get the recipeint uid and hence their public key
     List<String> recipients = [];
-    String recipientPublicKey = '';
+    TWUser? recipientUser;
     chatRoom.participantUIDs.forEach((element) {
       print(element);
       if (element != sender.uid) recipients.add(element);
@@ -68,49 +67,28 @@ class ChatFacade {
 // gets the list recipient (not working for group chat)
     String recipientUID = recipients.first;
     print('RecipeintUID = $recipientUID');
-    if (encyrpt) {
-      String? publicKey =
-          await getUserDetails(type: recipientType, uid: recipientUID);
-      print(publicKey);
-      recipientPublicKey = publicKey;
-    }
+
+    TWUser? user = await getUserDetails(type: recipientType, uid: recipientUID);
+    // print(publicKey);
+    recipientUser = user;
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String privateKeyAsJson = (prefs.getString('privateKey') ?? '');
     String publicKeyAsJson = (prefs.getString('publicKey') ?? '');
 
     if (encyrpt) {
-//encryptor for the senders version of the message - encyrpted with senders public key
-
-//       final encrypter_sender = Encrypter(RSA(
-//           // publicKey: RsaKeyHelper().parsePublicKeyFromPem(recipientPublicKey),
-
-//           publicKey:
-//               RsaKeyHelper().parsePublicKeyFromPem(jsonDecode(publicKeyAsJson)),
-
-//           // publicKey:
-//           //     RsaKeyHelper().parsePublicKeyFromPem(jsonDecode(publicKeyAsJson)),
-//           privateKey: RsaKeyHelper()
-//               .parsePrivateKeyFromPem(jsonDecode(privateKeyAsJson))));
-// //encryptor for the recipeints version of the message - encytpted with recipient public key
-//       final encrypter_recipient = Encrypter(RSA(
-//           // publicKey: RsaKeyHelper().parsePublicKeyFromPem(recipientPublicKey),
-
-//           publicKey: RsaKeyHelper().parsePublicKeyFromPem(recipientPublicKey),
-
-//           // publicKey:
-//           //     RsaKeyHelper().parsePublicKeyFromPem(jsonDecode(publicKeyAsJson)),
-//           privateKey: RsaKeyHelper()
-//               .parsePrivateKeyFromPem(jsonDecode(privateKeyAsJson))));
 
       ChatItem chatItem = ChatItem.neu(
           chatRoomId: chatRoom.chatRoomId,
           text_sender: await RSA.encryptPKCS1v15(text, publicKeyAsJson),
-          text_reciever: await RSA.encryptPKCS1v15(text, recipientPublicKey),
+          text_reciever:
+              await RSA.encryptPKCS1v15(text, recipientUser!.publicKey!),
           encrypted: true,
           sender: sender,
           // recepientPublicKey: recipientPublicKey);
-          recepientPublicKey: publicKeyAsJson);
+          recepientPublicKey: publicKeyAsJson,
+          recepientPushToken: recipientUser.pushToken,
+          recepientUID: recipientUID);
 
       ChatRoom neuChatRoom = chatRoom.copyWith(
         lastChatItem: chatItem,
@@ -127,7 +105,9 @@ class ChatFacade {
           text_reciever: text,
           encrypted: false,
           sender: sender,
-          recepientPublicKey: recipientPublicKey);
+          recepientPublicKey: '',
+          recepientPushToken: recipientUser!.pushToken,
+          recepientUID: recipientUID);
 
       ChatRoom neuChatRoom = chatRoom.copyWith(
         lastChatItem: chatItem,

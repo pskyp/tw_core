@@ -2,6 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tw_core/models/invoicing/invoiceItem_model.dart';
 import 'package:tw_core/models/location/location_model.dart';
+import 'package:tw_core/models/user_bank_details/bank_account_number.dart';
+import 'package:tw_core/models/user_bank_details/user_bank_details.dart';
 import 'package:tw_core/models/work/work.dart';
 
 part 'invoice_model.freezed.dart';
@@ -67,6 +69,8 @@ class Invoice with _$Invoice {
     required double netAmount,
     required double totalTax,
     required InvoiceStatus status,
+    required UserBankDetails senderBankDetailsSenderVersion,
+        required UserBankDetails senderBankDetailsRecipientVersion
   }) = _Invoice;
 
   factory Invoice.fromJson(Map<String, dynamic> json) =>

@@ -6,8 +6,8 @@ part 'user_bank_details.g.dart';
 @freezed
 class UserBankDetails with _$UserBankDetails {
   factory UserBankDetails({
-    required int accountNumber,
-    required int sortCode,
+    required String accountNumber,
+    required String sortCode,
   }) = _UserBankDetails;
 
   factory UserBankDetails.fromJson(Map<String, dynamic> json) =>

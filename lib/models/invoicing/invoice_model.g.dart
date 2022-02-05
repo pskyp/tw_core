@@ -62,6 +62,10 @@ _$_Invoice _$$_InvoiceFromJson(Map<String, dynamic> json) => _$_Invoice(
       netAmount: (json['netAmount'] as num).toDouble(),
       totalTax: (json['totalTax'] as num).toDouble(),
       status: $enumDecode(_$InvoiceStatusEnumMap, json['status']),
+      senderBankDetailsSenderVersion: UserBankDetails.fromJson(
+          json['senderBankDetailsSenderVersion'] as Map<String, dynamic>),
+      senderBankDetailsRecipientVersion: UserBankDetails.fromJson(
+          json['senderBankDetailsRecipientVersion'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_InvoiceToJson(_$_Invoice instance) =>
@@ -79,6 +83,10 @@ Map<String, dynamic> _$$_InvoiceToJson(_$_Invoice instance) =>
       'netAmount': instance.netAmount,
       'totalTax': instance.totalTax,
       'status': _$InvoiceStatusEnumMap[instance.status],
+      'senderBankDetailsSenderVersion':
+          instance.senderBankDetailsSenderVersion.toJson(),
+      'senderBankDetailsRecipientVersion':
+          instance.senderBankDetailsRecipientVersion.toJson(),
     };
 
 const _$InvoiceStatusEnumMap = {
