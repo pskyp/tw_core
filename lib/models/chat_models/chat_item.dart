@@ -119,7 +119,8 @@ class PresetChat extends Equatable {
 }
 
 List<PresetChat> allPresetChats = [
-  negotiationPresetChat,
+  negotiationSubbiePresetChat,
+  negotiationContractorPresetChat,
   offerPresetChat,
   offerAcceptPresetChat,
   offerDeclinePresetChat,
@@ -134,11 +135,16 @@ PresetChat? getPresetChat(String rawText) {
   return index == -1 ? null : allPresetChats[index];
 }
 
-PresetChat negotiationPresetChat = PresetChat(
-  rawText: ChatConstants.negotiationMessage,
-  shortText: "The contractor is interested.",
-  text: '''Hi there! The contractor has shown interest
-       in your application for this job''',
+PresetChat negotiationContractorPresetChat = PresetChat(
+  rawText: 'contractorNeg',
+  shortText: "The Subbie is interested.",
+  text: '''Hi there! The Subbie has shown an interest in your job advert ''',
+);
+
+PresetChat negotiationSubbiePresetChat = PresetChat(
+  rawText: 'subbieNeg',
+  shortText: "The Contractor is interested.",
+  text: '''Hi there! The contractor has shown interest in your application ''',
 );
 
 PresetChat offerPresetChat = PresetChat(
