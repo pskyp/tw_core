@@ -11,11 +11,17 @@ class PdfApi {
     print(location);
 
     // final dir = await getApplicationDocumentsDirectory();
-    final file = File('$location');
+    if (Platform.isIOS) {
+      final file = File('$location');
 
+      await file.writeAsBytes(bytes);
+
+      return file;
+    } else {
+      final file = File('$location/$name');
     await file.writeAsBytes(bytes);
 
-    return file;
+    return file;}
   }
 
   static Future openFile(File file) async {
