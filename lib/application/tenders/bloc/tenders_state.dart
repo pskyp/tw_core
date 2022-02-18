@@ -33,7 +33,10 @@ class TendersState with _$TendersState {
     List<Either<Tender, Supplement>> combinedWorkList = [];
     allTendersList.forEach((tender) {
       if ((tenderBid(tender) != null) &&
-          tender.tenderStatus == TenderStatus.Completed)
+              tender.tenderStatus == TenderStatus.Completed ||
+          (tender.tenderStatus == TenderStatus.Awarded) &&
+              tenderBid(tender) != null &&
+              tenderBid(tender)!.tenderBidStatus == TenderBidStatus.Invited)
         combinedWorkList.add(left(tender));
     });
     allSupplementsList.forEach((supplement) {
@@ -70,8 +73,16 @@ class TendersState with _$TendersState {
 
   List<Tender> completedTenders() {
     return allTendersList
-        .where((tender) => tender.tenderStatus == TenderStatus.Completed)
+        .where((tender) =>
+                tender.tenderStatus == TenderStatus.Completed ||
+                (tender.tenderStatus == TenderStatus.Awarded &&
+                    tenderBid(tender)!.tenderBidStatus ==
+                        TenderBidStatus.Invited)
+           
+            )
         .toList();
+   
+
   }
 
   bool hasAppliedTo(Tender tender) {
@@ -95,7 +106,9 @@ class TendersState with _$TendersState {
     return allTendersList
         .where((tender) =>
             hasAppliedTo(tender) &&
-            tenderBid(tender)!.tenderBidStatus == TenderBidStatus.Invited)
+            tenderBid(tender)!.tenderBidStatus == TenderBidStatus.Invited &&
+            !tender.isAwarded &&
+            !tender.isCompleted)
         .toList();
   }
 
