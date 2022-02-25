@@ -27,9 +27,9 @@ class MStorageFacade {
       String docName = file.names.first!;
       String docPath = "${loggedInUser.uid}/$typeId/$docName";
 
-      File f = File(platformFile.path!);
+      // File f = File(platformFile.path!);
 
-      var path = await docsRef.child(docPath).putFile(f);
+      var path = await docsRef.child(docPath).putData(platformFile.bytes!);
 
       // var path = await docsRef.child(docPath).putData(fileData);
       String documentDownloadURL = await path.ref.getDownloadURL();
