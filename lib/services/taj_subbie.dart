@@ -246,13 +246,13 @@ class TAJSubbie extends TAJFacade {
     );
 
     //update total_ratings, and other attributes in contractor doc
-    // batch.update(TWFC.contractorsCollection.doc(jobReview.contractorId), {
-    //   'totalRatings': FieldValue.increment(1),
-    //   'totalReliability': FieldValue.increment(jobReview.rating.reliability),
-    //   'totalEnvironment': FieldValue.increment(jobReview.rating.environment),
-    //   'totalCommunication': FieldValue.increment(jobReview.rating.communication)
-    // });
-    print('commitintg batch');
+    batch.update(TWFC.contractorsCollection.doc(jobFeedback.contractorId), {
+      'totalJobs': FieldValue.increment(1),
+      'totalReliability': FieldValue.increment(jobFeedback.contractorRating.reliability),
+      'totalEnvironment': FieldValue.increment(jobFeedback.contractorRating.environment),
+      'totalCommunication': FieldValue.increment(jobFeedback.contractorRating.communication)
+    });
+    print('committing batch');
     await batch.commit();
     return right(unit);
   }

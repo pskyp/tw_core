@@ -10,6 +10,7 @@ class JobFeedback with _$JobFeedback implements WorkFeedback {
   factory JobFeedback({
     required String jobId,
     required String subbieId,
+      required String contractorId,
     required ContractorRating contractorRating,
   }) = _JobFeedback;
 

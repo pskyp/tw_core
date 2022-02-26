@@ -21,10 +21,14 @@ JobBidFeedback _$JobBidFeedbackFromJson(Map<String, dynamic> json) {
 class _$JobBidFeedbackTearOff {
   const _$JobBidFeedbackTearOff();
 
-  _JobBidFeedback call({required SubbieRating rating, required String bidId}) {
+  _JobBidFeedback call(
+      {required SubbieRating rating,
+      required String bidId,
+      required String subbieID}) {
     return _JobBidFeedback(
       rating: rating,
       bidId: bidId,
+      subbieID: subbieID,
     );
   }
 
@@ -40,6 +44,7 @@ const $JobBidFeedback = _$JobBidFeedbackTearOff();
 mixin _$JobBidFeedback {
   SubbieRating get rating => throw _privateConstructorUsedError;
   String get bidId => throw _privateConstructorUsedError;
+  String get subbieID => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +57,7 @@ abstract class $JobBidFeedbackCopyWith<$Res> {
   factory $JobBidFeedbackCopyWith(
           JobBidFeedback value, $Res Function(JobBidFeedback) then) =
       _$JobBidFeedbackCopyWithImpl<$Res>;
-  $Res call({SubbieRating rating, String bidId});
+  $Res call({SubbieRating rating, String bidId, String subbieID});
 }
 
 /// @nodoc
@@ -68,6 +73,7 @@ class _$JobBidFeedbackCopyWithImpl<$Res>
   $Res call({
     Object? rating = freezed,
     Object? bidId = freezed,
+    Object? subbieID = freezed,
   }) {
     return _then(_value.copyWith(
       rating: rating == freezed
@@ -77,6 +83,10 @@ class _$JobBidFeedbackCopyWithImpl<$Res>
       bidId: bidId == freezed
           ? _value.bidId
           : bidId // ignore: cast_nullable_to_non_nullable
+              as String,
+      subbieID: subbieID == freezed
+          ? _value.subbieID
+          : subbieID // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -89,7 +99,7 @@ abstract class _$JobBidFeedbackCopyWith<$Res>
           _JobBidFeedback value, $Res Function(_JobBidFeedback) then) =
       __$JobBidFeedbackCopyWithImpl<$Res>;
   @override
-  $Res call({SubbieRating rating, String bidId});
+  $Res call({SubbieRating rating, String bidId, String subbieID});
 }
 
 /// @nodoc
@@ -107,6 +117,7 @@ class __$JobBidFeedbackCopyWithImpl<$Res>
   $Res call({
     Object? rating = freezed,
     Object? bidId = freezed,
+    Object? subbieID = freezed,
   }) {
     return _then(_JobBidFeedback(
       rating: rating == freezed
@@ -117,6 +128,10 @@ class __$JobBidFeedbackCopyWithImpl<$Res>
           ? _value.bidId
           : bidId // ignore: cast_nullable_to_non_nullable
               as String,
+      subbieID: subbieID == freezed
+          ? _value.subbieID
+          : subbieID // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -124,7 +139,8 @@ class __$JobBidFeedbackCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_JobBidFeedback implements _JobBidFeedback {
-  _$_JobBidFeedback({required this.rating, required this.bidId});
+  _$_JobBidFeedback(
+      {required this.rating, required this.bidId, required this.subbieID});
 
   factory _$_JobBidFeedback.fromJson(Map<String, dynamic> json) =>
       _$$_JobBidFeedbackFromJson(json);
@@ -133,10 +149,12 @@ class _$_JobBidFeedback implements _JobBidFeedback {
   final SubbieRating rating;
   @override
   final String bidId;
+  @override
+  final String subbieID;
 
   @override
   String toString() {
-    return 'JobBidFeedback(rating: $rating, bidId: $bidId)';
+    return 'JobBidFeedback(rating: $rating, bidId: $bidId, subbieID: $subbieID)';
   }
 
   @override
@@ -145,14 +163,16 @@ class _$_JobBidFeedback implements _JobBidFeedback {
         (other.runtimeType == runtimeType &&
             other is _JobBidFeedback &&
             const DeepCollectionEquality().equals(other.rating, rating) &&
-            const DeepCollectionEquality().equals(other.bidId, bidId));
+            const DeepCollectionEquality().equals(other.bidId, bidId) &&
+            const DeepCollectionEquality().equals(other.subbieID, subbieID));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(rating),
-      const DeepCollectionEquality().hash(bidId));
+      const DeepCollectionEquality().hash(bidId),
+      const DeepCollectionEquality().hash(subbieID));
 
   @JsonKey(ignore: true)
   @override
@@ -168,7 +188,8 @@ class _$_JobBidFeedback implements _JobBidFeedback {
 abstract class _JobBidFeedback implements JobBidFeedback {
   factory _JobBidFeedback(
       {required SubbieRating rating,
-      required String bidId}) = _$_JobBidFeedback;
+      required String bidId,
+      required String subbieID}) = _$_JobBidFeedback;
 
   factory _JobBidFeedback.fromJson(Map<String, dynamic> json) =
       _$_JobBidFeedback.fromJson;
@@ -177,6 +198,8 @@ abstract class _JobBidFeedback implements JobBidFeedback {
   SubbieRating get rating;
   @override
   String get bidId;
+  @override
+  String get subbieID;
   @override
   @JsonKey(ignore: true)
   _$JobBidFeedbackCopyWith<_JobBidFeedback> get copyWith =>

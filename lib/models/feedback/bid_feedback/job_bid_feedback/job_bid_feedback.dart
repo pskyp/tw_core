@@ -10,6 +10,7 @@ class JobBidFeedback with _$JobBidFeedback implements BidFeedback {
   factory JobBidFeedback({
     required SubbieRating rating,
     required String bidId,
+    required String subbieID,
   }) = _JobBidFeedback;
 
   factory JobBidFeedback.fromJson(Map<String, dynamic> json) =>

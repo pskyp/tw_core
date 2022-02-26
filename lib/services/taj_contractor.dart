@@ -359,6 +359,17 @@ class TAJContractor extends TAJFacade {
         TWFC.bidsCollection.doc(feedback.bidId),
         {'feedback': feedback.toJson()},
       );
+      batch.update(
+        TWFC.usersCollection.doc(feedback.subbieID),
+        
+          
+           {
+      'totalJobs': FieldValue.increment(1),
+      'totalProfessionalism': FieldValue.increment(feedback.rating.professionalism),
+      'totalServiceQuality': FieldValue.increment(feedback.rating.serviceQuality),
+      'totalTimeManagement': FieldValue.increment(feedback.rating.timeManagement)
+    });
+      
     }
     batch.update(TWFC.jobCollection.doc(job.workIdentifier.workId), {
       'status': 'Completed',

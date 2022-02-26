@@ -24,10 +24,12 @@ class _$JobFeedbackTearOff {
   _JobFeedback call(
       {required String jobId,
       required String subbieId,
+      required String contractorId,
       required ContractorRating contractorRating}) {
     return _JobFeedback(
       jobId: jobId,
       subbieId: subbieId,
+      contractorId: contractorId,
       contractorRating: contractorRating,
     );
   }
@@ -44,6 +46,7 @@ const $JobFeedback = _$JobFeedbackTearOff();
 mixin _$JobFeedback {
   String get jobId => throw _privateConstructorUsedError;
   String get subbieId => throw _privateConstructorUsedError;
+  String get contractorId => throw _privateConstructorUsedError;
   ContractorRating get contractorRating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -57,7 +60,11 @@ abstract class $JobFeedbackCopyWith<$Res> {
   factory $JobFeedbackCopyWith(
           JobFeedback value, $Res Function(JobFeedback) then) =
       _$JobFeedbackCopyWithImpl<$Res>;
-  $Res call({String jobId, String subbieId, ContractorRating contractorRating});
+  $Res call(
+      {String jobId,
+      String subbieId,
+      String contractorId,
+      ContractorRating contractorRating});
 
   $ContractorRatingCopyWith<$Res> get contractorRating;
 }
@@ -74,6 +81,7 @@ class _$JobFeedbackCopyWithImpl<$Res> implements $JobFeedbackCopyWith<$Res> {
   $Res call({
     Object? jobId = freezed,
     Object? subbieId = freezed,
+    Object? contractorId = freezed,
     Object? contractorRating = freezed,
   }) {
     return _then(_value.copyWith(
@@ -84,6 +92,10 @@ class _$JobFeedbackCopyWithImpl<$Res> implements $JobFeedbackCopyWith<$Res> {
       subbieId: subbieId == freezed
           ? _value.subbieId
           : subbieId // ignore: cast_nullable_to_non_nullable
+              as String,
+      contractorId: contractorId == freezed
+          ? _value.contractorId
+          : contractorId // ignore: cast_nullable_to_non_nullable
               as String,
       contractorRating: contractorRating == freezed
           ? _value.contractorRating
@@ -107,7 +119,11 @@ abstract class _$JobFeedbackCopyWith<$Res>
           _JobFeedback value, $Res Function(_JobFeedback) then) =
       __$JobFeedbackCopyWithImpl<$Res>;
   @override
-  $Res call({String jobId, String subbieId, ContractorRating contractorRating});
+  $Res call(
+      {String jobId,
+      String subbieId,
+      String contractorId,
+      ContractorRating contractorRating});
 
   @override
   $ContractorRatingCopyWith<$Res> get contractorRating;
@@ -127,6 +143,7 @@ class __$JobFeedbackCopyWithImpl<$Res> extends _$JobFeedbackCopyWithImpl<$Res>
   $Res call({
     Object? jobId = freezed,
     Object? subbieId = freezed,
+    Object? contractorId = freezed,
     Object? contractorRating = freezed,
   }) {
     return _then(_JobFeedback(
@@ -137,6 +154,10 @@ class __$JobFeedbackCopyWithImpl<$Res> extends _$JobFeedbackCopyWithImpl<$Res>
       subbieId: subbieId == freezed
           ? _value.subbieId
           : subbieId // ignore: cast_nullable_to_non_nullable
+              as String,
+      contractorId: contractorId == freezed
+          ? _value.contractorId
+          : contractorId // ignore: cast_nullable_to_non_nullable
               as String,
       contractorRating: contractorRating == freezed
           ? _value.contractorRating
@@ -152,6 +173,7 @@ class _$_JobFeedback implements _JobFeedback {
   _$_JobFeedback(
       {required this.jobId,
       required this.subbieId,
+      required this.contractorId,
       required this.contractorRating});
 
   factory _$_JobFeedback.fromJson(Map<String, dynamic> json) =>
@@ -162,11 +184,13 @@ class _$_JobFeedback implements _JobFeedback {
   @override
   final String subbieId;
   @override
+  final String contractorId;
+  @override
   final ContractorRating contractorRating;
 
   @override
   String toString() {
-    return 'JobFeedback(jobId: $jobId, subbieId: $subbieId, contractorRating: $contractorRating)';
+    return 'JobFeedback(jobId: $jobId, subbieId: $subbieId, contractorId: $contractorId, contractorRating: $contractorRating)';
   }
 
   @override
@@ -177,6 +201,8 @@ class _$_JobFeedback implements _JobFeedback {
             const DeepCollectionEquality().equals(other.jobId, jobId) &&
             const DeepCollectionEquality().equals(other.subbieId, subbieId) &&
             const DeepCollectionEquality()
+                .equals(other.contractorId, contractorId) &&
+            const DeepCollectionEquality()
                 .equals(other.contractorRating, contractorRating));
   }
 
@@ -185,6 +211,7 @@ class _$_JobFeedback implements _JobFeedback {
       runtimeType,
       const DeepCollectionEquality().hash(jobId),
       const DeepCollectionEquality().hash(subbieId),
+      const DeepCollectionEquality().hash(contractorId),
       const DeepCollectionEquality().hash(contractorRating));
 
   @JsonKey(ignore: true)
@@ -202,6 +229,7 @@ abstract class _JobFeedback implements JobFeedback {
   factory _JobFeedback(
       {required String jobId,
       required String subbieId,
+      required String contractorId,
       required ContractorRating contractorRating}) = _$_JobFeedback;
 
   factory _JobFeedback.fromJson(Map<String, dynamic> json) =
@@ -211,6 +239,8 @@ abstract class _JobFeedback implements JobFeedback {
   String get jobId;
   @override
   String get subbieId;
+  @override
+  String get contractorId;
   @override
   ContractorRating get contractorRating;
   @override
