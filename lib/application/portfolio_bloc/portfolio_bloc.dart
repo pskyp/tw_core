@@ -21,6 +21,16 @@ class PortfolioBloc extends Bloc<PortfolioEvent, PortfolioState> {
         .listen((event) {
       add(PortfolioEvent.docsStreamUpdated(event));
     });
+on<
+DocsStreamUpdated>((event, emit) async {
+      emit( state.copyWith(portfolioDocsOption: optionOf(event.dcos)));
+    });
+    on<UploadDocPressed>((event, emit) async {
+      emit(state.copyWith(uploading: true));
+    });
+
+
+
   }
 
   @override
@@ -29,12 +39,5 @@ class PortfolioBloc extends Bloc<PortfolioEvent, PortfolioState> {
     return super.close();
   }
 
-  @override
-  Stream<PortfolioState> mapEventToState(PortfolioEvent event) async* {
-    yield* event.map(docsStreamUpdated: (e) async* {
-      yield state.copyWith(portfolioDocsOption: optionOf(e.dcos));
-    }, uploadDocPressed: (e) async* {
-      yield state.copyWith(uploading: true);
-    });
-  }
+
 }

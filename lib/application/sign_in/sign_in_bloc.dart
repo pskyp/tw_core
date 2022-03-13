@@ -22,87 +22,69 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     required this.authFacade,
     required this.androidPackageName,
     required this.iOSBundleId,
-  }) : super(SignInState.initial());
+  }) : super(SignInState.initial()) {
+    on<EmailInputChanged>((event, emit) async {
+      emit(state.copyWith(
+        email: EmailAddress(event.value),
+        sendingLinkToEmail: false,
+        linkSentToEmailOption: optionOf(null),
+      ));
+    });
+    on<SignInPressed>((event, emit) async {
+      emit(state.copyWith(showErrorMessages: true));
+      if (!state.email.value.isRight()) return;
+      emit(state.copyWith(sendingLinkToEmail: true));
+      Either<AuthFailure, Unit> linkSentToEmail =
+          await authFacade.sendSignInLinkToEmail(
+        email: state.email,
+        androidPackageName: androidPackageName,
+        iOSBundleId: iOSBundleId,
+      );
+      emit(state.copyWith(
+        linkSentToEmailOption: optionOf(linkSentToEmail),
+        sendingLinkToEmail: false,
+      ));
+    });
+    on<OnLifecycleChanged>((event, emit) async {
+      final PendingDynamicLinkData? data =
+          await FirebaseDynamicLinks.instance.getInitialLink();
 
-  @override
-  Stream<SignInState> mapEventToState(SignInEvent event) async* {
-    yield* event.map(
-      emailInputChanged: (e) async* {
-        yield state.copyWith(
-          email: EmailAddress(e.value),
-          sendingLinkToEmail: false,
-          linkSentToEmailOption: optionOf(null),
-        );
-      },
-      signInPressed: (e) async* {
-        yield state.copyWith(showErrorMessages: true);
-        if (!state.email.value.isRight()) return;
-        yield state.copyWith(sendingLinkToEmail: true);
-        Either<AuthFailure, Unit> linkSentToEmail =
-            await authFacade.sendSignInLinkToEmail(
-          email: state.email,
-          androidPackageName: androidPackageName,
-          iOSBundleId: iOSBundleId,
-        );
-        yield state.copyWith(
-          linkSentToEmailOption: optionOf(linkSentToEmail),
-          sendingLinkToEmail: false,
-        );
-      },
-      onLifeCycleChanged: (e) async* {
-        final PendingDynamicLinkData? data =
-            await FirebaseDynamicLinks.instance.getInitialLink();
-
-        print("Link data ");
+      print("Link data ");
+      print(data);
+      if (data?.link != null) {
         print(data);
-        if (data?.link != null) {
-          print(data);
-          print(data?.link);
-          print("Getting data");
-          final user = (await FirebaseAuth.instance.signInWithEmailLink(
-            email: state.email.getOrCrash(),
-            emailLink: data!.link.toString(),
-          ))
-              .user;
-        }
+        print(data?.link);
+        print("Getting data");
+        final user = (await FirebaseAuth.instance.signInWithEmailLink(
+          email: state.email.getOrCrash(),
+          emailLink: data!.link.toString(),
+        ))
+            .user;
+      }
 
-        FirebaseDynamicLinks.instance.onLink.listen((event) async {
-          final Uri deepLink = event.link;
-          final user = (await FirebaseAuth.instance.signInWithEmailLink(
-            email: state.email.getOrCrash(),
-            emailLink: deepLink.toString(),
-          ))
-              .user;
-        }).onError((error) {
-          print('onLink error');
-          print(error.message);
-        });
-
-        // FirebaseDynamicLinks.instance.onLink(
-        //     onSuccess: (PendingDynamicLinkData? dynamicLink) async {
-        //   final Uri deepLink = dynamicLink!.link;
-        //   final user = (await FirebaseAuth.instance.signInWithEmailLink(
-        //     email: state.email.getOrCrash(),
-        //     emailLink: deepLink.toString(),
-        //   ))
-        //       .user;
-        // }, onError: (OnLinkErrorException e) async {
-        //   print('onLinkError');
-        //   print(e.message);
-        // });
-      },
-      signInWithGooglePressed: (e) async* {
-        print("reaching here");
-        Either<AuthFailure, Unit>? failureOrSuccess;
-        yield state.copyWith(isSubmitting: true);
-        print("is submitting");
-        failureOrSuccess = await authFacade.signInWithGoogle();
-        print(failureOrSuccess);
-        yield state.copyWith(
-          isSubmitting: false,
-          linkSentToEmailOption: optionOf(failureOrSuccess),
-        );
-      },
-    );
+      FirebaseDynamicLinks.instance.onLink.listen((event) async {
+        final Uri deepLink = event.link;
+        final user = (await FirebaseAuth.instance.signInWithEmailLink(
+          email: state.email.getOrCrash(),
+          emailLink: deepLink.toString(),
+        ))
+            .user;
+      }).onError((error) {
+        print('onLink error');
+        print(error.message);
+      });
+    });
+    on<SignInWithGooglePressed>((event, emit) async {
+      print("reaching here");
+      Either<AuthFailure, Unit>? failureOrSuccess;
+      emit(state.copyWith(isSubmitting: true));
+      print("is submitting");
+      failureOrSuccess = await authFacade.signInWithGoogle();
+      print(failureOrSuccess);
+      emit(state.copyWith(
+        isSubmitting: false,
+        linkSentToEmailOption: optionOf(failureOrSuccess),
+      ));
+    });
   }
 }

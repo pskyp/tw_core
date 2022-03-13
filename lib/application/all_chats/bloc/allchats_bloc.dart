@@ -21,21 +21,13 @@ class AllchatsBloc extends Bloc<AllchatsEvent, AllchatsState> {
     ChatFacade().streamChatRooms(loggedInUser).listen((event) {
       add(AllchatsEvent.streamChatRoomsUpdated(event));
     });
-  }
 
+    on<StreamChatRoomsUpdated>((event, emit) async {
+      emit(AllchatsState(allChatRoomsOption: optionOf(event.chatRooms)));
+    });
+  }
   @override
   Future<void> close() {
     return super.close();
-  }
-
-  @override
-  Stream<AllchatsState> mapEventToState(
-    AllchatsEvent event,
-  ) async* {
-    yield* event.map(
-      streamChatRoomsUpdated: (e) async* {
-        yield AllchatsState(allChatRoomsOption: optionOf(e.chatRooms));
-      },
-    );
   }
 }

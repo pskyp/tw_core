@@ -10,16 +10,13 @@ part 'joint_chat_event.dart';
 part 'joint_chat_state.dart';
 
 class JointChatBloc extends Bloc<JointChatEvent, JointChatState> {
-  JointChatBloc({required JointChatState chatState}) : super(chatState);
+  JointChatBloc({required JointChatState chatState}) : super(chatState){
+    
 
-  @override
-  Stream<JointChatState> mapEventToState(
-    JointChatEvent event,
-  ) async* {
-    yield* event.map(
-      openChatRoom: (e) async* {
-        yield JointChatState(selectedChatRoomOption: optionOf(e.chatRoom));
-      },
-    );
+    on<OpenTenderChatRoom>((event, emit) async {
+      emit(JointChatState(selectedChatRoomOption: optionOf(event.chatRoom)));
+    });
   }
+
+
 }

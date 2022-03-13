@@ -27,46 +27,38 @@ class UploadDocBloc extends Bloc<UploadDocEvent, UploadDocState> {
             docType: docType,
             requireInstructions: requireInstructions,
           ),
-        );
-
-  @override
-  Stream<UploadDocState> mapEventToState(
-    UploadDocEvent event,
-  ) async* {
-    yield* event.map(
-      docInstructionsInput: (e) async* {
-        yield state.copyWith(
-          instruction: TWString(e.input, TWString.DOC_INSTRUCTIONS_ML),
-        );
-      },
-      filedPicked: (e) async* {
-        if (e.file != null) {
-          yield state.copyWith(selectedFile: e.file);
-        }
-      },
-      uploadPressed: (e) async* {
-        yield state.copyWith(showErrorMessages: true);
-        if (!state.allInputsValid) return;
-        yield state.copyWith(uploadInProgress: true);
-        Either<TWServerError, Unit> result =
-            await StorageFacade().uploadDocument(
-          loggedInUser: state.loggedInUser,
-          typeId: state.typeId,
-          file: state.selectedFile!,
-          instructions:
-              (state.requireInstructions == null || state.requireInstructions!)
-                  ? state.instruction
-                  : TWString(
-                      'No instructions found',
-                      TWString.min_length,
-                    ),
-          docType: state.docType,
-        );
-        yield state.copyWith(
-          uploadInProgress: false,
-          resultOption: optionOf(result),
-        );
-      },
-    );
+        ) {
+    on<DocInstructionsInput>((event, emit) async {
+      emit(state.copyWith(
+        instruction: TWString(event.input, TWString.DOC_INSTRUCTIONS_ML),
+      ));
+    });
+    on<FiledPicked>((event, emit) async {
+      if (event.file != null) {
+        emit(state.copyWith(selectedFile: event.file));
+      }
+    });
+    on<UploadPressed>((event, emit) async {
+      emit(state.copyWith(showErrorMessages: true));
+      if (!state.allInputsValid) return;
+      emit(state.copyWith(uploadInProgress: true));
+      Either<TWServerError, Unit> result = await StorageFacade().uploadDocument(
+        loggedInUser: state.loggedInUser,
+        typeId: state.typeId,
+        file: state.selectedFile!,
+        instructions:
+            (state.requireInstructions == null || state.requireInstructions!)
+                ? state.instruction
+                : TWString(
+                    'No instructions found',
+                    TWString.min_length,
+                  ),
+        docType: state.docType,
+      );
+      emit(state.copyWith(
+        uploadInProgress: false,
+        resultOption: optionOf(result),
+      ));
+    });
   }
 }

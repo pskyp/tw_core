@@ -13,29 +13,26 @@ part 'bio_input_event.dart';
 part 'bio_input_state.dart';
 
 class BioInputBloc extends Bloc<BioInputEvent, BioInputState> {
-  BioInputBloc() : super(BioInputState.initial());
-
-  @override
-  Stream<BioInputState> mapEventToState(
-    BioInputEvent event,
-  ) async* {
-    yield* event.map(coverLetterInpput: (e) async* {
-      yield state.copyWith(
-        coverLetter: TWString(e.input, TWString.Bio_Cover_Letter_ML),
+  BioInputBloc() : super(BioInputState.initial()) {
+    on<CoverLetterInput>((event, emit) async {
+      emit(state.copyWith(
+        coverLetter: TWString(event.input, TWString.Bio_Cover_Letter_ML),
         resultOption: optionOf(null),
-      );
-    }, submitPressed: (e) async* {
-      yield state.copyWith(showErrorMessages: true);
+      ));
+    });
+
+    on<SubmitPressed>((event, emit) async {
+      emit(state.copyWith(showErrorMessages: true));
       if (!state.coverLetter.isValid) return;
-      yield state.copyWith(submissionInProgress: true);
+      emit(state.copyWith(submissionInProgress: true));
       Either<TWServerError, Unit> result = await TAJFacade().saveCoverLetter(
         contractor: CacheService().contractor,
         coverLetter: state.coverLetter,
       );
-      yield state.copyWith(
+      emit(state.copyWith(
         resultOption: optionOf(result),
         submissionInProgress: false,
-      );
+      ));
     });
   }
 }

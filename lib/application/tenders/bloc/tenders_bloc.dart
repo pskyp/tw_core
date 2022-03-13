@@ -35,31 +35,21 @@ class TendersBloc extends Bloc<TendersEvent, TendersState> {
     supplementsStream = TAJContractor().streamAllSupplements().listen((event) {
       add(TendersEvent.supplementsStreamUpdated(event));
     });
+
+
+     on<TendersStreamUpdated>(
+        (event, emit) {
+          emit(state.copyWith(allTenders: optionOf(event.tenders)));
+        });
+         on<TenderBidsStreamUpdated>(
+        (event, emit) {
+          emit(state.copyWith(allTenderBids: optionOf(event.tenderBids)));
+        });
+         on<SupplementsStreamUpdated>(
+        (event, emit) {
+          emit(state.copyWith(allSupplements: optionOf(event.supplements)));
+        });
   }
 
-  @override
-  Future<void> close() {
-    tendersStream?.cancel();
-    tenderBidsStream?.cancel();
-    supplementsStream?.cancel();
-
-    return super.close();
-  }
-
-  @override
-  Stream<TendersState> mapEventToState(
-    TendersEvent event,
-  ) async* {
-    yield* event.map(
-      supplementsStreamUpdated: (e) async* {
-        yield state.copyWith(allSupplements: optionOf(e.supplements));
-      },
-      tendersStreamUpdated: (e) async* {
-        yield state.copyWith(allTenders: optionOf(e.tenders));
-      },
-      tenderBidsStreamUpdated: (e) async* {
-        yield state.copyWith(allTenderBids: optionOf(e.tenderBids));
-      },
-    );
-  }
+  
 }
