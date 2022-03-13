@@ -27,6 +27,7 @@ class MUploadDocBloc extends Bloc<MUploadDocEvent, MUploadDocState> {
           requireInstructions: requireInstructions,
         )) {
     on<DocInstructionsInput>((event, emit) async {
+      print(event.input);
       emit(state.copyWith(
         instruction: TWString(event.input, TWString.DOC_INSTRUCTIONS_ML),
       ));
@@ -47,6 +48,7 @@ class MUploadDocBloc extends Bloc<MUploadDocEvent, MUploadDocState> {
         file: state.selectedFile!,
         instructions:
             (state.requireInstructions == null || state.requireInstructions!)
+
                 ? state.instruction
                 : TWString(
                     'No instructions found',

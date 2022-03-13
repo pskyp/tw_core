@@ -26,13 +26,17 @@ class MStorageFacade {
       // Uint8List fileData = platformFile.bytes!; //file.files.single.bytes!;
       String docName = file.names.first!;
       String docPath = "${loggedInUser.uid}/$typeId/$docName";
+      String documentDownloadURL;
+      if (Platform.isAndroid || Platform.isIOS) {
+        File f = File(platformFile.path!);
+        var path = await docsRef.child(docPath).putFile(f);
+        documentDownloadURL = await path.ref.getDownloadURL();
+         
+      } else {
+        var path = await docsRef.child(docPath).putData(platformFile.bytes!);
 
-      // File f = File(platformFile.path!);
-
-      var path = await docsRef.child(docPath).putData(platformFile.bytes!);
-
-      // var path = await docsRef.child(docPath).putData(fileData);
-      String documentDownloadURL = await path.ref.getDownloadURL();
+        documentDownloadURL = await path.ref.getDownloadURL();
+      }
 
       TWDocument doc = TWDocument(
         type: docType,
@@ -50,8 +54,6 @@ class MStorageFacade {
       return left(TWServerError());
     }
   }
-
-  
 
   Future<Either<TWServerError, Unit>> deleteDoc(TWDocument doc) async {
     try {
