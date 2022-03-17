@@ -178,8 +178,11 @@ class TAJSubbie extends TAJFacade {
   }) async {
     WriteBatch batch = FirebaseFirestore.instance.batch();
     final userBankDetails = UserBankDetails(
-      accountNumber: await RSA.encryptPKCS1v15(accountNumber.getOrCrash.toString(), CacheService().subbie.basicProfile.publicKey!),
-      sortCode: await RSA.encryptPKCS1v15(sortCode.getOrCrash.toString(), CacheService().subbie.basicProfile.publicKey!),
+      accountNumber: await RSA.encryptPKCS1v15(
+          accountNumber.getOrCrash.toString(),
+          CacheService().subbie.basicProfile.publicKey!),
+      sortCode: await RSA.encryptPKCS1v15(sortCode.getOrCrash.toString(),
+          CacheService().subbie.basicProfile.publicKey!),
     );
     batch.update(
       TWFC.subbieCollection.doc(CacheService().subbie.basicProfile.uid),
@@ -223,8 +226,7 @@ class TAJSubbie extends TAJFacade {
         'limitedCompanyDetailsOption': limitedCompanyDetails.toJson(),
       },
     );
-    await batch.commit();
-    return right(unit);
+    return (await commitBatch(batch));
   }
 
   Future<Either<TWServerError, Unit>> jobFeedbackSubmit({
@@ -248,9 +250,12 @@ class TAJSubbie extends TAJFacade {
     //update total_ratings, and other attributes in contractor doc
     batch.update(TWFC.contractorsCollection.doc(jobFeedback.contractorId), {
       'totalJobs': FieldValue.increment(1),
-      'totalReliability': FieldValue.increment(jobFeedback.contractorRating.reliability),
-      'totalEnvironment': FieldValue.increment(jobFeedback.contractorRating.environment),
-      'totalCommunication': FieldValue.increment(jobFeedback.contractorRating.communication)
+      'totalReliability':
+          FieldValue.increment(jobFeedback.contractorRating.reliability),
+      'totalEnvironment':
+          FieldValue.increment(jobFeedback.contractorRating.environment),
+      'totalCommunication':
+          FieldValue.increment(jobFeedback.contractorRating.communication)
     });
     print('committing batch');
     await batch.commit();
