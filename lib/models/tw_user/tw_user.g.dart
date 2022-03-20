@@ -50,4 +50,5 @@ const _$TWUserTypeEnumMap = {
   TWUserType.Developer: 'Developer',
   TWUserType.Contractor: 'Contractor',
   TWUserType.Subbie: 'Subbie',
+  TWUserType.Admin: 'Admin',
 };

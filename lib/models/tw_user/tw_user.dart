@@ -6,7 +6,7 @@ import '../position_converter.dart';
 
 part 'tw_user.g.dart';
 
-enum TWUserType { Developer, Contractor, Subbie }
+enum TWUserType { Developer, Contractor, Subbie, Admin }
 
 @JsonSerializable(explicitToJson: true)
 class TWUser {

@@ -60,7 +60,9 @@ part 'taj_subbie.dart';
 
 class TAJFacade {
   TAJFacade();
-
+  static Option<List<Subbie>> allSubbies = optionOf(null);
+    static Option<List<Developer>> allDevelopers = optionOf(null);
+      static Option<List<Contractor>> allContractors = optionOf(null);
   static Option<List<ChatRoom>> allChatRooms = optionOf(null);
   static Option<KtList<MarkedUser>> markedUsers = optionOf(null);
 
@@ -240,6 +242,29 @@ class TAJFacade {
         .map((doc) => Tender.fromJson(doc.data() as Map<String, dynamic>));
   }
 
+  Stream<List<Subbie>> streamAllSubbies() {
+    return TWFC.usersCollection.snapshots().map((list) {
+      allSubbies = optionOf(
+          list.docs.map((doc) => Subbie.fromJson(doc.data())).toList());
+      return allSubbies.getOrElse(() => []);
+    });
+  }
+
+  Stream<List<Developer>> streamAllDevelopers() {
+    return TWFC.developerCollection.snapshots().map((list) {
+      allDevelopers = optionOf(
+          list.docs.map((doc) => Developer.fromJson(doc.data())).toList());
+      return allDevelopers.getOrElse(() => []);
+    });
+  }
+
+    Stream<List<Contractor>> streamAllContractors() {
+    return TWFC.contractorsCollection.snapshots().map((list) {
+      allContractors = optionOf(
+          list.docs.map((doc) => Contractor.fromJson(doc.data())).toList());
+      return allContractors.getOrElse(() => []);
+    });
+  }
   Stream<Development> streamDevelopment({required String developmentId}) {
     return TWFC.developmentsCollection
         .doc(developmentId)
