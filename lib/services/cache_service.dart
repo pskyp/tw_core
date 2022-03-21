@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:cache/cache.dart';
 import 'package:tw_core/models/contractor/contractor_model.dart';
 import 'package:tw_core/models/developer/developer.dart';
 import 'package:tw_core/models/full_user.dart';
 import 'package:tw_core/models/subbie/subbie_model.dart';
+import 'package:tw_core/services/cache.dart';
 
 class CacheService {
   static CacheClient _cacheClient = CacheClient();
