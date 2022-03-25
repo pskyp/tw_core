@@ -61,8 +61,10 @@ part 'taj_subbie.dart';
 class TAJFacade {
   TAJFacade();
   static Option<List<Subbie>> allSubbies = optionOf(null);
-    static Option<List<Developer>> allDevelopers = optionOf(null);
-      static Option<List<Contractor>> allContractors = optionOf(null);
+  static Option<List<Developer>> allDevelopers = optionOf(null);
+  static Option<List<Contractor>> allContractors = optionOf(null);
+  static Option<List<Development>> allDevelopents = optionOf(null);
+  static Option<List<Tender>> allTenders = optionOf(null);
   static Option<List<ChatRoom>> allChatRooms = optionOf(null);
   static Option<KtList<MarkedUser>> markedUsers = optionOf(null);
 
@@ -258,18 +260,35 @@ class TAJFacade {
     });
   }
 
-    Stream<List<Contractor>> streamAllContractors() {
+  Stream<List<Contractor>> streamAllContractors() {
     return TWFC.contractorsCollection.snapshots().map((list) {
       allContractors = optionOf(
           list.docs.map((doc) => Contractor.fromJson(doc.data())).toList());
       return allContractors.getOrElse(() => []);
     });
   }
+
   Stream<Development> streamDevelopment({required String developmentId}) {
     return TWFC.developmentsCollection
         .doc(developmentId)
         .snapshots()
         .map((doc) => Development.fromJson(doc.data() as Map<String, dynamic>));
+  }
+
+  Stream<List<Development>> streamAllDevelopments() {
+    return TWFC.developmentsCollection.snapshots().map((list) {
+      allDevelopents = optionOf(
+          list.docs.map((doc) => Development.fromJson(doc.data())).toList());
+      return allDevelopents.getOrElse(() => []);
+    });
+  }
+
+    Stream<List<Tender>> streamAllTenders() {
+    return TWFC.developmentsCollection.snapshots().map((list) {
+      allTenders = optionOf(
+          list.docs.map((doc) => Tender.fromJson(doc.data())).toList());
+      return allTenders.getOrElse(() => []);
+    });
   }
 
   Stream<List<ChatRoom>> streamAllTenderChatsOfUser(TWUser user) {
