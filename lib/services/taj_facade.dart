@@ -284,7 +284,7 @@ class TAJFacade {
   }
 
     Stream<List<Tender>> streamAllTenders() {
-    return TWFC.developmentsCollection.snapshots().map((list) {
+    return TWFC.tendersCollection.snapshots().map((list) {
       allTenders = optionOf(
           list.docs.map((doc) => Tender.fromJson(doc.data())).toList());
       return allTenders.getOrElse(() => []);
