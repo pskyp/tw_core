@@ -25,8 +25,9 @@ class LocationModel {
     required this.district,
     required this.country,
     required this.residential,
+    required this.region,
   });
-
+  String region;
   String postcode;
   double latitude;
   double longitude;
@@ -89,9 +90,11 @@ class LocationModel {
         district: json["district"],
         country: json["country"],
         residential: json["residential"],
+        region: json["region"],
       );
 
   Map<String, dynamic> toJson() => {
+        "region": region,
         "postcode": postcode,
         "latitude": latitude,
         "longitude": longitude,
