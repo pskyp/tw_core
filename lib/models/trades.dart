@@ -50,7 +50,8 @@ class Trade extends Equatable {
                             : type == Trades.ADT
                                 ? 'assets/images/adt.png'
                                 : type == Trades.Bricklayer
-                                    ? 'assets/images/bricklayer.png'
+                                    ? 'assets/images/bricklayer.png' : type == Trades.Telehandler
+                                ? 'assets/images/telehandler.png'
                                     : type == Trades.GL
                                         ? 'assets/images/general_laborer.png'
                                         : 'assets/images/general_laborer.png',
