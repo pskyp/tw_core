@@ -43,9 +43,17 @@ class Trade extends Equatable {
                 ? 'assets/images/painter.png'
                 : type == Trades.Plasterer
                     ? 'assets/images/plasterer.png'
-                    : type == Trades.GL
-                        ? 'assets/images/general_laborer.png'
-                        : 'assets/images/general_laborer.png',
+                    : type == Trades.MF
+                        ? 'assets/images/mastic2.png'
+                        : type == Trades.Electical
+                            ? 'assets/images/electrician.png'
+                            : type == Trades.ADT
+                                ? 'assets/images/adt.png'
+                                : type == Trades.Bricklayer
+                                    ? 'assets/images/briklayer.png'
+                                    : type == Trades.GL
+                                        ? 'assets/images/general_laborer.png'
+                                        : 'assets/images/general_laborer.png',
         text = type == Trades.Carpenter
             ? 'Carpenter'
             : type == Trades.Painter
