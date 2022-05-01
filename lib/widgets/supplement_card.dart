@@ -12,10 +12,9 @@ class SupplementCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: CircleAvatar(
-          backgroundImage: AssetImage(supplement.trade.imagePath),
-          backgroundColor: Colors.transparent,
-        ),
+        leading:Image(image: AssetImage(supplement.trade.imagePath)),
+         
+       
         title: Text(supplement.title),
         trailing: Text('Supplement'),
       ),
