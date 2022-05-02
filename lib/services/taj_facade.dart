@@ -54,6 +54,8 @@ import 'package:tw_core/models/user_bank_details/user_bank_details.dart';
 import 'package:tw_core/models/work/work.dart';
 import 'package:tw_core/services/cache_service.dart';
 
+import '../models/bid_on_supplement/supplement_bid.dart';
+
 part 'taj_contractor.dart';
 part 'taj_developers.dart';
 part 'taj_subbie.dart';
@@ -243,6 +245,14 @@ class TAJFacade {
         .snapshots()
         .map((doc) => Tender.fromJson(doc.data() as Map<String, dynamic>));
   }
+
+Stream<Supplement> streamSupplement({required String supplementId}) {
+    return TWFC.supplementCollection
+        .doc(supplementId)
+        .snapshots()
+        .map((doc) => Supplement.fromJson(doc.data() as Map<String, dynamic>));
+  }
+
 
   Stream<List<Subbie>> streamAllSubbies() {
     return TWFC.usersCollection.snapshots().map((list) {

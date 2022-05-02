@@ -352,6 +352,23 @@ class TAJDeveloper extends TAJFacade {
     });
   }
 
+
+Stream<List<SupplementBid>> streamAllBidsForSupplement({
+    required Supplement supplement,
+  }) {
+    return TWFC.supplementCollection
+        .where(
+          'bidIdentifier.workIdentifier.workId',
+          isEqualTo: supplement.workIdentifier.workId,
+        )
+        .snapshots()
+        .map((list) {
+      return list.docs.map((doc) => SupplementBid.fromJson(doc.data())).toList();
+    });
+  }
+
+
+
   Stream<List<TenderBid>> streamAllBidsForAllTendersByDeveloper({
     required TWUser developer,
   }) {

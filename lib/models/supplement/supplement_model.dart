@@ -12,6 +12,7 @@ enum SupplementStatus { Active, Completed }
 
 @freezed
 class Supplement with _$Supplement implements Work {
+  const Supplement._();
   const factory Supplement({
     required WorkIdentifier workIdentifier,
     required String developerId,
@@ -37,6 +38,8 @@ class Supplement with _$Supplement implements Work {
 
   factory Supplement.fromJson(Map<String, dynamic> json) =>
       _$SupplementFromJson(json);
+
+  String get developmentId => workIdentifier.developmentIdentifier.id;
 }
 
 // @JsonSerializable(explicitToJson: true)

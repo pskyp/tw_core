@@ -408,7 +408,7 @@ class __$SupplementCopyWithImpl<$Res> extends _$SupplementCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Supplement implements _Supplement {
+class _$_Supplement extends _Supplement {
   const _$_Supplement(
       {required this.workIdentifier,
       required this.developerId,
@@ -429,7 +429,8 @@ class _$_Supplement implements _Supplement {
       required this.acceptingBids,
       required this.totalUnseenBids,
       required this.location,
-      required this.feedback});
+      required this.feedback})
+      : super._();
 
   factory _$_Supplement.fromJson(Map<String, dynamic> json) =>
       _$$_SupplementFromJson(json);
@@ -553,7 +554,7 @@ class _$_Supplement implements _Supplement {
   }
 }
 
-abstract class _Supplement implements Supplement {
+abstract class _Supplement extends Supplement {
   const factory _Supplement(
       {required WorkIdentifier workIdentifier,
       required String developerId,
@@ -575,6 +576,7 @@ abstract class _Supplement implements Supplement {
       required int totalUnseenBids,
       required LocationModel location,
       required List<SupplementFeedback>? feedback}) = _$_Supplement;
+  const _Supplement._() : super._();
 
   factory _Supplement.fromJson(Map<String, dynamic> json) =
       _$_Supplement.fromJson;
