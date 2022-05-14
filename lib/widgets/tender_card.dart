@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tw_core/models/tender/tender_model.dart';
 
+import '../theme/tw_theme.dart';
+
 class TenderCard extends StatelessWidget {
   final Tender tender;
   const TenderCard({
@@ -11,7 +13,8 @@ class TenderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4,
+        elevation: 4,
+      shadowColor: TWTheme.kMainThemeColor,
       child: ListTile(
         leading: Image(
           image: AssetImage(tender.trade.imagePath),
