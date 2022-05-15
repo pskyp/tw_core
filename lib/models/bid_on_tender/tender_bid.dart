@@ -8,6 +8,7 @@ part 'tender_bid.freezed.dart';
 part 'tender_bid.g.dart';
 
 enum TenderBidStatus { New, Invited, Awarded, Completed }
+enum BidSubmissionStatus { Pending, Submitted }
 
 @freezed
 class TenderBid with _$TenderBid implements WorkBid {
@@ -15,6 +16,7 @@ class TenderBid with _$TenderBid implements WorkBid {
     required BidIdentifier bidIdentifier,
     required TenderBidStatus tenderBidStatus,
     required TenderBidFeedback? feedback,
+        required BidSubmissionStatus bidSubmissionStatus,
   }) = _TenderBid;
 
   factory TenderBid.fromContractorAndTender({
@@ -30,6 +32,7 @@ class TenderBid with _$TenderBid implements WorkBid {
         workIdentifier: tender.workIdentifier,
       ),
       tenderBidStatus: TenderBidStatus.New,
+            bidSubmissionStatus: BidSubmissionStatus.Pending,
       feedback: null,
     );
   }
