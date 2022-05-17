@@ -16,7 +16,7 @@ class TenderBid with _$TenderBid implements WorkBid {
     required BidIdentifier bidIdentifier,
     required TenderBidStatus tenderBidStatus,
     required TenderBidFeedback? feedback,
-        required BidSubmissionStatus bidSubmissionStatus,
+   
   }) = _TenderBid;
 
   factory TenderBid.fromContractorAndTender({
@@ -32,7 +32,7 @@ class TenderBid with _$TenderBid implements WorkBid {
         workIdentifier: tender.workIdentifier,
       ),
       tenderBidStatus: TenderBidStatus.New,
-            bidSubmissionStatus: BidSubmissionStatus.Pending,
+  
       feedback: null,
     );
   }
