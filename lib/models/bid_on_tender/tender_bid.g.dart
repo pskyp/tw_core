@@ -15,6 +15,8 @@ _$_TenderBid _$$_TenderBidFromJson(Map<String, dynamic> json) => _$_TenderBid(
           ? null
           : TenderBidFeedback.fromJson(
               json['feedback'] as Map<String, dynamic>),
+      bidSubmissionStatus: $enumDecode(
+          _$BidSubmissionStatusEnumMap, json['bidSubmissionStatus']),
     );
 
 Map<String, dynamic> _$$_TenderBidToJson(_$_TenderBid instance) =>
@@ -22,6 +24,8 @@ Map<String, dynamic> _$$_TenderBidToJson(_$_TenderBid instance) =>
       'bidIdentifier': instance.bidIdentifier.toJson(),
       'tenderBidStatus': _$TenderBidStatusEnumMap[instance.tenderBidStatus],
       'feedback': instance.feedback?.toJson(),
+      'bidSubmissionStatus':
+          _$BidSubmissionStatusEnumMap[instance.bidSubmissionStatus],
     };
 
 const _$TenderBidStatusEnumMap = {
@@ -29,4 +33,9 @@ const _$TenderBidStatusEnumMap = {
   TenderBidStatus.Invited: 'Invited',
   TenderBidStatus.Awarded: 'Awarded',
   TenderBidStatus.Completed: 'Completed',
+};
+
+const _$BidSubmissionStatusEnumMap = {
+  BidSubmissionStatus.Pending: 'Pending',
+  BidSubmissionStatus.Submitted: 'Submitted',
 };
