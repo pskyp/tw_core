@@ -1,10 +1,14 @@
+import 'dart:ffi';
 import 'dart:io';
+import 'dart:math';
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
+import 'package:tw_core/models/invoicing/invoiceItem_model.dart';
 import 'package:tw_core/models/invoicing/invoice_model.dart';
 import 'package:tw_core/services/pdf/pdf_api.dart';
 import 'package:tw_core/services/pdf/utils.dart';
@@ -22,7 +26,6 @@ class PdfInvoiceApi {
   static Future<File> generate(
       Invoice invoice, String accountNumber, String sortCode) async {
     final pdf = Document();
-
     final image = MemoryImage(
       (await rootBundle.load('assets/images/tradework_logo.png'))
           .buffer
@@ -43,6 +46,23 @@ class PdfInvoiceApi {
       ],
       footer: (context) => buildFooter(invoice, image),
     ));
+
+    var listItems = invoice.invoiceItems
+        .where((element) => element.receiptPhotoId != null)
+        .toList();
+
+    for (var item in listItems) {
+      var ref = FirebaseStorage.instance
+          .ref()
+          .child('receiptPhotos/${item.receiptPhotoId}');
+      var url = await ref.getDownloadURL();
+      final netImage = await networkImage(url);
+      pdf.addPage(Page(build: (Context context) {
+        return Center(
+          child: Image(netImage),
+        );
+      }));
+    }
 
     return PdfApi.saveDocument(
         name: invoice.invoiceReference + '.pdf', pdf: pdf);
@@ -112,21 +132,43 @@ class PdfInvoiceApi {
     );
   }
 
-  // static Widget buildSupplierAddress(Invoice invoice) => Column(
-  //       crossAxisAlignment: CrossAxisAlignment.start,
-  //       children: [
-  //         Text(invoice.bidIdentifier.bidder.displayName,
-  //             style: TextStyle(fontWeight: FontWeight.bold)),
-  //         if (invoice.companyOrTradingName != null ||
-  //             invoice.companyOrTradingName != '')
-  //           SizedBox(height: 1 * PdfPageFormat.mm),
-  //         if (invoice.companyOrTradingName != null ||
-  //             invoice.companyOrTradingName != '')
-  //           Text(invoice.companyOrTradingName),
-  //         SizedBox(height: 1 * PdfPageFormat.mm),
-  //         Text(invoice.invoiceAddress),
-  //       ],
-  //     );
+  static Widget buildSupplierAddress(Invoice invoice) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(children: [
+            Text(
+                invoice.employeeDetails
+                    .fold((l) => l.businessName!, (r) => r.companyName),
+                style: TextStyle(fontWeight: FontWeight.bold)),
+            SizedBox(width: 5 * PdfPageFormat.mm),
+            Text(
+                invoice.employeeDetails
+                    .fold((l) => l.individualName, (r) => ''),
+                style: TextStyle(fontWeight: FontWeight.bold)),
+            SizedBox(width: 5 * PdfPageFormat.mm),
+            Text('[' + invoice.bidIdentifier.bidder.displayName + ']',
+                style: TextStyle(fontWeight: FontWeight.bold)),
+            SizedBox(height: 1 * PdfPageFormat.mm)
+          ]),
+          SizedBox(height: 1 * PdfPageFormat.mm),
+          Text(invoice.employeeDetails.fold((l) => '', (r) => 'Company Number: '+r.companyNumber),
+              style: TextStyle(fontWeight: FontWeight.bold)),
+          SizedBox(height: 1 * PdfPageFormat.mm),
+          Text(
+              invoice.employeeDetails.fold(
+                  (l) => l.correspondenceAddress.formattedAddress.toString(),
+                  (r) =>
+                      'Registered Address: '+r.companyRegisteredAddress.formattedAddress.toString()),
+              style: TextStyle(fontWeight: FontWeight.bold)),
+          SizedBox(height: 1 * PdfPageFormat.mm),
+          Text(
+              invoice.employeeDetails.fold(
+                  (l) => '',
+                  (r) =>
+                    'Corresondance Address: '+  r.invoiceAddress.formattedAddress.toString()),
+              style: TextStyle(fontWeight: FontWeight.bold)),
+        ],
+      );
 
   static Widget buildTitle(Invoice invoice) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -235,23 +277,24 @@ class PdfInvoiceApi {
   static Widget buildFooter(Invoice invoice, ImageProvider image) => Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Divider(), SizedBox(height: 2 * PdfPageFormat.mm),
+          buildSupplierAddress(invoice),
           // Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           //   Column(
           //       crossAxisAlignment: CrossAxisAlignment.center,
           //       children: [Text('Invoicing via'), Image(image, height: 30)])
           // ]),
-          Divider(),
-          SizedBox(height: 2 * PdfPageFormat.mm),
-          if (invoice.employeeDetails.isRight())
-            Text(invoice.employeeDetails.fold(
-                (l) => '',
-                (r) =>
-                    r.companyName +
-                    ' ' +
-                    r.companyNumber +
-                    '\n' +
-                    'Registered Office - ' +
-                    r.companyRegisteredAddress.completeAddress)),
+
+          // if (invoice.employeeDetails.isRight())
+          //   Text(invoice.employeeDetails.fold(
+          //       (l) => '',
+          //       (r) =>
+          //           r.companyName +
+          //           ' ' +
+          //           r.companyNumber +
+          //           '\n' +
+          //           'Registered Office - ' +
+          //           r.companyRegisteredAddress.completeAddress)),
 
           SizedBox(height: 1 * PdfPageFormat.mm),
         ],
